@@ -1,0 +1,23 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {
+            ACTIONS = {showPrefs = id; }; 
+            CLASS = ImageOptim; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                application = NSApplication; 
+                filesController = NSArrayController; 
+                tableView = NSTableView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {removeSelected = id; }; 
+            CLASS = MyTableView; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSTableView; 
+        }
+    ); 
+    IBVersion = 1; 
+}

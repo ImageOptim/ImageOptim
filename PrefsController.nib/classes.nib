@@ -1,0 +1,26 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {"" = id; }; 
+            CLASS = FirstResponder; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = NSSegmentedControl; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
+        {
+            ACTIONS = {
+                browseForPngoutPath = id; 
+                setBackup = id; 
+                setPermissionsPreserve = id; 
+                setPngoutPath = id; 
+                showWindow = id; 
+            }; 
+            CLASS = PrefsController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {pngoutPathTextField = NSTextField; }; 
+            SUPERCLASS = NSWindowController; 
+        }, 
+        {CLASS = PrefsWindow; LANGUAGE = ObjC; SUPERCLASS = NSWindowController; }
+    ); 
+    IBVersion = 1; 
+}
