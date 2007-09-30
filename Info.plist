@@ -10,10 +10,17 @@
 			<key>CFBundleTypeExtensions</key>
 			<array>
 				<string>png</string>
+				<string>jpeg</string>
+				<string>jpg</string>
+				<string>JPG</string>
+				<string>JPEG</string>
+				<string>PNG</string>
 			</array>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>image/png</string>
+				<string>image/jpeg</string>
+				<string>image/pjpeg</string>
 			</array>
 			<key>CFBundleTypeName</key>
 			<string>PNG</string>
@@ -22,6 +29,7 @@
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>public.png</string>
+				<string>public.jpeg</string>
 			</array>
 			<key>LSTypeIsPackage</key>
 			<false/>
@@ -32,7 +40,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string>ImageOptim</string>
+	<string>crusher</string>
 	<key>CFBundleIdentifier</key>
 	<string>net.pornel.ImageOptim</string>
 	<key>CFBundleInfoDictionaryVersion</key>

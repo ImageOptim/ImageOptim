@@ -2,7 +2,7 @@
     IBClasses = (
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {
-            ACTIONS = {showPrefs = id; }; 
+            ACTIONS = {browseForFiles = id; showPrefs = id; }; 
             CLASS = ImageOptim; 
             LANGUAGE = ObjC; 
             OUTLETS = {
@@ -13,7 +13,7 @@
             SUPERCLASS = NSObject; 
         }, 
         {
-            ACTIONS = {removeSelected = id; }; 
+            ACTIONS = {delete = id; }; 
             CLASS = MyTableView; 
             LANGUAGE = ObjC; 
             SUPERCLASS = NSTableView; 

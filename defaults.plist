@@ -67,6 +67,8 @@
 	<true/>
 	<key>PreservePermissions</key>
 	<true/>
+	<key>RunConcurrentDirscans</key>
+	<integer>1</integer>
 	<key>RunConcurrentTasks</key>
 	<real>2</real>
 </dict>

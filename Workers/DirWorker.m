@@ -21,6 +21,11 @@
 	return self;
 }
 
+-(void)run
+{
+	
+}
+
 -(void)dealloc
 {
 	[path release];

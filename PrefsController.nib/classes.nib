@@ -6,18 +6,13 @@
             LANGUAGE = ObjC; 
             SUPERCLASS = NSObject; 
         }, 
+        {CLASS = NSLevelIndicator; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
         {CLASS = NSSegmentedControl; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
         {
-            ACTIONS = {
-                browseForPngoutPath = id; 
-                setBackup = id; 
-                setPermissionsPreserve = id; 
-                setPngoutPath = id; 
-                showWindow = id; 
-            }; 
+            ACTIONS = {addGammaChunks = id; showWindow = id; }; 
             CLASS = PrefsController; 
             LANGUAGE = ObjC; 
-            OUTLETS = {pngoutPathTextField = NSTextField; }; 
+            OUTLETS = {chunksController = NSArrayController; tasksSlider = NSSlider; }; 
             SUPERCLASS = NSWindowController; 
         }, 
         {CLASS = PrefsWindow; LANGUAGE = ObjC; SUPERCLASS = NSWindowController; }

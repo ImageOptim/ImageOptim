@@ -16,6 +16,7 @@
 	BOOL isEnabled;
 	
 	WorkerQueue *workerQueue;
+	WorkerQueue *dirWorkerQueue;
 }
 
 -(id)initWithTableView:(NSTableView*)a andController:(NSArrayController*)b;
@@ -23,4 +24,8 @@
 -(void)addFile:(File *)f;
 -(void)addFilePath:(NSString*)s;
 -(void)setEnabled:(BOOL)y;
+
+
+-(IBAction)delete:(id)sender;
+
 @end

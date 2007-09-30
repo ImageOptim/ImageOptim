@@ -16,7 +16,10 @@
 	int runningWorkersCount;
 	
 	NSLock *workersLock;
+	
+	NSString *defaultsKey;
 }
+-(id)initWithDefaultsKey:(NSString *)key;
 
 -(void)addWorker:(Worker *)w;
 -(void)workerFinished:(Worker *)w;

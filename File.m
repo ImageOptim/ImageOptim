@@ -28,6 +28,7 @@
 
 -(NSString *)fileName
 {
+	if (displayName) return displayName;
 	if (filePath) return filePath;
 	return @"N/A";
 }
@@ -44,6 +45,10 @@
 	[s retain];
 	[filePath release];
 	filePath = s;
+	
+	NSString *newDisplay = [[[NSFileManager defaultManager] displayNameAtPath:filePath] retain];
+	[displayName release];
+	displayName = newDisplay;
 }
 
 -(long)byteSize
@@ -60,6 +65,7 @@
 {
 	NSLog(@"Dealloc %@",self);	
 	[filePath release];
+	[displayName release];
 	[super dealloc];
 }
 

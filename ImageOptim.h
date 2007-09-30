@@ -13,11 +13,17 @@
 	FilesQueue *filesQueue;
 	IBOutlet NSApplication *application;
 	PrefsController *prefsController;
+	
+	NSArray *fileTypes;
 }
 
 - (IBAction)showPrefs:(id)sender;
 - (void)windowWillClose:(NSNotification *)aNotification;
+
+-(IBAction)browseForFiles:(id)sender;
+
 + (void)initialize;
 
++(int)numberOfCPUs;
 
 @end

@@ -11,6 +11,8 @@
 
 @interface File : NSObject <NSCopying> {
 	NSString *filePath;
+	NSString *displayName;
+	
 	long byteSize;
 	long byteSizeOptimized;	
 	float percentDone;

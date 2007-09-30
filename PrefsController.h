@@ -12,8 +12,16 @@
 @interface PrefsController : NSWindowController {
 
 	ImageOptim *owner;
+	
+	IBOutlet NSSlider *tasksSlider;
+	IBOutlet NSArrayController *chunksController;
+
+	int maxNumberOfTasks;
+	int recommendedNumberOfTasks;
+	int criticalNumberOfTasks;
 }
 
 -(void)showWindow:(id)sender;
+-(IBAction)addGammaChunks:(id)sender;
 
 @end

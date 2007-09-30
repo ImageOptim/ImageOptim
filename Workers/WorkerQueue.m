@@ -11,12 +11,11 @@
 
 @implementation WorkerQueue
 
-#define MAX_WORKERS 3
-
--(id)init
+-(id)initWithDefaultsKey:(NSString *)key
 {
-	if (self = [super init])
+	if (self = [self init])
 	{		
+		defaultsKey = [key copy];
 		runningWorkers = [[NSMutableArray alloc] init];
 		queuedWorkers =  [[NSMutableArray alloc] init];
 		runningWorkersCount=0;
@@ -31,11 +30,12 @@
 	
 	BOOL keepRunning = NO;
 	Worker *runWorker = NULL;
+	int maxWorkers = [[NSUserDefaults standardUserDefaults] floatForKey:defaultsKey];
 	do
 	{		
 		[workersLock lock];	
 		
-			if(runningWorkersCount < MAX_WORKERS && [queuedWorkers count])
+			if(runningWorkersCount < maxWorkers && [queuedWorkers count])
 			{
 				Worker *w = [queuedWorkers lastObject];	
 				
@@ -46,7 +46,7 @@
 				runWorker = w;
 			}	
 			
-			keepRunning = (runningWorkersCount < MAX_WORKERS && [queuedWorkers count]);
+			keepRunning = (runningWorkersCount < maxWorkers && [queuedWorkers count]);
 
 		[workersLock unlock];
 		
@@ -66,9 +66,10 @@
 {
 	NSLog(@"Adding worker");
 	BOOL run = NO;
+	int maxWorkers = [[NSUserDefaults standardUserDefaults] floatForKey:defaultsKey];
 	[workersLock lock];
 	
-		if (runningWorkersCount < MAX_WORKERS)
+		if (runningWorkersCount < maxWorkers)
 		{
 			[runningWorkers addObject:w];
 			runningWorkersCount++;
@@ -120,6 +121,7 @@
 
 -(void)dealloc
 {
+	[defaultsKey release];
 	[workersLock release];
 	[runningWorkers release];
 	[queuedWorkers release];
