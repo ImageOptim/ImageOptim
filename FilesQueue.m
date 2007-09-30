@@ -7,6 +7,7 @@
 //
 #import "File.h"
 #import "FilesQueue.h"
+#import "WorkerQueue.h"
 #import "PngoutWorker.h"
 
 @implementation FilesQueue
@@ -14,8 +15,7 @@
 -(id)initWithTableView:(NSTableView*)inTableView andController:(NSArrayController*)inController
 {
 	filesController = inController;
-	tableView = inTableView;	
-	workers = [NSMutableArray new];
+	tableView = inTableView;
 	workerQueue = [[WorkerQueue alloc] init];
 	
 	[tableView setDelegate:self];
@@ -65,17 +65,32 @@
 	[filesController addObject:f];
 	
 	PngoutWorker *w = [[PngoutWorker alloc] initWithFile:f inQueue:workerQueue];
-	[workers addObject:w];
+	[workerQueue addWorker:w];
 	[w release];
+}
+
+-(void)addDir:(NSString *)path
+{
 	
-	[w runAsync];
 }
 
 -(void)addFilePath:(NSString *)path
 {	
-	File *f = [[File alloc] initWithFilePath:path];
-	[self addFile:f];
-	[f release];
+	BOOL isDir;
+	
+	if ([[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir])
+	{
+		if (!isDir)
+		{
+			File *f = [[File alloc] initWithFilePath:path];
+			[self addFile:f];
+			[f release];					
+		}
+		else
+		{
+			[self addDir:path];
+		}
+	}
 }
 
 -(void)addFilesFromPaths:(NSArray *)paths

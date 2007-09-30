@@ -13,7 +13,6 @@
 @interface FilesQueue : NSObject {
 	NSTableView *tableView;
 	NSArrayController *filesController;
-	NSMutableArray *workers;
 	BOOL isEnabled;
 	
 	WorkerQueue *workerQueue;

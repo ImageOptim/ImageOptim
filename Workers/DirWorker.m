@@ -11,4 +11,20 @@
 
 @implementation DirWorker
 
+-(id)initWithPath:(NSString *)aPath filesQueue:(FilesQueue *)q
+{
+	if (self = [super init])
+	{
+		path = [aPath copy];
+		filesQueue = [q retain];
+	}
+	return self;
+}
+
+-(void)dealloc
+{
+	[path release];
+	[filesQueue release];
+	[super dealloc];
+}
 @end

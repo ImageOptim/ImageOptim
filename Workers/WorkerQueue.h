@@ -7,10 +7,22 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+@class Worker;
 
 @interface WorkerQueue : NSObject {
-
+	NSMutableArray *runningWorkers;
+	NSMutableArray *queuedWorkers;
+	
+	int runningWorkersCount;
+	
+	NSLock *workersLock;
 }
+
+-(void)addWorker:(Worker *)w;
+-(void)workerFinished:(Worker *)w;
+
+
+-(void)runAsync:(Worker *)w;
+-(void)threadEntry:(Worker *)w;
 
 @end

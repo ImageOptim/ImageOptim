@@ -65,6 +65,13 @@
 
 -(NSTask *)taskWithPath:(NSString*)path arguments:(NSArray *)arguments;
 {
+	if (![[NSFileManager defaultManager] isExecutableFileAtPath:path])
+	{
+		NSLog(@"Not executable %@ (launched with %@, btw)",path,arguments);
+		return nil;
+	}
+	
+	
 	NSTask *task;
 	task = [[NSTask alloc] init];
 	

@@ -13,10 +13,6 @@
 	WorkerQueue *queue;
 }
 -(id)initWithQueue:(WorkerQueue *)q;
-
--(void)runAsync;
 -(void)run;
 
-
--(void)threadEntry;
 @end

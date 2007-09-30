@@ -13,7 +13,9 @@
 
 -(void)run
 {
-	NSTask *task = [self taskWithPath:@"/usr/local/bin/pngout" arguments:[NSArray arrayWithObjects: @"-v",@"-",@"-",nil]];
+	NSTask *task = [self taskWithPath:@"/usr/bin/pngout" arguments:[NSArray arrayWithObjects: @"-v",@"-",@"-",nil]];
+	
+	if (!task) return;
 	
 	NSFileHandle *fileInputHandle = [NSFileHandle fileHandleForReadingAtPath:[file filePath]];
 	if (fileInputHandle == nil)
@@ -34,16 +36,27 @@
 		
 	[task launch];
 	
+	NSLog(@"launched pngout");
 	[self parseLinesFromHandle:commandHandle];
 	
-	[self saveFileData:[fileOutputHandle readDataToEndOfFile]];
+	NSLog(@"finished reading lines");
+	[commandHandle closeFile];
+	
+	//NSLog(@"Will read fileOutputHandle");
+	//NSData *data = [fileOutputHandle readDataToEndOfFile];
+	
+	//NSLog(@"Will save data");
+	//[self saveFileData:data];
+	
+	NSLog(@"finished reading output");
 	
 	[fileOutputHandle closeFile];
 	[fileInputHandle closeFile];
-	[commandHandle closeFile];
 		
 	[task waitUntilExit];
 	[task release];
+	
+	NSLog(@"PNGOUT finished");
 }
 
 -(BOOL)parseLine:(NSString *)line
@@ -68,13 +81,15 @@
 		}		
 	}
 	else if ([line length] >= 3 && [line characterAtIndex:2] == '%')
-	{		
+	{	
+		NSLog(@"%@",line);
 	}
 	else if ([line length] >= 4 && [[line substringToIndex:4] isEqual:@"Took"])
 	{
+		NSLog(@"Tookline %@",line);
 		return YES;
 	}
-	//else NSLog(@"Dunno %@",line);
+	else NSLog(@"Dunno %@",line);
 	
 	return NO;
 }

@@ -7,7 +7,7 @@
 //
 
 #import "Worker.h"
-
+#import "WorkerQueue.h"
 
 @implementation Worker
 -(id)initWithQueue:(WorkerQueue *)q
@@ -26,23 +26,9 @@
 }
 
 
-
--(void)runAsync
-{	
-	[NSThread detachNewThreadSelector:@selector(threadEntry:) toTarget:self withObject:nil];
-}
-
--(void)threadEntry
-{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[self run];
-	[pool release];
-}
-
-
 -(void)run
 {
-	/* stub */
+	NSLog(@"Run and did nothing %@",[self className]);
 }
 
 
