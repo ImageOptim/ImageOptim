@@ -9,8 +9,9 @@
 #import <Cocoa/Cocoa.h>
 #import "FileWorker.h"
 
-@interface AdvCompWorker : FileWorker {
-
+@interface OptiPngWorker : FileWorker {
+	int idatSize;
+	int fileSize;	
 	int fileSizeOptimized;	
 }
 

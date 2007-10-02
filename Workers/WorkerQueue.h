@@ -22,7 +22,7 @@
 -(id)initWithDefaultsKey:(NSString *)key;
 
 -(void)addWorker:(Worker *)w;
--(void)workerFinished:(Worker *)w;
+-(void)workerHasFinished:(Worker *)w;
 
 
 -(void)runAsync:(Worker *)w;

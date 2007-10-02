@@ -19,6 +19,11 @@
 	return self;
 }
 
+-(id)delegate
+{
+	return nil;
+}
+
 -(void)dealloc
 {
 	[queue release];

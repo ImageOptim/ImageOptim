@@ -13,28 +13,28 @@
 
 -(void)run
 {
-	NSTask *task = [self taskWithPath:@"/usr/bin/pngout" arguments:[NSArray arrayWithObjects: @"-v",@"-",@"-",nil]];
+	NSString *temp = [self tempPath:@"PngOut"];
+	NSString *executable = [self executablePathForKey:@"PngOut" bundleName:@"pngout"];	
+	if (!executable) return;
+	
+	NSTask *task = [self taskWithPath:executable arguments:[NSArray arrayWithObjects: @"-v",@"--",[file filePath],@"-",nil]];
 	
 	if (!task) return;
 	
-	NSFileHandle *fileInputHandle = [NSFileHandle fileHandleForReadingAtPath:[file filePath]];
-	if (fileInputHandle == nil)
-	{
-		NSLog(@"can't open %@",[file filePath]);
-		return;
+	if (![[NSFileManager defaultManager] createFileAtPath:temp contents:[NSData data] attributes:nil])
+	{	
+		NSLog(@"Cant create %@",temp);
 	}
-	
-	NSPipe *fileOutputPipe = [NSPipe pipe];
-	NSFileHandle *fileOutputHandle = [fileOutputPipe fileHandleForReading];
+		
+	NSFileHandle *fileOutputHandle = [NSFileHandle fileHandleForWritingAtPath:temp];
 	
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];		
 
-	[task setStandardInput: fileInputHandle];		
 	[task setStandardOutput: fileOutputHandle];	
 	[task setStandardError: commandPipe];	
 		
-	[task launch];
+	[self launchTask:task];
 	
 	NSLog(@"launched pngout");
 	[self parseLinesFromHandle:commandHandle];
@@ -42,18 +42,17 @@
 	NSLog(@"finished reading lines");
 	[commandHandle closeFile];
 	
-	//NSLog(@"Will read fileOutputHandle");
-	//NSData *data = [fileOutputHandle readDataToEndOfFile];
-	
-	//NSLog(@"Will save data");
-	//[self saveFileData:data];
-	
-	NSLog(@"finished reading output");
-	
-	[fileOutputHandle closeFile];
-	[fileInputHandle closeFile];
-		
 	[task waitUntilExit];
+	
+	if (![task terminationStatus] && fileSizeOptimized)
+	{
+		[fileOutputHandle closeFile];
+		
+		NSLog(@"Will save data");
+		[file setFilePathOptimized:temp size:fileSizeOptimized];
+	}
+	else NSLog(@"pngout failed");
+	
 	[task release];
 	
 	NSLog(@"PNGOUT finished");
@@ -77,20 +76,19 @@
 		int byteSize=0;		
 		if ([scan scanInt:&byteSize] && byteSize) 
 		{
+			fileSizeOptimized = byteSize;
 			[file setByteSizeOptimized:byteSize];			
 		}		
 	}
 	else if ([line length] >= 3 && [line characterAtIndex:2] == '%')
 	{	
-		NSLog(@"%@",line);
+		//NSLog(@"%@",line);
 	}
 	else if ([line length] >= 4 && [[line substringToIndex:4] isEqual:@"Took"])
 	{
 		NSLog(@"Tookline %@",line);
 		return YES;
-	}
-	else NSLog(@"Dunno %@",line);
-	
+	}	
 	return NO;
 }
 

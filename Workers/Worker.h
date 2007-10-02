@@ -12,6 +12,9 @@
 @interface Worker : NSObject {
 	WorkerQueue *queue;
 }
+
+-(id)delegate;
+
 -(id)initWithQueue:(WorkerQueue *)q;
 -(void)run;
 

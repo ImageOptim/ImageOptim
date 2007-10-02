@@ -7,7 +7,7 @@
 //
 
 #import "DirWorker.h"
-
+#import "FilesQueue.h"
 
 @implementation DirWorker
 
@@ -23,7 +23,20 @@
 
 -(void)run
 {
+	NSDirectoryEnumerator *enu = [[NSFileManager defaultManager] enumeratorAtPath:path];
+	NSString *filePath;
+	NSArray *extensions = [NSArray arrayWithObjects:@"png",@"PNG",@"jpg",@"JPG",@"jpeg",@"JPEG",nil];
 	
+	while(filePath = [enu nextObject])
+	{
+		NSString *newPath = [path stringByAppendingPathComponent:filePath];
+		NSLog(@"Foudn %@ = '%@'",newPath,[newPath pathExtension]);
+		
+		if (NSNotFound != [extensions indexOfObject:[newPath pathExtension]])
+		{
+			[filesQueue addFilePath:newPath dirs:NO];
+		}
+	}
 }
 
 -(void)dealloc

@@ -8,6 +8,8 @@
 
 +(void)initialize
 {
+	srandom(random() ^ time(NULL));
+
 	NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 	
 	int maxTasks = [self numberOfCPUs]+1;
@@ -43,7 +45,6 @@
 
 +(int)numberOfCPUs
 {
-	return 1;
 	host_basic_info_data_t hostInfo;
 	mach_msg_type_number_t infoCount;	
 	infoCount = HOST_BASIC_INFO_COUNT;
@@ -54,7 +55,7 @@
 // invoked by Dock
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)path
 {
-    [filesQueue addFilePath:path];
+    [filesQueue addFilePath:path dirs:YES];
 	return YES;
 }
 
@@ -76,6 +77,8 @@
     NSOpenPanel *oPanel = [NSOpenPanel openPanel];
 	
     [oPanel setAllowsMultipleSelection:YES];
+	[oPanel setCanChooseDirectories:YES];
+	[oPanel setResolvesAliases:YES];
 
     [oPanel beginSheetForDirectory:nil file:nil types:fileTypes modalForWindow:[tableView window] modalDelegate:self didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];		
 }

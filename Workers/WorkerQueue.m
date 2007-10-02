@@ -90,15 +90,23 @@
 	else NSLog(@"Queued worker %@ for later",w);
 }
 
--(void)workerFinished:(Worker *)w
+-(void)workerHasFinished:(Worker *)w
 {
 	NSLog(@"Worker %@ finished",w);
 	[workersLock lock];
 
+		[w retain];
 		[runningWorkers removeObjectIdenticalTo:w];
 		runningWorkersCount--;
 	
 	[workersLock unlock];
+	
+	id delegate = [w delegate];
+	if (delegate)
+	{
+		[delegate workerHasFinished:w];
+	}
+	[w release];
 	
 	[self runWorkers];
 }
@@ -115,7 +123,7 @@
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	[w run];
-	[self workerFinished:w];
+	[self workerHasFinished:w];
 	[pool release];
 }
 

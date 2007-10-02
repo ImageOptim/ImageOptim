@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Worker.h"
-@class File;
+#import "File.h";
 
 @interface FileWorker : Worker {
 	File *file;
@@ -19,8 +19,14 @@
 -(void)parseLinesFromHandle:(NSFileHandle *)commandHandle;
 
 -(NSTask *)taskWithPath:(NSString*)path arguments:(NSArray *)arguments;
--(void)saveFileData:(NSData *)data;
 
 
+-(long)readNumberAfter:(NSString *)str inLine:(NSString *)line;
+
+-(void)launchTask:(NSTask *)task;
+
+-(NSString *)tempPath:(NSString*)baseName;
+
+-(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName;
 
 @end

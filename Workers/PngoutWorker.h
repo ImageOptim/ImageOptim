@@ -10,7 +10,7 @@
 #import "FileWorker.h"
 
 @interface PngoutWorker : FileWorker {
-
+	int fileSizeOptimized;
 }
 
 @end

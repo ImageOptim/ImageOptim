@@ -8,8 +8,12 @@
 #import "File.h"
 #import "FilesQueue.h"
 #import "WorkerQueue.h"
+#import "AdvCompWorker.h"
 #import "PngoutWorker.h"
+#import "OptiPngWorker.h"
+#import "PngCrushWorker.h"
 #import "DirWorker.h"
+
 @implementation FilesQueue
 
 -(id)initWithTableView:(NSTableView*)inTableView andController:(NSArrayController*)inController
@@ -85,9 +89,7 @@
 	
 	[filesController addObject:f];
 	
-	PngoutWorker *w = [[PngoutWorker alloc] initWithFile:f inQueue:workerQueue];
-	[workerQueue addWorker:w];
-	[w release];
+	if (![f startWorkersInQueue:workerQueue]) NSBeep();
 }
 
 -(void)addDir:(NSString *)path
@@ -99,7 +101,7 @@
 	[w release];
 }
 
--(void)addFilePath:(NSString *)path
+-(void)addFilePath:(NSString *)path dirs:(BOOL)useDirs
 {	
 	BOOL isDir;
 	
@@ -109,9 +111,10 @@
 		{
 			File *f = [[File alloc] initWithFilePath:path];
 			[self addFile:f];
+			NSLog(@"file retain cnt >1? %d",[f retainCount]);
 			[f release];					
 		}
-		else
+		else if (useDirs)
 		{
 			[self addDir:path];
 		}
@@ -123,7 +126,7 @@
 	int i;
 	for(i=0; i < [paths count]; i++)
 	{
-		[self addFilePath:[paths objectAtIndex:i]];
+		[self addFilePath:[paths objectAtIndex:i] dirs:YES];
 	}	
 }
 

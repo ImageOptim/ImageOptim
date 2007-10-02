@@ -13,7 +13,20 @@
 
 -(void)run
 {
-	NSTask *task = [self taskWithPath:@"/usr/local/bin/advpng" arguments:[NSArray arrayWithObjects: @"-z",@"--",[file filePath],nil]];
+	NSFileManager *fm = [NSFileManager defaultManager];
+	
+	NSString *executable = [self executablePathForKey:@"AdvPng" bundleName:@"advpng"];	
+	if (!executable) return;
+
+	NSString *temp = [self tempPath:@"AdvPng"];
+	NSLog(@"temp file for opti: %@",temp);
+	
+	if (![fm copyPath:[file filePath] toPath:temp handler:nil])
+	{
+		NSLog(@"Can't make temp copy of %@ in %@",[file filePath],temp);
+	}
+	
+	NSTask *task = [self taskWithPath:executable arguments:[NSArray arrayWithObjects: @"-z",@"--",temp,nil]];
 	
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];		
@@ -21,13 +34,20 @@
 	[task setStandardOutput: commandPipe];	
 	[task setStandardError: commandPipe];	
 	
-	[task launch];
+	[self launchTask:task];
 	
 	[self parseLinesFromHandle:commandHandle];
 	
 	[commandHandle closeFile];
 	
 	[task waitUntilExit];
+	
+	if (![task terminationStatus] && fileSizeOptimized)
+	{
+		[file setFilePathOptimized:temp	size:fileSizeOptimized];
+	}
+	else NSLog(@"Advpng failed");
+	
 	[task release];
 }
 
@@ -39,7 +59,10 @@
 	
 	if ([scan scanInt:&original] && [scan scanInt:&optimized])
 	{		
-		NSLog(@"advcomp returned %d vs %d",original,optimized);		
+		fileSizeOptimized = optimized;
+		NSLog(@"advcomp returned %d vs %d",original,optimized);
+		[file setByteSize:original];
+		[file setByteSizeOptimized:optimized];
 		return YES;		
 	}
 	NSLog(@"adv: Dunno what is %@",line);

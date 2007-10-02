@@ -1,17 +1,17 @@
 //
-//  AdvCompWorker.h
+//  PngCrushWorker.h
 //  ImageOptim
 //
-//  Created by porneL on 30.wrz.07.
+//  Created by porneL on 1.paź.07.
 //  Copyright 2007 __MyCompanyName__. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
 #import "FileWorker.h"
 
-@interface AdvCompWorker : FileWorker {
+@interface PngCrushWorker : FileWorker {
+	int firstIdatSize;	
 
-	int fileSizeOptimized;	
 }
 
 @end
