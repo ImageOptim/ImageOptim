@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "FileWorker.h"
+#import "CommandWorker.h"
 
-@interface AdvCompWorker : FileWorker {
+@interface AdvCompWorker : CommandWorker {
 
 	int fileSizeOptimized;	
 }

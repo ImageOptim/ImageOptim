@@ -10,30 +10,20 @@
 #import "WorkerQueue.h"
 
 @implementation Worker
--(id)initWithQueue:(WorkerQueue *)q
-{
-	if (self = [super init])
-	{
-		queue = [q retain];
-	}
-	return self;
-}
 
 -(id)delegate
 {
 	return nil;
 }
 
--(void)dealloc
-{
-	[queue release];
-	[super dealloc];
-}
-
-
 -(void)run
 {
 	NSLog(@"Run and did nothing %@",[self className]);
+}
+
+-(BOOL)makesNonOptimizingModifications
+{
+	return NO;
 }
 
 

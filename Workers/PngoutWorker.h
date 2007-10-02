@@ -7,10 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "FileWorker.h"
+#import "CommandWorker.h"
 
-@interface PngoutWorker : FileWorker {
+@interface PngoutWorker : CommandWorker {
 	int fileSizeOptimized;
 }
+
+
+-(BOOL)makesNonOptimizingModifications;
 
 @end

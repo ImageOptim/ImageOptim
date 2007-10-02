@@ -10,10 +10,10 @@
 #import "Worker.h"
 #import "File.h";
 
-@interface FileWorker : Worker {
+@interface CommandWorker : Worker {
 	File *file;
 }
--(id)initWithFile:(File *)aFile inQueue:(WorkerQueue *)aQueue;
+-(id)initWithFile:(File *)aFile;
 
 -(BOOL)parseLine:(NSString *)line;
 -(void)parseLinesFromHandle:(NSFileHandle *)commandHandle;

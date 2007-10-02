@@ -58,6 +58,11 @@
 	NSLog(@"PNGOUT finished");
 }
 
+-(BOOL)makesNonOptimizingModifications
+{
+	return YES;
+}
+
 -(BOOL)parseLine:(NSString *)line
 {
 	NSScanner *scan = [NSScanner scannerWithString:line];

@@ -21,7 +21,6 @@
 
 -(id)initWithTableView:(NSTableView*)a andController:(NSArrayController*)b;
 -(void)addFilesFromPaths:(NSArray *)paths;
--(void)addFile:(File *)f;
 -(void)addFilePath:(NSString*)s dirs:(BOOL)a;
 -(void)addFilesFromPaths:(NSArray *)paths;
 -(void)setEnabled:(BOOL)y;

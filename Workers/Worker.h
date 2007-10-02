@@ -10,12 +10,13 @@
 @class WorkerQueue;
 
 @interface Worker : NSObject {
-	WorkerQueue *queue;
+
 }
+
+-(BOOL)makesNonOptimizingModifications;
 
 -(id)delegate;
 
--(id)initWithQueue:(WorkerQueue *)q;
 -(void)run;
 
 @end

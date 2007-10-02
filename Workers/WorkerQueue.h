@@ -13,19 +13,22 @@
 	NSMutableArray *runningWorkers;
 	NSMutableArray *queuedWorkers;
 	
+	int maxWorkersCount;
 	int runningWorkersCount;
 	
-	NSLock *workersLock;
+	BOOL isAsync;
 	
-	NSString *defaultsKey;
+	NSLock *workersLock;
 }
--(id)initWithDefaultsKey:(NSString *)key;
+-(id)initWithMaxWorkers:(int)max isAsync:(BOOL)async;
 
 -(void)addWorker:(Worker *)w;
 -(void)workerHasFinished:(Worker *)w;
 
 
--(void)runAsync:(Worker *)w;
+-(void)setMaxWorkersCount:(int)i;
+
+
 -(void)threadEntry:(Worker *)w;
 
 @end

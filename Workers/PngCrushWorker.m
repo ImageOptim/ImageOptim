@@ -88,4 +88,8 @@
 }
 
 
+-(BOOL)makesNonOptimizingModifications
+{
+	return YES;
+}
 @end

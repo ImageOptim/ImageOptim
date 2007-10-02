@@ -7,18 +7,17 @@
 //
 
 #import "File.h"
-
+#import "WorkerQueue.h"
+#import "AdvCompWorker.h"
+#import "PngoutWorker.h"
+#import "OptiPngWorker.h"
+#import "PngCrushWorker.h"
 
 @implementation File
 
--(id)init
+-(id)initInQueue:(WorkerQueue *)q withFilePath:(NSString *)name;
 {
-	return [self initWithFilePath:@"Test"];
-}
-
--(id)initWithFilePath:(NSString *)name
-{
-	if (self = [super init])
+	if (self = [self init])
 	{	
 		[self setFilePath:name];
 		NSLog(@"Created new");
@@ -154,41 +153,59 @@
 
 -(void)workerHasFinished:(Worker *)worker
 {
-	
+	NSLog(@"delegate works!");
+	if ([localWorkerQueue count])
+	{
+		NSLog(@"oh, got someone waiting");
+		Worker *newWorker = [localWorkerQueue lastObject]; 
+		[queue addWorker:newWorker];
+		[localWorkerQueue removeLastObject];
+	}
+	else NSLog(@"No more waiting");
 }
 
--(BOOL)startWorkersInQueue:(WorkerQueue *)workerQueue
+-(void)enqueueWorker:(Worker *)w
+{
+	if ([w makesNonOptimizingModifications])
+	{
+		NSLog(@"enqueued %@ for later",w);
+		[localWorkerQueue addObject:w];
+	}
+	else
+	{
+		NSLog(@"running now");
+		[queue addWorker:w];
+	}
+}
+
+-(BOOL)enqueueWorkers
 {
 	Worker *w = NULL;
-	BOOL waitForChunksRemoved = NO;
-	
-	[globalWorkerQueue release];
-	globalWorkerQueue = [workerQueue retain];
-	
+		
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	
 	if ([defs boolForKey:@"PngCrush.Enabled"])
 	{
-		w = [[PngCrushWorker alloc] initWithFile:self inQueue:workerQueue];
-		[workerQueue addWorker:w];
+		w = [[PngCrushWorker alloc] initWithFile:self];
+		[self enqueueWorker:w];
 		[w release];
 	}
 	if ([defs boolForKey:@"PngOut.Enabled"])
 	{
-		w = [[PngoutWorker alloc] initWithFile:self inQueue:workerQueue];
-		[workerQueue addWorker:w];
+		w = [[PngoutWorker alloc] initWithFile:self];
+		[self enqueueWorker:w];
 		[w release];		
 	}
 	if ([defs boolForKey:@"OptiPng.Enabled"])
 	{
-		w = [[OptiPngWorker alloc] initWithFile:self inQueue:workerQueue];
-		[workerQueue addWorker:w];
+		w = [[OptiPngWorker alloc] initWithFile:self];
+		[self enqueueWorker:w];
 		[w release];		
 	}
 	if ([defs boolForKey:@"AdvPng.Enabled"])
 	{
-		w = [[AdvCompWorker alloc] initWithFile:self inQueue:workerQueue];
-		[workerQueue addWorker:w];
+		w = [[AdvCompWorker alloc] initWithFile:self];
+		[self enqueueWorker:w];
 		[w release];
 	}
 	
@@ -209,7 +226,6 @@
 	[displayName release];
 	[lock release];
 	[localWorkerQueue release];
-	[globalWorkerQueue release];
 	[super dealloc];
 }
 

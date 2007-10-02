@@ -7,11 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "FileWorker.h"
+#import "CommandWorker.h"
 
-@interface PngCrushWorker : FileWorker {
+@interface PngCrushWorker : CommandWorker {
 	int firstIdatSize;	
 
 }
 
+-(BOOL)makesNonOptimizingModifications;
 @end

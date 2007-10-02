@@ -6,15 +6,15 @@
 //  Copyright 2007 __MyCompanyName__. All rights reserved.
 //
 
-#import "FileWorker.h"
+#import "CommandWorker.h"
 #include <unistd.h>
 #import "File.h"
 
-@implementation FileWorker
+@implementation CommandWorker
 
--(id)initWithFile:(File *)aFile inQueue:(WorkerQueue *)aQueue;
+-(id)initWithFile:(File *)aFile
 {
-	if (self = [self initWithQueue:aQueue])
+	if (self = [self init])
 	{
 		file = [aFile retain];
 	}

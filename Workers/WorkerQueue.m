@@ -11,11 +11,12 @@
 
 @implementation WorkerQueue
 
--(id)initWithDefaultsKey:(NSString *)key
+-(id)initWithMaxWorkers:(int)max isAsync:(BOOL)async
 {
 	if (self = [self init])
-	{		
-		defaultsKey = [key copy];
+	{	
+		isAsync = async;
+		[self setMaxWorkersCount:max];
 		runningWorkers = [[NSMutableArray alloc] init];
 		queuedWorkers =  [[NSMutableArray alloc] init];
 		runningWorkersCount=0;
@@ -24,18 +25,22 @@
 	return self;
 }
 
+-(void)setMaxWorkersCount:(int)m
+{
+	maxWorkersCount = m;
+}
+
 -(void)runWorkers
 {	
 	NSLog(@"Run workers");
 	
 	BOOL keepRunning = NO;
 	Worker *runWorker = NULL;
-	int maxWorkers = [[NSUserDefaults standardUserDefaults] floatForKey:defaultsKey];
 	do
 	{		
 		[workersLock lock];	
 		
-			if(runningWorkersCount < maxWorkers && [queuedWorkers count])
+			if(runningWorkersCount < maxWorkersCount && [queuedWorkers count])
 			{
 				Worker *w = [queuedWorkers lastObject];	
 				
@@ -46,14 +51,22 @@
 				runWorker = w;
 			}	
 			
-			keepRunning = (runningWorkersCount < maxWorkers && [queuedWorkers count]);
+			keepRunning = (runningWorkersCount < maxWorkersCount && [queuedWorkers count]);
 
 		[workersLock unlock];
 		
 		if (runWorker)
 		{
 			NSLog(@"Taken worker %@ from queue",runWorker);
-			[self runAsync:runWorker];
+			if (isAsync) 
+			{
+				[NSThread detachNewThreadSelector:@selector(threadEntry:) toTarget:self withObject:runWorker];
+			}
+			else
+			{
+				[runWorker run];
+				[self workerHasFinished:runWorker];
+			}
 			runWorker=NULL;
 		}
 	}
@@ -64,30 +77,12 @@
 
 -(void)addWorker:(Worker *)w
 {
-	NSLog(@"Adding worker");
-	BOOL run = NO;
-	int maxWorkers = [[NSUserDefaults standardUserDefaults] floatForKey:defaultsKey];
+	NSLog(@"Adding worker %@",w);
 	[workersLock lock];
 	
-		if (runningWorkersCount < maxWorkers)
-		{
-			[runningWorkers addObject:w];
-			runningWorkersCount++;
-			run = YES;
-		}
-		else
-		{
-			[queuedWorkers addObject:w];
-		}	
+	[queuedWorkers addObject:w];
 		
 	[workersLock unlock];
-		
-	if (run) 
-	{
-		NSLog(@"Can immediately run worker %@",w);
-		[self runAsync:w];		
-	}
-	else NSLog(@"Queued worker %@ for later",w);
 }
 
 -(void)workerHasFinished:(Worker *)w
@@ -111,14 +106,6 @@
 	[self runWorkers];
 }
 
-
-
--(void)runAsync:(Worker *)w
-{	
-	NSLog(@"Async start, %d workers",runningWorkersCount);
-	[NSThread detachNewThreadSelector:@selector(threadEntry:) toTarget:self withObject:w];
-}
-
 -(void)threadEntry:(Worker *)w
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -129,7 +116,6 @@
 
 -(void)dealloc
 {
-	[defaultsKey release];
 	[workersLock release];
 	[runningWorkers release];
 	[queuedWorkers release];

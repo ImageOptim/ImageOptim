@@ -8,10 +8,6 @@
 #import "File.h"
 #import "FilesQueue.h"
 #import "WorkerQueue.h"
-#import "AdvCompWorker.h"
-#import "PngoutWorker.h"
-#import "OptiPngWorker.h"
-#import "PngCrushWorker.h"
 #import "DirWorker.h"
 
 @implementation FilesQueue
@@ -20,8 +16,11 @@
 {
 	filesController = [inController retain];
 	tableView = [inTableView retain];
-	workerQueue = [[WorkerQueue alloc] initWithDefaultsKey:@"RunConcurrentTasks"];
-	dirWorkerQueue = [[WorkerQueue alloc] initWithDefaultsKey:@"RunConcurrentDirscans"];	
+	
+	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+	
+	workerQueue = [[WorkerQueue alloc] initWithMaxWorkers:[defs integerForKey:@"RunConcurrentTasks"] isAsync:YES];
+	dirWorkerQueue = [[WorkerQueue alloc] initWithMaxWorkers:[defs integerForKey:@"RunConcurrentDirscans"] isAsync:YES];	
 	
 	[tableView setDelegate:self];
 	[tableView setDataSource:self];
@@ -83,15 +82,6 @@
 	return YES;
 }
 
--(void)addFile:(File *)f
-{
-	if (![self enabled]) return;
-	
-	[filesController addObject:f];
-	
-	if (![f startWorkersInQueue:workerQueue]) NSBeep();
-}
-
 -(void)addDir:(NSString *)path
 {
 	if (![self enabled]) return;
@@ -103,15 +93,20 @@
 
 -(void)addFilePath:(NSString *)path dirs:(BOOL)useDirs
 {	
+	if (![self enabled]) return;
+
 	BOOL isDir;
 	
 	if ([[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir])
 	{
 		if (!isDir)
 		{
-			File *f = [[File alloc] initWithFilePath:path];
-			[self addFile:f];
-			NSLog(@"file retain cnt >1? %d",[f retainCount]);
+			File *f = [[File alloc] initInQueue:workerQueue withFilePath:path];
+						
+			[filesController addObject:f];
+			
+			if (![f enqueueWorkers]) NSBeep();
+
 			[f release];					
 		}
 		else if (useDirs)
