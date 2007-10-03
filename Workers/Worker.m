@@ -26,5 +26,21 @@
 	return NO;
 }
 
+-(void)setDependsOn:(Worker *)w
+{
+	[dependsOn release];
+	dependsOn = [w retain];
+}
+
+-(Worker *)dependsOn
+{
+	return dependsOn;
+}
+
+-(void)dealloc 
+{
+	[dependsOn release];
+	[super dealloc];
+}
 
 @end

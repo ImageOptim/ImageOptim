@@ -15,14 +15,12 @@
 
 @implementation File
 
--(id)initInQueue:(WorkerQueue *)q withFilePath:(NSString *)name;
+-(id)initWithFilePath:(NSString *)name;
 {
 	if (self = [self init])
 	{	
 		[self setFilePath:name];
 		NSLog(@"Created new");
-		lock = [NSLock new];
-		localWorkerQueue = [NSMutableArray new];
 	}
 	return self;	
 }
@@ -151,70 +149,69 @@
 	NSLog(@"Got optimized %db path %@",size,path);
 }
 
+-(void)workersHaveFinished:(WorkerQueue *)q
+{
+	NSLog(@"all serial done for %@",self);
+}
 -(void)workerHasFinished:(Worker *)worker
 {
 	NSLog(@"delegate works!");
-	if ([localWorkerQueue count])
-	{
-		NSLog(@"oh, got someone waiting");
-		Worker *newWorker = [localWorkerQueue lastObject]; 
-		[queue addWorker:newWorker];
-		[localWorkerQueue removeLastObject];
-	}
-	else NSLog(@"No more waiting");
 }
 
--(void)enqueueWorker:(Worker *)w
-{
-	if ([w makesNonOptimizingModifications])
-	{
-		NSLog(@"enqueued %@ for later",w);
-		[localWorkerQueue addObject:w];
-	}
-	else
-	{
-		NSLog(@"running now");
-		[queue addWorker:w];
-	}
-}
-
--(BOOL)enqueueWorkers
+-(void)enqueueWorkersInQueue:(WorkerQueue *)queue
 {
 	Worker *w = NULL;
+	NSMutableArray *runFirst = [NSMutableArray new];
+	NSMutableArray *runLater = [NSMutableArray new];
 		
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	
 	if ([defs boolForKey:@"PngCrush.Enabled"])
 	{
 		w = [[PngCrushWorker alloc] initWithFile:self];
-		[self enqueueWorker:w];
+		if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
+		else [runLater addObject:w];
 		[w release];
 	}
 	if ([defs boolForKey:@"PngOut.Enabled"])
 	{
 		w = [[PngoutWorker alloc] initWithFile:self];
-		[self enqueueWorker:w];
+		if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
+		else [runLater addObject:w];
 		[w release];		
 	}
 	if ([defs boolForKey:@"OptiPng.Enabled"])
 	{
 		w = [[OptiPngWorker alloc] initWithFile:self];
-		[self enqueueWorker:w];
+		if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
+		else [runLater addObject:w];
 		[w release];		
 	}
 	if ([defs boolForKey:@"AdvPng.Enabled"])
 	{
 		w = [[AdvCompWorker alloc] initWithFile:self];
-		[self enqueueWorker:w];
+		if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
+		else [runLater addObject:w];
 		[w release];
 	}
 	
-	if (w == NULL)
+	NSEnumerator *enu = [runFirst objectEnumerator];
+	Worker *lastWorker = nil;
+	
+	while(w = [enu nextObject])
 	{
-		NSLog(@"Nothing enabled!");
-		return NO;
+		[queue addWorker:w after:lastWorker];
+		lastWorker = w;
 	}
-	return YES;
+	
+	enu = [runLater objectEnumerator];
+	while(w = [enu nextObject])
+	{
+		[queue addWorker:w after:lastWorker];
+	}
+	
+	[runFirst release];
+	[runLater release];
 }
 
 -(void)dealloc
@@ -225,7 +222,7 @@
 	[filePath release];
 	[displayName release];
 	[lock release];
-	[localWorkerQueue release];
+	[serialQueue release];
 	[super dealloc];
 }
 

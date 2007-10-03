@@ -8,27 +8,33 @@
 
 #import <Cocoa/Cocoa.h>
 @class Worker;
+@class WorkerQueue;
+
+@protocol WorkerQueueDelegate
+-(void)workerHasFinished:(Worker *)w;
+-(void)workersHaveFinished:(WorkerQueue *)q;
+@end
 
 @interface WorkerQueue : NSObject {
 	NSMutableArray *runningWorkers;
 	NSMutableArray *queuedWorkers;
 	
 	int maxWorkersCount;
-	int runningWorkersCount;
 	
 	BOOL isAsync;
 	
+	id <WorkerQueueDelegate> delegate;
+	
 	NSLock *workersLock;
 }
--(id)initWithMaxWorkers:(int)max isAsync:(BOOL)async;
+-(id)initWithMaxWorkers:(int)max isAsync:(BOOL)async delegate:(id <WorkerQueueDelegate>)d;
 
--(void)addWorker:(Worker *)w;
--(void)workerHasFinished:(Worker *)w;
+-(void)addWorker:(Worker *)w after:(Worker *)a;
 
+-(void)runWorkers;
 
 -(void)setMaxWorkersCount:(int)i;
-
-
+-(void)workerHasFinished:(Worker *)w; // not a delegate method
 -(void)threadEntry:(Worker *)w;
 
 @end

@@ -19,8 +19,8 @@
 	
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	
-	workerQueue = [[WorkerQueue alloc] initWithMaxWorkers:[defs integerForKey:@"RunConcurrentTasks"] isAsync:YES];
-	dirWorkerQueue = [[WorkerQueue alloc] initWithMaxWorkers:[defs integerForKey:@"RunConcurrentDirscans"] isAsync:YES];	
+	workerQueue = [[WorkerQueue alloc] initWithMaxWorkers:[defs integerForKey:@"RunConcurrentTasks"] isAsync:YES delegate:nil];
+	dirWorkerQueue = [[WorkerQueue alloc] initWithMaxWorkers:[defs integerForKey:@"RunConcurrentDirscans"] isAsync:YES delegate:nil];	
 	
 	[tableView setDelegate:self];
 	[tableView setDataSource:self];
@@ -87,8 +87,10 @@
 	if (![self enabled]) return;
 
 	DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self];
-	[dirWorkerQueue addWorker:w];
+	[dirWorkerQueue addWorker:w after:nil];
 	[w release];
+	
+	[dirWorkerQueue runWorkers];
 }
 
 -(void)addFilePath:(NSString *)path dirs:(BOOL)useDirs
@@ -101,11 +103,10 @@
 	{
 		if (!isDir)
 		{
-			File *f = [[File alloc] initInQueue:workerQueue withFilePath:path];
+			File *f = [[File alloc] initWithFilePath:path];
 						
 			[filesController addObject:f];
-			
-			if (![f enqueueWorkers]) NSBeep();
+			[f enqueueWorkersInQueue:workerQueue];
 
 			[f release];					
 		}
@@ -114,6 +115,8 @@
 			[self addDir:path];
 		}
 	}
+	
+	[workerQueue runWorkers];
 }
 
 -(void)addFilesFromPaths:(NSArray *)paths

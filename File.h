@@ -7,10 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Worker.h"
-@class WorkerQueue;
+#import "WorkerQueue.h"
 
-@interface File : Worker <NSCopying> {
+@interface File : NSObject <NSCopying, WorkerQueueDelegate> {
 	NSString *filePath;
 	NSString *displayName;
 	
@@ -22,13 +21,14 @@
 	
 	NSLock *lock;
 	
-	NSMutableArray *localWorkerQueue;
-	WorkerQueue *queue;
+	WorkerQueue *serialQueue;
 }
+
+-(void)enqueueWorkersInQueue:(WorkerQueue *)queue;
 
 -(void)setFilePathOptimized:(NSString *)f size:(long)s;
 
--(id)initInQueue:(WorkerQueue *)q withFilePath:(NSString *)name;
+-(id)initWithFilePath:(NSString *)name;
 -(id)copyWithZone:(NSZone *)zone;
 -(void)setByteSize:(long)size;
 -(void)setByteSizeOptimized:(long)size;
@@ -43,6 +43,4 @@
 -(float)percentDone;
 -(void)setPercentDone:(float)d;
 
-
--(BOOL)enqueueWorkers;
 @end

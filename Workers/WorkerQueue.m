@@ -11,15 +11,15 @@
 
 @implementation WorkerQueue
 
--(id)initWithMaxWorkers:(int)max isAsync:(BOOL)async
+-(id)initWithMaxWorkers:(int)max isAsync:(BOOL)async delegate:(id <WorkerQueueDelegate>)d
 {
 	if (self = [self init])
 	{	
+		delegate = d;
 		isAsync = async;
 		[self setMaxWorkersCount:max];
 		runningWorkers = [[NSMutableArray alloc] init];
 		queuedWorkers =  [[NSMutableArray alloc] init];
-		runningWorkersCount=0;
 		workersLock = [NSLock new];
 	}
 	return self;
@@ -32,27 +32,42 @@
 
 -(void)runWorkers
 {	
-	NSLog(@"Run workers");
+	NSLog(@"Run workers in %@ of %@",self,delegate);
 	
 	BOOL keepRunning = NO;
+	BOOL completelyFinished = NO;
+	int maxtries = [queuedWorkers count];
+	
 	Worker *runWorker = NULL;
 	do
 	{		
 		[workersLock lock];	
 		
-			if(runningWorkersCount < maxWorkersCount && [queuedWorkers count])
+			if([runningWorkers count] < maxWorkersCount && [queuedWorkers count])
 			{
 				Worker *w = [queuedWorkers lastObject];	
+				Worker *dependence;
 				
-				[runningWorkers addObject:w];
-				[queuedWorkers removeLastObject];
-				
-				runningWorkersCount++;
-				runWorker = w;
+				if ((dependence = [w dependsOn]) && (NSNotFound != [runningWorkers indexOfObjectIdenticalTo:dependence] || NSNotFound != [queuedWorkers indexOfObjectIdenticalTo:dependence]))
+				{
+					NSLog(@"worker %@ is not ready, because %@ hasn't finished",w, dependence);
+					[queuedWorkers insertObject:w atIndex:0];
+					[queuedWorkers removeLastObject];
+				}
+				else
+				{	
+					NSLog(@"worker %@ is good to go",w);
+					[runningWorkers addObject:w];
+					[queuedWorkers removeLastObject];
+					
+					runWorker = w;										
+				}
 			}	
 			
-			keepRunning = (runningWorkersCount < maxWorkersCount && [queuedWorkers count]);
+			keepRunning = (--maxtries && [runningWorkers count] < maxWorkersCount && [queuedWorkers count]);
 
+			completelyFinished = !runWorker && [runningWorkers count] == 0 && [queuedWorkers count] == 0;
+			
 		[workersLock unlock];
 		
 		if (runWorker)
@@ -65,19 +80,28 @@
 			else
 			{
 				[runWorker run];
-				[self workerHasFinished:runWorker];
+				[delegate workerHasFinished:runWorker];
 			}
 			runWorker=NULL;
 		}
 	}
 	while(keepRunning);
 	
+	if (completelyFinished)
+	{
+		NSLog(@"no more pesky workers in %@ (%@/%@)!",self, queuedWorkers, runningWorkers);
+		[delegate workersHaveFinished:self];
+	}
+	
 	NSLog(@"Run workers finished");
 }
 
--(void)addWorker:(Worker *)w
+-(void)addWorker:(Worker *)w after:(Worker *)dependence
 {
-	NSLog(@"Adding worker %@",w);
+	NSLog(@"Adding worker %@ in %@",w,self);
+	
+	[w setDependsOn:dependence];
+	
 	[workersLock lock];
 	
 	[queuedWorkers addObject:w];
@@ -92,15 +116,11 @@
 
 		[w retain];
 		[runningWorkers removeObjectIdenticalTo:w];
-		runningWorkersCount--;
 	
 	[workersLock unlock];
 	
-	id delegate = [w delegate];
-	if (delegate)
-	{
-		[delegate workerHasFinished:w];
-	}
+	[delegate workerHasFinished:w];
+
 	[w release];
 	
 	[self runWorkers];

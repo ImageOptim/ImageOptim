@@ -10,7 +10,7 @@
 @class WorkerQueue;
 
 @interface Worker : NSObject {
-
+	Worker *dependsOn;
 }
 
 -(BOOL)makesNonOptimizingModifications;
@@ -18,5 +18,8 @@
 -(id)delegate;
 
 -(void)run;
+
+-(Worker *)dependsOn;
+-(void)setDependsOn:(Worker *)w;
 
 @end
