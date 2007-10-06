@@ -8,6 +8,7 @@
             OUTLETS = {
                 application = NSApplication; 
                 filesController = NSArrayController; 
+                progressBar = NSProgressIndicator; 
                 tableView = NSTableView; 
             }; 
             SUPERCLASS = NSObject; 

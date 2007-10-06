@@ -16,16 +16,24 @@
 	BOOL isEnabled;
 	
 	WorkerQueue *workerQueue;
-	WorkerQueue *dirWorkerQueue;
+	WorkerQueue *dirWorkerQueue;	
+	
+	NSRecursiveLock *filesControllerLock;
+	
+	NSProgressIndicator *progressBar;
 }
 
--(id)initWithTableView:(NSTableView*)a andController:(NSArrayController*)b;
+-(id)initWithTableView:(NSTableView*)a progressBar:(NSProgressIndicator *)p andController:(NSArrayController*)b;
 -(void)addFilesFromPaths:(NSArray *)paths;
 -(void)addFilePath:(NSString*)s dirs:(BOOL)a;
 -(void)addFilesFromPaths:(NSArray *)paths;
 -(void)setEnabled:(BOOL)y;
 
+-(void)runAdded;
 
 -(IBAction)delete:(id)sender;
 
+-(void)workersHaveFinished:(WorkerQueue *)q;
+
+-(void)updateProgressbar;
 @end

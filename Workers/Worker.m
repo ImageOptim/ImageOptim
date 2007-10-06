@@ -11,7 +11,7 @@
 
 @implementation Worker
 
--(id)delegate
+-(id <WorkerQueueDelegate>)delegate
 {
 	return nil;
 }
@@ -28,8 +28,11 @@
 
 -(void)setDependsOn:(Worker *)w
 {
-	[dependsOn release];
-	dependsOn = [w retain];
+	if (dependsOn != w)
+	{
+		[dependsOn release];
+		dependsOn = [w retain];		
+	}
 }
 
 -(Worker *)dependsOn
@@ -37,9 +40,15 @@
 	return dependsOn;
 }
 
+-(NSString *)description
+{
+	return [NSString stringWithFormat:@"%@ %X <dep %@>",[self className],[self hash],dependsOn];
+}
+
 -(void)dealloc 
 {
-	[dependsOn release];
+	NSLog(@"### Worker dealloc %@",[self className]);
+	[dependsOn release]; dependsOn = nil;
 	[super dealloc];
 }
 

@@ -20,6 +20,8 @@
 	if (self = [self init])
 	{	
 		[self setFilePath:name];
+		[self setStatus:@"wait"];
+		lock = [NSLock new];
 		NSLog(@"Created new");
 	}
 	return self;	
@@ -41,12 +43,15 @@
 
 -(void)setFilePath:(NSString *)s
 {
-	[filePath release];
-	filePath = [s copy];
-	
-	NSString *newDisplay = [[[NSFileManager defaultManager] displayNameAtPath:filePath] copy];
-	[displayName release];
-	displayName = newDisplay;
+	if (filePath != s)
+	{
+		[filePath release];
+		filePath = [s copy];
+		
+		NSString *newDisplay = [[[NSFileManager defaultManager] displayNameAtPath:filePath] copy];
+		[displayName release];
+		displayName = newDisplay;		
+	}
 }
 
 -(long)byteSize
@@ -139,23 +144,47 @@
 		filePathOptimized = [path copy];
 		[self setByteSizeOptimized:size];
 	}
-	[lock unlock];
-	
+		
 	if (oldFile)
 	{
 		[self removeOldFilePathOptimized:oldFile];
 		[oldFile release];
 	}
+	[lock unlock];
 	NSLog(@"Got optimized %db path %@",size,path);
 }
 
--(void)workersHaveFinished:(WorkerQueue *)q
+-(void)workerHasStarted:(Worker *)worker
 {
-	NSLog(@"all serial done for %@",self);
+	[lock lock];
+	workersActive++;
+	[self setStatus:@"progress"];
+	[lock unlock];
 }
+
 -(void)workerHasFinished:(Worker *)worker
 {
-	NSLog(@"delegate works!");
+	[lock lock];
+	workersActive--;
+	workersFinished++;
+	
+	if (!byteSize || !byteSizeOptimized)
+	{
+		[self setStatus:@"err"];
+	}
+	else if (workersFinished == workersTotal)
+	{
+		if (byteSize > byteSizeOptimized)
+		{
+			[self setStatus:@"ok"];		
+		}
+		else [self setStatus:@"noopt"];	
+	}
+	else if (workersActive == 0)
+	{
+		[self setStatus:@"wait"];
+	}
+	[lock unlock];
 }
 
 -(void)enqueueWorkersInQueue:(WorkerQueue *)queue
@@ -198,6 +227,12 @@
 	NSEnumerator *enu = [runFirst objectEnumerator];
 	Worker *lastWorker = nil;
 	
+	NSLog(@"file %@ has workers first %@ and later %@",self,runFirst,runLater);
+		
+	workersTotal = [runFirst count] + [runLater count];
+	workersActive = 0;
+	workersFinished = 0;
+	
 	while(w = [enu nextObject])
 	{
 		[queue addWorker:w after:lastWorker];
@@ -207,8 +242,8 @@
 	enu = [runLater objectEnumerator];
 	while(w = [enu nextObject])
 	{
-		[queue addWorker:w after:lastWorker];
-	}
+		[queue addWorker:w after:[runFirst lastObject]];
+	}	
 	
 	[runFirst release];
 	[runLater release];
@@ -216,16 +251,41 @@
 
 -(void)dealloc
 {
-	NSLog(@"Dealloc %@",self);
+	NSLog(@"File dealloc %@",self);
+	[self setStatusImage:nil];
 	[self removeOldFilePathOptimized:filePathOptimized];
-	[filePathOptimized release];
-	[filePath release];
-	[displayName release];
-	[lock release];
-	[serialQueue release];
+	[filePathOptimized release]; filePathOptimized = nil;
+	[filePath release]; filePath = nil;
+	[displayName release]; displayName = nil;
+	[lock release]; lock = nil;
+	[serialQueue release]; serialQueue = nil;
 	[super dealloc];
 }
 
+-(NSImage *)statusImage
+{
+	return statusImage;
+}
+
+-(void)setStatus:(NSString *)name
+{
+	NSLog(@"status is now %@",name);
+	NSImage *i;
+	i = [[NSImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForImageResource:name]];
+	[self setStatusImage:i];
+	[i release];
+}
+
+-(void)setStatusImage:(NSImage *)i
+{
+	[lock lock];
+	if (i != statusImage)
+	{
+		[statusImage release];
+		statusImage = [i retain];		
+	}
+	[lock unlock];
+}
 
 -(NSString *)description
 {

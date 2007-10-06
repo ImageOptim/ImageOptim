@@ -12,31 +12,37 @@
 
 @implementation FilesQueue
 
--(id)initWithTableView:(NSTableView*)inTableView andController:(NSArrayController*)inController
+-(id)initWithTableView:(NSTableView*)inTableView progressBar:(NSProgressIndicator *)inBar andController:(NSArrayController*)inController
 {
+	progressBar = [inBar retain];
 	filesController = [inController retain];
 	tableView = [inTableView retain];
 	
+	//[[[tableView window] contentView] setFrameRotation:5];
+	
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	
-	workerQueue = [[WorkerQueue alloc] initWithMaxWorkers:[defs integerForKey:@"RunConcurrentTasks"] isAsync:YES delegate:nil];
-	dirWorkerQueue = [[WorkerQueue alloc] initWithMaxWorkers:[defs integerForKey:@"RunConcurrentDirscans"] isAsync:YES delegate:nil];	
+	workerQueue = [[WorkerQueue alloc] initWithMaxWorkers:[defs integerForKey:@"RunConcurrentTasks"]];
+	[workerQueue setOwner:self];
+	
+	dirWorkerQueue = [[WorkerQueue alloc] initWithMaxWorkers:[defs integerForKey:@"RunConcurrentDirscans"]];	
 	
 	[tableView setDelegate:self];
 	[tableView setDataSource:self];
 	[tableView registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType,NSStringPboardType,nil]];
-	
-	[self setEnabled:YES];
+	[self setEnabled:YES];	
 	return self;
 }
 
 -(void)dealloc
 {
-	[filesController release];
+	[progressBar release];
+	[filesControllerLock release];
+	[filesController release]; filesController = nil;
 //	[tableView unregisterDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType,NSStringPboardType,nil]];
-	[tableView release];
-	[workerQueue release];
-	[dirWorkerQueue release];
+	[tableView release]; tableView = nil;
+	[workerQueue release]; workerQueue = nil;
+	[dirWorkerQueue release]; dirWorkerQueue = nil;
 	[super dealloc];
 }
 
@@ -57,19 +63,28 @@
        proposedDropOperation:(NSTableViewDropOperation)operation
 {
 	if (![self enabled]) return NSDragOperationNone;
-	
+
+	[filesControllerLock lock];
+
 	[atableView setDropRow:[[filesController arrangedObjects] count] dropOperation:NSTableViewDropAbove];
+	
+	[filesControllerLock unlock];
 	return NSDragOperationCopy;
 }
 
 -(IBAction)delete:(id)sender
 {
 	NSLog(@"delete action");
+	[filesControllerLock lock];
+
 	if ([filesController canRemove])
 	{
-		[filesController remove:sender];		
+		[filesController remove:sender];
+		[self runAdded];
 	}
 	else NSBeep();
+	
+	[filesControllerLock unlock];
 }
 
 - (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(int)row dropOperation:(NSTableViewDropOperation)operation
@@ -77,8 +92,9 @@
 	NSPasteboard *pboard = [info draggingPasteboard];
 	NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
 	
+	NSLog(@"Dropping files %@",paths);
 	[self addFilesFromPaths:paths];
-	
+	NSLog(@"Finished adding drop");	
 	return YES;
 }
 
@@ -89,14 +105,12 @@
 	DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self];
 	[dirWorkerQueue addWorker:w after:nil];
 	[w release];
-	
-	[dirWorkerQueue runWorkers];
 }
 
 -(void)addFilePath:(NSString *)path dirs:(BOOL)useDirs
 {	
 	if (![self enabled]) return;
-
+	
 	BOOL isDir;
 	
 	if ([[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir])
@@ -104,10 +118,13 @@
 		if (!isDir)
 		{
 			File *f = [[File alloc] initWithFilePath:path];
-						
+			
+			[filesControllerLock lock];
+
 			[filesController addObject:f];
 			[f enqueueWorkersInQueue:workerQueue];
-
+			
+			[filesControllerLock unlock];
 			[f release];					
 		}
 		else if (useDirs)
@@ -115,8 +132,31 @@
 			[self addDir:path];
 		}
 	}
-	
+}
+
+-(void)runAdded
+{
 	[workerQueue runWorkers];
+	[dirWorkerQueue runWorkers];
+
+	[self updateProgressbar];
+}
+
+-(void)workersHaveFinished:(WorkerQueue *)q
+{
+	[self updateProgressbar];
+}
+
+-(void)updateProgressbar
+{
+	if ([workerQueue hasFinished] && [dirWorkerQueue hasFinished])
+	{		
+		[progressBar stopAnimation:nil];
+	}
+	else
+	{
+		[progressBar startAnimation:nil];		
+	}
 }
 
 -(void)addFilesFromPaths:(NSArray *)paths
@@ -125,7 +165,8 @@
 	for(i=0; i < [paths count]; i++)
 	{
 		[self addFilePath:[paths objectAtIndex:i] dirs:YES];
-	}	
+	}
+	[self runAdded];
 }
 
 @end

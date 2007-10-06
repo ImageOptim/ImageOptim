@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-@class WorkerQueue;
+#import "WorkerQueue.h";
 
 @interface Worker : NSObject {
 	Worker *dependsOn;
@@ -15,7 +15,7 @@
 
 -(BOOL)makesNonOptimizingModifications;
 
--(id)delegate;
+-(id <WorkerQueueDelegate>)delegate;
 
 -(void)run;
 

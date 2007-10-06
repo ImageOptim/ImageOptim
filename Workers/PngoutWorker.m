@@ -51,7 +51,7 @@
 		NSLog(@"Will save data");
 		[file setFilePathOptimized:temp size:fileSizeOptimized];
 	}
-	else NSLog(@"pngout failed");
+	//else NSLog(@"pngout failed");
 	
 	[task release];
 	
@@ -87,7 +87,7 @@
 	}
 	else if ([line length] >= 3 && [line characterAtIndex:2] == '%')
 	{	
-		//NSLog(@"%@",line);
+		NSLog(@"%@",line);
 	}
 	else if ([line length] >= 4 && [[line substringToIndex:4] isEqual:@"Took"])
 	{

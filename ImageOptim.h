@@ -14,6 +14,8 @@
 	IBOutlet NSApplication *application;
 	PrefsController *prefsController;
 	
+	IBOutlet NSProgressIndicator *progressBar;
+	
 	NSArray *fileTypes;
 }
 

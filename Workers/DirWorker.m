@@ -23,6 +23,7 @@
 
 -(void)run
 {
+	NSLog(@"Dirworker runs");
 	NSDirectoryEnumerator *enu = [[NSFileManager defaultManager] enumeratorAtPath:path];
 	NSString *filePath;
 	NSArray *extensions = [NSArray arrayWithObjects:@"png",@"PNG",@"jpg",@"JPG",@"jpeg",@"JPEG",nil];
@@ -37,12 +38,16 @@
 			[filesQueue addFilePath:newPath dirs:NO];
 		}
 	}
+	
+	NSLog(@"DirWorker finished scan, triggers queue");
+	[filesQueue runAdded];
+	NSLog(@"DirWorker finished completely");
 }
 
 -(void)dealloc
 {
-	[path release];
-	[filesQueue release];
+	[path release]; path = nil;
+	[filesQueue release]; filesQueue = nil;
 	[super dealloc];
 }
 @end

@@ -33,14 +33,14 @@
 
 -(void)dealloc
 {
-	[prefsController release];
-	[fileTypes release];
+	[prefsController release]; prefsController = nil;
+	[fileTypes release]; fileTypes = nil;
 	[super dealloc];
 }
 
 -(void)awakeFromNib
 {		
-	filesQueue = [[FilesQueue alloc] initWithTableView:tableView andController:filesController];
+	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
 }
 
 +(int)numberOfCPUs
@@ -56,6 +56,7 @@
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)path
 {
     [filesQueue addFilePath:path dirs:YES];
+	[filesQueue runAdded];
 	return YES;
 }
 

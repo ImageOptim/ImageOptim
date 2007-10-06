@@ -11,16 +11,16 @@
 
 @implementation WorkerQueue
 
--(id)initWithMaxWorkers:(int)max isAsync:(BOOL)async delegate:(id <WorkerQueueDelegate>)d
+-(id)initWithMaxWorkers:(int)max
 {
 	if (self = [self init])
 	{	
-		delegate = d;
-		isAsync = async;
+		isAsync = (max>0);
 		[self setMaxWorkersCount:max];
 		runningWorkers = [[NSMutableArray alloc] init];
 		queuedWorkers =  [[NSMutableArray alloc] init];
-		workersLock = [NSLock new];
+		workersLock = [NSRecursiveLock new];
+		owner = nil;
 	}
 	return self;
 }
@@ -30,80 +30,116 @@
 	maxWorkersCount = m;
 }
 
+-(void)setOwner:(id)o
+{
+	owner = o;
+}
+
+-(BOOL)hasFinished
+{
+	BOOL res;
+	[workersLock lock];
+	res = [runningWorkers count]==0 && [queuedWorkers count]==0;
+	[workersLock unlock];
+	return res;
+}
+
 -(void)runWorkers
 {	
-	NSLog(@"Run workers in %@ of %@",self,delegate);
-	
-	BOOL keepRunning = NO;
-	BOOL completelyFinished = NO;
-	int maxtries = [queuedWorkers count];
-	
-	Worker *runWorker = NULL;
-	do
-	{		
-		[workersLock lock];	
+	[workersLock lock];	
+	@try
+	{
+		NSLog(@"Run workers in %@",self);
 		
-			if([runningWorkers count] < maxWorkersCount && [queuedWorkers count])
-			{
-				Worker *w = [queuedWorkers lastObject];	
-				Worker *dependence;
-				
-				if ((dependence = [w dependsOn]) && (NSNotFound != [runningWorkers indexOfObjectIdenticalTo:dependence] || NSNotFound != [queuedWorkers indexOfObjectIdenticalTo:dependence]))
+		
+		BOOL keepRunning = NO;
+		BOOL completelyFinished = NO;
+		
+		Worker *runWorker = NULL;
+		do
+		{								
+			int i,count;
+				if([runningWorkers count] < maxWorkersCount && (count = [queuedWorkers count]))
 				{
-					NSLog(@"worker %@ is not ready, because %@ hasn't finished",w, dependence);
-					[queuedWorkers insertObject:w atIndex:0];
-					[queuedWorkers removeLastObject];
+					for(i=0; i < [queuedWorkers count]; i++)
+					{
+						Worker *w = [queuedWorkers objectAtIndex:i];
+						Worker *dependence;
+						
+						if (!(dependence = [w dependsOn]) || (NSNotFound == [runningWorkers indexOfObjectIdenticalTo:dependence] && NSNotFound == [queuedWorkers indexOfObjectIdenticalTo:dependence]))
+						{
+							NSLog(@"runnable worker found %@",w);
+							[runningWorkers addObject:w];
+							[queuedWorkers replaceObjectAtIndex:i withObject:[queuedWorkers lastObject]];
+							[queuedWorkers removeLastObject];
+							
+							runWorker = w;
+							
+							NSLog(@"queue:%@",self);
+							break;
+						}
+						else
+						{
+							NSLog(@"worker %@ is not runnable, needs %@",w,dependence);
+							/*int dependenceIndex = [queuedWorkers indexOfObjectIdenticalTo:dependence];
+							if (dependenceIndex != NSNotFound && dependenceIndex > i)
+							{
+								NSLog(@"Swapping %d with %d",i,dependenceIndex);
+								[queuedWorkers replaceObjectAtIndex:i withObject:dependence];
+								[queuedWorkers replaceObjectAtIndex:dependenceIndex withObject:w];
+								NSLog(@"queue:%@",self);
+								continue;
+							}*/						
+						}
+					}				
+				}	
+				
+				keepRunning = (runWorker && [runningWorkers count] < maxWorkersCount && [queuedWorkers count]);
+
+				completelyFinished = !runWorker && [runningWorkers count] == 0 && [queuedWorkers count] == 0;
+									
+			if (runWorker)
+			{
+				NSLog(@"Taken worker %@ from queue",runWorker);
+				if (isAsync) 
+				{
+					[NSThread detachNewThreadSelector:@selector(threadEntry:) toTarget:self withObject:runWorker];
 				}
 				else
-				{	
-					NSLog(@"worker %@ is good to go",w);
-					[runningWorkers addObject:w];
-					[queuedWorkers removeLastObject];
-					
-					runWorker = w;										
+				{
+					[self threadEntry:runWorker];
 				}
-			}	
-			
-			keepRunning = (--maxtries && [runningWorkers count] < maxWorkersCount && [queuedWorkers count]);
-
-			completelyFinished = !runWorker && [runningWorkers count] == 0 && [queuedWorkers count] == 0;
-			
-		[workersLock unlock];
-		
-		if (runWorker)
-		{
-			NSLog(@"Taken worker %@ from queue",runWorker);
-			if (isAsync) 
-			{
-				[NSThread detachNewThreadSelector:@selector(threadEntry:) toTarget:self withObject:runWorker];
+				runWorker=NULL;
 			}
-			else
-			{
-				[runWorker run];
-				[delegate workerHasFinished:runWorker];
-			}
-			runWorker=NULL;
 		}
+		while(keepRunning);
+		
+		if (completelyFinished)
+		{
+			NSLog(@"no more pesky workers in %@ (%@/%@)!",self, queuedWorkers, runningWorkers);
+			[owner workersHaveFinished:self];
+		}
+		
+		NSLog(@"Run workers finished, %d of %d with %d queued",[runningWorkers count],maxWorkersCount,[queuedWorkers count]);
 	}
-	while(keepRunning);
-	
-	if (completelyFinished)
+	@catch(NSException *e)
 	{
-		NSLog(@"no more pesky workers in %@ (%@/%@)!",self, queuedWorkers, runningWorkers);
-		[delegate workersHaveFinished:self];
+		NSLog(@"RunWorkers failed: Exception %@ >> %@ << {{ %@ }}",[e name],e,[e userInfo]);
+	}
+	@finally
+	{
+		[workersLock unlock];		
 	}
 	
-	NSLog(@"Run workers finished");
+	
 }
 
 -(void)addWorker:(Worker *)w after:(Worker *)dependence
-{
-	NSLog(@"Adding worker %@ in %@",w,self);
-	
-	[w setDependsOn:dependence];
-	
+{	
 	[workersLock lock];
 	
+	[w setDependsOn:dependence];	
+	NSLog(@"Adding worker %@ in %@",w,self);		
 	[queuedWorkers addObject:w];
 		
 	[workersLock unlock];
@@ -111,17 +147,15 @@
 
 -(void)workerHasFinished:(Worker *)w
 {
-	NSLog(@"Worker %@ finished",w);
 	[workersLock lock];
+		NSLog(@"Worker %@ finished",w);
 
 		[w retain];
 		[runningWorkers removeObjectIdenticalTo:w];
 	
-	[workersLock unlock];
-	
-	[delegate workerHasFinished:w];
-
 	[w release];
+	
+	[workersLock unlock];
 	
 	[self runWorkers];
 }
@@ -129,16 +163,37 @@
 -(void)threadEntry:(Worker *)w
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	[w run];
-	[self workerHasFinished:w];
-	[pool release];
+	NSLog(@"Worker %@ thread start",w);
+	@try
+	{
+		[[w delegate] workerHasStarted:w];
+		[w run];
+		NSLog(@"worker's %@ [run] ended, starting delegate",w);
+		[[w delegate] workerHasFinished:w];
+		NSLog(@"worker's %@ [delegate workerHasFinished] finished",w);
+	}
+	@catch(NSException *e)
+	{
+		NSLog(@"Thread failed: Exception %@ >> %@ << {{ %@ }}",[e name],e,[e userInfo]);
+		NSLog(@"Failed thread's (%@) worker: %@",self,w);
+	}
+	@finally {
+		[self workerHasFinished:w];
+		[pool release];
+	}
+	NSLog(@"Worker %@ thread end",w);
+}
+
+-(NSString *)description
+{
+	return [NSString stringWithFormat:@"queued: %@ running: %@",[queuedWorkers description],[runningWorkers description]];
 }
 
 -(void)dealloc
 {
-	[workersLock release];
-	[runningWorkers release];
-	[queuedWorkers release];
+	[workersLock release]; workersLock = nil;
+	[runningWorkers release]; runningWorkers = nil;
+	[queuedWorkers release]; queuedWorkers = nil;
 	[super dealloc];
 }
 @end

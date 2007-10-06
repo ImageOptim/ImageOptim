@@ -12,7 +12,7 @@
 
 @protocol WorkerQueueDelegate
 -(void)workerHasFinished:(Worker *)w;
--(void)workersHaveFinished:(WorkerQueue *)q;
+-(void)workerHasStarted:(Worker *)w;
 @end
 
 @interface WorkerQueue : NSObject {
@@ -21,13 +21,16 @@
 	
 	int maxWorkersCount;
 	
-	BOOL isAsync;
+	BOOL isAsync;	
 	
-	id <WorkerQueueDelegate> delegate;
+	id owner;
 	
-	NSLock *workersLock;
+	NSRecursiveLock *workersLock;
 }
--(id)initWithMaxWorkers:(int)max isAsync:(BOOL)async delegate:(id <WorkerQueueDelegate>)d;
+
+-(void)setOwner:(id)o;
+
+-(id)initWithMaxWorkers:(int)max;
 
 -(void)addWorker:(Worker *)w after:(Worker *)a;
 
@@ -36,5 +39,5 @@
 -(void)setMaxWorkersCount:(int)i;
 -(void)workerHasFinished:(Worker *)w; // not a delegate method
 -(void)threadEntry:(Worker *)w;
-
+-(BOOL)hasFinished;
 @end

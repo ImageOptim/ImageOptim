@@ -30,7 +30,7 @@
 
 -(void)dealloc
 {
-	[file release];
+	[file release]; file = nil;
 	[super dealloc];
 }
 

@@ -19,9 +19,14 @@
 	
 	NSString *filePathOptimized;
 	
-	NSLock *lock;
+	NSRecursiveLock *lock;
 	
 	WorkerQueue *serialQueue;
+	
+	NSImage *statusImage;
+	int workersActive;
+	int workersFinished;
+	int workersTotal;
 }
 
 -(void)enqueueWorkersInQueue:(WorkerQueue *)queue;
@@ -43,4 +48,7 @@
 -(float)percentDone;
 -(void)setPercentDone:(float)d;
 
+-(void)setStatus:(NSString *)name;
+-(NSImage *)statusImage;
+-(void)setStatusImage:(NSImage *)i;
 @end
