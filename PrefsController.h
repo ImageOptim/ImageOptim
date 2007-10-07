@@ -23,7 +23,7 @@
 
 -(void)windowDidLoad;
 
-
+-(IBAction)browseForExecutable:(id)sender;
 -(void)showWindow:(id)sender;
 -(IBAction)addGammaChunks:(id)sender;
 -(IBAction)showHelp:(id)sender;

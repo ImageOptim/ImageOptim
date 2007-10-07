@@ -72,6 +72,19 @@
 	[prefsController showWindow:self];
 }
 
+-(void)openURL:(NSString *)stringURL
+{
+	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:stringURL]];
+}
+
+-(IBAction)openPngOutHomepage:(id)sender;
+{
+	[self openURL:@"http://www.advsys.net/ken/utils.htm"];
+}
+-(IBAction)openPngOutDownload:(id)sender;
+{
+	[self openURL:@"http://www.jonof.id.au/index.php?p=pngout"];
+}
 
 -(IBAction)browseForFiles:(id)sender
 {

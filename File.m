@@ -76,7 +76,7 @@
 
 -(void)setByteSize:(long)size
 {
-	if (!byteSize)
+	if (!byteSize && size > 10)
 	{
 //		NSLog(@"setting file size of %@ to %d",self,size);
 		byteSize = size;
@@ -117,7 +117,7 @@
 
 -(void)setByteSizeOptimized:(long)size
 {
-	if (!byteSizeOptimized || size < byteSizeOptimized)
+	if ((!byteSizeOptimized || size < byteSizeOptimized) && size > 10)
 	{
 //		NSLog(@"We've got a new winner. old %d new %d",byteSizeOptimized,size);
 		byteSizeOptimized = size;
@@ -192,7 +192,7 @@
 			NSFileHandle *write = [NSFileHandle fileHandleForWritingAtPath:filePath];
 			NSData *data = [read readDataToEndOfFile];
 			
-			if ([data length] == byteSizeOptimized)
+			if ([data length] == byteSizeOptimized && [data length] > 10)
 			{
 				[write writeData:data];
 				[write truncateFileAtOffset:[data length]];

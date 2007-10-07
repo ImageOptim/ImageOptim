@@ -19,7 +19,7 @@
 	<key>JpegOptim.MaxQuality</key>
 	<real>99</real>
 	<key>JpegOptim.Path</key>
-	<string>/usr/bin/jpegoptim</string>
+	<string>/sw/bin/jpegoptim</string>
 	<key>JpegOptim.StripComments</key>
 	<true/>
 	<key>JpegOptim.StripExif</key>
@@ -57,14 +57,14 @@
 	<true/>
 	<key>PngCrush.Path</key>
 	<string>/usr/bin/pngcrush</string>
+	<key>PngOut.Bundle</key>
+	<false/>
 	<key>PngOut.Enabled</key>
 	<false/>
-	<key>PngOut.LargeFast</key>
-	<true/>
 	<key>PngOut.Level</key>
 	<real>3</real>
 	<key>PngOut.Path</key>
-	<string>/usr/bin/optipng</string>
+	<string>/usr/bin/pngout-darwin</string>
 	<key>PngOut.RemoveChunks</key>
 	<true/>
 	<key>PreservePermissions</key>

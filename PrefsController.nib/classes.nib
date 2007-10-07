@@ -9,7 +9,12 @@
         {CLASS = NSLevelIndicator; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
         {CLASS = NSSegmentedControl; LANGUAGE = ObjC; SUPERCLASS = NSControl; }, 
         {
-            ACTIONS = {addGammaChunks = id; showHelp = id; showWindow = id; }; 
+            ACTIONS = {
+                addGammaChunks = id; 
+                browseForExecutable = id; 
+                showHelp = id; 
+                showWindow = id; 
+            }; 
             CLASS = PrefsController; 
             LANGUAGE = ObjC; 
             OUTLETS = {chunksController = NSArrayController; tasksSlider = NSSlider; }; 

@@ -65,12 +65,6 @@
 
 -(NSTask *)taskWithPath:(NSString*)path arguments:(NSArray *)arguments;
 {
-	if (![[NSFileManager defaultManager] isExecutableFileAtPath:path])
-	{
-//		NSLog(@"Not executable %@ (launched with %@, btw)",path,arguments);
-		return nil;
-	}
-	
 	NSTask *task;
 	task = [[NSTask alloc] init];
 	
@@ -93,13 +87,20 @@
 
 -(void)launchTask:(NSTask *)task
 {
-	[task launch];
-	
-	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"RunLowPriority"])
+	@try
+	{			
+		[task launch];
+		
+		if ([[NSUserDefaults standardUserDefaults] boolForKey:@"RunLowPriority"])
+		{
+			int pid = [task processIdentifier];
+	//		NSLog(@"running with lopri %d",pid);
+			if (pid > 1) setpriority(PRIO_PROCESS, pid, 10);
+		}
+	}
+	@catch(NSException *e)
 	{
-		int pid = [task processIdentifier];
-//		NSLog(@"running with lopri %d",pid);
-		if (pid > 1) setpriority(PRIO_PROCESS, pid, 10);
+		NSLog(@"Failed to launch %@ - %@",[self className],e);
 	}
 }
 
@@ -128,9 +129,14 @@
 	
 	if ([defs boolForKey:[NSString stringWithFormat:@"%@.Bundle",prefsName]])
 	{
-		if (path = [[NSBundle mainBundle] pathForResource:resourceName ofType:nil])
+		if ((path = [[NSBundle mainBundle] pathForResource:resourceName ofType:nil]) && [[NSFileManager defaultManager] isExecutableFileAtPath:path])
 		{
 			return path;
+		}
+		else
+		{
+			NSLog(@"There's no bundled executable for %@ - disabling",prefsName);
+			[defs setBool:NO forKey:[NSString stringWithFormat:@"%@.Bundle",prefsName]];
 		}
 	}
 
@@ -140,7 +146,7 @@
 		return path;
 	}
 	
-//	NSLog(@"can't find path of %@",prefsName);
+	NSLog(@"Can't find working executable for %@ - disabling",prefsName);
 	
 	[defs setBool:NO forKey:[NSString stringWithFormat:@"%@.Enabled",prefsName]];
 	

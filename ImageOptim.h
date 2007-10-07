@@ -22,6 +22,9 @@
 - (IBAction)showPrefs:(id)sender;
 - (void)windowWillClose:(NSNotification *)aNotification;
 
+-(IBAction)openPngOutHomepage:(id)sender;
+-(IBAction)openPngOutDownload:(id)sender;
+
 -(IBAction)browseForFiles:(id)sender;
 
 + (void)initialize;

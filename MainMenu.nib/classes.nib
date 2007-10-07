@@ -2,7 +2,12 @@
     IBClasses = (
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {
-            ACTIONS = {browseForFiles = id; showPrefs = id; }; 
+            ACTIONS = {
+                browseForFiles = id; 
+                openPngOutDownload = id; 
+                openPngOutHomepage = id; 
+                showPrefs = id; 
+            }; 
             CLASS = ImageOptim; 
             LANGUAGE = ObjC; 
             OUTLETS = {

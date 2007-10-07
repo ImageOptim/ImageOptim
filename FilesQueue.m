@@ -120,6 +120,12 @@
 	{
 		if (!isDir)
 		{
+			if ([path characterAtIndex:[path length]-1] == '~')
+			{
+				NSBeep();
+				return;
+			}
+			
 			File *f = [[File alloc] initWithFilePath:path];
 			
 			[filesControllerLock lock];
@@ -156,6 +162,7 @@
 	{		
 		[progressBar stopAnimation:nil];
 		[[NSApplication sharedApplication] requestUserAttention:NSInformationalRequest];
+		[tableView setNeedsDisplay:YES];
 	}
 	else
 	{
