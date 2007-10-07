@@ -14,7 +14,10 @@
 
 -(id)init
 {
-	if (self = [super initWithWindowNibName:@"PrefsController"])
+	BOOL panther = (floor(NSAppKitVersionNumber) <= floor(NSAppKitVersionNumber10_3) || NSAppKitVersionNumber < 823.0);
+	NSLog(@"AppKit version = %f, panther = %d", (float)NSAppKitVersionNumber, panther);
+	
+	if (self = [super initWithWindowNibName: (panther ? @"PrefsControllerPanther" : @"PrefsController")])
 	{
 		int cpus = [ImageOptim numberOfCPUs];
 		maxNumberOfTasks = MIN(cpus*6, MAX(8, cpus * 2 + 2));
@@ -25,9 +28,9 @@
 		[NSValueTransformer setValueTransformer:cf forName:@"CeilFormatter"];
 		
 		DisabledColor *dc = [[[DisabledColor alloc] init] autorelease];
-		[NSValueTransformer setValueTransformer:dc forName:@"DisabledColor"];		
+		[NSValueTransformer setValueTransformer:dc forName:@"DisabledColor"];	
 	}
-	NSLog(@"init prefs %@",self);
+//	NSLog(@"init prefs %@",self);
 	return self;
 }
 
@@ -62,15 +65,35 @@
 	if (!done) NSBeep();
 }
 
-
+-(void)windowDidLoad
+{
+	[tasksSlider setNumberOfTickMarks:[self maxNumberOfTasks]];
+	[tasksSlider setAllowsTickMarkValuesOnly:YES];	
+}
 -(void)showWindow:(id)sender
 {
-	NSLog(@"window show?");
+//	NSLog(@"window show?");
 	owner = sender;
+
 	[super showWindow:sender];
-	[[self window] makeKeyAndOrderFront:self];
+}
+
+
+-(IBAction)showHelp:(id)sender
+{
+	int tag = [sender tag];
 	
-	[tasksSlider setNumberOfTickMarks:[self maxNumberOfTasks]];
-	[tasksSlider setAllowsTickMarkValuesOnly:YES];
+	[[self window] setHidesOnDeactivate:NO];
+	
+	NSString *locBookName = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleHelpBookName"];
+	NSString *anchors[] = {@"general", @"jpegoptim", @"advpng", @"optipng", @"pngcrush", @"pngout"};
+	NSString *anchor = @"main";
+	
+	if (tag >= 1 && tag <= 6)
+	{
+		anchor = anchors[tag-1];
+	}
+	//NSLog(@"opening help for %@ in %@",anchor, locBookName);
+	[[NSHelpManager sharedHelpManager] openHelpAnchor:anchor inBook:locBookName];
 }
 @end

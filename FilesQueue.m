@@ -74,7 +74,7 @@
 
 -(IBAction)delete:(id)sender
 {
-	NSLog(@"delete action");
+//	NSLog(@"delete action");
 	[filesControllerLock lock];
 
 	if ([filesController canRemove])
@@ -92,9 +92,12 @@
 	NSPasteboard *pboard = [info draggingPasteboard];
 	NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
 	
-	NSLog(@"Dropping files %@",paths);
+//	NSLog(@"Dropping files %@",paths);
 	[self addFilesFromPaths:paths];
-	NSLog(@"Finished adding drop");	
+	
+	[[aTableView window] makeKeyAndOrderFront:aTableView];
+	
+//	NSLog(@"Finished adding drop");	
 	return YES;
 }
 
@@ -136,8 +139,8 @@
 
 -(void)runAdded
 {
-	[workerQueue runWorkers];
 	[dirWorkerQueue runWorkers];
+	[workerQueue runWorkers];
 
 	[self updateProgressbar];
 }
@@ -152,6 +155,7 @@
 	if ([workerQueue hasFinished] && [dirWorkerQueue hasFinished])
 	{		
 		[progressBar stopAnimation:nil];
+		[[NSApplication sharedApplication] requestUserAttention:NSInformationalRequest];
 	}
 	else
 	{

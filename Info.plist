@@ -90,5 +90,10 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-</dict>
-</plist>
+	
+	<key>CFBundleHelpBookFolder</key>
+	<string>Help</string>
+	<key>CFBundleHelpBookName</key>
+	<string>ImageOptim Help</string>
+	</dict>
+	</plist>

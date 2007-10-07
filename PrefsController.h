@@ -21,7 +21,10 @@
 	int criticalNumberOfTasks;
 }
 
+-(void)windowDidLoad;
+
+
 -(void)showWindow:(id)sender;
 -(IBAction)addGammaChunks:(id)sender;
-
+-(IBAction)showHelp:(id)sender;
 @end

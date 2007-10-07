@@ -16,7 +16,7 @@
 	if (self = [self init])
 	{	
 		isAsync = (max>0);
-		[self setMaxWorkersCount:max];
+		[self setMaxWorkersCount:MAX(1,max)];
 		runningWorkers = [[NSMutableArray alloc] init];
 		queuedWorkers =  [[NSMutableArray alloc] init];
 		workersLock = [NSRecursiveLock new];
@@ -49,7 +49,7 @@
 	[workersLock lock];	
 	@try
 	{
-		NSLog(@"Run workers in %@",self);
+//		NSLog(@"Run workers in %@",self);
 		
 		
 		BOOL keepRunning = NO;
@@ -68,26 +68,26 @@
 						
 						if (!(dependence = [w dependsOn]) || (NSNotFound == [runningWorkers indexOfObjectIdenticalTo:dependence] && NSNotFound == [queuedWorkers indexOfObjectIdenticalTo:dependence]))
 						{
-							NSLog(@"runnable worker found %@",w);
+//							NSLog(@"runnable worker found %@",w);
 							[runningWorkers addObject:w];
 							[queuedWorkers replaceObjectAtIndex:i withObject:[queuedWorkers lastObject]];
 							[queuedWorkers removeLastObject];
 							
 							runWorker = w;
 							
-							NSLog(@"queue:%@",self);
+//							NSLog(@"queue:%@",self);
 							break;
 						}
 						else
 						{
-							NSLog(@"worker %@ is not runnable, needs %@",w,dependence);
+//							NSLog(@"worker %@ is not runnable, needs %@",w,dependence);
 							/*int dependenceIndex = [queuedWorkers indexOfObjectIdenticalTo:dependence];
 							if (dependenceIndex != NSNotFound && dependenceIndex > i)
 							{
-								NSLog(@"Swapping %d with %d",i,dependenceIndex);
+//								NSLog(@"Swapping %d with %d",i,dependenceIndex);
 								[queuedWorkers replaceObjectAtIndex:i withObject:dependence];
 								[queuedWorkers replaceObjectAtIndex:dependenceIndex withObject:w];
-								NSLog(@"queue:%@",self);
+//								NSLog(@"queue:%@",self);
 								continue;
 							}*/						
 						}
@@ -100,7 +100,7 @@
 									
 			if (runWorker)
 			{
-				NSLog(@"Taken worker %@ from queue",runWorker);
+//				NSLog(@"Taken worker %@ from queue",runWorker);
 				if (isAsync) 
 				{
 					[NSThread detachNewThreadSelector:@selector(threadEntry:) toTarget:self withObject:runWorker];
@@ -116,15 +116,15 @@
 		
 		if (completelyFinished)
 		{
-			NSLog(@"no more pesky workers in %@ (%@/%@)!",self, queuedWorkers, runningWorkers);
+//			NSLog(@"no more pesky workers in %@ (%@/%@)!",self, queuedWorkers, runningWorkers);
 			[owner workersHaveFinished:self];
 		}
 		
-		NSLog(@"Run workers finished, %d of %d with %d queued",[runningWorkers count],maxWorkersCount,[queuedWorkers count]);
+//		NSLog(@"Run workers finished, %d of %d with %d queued",[runningWorkers count],maxWorkersCount,[queuedWorkers count]);
 	}
 	@catch(NSException *e)
 	{
-		NSLog(@"RunWorkers failed: Exception %@ >> %@ << {{ %@ }}",[e name],e,[e userInfo]);
+//		NSLog(@"RunWorkers failed: Exception %@ >> %@ << {{ %@ }}",[e name],e,[e userInfo]);
 	}
 	@finally
 	{
@@ -139,7 +139,7 @@
 	[workersLock lock];
 	
 	[w setDependsOn:dependence];	
-	NSLog(@"Adding worker %@ in %@",w,self);		
+//	NSLog(@"Adding worker %@ in %@",w,self);		
 	[queuedWorkers addObject:w];
 		
 	[workersLock unlock];
@@ -148,7 +148,7 @@
 -(void)workerHasFinished:(Worker *)w
 {
 	[workersLock lock];
-		NSLog(@"Worker %@ finished",w);
+//		NSLog(@"Worker %@ finished",w);
 
 		[w retain];
 		[runningWorkers removeObjectIdenticalTo:w];
@@ -163,25 +163,25 @@
 -(void)threadEntry:(Worker *)w
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSLog(@"Worker %@ thread start",w);
+//	NSLog(@"Worker %@ thread start",w);
 	@try
 	{
 		[[w delegate] workerHasStarted:w];
 		[w run];
-		NSLog(@"worker's %@ [run] ended, starting delegate",w);
+//		NSLog(@"worker's %@ [run] ended, starting delegate",w);
 		[[w delegate] workerHasFinished:w];
-		NSLog(@"worker's %@ [delegate workerHasFinished] finished",w);
+//		NSLog(@"worker's %@ [delegate workerHasFinished] finished",w);
 	}
 	@catch(NSException *e)
 	{
-		NSLog(@"Thread failed: Exception %@ >> %@ << {{ %@ }}",[e name],e,[e userInfo]);
-		NSLog(@"Failed thread's (%@) worker: %@",self,w);
+//		NSLog(@"Thread failed: Exception %@ >> %@ << {{ %@ }}",[e name],e,[e userInfo]);
+//		NSLog(@"Failed thread's (%@) worker: %@",self,w);
 	}
 	@finally {
 		[self workerHasFinished:w];
 		[pool release];
 	}
-	NSLog(@"Worker %@ thread end",w);
+//	NSLog(@"Worker %@ thread end",w);
 }
 
 -(NSString *)description

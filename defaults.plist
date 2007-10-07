@@ -10,10 +10,12 @@
 	<real>4</real>
 	<key>AdvPng.Path</key>
 	<string>/usr/bin/advpng</string>
+	<key>BackupFiles</key>
+	<true/>
 	<key>JpegOptim.Bundle</key>
-	<true/>
+	<false/>
 	<key>JpegOptim.Enabled</key>
-	<true/>
+	<false/>
 	<key>JpegOptim.MaxQuality</key>
 	<real>99</real>
 	<key>JpegOptim.Path</key>
@@ -68,8 +70,10 @@
 	<key>PreservePermissions</key>
 	<true/>
 	<key>RunConcurrentDirscans</key>
-	<integer>1</integer>
+	<integer>0</integer>
 	<key>RunConcurrentTasks</key>
 	<real>2</real>
+	<key>RunLowPriority</key>
+	<true/>
 </dict>
 </plist>

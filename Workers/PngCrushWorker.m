@@ -14,7 +14,7 @@
 -(void)run
 {
 	NSString *temp = [self tempPath:@"PngCrush"];
-	NSLog(@"temp file for crush: %@",temp);
+//	NSLog(@"temp file for crush: %@",temp);
 	
 	NSString *executable = [self executablePathForKey:@"PngCrush" bundleName:@"pngcrush"];	
 	if (!executable) return;
@@ -44,9 +44,9 @@
 			[file setFilePathOptimized:temp	size:fileSizeOptimized];			
 		}
 	}
-	else NSLog(@"pngcrush failed");
+	//else NSLog(@"pngcrush failed");
 	
-	[task release];
+	[task autorelease]/*crap*/;
 }
 
 -(BOOL)parseLine:(NSString *)line
@@ -58,7 +58,7 @@
 		if (!firstIdatSize)
 		{
 			firstIdatSize = res;
-			NSLog(@"Idat is %d",res);
+//			NSLog(@"Idat is %d",res);
 		}
 		else
 		{
@@ -69,9 +69,12 @@
 				
 				[file setByteSizeOptimized:optimized];
 				
-				NSLog(@"pngcrush returned %d vs %d",fileSize,optimized);
+//				NSLog(@"pngcrush returned %d vs %d",fileSize,optimized);
 			}
-			else NSLog(@"ignoring %d idat, no file size",res);
+			else
+			{
+//				NSLog(@"ignoring %d idat, no file size",res);				
+			}
 		}
 	}
 	else 
@@ -81,7 +84,11 @@
 		{
 			return YES;			
 		}
-		else NSLog(@"dunno %@",line);
+		else 
+		{
+//			NSLog(@"dunno %@",line);
+			
+		}
 
 	}
 	return NO;

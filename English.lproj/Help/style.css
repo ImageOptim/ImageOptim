@@ -1,0 +1,5 @@
+html {font: 10pt/1.2 "Lucida Grande",sans-serif}
+a[name]{display:none}
+dt {font-weight:bold;}
+dd p:first-child {margin-top:0;}
+div:target {background:#eef}

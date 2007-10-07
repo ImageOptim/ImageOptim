@@ -13,6 +13,7 @@
 
 -(void)run
 {
+//	NSLog(@"PNGOUT running");
 	NSString *temp = [self tempPath:@"PngOut"];
 	NSString *executable = [self executablePathForKey:@"PngOut" bundleName:@"pngout"];	
 	if (!executable) return;
@@ -23,7 +24,7 @@
 	
 	if (![[NSFileManager defaultManager] createFileAtPath:temp contents:[NSData data] attributes:nil])
 	{	
-		NSLog(@"Cant create %@",temp);
+//		NSLog(@"Cant create %@",temp);
 	}
 		
 	NSFileHandle *fileOutputHandle = [NSFileHandle fileHandleForWritingAtPath:temp];
@@ -36,10 +37,10 @@
 		
 	[self launchTask:task];
 	
-	NSLog(@"launched pngout");
+//	NSLog(@"launched pngout");
 	[self parseLinesFromHandle:commandHandle];
 	
-	NSLog(@"finished reading lines");
+//	NSLog(@"finished reading lines");
 	[commandHandle closeFile];
 	
 	[task waitUntilExit];
@@ -48,14 +49,14 @@
 	{
 		[fileOutputHandle closeFile];
 		
-		NSLog(@"Will save data");
+//		NSLog(@"Will save data");
 		[file setFilePathOptimized:temp size:fileSizeOptimized];
 	}
 	//else NSLog(@"pngout failed");
 	
 	[task release];
 	
-	NSLog(@"PNGOUT finished");
+//	NSLog(@"PNGOUT finished");
 }
 
 -(BOOL)makesNonOptimizingModifications
@@ -69,14 +70,14 @@
 	
 	if ([line length] > 4 && [[line substringToIndex:4] isEqual:@" In:"])
 	{
-		NSLog(@"Foudn in %@",line);
+//		NSLog(@"Foudn in %@",line);
 		[scan setScanLocation:4];
 		int byteSize=0;		
 		if ([scan scanInt:&byteSize] && byteSize) [file setByteSize:byteSize];
 	}
 	else if ([line length] > 4 && [[line substringToIndex:4] isEqual:@"Out:"])
 	{
-		NSLog(@"Foudn out %@",line);
+//		NSLog(@"Foudn out %@",line);
 		[scan setScanLocation:4];
 		int byteSize=0;		
 		if ([scan scanInt:&byteSize] && byteSize) 
@@ -87,11 +88,11 @@
 	}
 	else if ([line length] >= 3 && [line characterAtIndex:2] == '%')
 	{	
-		NSLog(@"%@",line);
+//		NSLog(@"%@",line);
 	}
 	else if ([line length] >= 4 && [[line substringToIndex:4] isEqual:@"Took"])
 	{
-		NSLog(@"Tookline %@",line);
+//		NSLog(@"Tookline %@",line);
 		return YES;
 	}	
 	return NO;

@@ -18,7 +18,7 @@
 
 -(void)run
 {
-	NSLog(@"Run and did nothing %@",[self className]);
+//	NSLog(@"Run and did nothing %@",[self className]);
 }
 
 -(BOOL)makesNonOptimizingModifications
@@ -47,7 +47,7 @@
 
 -(void)dealloc 
 {
-	NSLog(@"### Worker dealloc %@",[self className]);
+//	NSLog(@"### Worker dealloc %@",[self className]);
 	[dependsOn release]; dependsOn = nil;
 	[super dealloc];
 }

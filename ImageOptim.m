@@ -62,12 +62,12 @@
 
 - (IBAction)showPrefs:(id)sender
 {
-	NSLog(@"show prefs");
+//	NSLog(@"show prefs");
 
 	if (!prefsController)
 	{
 		prefsController = [PrefsController new];
-		NSLog(@"new prefs = %@",prefsController);
+//		NSLog(@"new prefs = %@",prefsController);
 	}
 	[prefsController showWindow:self];
 }
@@ -93,7 +93,7 @@
 
 - (void)windowWillClose:(NSNotification *)aNotification
 {
-	NSLog(@"window close!");
+//	NSLog(@"window close!");
 	[application terminate:self];
 }
 

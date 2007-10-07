@@ -22,7 +22,7 @@
 		[self setFilePath:name];
 		[self setStatus:@"wait"];
 		lock = [NSLock new];
-		NSLog(@"Created new");
+//		NSLog(@"Created new");
 	}
 	return self;	
 }
@@ -70,7 +70,7 @@
 	[f setByteSize:byteSize];
 	[f setByteSizeOptimized:byteSizeOptimized];
 	[f setFilePath:filePath];
-	NSLog(@"copied");
+//	NSLog(@"copied");
 	return f;
 }
 
@@ -78,13 +78,13 @@
 {
 	if (!byteSize)
 	{
-		NSLog(@"setting file size of %@ to %d",self,size);
+//		NSLog(@"setting file size of %@ to %d",self,size);
 		byteSize = size;
 		if (!byteSizeOptimized || byteSizeOptimized > byteSize) [self setByteSizeOptimized:size];		
 	}
 	else if (byteSize != size)
 	{
-		NSLog(@"crappy size given! %d, have %d",size,byteSize);
+//		NSLog(@"crappy size given! %d, have %d",size,byteSize);
 	}
 }
 
@@ -119,15 +119,15 @@
 {
 	if (!byteSizeOptimized || size < byteSizeOptimized)
 	{
-		NSLog(@"We've got a new winner. old %d new %d",byteSizeOptimized,size);
+//		NSLog(@"We've got a new winner. old %d new %d",byteSizeOptimized,size);
 		byteSizeOptimized = size;
-		[self setPercentOptimized:1.0]; //just for KVO
+		[self setPercentOptimized:0]; //just for KVO
 	}
 }
 
 -(void)removeOldFilePathOptimized:(NSString *)old
 {
-	if ([old length])
+	if (old && [old length])
 	{
 		[[NSFileManager defaultManager] removeFileAtPath:old handler:nil];		
 	}
@@ -151,7 +151,75 @@
 		[oldFile release];
 	}
 	[lock unlock];
-	NSLog(@"Got optimized %db path %@",size,path);
+//	NSLog(@"Got optimized %db path %@",size,path);
+}
+
+-(BOOL)saveResult
+{
+	@try
+	{
+		NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+		BOOL preserve = [defs boolForKey:@"PreservePermissions"];
+		BOOL backup = [defs boolForKey:@"BackupFiles"];
+		NSFileManager *fm = [NSFileManager defaultManager];
+		
+		if (backup)
+		{
+			NSString *backupPath = [filePath stringByAppendingString:@"~"];
+			
+			[fm removeFileAtPath:backupPath handler:nil];
+			
+			BOOL res;
+			if (preserve)
+			{
+				res = [fm copyPath:filePath toPath:backupPath handler:nil];
+			}
+			else
+			{
+				res = [fm movePath:filePath toPath:backupPath handler:nil];
+			}
+			
+			if (!res)
+			{
+				NSLog(@"failed to save backup as %@ (preserve = %d)",backupPath,preserve);
+				return NO;
+			}
+		}
+		
+		if (preserve)
+		{		
+			NSFileHandle *read = [NSFileHandle fileHandleForReadingAtPath:filePathOptimized];
+			NSFileHandle *write = [NSFileHandle fileHandleForWritingAtPath:filePath];
+			NSData *data = [read readDataToEndOfFile];
+			
+			if ([data length] == byteSizeOptimized)
+			{
+				[write writeData:data];
+				[write truncateFileAtOffset:[data length]];
+			}
+			else 
+			{
+				NSLog(@"Temp file size %d does not match expected %d",[data length],byteSizeOptimized);
+				return NO;				
+			}
+		}
+		else
+		{
+			if (!backup) {[fm removeFileAtPath:filePath handler:nil];}
+			
+			if (![fm movePath:filePathOptimized toPath:filePath handler:nil]) 
+			{
+				NSLog(@"Failed to move from %@ to %@",filePathOptimized, filePath);
+				return NO;				
+			}
+		}
+	}
+	@catch(NSException *e)
+	{
+		NSLog(@"Exception thrown %@",e);
+		return NO;
+	}
+	return YES;
 }
 
 -(void)workerHasStarted:(Worker *)worker
@@ -176,7 +244,11 @@
 	{
 		if (byteSize > byteSizeOptimized)
 		{
-			[self setStatus:@"ok"];		
+			if ([self saveResult])
+			{
+				[self setStatus:@"ok"];						
+			}
+			else [self setStatus:@"err"];
 		}
 		else [self setStatus:@"noopt"];	
 	}
@@ -227,7 +299,7 @@
 	NSEnumerator *enu = [runFirst objectEnumerator];
 	Worker *lastWorker = nil;
 	
-	NSLog(@"file %@ has workers first %@ and later %@",self,runFirst,runLater);
+//	NSLog(@"file %@ has workers first %@ and later %@",self,runFirst,runLater);
 		
 	workersTotal = [runFirst count] + [runLater count];
 	workersActive = 0;
@@ -251,7 +323,7 @@
 
 -(void)dealloc
 {
-	NSLog(@"File dealloc %@",self);
+//	NSLog(@"File dealloc %@",self);
 	[self setStatusImage:nil];
 	[self removeOldFilePathOptimized:filePathOptimized];
 	[filePathOptimized release]; filePathOptimized = nil;
@@ -269,7 +341,7 @@
 
 -(void)setStatus:(NSString *)name
 {
-	NSLog(@"status is now %@",name);
+//	NSLog(@"status is now %@",name);
 	NSImage *i;
 	i = [[NSImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForImageResource:name]];
 	[self setStatusImage:i];
@@ -278,13 +350,11 @@
 
 -(void)setStatusImage:(NSImage *)i
 {
-	[lock lock];
 	if (i != statusImage)
 	{
 		[statusImage release];
 		statusImage = [i retain];		
 	}
-	[lock unlock];
 }
 
 -(NSString *)description

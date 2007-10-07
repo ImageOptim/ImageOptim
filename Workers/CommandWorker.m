@@ -67,7 +67,7 @@
 {
 	if (![[NSFileManager defaultManager] isExecutableFileAtPath:path])
 	{
-		NSLog(@"Not executable %@ (launched with %@, btw)",path,arguments);
+//		NSLog(@"Not executable %@ (launched with %@, btw)",path,arguments);
 		return nil;
 	}
 	
@@ -87,7 +87,7 @@
 	[task setEnvironment:environment];		
 
 	
-	NSLog(@"Ready to run %@ %@",path,arguments);
+//	NSLog(@"Ready to run %@ %@",path,arguments);
 	return task;
 }
 
@@ -98,7 +98,7 @@
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"RunLowPriority"])
 	{
 		int pid = [task processIdentifier];
-		NSLog(@"running with lopri %d",pid);
+//		NSLog(@"running with lopri %d",pid);
 		if (pid > 1) setpriority(PRIO_PROCESS, pid, 10);
 	}
 }
@@ -140,7 +140,7 @@
 		return path;
 	}
 	
-	NSLog(@"can't find path of %@",prefsName);
+//	NSLog(@"can't find path of %@",prefsName);
 	
 	[defs setBool:NO forKey:[NSString stringWithFormat:@"%@.Enabled",prefsName]];
 	
