@@ -30,6 +30,7 @@
 -(void)setEnabled:(BOOL)y;
 
 -(void)runAdded;
+-(void)startAgain;
 
 -(IBAction)delete:(id)sender;
 

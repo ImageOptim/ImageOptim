@@ -8,9 +8,9 @@
 
 #import "WorkerQueue.h"
 #import "Worker.h";
+#import "FilesQueue.h";
 
 @implementation WorkerQueue
-
 -(id)initWithMaxWorkers:(int)max
 {
 	if (self = [self init])
@@ -42,6 +42,34 @@
 	res = [runningWorkers count]==0 && [queuedWorkers count]==0;
 	[workersLock unlock];
 	return res;
+}
+
+
+-(void)removeWorkersOf:(File *)file
+{
+	[workersLock lock];	
+	NSEnumerator *enu;
+	Worker *w;
+	NSMutableArray *toRemove = [NSMutableArray new];
+	
+	enu = [runningWorkers objectEnumerator];
+	while(w = [enu nextObject])
+		if ([w isRelatedTo:file])
+			[toRemove addObject:file];
+	
+	[runningWorkers removeObjectsInArray:toRemove];
+	
+	enu = [queuedWorkers objectEnumerator];
+	while(w = [enu nextObject])
+		if ([w isRelatedTo:file])
+			[toRemove addObject:file];
+	
+	[queuedWorkers removeObjectsInArray:toRemove];
+	
+	[workersLock unlock];
+	
+	
+
 }
 
 -(void)runWorkers

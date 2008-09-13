@@ -11,11 +11,11 @@
 	<key>AdvPng.Path</key>
 	<string>/usr/bin/advpng</string>
 	<key>BackupFiles</key>
-	<true/>
+	<false/>
 	<key>JpegOptim.Bundle</key>
-	<false/>
+	<true/>
 	<key>JpegOptim.Enabled</key>
-	<false/>
+	<true/>
 	<key>JpegOptim.MaxQuality</key>
 	<real>99</real>
 	<key>JpegOptim.Path</key>

@@ -16,6 +16,11 @@
 	return nil;
 }
 
+-(BOOL)isRelatedTo:(File *)f
+{
+	return NO;
+}
+
 -(void)run
 {
 //	NSLog(@"Run and did nothing %@",[self className]);

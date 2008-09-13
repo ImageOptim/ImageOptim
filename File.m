@@ -12,6 +12,7 @@
 #import "PngoutWorker.h"
 #import "OptiPngWorker.h"
 #import "PngCrushWorker.h"
+#import "JpegoptimWorker.h"
 
 @implementation File
 
@@ -22,6 +23,10 @@
 		[self setFilePath:name];
 		[self setStatus:@"wait"];
 		lock = [NSLock new];
+		
+		workersTotal = 0;
+		workersActive = 0;
+		workersFinished = 0;
 //		NSLog(@"Created new");
 	}
 	return self;	
@@ -36,8 +41,7 @@
 
 -(NSString *)filePath
 {
-	if (filePath) return filePath;
-	return @"/tmp/!none!";
+	return filePath;
 }
 
 
@@ -136,7 +140,7 @@
 -(void)setFilePathOptimized:(NSString *)path size:(long)size
 {
 	NSString *oldFile = nil;
-	
+	NSLog(@"set opt %@ %d in %@ %d",path,size,filePathOptimized,byteSizeOptimized);
 	[lock lock];
 	if (size <= byteSizeOptimized)
 	{
@@ -156,6 +160,12 @@
 
 -(BOOL)saveResult
 {
+	if (!filePathOptimized) 
+	{
+		NSLog(@"WTF? save without filePathOptimized? for %@", filePath);
+		return NO;
+	}
+	
 	@try
 	{
 		NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
@@ -199,7 +209,7 @@
 			}
 			else 
 			{
-				NSLog(@"Temp file size %d does not match expected %d",[data length],byteSizeOptimized);
+				NSLog(@"Temp file size %d does not match expected %d in %@ for %@",[data length],byteSizeOptimized,filePathOptimized,filePath);
 				return NO;				
 			}
 		}
@@ -238,6 +248,7 @@
 	
 	if (!byteSize || !byteSizeOptimized)
 	{
+		NSLog(@"worker %@ finished, but result file has 0 size",worker);
 		[self setStatus:@"err"];
 	}
 	else if (workersFinished == workersTotal)
@@ -248,7 +259,11 @@
 			{
 				[self setStatus:@"ok"];						
 			}
-			else [self setStatus:@"err"];
+			else 
+			{
+				NSLog(@"saveResult failed");
+				[self setStatus:@"err"];				
+			}
 		}
 		else [self setStatus:@"noopt"];	
 	}
@@ -259,6 +274,29 @@
 	[lock unlock];
 }
 
+-(BOOL)isPNG
+{
+	if ([filePath hasSuffix:@".png"] || [filePath hasSuffix:@".PNG"])
+	{
+		return YES;
+	}
+	if ([filePath hasSuffix:@".jpg"] || [filePath hasSuffix:@".JPEG"])
+	{
+		return NO;
+	}
+	
+	NSFileHandle *fh = [NSFileHandle fileHandleForReadingAtPath:filePath];
+	char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
+	NSData *data = [fh readDataOfLength:sizeof(pngheader)];
+	[fh closeFile];
+
+	if (0==memcmp([data bytes], pngheader, sizeof(pngheader)))
+	{
+		return YES;
+	}
+	return NO;
+}
+
 -(void)enqueueWorkersInQueue:(WorkerQueue *)queue
 {
 	Worker *w = NULL;
@@ -267,32 +305,43 @@
 		
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	
-	if ([defs boolForKey:@"PngCrush.Enabled"])
+	if ([self isPNG])
 	{
-		w = [[PngCrushWorker alloc] initWithFile:self];
-		if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
-		else [runLater addObject:w];
-		[w release];
+		NSLog(@"%@ is png",filePath);
+		if ([defs boolForKey:@"PngCrush.Enabled"])
+		{
+			w = [[PngCrushWorker alloc] initWithFile:self];
+			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
+			else [runLater addObject:w];
+			[w release];
+		}
+		if ([defs boolForKey:@"PngOut.Enabled"])
+		{
+			w = [[PngoutWorker alloc] initWithFile:self];
+			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
+			else [runLater addObject:w];
+			[w release];		
+		}
+		if ([defs boolForKey:@"OptiPng.Enabled"])
+		{
+			w = [[OptiPngWorker alloc] initWithFile:self];
+			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
+			else [runLater addObject:w];
+			[w release];		
+		}
+		if ([defs boolForKey:@"AdvPng.Enabled"])
+		{
+			w = [[AdvCompWorker alloc] initWithFile:self];
+			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
+			else [runLater addObject:w];
+			[w release];
+		}
 	}
-	if ([defs boolForKey:@"PngOut.Enabled"])
+	else if ([defs boolForKey:@"JpegOptim.Enabled"])
 	{
-		w = [[PngoutWorker alloc] initWithFile:self];
-		if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
-		else [runLater addObject:w];
-		[w release];		
-	}
-	if ([defs boolForKey:@"OptiPng.Enabled"])
-	{
-		w = [[OptiPngWorker alloc] initWithFile:self];
-		if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
-		else [runLater addObject:w];
-		[w release];		
-	}
-	if ([defs boolForKey:@"AdvPng.Enabled"])
-	{
-		w = [[AdvCompWorker alloc] initWithFile:self];
-		if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
-		else [runLater addObject:w];
+		NSLog(@"%@ is jpeg",filePath);
+		w = [[JpegoptimWorker alloc] initWithFile:self];
+		[runLater addObject:w];
 		[w release];
 	}
 	
@@ -301,10 +350,9 @@
 	
 //	NSLog(@"file %@ has workers first %@ and later %@",self,runFirst,runLater);
 		
-	workersTotal = [runFirst count] + [runLater count];
-	workersActive = 0;
-	workersFinished = 0;
-	
+	workersTotal += [runFirst count] + [runLater count];
+
+		
 	while(w = [enu nextObject])
 	{
 		[queue addWorker:w after:lastWorker];
@@ -319,6 +367,13 @@
 	
 	[runFirst release];
 	[runLater release];
+	
+	if (!workersTotal) 
+	{
+		NSLog(@"all relevant tools are unavailable/disabled - nothing to do!");
+		[self setStatus:@"err"];
+		NSBeep();		
+	}	
 }
 
 -(void)dealloc
@@ -337,6 +392,12 @@
 -(NSImage *)statusImage
 {
 	return statusImage;
+}
+
+
+-(BOOL)isBusy
+{
+	return workersActive || workersTotal != workersFinished;
 }
 
 -(void)setStatus:(NSString *)name

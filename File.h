@@ -27,7 +27,11 @@
 	int workersActive;
 	int workersFinished;
 	int workersTotal;
+	
+	BOOL isBusy;
 }
+
+-(BOOL)isBusy;
 
 -(void)enqueueWorkersInQueue:(WorkerQueue *)queue;
 

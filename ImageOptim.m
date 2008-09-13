@@ -1,6 +1,7 @@
 #import "ImageOptim.h"
 #import "FilesQueue.h"
 #import "Worker.h"
+#import "PrefsController.h"
 #include <mach/mach_host.h>
 #include <mach/host_info.h>
 
@@ -58,6 +59,11 @@
     [filesQueue addFilePath:path dirs:YES];
 	[filesQueue runAdded];
 	return YES;
+}
+
+- (IBAction)startAgain:(id)sender
+{
+	[filesQueue startAgain];
 }
 
 - (IBAction)showPrefs:(id)sender

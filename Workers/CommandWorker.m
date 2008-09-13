@@ -21,6 +21,11 @@
 	return self;
 }
 
+-(BOOL)isRelatedTo:(File *)f
+{
+	return (f == file);
+}
+
 -(BOOL)parseLine:(NSString *)line
 {
 	/* stub */

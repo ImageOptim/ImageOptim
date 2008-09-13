@@ -110,6 +110,24 @@
 	[w release];
 }
 
+/** filesControllerLock must be locked before using this
+	That's a dumb linear search. Would be nice to replace NSArray with NSSet or NSHashTable.
+ */
+-(File *)findFileByPath:(NSString *)path
+{
+	NSArray *array = [filesController content];
+	NSEnumerator *enu = [array objectEnumerator];
+	File *f;
+	while(f = [enu nextObject])
+	{
+		if ([path isEqualToString:[f filePath]])
+		{
+			return f;
+		}
+	}
+	return nil;
+}
+
 -(void)addFilePath:(NSString *)path dirs:(BOOL)useDirs
 {	
 	if (![self enabled]) return;
@@ -117,7 +135,7 @@
 	BOOL isDir;
 	
 	if ([[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir])
-	{
+	{		
 		if (!isDir)
 		{
 			if ([path characterAtIndex:[path length]-1] == '~')
@@ -126,15 +144,23 @@
 				return;
 			}
 			
-			File *f = [[File alloc] initWithFilePath:path];
+			File *f;
 			
 			[filesControllerLock lock];
-
-			[filesController addObject:f];
-			[f enqueueWorkersInQueue:workerQueue];
+			
+			if (f = [self findFileByPath:path])
+			{
+				if (![f isBusy]) [f enqueueWorkersInQueue:workerQueue];
+			}
+			else
+			{
+				f = [[File alloc] initWithFilePath:path];
+				[filesController addObject:f];
+				[f enqueueWorkersInQueue:workerQueue];
+				[f release];					
+			}
 			
 			[filesControllerLock unlock];
-			[f release];					
 		}
 		else if (useDirs)
 		{
@@ -149,6 +175,31 @@
 	[workerQueue runWorkers];
 
 	[self updateProgressbar];
+}
+
+-(void)startAgain
+{
+	[filesControllerLock lock];
+	
+	NSArray *array = [filesController content];
+	NSEnumerator *enu = [array objectEnumerator];
+	File *f;
+	
+	BOOL anyStarted = NO;
+	while(f = [enu nextObject])
+	{
+		if (![f isBusy]) 
+		{
+			[f enqueueWorkersInQueue:workerQueue];
+			anyStarted = YES;
+		}
+	}
+	
+	[filesControllerLock unlock];
+	
+	if (!anyStarted) NSBeep();
+	
+	[self runAdded];
 }
 
 -(void)workersHaveFinished:(WorkerQueue *)q

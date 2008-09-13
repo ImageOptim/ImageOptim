@@ -19,13 +19,17 @@
 	if (!executable) return;
 	
 	NSString *temp = [self tempPath:@"JpegOptim"];
-	//	NSLog(@"temp file for opti: %@",temp);
 	
 	NSTask *task = [self taskWithPath:executable arguments:[NSArray arrayWithObjects: @"--strip-all",@"-q",@"--",temp,nil]];
 	
+	if (![fm copyPath:[file filePath] toPath:temp handler:nil])
+	{
+		NSLog(@"Can't make temp copy of %@ in %@",[file filePath],temp);
+	}
+	
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];		
-	/*
+	
 	[task setStandardOutput: commandPipe];	
 	[task setStandardError: commandPipe];	
 	
@@ -41,26 +45,25 @@
 	{
 		[file setFilePathOptimized:temp	size:fileSizeOptimized];
 	}
-	//else NSLog(@"Advpng failed");
-	*/
+	
 	[task release];
 }
 
 -(BOOL)parseLine:(NSString *)line
 {
-/*	NSScanner *scan = [NSScanner scannerWithString:line];
-	
-	int original,optimized;
-	
-	if ([scan scanInt:&original] && [scan scanInt:&optimized])
-	{		
-		fileSizeOptimized = optimized;
-		//		NSLog(@"advcomp returned %d vs %d",original,optimized);
-		[file setByteSize:original];
-		[file setByteSizeOptimized:optimized];
-		return YES;		
+	int size;
+	if (size = [self readNumberAfter:@" [OK] " inLine:line])
+	{
+		NSLog(@"File size %d",size);
+		[file setByteSize:size];
 	}
-	//	NSLog(@"adv: Dunno what is %@",line);*/
+	if (size = [self readNumberAfter:@" --> " inLine:line])
+	{
+		NSLog(@"File size optimized %d",size);
+		[file setByteSizeOptimized:size];
+		fileSizeOptimized = size;
+		return YES;
+	}
 	return NO;
 }
 

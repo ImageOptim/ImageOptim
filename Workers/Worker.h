@@ -8,10 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 #import "WorkerQueue.h";
+#import "File.h";
 
 @interface Worker : NSObject {
 	Worker *dependsOn;
 }
+
+-(BOOL)isRelatedTo:(File *)f;
 
 -(BOOL)makesNonOptimizingModifications;
 

@@ -23,7 +23,7 @@
 	
 	if (![fm copyPath:[file filePath] toPath:temp handler:nil])
 	{
-//		NSLog(@"Can't make temp copy of %@ in %@",[file filePath],temp);
+		NSLog(@"Can't make temp copy of %@ in %@",[file filePath],temp);
 	}
 	
 	NSTask *task = [self taskWithPath:executable arguments:[NSArray arrayWithObjects: @"-z",@"--",temp,nil]];

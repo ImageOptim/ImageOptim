@@ -7,10 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CommandWorker.h"
 
-
-@interface JpegoptimWorker : NSObject {
-
+@interface JpegoptimWorker : CommandWorker {
+	int fileSizeOptimized;
 }
 
 @end
