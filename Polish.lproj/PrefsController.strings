@@ -66,10 +66,10 @@
 "805.title" = "Zrób kopię zapasową przed zapisywaniem";
 
 /* Class = "NSTextFieldCell"; title = "Number of tasks run at once"; ObjectID = "806"; */
-"806.title" = "Liczba równoległych procesów";
+"806.title" = "Równoległych procesów";
 
 /* Class = "NSButtonCell"; title = "Run tasks with lower priority"; ObjectID = "807"; */
-"807.title" = "Uruchamiaj procesy z niskim priorytetem";
+"807.title" = "Niski priorytet procesów";
 
 /* Class = "NSTextFieldCell"; title = "For best performance set to more than number of CPUs (cores)"; ObjectID = "808"; */
 "808.title" = "Najlepszy rezultat daje ustawienie powyżej liczby rdzeni procesorów";
@@ -135,7 +135,7 @@
 "838.title" = "Ścieżka PNGCrush";
 
 /* Class = "NSButtonCell"; title = "Try fixing damaged files"; ObjectID = "839"; */
-"839.title" = "Próbuj naprawiać uszkodzone pliki";
+"839.title" = "Próbuj naprawić uszkodzone pliki";
 
 /* Class = "NSTextFieldCell"; title = "Remove chunks"; ObjectID = "840"; */
 "840.title" = "Usuń chunki";
