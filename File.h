@@ -55,4 +55,8 @@
 -(void)setStatus:(NSString *)name;
 -(NSImage *)statusImage;
 -(void)setStatusImage:(NSImage *)i;
+
+
++(long)fileByteSize:(NSString *)afile;
+
 @end

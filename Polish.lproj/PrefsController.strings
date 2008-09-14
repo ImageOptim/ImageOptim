@@ -1,0 +1,243 @@
+﻿
+/* Class = "NSWindow"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+"5.title" = "Preferencje ImageOptim";
+
+/* Class = "NSTabViewItem"; label = "General"; ObjectID = "167"; */
+"167.label" = "Ogólne";
+
+/* Class = "NSTabViewItem"; label = "AdvPNG"; ObjectID = "168"; */
+"168.label" = "AdvPNG";
+
+/* Class = "NSTabViewItem"; label = "OptiPNG"; ObjectID = "171"; */
+"171.label" = "OptiPNG";
+
+/* Class = "NSTabViewItem"; label = "PNGCrush"; ObjectID = "173"; */
+"173.label" = "PNGCrush";
+
+/* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
+"175.label" = "PNGOUT";
+
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
+
+/* Class = "NSTableColumn"; headerCell.title = "Chunk name"; ObjectID = "204"; */
+"204.headerCell.title" = "Nazwa Chunku";
+
+/* Class = "NSButton"; gToolTip = "Remove Gamma-related chunks"; ObjectID = "219"; */
+"219.gToolTip" = "Remove Gamma-related chunks";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "235"; */
+"235.title" = "Box";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "237"; */
+"237.title" = "Box";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "239"; */
+"239.title" = "Box";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "253"; */
+"253.title" = "Box";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "267"; */
+"267.title" = "Box";
+
+/* Class = "NSBox"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "Zapisywanie na dysk";
+
+/* Class = "NSBox"; title = "CPU usage"; ObjectID = "282"; */
+"282.title" = "Użycie CPU";
+
+/* Class = "NSBox"; title = "Title"; ObjectID = "289"; */
+"289.title" = "Title";
+
+/* Class = "NSBox"; title = "Title"; ObjectID = "291"; */
+"291.title" = "Title";
+
+/* Class = "IBBindingConnection"; designableIsNilPlaceholder = "Chunk name"; ObjectID = "570"; */
+"570.designableIsNilPlaceholder" = "Nazwa chunku";
+
+/* Class = "IBBindingConnection"; designableNotApplicablePlaceholder = "N/A"; ObjectID = "570"; */
+"570.designableNotApplicablePlaceholder" = "N/A";
+
+/* Class = "NSButtonCell"; title = "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "Zachowaj uprawnienia plików, atrybuty i linki";
+
+/* Class = "NSButtonCell"; title = "Backup original files before saving"; ObjectID = "805"; */
+"805.title" = "Zrób kopię zapasową przed zapisywaniem";
+
+/* Class = "NSTextFieldCell"; title = "Number of tasks run at once"; ObjectID = "806"; */
+"806.title" = "Liczba równoległych procesów";
+
+/* Class = "NSButtonCell"; title = "Run tasks with lower priority"; ObjectID = "807"; */
+"807.title" = "Uruchamiaj procesy z niskim priorytetem";
+
+/* Class = "NSTextFieldCell"; title = "For best performance set to more than number of CPUs (cores)"; ObjectID = "808"; */
+"808.title" = "Najlepszy rezultat daje ustawienie powyżej liczby rdzeni procesorów";
+
+/* Class = "NSTextFieldCell"; title = "2"; ObjectID = "809"; */
+"809.title" = "2";
+
+/* Class = "NSTextFieldCell"; title = "AdvPNG path"; ObjectID = "814"; */
+"814.title" = "Ścieżka AdvPNG";
+
+/* Class = "NSButtonCell"; title = "Browse"; ObjectID = "815"; */
+"815.title" = "Przeglądaj";
+
+/* Class = "NSButtonCell"; title = "Use built-in version"; ObjectID = "816"; */
+"816.title" = "Użyj wbudowanej wersji";
+
+/* Class = "NSTextFieldCell"; title = "Optimisation level"; ObjectID = "818"; */
+"818.title" = "Poziom optymalizacji";
+
+/* Class = "NSTextFieldCell"; title = "Fast"; ObjectID = "819"; */
+"819.title" = "Szybki";
+
+/* Class = "NSTextFieldCell"; title = "Insane"; ObjectID = "820"; */
+"820.title" = "Szalony";
+
+/* Class = "NSTextFieldCell"; title = "Normal"; ObjectID = "821"; */
+"821.title" = "Normalny";
+
+/* Class = "NSTextFieldCell"; title = "Extra"; ObjectID = "822"; */
+"822.title" = "Extra";
+
+/* Class = "NSButtonCell"; title = "Enabled"; ObjectID = "824"; */
+"824.title" = "Włączony";
+
+/* Class = "NSTextFieldCell"; title = "OptiPNG path"; ObjectID = "826"; */
+"826.title" = "Ścieżka OptiPNG";
+
+/* Class = "NSButtonCell"; title = "Browse"; ObjectID = "827"; */
+"827.title" = "Przeglądaj";
+
+/* Class = "NSButtonCell"; title = "Make images interlaced (progressive)"; ObjectID = "828"; */
+"828.title" = "Stwórz grafiki z przeplotem (progresywne)";
+
+/* Class = "NSTextFieldCell"; title = "Optimisation level"; ObjectID = "829"; */
+"829.title" = "Poziom optymalizacji";
+
+/* Class = "NSButtonCell"; title = "Use built-in version"; ObjectID = "830"; */
+"830.title" = "Użyj wbudowanej wersji";
+
+/* Class = "NSTextFieldCell"; title = "Interlaced files are usually larger"; ObjectID = "831"; */
+"831.title" = "Pliki z przeplotem są większe";
+
+/* Class = "NSTextFieldCell"; title = "24 trials"; ObjectID = "833"; */
+"833.title" = "24 próby";
+
+/* Class = "NSTextFieldCell"; title = "240 trials"; ObjectID = "834"; */
+"834.title" = "240 prób";
+
+/* Class = "NSButtonCell"; title = "Enabled"; ObjectID = "836"; */
+"836.title" = "Enabled";
+
+/* Class = "NSTextFieldCell"; title = "PNGCrush path"; ObjectID = "838"; */
+"838.title" = "Ścieżka PNGCrush";
+
+/* Class = "NSButtonCell"; title = "Try fixing damaged files"; ObjectID = "839"; */
+"839.title" = "Próbuj naprawiać uszkodzone pliki";
+
+/* Class = "NSTextFieldCell"; title = "Remove chunks"; ObjectID = "840"; */
+"840.title" = "Usuń chunki";
+
+/* Class = "NSButtonCell"; title = "Add"; ObjectID = "841"; */
+"841.title" = "Dodaj";
+
+/* Class = "NSButtonCell"; title = "Remove"; ObjectID = "842"; */
+"842.title" = "Usuń";
+
+/* Class = "NSTextFieldCell"; title = "Names are \ncase-sensitive"; ObjectID = "843"; */
+"843.title" = "Wielkośc liter \njest ważna";
+
+/* Class = "NSButtonCell"; alternateTitle = "Gamma"; ObjectID = "844"; */
+"844.alternateTitle" = "Gamma";
+
+/* Class = "NSButtonCell"; title = "γ"; ObjectID = "844"; */
+"844.title" = "γ";
+
+/* Class = "NSButtonCell"; title = "Browse"; ObjectID = "845"; */
+"845.title" = "Przeglądaj";
+
+/* Class = "NSButtonCell"; title = "Use built-in version"; ObjectID = "846"; */
+"846.title" = "Użyj wbudowanej wersji";
+
+/* Class = "NSButtonCell"; title = "Enabled"; ObjectID = "848"; */
+"848.title" = "Włączony";
+
+/* Class = "NSTextFieldCell"; title = "Web browsers require gamma to be removed"; ObjectID = "849"; */
+"849.title" = "Przeglądarki wymagają usunięcia gammy";
+
+/* Class = "NSTextFieldCell"; title = "(PNGCrush is redundant when using PNGOUT)"; ObjectID = "850"; */
+"850.title" = "(PNGCrush jest zbędny przy użyciu PNGOUT)";
+
+/* Class = "NSTextFieldCell"; title = "PNGOUT path"; ObjectID = "852"; */
+"852.title" = "Ścieżka PNGOUT";
+
+/* Class = "NSButtonCell"; title = "Browse"; ObjectID = "853"; */
+"853.title" = "Przeglądaj";
+
+/* Class = "NSButtonCell"; title = "Remove all optional chunks"; ObjectID = "854"; */
+"854.title" = "Usuń wszystkie opcjonalne chunki";
+
+/* Class = "NSTextFieldCell"; title = "Optimisation type"; ObjectID = "856"; */
+"856.title" = "Typ optymalizacji";
+
+/* Class = "NSTextFieldCell"; title = "Simple"; ObjectID = "857"; */
+"857.title" = "Prosty";
+
+/* Class = "NSTextFieldCell"; title = "Xtreme"; ObjectID = "858"; */
+"858.title" = "Xtremalny";
+
+/* Class = "NSButtonCell"; title = "Use built-in version (not available, see Help menu)"; ObjectID = "859"; */
+"859.title" = "Użyj wbudowanej wersji (brak, zobacz Pomoc)";
+
+/* Class = "NSTextFieldCell"; title = "Intense"; ObjectID = "860"; */
+"860.title" = "Itensywny";
+
+/* Class = "NSTextFieldCell"; title = "Longest match"; ObjectID = "861"; */
+"861.title" = "Długi ciąg";
+
+/* Class = "NSButtonCell"; title = "Try various different filters"; ObjectID = "862"; */
+"862.title" = "Spróbuj kilka różnych filtrów";
+
+/* Class = "NSButtonCell"; title = "Enabled"; ObjectID = "864"; */
+"864.title" = "Włączony";
+
+/* Class = "NSTextFieldCell"; title = "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+"865.title" = "Przeglądarki wymagają usunięcia gammy";
+
+/* Class = "NSTextFieldCell"; title = "JPEGOptim path"; ObjectID = "867"; */
+"867.title" = "Ścieżka JPEGOptim";
+
+/* Class = "NSTextFieldCell"; title = "Maximum quality"; ObjectID = "868"; */
+"868.title" = "Maksymalna jakość";
+
+/* Class = "NSButtonCell"; title = "Strip Comments from files"; ObjectID = "869"; */
+"869.title" = "Usuń komentarze z plików";
+
+/* Class = "NSButtonCell"; title = "Strip EXIF markers from files"; ObjectID = "870"; */
+"870.title" = "Usuń znaczniki EXIF z plików";
+
+/* Class = "NSButtonCell"; title = "Browse"; ObjectID = "871"; */
+"871.title" = "Przeglądaj";
+
+/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
+"872.title" = "-100%";
+
+/* Class = "NSButtonCell"; title = "Use built-in version"; ObjectID = "873"; */
+"873.title" = "Użyj wbudowanej wersji";
+
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
+"876.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
+
+/* Class = "NSButtonCell"; title = "Enabled"; ObjectID = "879"; */
+"879.title" = "Włączony";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "880"; */
+"880.title" = "Text Cell";

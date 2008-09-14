@@ -180,8 +180,10 @@
 -(void)startAgain
 {
 	[filesControllerLock lock];
-	
-	NSArray *array = [filesController content];
+
+	NSArray *array = [filesController selectedObjects];
+	if (![array count]) array = [filesController content];
+
 	NSEnumerator *enu = [array objectEnumerator];
 	File *f;
 	

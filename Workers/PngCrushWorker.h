@@ -15,6 +15,4 @@
 }
 
 -(BOOL)makesNonOptimizingModifications;
-
--(long)fileByteSize:(NSString *)file;
 @end

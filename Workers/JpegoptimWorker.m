@@ -54,12 +54,12 @@
 	int size;
 	if (size = [self readNumberAfter:@" [OK] " inLine:line])
 	{
-		NSLog(@"File size %d",size);
+		//NSLog(@"File size %d",size);
 		[file setByteSize:size];
 	}
 	if (size = [self readNumberAfter:@" --> " inLine:line])
 	{
-		NSLog(@"File size optimized %d",size);
+		//NSLog(@"File size optimized %d",size);
 		[file setByteSizeOptimized:size];
 		fileSizeOptimized = size;
 		return YES;

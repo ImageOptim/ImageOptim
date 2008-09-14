@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
@@ -72,6 +72,10 @@
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>Help</string>
+	<key>CFBundleHelpBookName</key>
+	<string>ImageOptim Help</string>
 	<key>CFBundleIconFile</key>
 	<string>crusher</string>
 	<key>CFBundleIdentifier</key>
@@ -85,15 +89,10 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	
-	<key>CFBundleHelpBookFolder</key>
-	<string>Help</string>
-	<key>CFBundleHelpBookName</key>
-	<string>ImageOptim Help</string>
-	</dict>
-	</plist>
+</dict>
+</plist>

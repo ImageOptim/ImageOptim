@@ -140,7 +140,7 @@
 -(void)setFilePathOptimized:(NSString *)path size:(long)size
 {
 	NSString *oldFile = nil;
-	NSLog(@"set opt %@ %d in %@ %d",path,size,filePathOptimized,byteSizeOptimized);
+	//NSLog(@"set opt %@ %d in %@ %d",path,size,filePathOptimized,byteSizeOptimized);
 	[lock lock];
 	if (size <= byteSizeOptimized)
 	{
@@ -229,6 +229,7 @@
 		NSLog(@"Exception thrown %@",e);
 		return NO;
 	}
+	
 	return YES;
 }
 
@@ -299,6 +300,10 @@
 
 -(void)enqueueWorkersInQueue:(WorkerQueue *)queue
 {
+	byteSize=0; // reset to allow restart
+	byteSizeOptimized=0;
+	[self setByteSize:[File fileByteSize:filePath]];
+	
 	Worker *w = NULL;
 	NSMutableArray *runFirst = [NSMutableArray new];
 	NSMutableArray *runLater = [NSMutableArray new];
@@ -307,7 +312,7 @@
 	
 	if ([self isPNG])
 	{
-		NSLog(@"%@ is png",filePath);
+		//NSLog(@"%@ is png",filePath);
 		if ([defs boolForKey:@"PngCrush.Enabled"])
 		{
 			w = [[PngCrushWorker alloc] initWithFile:self];
@@ -339,7 +344,7 @@
 	}
 	else if ([defs boolForKey:@"JpegOptim.Enabled"])
 	{
-		NSLog(@"%@ is jpeg",filePath);
+		//NSLog(@"%@ is jpeg",filePath);
 		w = [[JpegoptimWorker alloc] initWithFile:self];
 		[runLater addObject:w];
 		[w release];
@@ -423,4 +428,13 @@
 	NSString *s = [NSString stringWithFormat:@"%@ %d/%d", filePath,byteSize,byteSizeOptimized];
 	return s;
 }
+
+
++(long)fileByteSize:(NSString *)afile
+{
+	NSDictionary *attr = [[NSFileManager defaultManager] fileAttributesAtPath:afile traverseLink:NO];
+	if (attr) return [[attr objectForKey:NSFileSize] longValue];
+	return 0;
+}
+
 @end

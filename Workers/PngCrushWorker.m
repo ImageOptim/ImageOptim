@@ -13,8 +13,6 @@
 
 -(void)run
 {
-	if (![file byteSize]) [file setByteSize:[self fileByteSize:[file filePath]]];
-	
 	NSString *temp = [self tempPath:@"PngCrush"];
 //	NSLog(@"temp file for crush: %@",temp);
 	
@@ -40,7 +38,7 @@
 	if (![task terminationStatus])
 	{
 		long fileSizeOptimized;
-		if (fileSizeOptimized = [self fileByteSize:temp])
+		if (fileSizeOptimized = [File fileByteSize:temp])
 		{
 			[file setFilePathOptimized:temp	size:fileSizeOptimized];			
 		}
@@ -50,17 +48,10 @@
 	[task autorelease];
 }
 
--(long)fileByteSize:(NSString *)afile
-{
-	NSDictionary *attr = [[NSFileManager defaultManager] fileAttributesAtPath:afile traverseLink:NO];
-	if (attr) return [[attr objectForKey:NSFileSize] longValue];
-	return 0;
-}
-
 -(BOOL)parseLine:(NSString *)line
 {
 	int res;
-	NSLog(line);
+	//NSLog(line);
 	if ((res = [self readNumberAfter:@")=    " inLine:line]) || (res = [self readNumberAfter:@"IDAT chunks   =    " inLine:line]))
 	{	
 		if (!firstIdatSize)
