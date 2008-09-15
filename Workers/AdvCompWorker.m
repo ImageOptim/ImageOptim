@@ -14,19 +14,19 @@
 -(void)run
 {
 	NSFileManager *fm = [NSFileManager defaultManager];
-	
-	NSString *executable = [self executablePathForKey:@"AdvPng" bundleName:@"advpng"];	
-	if (!executable) return;
-
 	NSString *temp = [self tempPath:@"AdvPng"];
-//	NSLog(@"temp file for opti: %@",temp);
 	
 	if (![fm copyPath:[file filePath] toPath:temp handler:nil])
 	{
 		NSLog(@"Can't make temp copy of %@ in %@",[file filePath],temp);
 	}
 	
-	NSTask *task = [self taskWithPath:executable arguments:[NSArray arrayWithObjects: @"-z",@"--",temp,nil]];
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];	
+	int level = [defaults integerForKey:@"AdvPng.Level"];
+	
+	NSTask *task = [self taskForKey:@"AdvPng" bundleName:@"advpng" 
+						  arguments:[NSArray arrayWithObjects: [NSString stringWithFormat:@"-%d",level ? level : 4],@"-z",@"--",temp,nil]];
+	if (!task) return;
 	
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];		

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>AdvPng.Bundle</key>
@@ -17,7 +17,7 @@
 	<key>JpegOptim.Enabled</key>
 	<true/>
 	<key>JpegOptim.MaxQuality</key>
-	<real>99</real>
+	<integer>100</integer>
 	<key>JpegOptim.Path</key>
 	<string>/sw/bin/jpegoptim</string>
 	<key>JpegOptim.StripComments</key>
@@ -62,7 +62,7 @@
 	<key>PngOut.Enabled</key>
 	<false/>
 	<key>PngOut.Level</key>
-	<real>3</real>
+	<integer>3</integer>
 	<key>PngOut.Path</key>
 	<string>/usr/bin/pngout-darwin</string>
 	<key>PngOut.RemoveChunks</key>

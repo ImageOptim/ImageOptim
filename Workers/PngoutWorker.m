@@ -15,16 +15,32 @@
 {
 //	NSLog(@"PNGOUT running");
 	NSString *temp = [self tempPath:@"PngOut"];
-	NSString *executable = [self executablePathForKey:@"PngOut" bundleName:@"pngout"];	
-	if (!executable) return;
+		
+	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",@"--",[file filePath],@"-",nil];
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
-	NSTask *task = [self taskWithPath:executable arguments:[NSArray arrayWithObjects: @"-v",@"--",[file filePath],@"-",nil]];
+	if ([defaults boolForKey:@"PngOut.TryFilters"])
+	{
+		[args insertObject:@"-r" atIndex:0];
+	}
 	
+	int level = 3-[defaults integerForKey:@"PngOut.Level"];
+	if (level)
+	{
+		[args insertObject:[NSString stringWithFormat:@"-s%d",level] atIndex:0];
+	}
+	
+	if (![defaults boolForKey:@"PngOut.RemoveChunks"])
+	{
+		[args insertObject:@"-k1" atIndex:0];
+	}
+	
+	NSTask *task = [self taskForKey:@"PngOut" bundleName:@"pngout" arguments:args];	
 	if (!task) return;
 	
 	if (![[NSFileManager defaultManager] createFileAtPath:temp contents:[NSData data] attributes:nil])
 	{	
-//		NSLog(@"Cant create %@",temp);
+		NSLog(@"Cant create %@",temp);
 	}
 		
 	NSFileHandle *fileOutputHandle = [NSFileHandle fileHandleForWritingAtPath:temp];

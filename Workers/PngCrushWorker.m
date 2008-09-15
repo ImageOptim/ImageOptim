@@ -14,12 +14,30 @@
 -(void)run
 {
 	NSString *temp = [self tempPath:@"PngCrush"];
-//	NSLog(@"temp file for crush: %@",temp);
-	
-	NSString *executable = [self executablePathForKey:@"PngCrush" bundleName:@"pngcrush"];	
-	if (!executable) return;
 
-	NSTask *task = [self taskWithPath:executable arguments:[NSArray arrayWithObjects:@"-cc",@"--",[file filePath],temp,nil]];
+	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-brute",@"-cc",@"--",[file filePath],temp,nil];
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	NSArray *chunks = [defaults arrayForKey:@"PngCrush.Chunks"];
+	NSEnumerator *enu = [chunks objectEnumerator];
+	NSDictionary *dict;
+	while(dict = [enu nextObject])
+	{
+		NSString *name = [dict objectForKey:@"name"];
+		if (name)
+		{
+			[args insertObject:name atIndex:0];
+			[args insertObject:@"-rem" atIndex:0];
+		}
+	}
+	
+	if ([defaults boolForKey:@"PngCrush.Fix"])
+	{
+		[args insertObject:@"-fix" atIndex:0];
+	}
+
+	NSTask *task = [self taskForKey:@"PngCrush" bundleName:@"pngcrush" arguments:args];
+	if (!task) return;
 	
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];		

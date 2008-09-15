@@ -73,6 +73,8 @@
 	NSTask *task;
 	task = [[NSTask alloc] init];
 	
+	NSLog(@"Launching %@ with %@",path,arguments);
+	
 	[task setLaunchPath: path];
 	[task setArguments: arguments];
 
@@ -127,6 +129,15 @@
 	return 0;
 }
 
+
+-(NSTask *)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args
+{
+	NSString *executable = [self executablePathForKey:key bundleName:resourceName];
+	if (!executable) return nil;
+	
+	return [self taskWithPath:executable arguments:args];	
+}
+
 -(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName
 {
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
@@ -140,7 +151,7 @@
 		}
 		else
 		{
-			NSLog(@"There's no bundled executable for %@ - disabling",prefsName);
+			NSLog(@"There's no bundled executable for %@ at %@ - disabling",prefsName, path);
 			[defs setBool:NO forKey:[NSString stringWithFormat:@"%@.Bundle",prefsName]];
 		}
 	}

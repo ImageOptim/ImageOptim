@@ -14,24 +14,21 @@
 -(void)run
 {	
 	NSString *temp = [self tempPath:@"OptiPng"];
-	NSString *executable = [self executablePathForKey:@"OptiPng" bundleName:@"optipng"];	
-	if (!executable) return;
-	
+		
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-	
-//	NSLog(@"temp file for opti: %@",temp);
-	
+		
 	int optlevel = [defs integerForKey:@"OptiPng.Level"];
+	NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",optlevel ? optlevel : 6],
+							@"-out",temp,@"--",[file filePath],nil];
+
 	int interlace = [defs integerForKey:@"OptiPng.Interlace"];
-
-	NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",optlevel],@"-out",temp,@"--",[file filePath],nil];
-
 	if (interlace != -1)
 	{
-		[args addObject:[NSString stringWithFormat:@"-i%d",interlace]];
-	}
+		[args insertObject:[NSString stringWithFormat:@"-i%d",interlace] atIndex:0];
+	}	
 	
-	NSTask *task = [self taskWithPath:executable arguments:args];
+	NSTask *task = [self taskForKey:@"OptiPng" bundleName:@"optipng" arguments:args];
+	if (!task) return;
 	
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];		

@@ -13,19 +13,41 @@
 
 -(void)run
 {
-	NSFileManager *fm = [NSFileManager defaultManager];
-	
-	NSString *executable = [self executablePathForKey:@"JpegOptim" bundleName:@"jpegoptim"];	
-	if (!executable) return;
-	
+	NSFileManager *fm = [NSFileManager defaultManager];	
 	NSString *temp = [self tempPath:@"JpegOptim"];
-	
-	NSTask *task = [self taskWithPath:executable arguments:[NSArray arrayWithObjects: @"--strip-all",@"-q",@"--",temp,nil]];
 	
 	if (![fm copyPath:[file filePath] toPath:temp handler:nil])
 	{
 		NSLog(@"Can't make temp copy of %@ in %@",[file filePath],temp);
 	}
+
+	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-q",@"--",temp,nil];
+	
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	
+	BOOL comments = [defaults boolForKey:@"JpegOptim.StripComments"];
+	BOOL exif = [defaults boolForKey:@"JpegOptim.StripExif"];
+	
+	if (exif && comments)
+	{
+		[args insertObject:@"--strip-all" atIndex:0];
+	}
+	else if (exif)
+	{
+		[args insertObject:@"--strip-com" atIndex:0];
+	}
+	else if (comments)
+	{
+		[args insertObject:@"--strip-exif" atIndex:0];
+	}
+	
+	int maxquality = [defaults integerForKey:@"JpegOptim.MaxQuality"];
+	if (maxquality > 10 && maxquality < 100)
+	{
+		[args insertObject:[NSString stringWithFormat:@"-m%d",maxquality] atIndex:0];
+	}
+		
+	NSTask *task = [self taskForKey:@"JpegOptim" bundleName:@"jpegoptim" arguments:args];
 	
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];		
