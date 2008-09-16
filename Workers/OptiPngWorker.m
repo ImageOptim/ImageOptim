@@ -55,33 +55,35 @@
 
 -(BOOL)parseLine:(NSString *)line
 {
-//	NSLog(@"### %@",line);
+	//NSLog(@"### %@",line);
 		
 	long res;
 	
 	if ([line length] > 20)
 	{
-		if (res = [self readNumberAfter:@"Input IDAT size = " inLine:line])
+		// idat sizes are totally broken in latest optipng
+		/*if (res = [self readNumberAfter:@"Input IDAT size = " inLine:line])
 		{
 			idatSize = res;
-//			NSLog(@"OptiPng input idat %d",res);
+			NSLog(@"OptiPng input idat %d",res);
 		}
 		else if (res = [self readNumberAfter:@"IDAT size = " inLine:line])
 		{		
 			[file setByteSizeOptimized: fileSize - idatSize + res];
-//			NSLog(@"Idat %d guesstimate %d",res,fileSize - idatSize + res);
+			NSLog(@"Idat %d guesstimate %d",res,fileSize - idatSize + res);
 		}
-		else if (res = [self readNumberAfter:@"Input file size = " inLine:line])
+		else*/
+		if (res = [self readNumberAfter:@"Input file size = " inLine:line])
 		{
 			fileSize = res;
 			[file setByteSize:fileSize];
-//			NSLog(@"OptiPng input file %d",res);
+			//NSLog(@"OptiPng input file %d",res);
 		}
 		else if (res = [self readNumberAfter:@"Output file size = " inLine:line])
 		{
 			fileSizeOptimized = res;
 			[file setByteSizeOptimized:fileSizeOptimized];
-//			NSLog(@"OptiPng output %d",res);
+			//NSLog(@"OptiPng output %d",res);
 
 			return YES;
 		}			
