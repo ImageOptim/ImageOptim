@@ -3,12 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 44;
+	objectVersion = 45;
 	objects = {
+
+/* Begin PBXAggregateTarget section */
+		5ABB9FEC0E8518DA006F51BB /* bzip archive */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 5ABB9FF10E8518FE006F51BB /* Build configuration list for PBXAggregateTarget "bzip archive" */;
+			buildPhases = (
+				5ABB9FEB0E8518DA006F51BB /* ShellScript */,
+			);
+			dependencies = (
+				5ABB9FF00E8518DF006F51BB /* PBXTargetDependency */,
+			);
+			name = "bzip archive";
+			productName = BuildArchive;
+		};
+/* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
 		5A0D2E570C922AB700FD7CDE /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E560C922AB700FD7CDE /* File.m */; };
 		5A0D2E5D0C922D6D00FD7CDE /* ImageOptim.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E5C0C922D6D00FD7CDE /* ImageOptim.m */; };
+		5A0E8E2E0E807751005BCD83 /* jpegoptim in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E5B680CBADD1E00E05D28 /* jpegoptim */; };
 		5A44F4B40CB1868100BD2884 /* PngCrushWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */; };
 		5A44F5840CB2ECEB00BD2884 /* CommandWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */; };
 		5A5C29430CB04A0F00FAF446 /* OptiPngWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5C29420CB04A0F00FAF446 /* OptiPngWorker.m */; };
@@ -162,7 +178,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A9D56BC0E7F242C000F129F /* optipng.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E /* optipng */;
+			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
 			remoteInfo = optipng;
 		};
 		5A9E591C0CB9259200E05D28 /* PBXContainerItemProxy */ = {
@@ -185,6 +201,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5AB7D9FF0CB9003D004A5036;
 			remoteInfo = advpng;
+		};
+		5ABB9FEF0E8518DF006F51BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090 /* ImageOptim */;
+			remoteInfo = ImageOptim;
+		};
+		5ABBA0010E851DFE006F51BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A9D56BC0E7F242C000F129F /* optipng.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E /* optipng */;
+			remoteInfo = optipng;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -879,7 +909,6 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				5AB7D9830CB8F3AF004A5036 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -887,6 +916,7 @@
 				5AB7DC630CB9031A004A5036 /* PBXTargetDependency */,
 				5A9E591D0CB9259200E05D28 /* PBXTargetDependency */,
 				5A9E5B6B0CBADD2B00E05D28 /* PBXTargetDependency */,
+				5ABBA0020E851DFE006F51BB /* PBXTargetDependency */,
 			);
 			name = ImageOptim;
 			productInstallPath = "$(HOME)/Applications";
@@ -903,7 +933,7 @@
 				BuildIndependentTargetsInParallel = YES;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ImageOptim" */;
-			compatibilityVersion = "Xcode 3.0";
+			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -926,6 +956,7 @@
 				5AB7D9FF0CB9003D004A5036 /* advpng */,
 				5A9E58BB0CB9255F00E05D28 /* pngcrush */,
 				5A9E5B670CBADD1E00E05D28 /* jpegoptim */,
+				5ABB9FEC0E8518DA006F51BB /* bzip archive */,
 			);
 		};
 /* End PBXProject section */
@@ -964,16 +995,16 @@
 				5A89A59D0CD67DBC008C04C8 /* advpng in Resources */,
 				5A89A5A30CD67DBC008C04C8 /* pngcrush in Resources */,
 				5AD106FF0E7F247C00178E99 /* optipng in Resources */,
+				5A0E8E2E0E807751005BCD83 /* jpegoptim in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5AB7D9830CB8F3AF004A5036 /* ShellScript */ = {
+		5ABB9FEB0E8518DA006F51BB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			comments = Package;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -982,9 +1013,10 @@
 			outputPaths = (
 				"$(TARGET_BUILD_DIR)/$(PRODUCT_NAME).tbz2",
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "cd \"$BUILT_PRODUCTS_DIR/\" && tar cjf \"$TARGET_BUILD_DIR/$PRODUCT_NAME.tbz2\" \"$PRODUCT_NAME.app\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1162,6 +1194,16 @@
 			isa = PBXTargetDependency;
 			target = 5AB7D9FF0CB9003D004A5036 /* advpng */;
 			targetProxy = 5AB7DC620CB9031A004A5036 /* PBXContainerItemProxy */;
+		};
+		5ABB9FF00E8518DF006F51BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* ImageOptim */;
+			targetProxy = 5ABB9FEF0E8518DF006F51BB /* PBXContainerItemProxy */;
+		};
+		5ABBA0020E851DFE006F51BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = optipng;
+			targetProxy = 5ABBA0010E851DFE006F51BB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1342,6 +1384,27 @@
 			};
 			name = Release;
 		};
+		5ABB9FED0E8518DA006F51BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = BuildArchive;
+			};
+			name = Debug;
+		};
+		5ABB9FEE0E8518DA006F51BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = BuildArchive;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1377,17 +1440,20 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CURRENT_PROJECT_VERSION = 1;
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_PEDANTIC = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
+				SDKROOT = macosx10.4;
+				VALID_ARCHS = "i386 ppc x86_64";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1395,10 +1461,7 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEPLOYMENT_POSTPROCESSING = YES;
@@ -1408,6 +1471,7 @@
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = required;
 				GCC_ENABLE_PASCAL_STRINGS = NO;
 				GCC_FAST_MATH = YES;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
@@ -1423,7 +1487,8 @@
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = YES;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.4u.sdk";
+				SDKROOT = macosx10.4;
+				VALID_ARCHS = "i386 ppc x86_64";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1454,6 +1519,15 @@
 			buildConfigurations = (
 				5AB7DA030CB9005B004A5036 /* Debug */,
 				5AB7DA040CB9005B004A5036 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5ABB9FF10E8518FE006F51BB /* Build configuration list for PBXAggregateTarget "bzip archive" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5ABB9FED0E8518DA006F51BB /* Debug */,
+				5ABB9FEE0E8518DA006F51BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

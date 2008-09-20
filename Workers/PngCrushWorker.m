@@ -70,12 +70,12 @@
 {
 	int res;
 	//NSLog(line);
-	if ((res = [self readNumberAfter:@")=    " inLine:line]) || (res = [self readNumberAfter:@"IDAT chunks   =    " inLine:line]))
+	if ((res = [self readNumberAfter:@") =     " inLine:line]) || (res = [self readNumberAfter:@"IDAT chunks    =     " inLine:line]))
 	{	
 		if (!firstIdatSize)
 		{
 			firstIdatSize = res;
-//			NSLog(@"Idat is %d",res);
+			//NSLog(@"Initial idat is %d",res);
 		}
 		else
 		{
@@ -86,15 +86,15 @@
 				
 				[file setByteSizeOptimized:optimized];
 				
-//				NSLog(@"pngcrush returned %d vs %d",fileSize,optimized);
+				//NSLog(@"pngcrush returned %d vs %d → %d",fileSize,optimized,[file byteSizeOptimized]);
 			}
 			else
 			{
-//				NSLog(@"ignoring %d idat, no file size",res);				
+				//NSLog(@"ignoring %d idat, no file size",res);				
 			}
 		}
 	}
-	else 
+	else
 	{
 		NSRange substr = [line rangeOfString:@"Best pngcrush method"];
 		if (substr.length)
