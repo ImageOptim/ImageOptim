@@ -441,7 +441,8 @@
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/lib/libpng\"";
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.4;
+				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Debug;
 		};
@@ -454,7 +455,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/lib/libpng\"";
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.4;
+				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Release;
 		};
