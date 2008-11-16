@@ -128,7 +128,6 @@
 									
 			if (runWorker)
 			{
-//				NSLog(@"Taken worker %@ from queue",runWorker);
 				if (isAsync) 
 				{
 					[NSThread detachNewThreadSelector:@selector(threadEntry:) toTarget:self withObject:runWorker];
@@ -144,22 +143,17 @@
 		
 		if (completelyFinished)
 		{
-//			NSLog(@"no more pesky workers in %@ (%@/%@)!",self, queuedWorkers, runningWorkers);
 			[owner workersHaveFinished:self];
 		}
-		
-//		NSLog(@"Run workers finished, %d of %d with %d queued",[runningWorkers count],maxWorkersCount,[queuedWorkers count]);
 	}
 	@catch(NSException *e)
 	{
-//		NSLog(@"RunWorkers failed: Exception %@ >> %@ << {{ %@ }}",[e name],e,[e userInfo]);
+		NSLog(@"RunWorkers failed: Exception %@ >> %@ << {{ %@ }}",[e name],e,[e userInfo]);
 	}
 	@finally
 	{
 		[workersLock unlock];		
 	}
-	
-	
 }
 
 -(void)addWorker:(Worker *)w after:(Worker *)dependence

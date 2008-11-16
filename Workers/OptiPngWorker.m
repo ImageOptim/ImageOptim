@@ -28,7 +28,10 @@
 	}	
 	
 	NSTask *task = [self taskForKey:@"OptiPng" bundleName:@"optipng" arguments:args];
-	if (!task) return;
+	if (!task) {
+        NSLog(@"Could not launch OptiPng");
+        [file setStatus:@"err"];
+    }
 	
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];		

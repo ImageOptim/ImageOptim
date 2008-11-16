@@ -26,7 +26,11 @@
 	
 	NSTask *task = [self taskForKey:@"AdvPng" bundleName:@"advpng" 
 						  arguments:[NSArray arrayWithObjects: [NSString stringWithFormat:@"-%d",level ? level : 4],@"-z",@"--",temp,nil]];
-	if (!task) return;
+    if (!task) {
+        NSLog(@"Could not launch AdvPng");
+        [file setStatus:@"err"];
+    }
+    
 	
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];		

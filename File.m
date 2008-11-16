@@ -13,6 +13,7 @@
 #import "OptiPngWorker.h"
 #import "PngCrushWorker.h"
 #import "JpegoptimWorker.h"
+#import "JpegtranWorker.h"
 
 @implementation File
 
@@ -80,16 +81,19 @@
 
 -(void)setByteSize:(long)size
 {
-	if (!byteSize && size > 10)
-	{
-//		NSLog(@"setting file size of %@ to %d",self,size);
-		byteSize = size;
-		if (!byteSizeOptimized || byteSizeOptimized > byteSize) [self setByteSizeOptimized:size];		
-	}
-	else if (byteSize != size)
-	{
-//		NSLog(@"crappy size given! %d, have %d",size,byteSize);
-	}
+    @synchronized(self) 
+    {        
+        if (!byteSize && size > 10)
+        {
+    //		NSLog(@"setting file size of %@ to %d",self,size);
+            byteSize = size;
+            if (!byteSizeOptimized || byteSizeOptimized > byteSize) [self setByteSizeOptimized:size];		
+        }
+        else if (byteSize != size)
+        {
+    //		NSLog(@"crappy size given! %d, have %d",size,byteSize);
+        }
+    }
 }
 
 -(float)percentOptimized
@@ -121,12 +125,15 @@
 
 -(void)setByteSizeOptimized:(long)size
 {
-	if ((!byteSizeOptimized || size < byteSizeOptimized) && size > 10)
-	{
-//		NSLog(@"We've got a new winner. old %d new %d",byteSizeOptimized,size);
-		byteSizeOptimized = size;
-		[self setPercentOptimized:0]; //just for KVO
-	}
+    @synchronized(self) 
+    {        
+        if ((!byteSizeOptimized || size < byteSizeOptimized) && size > 10)
+        {
+    //		NSLog(@"We've got a new winner. old %d new %d",byteSizeOptimized,size);
+            byteSizeOptimized = size;
+            [self setPercentOptimized:0]; //just for KVO
+        }
+    }
 }
 
 -(void)removeOldFilePathOptimized:(NSString *)old
@@ -139,23 +146,26 @@
 
 -(void)setFilePathOptimized:(NSString *)path size:(long)size
 {
-	NSString *oldFile = nil;
-	//NSLog(@"set opt %@ %d in %@ %d",path,size,filePathOptimized,byteSizeOptimized);
-	[lock lock];
-	if (size <= byteSizeOptimized)
-	{
-		oldFile = filePathOptimized;		
-		filePathOptimized = [path copy];
-		[self setByteSizeOptimized:size];
-	}
-		
-	if (oldFile)
-	{
-		[self removeOldFilePathOptimized:oldFile];
-		[oldFile release];
-	}
-	[lock unlock];
-//	NSLog(@"Got optimized %db path %@",size,path);
+    @synchronized(self) 
+    {        
+        NSString *oldFile = nil;
+        //NSLog(@"set opt %@ %d in %@ %d",path,size,filePathOptimized,byteSizeOptimized);
+        [lock lock];
+        if (size <= byteSizeOptimized)
+        {
+            oldFile = filePathOptimized;		
+            filePathOptimized = [path copy];
+            [self setByteSizeOptimized:size];
+        }
+            
+        if (oldFile)
+        {
+            [self removeOldFilePathOptimized:oldFile];
+            [oldFile release];
+        }
+        [lock unlock];
+    //	NSLog(@"Got optimized %db path %@",size,path);
+    }
 }
 
 -(BOOL)saveResult
@@ -300,6 +310,8 @@
 
 -(void)enqueueWorkersInQueue:(WorkerQueue *)queue
 {
+    [self setStatus:@"wait"];
+    
 	byteSize=0; // reset to allow restart
 	byteSizeOptimized=0;
 	[self setByteSize:[File fileByteSize:filePath]];
@@ -342,13 +354,23 @@
 			[w release];
 		}
 	}
-	else if ([defs boolForKey:@"JpegOptim.Enabled"])
-	{
-		//NSLog(@"%@ is jpeg",filePath);
-		w = [[JpegoptimWorker alloc] initWithFile:self];
-		[runLater addObject:w];
-		[w release];
-	}
+	else 
+    {
+        if ([defs boolForKey:@"JpegOptim.Enabled"])
+        {
+            //NSLog(@"%@ is jpeg",filePath);
+            w = [[JpegoptimWorker alloc] initWithFile:self];
+            [runLater addObject:w];
+            [w release];
+        }
+        if ([defs boolForKey:@"JpegTran.Enabled"])
+        {
+            //NSLog(@"%@ is jpeg",filePath);
+            w = [[JpegtranWorker alloc] initWithFile:self];
+            [runLater addObject:w];
+            [w release];
+        }
+    }
 	
 	NSEnumerator *enu = [runFirst objectEnumerator];
 	Worker *lastWorker = nil;
@@ -408,10 +430,13 @@
 -(void)setStatus:(NSString *)name
 {
 //	NSLog(@"status is now %@",name);
-	NSImage *i;
-	i = [[NSImage alloc] initWithContentsOfFile: [[NSBundle mainBundle] pathForImageResource:name]];
-	[self setStatusImage:i];
-	[i release];
+    @synchronized(self) 
+    {
+        NSImage *i;
+        i = [[NSImage alloc] initByReferencingFile: [[NSBundle mainBundle] pathForImageResource:name]];
+        [self setStatusImage:i];
+        [i release];
+    }
 }
 
 -(void)setStatusImage:(NSImage *)i

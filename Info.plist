@@ -89,10 +89,20 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.3</string>
+	<string>1.0.5</string>
+	<key>CFBundleGetInfoString</key>
+	<string>1.0.5</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string>dsa_pub.pem</string>
+	<key>SUFeedURL</key>
+	<string>http://pornel.net/imageoptim/appcast.xml</string>
+	<key>SUShowReleaseNotes</key>
+	<false/>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
 </dict>
 </plist>

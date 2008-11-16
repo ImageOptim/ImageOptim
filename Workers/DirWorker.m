@@ -27,7 +27,8 @@
 	NSDirectoryEnumerator *enu = [[NSFileManager defaultManager] enumeratorAtPath:path];
 	NSString *filePath;
 	NSArray *extensions = [NSArray arrayWithObjects:@"png",@"PNG",@"jpg",@"JPG",@"jpeg",@"JPEG",nil];
-	
+	BOOL added = NO;
+    
 	while(filePath = [enu nextObject])
 	{
 		NSString *newPath = [path stringByAppendingPathComponent:filePath];
@@ -36,11 +37,12 @@
 		if (NSNotFound != [extensions indexOfObject:[newPath pathExtension]])
 		{
 			[filesQueue addFilePath:newPath dirs:NO];
+            added = YES;
 		}
 	}
 	
 //	NSLog(@"DirWorker finished scan, triggers queue");
-	[filesQueue runAdded];
+	if (added) [filesQueue runAdded];
 //	NSLog(@"DirWorker finished completely");
 }
 

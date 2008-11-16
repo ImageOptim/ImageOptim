@@ -83,11 +83,23 @@
 		[NSMutableDictionary dictionaryWithDictionary:
 			[[NSProcessInfo processInfo] environment]
 		];
-	// set up for unbuffered I/O
-	[environment setObject:@"YES" forKey:@"NSUnbufferedIO"];
-	[task setEnvironment:environment];		
+    
+    NSString *libPath = [[NSBundle mainBundle] pathForResource:@"liblibpng" ofType:@"dylib"];
+    if (!libPath) 
+    {
+        NSLog(@"Can't find liblibpng.dylib in Resources");
+        return nil;
+    }
+    libPath = [libPath stringByDeletingLastPathComponent];
+    
+	[environment setObject:libPath forKey:@"DYLD_FALLBACK_LIBRARY_PATH"];
+    NSLog(@"Library path: %@",libPath);
 
-	
+    // set up for unbuffered I/O
+	[environment setObject:@"YES" forKey:@"NSUnbufferedIO"];
+
+    [task setEnvironment:environment];		
+
 //	NSLog(@"Ready to run %@ %@",path,arguments);
 	return task;
 }

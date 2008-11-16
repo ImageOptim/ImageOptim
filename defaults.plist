@@ -6,34 +6,42 @@
 	<true/>
 	<key>AdvPng.Enabled</key>
 	<true/>
-	<key>AdvPng.Level</key>
-	<real>4</real>
 	<key>AdvPng.Path</key>
 	<string>/usr/bin/advpng</string>
-	<key>BackupFiles</key>
-	<false/>
+	<key>AdvPng.Level</key>
+	<real>4</real>
 	<key>JpegOptim.Bundle</key>
 	<true/>
 	<key>JpegOptim.Enabled</key>
 	<true/>
-	<key>JpegOptim.MaxQuality</key>
-	<integer>100</integer>
 	<key>JpegOptim.Path</key>
 	<string>/sw/bin/jpegoptim</string>
+	<key>JpegOptim.MaxQuality</key>
+	<integer>100</integer>
 	<key>JpegOptim.StripComments</key>
 	<true/>
 	<key>JpegOptim.StripExif</key>
 	<true/>
+	<key>JpegTran.Bundle</key>
+	<true/>
+	<key>JpegTran.Enabled</key>
+	<true/>
+	<key>JpegTran.Path</key>
+	<string>/sw/bin/jpegtran</string>
 	<key>OptiPng.Bundle</key>
 	<true/>
 	<key>OptiPng.Enabled</key>
 	<true/>
-	<key>OptiPng.Level</key>
-	<real>6</real>
 	<key>OptiPng.Path</key>
 	<string>/usr/bin/optipng</string>
+	<key>OptiPng.Level</key>
+	<real>6</real>
 	<key>PngCrush.Bundle</key>
 	<true/>
+	<key>PngCrush.Enabled</key>
+	<true/>
+	<key>PngCrush.Path</key>
+	<string>/usr/bin/pngcrush</string>
 	<key>PngCrush.Chunks</key>
 	<array>
 		<dict>
@@ -53,18 +61,14 @@
 			<string>sRGB</string>
 		</dict>
 	</array>
-	<key>PngCrush.Enabled</key>
-	<true/>
-	<key>PngCrush.Path</key>
-	<string>/usr/bin/pngcrush</string>
 	<key>PngOut.Bundle</key>
 	<false/>
 	<key>PngOut.Enabled</key>
 	<false/>
-	<key>PngOut.Level</key>
-	<integer>3</integer>
 	<key>PngOut.Path</key>
 	<string>/usr/bin/pngout-darwin</string>
+	<key>PngOut.Level</key>
+	<integer>3</integer>
 	<key>PngOut.RemoveChunks</key>
 	<true/>
 	<key>PreservePermissions</key>
@@ -75,5 +79,7 @@
 	<real>2</real>
 	<key>RunLowPriority</key>
 	<true/>
+	<key>BackupFiles</key>
+	<false/>
 </dict>
 </plist>

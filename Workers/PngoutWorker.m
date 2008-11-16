@@ -36,7 +36,11 @@
 	}
 	
 	NSTask *task = [self taskForKey:@"PngOut" bundleName:@"pngout" arguments:args];	
-	if (!task) return;
+    if (!task) {
+        NSLog(@"Could not launch PNGOUT");
+        [file setStatus:@"err"];
+    }
+    
 	
 	if (![[NSFileManager defaultManager] createFileAtPath:temp contents:[NSData data] attributes:nil])
 	{	
