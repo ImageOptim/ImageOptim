@@ -34,11 +34,11 @@
 	}
 	else if (exif)
 	{
-		[args insertObject:@"--strip-com" atIndex:0];
+		[args insertObject:@"--strip-exif" atIndex:0];
 	}
 	else if (comments)
 	{
-		[args insertObject:@"--strip-exif" atIndex:0];
+		[args insertObject:@"--strip-com" atIndex:0];
 	}
 	
 	int maxquality = [defaults integerForKey:@"JpegOptim.MaxQuality"];
