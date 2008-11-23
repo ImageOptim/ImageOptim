@@ -24,6 +24,8 @@
 	WorkerQueue *serialQueue;
 	
 	NSImage *statusImage;
+    NSString *statusText;
+    
 	int workersActive;
 	int workersFinished;
 	int workersTotal;
@@ -52,8 +54,9 @@
 -(float)percentDone;
 -(void)setPercentDone:(float)d;
 
--(void)setStatus:(NSString *)name;
+-(void)setStatus:(NSString *)name text:(NSString*)text;
 -(NSImage *)statusImage;
+-(NSString *)statusText;
 -(void)setStatusImage:(NSImage *)i;
 
 

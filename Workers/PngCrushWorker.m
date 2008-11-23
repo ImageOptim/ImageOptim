@@ -39,7 +39,7 @@
 	NSTask *task = [self taskForKey:@"PngCrush" bundleName:@"pngcrush" arguments:args];
     if (!task) {
         NSLog(@"Could not launch PngCrush");
-        [file setStatus:@"err"];
+        [file setStatus:@"err" text:@"PngCrush failed to start"];
     }
     
 	

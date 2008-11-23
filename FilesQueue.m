@@ -87,6 +87,18 @@
 	[filesControllerLock unlock];
 }
 
+- (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation
+{
+    //NSLog(@"Tooltip for col %@ in row %d",aTableColumn,row);
+    NSArray *objs = [filesController arrangedObjects];
+    if (row < [objs count])
+    {
+        File *f = [objs objectAtIndex:row];
+        return [f statusText];
+    }
+    return nil;
+}
+
 - (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(int)row dropOperation:(NSTableViewDropOperation)operation
 {
 	NSPasteboard *pboard = [info draggingPasteboard];

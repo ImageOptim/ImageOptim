@@ -4,11 +4,22 @@
       <title>ImageOptim</title>
       <link>http://pornel.net/imageoptim/appcast.xml</link>
       <description>ImageOptim updates</description>
-      <language>en</language><item><title>Version 1.0.5 (bugfix)</title><sparkle:releaseNotesLink>http://pornel.net/imageoptim/en/</sparkle:releaseNotesLink>rss>
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
-   <channel>
-      <title>ImageOptim</title>
-      <link>http://pornel.net/imageoptim/appcast.xml</link>
-      <description>ImageOptim updates</description>
-      <language>en</language><item><title>Version 1.0.5 (bugfix)</title><sparkle:releaseNotesLink>http://pornel.net/imageoptim/en/</sparkle:releaseNotesLink>rss>
+      <language>en</language>
+         <item>
+            <title>Version 1.0.5</title>
+						<sparkle:releaseNotesLink>
+							http://pornel.net/imageoptim/en/
+						</sparkle:releaseNotesLink>
+            <pubDate>Mon, 06 Oct 2008 23:20:11 +0000</pubDate>
+            <enclosure url="http://pornel.net/ImageOptim1.0.5.tar.bz2" sparkle:version="1.0.5" length="1241108" type="application/bzip2" sparkle:dsaSignature="MCwCFB5NJ3yUC8nx4Sv5o/rNzM6HbPn2AhQ0nhZI1/lo14C807zF3DZbcKGN3Q==" />
+         </item>
+         <item>
+            <title>Version 1.0.6</title>
+						<sparkle:releaseNotesLink>
+							http://pornel.net/imageoptim/en/
+						</sparkle:releaseNotesLink>
+            <pubDate>Sun, 23 Nov 2008 00:11:11 +0000</pubDate>
+            <enclosure url="http://pornel.net/ImageOptim1.0.6.tar.bz2" sparkle:version="1.0.6" length="1242822" type="application/bzip2" sparkle:dsaSignature="MCwCFH8qiQBefMOzJ7TMvP6R23/93euxAhQB66BjJWW6yVJGFJOASLWSdYnzJQ==" />
+         </item>
+   </channel>
+</rss>

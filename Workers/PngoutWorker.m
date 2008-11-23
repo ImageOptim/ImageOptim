@@ -38,7 +38,7 @@
 	NSTask *task = [self taskForKey:@"PngOut" bundleName:@"pngout" arguments:args];	
     if (!task) {
         NSLog(@"Could not launch PNGOUT");
-        [file setStatus:@"err"];
+        [file setStatus:@"err" text:@"PNGOUT failed to start"];
     }
     
 	

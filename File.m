@@ -22,7 +22,7 @@
 	if (self = [self init])
 	{	
 		[self setFilePath:name];
-		[self setStatus:@"wait"];
+		[self setStatus:@"wait" text:@"New file"];
 		lock = [NSLock new];
 		
 		workersTotal = 0;
@@ -247,7 +247,7 @@
 {
 	[lock lock];
 	workersActive++;
-	[self setStatus:@"progress"];
+	[self setStatus:@"progress" text:[NSString stringWithFormat:@"Started %s",[worker className]]];
 	[lock unlock];
 }
 
@@ -260,7 +260,7 @@
 	if (!byteSize || !byteSizeOptimized)
 	{
 		NSLog(@"worker %@ finished, but result file has 0 size",worker);
-		[self setStatus:@"err"];
+		[self setStatus:@"err" text:@"Size of optimized file is 0"];
 	}
 	else if (workersFinished == workersTotal)
 	{
@@ -268,19 +268,19 @@
 		{
 			if ([self saveResult])
 			{
-				[self setStatus:@"ok"];						
+				[self setStatus:@"ok" text:@"Optimized successfully"];						
 			}
 			else 
 			{
 				NSLog(@"saveResult failed");
-				[self setStatus:@"err"];				
+				[self setStatus:@"err" text:@"Optimized file could not be saved"];				
 			}
 		}
-		else [self setStatus:@"noopt"];	
+		else [self setStatus:@"noopt" text:@"File was already optimized"];	
 	}
 	else if (workersActive == 0)
 	{
-		[self setStatus:@"wait"];
+		[self setStatus:@"wait" text:@"Waiting to start more optimisations"];
 	}
 	[lock unlock];
 }
@@ -310,7 +310,7 @@
 
 -(void)enqueueWorkersInQueue:(WorkerQueue *)queue
 {
-    [self setStatus:@"wait"];
+    [self setStatus:@"wait" text:@"Waiting in queue"];
     
 	byteSize=0; // reset to allow restart
 	byteSizeOptimized=0;
@@ -398,15 +398,15 @@
 	if (!workersTotal) 
 	{
 		NSLog(@"all relevant tools are unavailable/disabled - nothing to do!");
-		[self setStatus:@"err"];
+		[self setStatus:@"err" text:@"All neccessary tools have been disabled in Preferences"];
 		NSBeep();		
 	}	
 }
 
 -(void)dealloc
 {
-//	NSLog(@"File dealloc %@",self);
 	[self setStatusImage:nil];
+    [statusText release]; statusText = nil;
 	[self removeOldFilePathOptimized:filePathOptimized];
 	[filePathOptimized release]; filePathOptimized = nil;
 	[filePath release]; filePath = nil;
@@ -427,13 +427,17 @@
 	return workersActive || workersTotal != workersFinished;
 }
 
--(void)setStatus:(NSString *)name
+-(void)setStatus:(NSString *)imageName text:(NSString *)text
 {
-//	NSLog(@"status is now %@",name);
     @synchronized(self) 
     {
+        if (statusText == text) return;
+        
+        [statusText release];
+        statusText = [text retain];
+        
         NSImage *i;
-        i = [[NSImage alloc] initByReferencingFile: [[NSBundle mainBundle] pathForImageResource:name]];
+        i = [[NSImage alloc] initByReferencingFile: [[NSBundle mainBundle] pathForImageResource:imageName]];
         [self setStatusImage:i];
         [i release];
     }
@@ -448,6 +452,10 @@
 	}
 }
 
+-(NSString *)statusText
+{
+    return statusText;
+}
 -(NSString *)description
 {
 	NSString *s = [NSString stringWithFormat:@"%@ %d/%d", filePath,byteSize,byteSizeOptimized];

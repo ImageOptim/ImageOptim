@@ -160,6 +160,8 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		5A09013F0ED8D6AA00F3965B /* appcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
+		5A0901400ED8D6B800F3965B /* sparkle.sig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sparkle.sig; path = build/Release/sparkle.sig; sourceTree = "<group>"; };
 		5A0D2E550C922AB700FD7CDE /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
 		5A0D2E560C922AB700FD7CDE /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
 		5A0D2E5B0C922D6D00FD7CDE /* ImageOptim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageOptim.h; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			children = (
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				5A09013A0ED8D68200F3965B /* Sparkle */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -345,6 +348,15 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A09013A0ED8D68200F3965B /* Sparkle */ = {
+			isa = PBXGroup;
+			children = (
+				5A09013F0ED8D6AA00F3965B /* appcast.xml */,
+				5A0901400ED8D6B800F3965B /* sparkle.sig */,
+			);
+			name = Sparkle;
 			sourceTree = "<group>";
 		};
 		5A0E8BF30E8067A5005BCD83 /* Products */ = {
