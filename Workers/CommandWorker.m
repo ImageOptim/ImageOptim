@@ -183,7 +183,7 @@
 
 -(NSString *)tempPath:(NSString*)baseName
 {
-	return [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.png",baseName,[file hash],random()]];
+	return [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.tmp",baseName,[file hash],random()]];
 }
 
 -(id)delegate

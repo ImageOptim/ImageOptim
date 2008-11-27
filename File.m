@@ -136,11 +136,16 @@
     }
 }
 
--(void)removeOldFilePathOptimized:(NSString *)old
+-(void)removeOldFilePathOptimized
 {
-	if (old && [old length])
+	if (filePathOptimized)
 	{
-		[[NSFileManager defaultManager] removeFileAtPath:old handler:nil];		
+        if ([filePathOptimized length])
+        {
+            [[NSFileManager defaultManager] removeFileAtPath:filePathOptimized handler:nil];
+        }
+        [filePathOptimized release];
+        filePathOptimized = nil;
 	}
 }
 
@@ -148,21 +153,14 @@
 {
     @synchronized(self) 
     {        
-        NSString *oldFile = nil;
         //NSLog(@"set opt %@ %d in %@ %d",path,size,filePathOptimized,byteSizeOptimized);
         [lock lock];
         if (size <= byteSizeOptimized)
         {
-            oldFile = filePathOptimized;		
+            [self removeOldFilePathOptimized];
             filePathOptimized = [path copy];
             [self setByteSizeOptimized:size];
-        }
-            
-        if (oldFile)
-        {
-            [self removeOldFilePathOptimized:oldFile];
-            [oldFile release];
-        }
+        }            
         [lock unlock];
     //	NSLog(@"Got optimized %db path %@",size,path);
     }
@@ -216,6 +214,9 @@
 			{
 				[write writeData:data];
 				[write truncateFileAtOffset:[data length]];
+                [read closeFile];
+                [write closeFile];
+                [self removeOldFilePathOptimized];
 			}
 			else 
 			{
@@ -227,9 +228,14 @@
 		{
 			if (!backup) {[fm removeFileAtPath:filePath handler:nil];}
 			
-			if (![fm movePath:filePathOptimized toPath:filePath handler:nil]) 
+			if ([fm movePath:filePathOptimized toPath:filePath handler:nil]) 
 			{
-				NSLog(@"Failed to move from %@ to %@",filePathOptimized, filePath);
+                [filePathOptimized release];
+                filePathOptimized = nil;
+            }            
+            else
+            {
+                NSLog(@"Failed to move from %@ to %@",filePathOptimized, filePath);
 				return NO;				
 			}
 		}
@@ -407,7 +413,7 @@
 {
 	[self setStatusImage:nil];
     [statusText release]; statusText = nil;
-	[self removeOldFilePathOptimized:filePathOptimized];
+	[self removeOldFilePathOptimized];
 	[filePathOptimized release]; filePathOptimized = nil;
 	[filePath release]; filePath = nil;
 	[displayName release]; displayName = nil;
