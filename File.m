@@ -251,7 +251,7 @@
 {
 	[lock lock];
 	workersActive++;
-	[self setStatus:@"progress" text:[NSString stringWithFormat:@"Started %s",[worker className]]];
+	[self setStatus:@"progress" text:[NSString stringWithFormat:@"Started %@",[worker className]]];
 	[lock unlock];
 }
 
