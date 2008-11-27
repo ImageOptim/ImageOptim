@@ -1,9 +1,7 @@
 //
 //  FilesQueue.m
-//  ImageOptim
 //
 //  Created by porneL on 23.wrz.07.
-//  Copyright 2007 __MyCompanyName__. All rights reserved.
 //
 #import "File.h"
 #import "FilesQueue.h"
