@@ -80,7 +80,7 @@
 	if (size = [self readNumberAfter:@" --> " inLine:line])
 	{
 		//NSLog(@"File size optimized %d",size);
-		[file setByteSizeOptimized:size];
+		//[file setByteSizeOptimized:size];
 		fileSizeOptimized = size;
 		return YES;
 	}

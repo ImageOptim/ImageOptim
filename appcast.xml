@@ -6,14 +6,6 @@
       <description>ImageOptim updates</description>
       <language>en</language>
          <item>
-            <title>Version 1.0.5</title>
-						<sparkle:releaseNotesLink>
-							http://pornel.net/imageoptim/en/
-						</sparkle:releaseNotesLink>
-            <pubDate>Mon, 06 Oct 2008 23:20:11 +0000</pubDate>
-            <enclosure url="http://pornel.net/ImageOptim1.0.5.tar.bz2" sparkle:version="1.0.5" length="1241108" type="application/bzip2" sparkle:dsaSignature="MCwCFB5NJ3yUC8nx4Sv5o/rNzM6HbPn2AhQ0nhZI1/lo14C807zF3DZbcKGN3Q==" />
-         </item>
-         <item>
             <title>Version 1.0.6</title>
 						<sparkle:releaseNotesLink>
 							http://pornel.net/imageoptim/en/
@@ -22,5 +14,23 @@
             <pubDate>Sun, 23 Nov 2008 00:11:11 +0000</pubDate>
             <enclosure url="http://pornel.net/ImageOptim1.0.6.tar.bz2" sparkle:version="1.0.6" length="1242822" type="application/bzip2" sparkle:dsaSignature="MCwCFH8qiQBefMOzJ7TMvP6R23/93euxAhQB66BjJWW6yVJGFJOASLWSdYnzJQ==" />
          </item>
-   </channel>
+         <item>
+            <title>Version 1.0.7</title>
+						<sparkle:releaseNotesLink>
+							http://pornel.net/imageoptim/en/
+						</sparkle:releaseNotesLink>
+						<description>Tooltips with file status. Fixed preserving of EXIF tags in JPEG.</description>
+            <pubDate>Thu, 27 Nov 2008 22:48:51 +0000</pubDate>
+            <enclosure url="http://pornel.net/ImageOptim1.0.7.tar.bz2" sparkle:version="1.0.7" length="1242967" type="application/bzip2" sparkle:dsaSignature="MCwCFFwZIc9WLCPB1Z1F12LIdcvWv5bMAhRp5IgMwxmKVByn6k8whQhjGVcYeg==" />
+         </item>
+        <item>
+            <title>Version 1.0.8</title>
+						<sparkle:releaseNotesLink>
+							http://pornel.net/imageoptim/en/
+						</sparkle:releaseNotesLink>
+            <pubDate>Sat, 29 Nov 2008 19:19:25 +0000</pubDate>
+            <description>Double-click reveals file in Finder</description>
+            <enclosure url="http://pornel.net/ImageOptim1.0.8.tar.bz2" sparkle:version="1.0.8" length="1243186" type="application/bzip2" sparkle:dsaSignature="MC0CFHLK3hlwpEGrRFyowAADeGOoAmCBAhUAj0pt8eXlSLyPWpAqkyIb8wMVUos=" />
+         </item>
+    </channel>
 </rss>

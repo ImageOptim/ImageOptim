@@ -586,7 +586,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "ruby \"$SRCROOT/sign_update.rb\" \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" ~/.ssh/dsa_priv_imageoptim.pem > \"$TARGET_BUILD_DIR/sparkle.sig\"\n";
+			shellScript = "ruby \"$SRCROOT/sign_update.rb\" \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" ~/.ssh/dsa_priv_imageoptim.pem > \"$TARGET_BUILD_DIR/sparkle.sig\"\nwc -c \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" >> \"$TARGET_BUILD_DIR/sparkle.sig\"\ndate '+%a, %e %b %Y %H:%M:%S %z' >> \"$TARGET_BUILD_DIR/sparkle.sig\"";
 		};
 		5ABB9FEB0E8518DA006F51BB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;

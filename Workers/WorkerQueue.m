@@ -167,14 +167,11 @@
 
 -(void)workerHasFinished:(Worker *)w
 {
+    [w retain];
 	[workersLock lock];
 //		NSLog(@"Worker %@ finished",w);
-
-		[w retain];
-		[runningWorkers removeObjectIdenticalTo:w];
-	
-	[w release];
-	
+		[runningWorkers removeObjectIdenticalTo:w];	
+        [w autorelease];	
 	[workersLock unlock];
 	
 	[self runWorkers];

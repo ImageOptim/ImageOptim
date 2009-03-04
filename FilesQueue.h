@@ -36,4 +36,6 @@
 -(void)workersHaveFinished:(WorkerQueue *)q;
 
 -(void)updateProgressbar;
+
+-(void)openRowInFinder:(int)row;
 @end

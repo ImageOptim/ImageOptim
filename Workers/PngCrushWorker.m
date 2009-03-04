@@ -71,7 +71,7 @@
 -(BOOL)parseLine:(NSString *)line
 {
 	int res;
-	//NSLog(line);
+	//NSLog(@"PNGCrush: %@",line);
 	if ((res = [self readNumberAfter:@") =     " inLine:line]) || (res = [self readNumberAfter:@"IDAT chunks    =     " inLine:line]))
 	{	
         // eh

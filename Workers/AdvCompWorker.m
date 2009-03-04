@@ -64,7 +64,7 @@
 		fileSizeOptimized = optimized;
 //		NSLog(@"advcomp returned %d vs %d",original,optimized);
 		[file setByteSize:original];
-		[file setByteSizeOptimized:optimized];
+		//[file setByteSizeOptimized:optimized];
 		return YES;		
 	}
 //	NSLog(@"adv: Dunno what is %@",line);

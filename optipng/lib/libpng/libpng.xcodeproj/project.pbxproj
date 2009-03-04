@@ -13,7 +13,6 @@
 		5A7399300EA27E4600D751E1 /* png.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A73991E0EA27E4600D751E1 /* png.c */; };
 		5A7399310EA27E4600D751E1 /* pngwtran.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A73991F0EA27E4600D751E1 /* pngwtran.c */; };
 		5A7399320EA27E4600D751E1 /* pngset.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A7399200EA27E4600D751E1 /* pngset.c */; };
-		5A7399330EA27E4600D751E1 /* pngvcrd.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A7399210EA27E4600D751E1 /* pngvcrd.c */; };
 		5A7399340EA27E4600D751E1 /* pngwutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A7399220EA27E4600D751E1 /* pngwutil.c */; };
 		5A7399350EA27E4600D751E1 /* pngrutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A7399230EA27E4600D751E1 /* pngrutil.c */; };
 		5A7399360EA27E4600D751E1 /* pngwrite.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A7399240EA27E4600D751E1 /* pngwrite.c */; };
@@ -51,7 +50,6 @@
 		5A73991E0EA27E4600D751E1 /* png.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = png.c; path = ../../../../libpng/png.c; sourceTree = SOURCE_ROOT; };
 		5A73991F0EA27E4600D751E1 /* pngwtran.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngwtran.c; path = ../../../../libpng/pngwtran.c; sourceTree = SOURCE_ROOT; };
 		5A7399200EA27E4600D751E1 /* pngset.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngset.c; path = ../../../../libpng/pngset.c; sourceTree = SOURCE_ROOT; };
-		5A7399210EA27E4600D751E1 /* pngvcrd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngvcrd.c; path = ../../../../libpng/pngvcrd.c; sourceTree = SOURCE_ROOT; };
 		5A7399220EA27E4600D751E1 /* pngwutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngwutil.c; path = ../../../../libpng/pngwutil.c; sourceTree = SOURCE_ROOT; };
 		5A7399230EA27E4600D751E1 /* pngrutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngrutil.c; path = ../../../../libpng/pngrutil.c; sourceTree = SOURCE_ROOT; };
 		5A7399240EA27E4600D751E1 /* pngwrite.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngwrite.c; path = ../../../../libpng/pngwrite.c; sourceTree = SOURCE_ROOT; };
@@ -116,7 +114,6 @@
 				5A73991E0EA27E4600D751E1 /* png.c */,
 				5A73991F0EA27E4600D751E1 /* pngwtran.c */,
 				5A7399200EA27E4600D751E1 /* pngset.c */,
-				5A7399210EA27E4600D751E1 /* pngvcrd.c */,
 				5A7399220EA27E4600D751E1 /* pngwutil.c */,
 				5A7399230EA27E4600D751E1 /* pngrutil.c */,
 				5A7399240EA27E4600D751E1 /* pngwrite.c */,
@@ -225,7 +222,6 @@
 				5A7399300EA27E4600D751E1 /* png.c in Sources */,
 				5A7399310EA27E4600D751E1 /* pngwtran.c in Sources */,
 				5A7399320EA27E4600D751E1 /* pngset.c in Sources */,
-				5A7399330EA27E4600D751E1 /* pngvcrd.c in Sources */,
 				5A7399340EA27E4600D751E1 /* pngwutil.c in Sources */,
 				5A7399350EA27E4600D751E1 /* pngrutil.c in Sources */,
 				5A7399360EA27E4600D751E1 /* pngwrite.c in Sources */,
@@ -285,7 +281,7 @@
 		1DEB914F08733D8E0010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(NATIVE_ARCH)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = "PNG_NO_MNG_FEATURES=1";
@@ -294,7 +290,7 @@
 				LD_DYLIB_INSTALL_NAME = ./liblibpng.dylib;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.4;
+				SDKROOT = macosx10.5;
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Debug;

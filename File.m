@@ -125,7 +125,7 @@
 {
     @synchronized(self) 
     {        
-        if ((!byteSizeOptimized || size < byteSizeOptimized) && size > 10)
+        if ((!byteSizeOptimized || size < byteSizeOptimized) && size > 30)
         {
     //		NSLog(@"We've got a new winner. old %d new %d",byteSizeOptimized,size);
             byteSizeOptimized = size;
@@ -142,7 +142,7 @@
         {
             [[NSFileManager defaultManager] removeFileAtPath:filePathOptimized handler:nil];
         }
-        [filePathOptimized release];
+        [filePathOptimized autorelease];
         filePathOptimized = nil;
 	}
 }
@@ -151,7 +151,7 @@
 {
     @synchronized(self) 
     {        
-        //NSLog(@"set opt %@ %d in %@ %d",path,size,filePathOptimized,byteSizeOptimized);
+        NSLog(@"File %@ optimized from %d down to %d in %@",filePath?filePath:filePathOptimized,byteSizeOptimized,size,path);
         [lock lock];
         if (size <= byteSizeOptimized)
         {
@@ -208,7 +208,7 @@
 			NSFileHandle *write = [NSFileHandle fileHandleForWritingAtPath:filePath];
 			NSData *data = [read readDataToEndOfFile];
 			
-			if ([data length] == byteSizeOptimized && [data length] > 10)
+			if ([data length] == byteSizeOptimized && [data length] > 30)
 			{
 				[write writeData:data];
 				[write truncateFileAtOffset:[data length]];
@@ -228,7 +228,7 @@
 			
 			if ([fm movePath:filePathOptimized toPath:filePath handler:nil]) 
 			{
-                [filePathOptimized release];
+                [filePathOptimized autorelease];
                 filePathOptimized = nil;
             }            
             else
@@ -334,28 +334,28 @@
 			w = [[PngCrushWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			[w release];
+			[w autorelease];
 		}
 		if ([defs boolForKey:@"PngOut.Enabled"])
 		{
 			w = [[PngoutWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			[w release];		
+			[w autorelease];		
 		}
 		if ([defs boolForKey:@"OptiPng.Enabled"])
 		{
 			w = [[OptiPngWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			[w release];		
+			[w autorelease];		
 		}
 		if ([defs boolForKey:@"AdvPng.Enabled"])
 		{
 			w = [[AdvCompWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			[w release];
+			[w autorelease];
 		}
 	}
 	else 
@@ -365,14 +365,14 @@
             //NSLog(@"%@ is jpeg",filePath);
             w = [[JpegoptimWorker alloc] initWithFile:self];
             [runLater addObject:w];
-            [w release];
+            [w autorelease];
         }
         if ([defs boolForKey:@"JpegTran.Enabled"])
         {
             //NSLog(@"%@ is jpeg",filePath);
             w = [[JpegtranWorker alloc] initWithFile:self];
             [runLater addObject:w];
-            [w release];
+            [w autorelease];
         }
     }
 	
@@ -396,8 +396,8 @@
 		[queue addWorker:w after:[runFirst lastObject]];
 	}	
 	
-	[runFirst release];
-	[runLater release];
+	[runFirst autorelease];
+	[runLater autorelease];
 	
 	if (!workersTotal) 
 	{

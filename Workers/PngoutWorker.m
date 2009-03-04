@@ -1,7 +1,9 @@
 //
 //  PngoutWorker.m
+//  ImageOptim
 //
 //  Created by porneL on 29.wrz.07.
+//  Copyright 2007 __MyCompanyName__. All rights reserved.
 //
 
 #import "PngoutWorker.h"
@@ -101,7 +103,7 @@
 		if ([scan scanInt:&byteSize] && byteSize) 
 		{
 			fileSizeOptimized = byteSize;
-			[file setByteSizeOptimized:byteSize];			
+			//[file setByteSizeOptimized:byteSize];			
 		}		
 	}
 	else if ([line length] >= 3 && [line characterAtIndex:2] == '%')
