@@ -174,7 +174,7 @@
 			else
 			{
 				f = [[File alloc] initWithFilePath:path];
-				[filesController addObject:f];
+				[filesController performSelectorOnMainThread:@selector(addObject:) withObject:f waitUntilDone:NO];
 				[f enqueueWorkersInQueue:workerQueue];
 				[f autorelease];					
 			}

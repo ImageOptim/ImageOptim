@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.02">
+<archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.03">
 	<data>
-		<int key="IBDocument.SystemTarget">1030</int>
-		<string key="IBDocument.SystemVersion">9F33</string>
-		<string key="IBDocument.InterfaceBuilderVersion">670</string>
-		<string key="IBDocument.AppKitVersion">949.34</string>
-		<string key="IBDocument.HIToolboxVersion">352.00</string>
+		<int key="IBDocument.SystemTarget">1040</int>
+		<string key="IBDocument.SystemVersion">9G55</string>
+		<string key="IBDocument.InterfaceBuilderVersion">677</string>
+		<string key="IBDocument.AppKitVersion">949.43</string>
+		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="624"/>
 			<integer value="2"/>
+			<integer value="624"/>
 			<integer value="527"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+		</object>
+		<object class="NSMutableDictionary" key="IBDocument.Metadata">
+			<bool key="EncodedWithXMLCoder">YES</bool>
+			<object class="NSArray" key="dict.sortedKeys">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+			</object>
+			<object class="NSMutableArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+			</object>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.RootObjects" id="632709903">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -39,7 +48,7 @@
 				<object class="NSMutableString" key="NSViewClass">
 					<characters key="NS.bytes">View</characters>
 				</object>
-				<string key="NSWindowContentMaxSize">{465, 570}</string>
+				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<string key="NSWindowContentMinSize">{211, 243}</string>
 				<object class="NSView" key="NSWindowView" id="633482293">
 					<reference key="NSNextResponder"/>
@@ -119,7 +128,7 @@
 																<bool key="EncodedWithXMLCoder">YES</bool>
 																<object class="NSArray">
 																	<bool key="EncodedWithXMLCoder">YES</bool>
-																	<integer value="0"/>
+																	<integer value="0" id="8"/>
 																	<object class="NSCachedImageRep">
 																		<object class="NSData" key="NSTIFFRepresentation">
 																			<bytes key="NS.bytes">TU0AKgAABBiAACBQOCQWDQeEQmBAYAgIBAl/v5/PGFRWLReFCQNhAqCUJgEerdpO83xiTQoFwMIAMBgQ
@@ -298,7 +307,7 @@ AADBtMUAAAAAAAAAAAAAAAAAAAAAAA</bytes>
 																</object>
 																<object class="NSMutableArray" key="dict.values">
 																	<bool key="EncodedWithXMLCoder">YES</bool>
-																	<integer value="1" id="5"/>
+																	<integer value="1" id="9"/>
 																	<object class="NSAttributedString" id="270421425">
 																		<string key="NSString">0</string>
 																		<object class="NSDictionary" key="NSAttributes" id="316431111">
@@ -316,7 +325,7 @@ AADBtMUAAAAAAAAAAAAAAAAAAAAAAA</bytes>
 																	<string type="base64-UTF8">wqA</string>
 																	<string>-0</string>
 																	<string>0</string>
-																	<integer value="0" id="6"/>
+																	<boolean value="NO" id="6"/>
 																</object>
 															</object>
 															<string key="NS.positiveformat">0</string>
@@ -386,7 +395,7 @@ AADBtMUAAAAAAAAAAAAAAAAAAAAAAA</bytes>
 																</object>
 																<object class="NSMutableArray" key="dict.values">
 																	<bool key="EncodedWithXMLCoder">YES</bool>
-																	<reference ref="5"/>
+																	<reference ref="9"/>
 																	<object class="NSAttributedString" id="630024335">
 																		<string key="NSString">0%</string>
 																		<reference key="NSAttributes" ref="316431111"/>
@@ -1109,7 +1118,7 @@ AADBtMUAAAAAAAAAAAAAAAAAAAAAAA</bytes>
 										<object class="NSTextView" id="857203264">
 											<reference key="NSNextResponder" ref="183240755"/>
 											<int key="NSvFlags">2322</int>
-											<string key="NSFrameSize">{282, 183}</string>
+											<string key="NSFrameSize">{282, 155}</string>
 											<reference key="NSSuperview" ref="183240755"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="458419734">
 												<object class="NSLayoutManager" key="NSLayoutManager">
@@ -1161,7 +1170,7 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 																		</object>
 																		<int key="NSWritingDirection">1</int>
 																	</object>
-																	<integer value="1" id="9"/>
+																	<reference ref="9"/>
 																	<reference ref="1044989521"/>
 																</object>
 															</object>
@@ -1488,7 +1497,8 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 												<nil key="NSDefaultParagraphStyle"/>
 											</object>
 											<int key="NSTVFlags">6</int>
-											<string key="NSMaxSize">{320, 1e+07}</string>
+											<string key="NSMaxSize">{575, 1e+07}</string>
+											<string key="NSMinize">{282, 0}</string>
 											<nil key="NSDelegate"/>
 										</object>
 									</object>
@@ -1841,9 +1851,9 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 								</object>
 								<object class="NSMutableArray" key="dict.values">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<reference ref="6"/>
-									<reference ref="5"/>
-									<reference ref="6"/>
+									<reference ref="8"/>
+									<reference ref="9"/>
+									<reference ref="8"/>
 								</object>
 							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
@@ -1871,8 +1881,8 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 								</object>
 								<object class="NSMutableArray" key="dict.values">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<reference ref="6"/>
-									<reference ref="6"/>
+									<reference ref="8"/>
+									<reference ref="8"/>
 								</object>
 							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
@@ -1901,9 +1911,9 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 								</object>
 								<object class="NSMutableArray" key="dict.values">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<reference ref="6"/>
-									<reference ref="5"/>
-									<reference ref="6"/>
+									<reference ref="8"/>
+									<reference ref="9"/>
+									<reference ref="8"/>
 								</object>
 							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
@@ -1931,8 +1941,8 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 								</object>
 								<object class="NSMutableArray" key="dict.values">
 									<bool key="EncodedWithXMLCoder">YES</bool>
-									<reference ref="6"/>
-									<reference ref="6"/>
+									<reference ref="8"/>
+									<reference ref="8"/>
 								</object>
 							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
@@ -2649,10 +2659,10 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 					<string>2.IBPluginDependency</string>
 					<string>2.ImportedFromIB2</string>
 					<string>21.IBEditorWindowLastContentRect</string>
-					<string>21.IBPluginDependency</string>
 					<string>21.IBWindowTemplateEditedContentRect</string>
 					<string>21.ImportedFromIB2</string>
 					<string>21.NSWindowTemplate.visibleAtLaunch</string>
+					<string>21.windowTemplate.hasMaxSize</string>
 					<string>21.windowTemplate.hasMinSize</string>
 					<string>21.windowTemplate.maxSize</string>
 					<string>21.windowTemplate.minSize</string>
@@ -2745,7 +2755,6 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 					<string>506.IBPluginDependency</string>
 					<string>506.ImportedFromIB2</string>
 					<string>526.IBEditorWindowLastContentRect</string>
-					<string>526.IBPluginDependency</string>
 					<string>526.IBWindowTemplateEditedContentRect</string>
 					<string>526.ImportedFromIB2</string>
 					<string>526.windowTemplate.hasMaxSize</string>
@@ -2781,13 +2790,26 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 					<string>623.ImportedFromIB2</string>
 					<string>624.IBPluginDependency</string>
 					<string>624.ImportedFromIB2</string>
+					<string>632.IBPluginDependency</string>
+					<string>633.IBPluginDependency</string>
+					<string>634.IBPluginDependency</string>
+					<string>635.IBPluginDependency</string>
+					<string>636.IBPluginDependency</string>
+					<string>637.IBPluginDependency</string>
 					<string>637.IBShouldRemoveOnLegacySave</string>
+					<string>638.IBPluginDependency</string>
 					<string>638.IBShouldRemoveOnLegacySave</string>
+					<string>639.IBPluginDependency</string>
 					<string>639.IBShouldRemoveOnLegacySave</string>
+					<string>640.IBPluginDependency</string>
 					<string>640.IBShouldRemoveOnLegacySave</string>
+					<string>641.IBPluginDependency</string>
 					<string>641.IBShouldRemoveOnLegacySave</string>
+					<string>642.IBPluginDependency</string>
 					<string>642.IBShouldRemoveOnLegacySave</string>
+					<string>643.IBPluginDependency</string>
 					<string>643.IBShouldRemoveOnLegacySave</string>
+					<string>644.IBPluginDependency</string>
 					<string>644.IBShouldRemoveOnLegacySave</string>
 					<string>92.IBPluginDependency</string>
 					<string>92.ImportedFromIB2</string>
@@ -2797,41 +2819,41 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>{{45, 775}, {581, 336}}</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{45, 775}, {581, 336}}</string>
-					<reference ref="5"/>
-					<reference ref="5"/>
-					<reference ref="5"/>
+					<reference ref="9"/>
+					<reference ref="9"/>
+					<boolean value="YES"/>
+					<reference ref="9"/>
 					<string>{3.40282e+38, 3.40282e+38}</string>
 					<string>{211, 243}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<object class="NSMutableDictionary">
 						<string key="NS.key.0">AccessibilityDescription</string>
 						<object class="IBAccessibilityAttribute" key="NS.object.0">
@@ -2841,12 +2863,12 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 						</object>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>MyTableView</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<object class="NSMutableDictionary">
 						<string key="NS.key.0">AccessibilityDescription</string>
 						<object class="IBAccessibilityAttribute" key="NS.object.0">
@@ -2856,50 +2878,50 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 						</object>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>{{14, 1125}, {337, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<object class="NSMutableDictionary">
 						<string key="NS.key.0">AccessibilityDescription</string>
 						<object class="IBAccessibilityAttribute" key="NS.object.0">
@@ -2909,7 +2931,7 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 						</object>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<object class="NSMutableDictionary">
 						<string key="NS.key.0">AccessibilityDescription</string>
 						<object class="IBAccessibilityAttribute" key="NS.object.0">
@@ -2919,78 +2941,90 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 						</object>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>{{24, 775}, {293, 359}}</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{24, 775}, {293, 359}}</string>
-					<reference ref="5"/>
-					<reference ref="5"/>
-					<reference ref="5"/>
+					<reference ref="9"/>
+					<reference ref="9"/>
+					<reference ref="9"/>
 					<string>{465, 570}</string>
 					<string>{211, 243}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>{{26, 922}, {232, 203}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
-					<reference ref="5"/>
-					<reference ref="5"/>
-					<reference ref="5"/>
-					<reference ref="5"/>
-					<reference ref="5"/>
-					<reference ref="5"/>
-					<reference ref="5"/>
-					<reference ref="5"/>
+					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<reference ref="5"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<reference ref="9"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<reference ref="9"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<reference ref="9"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<reference ref="9"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<reference ref="9"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<reference ref="9"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<reference ref="9"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<reference ref="9"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<reference ref="9"/>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -3040,6 +3074,7 @@ ciBHTlUgR2VuZXJhbCBQdWJsaWMgTGljZW5zZSB2ZXJzaW9uIDIgb3IgbGF0ZXIuA</bytes>
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">FirstResponder</string>
+					<string key="superclassName">NSObject</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBUserSource</string>
 						<string key="minorKey"/>

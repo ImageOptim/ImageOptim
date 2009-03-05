@@ -437,11 +437,11 @@
     {
         if (statusText == text) return;
         
-        [statusText release];
+        NSString *oldtext = statusText; 
         statusText = [text retain];
+        [oldtext release]; 
         
-        NSImage *i;
-        i = [[NSImage alloc] initByReferencingFile: [[NSBundle mainBundle] pathForImageResource:imageName]];
+        NSImage *i = [[NSImage alloc] initByReferencingFile: [[NSBundle mainBundle] pathForImageResource:imageName]];
         [self setStatusImage:i];
         [i release];
     }
@@ -451,8 +451,9 @@
 {
 	if (i != statusImage)
 	{
-		[statusImage release];
-		statusImage = [i retain];		
+        NSImage *oldimage = statusImage;
+        statusImage = [i retain];	
+		[oldimage release];	
 	}
 }
 

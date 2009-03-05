@@ -38,7 +38,6 @@
 		5A95FEC20CB8041A00737B79 /* Help in Resources */ = {isa = PBXBuildFile; fileRef = 5A95FEBE0CB8041A00737B79 /* Help */; };
 		5A9D56B40E7F23FC000F129F /* PrefsController.nib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9D56B30E7F23FC000F129F /* PrefsController.nib */; };
 		5A9D56B70E7F2409000F129F /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9D56B60E7F2409000F129F /* MainMenu.nib */; };
-		5A9D56BA0E7F2413000F129F /* PrefsControllerPanther.nib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9D56B90E7F2413000F129F /* PrefsControllerPanther.nib */; };
 		5A9E59590CB9280700E05D28 /* pngcrush in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E59560CB9280700E05D28 /* pngcrush */; };
 		5A9E595B0CB9280700E05D28 /* advpng in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E59580CB9280700E05D28 /* advpng */; };
 		5A9E5B2B0CB961E000E05D28 /* JpegoptimWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E5B2A0CB961E000E05D28 /* JpegoptimWorker.m */; };
@@ -209,7 +208,6 @@
 		5AACA80F0CAFE3CA004D45CA /* crusher.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = crusher.icns; sourceTree = "<group>"; };
 		5AACA82F0CAFE74E004D45CA /* Transformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformers.h; sourceTree = "<group>"; };
 		5AACA8300CAFE74E004D45CA /* Transformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transformers.m; sourceTree = "<group>"; };
-		5AB7D77B0CB84E09004A5036 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/PrefsControllerPanther.nib; sourceTree = "<group>"; };
 		5AC63C310E9ABCDF0053B879 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		5AC63C490E9ABF0A0053B879 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		5AD106FE0E7F247C00178E99 /* optipng */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = optipng; path = optipng/build/Release/optipng; sourceTree = "<group>"; };
@@ -336,7 +334,6 @@
 				5AE54D800CAEE8AC00903DF4 /* defaults.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				5A9D56B60E7F2409000F129F /* MainMenu.nib */,
-				5A9D56B90E7F2413000F129F /* PrefsControllerPanther.nib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -561,7 +558,6 @@
 				5A9EE4500CB59CDD00F08CC5 /* wait.png in Resources */,
 				5A9EE4730CB59EC100F08CC5 /* progress.png in Resources */,
 				5A95FEC20CB8041A00737B79 /* Help in Resources */,
-				5A9D56BA0E7F2413000F129F /* PrefsControllerPanther.nib in Resources */,
 				5A9E59590CB9280700E05D28 /* pngcrush in Resources */,
 				5A9E595B0CB9280700E05D28 /* advpng in Resources */,
 				5AD106FF0E7F247C00178E99 /* optipng in Resources */,
@@ -695,14 +691,6 @@
 				5A9D56B80E7F240E000F129F /* Polish */,
 			);
 			name = MainMenu.nib;
-			sourceTree = "<group>";
-		};
-		5A9D56B90E7F2413000F129F /* PrefsControllerPanther.nib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5AB7D77B0CB84E09004A5036 /* English */,
-			);
-			name = PrefsControllerPanther.nib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

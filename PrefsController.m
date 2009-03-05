@@ -12,10 +12,7 @@
 
 -(id)init
 {
-	BOOL panther = (floor(NSAppKitVersionNumber) <= floor(NSAppKitVersionNumber10_3) || NSAppKitVersionNumber < 745);
-	//NSLog(@"AppKit version = %f, panther = %d", (float)NSAppKitVersionNumber, panther);
-	
-	if (self = [super initWithWindowNibName:(panther ? @"PrefsControllerPanther" : @"PrefsController")])
+	if (self = [super initWithWindowNibName:@"PrefsController"])
 	{
 		int cpus = [ImageOptim numberOfCPUs];
 		maxNumberOfTasks = MIN(cpus*6, MAX(8, cpus * 2 + 2));

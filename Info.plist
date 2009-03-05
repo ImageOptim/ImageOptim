@@ -89,9 +89,9 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.8</string>
+	<string>1.0.9.1</string>
 	<key>CFBundleGetInfoString</key>
-	<string>1.0.8</string>
+	<string>1.0.9.1</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -101,7 +101,7 @@
 	<key>SUFeedURL</key>
 	<string>http://pornel.net/imageoptim/appcast.xml</string>
 	<key>SUShowReleaseNotes</key>
-	<false/>
+	<true/>
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
 </dict>

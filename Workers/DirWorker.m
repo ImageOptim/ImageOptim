@@ -35,6 +35,7 @@
 		if (NSNotFound != [extensions indexOfObject:[newPath pathExtension]])
 		{
 			[filesQueue addFilePath:newPath dirs:NO];
+            if (!added) [filesQueue runAdded];
             added = YES;
 		}
 	}

@@ -96,8 +96,9 @@
 						{
 //							NSLog(@"runnable worker found %@",w);
 							[runningWorkers addObject:w];
-							[queuedWorkers replaceObjectAtIndex:i withObject:[queuedWorkers lastObject]];
-							[queuedWorkers removeLastObject];
+                            [queuedWorkers removeObjectAtIndex:i];
+							/*[queuedWorkers replaceObjectAtIndex:i withObject:[queuedWorkers lastObject]];
+							[queuedWorkers removeLastObject];*/
 							
 							runWorker = w;
 							
