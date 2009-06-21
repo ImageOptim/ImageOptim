@@ -30,25 +30,14 @@
 }
 
 
--(int)maxNumberOfTasks {
-	return maxNumberOfTasks;
-}
--(int)recommendedNumberOfTasks {
-	return recommendedNumberOfTasks;
-}
--(int)criticalNumberOfTasks {
-	return criticalNumberOfTasks;
-}
-
 -(IBAction)addGammaChunks:(id)sender
 {
 	NSArray *chunks = [NSArray arrayWithObjects:@"gAMA",@"sRGB",@"iCCP",@"cHRM",nil];
-	NSEnumerator *enu = [chunks objectEnumerator];
 	NSString *name;
 	NSArray *content = [chunksController arrangedObjects];
 	BOOL done = NO;
 	
-	while(name = [enu nextObject])
+	for(name in chunks)
 	{
 		NSDictionary *chunk = [NSDictionary dictionaryWithObject:name forKey:@"name"];
 		if (NSNotFound == [content indexOfObject:chunk])
@@ -128,4 +117,9 @@
 	//NSLog(@"opening help for %@ in %@",anchor, locBookName);
 	[[NSHelpManager sharedHelpManager] openHelpAnchor:anchor inBook:locBookName];
 }
+@synthesize tasksSlider;
+@synthesize chunksController;
+@synthesize maxNumberOfTasks;
+@synthesize recommendedNumberOfTasks;
+@synthesize criticalNumberOfTasks;
 @end

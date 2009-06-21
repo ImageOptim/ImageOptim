@@ -13,8 +13,8 @@
 {
 	if (self = [super init])
 	{
-		path = [aPath copy];
-		filesQueue = [q retain];
+		self.path = aPath;
+		self.filesQueue = q;
 	}
 	return self;
 }
@@ -51,4 +51,6 @@
 	[filesQueue release]; filesQueue = nil;
 	[super dealloc];
 }
+@synthesize filesQueue;
+@synthesize path;
 @end

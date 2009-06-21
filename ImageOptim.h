@@ -6,15 +6,15 @@
 
 @interface ImageOptim : NSObject
 {
-	IBOutlet NSTableView *tableView;
+	NSTableView *tableView;
 	//IBOutlet NSMutableArray *files;
-	IBOutlet NSArrayController *filesController;
+	NSArrayController *filesController;
 	
 	FilesQueue *filesQueue;
-	IBOutlet NSApplication *application;
+	NSApplication *application;
 	PrefsController *prefsController;
 	
-	IBOutlet NSProgressIndicator *progressBar;
+	NSProgressIndicator *progressBar;
 	
 	NSArray *fileTypes;
 }
@@ -34,4 +34,11 @@
 
 +(int)numberOfCPUs;
 
+@property (retain) IBOutlet NSTableView *tableView;
+@property (retain) IBOutlet NSArrayController *filesController;
+@property (retain,readonly) FilesQueue *filesQueue;
+@property (retain) IBOutlet NSApplication *application;
+@property (retain,readonly) PrefsController *prefsController;
+@property (retain) IBOutlet NSProgressIndicator *progressBar;
+@property (retain,readonly) NSArray *fileTypes;
 @end

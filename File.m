@@ -15,6 +15,8 @@
 
 @implementation File
 
+@synthesize byteSize, byteSizeOptimized, filePath, displayName, statusText, statusImage, filePath, percentDone;
+
 -(id)initWithFilePath:(NSString *)name;
 {
 	if (self = [self init])
@@ -38,12 +40,6 @@
 	return @"N/A";
 }
 
--(NSString *)filePath
-{
-	return filePath;
-}
-
-
 -(void)setFilePath:(NSString *)s
 {
 	if (filePath != s)
@@ -51,20 +47,8 @@
 		[filePath release];
 		filePath = [s copy];
 		
-		NSString *newDisplay = [[[NSFileManager defaultManager] displayNameAtPath:filePath] copy];
-		[displayName release];
-		displayName = newDisplay;		
+        self.displayName = [[NSFileManager defaultManager] displayNameAtPath:filePath];		
 	}
-}
-
--(long)byteSize
-{
-	return byteSize;
-}
-
--(long)byteSizeOptimized
-{
-	return byteSizeOptimized;
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -105,16 +89,6 @@
 -(void)setPercentOptimized:(float)f
 {
 	// just for KVO
-}
-
--(float)percentDone
-{
-	return percentDone;
-}
-
--(void)setPercentDone:(float)d
-{
-	percentDone = d;
 }
 -(BOOL)isOptimized
 {
@@ -334,28 +308,28 @@
 			w = [[PngCrushWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			[w autorelease];
+			[w release];
 		}
 		if ([defs boolForKey:@"PngOut.Enabled"])
 		{
 			w = [[PngoutWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			[w autorelease];		
+			[w release];		
 		}
 		if ([defs boolForKey:@"OptiPng.Enabled"])
 		{
 			w = [[OptiPngWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			[w autorelease];		
+			[w release];		
 		}
 		if ([defs boolForKey:@"AdvPng.Enabled"])
 		{
 			w = [[AdvCompWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			[w autorelease];
+			[w release];
 		}
 	}
 	else 
@@ -365,39 +339,36 @@
             //NSLog(@"%@ is jpeg",filePath);
             w = [[JpegoptimWorker alloc] initWithFile:self];
             [runLater addObject:w];
-            [w autorelease];
+            [w release];
         }
         if ([defs boolForKey:@"JpegTran.Enabled"])
         {
             //NSLog(@"%@ is jpeg",filePath);
             w = [[JpegtranWorker alloc] initWithFile:self];
             [runLater addObject:w];
-            [w autorelease];
+            [w release];
         }
     }
 	
-	NSEnumerator *enu = [runFirst objectEnumerator];
 	Worker *lastWorker = nil;
 	
 //	NSLog(@"file %@ has workers first %@ and later %@",self,runFirst,runLater);
 		
 	workersTotal += [runFirst count] + [runLater count];
 
-		
-	while(w = [enu nextObject])
+	for(Worker *w in runFirst)
 	{
 		[queue addWorker:w after:lastWorker];
 		lastWorker = w;
 	}
 	
-	enu = [runLater objectEnumerator];
-	while(w = [enu nextObject])
+	for(Worker *w in runLater)
 	{
 		[queue addWorker:w after:[runFirst lastObject]];
 	}	
 	
-	[runFirst autorelease];
-	[runLater autorelease];
+	[runFirst release];
+	[runLater release];
 	
 	if (!workersTotal) 
 	{
@@ -409,9 +380,9 @@
 
 -(void)dealloc
 {
-	[self setStatusImage:nil];
-    [statusText release]; statusText = nil;
 	[self removeOldFilePathOptimized];
+    self.statusImage = nil;
+    [statusText release]; statusText = nil;
 	[filePathOptimized release]; filePathOptimized = nil;
 	[filePath release]; filePath = nil;
 	[displayName release]; displayName = nil;
@@ -419,12 +390,6 @@
 	[serialQueue release]; serialQueue = nil;
 	[super dealloc];
 }
-
--(NSImage *)statusImage
-{
-	return statusImage;
-}
-
 
 -(BOOL)isBusy
 {
@@ -437,34 +402,17 @@
     {
         if (statusText == text) return;
         
-        NSString *oldtext = statusText; 
-        statusText = [text retain];
-        [oldtext release]; 
+        self.statusText = text;
         
         NSImage *i = [[NSImage alloc] initByReferencingFile: [[NSBundle mainBundle] pathForImageResource:imageName]];
-        [self setStatusImage:i];
+        self.statusImage = i;
         [i release];
     }
 }
 
--(void)setStatusImage:(NSImage *)i
-{
-	if (i != statusImage)
-	{
-        NSImage *oldimage = statusImage;
-        statusImage = [i retain];	
-		[oldimage release];	
-	}
-}
-
--(NSString *)statusText
-{
-    return statusText;
-}
 -(NSString *)description
 {
-	NSString *s = [NSString stringWithFormat:@"%@ %d/%d", filePath,byteSize,byteSizeOptimized];
-	return s;
+	return [NSString stringWithFormat:@"%@ %d/%d", self.filePath,self.byteSize,self.byteSizeOptimized];
 }
 
 

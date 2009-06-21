@@ -34,8 +34,13 @@
 
 -(void)runWorkers;
 
--(void)setMaxWorkersCount:(int)i;
 -(void)workerHasFinished:(Worker *)w; // not a delegate method
 -(void)threadEntry:(Worker *)w;
 -(BOOL)hasFinished;
+@property (readonly,retain) NSMutableArray *runningWorkers;
+@property (readonly,retain) NSMutableArray *queuedWorkers;
+@property (assign,readonly) int maxWorkersCount;
+@property (assign,readonly) BOOL isAsync;
+@property (assign) id owner;
+@property (retain,nonatomic) NSRecursiveLock *workersLock;
 @end

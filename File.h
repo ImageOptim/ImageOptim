@@ -13,7 +13,7 @@
 	
 	long byteSize;
 	long byteSizeOptimized;	
-	float percentDone;
+	double percentDone;
 	
 	NSString *filePathOptimized;
 	
@@ -46,17 +46,14 @@
 -(void)setFilePath:(NSString *)s;
 
 -(NSString *)fileName;
--(NSString *)filePath;
--(long)byteSize;
--(long)byteSizeOptimized;
--(float)percentDone;
--(void)setPercentDone:(float)d;
+
+@property (assign) long byteSize, byteSizeOptimized;
+@property (retain) NSString *statusText, *filePath, *displayName;
+@property (retain) NSImage *statusImage;
+
+@property (assign) double percentDone;
 
 -(void)setStatus:(NSString *)name text:(NSString*)text;
--(NSImage *)statusImage;
--(NSString *)statusText;
--(void)setStatusImage:(NSImage *)i;
-
 
 +(long)fileByteSize:(NSString *)afile;
 

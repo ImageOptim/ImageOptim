@@ -15,4 +15,6 @@
 
 -(id)initWithPath:(NSString *)path filesQueue:(FilesQueue *)q;
 
+@property (retain) FilesQueue *filesQueue;
+@property (copy) NSString *path;
 @end

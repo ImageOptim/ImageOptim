@@ -20,7 +20,6 @@
 
 -(void)run;
 
--(Worker *)dependsOn;
--(void)setDependsOn:(Worker *)w;
+@property (retain) Worker *dependsOn;
 
 @end

@@ -14,23 +14,13 @@
 	if (self = [self init])
 	{	
 		isAsync = (max>0);
-		[self setMaxWorkersCount:MAX(1,max)];
+		maxWorkersCount = MAX(1,max);
 		runningWorkers = [[NSMutableArray alloc] init];
 		queuedWorkers =  [[NSMutableArray alloc] init];
 		workersLock = [NSRecursiveLock new];
 		owner = nil;
 	}
 	return self;
-}
-
--(void)setMaxWorkersCount:(int)m
-{
-	maxWorkersCount = m;
-}
-
--(void)setOwner:(id)o
-{
-	owner = o;
 }
 
 -(BOOL)hasFinished
@@ -46,19 +36,16 @@
 -(void)removeWorkersOf:(File *)file
 {
 	[workersLock lock];	
-	NSEnumerator *enu;
 	Worker *w;
 	NSMutableArray *toRemove = [NSMutableArray new];
 	
-	enu = [runningWorkers objectEnumerator];
-	while(w = [enu nextObject])
+	for(w in runningWorkers)
 		if ([w isRelatedTo:file])
 			[toRemove addObject:file];
 	
 	[runningWorkers removeObjectsInArray:toRemove];
 	
-	enu = [queuedWorkers objectEnumerator];
-	while(w = [enu nextObject])
+	for(w in queuedWorkers)
 		if ([w isRelatedTo:file])
 			[toRemove addObject:file];
 	
@@ -214,4 +201,10 @@
 	[queuedWorkers release]; queuedWorkers = nil;
 	[super dealloc];
 }
+@synthesize runningWorkers;
+@synthesize queuedWorkers;
+@synthesize maxWorkersCount;
+@synthesize isAsync;
+@synthesize owner;
+@synthesize workersLock;
 @end

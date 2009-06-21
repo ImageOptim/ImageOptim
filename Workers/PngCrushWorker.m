@@ -17,9 +17,8 @@
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
 	NSArray *chunks = [defaults arrayForKey:@"PngCrush.Chunks"];
-	NSEnumerator *enu = [chunks objectEnumerator];
 	NSDictionary *dict;
-	while(dict = [enu nextObject])
+	for(dict in chunks)
 	{
 		NSString *name = [dict objectForKey:@"name"];
 		if (name)
@@ -92,4 +91,5 @@
 {
 	return YES;
 }
+
 @end

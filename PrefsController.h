@@ -8,11 +8,10 @@
 @class ImageOptim;
 
 @interface PrefsController : NSWindowController {
-
 	ImageOptim *owner;
 	
-	IBOutlet NSSlider *tasksSlider;
-	IBOutlet NSArrayController *chunksController;
+	NSSlider *tasksSlider;
+	NSArrayController *chunksController;
 
 	int maxNumberOfTasks;
 	int recommendedNumberOfTasks;
@@ -25,4 +24,9 @@
 -(void)showWindow:(id)sender;
 -(IBAction)addGammaChunks:(id)sender;
 -(IBAction)showHelp:(id)sender;
+@property (retain) IBOutlet NSSlider *tasksSlider;
+@property (retain) IBOutlet NSArrayController *chunksController;
+@property (readonly) int maxNumberOfTasks;
+@property (readonly) int recommendedNumberOfTasks;
+@property (readonly) int criticalNumberOfTasks;
 @end

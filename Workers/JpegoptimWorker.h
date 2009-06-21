@@ -10,5 +10,4 @@
 @interface JpegoptimWorker : CommandWorker {
 	int fileSizeOptimized;
 }
-
 @end

@@ -26,8 +26,8 @@
 {
 	if (self = [super init])
 	{
-		fileTypes = [[NSArray arrayWithObjects:@"png",@"PNG",NSFileTypeForHFSTypeCode( 'PNGf' ),@"public.png",@"image/png",
-			@"jpg",@"jpeg",@"JPG",@"JPEG",NSFileTypeForHFSTypeCode( 'JPEG' ),@"public.jpeg",@"image/jpeg",nil] retain];
+		fileTypes = [[NSArray alloc] initWithObjects:@"png",@"PNG",NSFileTypeForHFSTypeCode( 'PNGf' ),@"public.png",@"image/png",
+			@"jpg",@"jpeg",@"JPG",@"JPEG",NSFileTypeForHFSTypeCode( 'JPEG' ),@"public.jpeg",@"image/jpeg",nil];
 	}
 	return self;
 }
@@ -116,4 +116,11 @@
 	[application terminate:self];
 }
 
+@synthesize tableView;
+@synthesize filesController;
+@synthesize filesQueue;
+@synthesize application;
+@synthesize prefsController;
+@synthesize progressBar;
+@synthesize fileTypes;
 @end

@@ -9,6 +9,8 @@
 
 @implementation Worker
 
+@synthesize dependsOn;
+
 -(id <WorkerQueueDelegate>)delegate
 {
 	return nil;
@@ -29,19 +31,6 @@
 	return NO;
 }
 
--(void)setDependsOn:(Worker *)w
-{
-	if (dependsOn != w)
-	{
-		[dependsOn release];
-		dependsOn = [w retain];		
-	}
-}
-
--(Worker *)dependsOn
-{
-	return dependsOn;
-}
 
 -(NSString *)description
 {

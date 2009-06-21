@@ -14,7 +14,7 @@
 {
 	if (self = [self init])
 	{
-		file = [aFile retain];
+		self.file = aFile;
 	}
 	return self;
 }
@@ -188,4 +188,5 @@
 {
 	return file;
 }
+@synthesize file;
 @end

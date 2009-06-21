@@ -29,4 +29,5 @@
 
 -(NSTask *)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args;
 
+@property (retain) File *file;
 @end

@@ -12,5 +12,4 @@
 	int fileSize;	
 	int fileSizeOptimized;	
 }
-
 @end
