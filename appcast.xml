@@ -5,15 +5,6 @@
       <link>http://pornel.net/imageoptim/appcast.xml</link>
       <description>ImageOptim updates</description>
       <language>en</language>
-         <item>
-            <title>Version 1.0.7</title>
-						<sparkle:releaseNotesLink>
-							http://pornel.net/imageoptim/en/
-						</sparkle:releaseNotesLink>
-						<description>Tooltips with file status. Fixed preserving of EXIF tags in JPEG.</description>
-            <pubDate>Thu, 27 Nov 2008 22:48:51 +0000</pubDate>
-            <enclosure url="http://pornel.net/ImageOptim1.0.7.tar.bz2" sparkle:version="1.0.7" length="1242967" type="application/bzip2" sparkle:dsaSignature="MCwCFFwZIc9WLCPB1Z1F12LIdcvWv5bMAhRp5IgMwxmKVByn6k8whQhjGVcYeg==" />
-         </item>
         <item>
             <title>Version 1.0.8</title>
 						<sparkle:releaseNotesLink>
@@ -35,5 +26,14 @@
                sparkle:version="1.0.9" length="1298033" type="application/bzip2" 
                sparkle:dsaSignature="MC0CFAswZuMxfM9L7cOI7wyB+G9aC5dxAhUAgplZd9IL7u+/0Aknd/qq7SdkEgE=" />
           </item>
+         <item>
+            <title>Version 1.0.10</title>
+						<sparkle:releaseNotesLink>
+							http://pornel.net/imageoptim/en/
+						</sparkle:releaseNotesLink>
+						<description>Faster directory scan</description>
+            <pubDate>Sun, 21 Jun 2009 19:21:31 +0100</pubDate>
+            <enclosure url="http://pornel.net/ImageOptim1.0.10.tar.bz2" sparkle:version="1.0.10" length="1218907" type="application/bzip2" sparkle:dsaSignature="MCwCFDooLOGTyB+eqp5IYHllEd3Mc+SrAhQXOBK19vn06LDp4IcZVrDSvcF6YQ==" />
+         </item>          
     </channel>
 </rss>
