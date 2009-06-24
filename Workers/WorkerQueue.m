@@ -8,13 +8,20 @@
 #import "Worker.h";
 #import "FilesQueue.h";
 
+@interface WorkerQueue ()
+
+-(void)runWorkers;
+-(void)workerHasFinished:(Worker *)w; // not a delegate method
+-(void)threadEntry:(Worker *)w;
+
+@end
+
+
 @implementation WorkerQueue
--(id)initWithMaxWorkers:(int)max
+-(id)init
 {
-	if (self = [self init])
+	if (self = [super init])
 	{	
-		isAsync = (max>0);
-		maxWorkersCount = MAX(1,max);
 		runningWorkers = [[NSMutableArray alloc] init];
 		queuedWorkers =  [[NSMutableArray alloc] init];
 		workersLock = [NSRecursiveLock new];
@@ -23,15 +30,10 @@
 	return self;
 }
 
--(BOOL)hasFinished
-{
-	BOOL res;
-	[workersLock lock];
-	res = [runningWorkers count]==0 && [queuedWorkers count]==0;
-	[workersLock unlock];
-	return res;
+-(void)setMaxConcurrentOperationCount:(int)max {
+    isAsync = (max>0);
+    maxWorkersCount = MAX(1,max);
 }
-
 
 -(void)removeWorkersOf:(File *)file
 {
@@ -142,15 +144,16 @@
 	}
 }
 
--(void)addWorker:(Worker *)w after:(Worker *)dependence
+-(void)addOperation:(Worker *)w
 {	
-	[workersLock lock];
-	
-	[w setDependsOn:dependence];	
+	[workersLock lock];	
+		
 //	NSLog(@"Adding worker %@ in %@",w,self);		
 	[queuedWorkers addObject:w];
 		
 	[workersLock unlock];
+    
+	[self runWorkers];
 }
 
 -(void)workerHasFinished:(Worker *)w
@@ -170,11 +173,9 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 //	NSLog(@"Worker %@ thread start",w);
 	@try
-	{
-		[[w delegate] workerHasStarted:w];
-		[w run];
-//		NSLog(@"worker's %@ [run] ended, starting delegate",w);
-		[[w delegate] workerHasFinished:w];
+	{		
+		[w main];
+//		NSLog(@"worker's %@ [run] ended, starting delegate",w);		
 //		NSLog(@"worker's %@ [delegate workerHasFinished] finished",w);
 	}
 	@catch(NSException *e)
@@ -193,7 +194,10 @@
 {
 	return [NSString stringWithFormat:@"queued: %@ running: %@",[queuedWorkers description],[runningWorkers description]];
 }
-
+-(NSArray*)operations {    
+    if ([queuedWorkers count]) return queuedWorkers;
+    return runningWorkers;
+}
 -(void)dealloc
 {
 	[workersLock release]; workersLock = nil;
@@ -201,10 +205,6 @@
 	[queuedWorkers release]; queuedWorkers = nil;
 	[super dealloc];
 }
-@synthesize runningWorkers;
 @synthesize queuedWorkers;
-@synthesize maxWorkersCount;
-@synthesize isAsync;
 @synthesize owner;
-@synthesize workersLock;
 @end

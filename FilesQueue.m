@@ -18,10 +18,12 @@
 	
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	
-	workerQueue = [[WorkerQueue alloc] initWithMaxWorkers:[defs integerForKey:@"RunConcurrentTasks"]];
+	workerQueue = [[WorkerQueue alloc] init];
+    [workerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentTasks"]];
 	[workerQueue setOwner:self];
 	
-	dirWorkerQueue = [[WorkerQueue alloc] initWithMaxWorkers:[defs integerForKey:@"RunConcurrentDirscans"]];	
+	dirWorkerQueue = [[WorkerQueue alloc] init];
+    [dirWorkerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentDirscans"]];	
 	
 	[tableView setDelegate:self];
 	[tableView setDataSource:self];
@@ -125,7 +127,7 @@
 	if (![self enabled]) return;
 
 	DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self];
-	[dirWorkerQueue addWorker:w after:nil];
+	[dirWorkerQueue addOperation:w];
 	[w autorelease];
 }
 
@@ -190,9 +192,6 @@
 
 -(void)runAdded
 {
-	[dirWorkerQueue runWorkers];
-	[workerQueue runWorkers];
-
 	[self updateProgressbar];
 }
 
@@ -230,7 +229,9 @@
 
 -(void)updateProgressbar
 {
-	if ([workerQueue hasFinished] && [dirWorkerQueue hasFinished])
+    NSLog(@"Workers have %d and %d operations to do",[workerQueue.operations count],[dirWorkerQueue.operations count]);
+    
+	if (![workerQueue.operations count] && ![dirWorkerQueue.operations count])
 	{		
 		[progressBar stopAnimation:nil];
 		[[NSApplication sharedApplication] requestUserAttention:NSInformationalRequest];

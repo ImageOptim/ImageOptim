@@ -358,13 +358,15 @@
 
 	for(Worker *w in runFirst)
 	{
-		[queue addWorker:w after:lastWorker];
+        [w addDependency:lastWorker];
+		[queue addOperation:w];
 		lastWorker = w;
 	}
 	
 	for(Worker *w in runLater)
 	{
-		[queue addWorker:w after:[runFirst lastObject]];
+        [w addDependency:[runFirst lastObject]];
+		[queue addOperation:w];
 	}	
 	
 	[runFirst release];

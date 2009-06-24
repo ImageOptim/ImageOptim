@@ -19,7 +19,8 @@
 -(id <WorkerQueueDelegate>)delegate;
 
 -(void)run;
+-(void)main;
+-(void)addDependency:(Worker*)w;
 
 @property (retain) Worker *dependsOn;
-
 @end

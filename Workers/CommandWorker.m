@@ -91,7 +91,7 @@
     libPath = [libPath stringByDeletingLastPathComponent];
     
 	[environment setObject:libPath forKey:@"DYLD_FALLBACK_LIBRARY_PATH"];
-    NSLog(@"Library path: %@",libPath);
+//    NSLog(@"Library path: %@",libPath);
 
     // set up for unbuffered I/O
 	[environment setObject:@"YES" forKey:@"NSUnbufferedIO"];
