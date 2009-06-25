@@ -184,7 +184,7 @@
 	return [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.tmp",baseName,[file hash],random()]];
 }
 
--(id)delegate
+-(NSObject<WorkerQueueDelegate>*)delegate
 {
 	return file;
 }

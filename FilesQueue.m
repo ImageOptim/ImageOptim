@@ -5,7 +5,7 @@
 //
 #import "File.h"
 #import "FilesQueue.h"
-#import "WorkerQueue.h"
+
 #import "DirWorker.h"
 
 @implementation FilesQueue
@@ -18,11 +18,11 @@
 	
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	
-	workerQueue = [[WorkerQueue alloc] init];
+	workerQueue = [[NSOperationQueue alloc] init];
     [workerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentTasks"]];
-	[workerQueue setOwner:self];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(workersHaveFinished) name:@"WorkersMayHaveFinished" object:nil];
 	
-	dirWorkerQueue = [[WorkerQueue alloc] init];
+	dirWorkerQueue = [[NSOperationQueue alloc] init];
     [dirWorkerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentDirscans"]];	
 	
 	[tableView setDelegate:self];
@@ -137,9 +137,7 @@
 -(File *)findFileByPath:(NSString *)path
 {
 	NSArray *array = [filesController content];
-	NSEnumerator *enu = [array objectEnumerator];
-	File *f;
-	while(f = [enu nextObject])
+	for(File *f in array)
 	{
 		if ([path isEqualToString:[f filePath]])
 		{
@@ -167,6 +165,7 @@
 			
 			File *f;
 			
+            [workerQueue setSuspended:YES];
 			[filesControllerLock lock];
 			
 			if (f = [self findFileByPath:path])
@@ -182,6 +181,7 @@
 			}
 			
 			[filesControllerLock unlock];
+            [workerQueue setSuspended:NO];
 		}
 		else if (useDirs)
 		{
@@ -202,11 +202,9 @@
 	NSArray *array = [filesController selectedObjects];
 	if (![array count]) array = [filesController content];
 
-	NSEnumerator *enu = [array objectEnumerator];
-	File *f;
 	
 	BOOL anyStarted = NO;
-	while(f = [enu nextObject])
+	for(File *f in array)
 	{
 		if (![f isBusy]) 
 		{
@@ -222,23 +220,29 @@
 	[self runAdded];
 }
 
--(void)workersHaveFinished:(WorkerQueue *)q
+-(void)workersHaveFinishedMainThread
 {
-	[self updateProgressbar];
+    [self updateProgressbar];
+    [self performSelector:@selector(updateProgressbar) withObject:nil afterDelay:1.0]; // FIXME: fudge to avoid race conditions
+}
+
+-(void)workersHaveFinished
+{
+    [self performSelectorOnMainThread:@selector(workersHaveFinishedMainThread) withObject:nil waitUntilDone:NO];
 }
 
 -(void)updateProgressbar
 {
-    NSLog(@"Workers have %d and %d operations to do",[workerQueue.operations count],[dirWorkerQueue.operations count]);
-    
 	if (![workerQueue.operations count] && ![dirWorkerQueue.operations count])
 	{		
+        NSLog(@"Done!");
 		[progressBar stopAnimation:nil];
 		[[NSApplication sharedApplication] requestUserAttention:NSInformationalRequest];
 		[tableView setNeedsDisplay:YES];
 	}
 	else
 	{
+        NSLog(@"There are still operations to do");
 		[progressBar startAnimation:nil];		
 	}
 }

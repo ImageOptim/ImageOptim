@@ -5,7 +5,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "WorkerQueue.h"
+#import "Worker.h"
 
 @interface File : NSObject <NSCopying, WorkerQueueDelegate> {
 	NSString *filePath;
@@ -19,7 +19,7 @@
 	
 	NSRecursiveLock *lock;
 	
-	WorkerQueue *serialQueue;
+	NSOperationQueue *serialQueue;
 	
 	NSImage *statusImage;
     NSString *statusText;
@@ -33,7 +33,7 @@
 
 -(BOOL)isBusy;
 
--(void)enqueueWorkersInQueue:(WorkerQueue *)queue;
+-(void)enqueueWorkersInQueue:(NSOperationQueue *)queue;
 
 -(void)setFilePathOptimized:(NSString *)f size:(long)s;
 

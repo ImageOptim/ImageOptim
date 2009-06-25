@@ -6,15 +6,14 @@
 
 #import <Cocoa/Cocoa.h>
 @class File;
-@class WorkerQueue;
 
 @interface FilesQueue : NSObject {
 	NSTableView *tableView;
 	NSArrayController *filesController;
 	BOOL isEnabled;
 	
-	WorkerQueue *workerQueue;
-	WorkerQueue *dirWorkerQueue;	
+	NSOperationQueue *workerQueue;
+	NSOperationQueue *dirWorkerQueue;	
 	
 	NSRecursiveLock *filesControllerLock;
 	
@@ -33,7 +32,7 @@
 
 -(IBAction)delete:(id)sender;
 
--(void)workersHaveFinished:(WorkerQueue *)q;
+-(void)workersHaveFinished;
 
 -(void)updateProgressbar;
 

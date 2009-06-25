@@ -58,7 +58,7 @@
 		5AD106FF0E7F247C00178E99 /* optipng in Resources */ = {isa = PBXBuildFile; fileRef = 5AD106FE0E7F247C00178E99 /* optipng */; };
 		5AE1C49A0CA6CDDC000CF636 /* FilesQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C4990CA6CDDC000CF636 /* FilesQueue.m */; };
 		5AE54D810CAEE8AC00903DF4 /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AE54D800CAEE8AC00903DF4 /* defaults.plist */; };
-		5AE54DEA0CAEF53D00903DF4 /* WorkerQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE54DE90CAEF53D00903DF4 /* WorkerQueue.m */; };
+		5AE54DEA0CAEF53D00903DF4 /* NSOperationQueueXXXX.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE54DE90CAEF53D00903DF4 /* NSOperationQueueXXXX.m */; };
 		5AE54DEF0CAEF56100903DF4 /* PngoutWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */; };
 		5AE54E210CAF16D800903DF4 /* AdvCompWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE54E200CAF16D800903DF4 /* AdvCompWorker.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -214,8 +214,8 @@
 		5AE1C4980CA6CDDC000CF636 /* FilesQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesQueue.h; sourceTree = "<group>"; };
 		5AE1C4990CA6CDDC000CF636 /* FilesQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesQueue.m; sourceTree = "<group>"; };
 		5AE54D800CAEE8AC00903DF4 /* defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaults.plist; sourceTree = "<group>"; };
-		5AE54DE80CAEF53D00903DF4 /* WorkerQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkerQueue.h; sourceTree = "<group>"; };
-		5AE54DE90CAEF53D00903DF4 /* WorkerQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkerQueue.m; sourceTree = "<group>"; };
+		5AE54DE80CAEF53D00903DF4 /* NSOperationQueueXXXX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSOperationQueueXXXX.h; sourceTree = "<group>"; };
+		5AE54DE90CAEF53D00903DF4 /* NSOperationQueueXXXX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSOperationQueueXXXX.m; sourceTree = "<group>"; };
 		5AE54DED0CAEF56100903DF4 /* PngoutWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PngoutWorker.h; sourceTree = "<group>"; };
 		5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PngoutWorker.m; sourceTree = "<group>"; };
 		5AE54E1F0CAF16D800903DF4 /* AdvCompWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvCompWorker.h; sourceTree = "<group>"; };
@@ -413,8 +413,8 @@
 				5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */,
 				5AACA13D0CAF241B004D45CA /* Worker.h */,
 				5AACA13E0CAF241B004D45CA /* Worker.m */,
-				5AE54DE80CAEF53D00903DF4 /* WorkerQueue.h */,
-				5AE54DE90CAEF53D00903DF4 /* WorkerQueue.m */,
+				5AE54DE80CAEF53D00903DF4 /* NSOperationQueueXXXX.h */,
+				5AE54DE90CAEF53D00903DF4 /* NSOperationQueueXXXX.m */,
 				5A6E04410EA40B6A00380DE7 /* JpegtranWorker.h */,
 				5A6E04420EA40B6A00380DE7 /* JpegtranWorker.m */,
 				5A9E5B290CB961E000E05D28 /* JpegoptimWorker.h */,
@@ -613,7 +613,7 @@
 				5A0D2E5D0C922D6D00FD7CDE /* ImageOptim.m in Sources */,
 				5AE1C49A0CA6CDDC000CF636 /* FilesQueue.m in Sources */,
 				5A6242080CA86DC7005942A3 /* PrefsController.m in Sources */,
-				5AE54DEA0CAEF53D00903DF4 /* WorkerQueue.m in Sources */,
+				5AE54DEA0CAEF53D00903DF4 /* NSOperationQueueXXXX.m in Sources */,
 				5AE54DEF0CAEF56100903DF4 /* PngoutWorker.m in Sources */,
 				5AE54E210CAF16D800903DF4 /* AdvCompWorker.m in Sources */,
 				5AACA1380CAF23FF004D45CA /* DirWorker.m in Sources */,

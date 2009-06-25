@@ -5,12 +5,11 @@
 //
 
 #import "Worker.h"
-#import "WorkerQueue.h"
 
 @implementation Worker
-@synthesize dependsOn;
+//@synthesize dependsOn;
 
--(id <WorkerQueueDelegate>)delegate
+-(NSObject <WorkerQueueDelegate>*)delegate
 {
 	return nil;
 }
@@ -27,6 +26,10 @@
         [self run]; 
     }
     @finally {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"WorkersMayHaveFinished" object:nil];
+//                [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:@"WorkersMayHaveFinished" object:nil] 
+//                                                           postingStyle:NSPostWhenIdle 
+//                                                           coalesceMask:NSNotificationCoalescingOnName forModes:nil];
         [[self delegate] workerHasFinished:self];        
     }
 }
@@ -41,27 +44,9 @@
 	return NO;
 }
 
--(void)addDependency:(Worker*)w {
-    self.dependsOn = w;
-}
-/*-(void)addDependency:(Worker*)w {
-    [self addDependency:w];
-}
-
--(Worker *) dependsOn {
-    return [[self dependencies] lastObject];
-}
-*/
 -(NSString *)description
 {
-	return [NSString stringWithFormat:@"%@ %X <dep %@>",[self className],[self hash],dependsOn];
-}
-
--(void)dealloc 
-{
-//	NSLog(@"### Worker dealloc %@",[self className]);
-	[dependsOn release]; dependsOn = nil;
-	[super dealloc];
+	return [NSString stringWithFormat:@"%@ %X",[self className],[self hash]];
 }
 
 @end

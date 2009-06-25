@@ -5,7 +5,7 @@
 //
 
 #import "File.h"
-#import "WorkerQueue.h"
+
 #import "AdvCompWorker.h"
 #import "PngoutWorker.h"
 #import "OptiPngWorker.h"
@@ -286,7 +286,7 @@
 	return NO;
 }
 
--(void)enqueueWorkersInQueue:(WorkerQueue *)queue
+-(void)enqueueWorkersInQueue:(NSOperationQueue *)queue
 {
     [self setStatus:@"wait" text:@"Waiting in queue"];
     
@@ -358,14 +358,22 @@
 
 	for(Worker *w in runFirst)
 	{
-        [w addDependency:lastWorker];
+        if (lastWorker) 
+        {
+            [w addDependency:lastWorker];            
+        }
+        else {
+            [w setQueuePriority:NSOperationQueuePriorityLow]; // finish first!
+        }
 		[queue addOperation:w];
 		lastWorker = w;
 	}
 	
+    lastWorker = [runFirst lastObject];
 	for(Worker *w in runLater)
 	{
-        [w addDependency:[runFirst lastObject]];
+        if (lastWorker) [w addDependency:lastWorker];
+        //[w setQueuePriority:NSOperationQueuePriorityHigh]; // finish first!
 		[queue addOperation:w];
 	}	
 	
