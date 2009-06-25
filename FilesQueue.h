@@ -23,7 +23,7 @@
 -(id)initWithTableView:(NSTableView*)a progressBar:(NSProgressIndicator *)p andController:(NSArrayController*)b;
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation;
 -(void)addFilesFromPaths:(NSArray *)paths;
--(void)addFilePath:(NSString*)s dirs:(BOOL)a;
+-(void)addPath:(NSString*)s dirs:(BOOL)a;
 -(void)addFilesFromPaths:(NSArray *)paths;
 -(void)setEnabled:(BOOL)y;
 

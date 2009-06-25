@@ -9,6 +9,16 @@
 
 @implementation DirWorker
 
+@synthesize filesQueue;
+@synthesize path;
+
+-(void)dealloc
+{
+	[path release]; path = nil;
+	[filesQueue release]; filesQueue = nil;
+	[super dealloc];
+}
+
 -(id)initWithPath:(NSString *)aPath filesQueue:(FilesQueue *)q
 {
 	if (self = [super init])
@@ -21,36 +31,31 @@
 
 -(void)run
 {
-//	NSLog(@"Dirworker runs");
-	NSDirectoryEnumerator *enu = [[NSFileManager defaultManager] enumeratorAtPath:path];
-	NSString *filePath;
+    @try {
+        
+	//NSLog(@"Dirworker runs");
 	NSArray *extensions = [NSArray arrayWithObjects:@"png",@"PNG",@"jpg",@"JPG",@"jpeg",@"JPEG",nil];
-	BOOL added = NO;
     
-	while(filePath = [enu nextObject])
+	for(NSString *filePath in [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:path error:nil])
 	{
 		NSString *newPath = [path stringByAppendingPathComponent:filePath];
-//		NSLog(@"Foudn %@ = '%@'",newPath,[newPath pathExtension]);
+		//NSLog(@"Foudn %@ = '%@'",newPath,[newPath pathExtension]);
 		
 		if (NSNotFound != [extensions indexOfObject:[newPath pathExtension]])
 		{
-			[filesQueue addFilePath:newPath dirs:NO];
-            if (!added) [filesQueue runAdded];
-            added = YES;
+			[filesQueue addPath:newPath dirs:NO];
 		}
 	}
-	
-//	NSLog(@"DirWorker finished scan, triggers queue");
-	if (added) [filesQueue runAdded];
-//	NSLog(@"DirWorker finished completely");
+	//NSLog(@"DirWorker finished completely");
+        
+    }
+    @catch (NSException *ex) {
+        NSLog(@"DIR worker failed %@",ex);
+    }
 }
 
--(void)dealloc
-{
-	[path release]; path = nil;
-	[filesQueue release]; filesQueue = nil;
-	[super dealloc];
+-(NSString *)description {
+    return [NSString stringWithFormat:@"Dir %@ (%@)",path,[super description]];
 }
-@synthesize filesQueue;
-@synthesize path;
+
 @end

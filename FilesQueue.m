@@ -30,6 +30,9 @@
 	[tableView registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType,NSStringPboardType,nil]];
     
 	[self setEnabled:YES];	
+    
+    //[NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(updateProgressbar) userInfo:nil repeats:YES];
+    
 	return self;
 }
 
@@ -115,7 +118,7 @@
 	
 //	NSLog(@"Dropping files %@",paths);
 	[self addFilesFromPaths:paths];
-	
+
 	[[aTableView window] makeKeyAndOrderFront:aTableView];
 	
 //	NSLog(@"Finished adding drop");	
@@ -147,44 +150,49 @@
 	return nil;
 }
 
--(void)addFilePath:(NSString *)path dirs:(BOOL)useDirs
+-(void)addFilePath:(NSString*)path {
+    if ([path characterAtIndex:[path length]-1] == '~')
+    {
+        NSBeep();
+        return;
+    }
+    
+    [filesControllerLock lock];
+    @try {  
+        File *f;
+        if (f = [self findFileByPath:path])
+        {
+            if (![f isBusy]) [f enqueueWorkersInQueue:workerQueue];
+        }
+        else
+        {
+            f = [[File alloc] initWithFilePath:path];
+            [filesController performSelectorOnMainThread:@selector(addObject:) withObject:f waitUntilDone:NO];
+            [f enqueueWorkersInQueue:workerQueue];
+            [f autorelease];					
+        }            
+    }
+    @finally {
+        [filesControllerLock unlock];
+    }
+}
+
+-(void)addPath:(NSString *)path dirs:(BOOL)useDirs
 {	
-	if (![self enabled]) return;
+	if (![self enabled]) {
+        NSLog(@"Ignored %@",path);
+        return;   
+    }
 	
 	BOOL isDir;
-	
 	if ([[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir])
 	{		
 		if (!isDir)
 		{
-			if ([path characterAtIndex:[path length]-1] == '~')
-			{
-				NSBeep();
-				return;
-			}
-			
-			File *f;
-			
-            [workerQueue setSuspended:YES];
-			[filesControllerLock lock];
-			
-			if (f = [self findFileByPath:path])
-			{
-				if (![f isBusy]) [f enqueueWorkersInQueue:workerQueue];
-			}
-			else
-			{
-				f = [[File alloc] initWithFilePath:path];
-				[filesController performSelectorOnMainThread:@selector(addObject:) withObject:f waitUntilDone:NO];
-				[f enqueueWorkersInQueue:workerQueue];
-				[f autorelease];					
-			}
-			
-			[filesControllerLock unlock];
-            [workerQueue setSuspended:NO];
+			[self addFilePath:path];
 		}
 		else if (useDirs)
-		{
+		{            
 			[self addDir:path];
 		}
 	}
@@ -197,23 +205,26 @@
 
 -(void)startAgain
 {
+    BOOL anyStarted = NO;
 	[filesControllerLock lock];
-
-	NSArray *array = [filesController selectedObjects];
-	if (![array count]) array = [filesController content];
-
-	
-	BOOL anyStarted = NO;
-	for(File *f in array)
-	{
-		if (![f isBusy]) 
-		{
-			[f enqueueWorkersInQueue:workerQueue];
-			anyStarted = YES;
-		}
-	}
-	
-	[filesControllerLock unlock];
+    @try {         
+        NSArray *array = [filesController selectedObjects];
+        if (![array count]) array = [filesController content];
+        
+        
+        for(File *f in array)
+        {
+            if (![f isBusy]) 
+            {
+                [f enqueueWorkersInQueue:workerQueue];
+                anyStarted = YES;
+            }
+        }
+            
+    }
+    @finally {        
+        [filesControllerLock unlock];
+    }
 	
 	if (!anyStarted) NSBeep();
 	
@@ -235,26 +246,25 @@
 {
 	if (![workerQueue.operations count] && ![dirWorkerQueue.operations count])
 	{		
-        NSLog(@"Done!");
+        //NSLog(@"Done!");
 		[progressBar stopAnimation:nil];
 		[[NSApplication sharedApplication] requestUserAttention:NSInformationalRequest];
 		[tableView setNeedsDisplay:YES];
 	}
 	else
 	{
-        NSLog(@"There are still operations to do");
+//        NSLog(@"There are still operations to do: %@ %@",workerQueue.operations,dirWorkerQueue.operations);
 		[progressBar startAnimation:nil];		
 	}
 }
 
 -(void)addFilesFromPaths:(NSArray *)paths
 {
-	int i;
-	for(i=0; i < [paths count]; i++)
+    //NSLog(@"Adding paths %@",paths);
+	for(NSString *path in paths)
 	{
-		[self addFilePath:[paths objectAtIndex:i] dirs:YES];
+		[self addPath:path dirs:YES];
 	}
-	[self runAdded];
 }
 
 @end

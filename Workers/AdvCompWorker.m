@@ -40,10 +40,11 @@
 	
 	[self parseLinesFromHandle:commandHandle];
 	
-	[commandHandle closeFile];
-	
+	[commandHandle readInBackgroundAndNotify];
 	[task waitUntilExit];
-	
+    
+	[commandHandle closeFile];	
+    
 	if (![task terminationStatus] && fileSizeOptimized)
 	{
 		[file setFilePathOptimized:temp	size:fileSizeOptimized];

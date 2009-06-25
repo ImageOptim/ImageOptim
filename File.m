@@ -382,7 +382,7 @@
 	
 	if (!workersTotal) 
 	{
-		NSLog(@"all relevant tools are unavailable/disabled - nothing to do!");
+		//NSLog(@"all relevant tools are unavailable/disabled - nothing to do!");
 		[self setStatus:@"err" text:@"All neccessary tools have been disabled in Preferences"];
 		NSBeep();		
 	}	
@@ -422,7 +422,7 @@
 
 -(NSString *)description
 {
-	return [NSString stringWithFormat:@"%@ %d/%d", self.filePath,self.byteSize,self.byteSizeOptimized];
+	return [NSString stringWithFormat:@"%@ %d/%d (workers active %d, finished %d, total %d)", self.filePath,self.byteSize,self.byteSizeOptimized, workersActive, workersFinished, workersTotal];
 }
 
 

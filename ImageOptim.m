@@ -56,7 +56,7 @@
 // invoked by Dock
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)path
 {
-    [filesQueue addFilePath:path dirs:YES];
+    [filesQueue addPath:path dirs:YES];
 	[filesQueue runAdded];
 	return YES;
 }

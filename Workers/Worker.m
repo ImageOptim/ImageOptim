@@ -19,11 +19,14 @@
 	return NO;
 }
 
-
 -(void)main {
+//    NSLog(@"Worker start %@",self);
     [[self delegate] workerHasStarted:self];
     @try {
         [self run]; 
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Caught %@: %@ %@", [exception name], [exception  reason], self);
     }
     @finally {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"WorkersMayHaveFinished" object:nil];
@@ -32,6 +35,7 @@
 //                                                           coalesceMask:NSNotificationCoalescingOnName forModes:nil];
         [[self delegate] workerHasFinished:self];        
     }
+//    NSLog(@"Worker done ok %@",self);
 }
 
 -(void)run
@@ -46,7 +50,8 @@
 
 -(NSString *)description
 {
-	return [NSString stringWithFormat:@"%@ %X",[self className],[self hash]];
+	return [NSString stringWithFormat:@"%@ %X ready %d, running %d, deleg %@",
+            [self className],[self hash],[self isReady],[self isExecuting],[self delegate]];
 }
 
 @end

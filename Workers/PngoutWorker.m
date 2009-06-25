@@ -60,15 +60,15 @@
 //	NSLog(@"launched pngout");
 	[self parseLinesFromHandle:commandHandle];
 	
+    [commandHandle readInBackgroundAndNotify];
 //	NSLog(@"finished reading lines");
-	[commandHandle closeFile];
 	
 	[task waitUntilExit];
+    [commandHandle closeFile];
+	[fileOutputHandle closeFile];
 	
 	if (![task terminationStatus] && fileSizeOptimized)
-	{
-		[fileOutputHandle closeFile];
-		
+	{		
 //		NSLog(@"Will save data");
 		[file setFilePathOptimized:temp size:fileSizeOptimized];
 	}

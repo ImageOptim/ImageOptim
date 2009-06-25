@@ -50,10 +50,11 @@
 	[self launchTask:task];
 	
 	[self parseLinesFromHandle:commandHandle];
-	
-	[commandHandle closeFile];
-	
+
+	[commandHandle readInBackgroundAndNotify];
 	[task waitUntilExit];
+
+	[commandHandle closeFile];
 	
 	if (![task terminationStatus])
 	{
