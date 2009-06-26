@@ -15,7 +15,8 @@
 	progressBar = [inBar retain];
 	filesController = [inController retain];
 	tableView = [inTableView retain];	
-	
+	seenPathHashes = [[NSHashTable alloc] initWithOptions:NSHashTableZeroingWeakMemory capacity:1000];
+    
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	
 	workerQueue = [[NSOperationQueue alloc] init];
@@ -31,6 +32,7 @@
     
 	[self setEnabled:YES];	
     
+    
     //[NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(updateProgressbar) userInfo:nil repeats:YES];
     
 	return self;
@@ -45,6 +47,7 @@
 	[tableView release]; tableView = nil;
 	[workerQueue release]; workerQueue = nil;
 	[dirWorkerQueue release]; dirWorkerQueue = nil;
+    [seenPathHashes release]; seenPathHashes = nil;
 	[super dealloc];
 }
 
@@ -127,11 +130,16 @@
 
 -(void)addDir:(NSString *)path
 {
-	if (![self enabled]) return;
+    @try {            
+        if (![self enabled]) return;
 
-	DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self];
-	[dirWorkerQueue addOperation:w];
-	[w autorelease];
+        DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self];
+        [dirWorkerQueue addOperation:w];
+        [w release];            
+    }
+    @catch (NSException *e) {
+        NSLog(@"Add dir failed %@",e);
+    }
 }
 
 /** filesControllerLock must be locked before using this
@@ -140,7 +148,13 @@
 -(File *)findFileByPath:(NSString *)path
 {
 	NSArray *array = [filesController content];
-	for(File *f in array)
+    
+    if (![seenPathHashes containsObject:path])
+    {
+        return nil;
+    }
+    
+    for(File *f in array)
 	{
 		if ([path isEqualToString:[f filePath]])
 		{
@@ -157,7 +171,8 @@
         return;
     }
     
-    [filesControllerLock lock];
+    [filesControllerLock lock];    
+    
     @try {  
         File *f;
         if (f = [self findFileByPath:path])
@@ -166,11 +181,15 @@
         }
         else
         {
+            [seenPathHashes addObject:path];
             f = [[File alloc] initWithFilePath:path];
-            [filesController performSelectorOnMainThread:@selector(addObject:) withObject:f waitUntilDone:NO];
+            [filesController addObject:f];
             [f enqueueWorkersInQueue:workerQueue];
-            [f autorelease];					
+            [f release];					
         }            
+    }
+    @catch (NSException *e) {
+        NSLog(@"add file path failed %@",e);
     }
     @finally {
         [filesControllerLock unlock];
@@ -189,7 +208,7 @@
 	{		
 		if (!isDir)
 		{
-			[self addFilePath:path];
+			[self performSelectorOnMainThread:@selector(addFilePath:) withObject:path waitUntilDone:NO];
 		}
 		else if (useDirs)
 		{            

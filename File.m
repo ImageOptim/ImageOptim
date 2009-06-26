@@ -23,7 +23,6 @@
 	{	
 		[self setFilePath:name];
 		[self setStatus:@"wait" text:@"New file"];
-		lock = [NSLock new];
 		
 		workersTotal = 0;
 		workersActive = 0;
@@ -125,15 +124,13 @@
 {
     @synchronized(self) 
     {        
-        NSLog(@"File %@ optimized from %d down to %d in %@",filePath?filePath:filePathOptimized,byteSizeOptimized,size,path);
-        [lock lock];
+        NSLog(@"File %@ optimized from %d down to %d in %@",filePath?filePath:filePathOptimized,byteSizeOptimized,size,path);        
         if (size <= byteSizeOptimized)
         {
             [self removeOldFilePathOptimized];
             filePathOptimized = [path copy];
             [self setByteSizeOptimized:size];
-        }            
-        [lock unlock];
+        }
     //	NSLog(@"Got optimized %db path %@",size,path);
     }
 }
@@ -223,44 +220,46 @@
 
 -(void)workerHasStarted:(Worker *)worker
 {
-	[lock lock];
-	workersActive++;
-	[self setStatus:@"progress" text:[NSString stringWithFormat:@"Started %@",[worker className]]];
-	[lock unlock];
+	@synchronized(self)
+    {
+        workersActive++;
+        [self setStatus:@"progress" text:[NSString stringWithFormat:@"Started %@",[worker className]]];        
+    }
 }
 
 -(void)workerHasFinished:(Worker *)worker
 {
-	[lock lock];
-	workersActive--;
-	workersFinished++;
-	
-	if (!byteSize || !byteSizeOptimized)
-	{
-		NSLog(@"worker %@ finished, but result file has 0 size",worker);
-		[self setStatus:@"err" text:@"Size of optimized file is 0"];
-	}
-	else if (workersFinished == workersTotal)
-	{
-		if (byteSize > byteSizeOptimized)
-		{
-			if ([self saveResult])
-			{
-				[self setStatus:@"ok" text:@"Optimized successfully"];						
-			}
-			else 
-			{
-				NSLog(@"saveResult failed");
-				[self setStatus:@"err" text:@"Optimized file could not be saved"];				
-			}
-		}
-		else [self setStatus:@"noopt" text:@"File was already optimized"];	
-	}
-	else if (workersActive == 0)
-	{
-		[self setStatus:@"wait" text:@"Waiting to start more optimisations"];
-	}
-	[lock unlock];
+	@synchronized(self) 
+    {
+        workersActive--;
+        workersFinished++;
+        
+        if (!byteSize || !byteSizeOptimized)
+        {
+            NSLog(@"worker %@ finished, but result file has 0 size",worker);
+            [self setStatus:@"err" text:@"Size of optimized file is 0"];
+        }
+        else if (workersFinished == workersTotal)
+        {
+            if (byteSize > byteSizeOptimized)
+            {
+                if ([self saveResult])
+                {
+                    [self setStatus:@"ok" text:@"Optimized successfully"];						
+                }
+                else 
+                {
+                    NSLog(@"saveResult failed");
+                    [self setStatus:@"err" text:@"Optimized file could not be saved"];				
+                }
+            }
+            else [self setStatus:@"noopt" text:@"File was already optimized"];	
+        }
+        else if (workersActive == 0)
+        {
+            [self setStatus:@"wait" text:@"Waiting to start more optimisations"];
+        } 
+    }	    
 }
 
 -(BOOL)isPNG
@@ -396,14 +395,18 @@
 	[filePathOptimized release]; filePathOptimized = nil;
 	[filePath release]; filePath = nil;
 	[displayName release]; displayName = nil;
-	[lock release]; lock = nil;
 	[serialQueue release]; serialQueue = nil;
 	[super dealloc];
 }
 
 -(BOOL)isBusy
 {
-	return workersActive || workersTotal != workersFinished;
+    BOOL isit;
+    @synchronized(self)
+    {
+        isit = workersActive || workersTotal != workersFinished;        
+    }
+    return isit;
 }
 
 -(void)setStatus:(NSString *)imageName text:(NSString *)text
@@ -424,7 +427,6 @@
 {
 	return [NSString stringWithFormat:@"%@ %d/%d (workers active %d, finished %d, total %d)", self.filePath,self.byteSize,self.byteSizeOptimized, workersActive, workersFinished, workersTotal];
 }
-
 
 +(long)fileByteSize:(NSString *)afile
 {

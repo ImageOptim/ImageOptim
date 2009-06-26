@@ -17,6 +17,8 @@
 	
 	NSRecursiveLock *filesControllerLock;
 	
+    NSHashTable *seenPathHashes;
+    
 	NSProgressIndicator *progressBar;
 }
 

@@ -15,9 +15,7 @@
 	long byteSizeOptimized;	
 	double percentDone;
 	
-	NSString *filePathOptimized;
-	
-	NSRecursiveLock *lock;
+	NSString *filePathOptimized;	
 	
 	NSOperationQueue *serialQueue;
 	
@@ -28,7 +26,6 @@
 	int workersFinished;
 	int workersTotal;
 	
-	BOOL isBusy;
 }
 
 -(BOOL)isBusy;
