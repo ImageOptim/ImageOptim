@@ -66,7 +66,7 @@
 	}
 	else NSLog(@"pngcrush failed");
 	
-	[task autorelease];
+	;
 }
 
 -(BOOL)parseLine:(NSString *)line

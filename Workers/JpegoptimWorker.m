@@ -67,7 +67,7 @@
 		[file setFilePathOptimized:temp	size:fileSizeOptimized];
 	}
 	
-	[task release];
+	;
 }
 
 -(BOOL)parseLine:(NSString *)line

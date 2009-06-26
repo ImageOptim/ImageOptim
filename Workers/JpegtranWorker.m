@@ -65,7 +65,7 @@
 		}        
 	}
 	
-	[task release];
+	;
 }
 
 -(BOOL)parseLine:(NSString *)line

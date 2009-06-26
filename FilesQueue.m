@@ -63,19 +63,6 @@
     }
 }
 
--(void)dealloc
-{
-	[progressBar release]; progressBar = nil;
-	[filesControllerLock release]; filesControllerLock = nil;
-	[filesController release]; filesController = nil;
-//	[tableView unregisterDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType,NSStringPboardType,nil]];
-	[tableView release]; tableView = nil;
-	[workerQueue release]; workerQueue = nil;
-	[dirWorkerQueue release]; dirWorkerQueue = nil;
-    [seenPathHashes release]; seenPathHashes = nil;
-	[super dealloc];
-}
-
 -(void)setEnabled:(BOOL)y;
 {
 	isEnabled = y;
@@ -92,7 +79,7 @@
                  proposedRow:(int)row 
        proposedDropOperation:(NSTableViewDropOperation)operation
 {
-	if (![self enabled]) return NSDragOperationNone;
+	if (!isEnabled) return NSDragOperationNone;
 
 	[filesControllerLock lock];
 
@@ -156,11 +143,11 @@
 -(void)addDir:(NSString *)path
 {
     @try {            
-        if (![self enabled]) return;
+        if (!isEnabled) return;
 
         DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self];
         [dirWorkerQueue addOperation:w];
-        [w release];            
+        ;            
         [self waitInBackgroundForQueuesToFinish];
     }
     @catch (NSException *e) {
@@ -211,7 +198,6 @@
             f = [[File alloc] initWithFilePath:path];
             [filesController addObject:f];
             [f enqueueWorkersInQueue:workerQueue];
-            [f release];					
         }            
     }
     @catch (NSException *e) {
@@ -225,7 +211,7 @@
 
 -(void)addPath:(NSString *)path dirs:(BOOL)useDirs
 {	
-	if (![self enabled]) {
+	if (!isEnabled) {
         NSLog(@"Ignored %@",path);
         return;   
     }

@@ -43,7 +43,7 @@
 {
 	if (filePath != s)
 	{
-		[filePath release];
+		;
 		filePath = [s copy];
 		
         self.displayName = [[NSFileManager defaultManager] displayNameAtPath:filePath];		
@@ -115,7 +115,7 @@
         {
             [[NSFileManager defaultManager] removeFileAtPath:filePathOptimized handler:nil];
         }
-        [filePathOptimized autorelease];
+        ;
         filePathOptimized = nil;
 	}
 }
@@ -199,7 +199,7 @@
 			
 			if ([fm movePath:filePathOptimized toPath:filePath handler:nil]) 
 			{
-                [filePathOptimized autorelease];
+                ;
                 filePathOptimized = nil;
             }            
             else
@@ -310,28 +310,28 @@
 			w = [[PngCrushWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			[w release];
+			;
 		}
 		if ([defs boolForKey:@"PngOut.Enabled"])
 		{
 			w = [[PngoutWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			[w release];		
+			;		
 		}
 		if ([defs boolForKey:@"OptiPng.Enabled"])
 		{
 			w = [[OptiPngWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			[w release];		
+			;		
 		}
 		if ([defs boolForKey:@"AdvPng.Enabled"])
 		{
 			w = [[AdvCompWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			[w release];
+			;
 		}
 	}
 	else 
@@ -341,14 +341,14 @@
             //NSLog(@"%@ is jpeg",filePath);
             w = [[JpegoptimWorker alloc] initWithFile:self];
             [runLater addObject:w];
-            [w release];
+            ;
         }
         if ([defs boolForKey:@"JpegTran.Enabled"])
         {
             //NSLog(@"%@ is jpeg",filePath);
             w = [[JpegtranWorker alloc] initWithFile:self];
             [runLater addObject:w];
-            [w release];
+            ;
         }
     }
 	
@@ -379,8 +379,8 @@
 		[queue addOperation:w];
 	}	
 	
-	[runFirst release];
-	[runLater release];
+	;
+	;
 	
 	if (!workersTotal) 
 	{
@@ -393,13 +393,7 @@
 -(void)dealloc
 {
 	[self removeOldFilePathOptimized];
-    self.statusImage = nil;
-    [statusText release]; statusText = nil;
-	[filePathOptimized release]; filePathOptimized = nil;
-	[filePath release]; filePath = nil;
-	[displayName release]; displayName = nil;
-	[serialQueue release]; serialQueue = nil;
-	[super dealloc];
+    [super dealloc];
 }
 
 -(BOOL)isBusy

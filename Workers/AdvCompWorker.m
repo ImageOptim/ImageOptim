@@ -51,7 +51,7 @@
 	}
 	//else NSLog(@"Advpng failed");
 	
-	[task release];
+	;
 }
 
 -(BOOL)parseLine:(NSString *)line

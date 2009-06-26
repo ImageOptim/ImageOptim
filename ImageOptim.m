@@ -32,13 +32,6 @@
 	return self;
 }
 
--(void)dealloc
-{
-	[prefsController release]; prefsController = nil;
-	[fileTypes release]; fileTypes = nil;
-	[super dealloc];
-}
-
 -(void)awakeFromNib
 {		
 	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];

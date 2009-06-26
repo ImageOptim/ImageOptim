@@ -31,12 +31,6 @@
 }
 
 
--(void)dealloc
-{
-	[file release]; file = nil;
-	[super dealloc];
-}
-
 -(void)parseLinesFromHandle:(NSFileHandle *)commandHandle
 {
 	NSData *temp;

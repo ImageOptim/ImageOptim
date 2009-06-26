@@ -74,7 +74,7 @@
 	}
 	//else NSLog(@"pngout failed");
 	
-	[task release];
+	;
 	
 //	NSLog(@"PNGOUT finished");
 }

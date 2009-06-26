@@ -52,7 +52,7 @@
 	}
 	//else NSLog(@"Optipng failed to optimize anything");
 	
-	[task release];
+	;
 }
 
 -(BOOL)parseLine:(NSString *)line
