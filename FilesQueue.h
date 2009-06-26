@@ -20,6 +20,8 @@
     NSHashTable *seenPathHashes;
     
 	NSProgressIndicator *progressBar;
+    
+    NSLock *queueWaitingLock;
 }
 
 -(id)initWithTableView:(NSTableView*)a progressBar:(NSProgressIndicator *)p andController:(NSArrayController*)b;
@@ -34,7 +36,6 @@
 
 -(IBAction)delete:(id)sender;
 
--(void)workersHaveFinished;
 
 -(void)updateProgressbar;
 

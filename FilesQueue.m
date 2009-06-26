@@ -21,11 +21,12 @@
 	
 	workerQueue = [[NSOperationQueue alloc] init];
     [workerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentTasks"]];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(workersHaveFinished) name:@"WorkersMayHaveFinished" object:nil];
 	
 	dirWorkerQueue = [[NSOperationQueue alloc] init];
     [dirWorkerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentDirscans"]];	
 	
+    queueWaitingLock = [NSLock new];
+    
 	[tableView setDelegate:self];
 	[tableView setDataSource:self];
 	[tableView registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType,NSStringPboardType,nil]];
@@ -36,6 +37,30 @@
     //[NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(updateProgressbar) userInfo:nil repeats:YES];
     
 	return self;
+}
+
+
+-(void)waitForQueuesToFinish {   
+    
+    if ([queueWaitingLock tryLock])
+    {
+        @try{
+            [workerQueue waitUntilAllOperationsAreFinished];
+            [dirWorkerQueue waitUntilAllOperationsAreFinished];            
+        }
+        @finally {
+            [queueWaitingLock unlock];
+        }
+    }
+    [self performSelectorOnMainThread:@selector(updateProgressbar) withObject:nil waitUntilDone:NO];
+}
+
+-(void)waitInBackgroundForQueuesToFinish {
+    if ([queueWaitingLock tryLock]) // if it's locked, there's thread waiting for finish
+    {
+        [queueWaitingLock unlock]; // can't lock/unlock across threads, so new lock will have to be made
+        [self performSelectorInBackground:@selector(waitForQueuesToFinish) withObject:nil];        
+    }
 }
 
 -(void)dealloc
@@ -136,6 +161,7 @@
         DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self];
         [dirWorkerQueue addOperation:w];
         [w release];            
+        [self waitInBackgroundForQueuesToFinish];
     }
     @catch (NSException *e) {
         NSLog(@"Add dir failed %@",e);
@@ -194,6 +220,7 @@
     @finally {
         [filesControllerLock unlock];
     }
+    [self waitInBackgroundForQueuesToFinish];
 }
 
 -(void)addPath:(NSString *)path dirs:(BOOL)useDirs
@@ -220,6 +247,7 @@
 -(void)runAdded
 {
 	[self updateProgressbar];
+    [self waitInBackgroundForQueuesToFinish];
 }
 
 -(void)startAgain
@@ -248,17 +276,6 @@
 	if (!anyStarted) NSBeep();
 	
 	[self runAdded];
-}
-
--(void)workersHaveFinishedMainThread
-{
-    [self updateProgressbar];
-    [self performSelector:@selector(updateProgressbar) withObject:nil afterDelay:1.0]; // FIXME: fudge to avoid race conditions
-}
-
--(void)workersHaveFinished
-{
-    [self performSelectorOnMainThread:@selector(workersHaveFinishedMainThread) withObject:nil waitUntilDone:NO];
 }
 
 -(void)updateProgressbar

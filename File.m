@@ -234,31 +234,34 @@
         workersActive--;
         workersFinished++;
         
-        if (!byteSize || !byteSizeOptimized)
+        if (!workersActive)
         {
-            NSLog(@"worker %@ finished, but result file has 0 size",worker);
-            [self setStatus:@"err" text:@"Size of optimized file is 0"];
-        }
-        else if (workersFinished == workersTotal)
-        {
-            if (byteSize > byteSizeOptimized)
+            if (!byteSize || !byteSizeOptimized)
             {
-                if ([self saveResult])
-                {
-                    [self setStatus:@"ok" text:@"Optimized successfully"];						
-                }
-                else 
-                {
-                    NSLog(@"saveResult failed");
-                    [self setStatus:@"err" text:@"Optimized file could not be saved"];				
-                }
+                NSLog(@"worker %@ finished, but result file has 0 size",worker);
+                [self setStatus:@"err" text:@"Size of optimized file is 0"];
             }
-            else [self setStatus:@"noopt" text:@"File was already optimized"];	
+            else if (workersFinished == workersTotal)
+            {
+                if (byteSize > byteSizeOptimized)
+                {
+                    if ([self saveResult])
+                    {
+                        [self setStatus:@"ok" text:@"Optimized successfully"];						
+                    }
+                    else 
+                    {
+                        NSLog(@"saveResult failed");
+                        [self setStatus:@"err" text:@"Optimized file could not be saved"];				
+                    }
+                }
+                else [self setStatus:@"noopt" text:@"File was already optimized"];	
+            }
+            else
+            {
+                [self setStatus:@"wait" text:@"Waiting to start more optimisations"];
+            }
         }
-        else if (workersActive == 0)
-        {
-            [self setStatus:@"wait" text:@"Waiting to start more optimisations"];
-        } 
     }	    
 }
 
@@ -413,13 +416,9 @@
 {
     @synchronized(self) 
     {
-        if (statusText == text) return;
-        
+        if (statusText == text) return;        
         self.statusText = text;
-        
-        NSImage *i = [[NSImage alloc] initByReferencingFile: [[NSBundle mainBundle] pathForImageResource:imageName]];
-        self.statusImage = i;
-        [i release];
+        self.statusImage = [NSImage imageNamed:imageName];
     }
 }
 

@@ -28,8 +28,7 @@
     @catch (NSException *exception) {
         NSLog(@"Caught %@: %@ %@", [exception name], [exception  reason], self);
     }
-    @finally {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"WorkersMayHaveFinished" object:nil];
+    @finally {        
 //                [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:@"WorkersMayHaveFinished" object:nil] 
 //                                                           postingStyle:NSPostWhenIdle 
 //                                                           coalesceMask:NSNotificationCoalescingOnName forModes:nil];
