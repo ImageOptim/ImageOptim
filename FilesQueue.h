@@ -42,6 +42,7 @@
 -(void)quickLook;
 
 -(void)updateProgressbar;
+-(void)cleanup;
 
 -(void)openRowInFinder:(int)row;
 @end

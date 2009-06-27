@@ -296,7 +296,12 @@
     {
         workersActive++; // isBusy must say yes!
     }
-    [fileIOQueue addOperation:[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doEnqueueWorkersInCPUQueue:) object:queue]];        
+    
+    workers = [[NSMutableArray alloc] initWithCapacity:10];
+    
+    NSOperation *actualEnqueue = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doEnqueueWorkersInCPUQueue:) object:queue];
+    [workers addObject:actualEnqueue];
+    [fileIOQueue addOperation:actualEnqueue];        
 }
 
 -(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue {  
@@ -358,14 +363,12 @@
             //NSLog(@"%@ is jpeg",filePath);
             w = [[JpegoptimWorker alloc] initWithFile:self];
             [runLater addObject:w];
-            ;
         }
         if ([defs boolForKey:@"JpegTran.Enabled"])
         {
             //NSLog(@"%@ is jpeg",filePath);
             w = [[JpegtranWorker alloc] initWithFile:self];
             [runLater addObject:w];
-            ;
         }
     }
 	
@@ -395,6 +398,9 @@
 		[queue addOperation:w];
 	}	
 	
+    [workers addObjectsFromArray:runFirst];
+    [workers addObjectsFromArray:runLater];
+    
 	if (!workersTotal) 
 	{
 		//NSLog(@"all relevant tools are unavailable/disabled - nothing to do!");
@@ -406,10 +412,13 @@
     }
 }
 
--(void)dealloc
+-(void)cleanup
 {
+    for(NSOperation *w in workers)
+    {
+        [w cancel]; 
+    }
 	[self removeOldFilePathOptimized];
-    [super dealloc];
 }
 
 -(BOOL)isBusy

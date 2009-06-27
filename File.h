@@ -20,6 +20,8 @@
 	NSImage *statusImage;
     NSString *statusText;
     
+    NSMutableArray *workers;
+    
 	int workersActive;
 	int workersFinished;
 	int workersTotal;
@@ -48,6 +50,7 @@
 @property (assign) double percentDone;
 
 -(void)setStatus:(NSString *)name text:(NSString*)text;
+-(void)cleanup;
 
 +(long)fileByteSize:(NSString *)afile;
 

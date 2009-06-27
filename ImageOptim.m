@@ -109,6 +109,10 @@
 	[application terminate:self];
 }
 
+-(void)applicationWillTerminate:(NSNotification*)n {
+    [filesQueue cleanup];
+}
+
 @synthesize tableView;
 @synthesize filesController;
 @synthesize filesQueue;

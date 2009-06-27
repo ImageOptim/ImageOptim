@@ -79,6 +79,17 @@
 	return isEnabled;
 }
 
+-(void)cleanup {
+    isEnabled = NO;
+    [dirWorkerQueue cancelAllOperations];
+    [fileIOQueue cancelAllOperations];
+    [cpuQueue cancelAllOperations];
+    for(File *f in [filesController content])
+    {
+        [f cleanup];
+    }
+}
+
 - (NSDragOperation)tableView:(NSTableView *)atableView 
                 validateDrop:(id <NSDraggingInfo>)info 
                  proposedRow:(int)row 
@@ -97,15 +108,27 @@
 -(IBAction)delete:(id)sender
 {
 //	NSLog(@"delete action");
+    
+    NSArray *files = nil;
 	[filesControllerLock lock];
 
 	if ([filesController canRemove])
 	{
-		[filesController remove:sender];
-		[self runAdded];
-	}
-	else NSBeep();
+        files = [filesController selectedObjects];
+		[filesController removeObjects:files];
+    }
 	
+    if (files)
+    {
+//        NSLog(@"Removing %@",files);
+        for(File *f in files)
+        {
+            [f cleanup];
+        }
+    }
+    else NSBeep();
+    
+    [self runAdded];
 	[filesControllerLock unlock];
 }
 
