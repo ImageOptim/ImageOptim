@@ -226,6 +226,18 @@
     }
 }
 
+-(void)saveResultAndUpdateStatus {
+    if ([self saveResult])
+    {
+        [self setStatus:@"ok" text:@"Optimized successfully"];						
+    }
+    else 
+    {
+        NSLog(@"saveResult failed");
+        [self setStatus:@"err" text:@"Optimized file could not be saved"];				
+    }
+}
+
 -(void)workerHasFinished:(Worker *)worker
 {
 	@synchronized(self) 
@@ -244,15 +256,9 @@
             {
                 if (byteSize > byteSizeOptimized)
                 {
-                    if ([self saveResult])
-                    {
-                        [self setStatus:@"ok" text:@"Optimized successfully"];						
-                    }
-                    else 
-                    {
-                        NSLog(@"saveResult failed");
-                        [self setStatus:@"err" text:@"Optimized file could not be saved"];				
-                    }
+                    NSOperation *saveOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(saveResultAndUpdateStatus) object:nil];
+                    [workers addObject:saveOp];
+                    [fileIOQueue addOperation:saveOp];                    
                 }
                 else [self setStatus:@"noopt" text:@"File was already optimized"];	
             }
@@ -276,7 +282,7 @@
 	}
 	
 	NSFileHandle *fh = [NSFileHandle fileHandleForReadingAtPath:filePath];
-	char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
+	const char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
 	NSData *data = [fh readDataOfLength:sizeof(pngheader)];
 	[fh closeFile];
 
@@ -287,8 +293,10 @@
 	return NO;
 }
 
--(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue
+-(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)aFileIOQueue
 {
+    fileIOQueue = aFileIOQueue; // will be used for saving
+    
     //NSLog(@"%@ add",filePath);
     [self setStatus:@"wait" text:@"Waiting in queue"];
     
@@ -414,11 +422,14 @@
 
 -(void)cleanup
 {
-    for(NSOperation *w in workers)
+    @synchronized(self)
     {
-        [w cancel]; 
+        for(NSOperation *w in workers)
+        {
+            [w cancel]; 
+        }
+        [self removeOldFilePathOptimized];
     }
-	[self removeOldFilePathOptimized];
 }
 
 -(BOOL)isBusy

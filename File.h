@@ -25,6 +25,8 @@
 	int workersActive;
 	int workersFinished;
 	int workersTotal;
+    
+    NSOperationQueue *fileIOQueue;
 }
 
 -(BOOL)isBusy;

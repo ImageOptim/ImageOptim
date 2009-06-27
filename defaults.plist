@@ -71,6 +71,8 @@
 	<integer>3</integer>
 	<key>PngOut.RemoveChunks</key>
 	<true/>
+	<key>PngOut.InterruptIfTakesTooLong</key>
+	<true/>
 	<key>PreservePermissions</key>
 	<true/>
 	<key>RunConcurrentDirscans</key>

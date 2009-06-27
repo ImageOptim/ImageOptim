@@ -89,7 +89,10 @@
 
 <dl>
 	<dt>Optimisation type</dt>
-	<dd><p>PNGOUT is very effective, but very slow. If you're going to optimize very big PNG files, you may be forced to lower optimisation level.</dd>
+	<dd><p>PNGOUT is very effective, but very slow. Use lower level if you're impatient.</dd>
+
+	<dt>Interrupt if takes too long</dt>
+	<dd><p>PNGOUT may need <em>a lot</em> of time to optimize very large images. This option gracefully interrupts PNGOUT after 1 minute.</p></dd>
 		    
 	<dt>Remove optional chunks</dt>
 	<dd><p>Keep it on if you optimize for web. Disable if you have special PNGs with extra metadata.</p></dd>
