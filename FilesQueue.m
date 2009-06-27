@@ -19,12 +19,16 @@
     
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	
-	workerQueue = [[NSOperationQueue alloc] init];
-    [workerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentTasks"]];
+    cpuQueue = [[NSOperationQueue alloc] init];
+    [cpuQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentTasks"]];
 	
 	dirWorkerQueue = [[NSOperationQueue alloc] init];
     [dirWorkerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentDirscans"]];	
-	
+    
+	fileIOQueue = [[NSOperationQueue alloc] init];
+    NSUInteger fileops = [defs integerForKey:@"RunConcurrentFileops"];
+    [fileIOQueue setMaxConcurrentOperationCount:fileops?fileops:3];
+
     queueWaitingLock = [NSLock new];
     
 	[tableView setDelegate:self];
@@ -44,9 +48,10 @@
     
     if ([queueWaitingLock tryLock])
     {
-        @try{
-            [workerQueue waitUntilAllOperationsAreFinished];
+        @try{            
+            [cpuQueue waitUntilAllOperationsAreFinished];
             [dirWorkerQueue waitUntilAllOperationsAreFinished];            
+            [fileIOQueue waitUntilAllOperationsAreFinished];
         }
         @finally {
             [queueWaitingLock unlock];
@@ -132,7 +137,7 @@
 	NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
 	
 //	NSLog(@"Dropping files %@",paths);
-	[self addFilesFromPaths:paths];
+	[self addPaths:paths];
 
 	[[aTableView window] makeKeyAndOrderFront:aTableView];
 	
@@ -190,14 +195,14 @@
         File *f;
         if (f = [self findFileByPath:path])
         {
-            if (![f isBusy]) [f enqueueWorkersInQueue:workerQueue];
+            if (![f isBusy]) [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];;
         }
         else
         {
             [seenPathHashes addObject:path];
             f = [[File alloc] initWithFilePath:path];
             [filesController addObject:f];
-            [f enqueueWorkersInQueue:workerQueue];
+            [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
         }            
     }
     @catch (NSException *e) {
@@ -249,7 +254,7 @@
         {
             if (![f isBusy]) 
             {
-                [f enqueueWorkersInQueue:workerQueue];
+                [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
                 anyStarted = YES;
             }
         }
@@ -266,7 +271,7 @@
 
 -(void)updateProgressbar
 {
-	if (![workerQueue.operations count] && ![dirWorkerQueue.operations count])
+	if (![cpuQueue.operations count] && ![dirWorkerQueue.operations count])
 	{		
         //NSLog(@"Done!");
 		[progressBar stopAnimation:nil];
@@ -280,13 +285,62 @@
 	}
 }
 
--(void)addFilesFromPaths:(NSArray *)paths
+-(void)addFilePaths:(NSArray *)paths 
+{
+    for(NSString *path in paths)
+	{
+		[self addFilePath:path];
+	}
+}
+-(void)addPaths:(NSArray *)paths
 {
     //NSLog(@"Adding paths %@",paths);
 	for(NSString *path in paths)
 	{
 		[self addPath:path dirs:YES];
 	}
+}
+
+-(void) quickLook {
+        
+    NSMutableArray *args;
+    
+    if (currentQLManageTask && [currentQLManageTask isRunning])
+    {
+        [currentQLManageTask interrupt];
+        currentQLManageTask = nil;
+        return;
+    }
+    
+    [filesControllerLock lock];
+    @try {
+        NSArray *files = [filesController selectedObjects];
+        args = [NSMutableArray arrayWithCapacity:2+[files count]];
+        [args addObject:@"-p"];
+        [args addObject:@"--"];
+        for(File *f in files)
+        {
+            [args addObject:f.filePath];
+        }
+    }
+    @finally {        
+        [filesControllerLock unlock];
+    }
+    
+    @try {
+        NSTask *qltask = [[NSTask alloc] init];
+        [qltask setLaunchPath:@"/usr/bin/qlmanage"];
+        [qltask setStandardError:[NSFileHandle fileHandleWithNullDevice]];
+        [qltask setStandardOutput:[NSFileHandle fileHandleWithNullDevice]];
+        [qltask setStandardInput:[NSFileHandle fileHandleWithNullDevice]];
+        [qltask setArguments:args];
+        [qltask launch];
+        
+        currentQLManageTask = qltask;
+    }
+    @catch(NSException *e) {
+        NSLog(@"Can't run quicklook %@",e);
+    }
 }
 
 @end

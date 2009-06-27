@@ -8,6 +8,18 @@
 	[[self delegate] delete:sender];
 }
 
+- (void)keyDown:(NSEvent *)theEvent {
+   
+    if (![theEvent isARepeat] && [theEvent keyCode] == 49/*space*/ && [self numberOfSelectedRows])
+    {
+        [[self delegate] quickLook];
+    }
+    else
+    {
+        [super keyDown:theEvent];        
+    }
+}
+
 -(void)awakeFromNib
 {
     [self setDoubleAction:@selector(openInFinder)];

@@ -43,7 +43,6 @@
 {
 	if (filePath != s)
 	{
-		;
 		filePath = [s copy];
 		
         self.displayName = [[NSFileManager defaultManager] displayNameAtPath:filePath];		
@@ -288,12 +287,30 @@
 	return NO;
 }
 
--(void)enqueueWorkersInQueue:(NSOperationQueue *)queue
+-(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue
 {
+    //NSLog(@"%@ add",filePath);
     [self setStatus:@"wait" text:@"Waiting in queue"];
     
-	byteSize=0; // reset to allow restart
-	byteSizeOptimized=0;
+    @synchronized(self)
+    {
+        workersActive++; // isBusy must say yes!
+    }
+    [fileIOQueue addOperation:[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doEnqueueWorkersInCPUQueue:) object:queue]];        
+}
+
+-(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue {  
+
+    //NSLog(@"%@ inspect",filePath);
+    [self setStatus:@"progress" text:@"Inspecting file"];        
+
+    @synchronized(self)
+    {
+        workersActive--;        
+        byteSize=0; // reset to allow restart
+        byteSizeOptimized=0;
+    }
+    
 	[self setByteSize:[File fileByteSize:filePath]];
 	
 	Worker *w = NULL;
@@ -375,19 +392,18 @@
 	for(Worker *w in runLater)
 	{
         if (lastWorker) [w addDependency:lastWorker];
-        //[w setQueuePriority:NSOperationQueuePriorityHigh]; // finish first!
 		[queue addOperation:w];
 	}	
-	
-	;
-	;
 	
 	if (!workersTotal) 
 	{
 		//NSLog(@"all relevant tools are unavailable/disabled - nothing to do!");
 		[self setStatus:@"err" text:@"All neccessary tools have been disabled in Preferences"];
 		NSBeep();		
-	}	
+	}
+    else {
+        [self setStatus:@"wait" text:@"Waiting to be optimized"];
+    }
 }
 
 -(void)dealloc

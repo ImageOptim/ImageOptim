@@ -12,7 +12,8 @@
 	NSArrayController *filesController;
 	BOOL isEnabled;
 	
-	NSOperationQueue *workerQueue;
+	NSOperationQueue *cpuQueue;
+    NSOperationQueue *fileIOQueue;
 	NSOperationQueue *dirWorkerQueue;	
 	
 	NSRecursiveLock *filesControllerLock;
@@ -22,20 +23,23 @@
 	NSProgressIndicator *progressBar;
     
     NSLock *queueWaitingLock;
+    
+    NSTask *currentQLManageTask;
 }
 
 -(id)initWithTableView:(NSTableView*)a progressBar:(NSProgressIndicator *)p andController:(NSArrayController*)b;
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation;
--(void)addFilesFromPaths:(NSArray *)paths;
+-(void)addPaths:(NSArray *)paths;
 -(void)addPath:(NSString*)s dirs:(BOOL)a;
--(void)addFilesFromPaths:(NSArray *)paths;
+-(void)addPaths:(NSArray *)paths;
+-(void)addFilePaths:(NSArray *)paths;
 -(void)setEnabled:(BOOL)y;
 
 -(void)runAdded;
 -(void)startAgain;
 
 -(IBAction)delete:(id)sender;
-
+-(void)quickLook;
 
 -(void)updateProgressbar;
 

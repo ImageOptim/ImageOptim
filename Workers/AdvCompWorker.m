@@ -50,8 +50,6 @@
 		[file setFilePathOptimized:temp	size:fileSizeOptimized];
 	}
 	//else NSLog(@"Advpng failed");
-	
-	;
 }
 
 -(BOOL)parseLine:(NSString *)line

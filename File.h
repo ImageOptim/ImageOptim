@@ -16,21 +16,18 @@
 	double percentDone;
 	
 	NSString *filePathOptimized;	
-	
-	NSOperationQueue *serialQueue;
-	
+		
 	NSImage *statusImage;
     NSString *statusText;
     
 	int workersActive;
 	int workersFinished;
 	int workersTotal;
-	
 }
 
 -(BOOL)isBusy;
 
--(void)enqueueWorkersInQueue:(NSOperationQueue *)queue;
+-(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue;
 
 -(void)setFilePathOptimized:(NSString *)f size:(long)s;
 
@@ -54,4 +51,6 @@
 
 +(long)fileByteSize:(NSString *)afile;
 
+
+-(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue;
 @end

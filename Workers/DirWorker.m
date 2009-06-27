@@ -26,7 +26,7 @@
 {
     @try {
         
-	//NSLog(@"Dirworker runs");
+    // FIXME: take extensions from list of enabled tools?
 	NSArray *extensions = [NSArray arrayWithObjects:@"png",@"PNG",@"jpg",@"JPG",@"jpeg",@"JPEG",nil];
     
 	for(NSString *filePath in [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:path error:nil])

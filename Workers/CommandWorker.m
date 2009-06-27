@@ -106,7 +106,7 @@
 		{
 			int pid = [task processIdentifier];
 	//		NSLog(@"running with lopri %d",pid);
-			if (pid > 1) setpriority(PRIO_PROCESS, pid, 10);
+			if (pid > 1) setpriority(PRIO_PROCESS, pid, PRIO_MAX/2); // PRIO_MAX is minimum priority. POSIX is intuitive.
 		}
 	}
 	@catch(NSException *e)

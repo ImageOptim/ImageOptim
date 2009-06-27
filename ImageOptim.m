@@ -99,7 +99,7 @@
 - (void)openPanelDidEnd:(NSOpenPanel *)oPanel returnCode:(int)returnCode  contextInfo:(void  *)contextInfo
 {
 	if (returnCode == NSOKButton) {
-        [filesQueue addFilesFromPaths:[oPanel filenames]];
+        [filesQueue addPaths:[oPanel filenames]];
     }
 }
 
