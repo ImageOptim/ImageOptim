@@ -76,15 +76,15 @@
     }
 }
 
--(float)percentOptimized
+-(double)percentOptimized
 {
 	if (![self isOptimized]) return 0.0;
-	float p = 100.0 - 100.0* (float)byteSizeOptimized/(float)byteSize;
+	double p = 100.0 - 100.0* (double)byteSizeOptimized/(double)byteSize;
 	if (p<0) return 0.0;
 	return p;
 }
 
--(void)setPercentOptimized:(float)f
+-(void)setPercentOptimized:(double)f
 {
 	// just for KVO
 }
@@ -101,7 +101,7 @@
         {
     //		NSLog(@"We've got a new winner. old %d new %d",byteSizeOptimized,size);
             byteSizeOptimized = size;
-            [self setPercentOptimized:0]; //just for KVO
+            [self setPercentOptimized:0.0]; //just for KVO
         }
     }
 }
@@ -114,7 +114,6 @@
         {
             [[NSFileManager defaultManager] removeFileAtPath:filePathOptimized handler:nil];
         }
-        ;
         filePathOptimized = nil;
 	}
 }
@@ -198,7 +197,6 @@
 			
 			if ([fm movePath:filePathOptimized toPath:filePath handler:nil]) 
 			{
-                ;
                 filePathOptimized = nil;
             }            
             else
@@ -260,7 +258,11 @@
                     [workers addObject:saveOp];
                     [fileIOQueue addOperation:saveOp];                    
                 }
-                else [self setStatus:@"noopt" text:@"File was already optimized"];	
+                else
+                {
+                    [self setStatus:@"noopt" text:@"File cannot be optimized any further"];	
+                    if (dupe) [Dupe addDupe:dupe];
+                }
             }
             else
             {
@@ -270,27 +272,26 @@
     }	    
 }
 
--(BOOL)isPNG
-{
-	if ([filePath hasSuffix:@".png"] || [filePath hasSuffix:@".PNG"])
-	{
-		return YES;
-	}
-	if ([filePath hasSuffix:@".jpg"] || [filePath hasSuffix:@".JPEG"])
-	{
-		return NO;
-	}
-	
-	NSFileHandle *fh = [NSFileHandle fileHandleForReadingAtPath:filePath];
-	const char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
-	NSData *data = [fh readDataOfLength:sizeof(pngheader)];
-	[fh closeFile];
+#define FILETYPE_PNG 1
+#define FILETYPE_JPEG 2
 
-	if (0==memcmp([data bytes], pngheader, sizeof(pngheader)))
+-(int)fileType:(NSData *)data
+{
+	const unsigned char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
+    const unsigned char jpegheader[] = {0xff,0xd8,0xff,0xe0};
+    char filedata[6];
+
+    [data getBytes:filedata length:sizeof(filedata)];
+    
+	if (0==memcmp(filedata, pngheader, sizeof(pngheader)))
 	{
-		return YES;
+		return FILETYPE_PNG;
 	}
-	return NO;
+    else if (0==memcmp(filedata, jpegheader, sizeof(jpegheader)))
+    {
+        return FILETYPE_JPEG;
+    }
+	return 0;
 }
 
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)aFileIOQueue
@@ -323,16 +324,35 @@
         byteSize=0; // reset to allow restart
         byteSizeOptimized=0;
     }
-    
-	[self setByteSize:[File fileByteSize:filePath]];
-	
+    	
 	Worker *w = NULL;
 	NSMutableArray *runFirst = [NSMutableArray new];
 	NSMutableArray *runLater = [NSMutableArray new];
 		
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	
-	if ([self isPNG])
+    NSData *fileData = [NSData dataWithContentsOfMappedFile:filePath];
+    NSUInteger length = [fileData length];
+    if (!fileData || !length)
+    {
+        [self setStatus:@"err" text:@"Can't map file into memory"]; 
+        return;
+    }
+    [self setByteSize:length];
+
+    if (length > 800) // don't bother with tiny files
+    {
+       NSOperation *checkDupe = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(checkDupe:) object:fileData];
+       // largeish files are best to skip
+        if (length > 10000) [checkDupe setQueuePriority:NSOperationQueuePriorityHigh];
+        else if (length < 3000) [checkDupe setQueuePriority:NSOperationQueuePriorityLow];
+        [workers addObject:checkDupe];
+        [fileIOQueue addOperation:checkDupe];
+    }
+    
+    int fileType = [self fileType:fileData];
+    
+	if (fileType == FILETYPE_PNG)
 	{
 		//NSLog(@"%@ is png",filePath);
 		if ([defs boolForKey:@"PngCrush.Enabled"])
@@ -340,31 +360,27 @@
 			w = [[PngCrushWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			;
 		}
 		if ([defs boolForKey:@"PngOut.Enabled"])
 		{
 			w = [[PngoutWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			;		
 		}
 		if ([defs boolForKey:@"OptiPng.Enabled"])
 		{
 			w = [[OptiPngWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			;		
 		}
 		if ([defs boolForKey:@"AdvPng.Enabled"])
 		{
 			w = [[AdvCompWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
-			;
 		}
 	}
-	else 
+	else if (fileType == FILETYPE_JPEG)
     {
         if ([defs boolForKey:@"JpegOptim.Enabled"])
         {
@@ -379,7 +395,13 @@
             [runLater addObject:w];
         }
     }
-	
+	else {
+        [self setStatus:@"err" text:@"File is neither PNG nor JPEG"];
+		//NSBeep();
+        [self cleanup];
+        return;
+    }
+    
 	Worker *lastWorker = nil;
 	
 //	NSLog(@"file %@ has workers first %@ and later %@",self,runFirst,runLater);
@@ -413,7 +435,7 @@
 	{
 		//NSLog(@"all relevant tools are unavailable/disabled - nothing to do!");
 		[self setStatus:@"err" text:@"All neccessary tools have been disabled in Preferences"];
-		NSBeep();		
+        [self cleanup];
 	}
     else {
         [self setStatus:@"wait" text:@"Waiting to be optimized"];
@@ -428,6 +450,7 @@
         {
             [w cancel]; 
         }
+        [workers removeAllObjects];
         [self removeOldFilePathOptimized];
     }
 }

@@ -16,12 +16,12 @@
 
 - (id)transformedValue:(id)value;
 {
-	float v = 1.0;
-	if ([value respondsToSelector: @selector(floatValue)]) 
+	double v = 1.0;
+	if ([value respondsToSelector: @selector(doubleValue)]) 
 	{
-		v = MAX(1.0F,ceil([value floatValue]));
+		v = MAX(1.0F,ceil([value doubleValue]));
     }
-	return [NSNumber numberWithFloat:v];
+	return [NSNumber numberWithDouble:v];
 }
 @end
 
