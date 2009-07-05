@@ -17,7 +17,7 @@
 	if (maxTasks > 6) maxTasks++;
 	
 	[defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
-	[defs setObject:[NSNumber numberWithDouble:ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
+	[defs setObject:[NSNumber numberWithInt:(int)ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
 	
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
 }
