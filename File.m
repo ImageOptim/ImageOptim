@@ -261,7 +261,7 @@
                 else
                 {
                     [self setStatus:@"noopt" text:@"File cannot be optimized any further"];	
-                    if (dupe) [Dupe addDupe:dupe];
+//                    if (dupe) [Dupe addDupe:dupe];
                 }
             }
             else
@@ -340,15 +340,7 @@
     }
     [self setByteSize:length];
 
-    if (length > 800) // don't bother with tiny files
-    {
-       NSOperation *checkDupe = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(checkDupe:) object:fileData];
-       // largeish files are best to skip
-        if (length > 10000) [checkDupe setQueuePriority:NSOperationQueuePriorityHigh];
-        else if (length < 3000) [checkDupe setQueuePriority:NSOperationQueuePriorityLow];
-        [workers addObject:checkDupe];
-        [fileIOQueue addOperation:checkDupe];
-    }
+
     
     int fileType = [self fileType:fileData];
     

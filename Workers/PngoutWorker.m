@@ -56,7 +56,7 @@
 	[task setStandardOutput: fileOutputHandle];	
 	[task setStandardError: commandPipe];	
 	
-    if (interruptIfTakesTooLong) [task performSelector:@selector(interrupt) withObject:nil afterDelay:60];// TODO: configurable timeout?
+    if (interruptIfTakesTooLong) [task performSelector:@selector(interrupt) withObject:nil afterDelay:60.0];// TODO: configurable timeout?
 	[self launchTask:task];
 	
 //	NSLog(@"launched pngout");

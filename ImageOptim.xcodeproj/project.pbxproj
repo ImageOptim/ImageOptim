@@ -70,14 +70,14 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E /* pngcrush */;
+			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
 			remoteInfo = pngcrush;
 		};
 		5A1943670FF980B3007C3324 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A9D56BC0E7F242C000F129F /* optipng.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E /* optipng */;
+			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
 			remoteInfo = optipng;
 		};
 		5A739AA60EA2893900D751E1 /* PBXContainerItemProxy */ = {
@@ -786,6 +786,7 @@
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_MODEL_TUNING = G5;
+				GCC_ONE_BYTE_BOOL = NO;
 				GCC_STRICT_ALIASING = YES;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;

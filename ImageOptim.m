@@ -9,7 +9,7 @@
 
 +(void)initialize
 {
-	srandom(random() ^ time(NULL));
+	//srandom(random() ^ time(NULL));
 
 	NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 	
@@ -17,7 +17,7 @@
 	if (maxTasks > 6) maxTasks++;
 	
 	[defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
-	[defs setObject:[NSNumber numberWithFloat:ceilf((float)maxTasks/3.9F)] forKey:@"RunConcurrentDirscans"];
+	[defs setObject:[NSNumber numberWithDouble:ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
 	
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
 }
@@ -109,7 +109,7 @@
 	[application terminate:self];
 }
 
--(void)applicationWillTerminate:(NSNotification*)n {
+-(void)applicationWillTerminate:(NSNotification*)n {    
     [filesQueue cleanup];
 }
 
