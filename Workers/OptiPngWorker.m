@@ -51,8 +51,6 @@
 		[file setFilePathOptimized:temp size:fileSizeOptimized];	
 	}
 	//else NSLog(@"Optipng failed to optimize anything");
-	
-	;
 }
 
 -(BOOL)parseLine:(NSString *)line

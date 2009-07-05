@@ -65,7 +65,6 @@
 		}        
 	}
 	
-	;
 }
 
 -(BOOL)parseLine:(NSString *)line

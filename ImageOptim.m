@@ -35,6 +35,7 @@
 -(void)awakeFromNib
 {		
 	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
+//    [self performSelectorInBackground:@selector(loadDupes) withObject:nil];
 }
 
 +(int)numberOfCPUs
@@ -63,6 +64,8 @@
 {
 //	NSLog(@"show prefs");
 
+//    [Dupe resetDupes]; // changes in prefs invalidate dupes database; FIXME: this is inaccurate and lame
+    
 	if (!prefsController)
 	{
 		prefsController = [PrefsController new];
@@ -82,7 +85,7 @@
 }
 -(IBAction)openPngOutDownload:(id)sender
 {
-	[self openURL:@"http://www.jonof.id.au/index.php?p=pngout"];
+	[self openURL:@"http://www.jonof.id.au/pngout"];
 }
 
 -(IBAction)browseForFiles:(id)sender

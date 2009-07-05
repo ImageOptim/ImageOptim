@@ -175,7 +175,6 @@
 
         DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self];
         [dirWorkerQueue addOperation:w];
-        ;            
         [self waitInBackgroundForQueuesToFinish];
     }
     @catch (NSException *e) {

@@ -16,6 +16,7 @@
 //	NSLog(@"PNGOUT running");
 	NSString *temp = [self tempPath:@"PngOut"];
 		
+    // uses stdout for file to force progress output to unbufferred stderr
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/[file filePath],@"-",nil];
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
@@ -93,7 +94,6 @@
     // run PNGOUT killing timer
     [[NSRunLoop currentRunLoop] limitDateForMode:NSDefaultRunLoopMode];
     
-    NSLog(@"%@",line);
 	NSScanner *scan = [NSScanner scannerWithString:line];
 	
 	if ([line length] > 4 && [[line substringToIndex:4] isEqual:@" In:"])
