@@ -47,8 +47,16 @@
 -(void)waitForQueuesToFinish {   
     
     if ([queueWaitingLock tryLock])
-    {
-        @try{            
+    {        
+        @try{       
+            /* sleep for a moment just in case other processes need time to start*/
+            usleep(100000);
+            [cpuQueue waitUntilAllOperationsAreFinished];
+            [dirWorkerQueue waitUntilAllOperationsAreFinished];            
+            [fileIOQueue waitUntilAllOperationsAreFinished];
+            
+            /* while it was waiting for the last queue, one of previous queues could get busy, so let's go over it again */
+            usleep(100000);
             [cpuQueue waitUntilAllOperationsAreFinished];
             [dirWorkerQueue waitUntilAllOperationsAreFinished];            
             [fileIOQueue waitUntilAllOperationsAreFinished];
@@ -126,10 +134,10 @@
             [f cleanup];
         }
     }
-    else NSBeep();
+    else NSBeep();    
+	[filesControllerLock unlock];
     
     [self runAdded];
-	[filesControllerLock unlock];
 }
 
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation
@@ -163,23 +171,25 @@
 	[self addPaths:paths];
 
 	[[aTableView window] makeKeyAndOrderFront:aTableView];
-	
+
+    [self runAdded];
 //	NSLog(@"Finished adding drop");	
 	return YES;
 }
 
 -(void)addDir:(NSString *)path
 {
+    if (!isEnabled) return;
+    
     @try {            
-        if (!isEnabled) return;
-
         DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self];
         [dirWorkerQueue addOperation:w];
-        [self waitInBackgroundForQueuesToFinish];
     }
     @catch (NSException *e) {
         NSLog(@"Add dir failed %@",e);
     }
+    
+    [self runAdded];
 }
 
 /** filesControllerLock must be locked before using this
@@ -205,14 +215,14 @@
 }
 
 -(void)addFilePath:(NSString*)path {
-    if ([path characterAtIndex:[path length]-1] == '~')
+    if ([path characterAtIndex:[path length]-1] == '~') // backup file
     {
+        NSLog(@"Refusing to optimize backup file");
         NSBeep();
         return;
     }
     
     [filesControllerLock lock];    
-    
     @try {  
         File *f;
         if (f = [self findFileByPath:path])
@@ -233,7 +243,8 @@
     @finally {
         [filesControllerLock unlock];
     }
-    [self waitInBackgroundForQueuesToFinish];
+    
+    [self runAdded];
 }
 
 -(void)addPath:(NSString *)path dirs:(BOOL)useDirs
@@ -293,7 +304,7 @@
 
 -(void)updateProgressbar
 {
-	if (![cpuQueue.operations count] && ![dirWorkerQueue.operations count])
+	if (![cpuQueue.operations count] && ![dirWorkerQueue.operations count] && ![fileIOQueue.operations count])
 	{		
         //NSLog(@"Done!");
 		[progressBar stopAnimation:nil];
@@ -303,7 +314,8 @@
 	else
 	{
 //        NSLog(@"There are still operations to do: %@ %@",workerQueue.operations,dirWorkerQueue.operations);
-		[progressBar startAnimation:nil];		
+		[progressBar startAnimation:nil];
+        [self waitForQueuesToFinish];
 	}
 }
 
@@ -321,6 +333,8 @@
 	{
 		[self addPath:path dirs:YES];
 	}
+    
+    [self runAdded];
 }
 
 -(void) quickLook {

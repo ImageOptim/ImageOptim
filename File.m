@@ -278,7 +278,7 @@
 -(int)fileType:(NSData *)data
 {
 	const unsigned char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
-    const unsigned char jpegheader[] = {0xff,0xd8,0xff,0xe0};
+    const unsigned char jpegheader[] = {0xff,0xd8,0xff};
     char filedata[6];
 
     [data getBytes:filedata length:sizeof(filedata)];
