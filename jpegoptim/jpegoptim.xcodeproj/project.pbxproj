@@ -38,9 +38,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5A4552991024E22200A69944 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		5A739B750EA4015100D751E1 /* jpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpeg.xcodeproj; path = ../../jpeg/jpeg.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A81674F0EA11E3F00962CF2 /* jconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jconfig.h; path = "jpeg-6b/jconfig.h"; sourceTree = SOURCE_ROOT; };
-		5A8167810EA11E3F00962CF2 /* confdefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = confdefs.h; sourceTree = SOURCE_ROOT; };
 		5A8167820EA11E3F00962CF2 /* getopt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getopt.c; sourceTree = SOURCE_ROOT; };
 		5A8167830EA11E3F00962CF2 /* getopt1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getopt1.c; sourceTree = SOURCE_ROOT; };
 		5A8167840EA11E3F00962CF2 /* jpegoptim.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpegoptim.c; sourceTree = SOURCE_ROOT; };
@@ -99,7 +99,7 @@
 		5A81674E0EA11E3F00962CF2 /* jpegoptim */ = {
 			isa = PBXGroup;
 			children = (
-				5A8167810EA11E3F00962CF2 /* confdefs.h */,
+				5A4552991024E22200A69944 /* config.h */,
 				5A8167820EA11E3F00962CF2 /* getopt.c */,
 				5A8167830EA11E3F00962CF2 /* getopt1.c */,
 				5A8167840EA11E3F00962CF2 /* jpegoptim.c */,
@@ -214,8 +214,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_ALTIVEC_EXTENSIONS = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
 				GCC_VERSION = 4.2;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -232,7 +234,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_ALTIVEC_EXTENSIONS = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
 				GCC_VERSION = 4.2;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
