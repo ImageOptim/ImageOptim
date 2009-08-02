@@ -22,7 +22,6 @@
 - (IBAction)showPrefs:(id)sender;
 - (IBAction)startAgain:(id)sender;
 
-- (void)windowWillClose:(NSNotification *)aNotification;
 
 -(IBAction)openPngOutHomepage:(id)sender;
 -(IBAction)openPngOutDownload:(id)sender;

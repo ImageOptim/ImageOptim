@@ -60,6 +60,8 @@
             [cpuQueue waitUntilAllOperationsAreFinished];
             [dirWorkerQueue waitUntilAllOperationsAreFinished];            
             [fileIOQueue waitUntilAllOperationsAreFinished];
+            
+            [[NSGarbageCollector defaultCollector] collectIfNeeded];
         }
         @finally {
             [queueWaitingLock unlock];
@@ -168,11 +170,10 @@
 	NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
 	
 //	NSLog(@"Dropping files %@",paths);
-	[self addPaths:paths];
+	[self performSelectorInBackground:@selector(addPaths:) withObject:paths];
 
 	[[aTableView window] makeKeyAndOrderFront:aTableView];
 
-    [self runAdded];
 //	NSLog(@"Finished adding drop");	
 	return YES;
 }
@@ -315,7 +316,7 @@
 	{
 //        NSLog(@"There are still operations to do: %@ %@",workerQueue.operations,dirWorkerQueue.operations);
 		[progressBar startAnimation:nil];
-        [self waitForQueuesToFinish];
+        [self waitInBackgroundForQueuesToFinish];
 	}
 }
 

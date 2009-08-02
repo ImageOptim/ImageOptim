@@ -108,8 +108,8 @@
 
 - (void)windowWillClose:(NSNotification *)aNotification
 {
-//	NSLog(@"window close!");
-	[application terminate:self];
+    // let the window close immediately, clean in background
+    [application performSelectorOnMainThread:@selector(terminate:) withObject:self waitUntilDone:NO];
 }
 
 -(void)applicationWillTerminate:(NSNotification*)n {    
