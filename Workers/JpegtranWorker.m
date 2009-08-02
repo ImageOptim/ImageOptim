@@ -9,6 +9,15 @@
 
 @implementation JpegtranWorker
 
+-(id)init {
+    if (self = [super init])
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        strip = [defaults boolForKey:@"JpegTran.StripAll"];
+    }
+    return self;
+}
+
 -(void)run
 {
 	NSFileManager *fm = [NSFileManager defaultManager];	
@@ -21,10 +30,6 @@
 
     // eh, handling of paths starting with "-" is unsafe here. Hopefully all paths from dropped files will be absolute...
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-verbose",@"-optimize",@"-progressive",@"-outfile",temp,[file filePath],nil];
-	
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	
-	BOOL strip = [defaults boolForKey:@"JpegTran.StripAll"];
 	
 	if (strip)
 	{
@@ -58,7 +63,7 @@
 	
 	if (![task terminationStatus])
 	{
-        long fileSizeOptimized;
+        unsigned long fileSizeOptimized;
 		if (fileSizeOptimized = [File fileByteSize:temp])
 		{
 			[file setFilePathOptimized:temp	size:fileSizeOptimized];			

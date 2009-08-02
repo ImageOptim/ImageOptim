@@ -9,6 +9,16 @@
 
 @implementation AdvCompWorker
 
+-(id)init {
+    if (self = [super init])
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];	
+        level = [defaults integerForKey:@"AdvPng.Level"];
+
+    }
+    return self;
+}
+
 -(void)run
 {
 	NSFileManager *fm = [NSFileManager defaultManager];
@@ -18,18 +28,14 @@
 	{
 		NSLog(@"Can't make temp copy of %@ in %@",[file filePath],temp);
 	}
-	
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];	
-	int level = [defaults integerForKey:@"AdvPng.Level"];
-	
+			
 	NSTask *task = [self taskForKey:@"AdvPng" bundleName:@"advpng" 
 						  arguments:[NSArray arrayWithObjects: [NSString stringWithFormat:@"-%d",level ? level : 4],@"-z",@"--",temp,nil]];
     if (!task) {
         NSLog(@"Could not launch AdvPng");
         [file setStatus:@"err" text:@"AdvPng failed to start"];
     }
-    
-	
+    	
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];		
 	

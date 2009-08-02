@@ -8,6 +8,9 @@
 #import "CommandWorker.h"
 
 @interface JpegoptimWorker : CommandWorker {
+    BOOL comments, exif;
+    int maxquality;
+    
 	int fileSizeOptimized;
 }
 @end

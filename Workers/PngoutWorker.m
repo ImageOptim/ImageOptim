@@ -11,6 +11,18 @@
 
 @implementation PngoutWorker
 
+-(id)init {
+    if (self = [super init])
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        tryfilters = [defaults boolForKey:@"PngOut.TryFilters"];
+        level = 3-[defaults integerForKey:@"PngOut.Level"];
+        removechunks = [defaults boolForKey:@"PngOut.RemoveChunks"];
+        interruptIfTakesTooLong = [defaults boolForKey:@"PngOut.InterruptIfTakesTooLong"];
+    }
+    return self;
+}
+
 -(void)run
 {
 //	NSLog(@"PNGOUT running");
@@ -18,22 +30,19 @@
 		
     // uses stdout for file to force progress output to unbufferred stderr
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/[file filePath],@"-",nil];
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
-    BOOL interruptIfTakesTooLong = [defaults boolForKey:@"PngOut.InterruptIfTakesTooLong"];
 
-	if ([defaults boolForKey:@"PngOut.TryFilters"]) // -r is not this option... I'll implement it later, maybe
+	if (tryfilters) // -r is not this option... I'll implement it later, maybe
 	{
 		[args insertObject:@"-r" atIndex:0];
 	}
 	
-	int level = 3-[defaults integerForKey:@"PngOut.Level"];
 	if (level)
 	{
 		[args insertObject:[NSString stringWithFormat:@"-s%d",level] atIndex:0];
 	}
 	
-	if (![defaults boolForKey:@"PngOut.RemoveChunks"])
+	if (!removechunks)
 	{
 		[args insertObject:@"-k1" atIndex:0];
 	}

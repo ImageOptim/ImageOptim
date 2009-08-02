@@ -8,7 +8,8 @@
 #import "CommandWorker.h"
 
 @interface AdvCompWorker : CommandWorker {
-
+    int level;
+    
 	int fileSizeOptimized;	
 }
 

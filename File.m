@@ -59,7 +59,7 @@
 	return f;
 }
 
--(void)setByteSize:(long)size
+-(void)setByteSize:(unsigned long)size
 {
     @synchronized(self) 
     {        
@@ -84,7 +84,7 @@
 	return p;
 }
 
--(void)setPercentOptimized:(double)f
+-(void)setPercentOptimized:(double)unused
 {
 	// just for KVO
 }
@@ -93,7 +93,7 @@
 	return byteSizeOptimized!=0;
 }
 
--(void)setByteSizeOptimized:(long)size
+-(void)setByteSizeOptimized:(unsigned long)size
 {
     @synchronized(self) 
     {        
@@ -118,7 +118,7 @@
 	}
 }
 
--(void)setFilePathOptimized:(NSString *)path size:(long)size
+-(void)setFilePathOptimized:(NSString *)path size:(unsigned long)size
 {
     @synchronized(self) 
     {        
@@ -173,16 +173,16 @@
 		
 		if (preserve)
 		{		
-			NSFileHandle *read = [NSFileHandle fileHandleForReadingAtPath:filePathOptimized];
-			NSFileHandle *write = [NSFileHandle fileHandleForWritingAtPath:filePath];
-			NSData *data = [read readDataToEndOfFile];
+			NSFileHandle *readhandle = [NSFileHandle fileHandleForReadingAtPath:filePathOptimized];
+			NSFileHandle *writehandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
+			NSData *data = [readhandle readDataToEndOfFile];
 			
 			if ([data length] == byteSizeOptimized && [data length] > 30)
 			{
-				[write writeData:data];
-				[write truncateFileAtOffset:[data length]];
-                [read closeFile];
-                [write closeFile];
+				[writehandle writeData:data];
+				[writehandle truncateFileAtOffset:[data length]];
+                [readhandle closeFile];
+                [writehandle closeFile];
                 [self removeOldFilePathOptimized];
 			}
 			else 
@@ -274,11 +274,13 @@
 
 #define FILETYPE_PNG 1
 #define FILETYPE_JPEG 2
+#define FILETYPE_GIF 3
 
 -(int)fileType:(NSData *)data
 {
 	const unsigned char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
     const unsigned char jpegheader[] = {0xff,0xd8,0xff};
+    const unsigned char gifheader[] = {0x47,0x49,0x46,0x38};
     char filedata[6];
 
     [data getBytes:filedata length:sizeof(filedata)];
@@ -290,6 +292,10 @@
     else if (0==memcmp(filedata, jpegheader, sizeof(jpegheader)))
     {
         return FILETYPE_JPEG;
+    }
+    else if (0==memcmp(filedata, gifheader, sizeof(gifheader)))
+    {
+        return FILETYPE_GIF;
     }
 	return 0;
 }
@@ -325,7 +331,7 @@
         byteSizeOptimized=0;
     }
     	
-	Worker *w = NULL;
+	
 	NSMutableArray *runFirst = [NSMutableArray new];
 	NSMutableArray *runLater = [NSMutableArray new];
 		
@@ -346,6 +352,7 @@
     
 	if (fileType == FILETYPE_PNG)
 	{
+        Worker *w = nil;
 		//NSLog(@"%@ is png",filePath);
 		if ([defs boolForKey:@"PngCrush.Enabled"])
 		{
@@ -374,6 +381,7 @@
 	}
 	else if (fileType == FILETYPE_JPEG)
     {
+        Worker *w = nil;
         if ([defs boolForKey:@"JpegOptim.Enabled"])
         {
             //NSLog(@"%@ is jpeg",filePath);

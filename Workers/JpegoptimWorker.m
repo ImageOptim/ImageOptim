@@ -9,6 +9,18 @@
 
 @implementation JpegoptimWorker
 
+-(id)init {
+    if (self = [super init])
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        comments = [defaults boolForKey:@"JpegOptim.StripComments"];
+        exif = [defaults boolForKey:@"JpegOptim.StripExif"];   
+        maxquality = [defaults integerForKey:@"JpegOptim.MaxQuality"];
+    }
+    return self;
+}
+
 -(void)run
 {
 	NSFileManager *fm = [NSFileManager defaultManager];	
@@ -21,11 +33,7 @@
 
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-q",@"--",temp,nil];
 	
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	
-	BOOL comments = [defaults boolForKey:@"JpegOptim.StripComments"];
-	BOOL exif = [defaults boolForKey:@"JpegOptim.StripExif"];
-	
+
 	if (exif && comments)
 	{
 		[args insertObject:@"--strip-all" atIndex:0];
@@ -39,7 +47,6 @@
 		[args insertObject:@"--strip-com" atIndex:0];
 	}
 	
-	int maxquality = [defaults integerForKey:@"JpegOptim.MaxQuality"];
 	if (maxquality > 10 && maxquality < 100)
 	{
 		[args insertObject:[NSString stringWithFormat:@"-m%d",maxquality] atIndex:0];

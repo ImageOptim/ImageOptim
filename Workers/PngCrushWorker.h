@@ -7,7 +7,10 @@
 #import <Cocoa/Cocoa.h>
 #import "CommandWorker.h"
 
-@interface PngCrushWorker : CommandWorker {
+@interface PngCrushWorker : CommandWorker {    
+    NSArray *chunks;
+    BOOL tryfix;
+    
 	int firstIdatSize;	
 
 }

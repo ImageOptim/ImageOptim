@@ -9,17 +9,24 @@
 
 @implementation OptiPngWorker
 
+-(id)init {
+    if (self = [super init])
+    {
+        NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+        optlevel = [defs integerForKey:@"OptiPng.Level"];
+        interlace = [defs integerForKey:@"OptiPng.Interlace"];
+
+    }
+    return self;
+}
+
 -(void)run
 {	
 	NSString *temp = [self tempPath:@"OptiPng"];
-		
-	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-		
-	int optlevel = [defs integerForKey:@"OptiPng.Level"];
+	
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",optlevel ? optlevel : 6],
 							@"-out",temp,@"--",[file filePath],nil];
 
-	int interlace = [defs integerForKey:@"OptiPng.Interlace"];
 	if (interlace != -1)
 	{
 		[args insertObject:[NSString stringWithFormat:@"-i%d",interlace] atIndex:0];
@@ -57,7 +64,7 @@
 {
 	//NSLog(@"### %@",line);
 		
-	long res;
+	unsigned long res;
 	
 	if ([line length] > 20)
 	{

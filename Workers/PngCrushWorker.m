@@ -9,14 +9,22 @@
 
 @implementation PngCrushWorker
 
+-(id)init {
+    if (self = [super init])
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        chunks = [defaults arrayForKey:@"PngCrush.Chunks"];
+        tryfix = [defaults boolForKey:@"PngCrush.Fix"];
+    }
+    return self;
+}
+
 -(void)run
 {
 	NSString *temp = [self tempPath:@"PngCrush"];
 
 	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-brute",@"-cc",@"--",[file filePath],temp,nil];
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	
-	NSArray *chunks = [defaults arrayForKey:@"PngCrush.Chunks"];
 	NSDictionary *dict;
 	for(dict in chunks)
 	{
@@ -28,7 +36,7 @@
 		}
 	}
 	
-	if ([defaults boolForKey:@"PngCrush.Fix"])
+	if (tryfix)
 	{
 		[args insertObject:@"-fix" atIndex:0];
 	}
@@ -58,7 +66,7 @@
 	
 	if (![task terminationStatus])
 	{
-		long fileSizeOptimized;
+		unsigned long fileSizeOptimized;
 		if (fileSizeOptimized = [File fileByteSize:temp])
 		{
 			[file setFilePathOptimized:temp	size:fileSizeOptimized];			

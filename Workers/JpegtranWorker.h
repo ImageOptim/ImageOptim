@@ -8,7 +8,7 @@
 #import "CommandWorker.h"
 
 @interface JpegtranWorker : CommandWorker {
-
+    BOOL strip;
 }
 
 @end

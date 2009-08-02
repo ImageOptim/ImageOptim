@@ -160,6 +160,7 @@
 		5A45530E1024EB3000A69944 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5A4553121024EF3000A69944 /* Polish */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Polish; path = Polish.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5A4553131024EF4100A69944 /* Polish */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Polish; path = Polish.lproj/PrefsController.xib; sourceTree = "<group>"; };
+		5A4554F81025EBE900A69944 /* optimal_file_list */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = optimal_file_list; sourceTree = "<group>"; };
 		5A5C29410CB04A0F00FAF446 /* OptiPngWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptiPngWorker.h; sourceTree = "<group>"; };
 		5A5C29420CB04A0F00FAF446 /* OptiPngWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptiPngWorker.m; sourceTree = "<group>"; };
 		5A6242060CA86DC7005942A3 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
@@ -337,6 +338,7 @@
 		5A09013A0ED8D68200F3965B /* Sparkle */ = {
 			isa = PBXGroup;
 			children = (
+				5A4554F81025EBE900A69944 /* optimal_file_list */,
 				5A09013F0ED8D6AA00F3965B /* appcast.xml */,
 				5A0901400ED8D6B800F3965B /* sparkle.sig */,
 			);
@@ -753,6 +755,10 @@
 				GCC_VERSION = 4.2;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_PEDANTIC = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
+				GCC_WARN_UNUSED_LABEL = NO;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PREBINDING = NO;
@@ -806,6 +812,8 @@
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
