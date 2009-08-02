@@ -346,8 +346,6 @@
     }
     [self setByteSize:length];
 
-
-    
     int fileType = [self fileType:fileData];
     
 	if (fileType == FILETYPE_PNG)

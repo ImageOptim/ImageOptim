@@ -5,19 +5,6 @@
       <link>http://pornel.net/imageoptim/appcast.xml</link>
       <description>ImageOptim updates</description>
       <language>en</language>
-
-         <item>
-             <title>Version 1.0.9</title>
- 						<sparkle:releaseNotesLink>
- 							http://pornel.net/imageoptim/en/
- 						</sparkle:releaseNotesLink>
-             <pubDate>Thu, 5 Mar 2009 00:17:20 +0000</pubDate>
-             <sparkle:minimumSystemVersion>10.4.4</sparkle:minimumSystemVersion>
-             <description>Stability fixes. Dropped support for Panther.</description>
-             <enclosure url="http://pornel.net/ImageOptim1.0.9.tar.bz2" 
-               sparkle:version="1.0.9" length="1298033" type="application/bzip2" 
-               sparkle:dsaSignature="MC0CFAswZuMxfM9L7cOI7wyB+G9aC5dxAhUAgplZd9IL7u+/0Aknd/qq7SdkEgE=" />
-          </item>
          <item>
             <title>Version 1.0.10</title>
 						<sparkle:releaseNotesLink>
@@ -48,5 +35,24 @@
             ]]></description>
             <enclosure url="http://pornel.net/ImageOptim1.2.0.tar.bz2" sparkle:version="1.2.0" length="1036229" type="application/bzip2" sparkle:dsaSignature="MCwCFCNQAGBUnZNhiGKj9VOGAGJienQwAhQNp1oapLOTzWHaFLoufrkWGorVzg==" />
          </item>    
+                 <item>
+            <title>Version 1.2.1 for Leopard</title>
+            <pubDate>Sun,  5 Jul 2009 20:19:42 +0100</pubDate>
+            <sparkle:minimumSystemVersion>10.5.7</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+            <p>ImageOptim now requires Leopard (10.5.7).</p>
+            <ul>
+                <li>New: Leaner and more stable thanks to new Leopard APIs.</li>
+                <li>New: Can handle order of magnitude more files at once.</li>
+                <li>New: Avoids writing many files to disk at the same time.</li>
+                <li>New: Checks actual file type rather than rely on filename extension.</li>
+                <li>New: PNGOUT may be gracefully stopped if takes too much time to optimize.</li>
+                <li>Fix: Temporary files are cleaned up on exit.</li>
+                <li>Fix: Errors during optimisations don't slow down or lock up ImageOptim.</li>
+            </ul>
+            ]]></description>
+            <enclosure url="http://pornel.net/ImageOptim1.2.1.tar.bz2" sparkle:version="1.2.1" length="1016331" type="application/bzip2" sparkle:dsaSignature="MCwCFCNQAGBUnZNhiGKj9VOGAGJienQwAhQNp1oapLOTzWHaFLoufrkWGorVzg==" />
+         </item>    
+
 </channel>
 </rss>
