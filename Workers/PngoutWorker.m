@@ -26,7 +26,7 @@
 -(void)run
 {
 //	NSLog(@"PNGOUT running");
-	NSString *temp = [self tempPath:@"PngOut"];
+	NSString *temp = [self tempPath];
 		
     // uses stdout for file to force progress output to unbufferred stderr
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/[file filePath],@"-",nil];

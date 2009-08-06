@@ -178,9 +178,10 @@
 	return nil;
 }
 
--(NSString *)tempPath:(NSString*)baseName
+-(NSString *)tempPath
 {
-	return [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.tmp",baseName,[file hash],random()]];
+    static int uid=0; if (uid==0) uid = getpid()<<16;
+	return [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.tmp",[self className],[file hash]^[self hash],uid++]];
 }
 
 -(NSObject<WorkerQueueDelegate>*)delegate

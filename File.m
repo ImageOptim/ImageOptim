@@ -123,14 +123,13 @@
 {
     @synchronized(self) 
     {        
-        NSLog(@"File %@ optimized from %d down to %d in %@",filePath?filePath:filePathOptimized,byteSizeOptimized,size,path);        
+        NSLog(@"File %@ optimized from %d to %d in %@",filePath?filePath:filePathOptimized,byteSizeOptimized,size,path);        
         if (size <= byteSizeOptimized)
         {
             [self removeOldFilePathOptimized];
             filePathOptimized = [path copy];
             [self setByteSizeOptimized:size];
         }
-    //	NSLog(@"Got optimized %db path %@",size,path);
     }
 }
 

@@ -22,7 +22,7 @@
 
 -(void)run
 {	
-	NSString *temp = [self tempPath:@"OptiPng"];
+	NSString *temp = [self tempPath];
 	
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",optlevel ? optlevel : 6],
 							@"-out",temp,@"--",[file filePath],nil];

@@ -23,7 +23,7 @@
 
 -(void)launchTask:(NSTask *)task;
 
--(NSString *)tempPath:(NSString*)baseName;
+-(NSString *)tempPath;
 
 -(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName;
 

@@ -21,7 +21,7 @@
 -(void)run
 {
 	NSFileManager *fm = [NSFileManager defaultManager];	
-	NSString *temp = [self tempPath:@"JpegTran"];
+	NSString *temp = [self tempPath];
 	
 	if (![fm copyPath:[file filePath] toPath:temp handler:nil])
 	{

@@ -21,7 +21,7 @@
 
 -(void)run
 {
-	NSString *temp = [self tempPath:@"PngCrush"];
+	NSString *temp = [self tempPath];
 
 	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-brute",@"-cc",@"--",[file filePath],temp,nil];
 	
