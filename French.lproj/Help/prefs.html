@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"	"http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<title>Préférences ImageOptim</title>
+<link rel="stylesheet" href="style.css">
+<meta name="AppleTitle" content="Aide ImageOptim">
+<!--meta name="AppleIcon" content="AppName%20Help/images/icon-name.png"-->
+<meta name="AppleFont" content="Lucida Grande,Helvetica,Arial">
+<meta name="AppleSearchResultsFont" content="Lucida Grande,Geneva,Arial">
+<meta name="description" content="Préférences ImageOptim">
+<body>
+<a name="general">Général</a>
+<h1>Préférences ImageOptim</h1>
+<p><a href="index.html">« Retour à l'index</a></p>
+<p>Normalement vous n'avez pas besoin de modifier les préférences (en dehors de l'emplacement de PNGOUT si vous l'avez installé).</p>
+<h2>Général</h2>
+<dl>
+	<dt>Conserver les permissions, attributs et liens</dt>
+	<dd>
+		<p>À la place de supprimer l'ancien fichier et d'en créer un nouveau du même nom, ImageOptim remplace directement le contenu de celui-ci. Ceci permet de conserver tous les liens, alias, permissions, attributs… du fichier.
+		<p>Ne pas conserver ces éléments est légèrement plus rapide. 
+	</dd>
+	<dt>Réaliser une copie des fichiers originaux</dt>
+	<dd><p>Copie le fichier original en ajoutant <samp>~</samp> à son nom. Cela ralentit les traitements et remplit votre disque de fichiers de sauvegarde.</p></dd>
+
+	<dt>Tâches simultanées</dt>
+	<dd><p>Si vous disposez d'une machine multi-processeur ou multi-cœur lancer plus d'une tâche à la fois permet d'accélérer les traitements.</p></dd>
+	<dt>Lancer en tâche de fond (priorité réduite)</dt>
+	<dd><p>Permet de préserver la réactivité de votre machine si vous lancez des optimisations de très gros fichiers ou en grande quantité.</p></dd>
+</dl>
+<div id="jpegoptim">
+<a name="jpegoptim">jpegoptim</a>
+<h2>JPEGOptim</h2>
+<dl>
+	<dt>Activer</dt>
+<dd><p>Doit être coché pour utiliser JPEGOptim.</dd>
+<dt>Emplacement externe</dt>
+<dd><p>Chemin vers le programme <samp>jpegoptim</samp>. Habituellement <samp>/usr/bin/jpegoptim</samp> ou <samp>/sw/bin/jpegoptim</samp>.</dd>
+
+<dt>Qualité maximale</dt>
+<dd><p>Positionné à 100% l'optimisation sera <strong>sans perte</strong>.</p>
+	<p>Tout réglage inférieur à 100% <strong>dégradera</strong> la qualité de l'image si celle-ci a déjà été sauvegardée avec une qualité supérieur.</p>
+
+<dt>Supprimer les commentaires</dt>
+<dt>Supprimer les information EXIF</dt>
+<dd><p>Supprime les metadonnées : le nom du programme ou de l'appareil ayant produit l'image, les informations de prise de vue, la date…</dd>
+</dl>
+</div>
+<div id="advpng">
+<a name="advpng">advpng</a>
+<h2>AdvPNG</h2>
+<dl>
+<dt>Activer</dt>
+<dd><p>Doit être coché pour utiliser AdvPNG.</dd>
+<dt>Emplacement externe</dt>
+<dd><p>Chemin vers le programme <samp>advpng</samp>. Habituellement <samp>/usr/bin/advpng</samp> ou <samp>/sw/bin/advpng</samp>.</dd>
+
+<dl>
+	<dt>Niveau d'optimisation</dt>
+	<dd>AdvPNG est relativement rapide, vous pouvez tranquillement mettre le maximum.</dd>
+</dl>
+</div>
+<div id="optipng">
+<a name="optipng">optipng</a>
+<h2>OptiPNG</h2>
+<dl>
+<dt>Activer</dt>
+<dd><p>Doit être coché pour utiliser OptiPNG.</dd>
+<dt>Emplacement externe</dt>
+<dd><p>Chemin vers le programme <samp>optipng</samp>. Habituellement <samp>/usr/bin/optipng</samp> ou <samp>/sw/bin/optipng</samp>.</dd>
+
+<dl>
+	<dt>Niveau d'optimisation</dt>
+	<dd><p>Nombre de combinaisons de réglages différents explorées. Il y a en général très peu de gain à les essayer toutes.</dd>
+	
+	<dt>Activer l'entrelacement Adam7 (affichage progressif)</dt>
+	<dd><p>Lors de son chargement une image entrelacée dévoile une vue d'ensemble qui est progressivement affinée, mais cela rend généralement la compression moins efficace.<p>
+		<p>Cette case a trois état.<br>- Coché : les images produites seront entrelacées.<br>- Intermédiaire : conserve le réglage d'origine du fichier.<br>- Décoché : les images produites ne seront pas entrelacées.</dd>
+</dl>
+</div>
+<div id="pngout">
+<a name="pngout">optipng</a>
+<h2>PNGOUT</h2>
+<dl>
+<dt>Activer</dt>
+<dd><p>Doit être coché pour utiliser PNGOUT.
+    <p>PNGOUT n'est pas fourni avec ImageOptim. C'est un très bon programme, toutefois <a href="http://www.advsys.net/ken/utils.htm">son concepteur</a> se réserve les droits de distribution, de ce fait <a target="_blank" href="http://www.jonof.id.au/index.php?p=pngout">vous devez télécharger PNGOUT à part</a>.</dd>
+<dt>Emplacement externe</dt>
+<dd><p>Chemin vers le programme <samp>pngout</samp> (ou <samp>pngout-darwin</samp>).</dd>
+
+<dl>
+	<dt>Type d'optimisation</dt>
+	<dd><p>PNGOUT est très efficace, mais très lent. Utilisez un faible niveau si vous êtes impatient.</dd>
+
+	<dt>Interrompre si le traitement est trop long</dt>
+	<dd><p>PNGOUT peut nécessiter <em>beaucoup</em> de temps pour optimiser les images de grand format. Cette option arrête PNGOUT proprement au bout d'une minute.</p></dd>
+		    
+	<dt>Supprimer les chunks optionnels</dt>
+	<dd><p>Si vous ne souhaitez pas conserver un type précis de metadonnées laissez coché (convient particulièrement pour le web en retirant les courbes gamma et autres corrections colorimétriques).</p></dd>
+</dl>
+</div>
