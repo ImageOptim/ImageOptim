@@ -52,9 +52,9 @@
 -(IBAction)browseForExecutable:(id)sender
 {
 	int tag = [sender tag];
-	if (tag >= 1 && tag <= 6)
+	if (tag >= 1 && tag <= 7)
 	{
-		NSString *keys[] = {@"JpegOptim",@"AdvPng",@"OptiPng",@"PngCrush",@"PngOut",@"JpegTran"};
+		static NSString *keys[] = {@"JpegOptim",@"AdvPng",@"OptiPng",@"PngCrush",@"PngOut",@"JpegTran",@"Gifsicle"};
 		NSString *key = keys[tag-1];
 		
 		NSOpenPanel *oPanel = [NSOpenPanel openPanel];

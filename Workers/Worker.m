@@ -14,7 +14,7 @@
 	return nil;
 }
 
--(BOOL)isRelatedTo:(File *)f
+-(BOOL)isRelatedTo:(File *)unused
 {
 	return NO;
 }

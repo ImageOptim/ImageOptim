@@ -73,6 +73,12 @@
 	<true/>
 	<key>PngOut.InterruptIfTakesTooLong</key>
 	<true/>
+	<key>Gifsicle.Bundle</key>
+	<true/>
+	<key>Gifsicle.Enabled</key>
+	<true/>
+	<key>Gifsicle.Path</key>
+	<string>/usr/local/bin/gifsicle</string>
 	<key>PreservePermissions</key>
 	<true/>
 	<key>RunConcurrentDirscans</key>

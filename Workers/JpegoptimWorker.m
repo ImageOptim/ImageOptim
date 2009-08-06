@@ -21,6 +21,10 @@
     return self;
 }
 
+-(BOOL)makesNonOptimizingModifications {
+    return maxquality < 100;
+}
+
 -(void)run
 {
 	NSFileManager *fm = [NSFileManager defaultManager];	

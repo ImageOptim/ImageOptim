@@ -30,8 +30,7 @@
 -(id)initWithTableView:(NSTableView*)a progressBar:(NSProgressIndicator *)p andController:(NSArrayController*)b;
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation;
 -(void)addPaths:(NSArray *)paths;
--(void)addPath:(NSString*)s dirs:(BOOL)a;
--(void)addPaths:(NSArray *)paths;
+-(void)addPath:(NSString*)s dirs:(NSArray*)extensionsOrNil;
 -(void)addFilePaths:(NSArray *)paths;
 -(void)setEnabled:(BOOL)y;
 
@@ -44,5 +43,9 @@
 -(void)updateProgressbar;
 -(void)cleanup;
 
--(void)openRowInFinder:(int)row;
+-(void)openRowInFinder:(NSUInteger)row;
+
+
+-(NSArray *)fileTypes;
+-(NSArray*)extensions;
 @end

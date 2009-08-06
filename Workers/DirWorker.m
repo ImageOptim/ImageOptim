@@ -9,15 +9,16 @@
 
 @implementation DirWorker
 
-@synthesize filesQueue;
+
 @synthesize path;
 
--(id)initWithPath:(NSString *)aPath filesQueue:(FilesQueue *)q
+-(id)initWithPath:(NSString *)aPath filesQueue:(FilesQueue *)q extensions:(NSArray*)theExtensions
 {
 	if (self = [super init])
 	{
 		self.path = aPath;
-		self.filesQueue = q;
+		filesQueue = q;
+        extensions = theExtensions;
 	}
 	return self;
 }
@@ -25,16 +26,12 @@
 -(void)run
 {
     @try {
-        
-    // FIXME: take extensions from list of enabled tools?
-	NSArray *extensions = [NSArray arrayWithObjects:@"png",@"PNG",@"jpg",@"JPG",@"jpeg",@"JPEG",nil];
-    
+            
 	for(NSString *filePath in [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:path error:nil])
 	{
 		NSString *newPath = [path stringByAppendingPathComponent:filePath];
-		//NSLog(@"Foudn %@ = '%@'",newPath,[newPath pathExtension]);
 		
-		if (NSNotFound != [extensions indexOfObject:[newPath pathExtension]])
+		if ([extensions containsObject:[newPath pathExtension]])
 		{
 			[filesQueue addPath:newPath dirs:NO];
 		}

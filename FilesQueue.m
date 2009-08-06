@@ -146,7 +146,7 @@
 {
     //NSLog(@"Tooltip for col %@ in row %d",aTableColumn,row);
     NSArray *objs = [filesController arrangedObjects];
-    if (row < [objs count])
+    if (row < (signed)[objs count])
     {
         File *f = [objs objectAtIndex:row];
         return [f statusText];
@@ -154,7 +154,7 @@
     return nil;
 }
 
--(void)openRowInFinder:(int)row
+-(void)openRowInFinder:(NSUInteger)row
 {    
     NSArray *objs = [filesController arrangedObjects];
     if (row < [objs count])
@@ -178,12 +178,12 @@
 	return YES;
 }
 
--(void)addDir:(NSString *)path
+-(void)addDir:(NSString *)path extensions:(NSArray*)e
 {
     if (!isEnabled) return;
     
     @try {            
-        DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self];
+        DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self extensions:e];
         [dirWorkerQueue addOperation:w];
     }
     @catch (NSException *e) {
@@ -248,7 +248,7 @@
     [self runAdded];
 }
 
--(void)addPath:(NSString *)path dirs:(BOOL)useDirs
+-(void)addPath:(NSString *)path dirs:(NSArray*)extensionsOrNil
 {	
 	if (!isEnabled) {
         NSLog(@"Ignored %@",path);
@@ -262,9 +262,9 @@
 		{
 			[self performSelectorOnMainThread:@selector(addFilePath:) withObject:path waitUntilDone:NO];
 		}
-		else if (useDirs)
+		else if (extensionsOrNil)
 		{            
-			[self addDir:path];
+			[self addDir:path extensions:extensionsOrNil];
 		}
 	}
 }
@@ -329,10 +329,11 @@
 }
 -(void)addPaths:(NSArray *)paths
 {
+    NSArray *ext = [self extensions];
     //NSLog(@"Adding paths %@",paths);
 	for(NSString *path in paths)
 	{
-		[self addPath:path dirs:YES];
+		[self addPath:path dirs:ext];
 	}
     
     [self runAdded];
@@ -378,6 +379,78 @@
     @catch(NSException *e) {
         NSLog(@"Can't run quicklook %@",e);
     }
+}
+
+
+#define PNG_ENABLED 1
+#define JPEG_ENABLED 2
+#define GIF_ENABLED 4
+
+-(int)typesEnabled {
+    int types = 0;
+    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+    
+    if ([defs boolForKey:@"PngCrush.Enabled"] || [defs boolForKey:@"PngOut.Enabled"] ||
+        [defs boolForKey:@"OptiPng.Enabled"] || [defs boolForKey:@"AdvPng.Enabled"])
+    {
+        types |= PNG_ENABLED;
+    }
+    
+    if ([defs boolForKey:@"JpegOptim.Enabled"] || [defs boolForKey:@"JpegTran.Enabled"])
+    {
+        types |= JPEG_ENABLED;
+    }
+    
+    if ([defs boolForKey:@"Gifsicle.Enabled"])
+    {
+        types |= GIF_ENABLED;
+    }
+    
+    if (!types) types = PNG_ENABLED; // will show error in the list
+    return types;
+}
+
+
+-(NSArray*)extensions {
+    
+    int types = [self typesEnabled];
+    NSMutableArray *extensions = [NSMutableArray array];
+    
+    if (types & PNG_ENABLED)        
+    {
+        [extensions addObject:@"png"]; [extensions addObject:@"PNG"];        
+    }
+    if (types & JPEG_ENABLED)  
+    {
+        [extensions addObjectsFromArray:[NSArray arrayWithObjects:@"jpg",@"JPG",@"jpeg",@"JPEG",nil]];
+    }    
+    if (types & GIF_ENABLED)  
+    {
+        [extensions addObject:@"gif"]; [extensions addObject:@"GIF"];
+    }
+    
+    return extensions;
+}
+
+
+-(NSArray *)fileTypes {
+    int types = [self typesEnabled];
+    
+    NSMutableArray *fileTypes = [NSMutableArray array];
+    
+    if (types & PNG_ENABLED)
+    {
+        [fileTypes addObjectsFromArray:[NSArray arrayWithObjects:@"png",@"PNG",NSFileTypeForHFSTypeCode( 'PNGf' ),@"public.png",@"image/png",nil]];
+    }
+    if (types & JPEG_ENABLED)
+    {
+        [fileTypes addObjectsFromArray:[NSArray arrayWithObjects:@"jpg",@"jpeg",@"JPG",@"JPEG",NSFileTypeForHFSTypeCode( 'JPEG' ),@"public.jpeg",@"image/jpeg",nil]];
+    }     
+    if (types & GIF_ENABLED)
+    {
+        [fileTypes addObjectsFromArray:[NSArray arrayWithObjects:@"gif",@"GIF",NSFileTypeForHFSTypeCode( 'GIFf' ),@"public.gif",@"image/gif",nil]];
+    }     
+	return fileTypes;
 }
 
 @end

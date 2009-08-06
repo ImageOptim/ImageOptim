@@ -12,6 +12,7 @@
 #import "PngCrushWorker.h"
 #import "JpegoptimWorker.h"
 #import "JpegtranWorker.h"
+#import "GifsicleWorker.h"
 
 @implementation File
 
@@ -22,7 +23,7 @@
 	if (self = [self init])
 	{	
 		[self setFilePath:name];
-		[self setStatus:@"wait" text:@"New file"];
+		[self setStatus:@"wait" text:NSLocalizedString(@"New file",@"newly added to the queue")];
 		
 		workersTotal = 0;
 		workersActive = 0;
@@ -220,19 +221,19 @@
 	@synchronized(self)
     {
         workersActive++;
-        [self setStatus:@"progress" text:[NSString stringWithFormat:@"Started %@",[worker className]]];        
+        [self setStatus:@"progress" text:[NSString stringWithFormat:NSLocalizedString(@"Started %@",@"command name"),[worker className]]];        
     }
 }
 
 -(void)saveResultAndUpdateStatus {
     if ([self saveResult])
     {
-        [self setStatus:@"ok" text:@"Optimized successfully"];						
+        [self setStatus:@"ok" text:NSLocalizedString(@"Optimized successfully",@"tooltip")];						
     }
     else 
     {
         NSLog(@"saveResult failed");
-        [self setStatus:@"err" text:@"Optimized file could not be saved"];				
+        [self setStatus:@"err" text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];				
     }
 }
 
@@ -248,7 +249,7 @@
             if (!byteSize || !byteSizeOptimized)
             {
                 NSLog(@"worker %@ finished, but result file has 0 size",worker);
-                [self setStatus:@"err" text:@"Size of optimized file is 0"];
+                [self setStatus:@"err" text:NSLocalizedString(@"Size of optimized file is 0",@"tooltip")];
             }
             else if (workersFinished == workersTotal)
             {
@@ -260,13 +261,13 @@
                 }
                 else
                 {
-                    [self setStatus:@"noopt" text:@"File cannot be optimized any further"];	
+                    [self setStatus:@"noopt" text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];	
 //                    if (dupe) [Dupe addDupe:dupe];
                 }
             }
             else
             {
-                [self setStatus:@"wait" text:@"Waiting to start more optimisations"];
+                [self setStatus:@"wait" text:NSLocalizedString(@"Waiting to start more optimisations",@"tooltip")];
             }
         }
     }	    
@@ -305,7 +306,7 @@
     fileIOQueue = aFileIOQueue; // will be used for saving
     
     //NSLog(@"%@ add",filePath);
-    [self setStatus:@"wait" text:@"Waiting in queue"];
+    [self setStatus:@"wait" text:NSLocalizedString(@"Waiting in queue",@"tooltip")];
     
     @synchronized(self)
     {
@@ -322,7 +323,7 @@
 -(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue {  
 
     //NSLog(@"%@ inspect",filePath);
-    [self setStatus:@"progress" text:@"Inspecting file"];        
+    [self setStatus:@"progress" text:NSLocalizedString(@"Inspecting file",@"tooltip")];        
 
     @synchronized(self)
     {
@@ -341,7 +342,7 @@
     NSUInteger length = [fileData length];
     if (!fileData || !length)
     {
-        [self setStatus:@"err" text:@"Can't map file into memory"]; 
+        [self setStatus:@"err" text:NSLocalizedString(@"Can't map file into memory",@"tooltip")]; 
         return;
     }
     [self setByteSize:length];
@@ -379,22 +380,35 @@
 	}
 	else if (fileType == FILETYPE_JPEG)
     {
-        Worker *w = nil;
         if ([defs boolForKey:@"JpegOptim.Enabled"])
         {
             //NSLog(@"%@ is jpeg",filePath);
-            w = [[JpegoptimWorker alloc] initWithFile:self];
-            [runLater addObject:w];
+            Worker *w = [[JpegoptimWorker alloc] initWithFile:self];
+            if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
+			else [runLater addObject:w];
         }
         if ([defs boolForKey:@"JpegTran.Enabled"])
         {
             //NSLog(@"%@ is jpeg",filePath);
-            w = [[JpegtranWorker alloc] initWithFile:self];
+            Worker *w = [[JpegtranWorker alloc] initWithFile:self];
             [runLater addObject:w];
         }
     }
-	else {
-        [self setStatus:@"err" text:@"File is neither PNG nor JPEG"];
+	else if (fileType == FILETYPE_GIF)
+    {
+        if ([defs boolForKey:@"Gifsicle.Enabled"])
+        {
+            GifsicleWorker *w = [[GifsicleWorker alloc] initWithFile:self];
+            w.interlace = NO;
+            [runLater addObject:w];
+            
+            w = [[GifsicleWorker alloc] initWithFile:self];
+            w.interlace = YES;
+            [runLater addObject:w];
+        }
+    }
+    else {
+        [self setStatus:@"err" text:NSLocalizedString(@"File is neither PNG, GIF nor JPEG",@"tooltip")];
 		//NSBeep();
         [self cleanup];
         return;
@@ -432,11 +446,11 @@
 	if (!workersTotal) 
 	{
 		//NSLog(@"all relevant tools are unavailable/disabled - nothing to do!");
-		[self setStatus:@"err" text:@"All neccessary tools have been disabled in Preferences"];
+		[self setStatus:@"err" text:NSLocalizedString(@"All neccessary tools have been disabled in Preferences",@"tooltip")];
         [self cleanup];
 	}
     else {
-        [self setStatus:@"wait" text:@"Waiting to be optimized"];
+        [self setStatus:@"wait" text:NSLocalizedString(@"Waiting to be optimized",@"tooltip")];
     }
 }
 

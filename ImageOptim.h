@@ -16,7 +16,6 @@
 	
 	NSProgressIndicator *progressBar;
 	
-	NSArray *fileTypes;
 }
 
 - (IBAction)showPrefs:(id)sender;
@@ -28,16 +27,12 @@
 
 -(IBAction)browseForFiles:(id)sender;
 
-
 + (void)initialize;
 
 +(int)numberOfCPUs;
 
 @property (retain) IBOutlet NSTableView *tableView;
 @property (retain) IBOutlet NSArrayController *filesController;
-@property (retain,readonly) FilesQueue *filesQueue;
 @property (retain) IBOutlet NSApplication *application;
-@property (retain,readonly) PrefsController *prefsController;
 @property (retain) IBOutlet NSProgressIndicator *progressBar;
-@property (retain,readonly) NSArray *fileTypes;
 @end

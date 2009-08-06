@@ -22,15 +22,6 @@
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
 }
 
--(id)init
-{
-	if (self = [super init])
-	{
-		fileTypes = [[NSArray alloc] initWithObjects:@"png",@"PNG",NSFileTypeForHFSTypeCode( 'PNGf' ),@"public.png",@"image/png",
-			@"jpg",@"jpeg",@"JPG",@"JPEG",NSFileTypeForHFSTypeCode( 'JPEG' ),@"public.jpeg",@"image/jpeg",nil];
-	}
-	return self;
-}
 
 -(void)awakeFromNib
 {		
@@ -50,7 +41,7 @@
 // invoked by Dock
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)path
 {
-    [filesQueue addPath:path dirs:YES];
+    [filesQueue addPath:path dirs:[filesQueue extensions]];
 	[filesQueue runAdded];
 	return YES;
 }
@@ -96,7 +87,7 @@
 	[oPanel setCanChooseDirectories:YES];
 	[oPanel setResolvesAliases:YES];
 
-    [oPanel beginSheetForDirectory:nil file:nil types:fileTypes modalForWindow:[tableView window] modalDelegate:self didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];		
+    [oPanel beginSheetForDirectory:nil file:nil types:[filesQueue fileTypes] modalForWindow:[tableView window] modalDelegate:self didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];		
 }
 
 - (void)openPanelDidEnd:(NSOpenPanel *)oPanel returnCode:(int)returnCode  contextInfo:(void  *)contextInfo
@@ -122,9 +113,6 @@
 
 @synthesize tableView;
 @synthesize filesController;
-@synthesize filesQueue;
 @synthesize application;
-@synthesize prefsController;
 @synthesize progressBar;
-@synthesize fileTypes;
 @end

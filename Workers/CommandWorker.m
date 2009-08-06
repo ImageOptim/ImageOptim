@@ -137,7 +137,12 @@
 -(NSTask *)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args
 {
 	NSString *executable = [self executablePathForKey:key bundleName:resourceName];
-	if (!executable) return nil;
+	if (!executable) 
+    {
+        NSLog(@"Could not launch %@",resourceName);
+        [file setStatus:@"err" text:[NSString stringWithFormat:NSLocalizedString(@"%@ failed to start",@"tooltip"),key]];
+        return nil;        
+    }
 	
 	return [self taskWithPath:executable arguments:args];	
 }
