@@ -60,6 +60,14 @@
 			<key>name</key>
 			<string>sRGB</string>
 		</dict>
+		<dict>
+			<key>name</key>
+			<string>tIME</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>tEXT</string>
+		</dict>
 	</array>
 	<key>PngOut.Bundle</key>
 	<false/>

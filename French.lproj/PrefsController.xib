@@ -2,12 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.03">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">9J61</string>
+		<string key="IBDocument.SystemVersion">9L30</string>
 		<string key="IBDocument.InterfaceBuilderVersion">677</string>
-		<string key="IBDocument.AppKitVersion">949.46</string>
+		<string key="IBDocument.AppKitVersion">949.54</string>
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="174"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -46,7 +47,7 @@
 				<string key="NSWindowContentMaxSize">{750, 500}</string>
 				<string key="NSWindowContentMinSize">{574, 298}</string>
 				<object class="NSView" key="NSWindowView" id="571401575">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -86,7 +87,7 @@
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSTabViewItem" id="229729678">
 									<object class="NSView" key="NSView" id="158173503">
-										<reference key="NSNextResponder" ref="772667599"/>
+										<nil key="NSNextResponder"/>
 										<int key="NSvFlags">256</int>
 										<object class="NSMutableArray" key="NSSubviews">
 											<bool key="EncodedWithXMLCoder">YES</bool>
@@ -385,7 +386,6 @@ Y2F0aW9uLg</string>
 											</object>
 										</object>
 										<string key="NSFrame">{{10, 33}, {560, 289}}</string>
-										<reference key="NSSuperview" ref="772667599"/>
 									</object>
 									<string type="base64-UTF8" key="NSLabel">R8OpbsOpcmFsA</string>
 									<reference key="NSColor" ref="585428330"/>
@@ -1316,7 +1316,7 @@ IGfDqW7DqXJhbA</string>
 								</object>
 								<object class="NSTabViewItem" id="202551807">
 									<object class="NSView" key="NSView" id="981882792">
-										<nil key="NSNextResponder"/>
+										<reference key="NSNextResponder" ref="772667599"/>
 										<int key="NSvFlags">256</int>
 										<object class="NSMutableArray" key="NSSubviews">
 											<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1793,6 +1793,7 @@ IGfDqW7DqXJhbA</string>
 											</object>
 										</object>
 										<string key="NSFrame">{{10, 33}, {560, 289}}</string>
+										<reference key="NSSuperview" ref="772667599"/>
 										<reference key="NSNextKeyView" ref="729126354"/>
 									</object>
 									<string key="NSLabel">PNGCrush</string>
@@ -2420,18 +2421,19 @@ IGfDqW7DqXJhbA</string>
 									<reference key="NSTabView" ref="772667599"/>
 								</object>
 							</object>
-							<reference key="NSSelectedTabViewItem" ref="229729678"/>
+							<reference key="NSSelectedTabViewItem" ref="202551807"/>
 							<reference key="NSFont" ref="352456772"/>
 							<int key="NSTvFlags">0</int>
 							<bool key="NSAllowTruncatedLabels">YES</bool>
 							<bool key="NSDrawsBackground">YES</bool>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
-								<reference ref="158173503"/>
+								<reference ref="981882792"/>
 							</object>
 						</object>
 					</object>
 					<string key="NSFrameSize">{606, 351}</string>
+					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1400, 1028}}</string>
 				<string key="NSMinSize">{574, 320}</string>
@@ -6854,7 +6856,7 @@ IGfDqW7DqXJhbA</string>
 						<object class="IBToolTipAttribute" key="NS.object.0">
 							<string key="name">ToolTip</string>
 							<reference key="object" ref="359108219"/>
-							<string key="toolTip">Remove Gamma-related chunks</string>
+							<string type="base64-UTF8" key="toolTip">U3VwcHJpbWUgbGVzIGNodW5rcyByZWxhdGlmcyDDoCBsYSBjb3JyZWN0aW9uIGdhbW1hA</string>
 						</object>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
