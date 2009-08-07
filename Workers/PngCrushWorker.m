@@ -68,7 +68,7 @@
 		unsigned long fileSizeOptimized;
 		if (fileSizeOptimized = [File fileByteSize:temp])
 		{
-			[file setFilePathOptimized:temp	size:fileSizeOptimized];			
+			[file setFilePathOptimized:temp	size:fileSizeOptimized toolName:[self className]];			
 		}
 	}
 	else NSLog(@"pngcrush failed");

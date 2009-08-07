@@ -13,6 +13,7 @@
 	
 	unsigned long byteSize;
     unsigned long byteSizeOptimized;	
+    NSString *bestToolName;
 	double percentDone;
 	
 	NSString *filePathOptimized;	
@@ -33,7 +34,7 @@
 
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue;
 
--(void)setFilePathOptimized:(NSString *)f size:(unsigned long)s;
+-(void)setFilePathOptimized:(NSString *)f size:(unsigned long)s toolName:(NSString*)s;
 
 -(id)initWithFilePath:(NSString *)name;
 -(id)copyWithZone:(NSZone *)zone;

@@ -83,7 +83,7 @@
 	if (![task terminationStatus] && fileSizeOptimized)
 	{		
 //		NSLog(@"Will save data");
-		[file setFilePathOptimized:temp size:fileSizeOptimized];
+		[file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"PNGOUT"];
 	}
 	//else NSLog(@"pngout failed");
 	

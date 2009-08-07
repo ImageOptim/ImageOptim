@@ -119,13 +119,14 @@
 	}
 }
 
--(void)setFilePathOptimized:(NSString *)path size:(unsigned long)size
+-(void)setFilePathOptimized:(NSString *)path size:(unsigned long)size toolName:(NSString*)toolname
 {
     @synchronized(self) 
     {        
-        NSLog(@"File %@ optimized from %d to %d in %@",filePath?filePath:filePathOptimized,byteSizeOptimized,size,path);        
+        NSLog(@"File %@ optimized with %@ from %d to %d in %@",filePath?filePath:filePathOptimized,toolname,byteSizeOptimized,size,path);        
         if (size <= byteSizeOptimized)
         {
+            bestToolName = [toolname stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
             [self removeOldFilePathOptimized];
             filePathOptimized = [path copy];
             [self setByteSizeOptimized:size];
@@ -227,7 +228,7 @@
 -(void)saveResultAndUpdateStatus {
     if ([self saveResult])
     {
-        [self setStatus:@"ok" text:NSLocalizedString(@"Optimized successfully",@"tooltip")];						
+        [self setStatus:@"ok" text:[NSString stringWithFormat:NSLocalizedString(@"Optimized successfully with %@",@"tooltip"),bestToolName]];
     }
     else 
     {

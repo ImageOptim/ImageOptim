@@ -52,7 +52,7 @@
     NSUInteger fileSizeOptimized = [File fileByteSize:temp];
 	if (![task terminationStatus] && fileSizeOptimized)
 	{
-		[file setFilePathOptimized:temp size:fileSizeOptimized];	
+		[file setFilePathOptimized:temp size:fileSizeOptimized toolName:interlace ? @"Gifsicle interlaced" : @"Gifsicle"];	
 	}
 }
 

@@ -1,39 +1,27 @@
-/* tooltip */
 "All neccessary tools have been disabled in Preferences" = "Niezbędne narzędzia zostały wyłączone w Preferencjach";
 
-/* tooltip */
 "Can't map file into memory" = "Nie udało się załadować pliku";
 
-/* tooltip */
 "File cannot be optimized any further" = "Plik już był maksymalnie zoptymalizowany";
 
-/* tooltip */
 "File is neither PNG nor JPEG" = "Plik nie jest typu PNG ani JPEG";
 
-/* tooltip */
 "Inspecting file" = "Sprawdzam plik";
 
-/* newly added to the queue */
 "New file" = "Nowo dodany";
 
-/* tooltip */
 "Optimized file could not be saved" = "Nie udało się zapisać zoptymalizowanej wersji";
 
-/* tooltip */
-"Optimized successfully" = "Optymalizacja zakończona";
+"Optimized successfully with %@" = "Zoptymalizowano za pomocą %@";
 
-/* tooltip */
 "Size of optimized file is 0" = "Plik po optymalizacji ma 0 batów (błąd)";
 
-/* command name */
 "Started %@" = "Rozpoczęto %@";
 
-/* tooltip */
 "Waiting in queue" = "Oczekuje w kolejce";
 
-/* tooltip */
 "Waiting to be optimized" = "Oczekuje na optymalizację";
 
-/* tooltip */
 "Waiting to start more optimisations" = "Oczekuje na kolejną rundę optymalizacji";
 
+"%@ failed to start" = "Nie udało się uruchomić %@";

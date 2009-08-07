@@ -75,7 +75,7 @@
 	
 	if (![task terminationStatus] && fileSizeOptimized)
 	{
-		[file setFilePathOptimized:temp	size:fileSizeOptimized];
+		[file setFilePathOptimized:temp	size:fileSizeOptimized toolName:[self className]];
 	}
 	
 }
