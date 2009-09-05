@@ -13,29 +13,8 @@
 						<description>Faster directory scan</description>
             <pubDate>Sun, 21 Jun 2009 19:21:31 +0100</pubDate>
             <enclosure url="http://pornel.net/ImageOptim1.0.10.tar.bz2" sparkle:version="1.0.10" length="1218907" type="application/bzip2" sparkle:dsaSignature="MCwCFDooLOGTyB+eqp5IYHllEd3Mc+SrAhQXOBK19vn06LDp4IcZVrDSvcF6YQ==" />
-         </item>          
-        <item>
-            <title>Version 1.2 for Leopard</title>
-						<sparkle:releaseNotesLink>
-							http://pornel.net/imageoptim/release.html
-						</sparkle:releaseNotesLink>
-            <pubDate>Sun,  5 Jul 2009 20:19:42 +0100</pubDate>
-            <sparkle:minimumSystemVersion>10.5.7</sparkle:minimumSystemVersion>
-            <description><![CDATA[
-            <p>ImageOptim now requires Leopard (10.5.7).</p>
-            <ul>
-                <li>New: Leaner and more stable thanks to new Leopard APIs.</li>
-                <li>New: Can handle order of magnitude more files at once.</li>
-                <li>New: Avoids writing many files to disk at the same time.</li>
-                <li>New: Checks actual file type rather than rely on filename extension.</li>
-                <li>New: PNGOUT may be gracefully stopped if takes too much time to optimize.</li>
-                <li>Fix: Temporary files are cleaned up on exit.</li>
-                <li>Fix: Errors during optimisations don't slow down or lock up ImageOptim.</li>
-            </ul>
-            ]]></description>
-            <enclosure url="http://pornel.net/ImageOptim1.2.0.tar.bz2" sparkle:version="1.2.0" length="1036229" type="application/bzip2" sparkle:dsaSignature="MCwCFCNQAGBUnZNhiGKj9VOGAGJienQwAhQNp1oapLOTzWHaFLoufrkWGorVzg==" />
-         </item>    
-                 <item>
+         </item>
+         <item>
             <title>Version 1.2.1 for Leopard</title>
             <pubDate>Mon,  3 Aug 2009 00:44:37 +0100</pubDate>
             <sparkle:minimumSystemVersion>10.5.7</sparkle:minimumSystemVersion>
@@ -57,6 +36,30 @@
             ]]></description>
             <enclosure url="http://pornel.net/ImageOptim1.2.1.tar.bz2" sparkle:version="1.2.1" length="1015290" type="application/bzip2" sparkle:dsaSignature="MC0CFBRrUVsE5LsC6li5AfknK2aVGGBnAhUAmHYElkSh/F0TU3fOSWPkJiF8Jms=" />
          </item>    
-
+         <item>
+            <title>Version 1.2.2 for Leopard</title>
+            <pubDate>Sun,  9 Aug 2009 01:52:10 +0100</pubDate>
+            <sparkle:minimumSystemVersion>10.5.7</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+            <ul>
+                <li>Added French localization by Mathias Richter (<b><a href="mailto:pornel@pornel.net">more translations welcome!</a></b>)</li>
+                <li>Added modified version of optipng that clears dirty alpha transparency (RGB components of fully transparent pixels)</li>
+                <li>Added Gifsicle for optimisation of <em>animated</em> GIF files (use PNG instead of static GIFs!)</li>
+                <li>Added tools menu for quick disabling/enabling of tools used</li>
+                <li>Added more chunk names to default configuration of PNGCrush</li>
+            </ul>    
+            <p>New in 1.2:</p>
+            <ul>
+                <li><strong>Requires Leopard (10.5.7)</strong></li>
+                <li>Leaner and more stable thanks to new Leopard APIs</li>
+                <li>Can handle order of magnitude more files at once</li>
+                <li>Avoids writing many files to disk at the same time</li>
+                <li>Checks actual file type rather than rely on filename extension</li>
+                <li>PNGOUT may be gracefully stopped if takes too much time to optimize</li>
+                <li>Temporary files are cleaned up on exit</li>
+            </ul>
+            ]]></description>
+            <enclosure url="http://pornel.net/ImageOptim1.2.2.tar.bz2" sparkle:version="1.2.2" length="1271617" type="application/bzip2" sparkle:dsaSignature="MCwCFFvPS2Pn1fY++8rHB7ia/15jHX4bAhRoVcRxle3B7xiX6jqXfYnq2xAgzA==" />
+         </item>  
 </channel>
 </rss>
