@@ -23,10 +23,11 @@
 {
 	NSFileManager *fm = [NSFileManager defaultManager];
 	NSString *temp = [self tempPath];
+    NSError *error = nil;
 	
-	if (![fm copyPath:[file filePath] toPath:temp handler:nil])
+	if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error])
 	{
-		NSLog(@"Can't make temp copy of %@ in %@",[file filePath],temp);
+		NSLog(@"Can't make temp copy of %@ in %@; %@",[file filePath],temp,error);
 	}
 			
 	NSTask *task = [self taskForKey:@"AdvPng" bundleName:@"advpng" 

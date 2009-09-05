@@ -23,7 +23,7 @@
 {
 	NSString *temp = [self tempPath];
 
-	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-brute",@"-cc",@"--",[file filePath],temp,nil];
+	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-reduce",@"-brute",@"-cc",@"--",[file filePath],temp,nil];
 	
 	NSDictionary *dict;
 	for(dict in chunks)

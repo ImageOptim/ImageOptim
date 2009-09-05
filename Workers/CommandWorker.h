@@ -6,7 +6,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Worker.h"
-#import "File.h";
+#import "File.h"
 
 @interface CommandWorker : Worker {
 	File *file;
