@@ -7,7 +7,7 @@
 #import <Cocoa/Cocoa.h>
 @class File;
 
-@interface FilesQueue : NSObject {
+@interface FilesQueue : NSObject <NSTableViewDelegate,NSTableViewDataSource> {
 	NSTableView *tableView;
 	NSArrayController *filesController;
 	BOOL isEnabled;

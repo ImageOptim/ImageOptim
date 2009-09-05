@@ -5,14 +5,14 @@
 
 - (IBAction)delete:(id)sender
 {
-	[[self delegate] delete:sender];
+	[(FilesQueue*)[self delegate] delete:sender];
 }
 
 - (void)keyDown:(NSEvent *)theEvent {
    
     if (![theEvent isARepeat] && [theEvent keyCode] == 49/*space*/ && [self numberOfSelectedRows])
     {
-        [[self delegate] quickLook];
+        [(FilesQueue*)[self delegate] quickLook];
     }
     else
     {
@@ -30,7 +30,8 @@
     int row = [self clickedRow];
     if (row < 0) return;
     
-    FilesQueue *fc = [self delegate];
+    FilesQueue *fc = (FilesQueue *)[self delegate];
+    assert([fc isKindOfClass:[FilesQueue class]]);
     [fc openRowInFinder:row];
 }
 @end

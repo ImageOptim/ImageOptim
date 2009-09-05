@@ -16,7 +16,7 @@
 
 @implementation File
 
-@synthesize byteSize, byteSizeOptimized, filePath, displayName, statusText, statusImage, filePath, percentDone;
+@synthesize byteSize, byteSizeOptimized, filePath, displayName, statusText, statusImage, percentDone;
 
 -(id)initWithFilePath:(NSString *)name;
 {
@@ -113,7 +113,7 @@
 	{
         if ([filePathOptimized length])
         {
-            [[NSFileManager defaultManager] removeFileAtPath:filePathOptimized handler:nil];
+            [[NSFileManager defaultManager] removeItemAtPath:filePathOptimized error:nil];
         }
         filePathOptimized = nil;
 	}
@@ -151,23 +151,24 @@
 		
 		if (backup)
 		{
+            NSError *error = nil;
 			NSString *backupPath = [filePath stringByAppendingString:@"~"];
 			
-			[fm removeFileAtPath:backupPath handler:nil];
+			[fm removeItemAtPath:backupPath error:nil];// ignore error
 			
 			BOOL res;
 			if (preserve)
 			{
-				res = [fm copyPath:filePath toPath:backupPath handler:nil];
+				res = [fm copyItemAtPath:filePath toPath:backupPath error:&error];
 			}
-			else
+            else
 			{
-				res = [fm movePath:filePath toPath:backupPath handler:nil];
+				res = [fm moveItemAtPath:filePath toPath:backupPath error:&error];
 			}
 			
 			if (!res)
 			{
-				NSLog(@"failed to save backup as %@ (preserve = %d)",backupPath,preserve);
+				NSLog(@"failed to save backup as %@ (preserve = %d) %@",backupPath,preserve,error);
 				return NO;
 			}
 		}
@@ -194,15 +195,16 @@
 		}
 		else
 		{
-			if (!backup) {[fm removeFileAtPath:filePath handler:nil];}
+            NSError *error = nil;
+			if (!backup) {[fm removeItemAtPath:filePath error:nil];} //ignore error
 			
-			if ([fm movePath:filePathOptimized toPath:filePath handler:nil]) 
+			if ([fm moveItemAtPath:filePathOptimized toPath:filePath error:&error]) 
 			{
                 filePathOptimized = nil;
             }            
             else
             {
-                NSLog(@"Failed to move from %@ to %@",filePathOptimized, filePath);
+                NSLog(@"Failed to move from %@ to %@; %@",filePathOptimized, filePath, error);
 				return NO;				
 			}
 		}
@@ -494,7 +496,7 @@
 
 +(long)fileByteSize:(NSString *)afile
 {
-	NSDictionary *attr = [[NSFileManager defaultManager] fileAttributesAtPath:afile traverseLink:NO];
+	NSDictionary *attr = [[NSFileManager defaultManager] attributesOfFileSystemForPath:afile error:nil];
 	if (attr) return [[attr objectForKey:NSFileSize] longValue];
 	return 0;
 }
