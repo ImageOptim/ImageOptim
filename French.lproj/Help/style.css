@@ -9,4 +9,10 @@ div:target {background:#eef}
 h1 {margin:-10px -10px 0;background:#ddd; padding:0.2em;border-bottom:#aaa 1px solid; text-shadow: 0 1px 1px white}
 h2,h3,h4 {margin:1em 0 0.5em;}
 
-#jpegoptim, #advpng, #optipng, #pngout {display:inline-block;  width:45%; border-top:1px solid #eee; background:#fdfdfd; padding:0 1% 1em; margin: 1em 2% 1em 0; vertical-align:top}
+#jpegoptim, #advpng, #optipng, #pngout,#pngcrush,#gifsicle {display:inline-block;  width:45%; border-top:1px solid #eee; background:#fdfdfd; padding:0 1% 1em; margin: 1em 2% 1em 0; vertical-align:top}
+
+
+@media screen and (min-width:1100px)
+{
+#jpegoptim, #advpng, #optipng, #pngout,#pngcrush,#gifsicle  {width:27%}
+}
