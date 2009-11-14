@@ -9,8 +9,8 @@
 
 @interface JpegoptimWorker : CommandWorker {
     BOOL comments, exif;
-    int maxquality;
+    NSInteger maxquality;
     
-	int fileSizeOptimized;
+	NSInteger fileSizeOptimized;
 }
 @end

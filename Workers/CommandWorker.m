@@ -35,11 +35,11 @@
 {
 	NSData *temp;
 	char inputBuffer[4096];
-	int inputBufferPos=0;	
+	NSInteger inputBufferPos=0;	
 	while((temp = [commandHandle availableData]) && [temp length]) 
 	{			
 		const char *tempBytes = [temp bytes];
-		int bytesPos=0, bytesLength = [temp length];
+		NSInteger bytesPos=0, bytesLength = [temp length];
 		
 		while(bytesPos < bytesLength)
 		{

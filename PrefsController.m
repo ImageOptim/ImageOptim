@@ -51,7 +51,7 @@
 
 -(IBAction)browseForExecutable:(id)sender
 {
-	int tag = [sender tag];
+	NSInteger tag = [sender tag];
 	if (tag >= 1 && tag <= 7)
 	{
 		static NSString *keys[] = {@"JpegOptim",@"AdvPng",@"OptiPng",@"PngCrush",@"PngOut",@"JpegTran",@"Gifsicle"};
@@ -102,7 +102,7 @@
 
 -(IBAction)showHelp:(id)sender
 {
-	int tag = [sender tag];
+	NSInteger tag = [sender tag];
 	
 	[[self window] setHidesOnDeactivate:NO];
 	

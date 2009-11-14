@@ -102,7 +102,7 @@
 
 - (NSDragOperation)tableView:(NSTableView *)atableView 
                 validateDrop:(id <NSDraggingInfo>)info 
-                 proposedRow:(int)row 
+                 proposedRow:(NSInteger)row 
        proposedDropOperation:(NSTableViewDropOperation)operation
 {
 	if (!isEnabled) return NSDragOperationNone;
@@ -164,7 +164,7 @@
     }    
 }
 
-- (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(int)row dropOperation:(NSTableViewDropOperation)operation
+- (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation
 {
 	NSPasteboard *pboard = [info draggingPasteboard];
 	NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];

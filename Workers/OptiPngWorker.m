@@ -63,7 +63,7 @@
 {
 	//NSLog(@"### %@",line);
 		
-	unsigned long res;
+	NSUInteger res;
 	
 	if ([line length] > 20)
 	{

@@ -60,7 +60,7 @@
 	return f;
 }
 
--(void)setByteSize:(unsigned long)size
+-(void)setByteSize:(NSUInteger)size
 {
     @synchronized(self) 
     {        
@@ -94,7 +94,7 @@
 	return byteSizeOptimized!=0;
 }
 
--(void)setByteSizeOptimized:(unsigned long)size
+-(void)setByteSizeOptimized:(NSUInteger)size
 {
     @synchronized(self) 
     {        
@@ -119,7 +119,7 @@
 	}
 }
 
--(void)setFilePathOptimized:(NSString *)path size:(unsigned long)size toolName:(NSString*)toolname
+-(void)setFilePathOptimized:(NSString *)path size:(NSUInteger)size toolName:(NSString*)toolname
 {
     @synchronized(self) 
     {        

@@ -83,7 +83,7 @@
 
 -(BOOL)parseLine:(NSString *)line
 {
-	int size;
+	NSInteger size;
 	if (size = [self readNumberAfter:@" [OK] " inLine:line])
 	{
 		//NSLog(@"File size %d",size);

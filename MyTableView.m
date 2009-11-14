@@ -27,7 +27,7 @@
 
 -(void)openInFinder
 {
-    int row = [self clickedRow];
+    NSInteger row = [self clickedRow];
     if (row < 0) return;
     
     FilesQueue *fc = (FilesQueue *)[self delegate];
