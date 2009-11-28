@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"	"http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<title>ImageOptim Voorkeuren</title>
+<link rel="stylesheet" href="style.css">
+<meta name="AppleTitle" content="ImageOptim Preferences Help">
+<!--meta name="AppleIcon" content="AppName%20Help/images/icon-name.png"-->
+<meta name="AppleFont" content="Lucida Grande,Helvetica,Arial">
+<meta name="AppleSearchResultsFont" content="Lucida Grande,Geneva,Arial">
+<meta name="description" content="ImageOptim Preferences">
+<body>
+<a name="general">general</a>
+<h1>ImageOptim Voorkeuren</h1>
+<p><a href="index.html">« Terug naar begin</a></p>
+<p>Normaal gezien is het niet nodig om deze te wijzigen (behalve de locatie naar PNGOUT, als je dat geïnstalleerd hebt).</p>
+<h2>Algemene voorkeuren</h2>
+<dl>
+	<dt>Behoud bestandspermissies, -eigenschappen en hardlinks</dt>
+	<dd>
+		<p>I.p.v. het oude bestand te verwijderen en een nieuw bestand weg te schrijven met dezelfde naam, kan je met deze optie gewoon de inhoud van het oude bestand overschrijven. Op deze manier zullen alle hardlinks, aliases, bestandseigenaars, permissies en andere bestandseigenschappen ongewijzigd blijven.
+		<p>Het is iets sneller om deze optie niet in te schakelen.
+	</dd>
+	<dt>Maak een backup van het originele bestand alvorens op te slaan</dt>
+	<dd><p>Zal een kopie van het bestand wegschrijven met <samp>~</samp> voor de naam. Hierdoor zal de optimalisatie iets trager verlopen, en wordt je harde schijf vervuild met backup-bestanden.</p></dd>
+
+	<dt>Aantal voltooide taken</dt>
+	<dd><p>Als je een multi-CPU of een multi-core systeem hebt, zal het terzelfdertijd uitvoeren van meerdere taken veel sneller gaan.</p></dd>
+	<dt>Voltooi taken met lagere prioriteit</dt>
+	<dd><p>Dit zal er voor zorgen dat de optimalisatie je hele systeem vertraagt.</p></dd>
+</dl>
+<div id="jpegoptim">
+<a name="jpegoptim">jpegoptim</a>
+<h2>JPEGOptim</h2>
+<dl>
+	<dt>Ingeschakeld</dt>
+<dd><p>Indien ingeschakeld, zal ImageOptim JPEG-bestanden trachten te optimaliseren.</dd>
+<dt>Locatie naar JPEGOptim</dt>
+<dd><p>Het pad naar de <samp>jpegoptim</samp> executable. Gewoonlijk is dit <samp>/usr/bin/jpegoptim</samp> of <samp>/sw/bin/jpegoptim</samp>.</dd>
+
+<dt>Beste kwaliteit</dt>
+<dd><p>Wanneer dit op 100% staat, zal de optimalisatie <strong>lossless</strong> zijn.</p>
+	<p>Alles onder 100% kan in een <strong>lagere bestandskwaliteit</strong> dan het oorspronkelijke bestand resulteren.</p>
+
+<dt>Verwijder commentaren uit bestanden</dt>
+<dt>Verwijder EXIF-gegevens uit bestanden</dt>
+<dd><p>Verwijdert metadata uit de afbeelding, zoals de naam van het bewerkingsprogramma of het cameramodel waarmee het bestand gemaakt is.</dd>
+</dl>
+</div>
+<div id="pngout">
+<a name="pngout">pngout</a>
+<h2>PNGOUT</h2>
+<dl>
+<dt>Ingeschakeld</dt>
+<dd><p>Indien ingeschakeld, zal ImageOptim PNG-bestanden trachten te optimaliseren via PNGOUT.
+    <p>PNGOUT wordt niet bij ImageOptim geleverd, omdat <a href="http://www.advsys.net/ken/utils.htm">de maker ervan</a> herverdeling ervan niet toestaat. Je kan het wel <a target="_blank" href="http://www.jonof.id.au/index.php?p=pngout">zelf downloaden</a>.</dd>
+<dt>Locatie van PNGOUT</dt>
+<dd><p>Pad naar <samp>pngout</samp> (of <samp>pngout-darwin</samp>).</dd>
+
+<dl>
+	<dt>Optimalisatie-type</dt>
+	<dd><p>PNGOUT is zeer effectief, maar erg traag. Stel een laag niveau in als je ongeduldig bent.</dd>
+
+	<dt>Onderbreek optimalisatie wanneer het te lang duurt</dt>
+	<dd><p>PNGOUT heeft soms <em>enorm veel</em> tijd nodig om afbeeldingen te optimaliseren. Deze optie onderbreekt PNGOUT na 1 minuut.</p></dd>
+
+	<dt>Verwijder optionele chunks</dt>
+	<dd><p>Vink dit aan indien je optimaliseert voor gebruik op websites. Schakel dit uit indien je speciale PNGs met extra metadata gebruikt.</p></dd>
+</dl>
+</div>
+<div id="pngcrush">
+<a name="pngcrush">pngcrush</a>
+<h2>PNGCrush</h2>
+<dl>
+<dt>Ingeschakeld</dt>
+<dd><p>Indien ingeschakeld, zal ImageOptim PNG-bestanden proberen te optimaliseren via PNGCrush.
+<dt>Locatie van PNGCrush</dt>
+<dd><p>Pad naar het uitvoerbare <samp>pngcrush</samp>-bestand.</dd>
+
+<dl>
+	<dt>Probeer beschadigde bestanden te herstellen</dt>
+	<dd><p>PNGCrush zal PNG-bestanden met ongeldige checksums niet weigeren</dd>
+
+	<dt>Verwijder chunks</dt>
+	<dd><p>PNG slaat informatie op in chunks, en vele hiervan zijn optioneel. Geef 4-letterige namen in van chunks die mogen verwijderd worden, of druk op de <samp>γ</samp>-knop om de lijst met gamma-gerelateerde chunks te vullen.</p></dd>
+</dl>
+</div>
+<div id="advpng">
+<a name="advpng">advpng</a>
+<h2>AdvPNG</h2>
+<dl>
+<dt>Ingeschakeld</dt>
+<dd><p>Indien ingeschakeld, zal ImageOptim trachten om PNG-bestanden te optimaliseren via AdvPNG.</dd>
+<dt>Locatie van AdvPNG</dt>
+<dd><p>Pad naar het uitvoerbare <samp>advpng</samp>-bestand. Meestal <samp>/usr/bin/advpng</samp> of <samp>/sw/bin/advpng</samp>.</dd>
+
+<dl>
+	<dt>Optimalisatie-niveau</dt>
+	<dd>AdvPNG is vrij snel. Normaal gezien kan je zonder veel problemen het hoogste niveau gebruiken.</dd>
+</dl>
+</div>
+<div id="optipng">
+<a name="optipng">optipng</a>
+<h2>OptiPNG</h2>
+<dl>
+<dt>Ingeschakeld</dt>
+<dd><p>Indien ingeschakeld, zal ImageOptim proberen om PNG-bestanden te optimaliseren via OptiPNG.</dd>
+<dt>Locatie van OptiPNG</dt>
+<dd><p>Pad naar het uitvoerbare <samp>optipng</samp>-bestand. Meestal <samp>/usr/bin/optipng</samp> of <samp>/sw/bin/optipng</samp>.</dd>
+
+<dl>
+	<dt>Optimalisatie-niveau</dt>
+	<dd><p>Aantal verschillende geteste instellingscombinaties. Het is zelden nuttig om deze allemaal te proberen.</dd>
+	
+	<dt>Pas interlacing (progressief) toe</dt>
+	<dd><p>Afbeeldingen met interlacing zien er beter uit wanneer ze nog maar gedeeltelijk geladen zijn, maar doorgaans is de compressie dan minder efficiënt.<p>
+		<p>Er zijn drie mogelijkheden: indien ingeschakeld, zullen afbeeldingen geïnterlaced worden. Wanneer uitgeschakeld, wordt interlacing uit bestanden verwijderd. Wanneer gemixt, blijft de originele interlacing-instelling van het bestand ongewijzigd.</dd>
+</dl>
+</div>
+<div id="gifsicle">
+<a name="gifsicle">gifsicle</a>
+<h2>Gifsicle</h2>
+<dl>
+<dt>Ingeschakeld</dt>
+<dd><p>Indien ingeschakeld, zal ImageOptim Gifsicle gebruiken om GIF-bestanden te optimaliseren.
+<dt>Locatie van Gifsicle</dt>
+<dd><p>Pad naar het uitvoerbare <samp>gifsicle</samp>-bestand.</dd>
+
+<p>GIF-bestanden zullen automatisch interlacing of non-interlacing krijgen, wat het kleinst van de twee is. Bestandscommentaren zullen verwijderd worden.</p>
+<p>Merk op dat Gifsicle best werkt met geanimeerde GIFs. Niet-geanimeerde GIFs kunnen zelden geoptimaliseerd worden.</p>
+
+<p>Voor de beste compressie, kan je GIF-bestanden omzetten naar PNGs. (ImageOptim doet dit niet automatisch).</p>
+</div>
