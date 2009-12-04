@@ -41,6 +41,7 @@
 		5A739B8E0EA401AD00D751E1 /* libjpeg.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 5A739B8C0EA401A400D751E1 /* libjpeg.dylib */; };
 		5A739C2C0EA4074900D751E1 /* jpegtran in Resources */ = {isa = PBXBuildFile; fileRef = 5A739C2B0EA4073700D751E1 /* jpegtran */; };
 		5A8167F40EA11FD400962CF2 /* jpegoptim in Resources */ = {isa = PBXBuildFile; fileRef = 5A8167F30EA11FD400962CF2 /* jpegoptim */; };
+		5A887F8510C17361006A0687 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 5A887F8310C17361006A0687 /* Credits.rtf */; };
 		5A94A03C10275E11005CC9CB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A94A03A10275E11005CC9CB /* Localizable.strings */; };
 		5A95FEC20CB8041A00737B79 /* Help in Resources */ = {isa = PBXBuildFile; fileRef = 5A95FEBE0CB8041A00737B79 /* Help */; };
 		5A9E595B0CB9280700E05D28 /* advpng in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E59580CB9280700E05D28 /* advpng */; };
@@ -215,9 +216,14 @@
 		5A8167370EA11D3F00962CF2 /* advpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = advpng.xcodeproj; path = advancecomp/advpng.xcodeproj; sourceTree = "<group>"; };
 		5A8167EC0EA11F9D00962CF2 /* jpegoptim.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpegoptim.xcodeproj; path = jpegoptim/jpegoptim.xcodeproj; sourceTree = "<group>"; };
 		5A8167F30EA11FD400962CF2 /* jpegoptim */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = jpegoptim; path = jpegoptim/build/Release/jpegoptim; sourceTree = "<group>"; };
+		5A887F8410C17361006A0687 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Dutch; path = Dutch.lproj/Credits.rtf; sourceTree = "<group>"; };
+		5A8DFBD710C097A0009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Dutch; path = Dutch.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5A8DFBD810C097AC009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Dutch; path = Dutch.lproj/PrefsController.xib; sourceTree = "<group>"; };
+		5A8DFBD910C097B9009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Dutch; path = Dutch.lproj/Help; sourceTree = "<group>"; };
+		5A8DFBEB10C09812009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Dutch; path = Dutch.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A94A00C102757E5005CC9CB /* French */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = French; path = French.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5A94A00D102757F0005CC9CB /* French */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = French; path = French.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		5A94A02610275AFD005CC9CB /* French */ = {isa = PBXFileReference; lastKnownFileType = folder; name = French; path = French.lproj/Help; sourceTree = "<group>"; };
+		5A94A02610275AFD005CC9CB /* Help */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Help; path = French.lproj/Help; sourceTree = "<group>"; };
 		5A94A03B10275E11005CC9CB /* Polish */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Polish; path = Polish.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A94A04D10275F40005CC9CB /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = French.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A95FEBF0CB8041A00737B79 /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = English.lproj/Help; sourceTree = "<group>"; };
@@ -350,6 +356,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5A887F8310C17361006A0687 /* Credits.rtf */,
 				5A4DC14B1028259000A9DD55 /* InfoPlist.strings */,
 				5A739AA10EA2890200D751E1 /* liblibpng.dylib */,
 				5A739B8C0EA401A400D751E1 /* libjpeg.dylib */,
@@ -513,6 +520,7 @@
 				French,
 				German,
 				Polish,
+				Dutch,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ImageOptim */;
 			projectDirPath = "";
@@ -623,6 +631,7 @@
 				5A45530F1024EB3000A69944 /* PrefsController.xib in Resources */,
 				5A94A03C10275E11005CC9CB /* Localizable.strings in Resources */,
 				5A4DC14D1028259000A9DD55 /* InfoPlist.strings in Resources */,
+				5A887F8510C17361006A0687 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -735,6 +744,7 @@
 				5A45530B1024EB1100A69944 /* English */,
 				5A4553121024EF3000A69944 /* Polish */,
 				5A94A00D102757F0005CC9CB /* French */,
+				5A8DFBD710C097A0009A5C8E /* Dutch */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -745,6 +755,7 @@
 				5A45530E1024EB3000A69944 /* English */,
 				5A4553131024EF4100A69944 /* Polish */,
 				5A94A00C102757E5005CC9CB /* French */,
+				5A8DFBD810C097AC009A5C8E /* Dutch */,
 			);
 			name = PrefsController.xib;
 			sourceTree = "<group>";
@@ -757,11 +768,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		5A887F8310C17361006A0687 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A887F8410C17361006A0687 /* Dutch */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
 		5A94A03A10275E11005CC9CB /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5A94A03B10275E11005CC9CB /* Polish */,
 				5A94A04D10275F40005CC9CB /* French */,
+				5A8DFBEB10C09812009A5C8E /* Dutch */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -770,7 +790,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				5A95FEBF0CB8041A00737B79 /* English */,
-				5A94A02610275AFD005CC9CB /* French */,
+				5A94A02610275AFD005CC9CB /* Help */,
+				5A8DFBD910C097B9009A5C8E /* Dutch */,
 			);
 			name = Help;
 			sourceTree = "<group>";
@@ -848,7 +869,7 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CURRENT_PROJECT_VERSION = 1;
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;

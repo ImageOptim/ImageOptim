@@ -31,6 +31,7 @@
 
 +(int)numberOfCPUs;
 
+@property (retain) IBOutlet NSTextField *statusBarLabel;
 @property (retain) IBOutlet NSTableView *tableView;
 @property (retain) IBOutlet NSArrayController *filesController;
 @property (retain) IBOutlet NSApplication *application;
