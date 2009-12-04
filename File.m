@@ -494,10 +494,11 @@
 	return [NSString stringWithFormat:@"%@ %d/%d (workers active %d, finished %d, total %d)", self.filePath,self.byteSize,self.byteSizeOptimized, workersActive, workersFinished, workersTotal];
 }
 
-+(long)fileByteSize:(NSString *)afile
++(NSInteger)fileByteSize:(NSString *)afile
 {
-	NSDictionary *attr = [[NSFileManager defaultManager] attributesOfFileSystemForPath:afile error:nil];
-	if (attr) return [[attr objectForKey:NSFileSize] longValue];
+	NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:afile error:nil];
+	if (attr) return [[attr objectForKey:NSFileSize] integerValue];
+    NSLog(@"Could not stat %@",afile);
 	return 0;
 }
 

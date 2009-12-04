@@ -55,7 +55,7 @@
 -(void)setStatus:(NSString *)name text:(NSString*)text;
 -(void)cleanup;
 
-+(long)fileByteSize:(NSString *)afile;
++(NSInteger)fileByteSize:(NSString *)afile;
 
 
 -(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue;
