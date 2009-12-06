@@ -51,6 +51,7 @@
 		5A9EE44F0CB59CDD00F08CC5 /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9EE44B0CB59CDC00F08CC5 /* ok.png */; };
 		5A9EE4500CB59CDD00F08CC5 /* wait.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9EE44C0CB59CDC00F08CC5 /* wait.png */; };
 		5A9EE4730CB59EC100F08CC5 /* progress.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9EE4720CB59EC100F08CC5 /* progress.png */; };
+		5AA21EB010CB20E700DAFE84 /* drag.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AA21EAF10CB20E700DAFE84 /* drag.png */; };
 		5AACA1380CAF23FF004D45CA /* DirWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA1370CAF23FF004D45CA /* DirWorker.m */; };
 		5AACA13F0CAF241B004D45CA /* Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA13E0CAF241B004D45CA /* Worker.m */; };
 		5AACA3850CAF3DA5004D45CA /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AACA3830CAF3DA5004D45CA /* minus.png */; };
@@ -236,6 +237,7 @@
 		5A9EE44B0CB59CDC00F08CC5 /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
 		5A9EE44C0CB59CDC00F08CC5 /* wait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wait.png; sourceTree = "<group>"; };
 		5A9EE4720CB59EC100F08CC5 /* progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress.png; sourceTree = "<group>"; };
+		5AA21EAF10CB20E700DAFE84 /* drag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drag.png; sourceTree = "<group>"; };
 		5AACA1360CAF23FF004D45CA /* DirWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirWorker.h; sourceTree = "<group>"; };
 		5AACA1370CAF23FF004D45CA /* DirWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirWorker.m; sourceTree = "<group>"; };
 		5AACA13D0CAF241B004D45CA /* Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Worker.h; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5AA21EAF10CB20E700DAFE84 /* drag.png */,
 				5A887F8310C17361006A0687 /* Credits.rtf */,
 				5A4DC14B1028259000A9DD55 /* InfoPlist.strings */,
 				5A739AA10EA2890200D751E1 /* liblibpng.dylib */,
@@ -632,6 +635,7 @@
 				5A94A03C10275E11005CC9CB /* Localizable.strings in Resources */,
 				5A4DC14D1028259000A9DD55 /* InfoPlist.strings in Resources */,
 				5A887F8510C17361006A0687 /* Credits.rtf in Resources */,
+				5AA21EB010CB20E700DAFE84 /* drag.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -890,12 +894,12 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LLVM_LTO = NO;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.5;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				VALID_ARCHS = x86_64;
 				VERSIONING_SYSTEM = "apple-generic";

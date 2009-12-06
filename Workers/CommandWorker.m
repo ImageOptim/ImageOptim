@@ -140,7 +140,7 @@
 	if (!executable) 
     {
         NSLog(@"Could not launch %@",resourceName);
-        [file setStatus:@"err" text:[NSString stringWithFormat:NSLocalizedString(@"%@ failed to start",@"tooltip"),key]];
+        [file setStatus:@"err" order:8 text:[NSString stringWithFormat:NSLocalizedString(@"%@ failed to start",@"tooltip"),key]];
         return nil;        
     }
 	

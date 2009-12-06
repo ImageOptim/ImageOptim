@@ -20,6 +20,7 @@
 		
 	NSImage *statusImage;
     NSString *statusText;
+    NSInteger statusOrder;
     
     NSMutableArray *workers;
     
@@ -49,10 +50,11 @@
 @property (assign) NSUInteger byteSize, byteSizeOptimized;
 @property (retain) NSString *statusText, *filePath, *displayName;
 @property (retain) NSImage *statusImage;
+@property (assign,readonly) NSInteger statusOrder;
 
 @property (assign) double percentDone;
 
--(void)setStatus:(NSString *)name text:(NSString*)text;
+-(void)setStatus:(NSString *)name order:(NSInteger)order text:(NSString*)text;
 -(void)cleanup;
 
 +(NSInteger)fileByteSize:(NSString *)afile;
