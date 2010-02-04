@@ -1,17 +1,13 @@
 #import "ImageOptim.h"
 #import "FilesQueue.h"
-#import "Worker.h"
+#import "Workers/Worker.h"
 #import "PrefsController.h"
 #include <mach/mach_host.h>
 #include <mach/host_info.h>
 
 @implementation ImageOptim
 
-@synthesize statusBarLabel;
-@synthesize tableView;
-@synthesize filesController;
-@synthesize application;
-@synthesize progressBar;
+@synthesize statusBarLabel,tableView,filesController,application,progressBar,credits;
 
 +(void)initialize
 {
@@ -34,6 +30,9 @@
     [[statusBarLabel cell] setBackgroundStyle:NSBackgroundStyleRaised];
 	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
 //    [self performSelectorInBackground:@selector(loadDupes) withObject:nil];
+    
+    [credits setString:@"Ooops"];
+    [credits readRTFDFromFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"]];
 }
 
 +(int)numberOfCPUs

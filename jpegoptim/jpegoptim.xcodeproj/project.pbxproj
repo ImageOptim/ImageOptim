@@ -11,7 +11,6 @@
 		5A8167B30EA11E3F00962CF2 /* getopt.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167820EA11E3F00962CF2 /* getopt.c */; };
 		5A8167B40EA11E3F00962CF2 /* getopt1.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167830EA11E3F00962CF2 /* getopt1.c */; };
 		5A8167B50EA11E3F00962CF2 /* jpegoptim.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167840EA11E3F00962CF2 /* jpegoptim.c */; };
-		8DD76FB00486AB0100D96B5E /* jpegoptim.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* jpegoptim.1 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +30,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				8DD76FB00486AB0100D96B5E /* jpegoptim.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -45,7 +43,6 @@
 		5A8167830EA11E3F00962CF2 /* getopt1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getopt1.c; sourceTree = SOURCE_ROOT; };
 		5A8167840EA11E3F00962CF2 /* jpegoptim.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpegoptim.c; sourceTree = SOURCE_ROOT; };
 		8DD76FB20486AB0100D96B5E /* jpegoptim */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = jpegoptim; sourceTree = BUILT_PRODUCTS_DIR; };
-		C6A0FF2C0290799A04C91782 /* jpegoptim.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = jpegoptim.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +109,6 @@
 		C6A0FF2B0290797F04C91782 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
-				C6A0FF2C0290799A04C91782 /* jpegoptim.1 */,
 			);
 			name = Documentation;
 			sourceTree = "<group>";
@@ -226,7 +222,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				RUN_CLANG_STATIC_ANALYZER = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.6;
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Debug;
@@ -235,9 +231,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				DEAD_CODE_STRIPPING = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
 				GCC_ALTIVEC_EXTENSIONS = YES;
+				GCC_AUTO_VECTORIZATION = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
-				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_FAST_MATH = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					HAVE_CONFIG_H,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_UNROLL_LOOPS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

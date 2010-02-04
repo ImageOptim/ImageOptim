@@ -15,7 +15,8 @@
 	PrefsController *prefsController;
 	
 	NSProgressIndicator *progressBar;
-	
+    NSTextField *statusBarLabel;
+    NSTextView *credits;
 }
 
 - (IBAction)showPrefs:(id)sender;
@@ -31,9 +32,10 @@
 
 +(int)numberOfCPUs;
 
-@property (retain) IBOutlet NSTextField *statusBarLabel;
+@property (retain,nonatomic) IBOutlet NSTextField *statusBarLabel;
 @property (retain) IBOutlet NSTableView *tableView;
 @property (retain) IBOutlet NSArrayController *filesController;
 @property (retain) IBOutlet NSApplication *application;
 @property (retain) IBOutlet NSProgressIndicator *progressBar;
+@property (retain,nonatomic) IBOutlet NSTextView *credits;
 @end
