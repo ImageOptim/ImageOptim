@@ -15,31 +15,9 @@
             <enclosure url="http://pornel.net/ImageOptim1.0.10.tar.bz2" sparkle:version="1.0.10" length="1218907" type="application/bzip2" sparkle:dsaSignature="MCwCFDooLOGTyB+eqp5IYHllEd3Mc+SrAhQXOBK19vn06LDp4IcZVrDSvcF6YQ==" />
          </item>
          <item>
-            <title>Version 1.2.1 for Leopard</title>
-            <pubDate>Mon,  3 Aug 2009 00:44:37 +0100</pubDate>
-            <sparkle:minimumSystemVersion>10.5.7</sparkle:minimumSystemVersion>
-            <description><![CDATA[
-            <ul>
-                <li>Updated Polish localization (<b><a href="mailto:pornel@pornel.net">more translations welcome!</a></b>)</li>
-                <li>Fixed progress indicator</li>
-            </ul>    
-            <p>New in 1.2:</p>
-            <ul>
-                <li>Requires Leopard (10.5.7)</li>
-                <li>Leaner and more stable thanks to new Leopard APIs</li>
-                <li>Can handle order of magnitude more files at once</li>
-                <li>Avoids writing many files to disk at the same time</li>
-                <li>Checks actual file type rather than rely on filename extension</li>
-                <li>PNGOUT may be gracefully stopped if takes too much time to optimize</li>
-                <li>Temporary files are cleaned up on exit</li>
-            </ul>
-            ]]></description>
-            <enclosure url="http://pornel.net/ImageOptim1.2.1.tar.bz2" sparkle:version="1.2.1" length="1015290" type="application/bzip2" sparkle:dsaSignature="MC0CFBRrUVsE5LsC6li5AfknK2aVGGBnAhUAmHYElkSh/F0TU3fOSWPkJiF8Jms=" />
-         </item>    
-         <item>
             <title>Version 1.2.2 for Leopard</title>
             <pubDate>Sun,  9 Aug 2009 01:52:10 +0100</pubDate>
-            <sparkle:minimumSystemVersion>10.5.7</sparkle:minimumSystemVersion>
+            <sparkle:minimumSystemVersion>10.5.6</sparkle:minimumSystemVersion>
             <description><![CDATA[
             <ul>
                 <li>Added French localization by Mathias Richter (<b><a href="mailto:pornel@pornel.net">more translations welcome!</a></b>)</li>
@@ -60,6 +38,21 @@
             </ul>
             ]]></description>
             <enclosure url="http://pornel.net/ImageOptim1.2.2.tar.bz2" sparkle:version="1.2.2" length="1271617" type="application/bzip2" sparkle:dsaSignature="MCwCFFvPS2Pn1fY++8rHB7ia/15jHX4bAhRoVcRxle3B7xiX6jqXfYnq2xAgzA==" />
-         </item>  
+         </item>
+         <item>
+            <title>Version 1.2.3</title>
+            <pubDate>Sun, 13 Dec 2009 20:26:00 +0000</pubDate>
+            <sparkle:minimumSystemVersion>10.6.2</sparkle:minimumSystemVersion>
+            <description><![CDATA[
+            <ul>
+              	<li>Changed UI to match Leopard aesthetics (based on design by Martin from Auforia and Chris Messina)</li>
+				<li>Added Dutch localization by Mathias Bynens</li>
+                <li>Status column is sortable</li>
+				<li>Write errors are now properly reported</li>
+				<li>64-bit and Snow Leopard compatibility improved</li>
+            </ul>    
+            ]]></description>
+            <enclosure url="http://imageoptim.pornel.net/ImageOptim1.2.3.tar.bz2" sparkle:version="1.2.3.1" length="1415146" type="application/bzip2" sparkle:dsaSignature="MCwCFCwE4yS6N4oy5SBw0Qn5qB1PRR3SAhQw9dWfTPy5hBHPtVSxCWCoG6i2GA==" />
+         </item>    
 </channel>
 </rss>
