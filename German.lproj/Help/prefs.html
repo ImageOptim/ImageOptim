@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"	"http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<title>ImageOptim Einstellungen</title>
+<link rel="stylesheet" href="style.css">
+<meta name="AppleTitle" content="Hilfe zu den ImageOptim Einstellungen">
+<!--meta name="AppleIcon" content="AppName%20Help/images/icon-name.png"-->
+<meta name="AppleFont" content="Lucida Grande,Helvetica,Arial">
+<meta name="AppleSearchResultsFont" content="Lucida Grande,Geneva,Arial">
+<meta name="description" content="ImageOptim Einstellungen">
+<body>
+<a name="general">general</a>
+<h1>ImageOptim Einstellungen</h1>
+<p><a href="index.html">« Zurück zum Index</a></p>
+<p><p>Normalerweise müssen diese Einstellungen nicht geändert werden. (Ausser eventuell der Pfand zu PNGOUT, falls es installiert wurde.)</p>
+<h2>Allgemeine Einstellungen</h2>
+<dl>
+	<dt>Dateiberechtigungen, -attribute und Hardlinks erhalten</dt>
+	<dd>
+		<p>Anstatt die originale Datei zu löschen und eine neue Datei zu erstellen wird hier der Inhalt der Quelldatei ersetzt. Das hat den Vorteil, dass alle Hardlinks, Aliasse, Dateiberechtigungen und erweiterte Dateiattribute erhalten bleiben.
+		<p>Die Optimierung geht etwas schneller wenn diese Option deaktiviert ist. 
+	</dd>
+	<dt>Quelldatei vor dem Speichern sichern</dt>
+	<dd><p>Wenn diese Option aktiviert ist wird ein Backup der Originaldatei erstellt, welche mit einer dem Dateinamen angehängten Tilde (<samp>~</samp>) gekennzeichnet wird. Diese Einstellung verlangsamt den Optimierungsprozess und kostet entsprechend Speicherplatz.</p></dd>
+
+	<dt>Anzahl der gleichzeitigen Durchgänge</dt>
+	<dd><p>Diese Einstellung kann bei Systemen mit mehreren CPUs, bzw. Kernen einen enormen Geschwindigkeitsvorteil bringen.</p></dd>
+	<dt>Aufgaben mit niedrigerer Priorität durchführen</dt>
+	<dd><p>Diese Option verhindert, dass sich das komplette System während der Optimierung träge verhält.</p></dd>
+</dl>
+<div id="jpegoptim">
+<a name="jpegoptim">jpegoptim</a>
+<h2>JPEGOptim</h2>
+<dl>
+	<dt>Aktiviert</dt>
+<dd><p>Wenn dieses Feld angehakt ist versucht ImageOptim die Dateien mit JPEGOptim zu optimieren.</dd>
+<dt>Pfad zu JPEGOptim</dt>
+<dd><p>Pfad zum <samp>jpegoptim</samp> Executable. Normalerweise <samp>/usr/bin/jpegoptim</samp> oder <samp>/sw/bin/jpegoptim</samp>.</dd>
+
+<dt>Maximale Qualität</dt>
+<dd><p>Wenn diese Einstellung auf 100% gesetzt wird, werden die Bilddateien <strong>verlustfrei</strong> gespeichert.</p>
+	<p>Jede Einstellung unter 100% resultiert in  <strong>qualitativ schlechteren</strong> Ergebnissen.</p>
+
+<dt>Entferne Kommentare aus den Dateien</dt>
+<dt>Entferne EXIF Markierungen aus den Dateien</dt>
+<dd><p>Entfernt Metadaten, wie z.B. Programmnamen oder das Kameramodell aus den Bildern.</dd>
+</dl>
+</div>
+<div id="pngout">
+<a name="pngout">pngout</a>
+<h2>PNGOUT</h2>
+<dl>
+<dt>Aktiviert</dt>
+<dd><p>Wenn dieses Feld angehakt ist versucht ImageOptim die Dateien mit PNGOUT zu optimieren.
+    <p>PNGOUT ist nicht Bestandteil von ImageOptim. Es ist zwar ein tolles Tool, doch hat der <a href="http://www.advsys.net/ken/utils.htm">Autor</a> eine Weiterverbreitung durch Dritte untersagt. Man kann es allerdings selbst <a target="_blank" href="http://www.jonof.id.au/index.php?p=pngout">herunterladen und installieren</a>.</dd>
+<dt>Pfad zu PNGOUT</dt>
+<dd><p>Pfad zum <samp>pngout</samp> (oder <samp>pngout-darwin</samp>) Executable.</dd>
+
+<dl>
+	<dt>Art der Optimierung</dt>
+	<dd><p>PNGOUT ist zwar sehr effektiv, allerdings auch sehr langsam. Eine niedrigere Einstellung beschleunigt die Optimierung.</dd>
+
+	<dt>Breche die Optimierung ab, falls der Prozess zu lange läuft</dt>
+	<dd><p>PNGOUT kann bei großen Bilddateien unter Umständen <em>sehr lange</em> für eine Optimierung brauchen. Diese Option beendet PNGOUT nach einer Minute.</p></dd>
+		    
+	<dt>Entferne alle optionalen Segmente</dt>
+	<dd><p>Diese Einstellung ist nur ratsam, wenn man Dateien für das Internet optimiert.</p></dd>
+</dl>
+</div>
+<div id="pngcrush">
+<a name="pngcrush">pngcrush</a>
+<h2>PNGCrush</h2>
+<dl>
+<dt>Aktiviert</dt>
+<dd><p>Wenn dieses Feld angehakt ist versucht ImageOptim die Dateien mit PNGCrush zu optimieren.
+<dt>Pfad zu PNGCrush</dt>
+<dd><p>Pfad zum <samp>pngcrush</samp> Executable.</dd>
+
+<dl>
+	<dt>Versuche beschädigte Dateien zu reparieren</dt>
+	<dd><p>PNGCrush wird auch Dateien mit einer defekten Prüfsumme akzeptieren</dd>
+
+	<dt>Entferne Segmente</dt>
+	<dd><p>Das PNG Format speichert Dateiinformationen in diversen Segmenten ab. Viele davon sind optional. Hier können die zu entfernenden Segmente mit ihrer vierstelligen Kennung angegeben werden. Ein Klick auf den <samp>γ</samp> Button füllt die Liste mit einer Auswahl Gamma bezogener Segmente.</p></dd>
+</dl>
+</div>
+<div id="advpng">
+<a name="advpng">advpng</a>
+<h2>AdvPNG</h2>
+<dl>
+<dt>Aktiviert</dt>
+<dd><p>Wenn dieses Feld angehakt ist versucht ImageOptim die Dateien mit AdvPNG zu optimieren.</dd>
+<dt>Pfad zu AdvPNG</dt>
+<dd><p>Pfad zum <samp>advpng</samp> Executable. Normalerweise <samp>/usr/bin/advpng</samp> oder <samp>/sw/bin/advpng</samp>.</dd>
+
+<dl>
+	<dt>Grad der Optimierung</dt>
+	<dd>AdvPNG arbeitet ziemlich zügig, weshalb man ohne weiteres die maximale Einstellung wählen kann.</dd>
+</dl>
+</div>
+<div id="optipng">
+<a name="optipng">optipng</a>
+<h2>OptiPNG</h2>
+<dl>
+<dt>Aktiviert</dt>
+<dd><p>Wenn dieses Feld angehakt ist versucht ImageOptim die Dateien mit OptiPNG zu optimieren.</dd>
+<dt>Pfad zu OptiPNG</dt>
+<dd><p>Pfad zum <samp>optipng</samp> Executable. Normalerweise <samp>/usr/bin/optipng</samp> oder <samp>/sw/bin/optipng</samp>.</dd>
+
+<dl>
+	<dt>Grad der Optimierung</dt>
+	<dd><p>Anzahl der verschiedenen Einstellungskombinationen. Es ist nicht nötig hier alle Kombinationen durchprobieren zu lassen.</dd>
+	
+	<dt>Erstelle die Bilder interlaced (progressive)</dt>
+	<dd><p>Diese Bilder sehen etwas besser aus, belegen allerdings auch mehr Speicherplatz.<p>
+		<p>Diese Checkbox kennt drei Zustände: Ist sie angehakt wird ein Interlacing erzwungen. Hat sie einen einfachen -, bleibt das dateieigene Interlacing unangetastet, unangehakt wird das Interlacing entfernt.</dd>
+</dl>
+</div>
+<div id="gifsicle">
+<a name="gifsicle">gifsicle</a>
+<h2>Gifsicle</h2>
+<dl>
+<dt>Aktiviert</dt>
+<dd><p>Wenn dieses Feld angehakt ist versucht ImageOptim die Dateien mit Gifsicle zu optimieren.
+<dt>Pfad zu Gifsicle</dt>
+<dd><p>Pfad zum <samp>gifsicle</samp> Executable.</dd>
+
+<p>GIF Dateien werden interlaced oder non-interlaced erstellt, abhängig davon, welches die geringere Dateigröße produziert. Kommentare werden entfernt.</p>
+<p>Gifsicle funktioniert am besten mit animierten GIFs. Nicht animierte GIFs können kaum noch weiter optimiert werden.</p>
+
+<p>Für eine möglichst gute Optimierung sollten GIF Grafiken zu PNGs umkonvertiert werden. (Dies geht nicht mit ImageOptim.)</p>
+</div>

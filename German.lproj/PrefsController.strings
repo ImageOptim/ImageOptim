@@ -1,0 +1,255 @@
+
+/* Class = "NSWindow"; title = "ImageOptim Einstellungen"; ObjectID = "5"; */
+"5.title" = "ImageOptim Einstellungen";
+
+/* Class = "NSTabViewItem"; label = "Allgemein"; ObjectID = "167"; */
+"167.label" = "Allgemein";
+
+/* Class = "NSTabViewItem"; label = "AdvPNG"; ObjectID = "168"; */
+"168.label" = "AdvPNG";
+
+/* Class = "NSTabViewItem"; label = "OptiPNG"; ObjectID = "171"; */
+"171.label" = "OptiPNG";
+
+/* Class = "NSTabViewItem"; label = "PNGCrush"; ObjectID = "173"; */
+"173.label" = "PNGCrush";
+
+/* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
+"175.label" = "PNGOUT";
+
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
+
+/* Class = "NSTableColumn"; headerCell.title = "Segmentname"; ObjectID = "204"; */
+"204.headerCell.title" = "Segmentname";
+
+/* Class = "NSButton"; gToolTip = "Gamma Segmente entfernen"; ObjectID = "219"; */
+"219.gToolTip" = "Gamma Segmente entfernen";
+
+/* Class = "NSBox"; title = "Speichern der Dateien"; ObjectID = "280"; */
+"280.title" = "Speichern der Dateien";
+
+/* Class = "NSBox"; title = "CPU Auslastung"; ObjectID = "282"; */
+"282.title" = "CPU Auslastung";
+
+/* Class = "IBBindingConnection"; designableIsNilPlaceholder = "Segmentname"; ObjectID = "570"; */
+"570.designableIsNilPlaceholder" = "Segmentname";
+
+/* Class = "IBBindingConnection"; designableNotApplicablePlaceholder = "Nicht verfügbar"; ObjectID = "570"; */
+"570.designableNotApplicablePlaceholder" = "Nicht verfügbar";
+
+/* Class = "NSButtonCell"; title = "Dateiberechtigungen, -attribute und Hardlinks erhalten"; ObjectID = "804"; */
+"804.title" = "Dateiberechtigungen, -attribute und Hardlinks erhalten";
+
+/* Class = "NSButtonCell"; title = "Quelldatei vor dem Speichern sichern"; ObjectID = "805"; */
+"805.title" = "Quelldatei vor dem Speichern sichern";
+
+/* Class = "NSTextFieldCell"; title = "Anzahl der gleichzeitigen Durchgänge"; ObjectID = "806"; */
+"806.title" = "Anzahl der gleichzeitigen Durchgänge";
+
+/* Class = "NSButtonCell"; title = "Aufgaben mit niedrigerer Priorität durchführen"; ObjectID = "807"; */
+"807.title" = "Aufgaben mit niedrigerer Priorität durchführen";
+
+/* Class = "NSTextFieldCell"; title = "Für eine schnellere Optimierung die Anzahl der gleichzeitigen Durchgänge erhöhen\nÄnderungen erfordern einen Neustart des Programms"; ObjectID = "808"; */
+"808.title" = "Für eine schnellere Optimierung die Anzahl der gleichzeitigen Durchgänge erhöhen\nÄnderungen erfordern einen Neustart des Programms";
+
+/* Class = "NSTextFieldCell"; title = "2"; ObjectID = "809"; */
+"809.title" = "2";
+
+/* Class = "NSTextFieldCell"; title = "Pfad zu AdvPNG"; ObjectID = "814"; */
+"814.title" = "Pfad zu AdvPNG";
+
+/* Class = "NSButtonCell"; title = "Durchsuchen"; ObjectID = "815"; */
+"815.title" = "Durchsuchen";
+
+/* Class = "NSButtonCell"; title = "Benutze die eingebaute Version"; ObjectID = "816"; */
+"816.title" = "Benutze die eingebaute Version";
+
+/* Class = "NSTextFieldCell"; title = "Grad der Optimierung"; ObjectID = "818"; */
+"818.title" = "Grad der Optimierung";
+
+/* Class = "NSTextFieldCell"; title = "Schnell"; ObjectID = "819"; */
+"819.title" = "Schnell";
+
+/* Class = "NSTextFieldCell"; title = "Wahnsinnig"; ObjectID = "820"; */
+"820.title" = "Wahnsinnig";
+
+/* Class = "NSTextFieldCell"; title = "Normal"; ObjectID = "821"; */
+"821.title" = "Normal";
+
+/* Class = "NSTextFieldCell"; title = "Extra"; ObjectID = "822"; */
+"822.title" = "Extra";
+
+/* Class = "NSButtonCell"; title = "Aktiviert"; ObjectID = "824"; */
+"824.title" = "Aktiviert";
+
+/* Class = "NSTextFieldCell"; title = "Pfad zu OptiPNG"; ObjectID = "826"; */
+"826.title" = "Pfad zu OptiPNG";
+
+/* Class = "NSButtonCell"; title = "Durchsuchen"; ObjectID = "827"; */
+"827.title" = "Durchsuchen";
+
+/* Class = "NSButtonCell"; title = "Erstelle die Bilder interlaced (progressive)"; ObjectID = "828"; */
+"828.title" = "Erstelle die Bilder interlaced (progressive)";
+
+/* Class = "NSTextFieldCell"; title = "Grad der Optimierung"; ObjectID = "829"; */
+"829.title" = "Grad der Optimierung";
+
+/* Class = "NSButtonCell"; title = "Benutze die eingebaute Version"; ObjectID = "830"; */
+"830.title" = "Benutze die eingebaute Version";
+
+/* Class = "NSTextFieldCell"; title = "Diese Dateien sind für gewöhnlich größer"; ObjectID = "831"; */
+"831.title" = "Diese Dateien sind für gewöhnlich größer";
+
+/* Class = "NSTextFieldCell"; title = "24 Versuche"; ObjectID = "833"; */
+"833.title" = "24 Versuche";
+
+/* Class = "NSTextFieldCell"; title = "240 Versuche"; ObjectID = "834"; */
+"834.title" = "240 Versuche";
+
+/* Class = "NSButtonCell"; title = "Aktiviert"; ObjectID = "836"; */
+"836.title" = "Aktiviert";
+
+/* Class = "NSTextFieldCell"; title = "Pfad zu PNGCrush"; ObjectID = "838"; */
+"838.title" = "Pfad zu PNGCrush";
+
+/* Class = "NSButtonCell"; title = "Versuche beschädigte Dateien zu reparieren"; ObjectID = "839"; */
+"839.title" = "Versuche beschädigte Dateien zu reparieren";
+
+/* Class = "NSTextFieldCell"; title = "Entferne Segmente"; ObjectID = "840"; */
+"840.title" = "Entferne Segmente";
+
+/* Class = "NSButtonCell"; title = "Hinzufügen"; ObjectID = "841"; */
+"841.title" = "Hinzufügen";
+
+/* Class = "NSButtonCell"; title = "Entfernen"; ObjectID = "842"; */
+"842.title" = "Entfernen";
+
+/* Class = "NSTextFieldCell"; title = "Groß-/Kleinschreibung\nbeachten!"; ObjectID = "843"; */
+"843.title" = "Groß-/Kleinschreibung\nbeachten!";
+
+/* Class = "NSButtonCell"; alternateTitle = "Gamma"; ObjectID = "844"; */
+"844.alternateTitle" = "Gamma";
+
+/* Class = "NSButtonCell"; title = "γ"; ObjectID = "844"; */
+"844.title" = "γ";
+
+/* Class = "NSButtonCell"; title = "Durchsuchen"; ObjectID = "845"; */
+"845.title" = "Durchsuchen";
+
+/* Class = "NSButtonCell"; title = "Benutze die eingebaute Version"; ObjectID = "846"; */
+"846.title" = "Benutze die eingebaute Version";
+
+/* Class = "NSButtonCell"; title = "Aktiviert"; ObjectID = "848"; */
+"848.title" = "Aktiviert";
+
+/* Class = "NSTextFieldCell"; title = "Web Browser erwarten entfernte Gamma Daten"; ObjectID = "849"; */
+"849.title" = "Web Browser erwarten entfernte Gamma Daten";
+
+/* Class = "NSTextFieldCell"; title = "(PNGCrush wird nicht benutzt wenn PNGOUT aktiviert ist)"; ObjectID = "850"; */
+"850.title" = "(PNGCrush wird nicht benutzt wenn PNGOUT aktiviert ist)";
+
+/* Class = "NSTextFieldCell"; title = "Pfad zu PNGOUT"; ObjectID = "852"; */
+"852.title" = "Pfad zu PNGOUT";
+
+/* Class = "NSButtonCell"; title = "Durchsuchen"; ObjectID = "853"; */
+"853.title" = "Durchsuchen";
+
+/* Class = "NSButtonCell"; title = "Entferne alle optionalen Segmente"; ObjectID = "854"; */
+"854.title" = "Entferne alle optionalen Segmente";
+
+/* Class = "NSTextFieldCell"; title = "Art der Optimierung"; ObjectID = "856"; */
+"856.title" = "Art der Optimierung";
+
+/* Class = "NSTextFieldCell"; title = "Einfach"; ObjectID = "857"; */
+"857.title" = "Einfach";
+
+/* Class = "NSTextFieldCell"; title = "Wahnsinnig"; ObjectID = "858"; */
+"858.title" = "Wahnsinnig";
+
+/* Class = "NSButtonCell"; title = "Benutze die eingebaute Version (nicht verfügbar, siehe Hilfe Menü)"; ObjectID = "859"; */
+"859.title" = "Benutze die eingebaute Version (nicht verfügbar, siehe Hilfe Menü)";
+
+/* Class = "NSTextFieldCell"; title = "Intensiv"; ObjectID = "860"; */
+"860.title" = "Intensiv";
+
+/* Class = "NSTextFieldCell"; title = "Längste Übereinstimmung"; ObjectID = "861"; */
+"861.title" = "Längste Übereinstimmung";
+
+/* Class = "NSButtonCell"; title = "Versuche verschiedene Filter"; ObjectID = "862"; */
+"862.title" = "Versuche verschiedene Filter";
+
+/* Class = "NSButtonCell"; title = "Aktiviert"; ObjectID = "864"; */
+"864.title" = "Aktiviert";
+
+/* Class = "NSTextFieldCell"; title = "Web Browser erwarten entfernte Gamma Daten"; ObjectID = "865"; */
+"865.title" = "Web Browser erwarten entfernte Gamma Daten";
+
+/* Class = "NSTextFieldCell"; title = "Pfad zu JPEGOptim"; ObjectID = "867"; */
+"867.title" = "Pfad zu JPEGOptim";
+
+/* Class = "NSTextFieldCell"; title = "Maximale Qualität"; ObjectID = "868"; */
+"868.title" = "Maximale Qualität";
+
+/* Class = "NSButtonCell"; title = "Entferne Kommentare aus den Dateien"; ObjectID = "869"; */
+"869.title" = "Entferne Kommentare aus den Dateien";
+
+/* Class = "NSButtonCell"; title = "Entferne EXIF Markierungen aus den Dateien"; ObjectID = "870"; */
+"870.title" = "Entferne EXIF Markierungen aus den Dateien";
+
+/* Class = "NSButtonCell"; title = "Durchsuchen"; ObjectID = "871"; */
+"871.title" = "Durchsuchen";
+
+/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
+"872.title" = "-100%";
+
+/* Class = "NSButtonCell"; title = "Benutze die eingebaute Version"; ObjectID = "873"; */
+"873.title" = "Benutze die eingebaute Version";
+
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
+"876.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
+
+/* Class = "NSButtonCell"; title = "Aktiviert"; ObjectID = "879"; */
+"879.title" = "Aktiviert";
+
+/* Class = "NSTabViewItem"; label = "Jpegtran"; ObjectID = "884"; */
+"884.label" = "Jpegtran";
+
+/* Class = "NSButtonCell"; title = "Aktiviert"; ObjectID = "897"; */
+"897.title" = "Aktiviert";
+
+/* Class = "NSButtonCell"; title = "Benutze die eingebaute Version"; ObjectID = "907"; */
+"907.title" = "Benutze die eingebaute Version";
+
+/* Class = "NSButtonCell"; title = "Durchsuchen"; ObjectID = "910"; */
+"910.title" = "Durchsuchen";
+
+/* Class = "NSButtonCell"; title = "Entferne EXIF Markierungen und Kommentare aus den Dateien"; ObjectID = "911"; */
+"911.title" = "Entferne EXIF Markierungen und Kommentare aus den Dateien";
+
+/* Class = "NSTextFieldCell"; title = "Pfad zu Jpegtran"; ObjectID = "914"; */
+"914.title" = "Pfad zu Jpegtran";
+
+/* Class = "NSButtonCell"; title = "Breche die Optimierung ab, falls der Prozess zu lange läuft"; ObjectID = "946"; */
+"946.title" = "Breche die Optimierung ab, falls der Prozess zu lange läuft";
+
+/* Class = "NSTabViewItem"; label = "Gifsicle"; ObjectID = "957"; */
+"957.label" = "Gifsicle";
+
+/* Class = "NSTextFieldCell"; title = "Pfad zu Gifsicle"; ObjectID = "971"; */
+"971.title" = "Pfad zu Gifsicle";
+
+/* Class = "NSButtonCell"; title = "Durchsuchen"; ObjectID = "972"; */
+"972.title" = "Durchsuchen";
+
+/* Class = "NSButtonCell"; title = "Benutze die eingebaute Version"; ObjectID = "976"; */
+"976.title" = "Benutze die eingebaute Version";
+
+/* Class = "NSButtonCell"; title = "Aktiviert"; ObjectID = "985"; */
+"985.title" = "Aktiviert";
