@@ -26,32 +26,11 @@
 /* Class = "NSButton"; gToolTip = "Remove Gamma-related chunks"; ObjectID = "219"; */
 "219.gToolTip" = "Remove Gamma-related chunks";
 
-/* Class = "NSBox"; title = "Box"; ObjectID = "235"; */
-"235.title" = "Box";
-
-/* Class = "NSBox"; title = "Box"; ObjectID = "237"; */
-"237.title" = "Box";
-
-/* Class = "NSBox"; title = "Box"; ObjectID = "239"; */
-"239.title" = "Box";
-
-/* Class = "NSBox"; title = "Box"; ObjectID = "253"; */
-"253.title" = "Box";
-
-/* Class = "NSBox"; title = "Box"; ObjectID = "267"; */
-"267.title" = "Box";
-
 /* Class = "NSBox"; title = "Writing files to disk"; ObjectID = "280"; */
 "280.title" = "Writing files to disk";
 
 /* Class = "NSBox"; title = "CPU usage"; ObjectID = "282"; */
 "282.title" = "CPU usage";
-
-/* Class = "NSBox"; title = "Title"; ObjectID = "289"; */
-"289.title" = "Title";
-
-/* Class = "NSBox"; title = "Title"; ObjectID = "291"; */
-"291.title" = "Title";
 
 /* Class = "IBBindingConnection"; designableIsNilPlaceholder = "Chunk name"; ObjectID = "570"; */
 "570.designableIsNilPlaceholder" = "Chunk name";
@@ -239,14 +218,8 @@
 /* Class = "NSButtonCell"; title = "Enabled"; ObjectID = "879"; */
 "879.title" = "Enabled";
 
-/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "880"; */
-"880.title" = "Text Cell";
-
 /* Class = "NSTabViewItem"; label = "Jpegtran"; ObjectID = "884"; */
 "884.label" = "Jpegtran";
-
-/* Class = "NSBox"; title = "Box"; ObjectID = "894"; */
-"894.title" = "Box";
 
 /* Class = "NSButtonCell"; title = "Enabled"; ObjectID = "897"; */
 "897.title" = "Enabled";
@@ -265,3 +238,18 @@
 
 /* Class = "NSButtonCell"; title = "Interrupt if takes too long to execute"; ObjectID = "946"; */
 "946.title" = "Interrupt if takes too long to execute";
+
+/* Class = "NSTabViewItem"; label = "Gifsicle"; ObjectID = "957"; */
+"957.label" = "Gifsicle";
+
+/* Class = "NSTextFieldCell"; title = "Gifsicle path"; ObjectID = "971"; */
+"971.title" = "Gifsicle path";
+
+/* Class = "NSButtonCell"; title = "Browse"; ObjectID = "972"; */
+"972.title" = "Browse";
+
+/* Class = "NSButtonCell"; title = "Use built-in version"; ObjectID = "976"; */
+"976.title" = "Use built-in version";
+
+/* Class = "NSButtonCell"; title = "Enabled"; ObjectID = "985"; */
+"985.title" = "Enabled";
