@@ -5,7 +5,7 @@
 //
 
 #import "OptiPngWorker.h"
-#import "File.h"
+#import "../File.h"
 
 @implementation OptiPngWorker
 

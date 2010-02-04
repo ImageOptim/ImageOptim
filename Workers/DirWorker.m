@@ -5,7 +5,7 @@
 //
 
 #import "DirWorker.h"
-#import "FilesQueue.h"
+#import "../FilesQueue.h"
 
 @implementation DirWorker
 

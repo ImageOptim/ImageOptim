@@ -5,7 +5,7 @@
 //
 
 #import "JpegtranWorker.h"
-#import "File.h"
+#import "../File.h"
 
 @implementation JpegtranWorker
 

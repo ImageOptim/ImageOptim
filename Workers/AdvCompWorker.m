@@ -5,7 +5,7 @@
 //
 
 #import "AdvCompWorker.h"
-#import "File.h"
+#import "../File.h"
 
 @implementation AdvCompWorker
 
@@ -28,8 +28,9 @@
 	if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error])
 	{
 		NSLog(@"Can't make temp copy of %@ in %@; %@",[file filePath],temp,error);
+        return;
 	}
-			
+    
 	NSTask *task = [self taskForKey:@"AdvPng" bundleName:@"advpng" 
 						  arguments:[NSArray arrayWithObjects: [NSString stringWithFormat:@"-%d",level ? level : 4],@"-z",@"--",temp,nil]];
     if (!task) {
@@ -55,7 +56,7 @@
 	{
 		[file setFilePathOptimized:temp	size:fileSizeOptimized toolName:@"AdvPNG"];
 	}
-	//else NSLog(@"Advpng failed");
+	else NSLog(@"Advpng failed");
 }
 
 -(BOOL)parseLine:(NSString *)line
@@ -72,7 +73,7 @@
 		//[file setByteSizeOptimized:optimized];
 		return YES;		
 	}
-//	NSLog(@"adv: Dunno what is %@",line);
+	NSLog(@"advpng: %@",line);
 	return NO;
 }
 

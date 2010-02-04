@@ -21,6 +21,7 @@
 
 -(void)main {
 //    NSLog(@"Worker start %@",self);
+	assert([self delegate]);
     [[self delegate] workerHasStarted:self];
     @try {
         [self run]; 
@@ -32,6 +33,7 @@
 //                [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:@"WorkersMayHaveFinished" object:nil] 
 //                                                           postingStyle:NSPostWhenIdle 
 //                                                           coalesceMask:NSNotificationCoalescingOnName forModes:nil];
+		assert([self delegate]);
         [[self delegate] workerHasFinished:self];        
     }
 //    NSLog(@"Worker done ok %@",self);

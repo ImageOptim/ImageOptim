@@ -5,7 +5,7 @@
 //
 
 #import "GifsicleWorker.h"
-#import "File.h"
+#import "../File.h"
 
 @implementation GifsicleWorker
 

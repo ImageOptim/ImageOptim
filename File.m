@@ -113,6 +113,7 @@
 	{
         if ([filePathOptimized length])
         {
+            //NSLog(@"Removing %@",filePath);
             [[NSFileManager defaultManager] removeItemAtPath:filePathOptimized error:nil];
         }
         filePathOptimized = nil;
@@ -239,6 +240,7 @@
 
 -(void)workerHasFinished:(Worker *)worker
 {
+	NSLog(@"Worker finished notification 2");
 	@synchronized(self) 
     {
         workersActive--;

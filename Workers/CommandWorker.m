@@ -6,7 +6,7 @@
 
 #import "CommandWorker.h"
 #include <unistd.h>
-#import "File.h"
+#import "../File.h"
 
 @implementation CommandWorker
 
@@ -180,8 +180,8 @@
 
 -(NSString *)tempPath
 {
-    static int uid=0; if (uid==0) uid = getpid()<<16;
-	return [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.tmp",[self className],[file hash]^[self hash],uid++]];
+    static int uid=0; if (uid==0) uid = getpid()<<12;
+	return [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.temp",[self className],[file hash]^[self hash],uid++]];
 }
 
 -(NSObject<WorkerQueueDelegate>*)delegate

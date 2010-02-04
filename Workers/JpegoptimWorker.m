@@ -5,7 +5,7 @@
 //
 
 #import "JpegoptimWorker.h"
-#import "File.h"
+#import "../File.h"
 
 @implementation JpegoptimWorker
 

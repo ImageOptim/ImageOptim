@@ -6,7 +6,7 @@
 #import "File.h"
 #import "FilesQueue.h"
 
-#import "DirWorker.h"
+#import "Workers/DirWorker.h"
 
 @implementation FilesQueue
 

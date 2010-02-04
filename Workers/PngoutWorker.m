@@ -7,7 +7,7 @@
 //
 
 #import "PngoutWorker.h"
-#import "File.h"
+#import "../File.h"
 
 @implementation PngoutWorker
 
