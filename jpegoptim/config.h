@@ -12,7 +12,7 @@
 #define SIZEOF_INT 4
 
 /* The number of bytes in a long.  */
-#define SIZEOF_LONG 4
+#define SIZEOF_LONG 8
 
 /* Define if you have the getopt_long function.  */
 #define HAVE_GETOPT_LONG 1
@@ -30,14 +30,14 @@
 #define HAVE_LIBGEN_H 1
 
 /* Define if you have the jpeg library (-ljpeg).  */
-#define HAVE_LIBJPEG 1
+/* #undef HAVE_LIBJPEG */
 
 
 
 /* Define if you have broken jmorecfg.h (SGI's usually have this problem) */
 /* #undef BROKEN_METHODDEF */
 
-#define HOST_TYPE "i386-apple-darwin9.7.0"
+#define HOST_TYPE "i386-apple-darwin10.2.0"
 
 
 /* eof */

@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A739B7B0EA4015800D751E1 /* libjpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A739B7A0EA4015100D751E1 /* libjpeg.dylib */; };
 		5A8167B30EA11E3F00962CF2 /* getopt.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167820EA11E3F00962CF2 /* getopt.c */; };
 		5A8167B40EA11E3F00962CF2 /* getopt1.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167830EA11E3F00962CF2 /* getopt1.c */; };
 		5A8167B50EA11E3F00962CF2 /* jpegoptim.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167840EA11E3F00962CF2 /* jpegoptim.c */; };
+		5AA49DB5111CC25500137D50 /* libjpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA49DB0111CC23000137D50 /* libjpeg.dylib */; };
+		5AA49DB6111CC25A00137D50 /* libjpeg.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5AA49DB0111CC23000137D50 /* libjpeg.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5A739B790EA4015100D751E1 /* PBXContainerItemProxy */ = {
+		5AA49DAF111CC23000137D50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 5A739B750EA4015100D751E1 /* jpeg.xcodeproj */;
+			containerPortal = 5A401AF1111A75A500908C9B /* jpeg.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC0630554660B00DB518D;
 			remoteInfo = jpeg;
@@ -26,19 +27,20 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				5AA49DB6111CC25A00137D50 /* libjpeg.dylib in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5A401AF1111A75A500908C9B /* jpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpeg.xcodeproj; path = ../libjpeg/jpeg.xcodeproj; sourceTree = "<group>"; };
 		5A4552991024E22200A69944 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		5A739B750EA4015100D751E1 /* jpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpeg.xcodeproj; path = ../../jpeg/jpeg.xcodeproj; sourceTree = SOURCE_ROOT; };
-		5A81674F0EA11E3F00962CF2 /* jconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jconfig.h; path = "jpeg-6b/jconfig.h"; sourceTree = SOURCE_ROOT; };
+		5A81674F0EA11E3F00962CF2 /* jconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jconfig.h; path = ../libjpeg/jconfig.h; sourceTree = SOURCE_ROOT; };
 		5A8167820EA11E3F00962CF2 /* getopt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getopt.c; sourceTree = SOURCE_ROOT; };
 		5A8167830EA11E3F00962CF2 /* getopt1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getopt1.c; sourceTree = SOURCE_ROOT; };
 		5A8167840EA11E3F00962CF2 /* jpegoptim.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpegoptim.c; sourceTree = SOURCE_ROOT; };
@@ -50,7 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A739B7B0EA4015800D751E1 /* libjpeg.dylib in Frameworks */,
+				5AA49DB5111CC25500137D50 /* libjpeg.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,35 +62,26 @@
 		08FB7794FE84155DC02AAC07 /* jpegoptim */ = {
 			isa = PBXGroup;
 			children = (
-				08FB7795FE84155DC02AAC07 /* Source */,
+				5A401AF1111A75A500908C9B /* jpeg.xcodeproj */,
+				08FB7795FE84155DC02AAC07 /* jpegoptim */,
 				C6A0FF2B0290797F04C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
 			name = jpegoptim;
 			sourceTree = "<group>";
 		};
-		08FB7795FE84155DC02AAC07 /* Source */ = {
+		08FB7795FE84155DC02AAC07 /* jpegoptim */ = {
 			isa = PBXGroup;
 			children = (
-				5A739B750EA4015100D751E1 /* jpeg.xcodeproj */,
 				5A81674E0EA11E3F00962CF2 /* jpegoptim */,
 			);
-			name = Source;
-			path = ../../jpegoptim;
+			name = jpegoptim;
 			sourceTree = "<group>";
 		};
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				8DD76FB20486AB0100D96B5E /* jpegoptim */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		5A739B760EA4015100D751E1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5A739B7A0EA4015100D751E1 /* libjpeg.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,7 +96,14 @@
 				5A81674F0EA11E3F00962CF2 /* jconfig.h */,
 			);
 			name = jpegoptim;
-			path = ../ImageOptim/jpegoptim;
+			sourceTree = "<group>";
+		};
+		5AA49DAC111CC23000137D50 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AA49DB0111CC23000137D50 /* libjpeg.dylib */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		C6A0FF2B0290797F04C91782 /* Documentation */ = {
@@ -146,8 +146,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 5A739B760EA4015100D751E1 /* Products */;
-					ProjectRef = 5A739B750EA4015100D751E1 /* jpeg.xcodeproj */;
+					ProductGroup = 5AA49DAC111CC23000137D50 /* Products */;
+					ProjectRef = 5A401AF1111A75A500908C9B /* jpeg.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -158,11 +158,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		5A739B7A0EA4015100D751E1 /* libjpeg.dylib */ = {
+		5AA49DB0111CC23000137D50 /* libjpeg.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libjpeg.dylib;
-			remoteRef = 5A739B790EA4015100D751E1 /* PBXContainerItemProxy */;
+			remoteRef = 5AA49DAF111CC23000137D50 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -217,7 +217,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/jpeg-6b/";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
@@ -249,7 +249,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/jpeg-6b/";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
