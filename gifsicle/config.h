@@ -8,7 +8,7 @@
 /* #undef DMALLOC */
 
 /* Define to the number of arguments to gettimeofday (gifview only). */
-#define GETTIMEOFDAY_PROTO 2
+/* #undef GETTIMEOFDAY_PROTO */
 
 /* Define if GIF LZW compression is off. */
 /* #undef GIF_UNGIF */
@@ -79,6 +79,9 @@
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME ""
 
+/* Define to the home page for this package. */
+#define PACKAGE_URL ""
+
 /* Define to the version of this package. */
 #define PACKAGE_VERSION ""
 
@@ -91,20 +94,14 @@
 /* The size of `unsigned int', as computed by sizeof. */
 #define SIZEOF_UNSIGNED_INT 4
 
-/* The size of `unsigned long', as computed by sizeof. */
-#define SIZEOF_UNSIGNED_LONG 4
-
-/* The size of `void *', as computed by sizeof. */
-#define SIZEOF_VOID_P 4
-
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "1.55"
+#define VERSION "1.58"
 
 /* Define if X is not available. */
-/* #undef X_DISPLAY_MISSING */
+#define X_DISPLAY_MISSING 1
 
 /* Define to empty if `const' does not conform to ANSI C. */
 /* #undef const */

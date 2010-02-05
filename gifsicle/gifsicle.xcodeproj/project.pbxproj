@@ -20,7 +20,7 @@
 		5A4554541025E76F00A69944 /* clp.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4554531025E76F00A69944 /* clp.c */; };
 		5A4554761025E81100A69944 /* quantize.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553D31025E50700A69944 /* quantize.c */; };
 		5A4554AC1025E97100A69944 /* xform.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553DE1025E50700A69944 /* xform.c */; };
-		8DD76FB00486AB0100D96B5E /* gifsicle.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* gifsicle.1 */; };
+		5A47171C111CD1C60008E5F6 /* gifunopt.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553D41025E50700A69944 /* gifunopt.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,7 +30,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				8DD76FB00486AB0100D96B5E /* gifsicle.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -156,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A47171C111CD1C60008E5F6 /* gifunopt.c in Sources */,
 				5A4553E21025E50700A69944 /* gifread.c in Sources */,
 				5A4553E31025E50700A69944 /* strerror.c in Sources */,
 				5A4553E41025E50700A69944 /* giffunc.c in Sources */,
@@ -207,7 +207,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
@@ -238,7 +238,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
 				GCC_STRICT_ALIASING = YES;
 				GCC_THREADSAFE_STATICS = NO;
-				GCC_VERSION = 4.2;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_TYPECHECK_CALLS_TO_PRINTF = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
