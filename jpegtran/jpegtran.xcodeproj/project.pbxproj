@@ -7,20 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A739BA90EA4035100D751E1 /* libjpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A739BA80EA4034800D751E1 /* libjpeg.dylib */; };
 		5A739BAF0EA4038A00D751E1 /* jpegtran.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739BAE0EA4038A00D751E1 /* jpegtran.c */; };
 		5A739BB80EA4042600D751E1 /* transupp.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739BB70EA4042600D751E1 /* transupp.c */; };
 		5A739C140EA406A000D751E1 /* cdjpeg.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739C130EA406A000D751E1 /* cdjpeg.c */; };
 		5A739C1C0EA406F600D751E1 /* rdswitch.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739C1B0EA406F600D751E1 /* rdswitch.c */; };
-		8DD76FB00486AB0100D96B5E /* jpegtran.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* jpegtran.1 */; };
+		5A8ACE8E111CCCB700EC4491 /* libjpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8ACE8D111CCCB200EC4491 /* libjpeg.dylib */; };
+		5A8ACE90111CCCC000EC4491 /* libjpeg.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A8ACE8D111CCCB200EC4491 /* libjpeg.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5A739BA70EA4034800D751E1 /* PBXContainerItemProxy */ = {
+		5A8ACE8C111CCCB200EC4491 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A739BA30EA4034800D751E1 /* jpeg.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC0630554660B00DB518D;
+			remoteGlobalIDString = D2AAC0630554660B00DB518D /* libjpeg.dylib */;
 			remoteInfo = jpeg;
 		};
 /* End PBXContainerItemProxy section */
@@ -28,22 +28,22 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
-				8DD76FB00486AB0100D96B5E /* jpegtran.1 in CopyFiles */,
+				5A8ACE90111CCCC000EC4491 /* libjpeg.dylib in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5A739BA30EA4034800D751E1 /* jpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpeg.xcodeproj; path = ../jpeg/jpeg.xcodeproj; sourceTree = SOURCE_ROOT; };
-		5A739BAE0EA4038A00D751E1 /* jpegtran.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jpegtran.c; path = "../ImageOptim/jpegoptim/jpeg-6b/jpegtran.c"; sourceTree = SOURCE_ROOT; };
-		5A739BB70EA4042600D751E1 /* transupp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = transupp.c; path = "../ImageOptim/jpegoptim/jpeg-6b/transupp.c"; sourceTree = SOURCE_ROOT; };
-		5A739C130EA406A000D751E1 /* cdjpeg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cdjpeg.c; path = "../ImageOptim/jpegoptim/jpeg-6b/cdjpeg.c"; sourceTree = SOURCE_ROOT; };
-		5A739C1B0EA406F600D751E1 /* rdswitch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rdswitch.c; path = "../ImageOptim/jpegoptim/jpeg-6b/rdswitch.c"; sourceTree = SOURCE_ROOT; };
+		5A739BA30EA4034800D751E1 /* jpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpeg.xcodeproj; path = ../libjpeg/jpeg.xcodeproj; sourceTree = "<group>"; };
+		5A739BAE0EA4038A00D751E1 /* jpegtran.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpegtran.c; sourceTree = "<group>"; };
+		5A739BB70EA4042600D751E1 /* transupp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = transupp.c; sourceTree = "<group>"; };
+		5A739C130EA406A000D751E1 /* cdjpeg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cdjpeg.c; sourceTree = "<group>"; };
+		5A739C1B0EA406F600D751E1 /* rdswitch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rdswitch.c; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* jpegtran */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = jpegtran; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A0FF2C0290799A04C91782 /* jpegtran.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = jpegtran.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,7 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A739BA90EA4035100D751E1 /* libjpeg.dylib in Frameworks */,
+				5A8ACE8E111CCCB700EC4491 /* libjpeg.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,24 +63,25 @@
 		08FB7794FE84155DC02AAC07 /* jpegtran */ = {
 			isa = PBXGroup;
 			children = (
-				08FB7795FE84155DC02AAC07 /* Source */,
+				5A739BA30EA4034800D751E1 /* jpeg.xcodeproj */,
+				08FB7795FE84155DC02AAC07 /* libjpeg */,
 				C6A0FF2B0290797F04C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
 			name = jpegtran;
 			sourceTree = "<group>";
 		};
-		08FB7795FE84155DC02AAC07 /* Source */ = {
+		08FB7795FE84155DC02AAC07 /* libjpeg */ = {
 			isa = PBXGroup;
 			children = (
 				5A739C1B0EA406F600D751E1 /* rdswitch.c */,
 				5A739C130EA406A000D751E1 /* cdjpeg.c */,
 				5A739BAE0EA4038A00D751E1 /* jpegtran.c */,
 				5A739BB70EA4042600D751E1 /* transupp.c */,
-				5A739BA30EA4034800D751E1 /* jpeg.xcodeproj */,
 			);
-			name = Source;
-			sourceTree = "<group>";
+			name = libjpeg;
+			path = ../libjpeg;
+			sourceTree = SOURCE_ROOT;
 		};
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
@@ -90,10 +91,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5A739BA40EA4034800D751E1 /* Products */ = {
+		5A8ACE89111CCCB200EC4491 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A739BA80EA4034800D751E1 /* libjpeg.dylib */,
+				5A8ACE8D111CCCB200EC4491 /* libjpeg.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,7 +140,7 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 5A739BA40EA4034800D751E1 /* Products */;
+					ProductGroup = 5A8ACE89111CCCB200EC4491 /* Products */;
 					ProjectRef = 5A739BA30EA4034800D751E1 /* jpeg.xcodeproj */;
 				},
 			);
@@ -151,11 +152,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		5A739BA80EA4034800D751E1 /* libjpeg.dylib */ = {
+		5A8ACE8D111CCCB200EC4491 /* libjpeg.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = libjpeg.dylib;
-			remoteRef = 5A739BA70EA4034800D751E1 /* PBXContainerItemProxy */;
+			remoteRef = 5A8ACE8C111CCCB200EC4491 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -208,10 +209,10 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.4;
+				SDKROOT = "";
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Debug;
@@ -220,12 +221,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				DEAD_CODE_STRIPPING = YES;
+				GCC_ALTIVEC_EXTENSIONS = YES;
+				GCC_AUTO_VECTORIZATION = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_CPP_EXCEPTIONS = NO;
+				GCC_ENABLE_CPP_RTTI = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_OBJC_CALL_CXX_CDTORS = NO;
+				GCC_STRICT_ALIASING = YES;
+				GCC_THREADSAFE_STATICS = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.3;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PREBINDING = NO;
-				SDKROOT = macosx10.4;
+				SDKROOT = "";
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Release;
