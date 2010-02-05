@@ -113,19 +113,19 @@
 			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
 			remoteInfo = gifsicle;
 		};
+		5A62DB06111CCE9F008848D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A8167EC0EA11F9D00962CF2 /* jpegoptim.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E /* jpegoptim */;
+			remoteInfo = jpegoptim;
+		};
 		5A6CEA82102B887C0058D07E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A4DC2051028ADB200A9DD55 /* gifsicle.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E;
 			remoteInfo = gifsicle;
-		};
-		5A739AA60EA2893900D751E1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A8167EC0EA11F9D00962CF2 /* jpegoptim.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E;
-			remoteInfo = jpegoptim;
 		};
 		5A739AA80EA2893900D751E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -147,13 +147,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
 			remoteInfo = advpng;
-		};
-		5A8167F00EA11F9D00962CF2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A8167EC0EA11F9D00962CF2 /* jpegoptim.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
-			remoteInfo = jpegoptim;
 		};
 		5ABB9FEF0E8518DF006F51BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -215,7 +208,7 @@
 		5A739B8C0EA401A400D751E1 /* libjpeg.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libjpeg.dylib; path = ../jpeg/build/Release/libjpeg.dylib; sourceTree = SOURCE_ROOT; };
 		5A739C260EA4073700D751E1 /* jpegtran.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpegtran.xcodeproj; path = ../jpegtran/jpegtran.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A8167370EA11D3F00962CF2 /* advpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = advpng.xcodeproj; path = advancecomp/advpng.xcodeproj; sourceTree = "<group>"; };
-		5A8167EC0EA11F9D00962CF2 /* jpegoptim.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpegoptim.xcodeproj; path = jpegoptim/jpegoptim.xcodeproj; sourceTree = "<group>"; };
+		5A8167EC0EA11F9D00962CF2 /* jpegoptim.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpegoptim.xcodeproj; path = ../jpegoptim/jpegoptim.xcodeproj; sourceTree = "<group>"; };
 		5A8167F30EA11FD400962CF2 /* jpegoptim */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = jpegoptim; path = jpegoptim/build/Release/jpegoptim; sourceTree = "<group>"; };
 		5A887F8410C17361006A0687 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Dutch; path = Dutch.lproj/Credits.rtf; sourceTree = "<group>"; };
 		5A8DFBD710C097A0009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Dutch; path = Dutch.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -443,6 +436,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		5A62DB03111CCE9F008848D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A62DB07111CCE9F008848D0 /* jpegoptim */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5A739C270EA4073700D751E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,14 +456,6 @@
 			isa = PBXGroup;
 			children = (
 				5A81673C0EA11D3F00962CF2 /* advpng */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		5A8167ED0EA11F9D00962CF2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5A8167F10EA11F9D00962CF2 /* jpegoptim */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -509,7 +502,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				5A739AA70EA2893900D751E1 /* PBXTargetDependency */,
 				5A739AA90EA2893900D751E1 /* PBXTargetDependency */,
 				5A4DC1941028284400A9DD55 /* PBXTargetDependency */,
 				5A4DC1961028284400A9DD55 /* PBXTargetDependency */,
@@ -554,7 +546,7 @@
 					ProjectRef = 5A4DC2051028ADB200A9DD55 /* gifsicle.xcodeproj */;
 				},
 				{
-					ProductGroup = 5A8167ED0EA11F9D00962CF2 /* Products */;
+					ProductGroup = 5A62DB03111CCE9F008848D0 /* Products */;
 					ProjectRef = 5A8167EC0EA11F9D00962CF2 /* jpegoptim.xcodeproj */;
 				},
 				{
@@ -600,6 +592,13 @@
 			remoteRef = 5A4DC20C1028ADB200A9DD55 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		5A62DB07111CCE9F008848D0 /* jpegoptim */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = jpegoptim;
+			remoteRef = 5A62DB06111CCE9F008848D0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5A739C2B0EA4073700D751E1 /* jpegtran */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
@@ -612,13 +611,6 @@
 			fileType = "compiled.mach-o.executable";
 			path = advpng;
 			remoteRef = 5A81673B0EA11D3F00962CF2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5A8167F10EA11F9D00962CF2 /* jpegoptim */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = jpegoptim;
-			remoteRef = 5A8167F00EA11F9D00962CF2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -740,11 +732,6 @@
 			isa = PBXTargetDependency;
 			name = gifsicle;
 			targetProxy = 5A6CEA82102B887C0058D07E /* PBXContainerItemProxy */;
-		};
-		5A739AA70EA2893900D751E1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = jpegoptim;
-			targetProxy = 5A739AA60EA2893900D751E1 /* PBXContainerItemProxy */;
 		};
 		5A739AA90EA2893900D751E1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -934,7 +921,6 @@
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
-				SDKROOT = macosx10.5;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				VALID_ARCHS = x86_64;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -999,7 +985,6 @@
 				PLIST_FILE_OUTPUT_FORMAT = binary;
 				PREBINDING = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				SDKROOT = macosx10.6;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				VALID_ARCHS = "i386 ppc x86_64";
 				VERSIONING_SYSTEM = "apple-generic";

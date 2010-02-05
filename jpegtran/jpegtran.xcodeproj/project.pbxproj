@@ -16,11 +16,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5A62DAF1111CCE73008848D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A739BA30EA4034800D751E1 /* jpeg.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC0620554660B00DB518D /* jpeg */;
+			remoteInfo = jpeg;
+		};
 		5A8ACE8C111CCCB200EC4491 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A739BA30EA4034800D751E1 /* jpeg.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC0630554660B00DB518D /* libjpeg.dylib */;
+			remoteGlobalIDString = D2AAC0630554660B00DB518D;
 			remoteInfo = jpeg;
 		};
 /* End PBXContainerItemProxy section */
@@ -121,6 +128,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5A62DAF2111CCE73008848D0 /* PBXTargetDependency */,
 			);
 			name = jpegtran;
 			productInstallPath = "$(HOME)/bin";
@@ -174,6 +182,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A62DAF2111CCE73008848D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = jpeg;
+			targetProxy = 5A62DAF1111CCE73008848D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB928608733DD80010E9CD /* Debug */ = {

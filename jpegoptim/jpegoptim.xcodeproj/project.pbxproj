@@ -15,6 +15,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5A62DB1E111CCEC1008848D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A401AF1111A75A500908C9B /* jpeg.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC0620554660B00DB518D /* jpeg */;
+			remoteInfo = jpeg;
+		};
 		5AA49DAF111CC23000137D50 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A401AF1111A75A500908C9B /* jpeg.xcodeproj */;
@@ -127,6 +134,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5A62DB1F111CCEC1008848D0 /* PBXTargetDependency */,
 			);
 			name = jpegoptim;
 			productInstallPath = "$(HOME)/bin";
@@ -180,6 +188,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5A62DB1F111CCEC1008848D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = jpeg;
+			targetProxy = 5A62DB1E111CCEC1008848D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		1DEB928608733DD80010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -222,7 +238,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				RUN_CLANG_STATIC_ANALYZER = NO;
-				SDKROOT = macosx10.6;
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Debug;
@@ -252,7 +267,7 @@
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Release;
