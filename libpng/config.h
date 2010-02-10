@@ -1,7 +1,3 @@
-/* config.h.  Generated from config.h.in by configure.  */
-/* config.h.in.  Generated from configure.ac by autoheader.  */
-
-#define PNGCRUSH_H /* don't want */
 
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H 1
@@ -165,8 +161,10 @@
 #define PNG_hIST_SUPPORTED
 #define PNG_INFO_IMAGE_SUPPORTED
 
+#undef PNG_ZBUF_SIZE
 #define PNG_ZBUF_SIZE (1<<17)
-#define TOO_FAR 32767
+#undef TOO_FAR
+#define TOO_FAR 32768U
 
 #define PNG_NO_iTXt_SUPPORTED
 
@@ -174,5 +172,5 @@
  own exception handling, which only returns after "Too many IDAT's",
  or anything else that we might want to handle as a warning instead of
  an error. */
-#define PNG_ABORT()
+#define PNG_ABORT() {}
 

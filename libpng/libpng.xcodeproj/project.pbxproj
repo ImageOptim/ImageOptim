@@ -30,7 +30,6 @@
 		5A1941BA0FF96FAD007C3324 /* zutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1941A20FF96FAD007C3324 /* zutil.c */; };
 		5A1941BB0FF96FAD007C3324 /* zutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A1941A30FF96FAD007C3324 /* zutil.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A19420E0FF97333007C3324 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A19420D0FF97333007C3324 /* config.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5A19423E0FF973FC007C3324 /* zlibdefs.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A19423D0FF973FC007C3324 /* zlibdefs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A19427E0FF974E7007C3324 /* pngconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A19427D0FF974E7007C3324 /* pngconf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A1944050FF98722007C3324 /* pngerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F30FF98722007C3324 /* pngerror.c */; };
 		5A1944060FF98722007C3324 /* pngset.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F40FF98722007C3324 /* pngset.c */; };
@@ -52,6 +51,23 @@
 		5A1944160FF98722007C3324 /* pngwtran.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1944040FF98722007C3324 /* pngwtran.c */; };
 		5A1944180FF98734007C3324 /* png.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A1944170FF98734007C3324 /* png.h */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5A984A5411237C8D007622D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A984A4E11237C80007622D7 /* download */;
+			remoteInfo = download;
+		};
+		5A984A6211237CC8007622D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A984A5E11237CC3007622D7 /* download-zlib */;
+			remoteInfo = "download-zlib";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5A19418B0FF96FAD007C3324 /* adler32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = adler32.c; sourceTree = "<group>"; };
@@ -78,7 +94,6 @@
 		5A1941A20FF96FAD007C3324 /* zutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zutil.c; sourceTree = "<group>"; };
 		5A1941A30FF96FAD007C3324 /* zutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zutil.h; sourceTree = "<group>"; };
 		5A19420D0FF97333007C3324 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
-		5A19423D0FF973FC007C3324 /* zlibdefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zlibdefs.h; path = ../zlib/zlibdefs.h; sourceTree = SOURCE_ROOT; };
 		5A19427D0FF974E7007C3324 /* pngconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pngconf.h; sourceTree = "<group>"; };
 		5A1943F30FF98722007C3324 /* pngerror.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngerror.c; sourceTree = "<group>"; };
 		5A1943F40FF98722007C3324 /* pngset.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngset.c; sourceTree = "<group>"; };
@@ -116,17 +131,16 @@
 		08FB7794FE84155DC02AAC07 /* libpng */ = {
 			isa = PBXGroup;
 			children = (
-				08FB7795FE84155DC02AAC07 /* Source */,
+				08FB7795FE84155DC02AAC07 /* libpng */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
 			name = libpng;
 			sourceTree = "<group>";
 		};
-		08FB7795FE84155DC02AAC07 /* Source */ = {
+		08FB7795FE84155DC02AAC07 /* libpng */ = {
 			isa = PBXGroup;
 			children = (
 				5A19418A0FF96FAD007C3324 /* zlib */,
-				5A19423D0FF973FC007C3324 /* zlibdefs.h */,
 				5A19420D0FF97333007C3324 /* config.h */,
 				5A1944170FF98734007C3324 /* png.h */,
 				5A19427D0FF974E7007C3324 /* pngconf.h */,
@@ -149,7 +163,7 @@
 				5A1944030FF98722007C3324 /* pngtrans.c */,
 				5A1944040FF98722007C3324 /* pngwtran.c */,
 			);
-			name = Source;
+			name = libpng;
 			sourceTree = "<group>";
 		};
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
@@ -189,7 +203,7 @@
 			);
 			name = zlib;
 			path = ../zlib;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -210,13 +224,42 @@
 				5A1941B90FF96FAD007C3324 /* zlib.h in Headers */,
 				5A1941BB0FF96FAD007C3324 /* zutil.h in Headers */,
 				5A19420E0FF97333007C3324 /* config.h in Headers */,
-				5A19423E0FF973FC007C3324 /* zlibdefs.h in Headers */,
 				5A19427E0FF974E7007C3324 /* pngconf.h in Headers */,
 				5A1944180FF98734007C3324 /* png.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
+
+/* Begin PBXLegacyTarget section */
+		5A984A4E11237C80007622D7 /* download-libpng */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 5A984A5B11237CA3007622D7 /* Build configuration list for PBXLegacyTarget "download-libpng" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = "download-libpng";
+			passBuildSettingsInEnvironment = 1;
+			productName = download;
+		};
+		5A984A5E11237CC3007622D7 /* download-zlib */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 5A984A6611237D09007622D7 /* Build configuration list for PBXLegacyTarget "download-zlib" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = ../zlib/;
+			dependencies = (
+			);
+			name = "download-zlib";
+			passBuildSettingsInEnvironment = 1;
+			productName = "download-zlib";
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		D2AAC0620554660B00DB518D /* libpng */ = {
@@ -230,6 +273,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				5A984A5511237C8D007622D7 /* PBXTargetDependency */,
+				5A984A6311237CC8007622D7 /* PBXTargetDependency */,
 			);
 			name = libpng;
 			productName = libpng;
@@ -249,6 +294,8 @@
 			projectRoot = "";
 			targets = (
 				D2AAC0620554660B00DB518D /* libpng */,
+				5A984A4E11237C80007622D7 /* download-libpng */,
+				5A984A5E11237CC3007622D7 /* download-zlib */,
 			);
 		};
 /* End PBXProject section */
@@ -291,6 +338,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A984A5511237C8D007622D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A984A4E11237C80007622D7 /* download-libpng */;
+			targetProxy = 5A984A5411237C8D007622D7 /* PBXContainerItemProxy */;
+		};
+		5A984A6311237CC8007622D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A984A5E11237CC3007622D7 /* download-zlib */;
+			targetProxy = 5A984A6211237CC8007622D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB914B08733D8E0010E9CD /* Debug */ = {
@@ -338,6 +398,10 @@
 				GCC_MODEL_PPC64 = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					HAVE_CONFIG_H,
+					PNG_CONFIGURE_LIBPNG,
+				);
 				GCC_THREADSAFE_STATICS = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -379,7 +443,11 @@
 				"GCC_MODEL_TUNING[arch=ppc]" = G5;
 				"GCC_MODEL_TUNING[arch=x86_64]" = core2;
 				GCC_OBJC_CALL_CXX_CDTORS = NO;
-				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					PNG_CONFIGURE_LIBPNG,
+					HAVE_CONFIG_H,
+					NDEBUG,
+				);
 				GCC_STRICT_ALIASING = YES;
 				GCC_THREADSAFE_STATICS = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -395,6 +463,48 @@
 				SDKROOT = macosx10.6;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				VALID_ARCHS = "i386 ppc x86_64";
+			};
+			name = Release;
+		};
+		5A984A4F11237C80007622D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = download;
+			};
+			name = Debug;
+		};
+		5A984A5011237C80007622D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = download;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		5A984A6011237CC3007622D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "download-zlib";
+			};
+			name = Debug;
+		};
+		5A984A6111237CC3007622D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "download-zlib";
+				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -415,6 +525,24 @@
 			buildConfigurations = (
 				1DEB914F08733D8E0010E9CD /* Debug */,
 				1DEB915008733D8E0010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A984A5B11237CA3007622D7 /* Build configuration list for PBXLegacyTarget "download-libpng" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A984A4F11237C80007622D7 /* Debug */,
+				5A984A5011237C80007622D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A984A6611237D09007622D7 /* Build configuration list for PBXLegacyTarget "download-zlib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A984A6011237CC3007622D7 /* Debug */,
+				5A984A6111237CC3007622D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
