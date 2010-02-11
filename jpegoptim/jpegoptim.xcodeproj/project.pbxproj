@@ -15,13 +15,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5A20CCDA112395840000400D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A401AF1111A75A500908C9B /* jpeg.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 5A20CCB3112394F20000400D;
-			remoteInfo = download;
-		};
 		5A62DB1E111CCEC1008848D0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A401AF1111A75A500908C9B /* jpeg.xcodeproj */;
@@ -35,6 +28,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC0630554660B00DB518D;
 			remoteInfo = jpeg;
+		};
+		5F084AA91124135A00C7B074 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F084AA61124134B00C7B074 /* download */;
+			remoteInfo = download;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -130,10 +130,10 @@
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
-		5A20CCD61123957E0000400D /* download */ = {
+		5F084AA61124134B00C7B074 /* download */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "$(ACTION)";
-			buildConfigurationList = 5A20CCE8112395960000400D /* Build configuration list for PBXLegacyTarget "download" */;
+			buildConfigurationList = 5F084AB01124136700C7B074 /* Build configuration list for PBXLegacyTarget "download" */;
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
@@ -158,7 +158,7 @@
 			);
 			dependencies = (
 				5A62DB1F111CCEC1008848D0 /* PBXTargetDependency */,
-				5A20CCDB112395840000400D /* PBXTargetDependency */,
+				5F084AAA1124135A00C7B074 /* PBXTargetDependency */,
 			);
 			name = jpegoptim;
 			productInstallPath = "$(HOME)/bin";
@@ -185,7 +185,7 @@
 			projectRoot = "";
 			targets = (
 				8DD76FA90486AB0100D96B5E /* jpegoptim */,
-				5A20CCD61123957E0000400D /* download */,
+				5F084AA61124134B00C7B074 /* download */,
 			);
 		};
 /* End PBXProject section */
@@ -214,15 +214,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5A20CCDB112395840000400D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = download;
-			targetProxy = 5A20CCDA112395840000400D /* PBXContainerItemProxy */;
-		};
 		5A62DB1F111CCEC1008848D0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = jpeg;
 			targetProxy = 5A62DB1E111CCEC1008848D0 /* PBXContainerItemProxy */;
+		};
+		5F084AAA1124135A00C7B074 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5F084AA61124134B00C7B074 /* download */;
+			targetProxy = 5F084AA91124135A00C7B074 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -248,7 +248,9 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
+				LLVM_LTO = YES;
 				PRODUCT_NAME = jpegoptim;
+				STRIP_INSTALLED_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -302,7 +304,7 @@
 			};
 			name = Release;
 		};
-		5A20CCD71123957E0000400D /* Debug */ = {
+		5F084AA71124134C00C7B074 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
@@ -312,7 +314,7 @@
 			};
 			name = Debug;
 		};
-		5A20CCD81123957E0000400D /* Release */ = {
+		5F084AA81124134C00C7B074 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
@@ -344,11 +346,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5A20CCE8112395960000400D /* Build configuration list for PBXLegacyTarget "download" */ = {
+		5F084AB01124136700C7B074 /* Build configuration list for PBXLegacyTarget "download" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5A20CCD71123957E0000400D /* Debug */,
-				5A20CCD81123957E0000400D /* Release */,
+				5F084AA71124134C00C7B074 /* Debug */,
+				5F084AA81124134C00C7B074 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
