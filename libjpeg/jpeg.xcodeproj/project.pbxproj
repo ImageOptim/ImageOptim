@@ -69,6 +69,16 @@
 		5A7C0702111CC8FB0025045A /* jaricom.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A7C0701111CC8FB0025045A /* jaricom.c */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5A20CCB8112394F80000400D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A20CCB3112394F20000400D /* download */;
+			remoteInfo = download;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5A739B110EA4012300D751E1 /* jdmarker.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jdmarker.c; sourceTree = "<group>"; };
 		5A739B120EA4012300D751E1 /* jerror.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jerror.c; sourceTree = "<group>"; };
@@ -262,6 +272,22 @@
 		};
 /* End PBXHeadersBuildPhase section */
 
+/* Begin PBXLegacyTarget section */
+		5A20CCB3112394F20000400D /* download */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 5A20CCC2112395100000400D /* Build configuration list for PBXLegacyTarget "download" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = download;
+			passBuildSettingsInEnvironment = 1;
+			productName = download;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		D2AAC0620554660B00DB518D /* jpeg */ = {
 			isa = PBXNativeTarget;
@@ -274,6 +300,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5A20CCB9112394F80000400D /* PBXTargetDependency */,
 			);
 			name = jpeg;
 			productName = jpeg;
@@ -293,6 +320,7 @@
 			projectRoot = "";
 			targets = (
 				D2AAC0620554660B00DB518D /* jpeg */,
+				5A20CCB3112394F20000400D /* download */,
 			);
 		};
 /* End PBXProject section */
@@ -352,6 +380,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A20CCB9112394F80000400D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A20CCB3112394F20000400D /* download */;
+			targetProxy = 5A20CCB8112394F80000400D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB914B08733D8E0010E9CD /* Debug */ = {
@@ -426,6 +462,27 @@
 			};
 			name = Release;
 		};
+		5A20CCB4112394F20000400D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = download;
+			};
+			name = Debug;
+		};
+		5A20CCB5112394F20000400D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = download;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -443,6 +500,15 @@
 			buildConfigurations = (
 				1DEB914F08733D8E0010E9CD /* Debug */,
 				1DEB915008733D8E0010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A20CCC2112395100000400D /* Build configuration list for PBXLegacyTarget "download" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A20CCB4112394F20000400D /* Debug */,
+				5A20CCB5112394F20000400D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
