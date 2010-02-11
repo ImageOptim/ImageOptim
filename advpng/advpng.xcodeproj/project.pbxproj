@@ -38,6 +38,8 @@
 		5A8166A50EA117BB00962CF2 /* OutByte.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5A81668B0EA117BB00962CF2 /* OutByte.cc */; };
 		5A8166A60EA117BB00962CF2 /* WindowIn.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5A8166910EA117BB00962CF2 /* WindowIn.cc */; };
 		5A8166A70EA117BB00962CF2 /* WindowOut.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5A8166930EA117BB00962CF2 /* WindowOut.cc */; };
+		5A984B1511238220007622D7 /* liblibpng.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7439C8111DA4EF001C2D27 /* liblibpng.dylib */; };
+		5A984B1611238223007622D7 /* liblibpng.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A7439C8111DA4EF001C2D27 /* liblibpng.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,20 +47,35 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A19439E0FF982D4007C3324 /* libpng.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC0630554660B00DB518D /* liblibpng.dylib */;
+			remoteGlobalIDString = D2AAC0630554660B00DB518D;
 			remoteInfo = libpng;
+		};
+		5A984B131123821A007622D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A19439E0FF982D4007C3324 /* libpng.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC0620554660B00DB518D /* libpng */;
+			remoteInfo = libpng;
+		};
+		5A984B2B112382B4007622D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A984B2111238282007622D7 /* download */;
+			remoteInfo = download;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				5A984B1611238223007622D7 /* liblibpng.dylib in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -80,8 +97,6 @@
 		5A8166330EA117B100962CF2 /* pngex.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pngex.cc; sourceTree = SOURCE_ROOT; };
 		5A8166340EA117B100962CF2 /* snstring.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.c; fileEncoding = 4; name = snstring.c; path = lib/snstring.c; sourceTree = SOURCE_ROOT; };
 		5A8166350EA117B100962CF2 /* snprintf.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = snprintf.c; sourceTree = SOURCE_ROOT; };
-		5A8166420EA117B600962CF2 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = SOURCE_ROOT; };
-		5A8166430EA117B600962CF2 /* portable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = portable.h; sourceTree = SOURCE_ROOT; };
 		5A8166460EA117B600962CF2 /* endianrw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = endianrw.h; path = lib/endianrw.h; sourceTree = SOURCE_ROOT; };
 		5A8166470EA117B600962CF2 /* error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = error.c; path = lib/error.c; sourceTree = SOURCE_ROOT; };
 		5A8166480EA117B600962CF2 /* error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = error.h; path = lib/error.h; sourceTree = SOURCE_ROOT; };
@@ -159,6 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A984B1511238220007622D7 /* liblibpng.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,8 +236,6 @@
 		5A8166410EA117B600962CF2 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				5A8166420EA117B600962CF2 /* config.h */,
-				5A8166430EA117B600962CF2 /* portable.h */,
 				5A8166460EA117B600962CF2 /* endianrw.h */,
 				5A8166470EA117B600962CF2 /* error.c */,
 				5A8166480EA117B600962CF2 /* error.h */,
@@ -311,6 +325,22 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		5A984B2111238282007622D7 /* download */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 5A984B281123828B007622D7 /* Build configuration list for PBXLegacyTarget "download" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = download;
+			passBuildSettingsInEnvironment = 1;
+			productName = download;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		8DD76FA90486AB0100D96B5E /* advpng */ = {
 			isa = PBXNativeTarget;
@@ -319,11 +349,12 @@
 				8DD76FAB0486AB0100D96B5E /* Sources */,
 				8DD76FAD0486AB0100D96B5E /* Frameworks */,
 				8DD76FAF0486AB0100D96B5E /* CopyFiles */,
-				5A6E04E90EA413B100380DE7 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5A984B141123821A007622D7 /* PBXTargetDependency */,
+				5A984B2C112382B4007622D7 /* PBXTargetDependency */,
 			);
 			name = advpng;
 			productInstallPath = "$(HOME)/bin";
@@ -350,6 +381,7 @@
 			projectRoot = "";
 			targets = (
 				8DD76FA90486AB0100D96B5E /* advpng */,
+				5A984B2111238282007622D7 /* download */,
 			);
 		};
 /* End PBXProject section */
@@ -363,22 +395,6 @@
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5A6E04E90EA413B100380DE7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8DD76FAB0486AB0100D96B5E /* Sources */ = {
@@ -420,6 +436,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A984B141123821A007622D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libpng;
+			targetProxy = 5A984B131123821A007622D7 /* PBXContainerItemProxy */;
+		};
+		5A984B2C112382B4007622D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A984B2111238282007622D7 /* download */;
+			targetProxy = 5A984B2B112382B4007622D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB928608733DD80010E9CD /* Debug */ = {
@@ -467,15 +496,14 @@
 				GCC_STRICT_ALIASING = YES;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THREADSAFE_STATICS = NO;
-				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = 7z/../;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Debug;
@@ -507,18 +535,38 @@
 				GCC_STRICT_ALIASING = YES;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_THREADSAFE_STATICS = NO;
-				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = 7z/../;
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				"OTHER_CFLAGS[arch=x86_64]" = "-mtune=core2";
 				PREBINDING = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				VALID_ARCHS = "i386 ppc x86_64";
+			};
+			name = Release;
+		};
+		5A984B2211238282007622D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = download;
+			};
+			name = Debug;
+		};
+		5A984B2311238282007622D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = download;
+				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -539,6 +587,15 @@
 			buildConfigurations = (
 				1DEB928A08733DD80010E9CD /* Debug */,
 				1DEB928B08733DD80010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A984B281123828B007622D7 /* Build configuration list for PBXLegacyTarget "download" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A984B2211238282007622D7 /* Debug */,
+				5A984B2311238282007622D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
