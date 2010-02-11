@@ -39,21 +39,21 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A7399DA0EA2835D00D751E1 /* libpng.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC0630554660B00DB518D /* liblibpng.dylib */;
+			remoteGlobalIDString = D2AAC0630554660B00DB518D;
 			remoteInfo = libpng;
 		};
 		5A984A8A11237F74007622D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A7399DA0EA2835D00D751E1 /* libpng.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC0620554660B00DB518D /* libpng */;
+			remoteGlobalIDString = D2AAC0620554660B00DB518D;
 			remoteInfo = libpng;
 		};
 		5A984AA91123802F007622D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5A984AA611238023007622D7 /* download */;
+			remoteGlobalIDString = 5A984AA611238023007622D7;
 			remoteInfo = download;
 		};
 /* End PBXContainerItemProxy section */
@@ -136,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7399DA0EA2835D00D751E1 /* libpng.xcodeproj */,
-				5A9D55F20E7F21AD000F129F /* optipng */,
+				5A9D55F20E7F21AD000F129F /* src */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -157,7 +157,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5A9D55F20E7F21AD000F129F /* optipng */ = {
+		5A9D55F20E7F21AD000F129F /* src */ = {
 			isa = PBXGroup;
 			children = (
 				5A984A9411237FE2007622D7 /* opngoptim.c */,
@@ -173,7 +173,7 @@
 				5A9D563F0E7F21AD000F129F /* strutil.h */,
 				5A9D55F30E7F21AD000F129F /* pngxtern */,
 			);
-			name = optipng;
+			path = src;
 			sourceTree = "<group>";
 		};
 		5A9D55F30E7F21AD000F129F /* pngxtern */ = {

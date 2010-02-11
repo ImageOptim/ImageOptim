@@ -88,35 +88,35 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5A20CBEE112392790000400D /* download-sparkle */;
+			remoteGlobalIDString = 5A20CBEE112392790000400D;
 			remoteInfo = "download-sparkle";
 		};
 		5A20CC941123939C0000400D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A20CC8E1123939C0000400D /* libpng.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC0630554660B00DB518D /* liblibpng.dylib */;
+			remoteGlobalIDString = D2AAC0630554660B00DB518D;
 			remoteInfo = libpng;
 		};
 		5A20CC97112393AC0000400D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A20CC8E1123939C0000400D /* libpng.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC0620554660B00DB518D /* libpng */;
+			remoteGlobalIDString = D2AAC0620554660B00DB518D;
 			remoteInfo = libpng;
 		};
 		5A20CCA1112393B90000400D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A20CC9D112393B80000400D /* jpeg.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC0630554660B00DB518D /* libjpeg.dylib */;
+			remoteGlobalIDString = D2AAC0630554660B00DB518D;
 			remoteInfo = jpeg;
 		};
 		5A20CCA4112393CC0000400D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A20CC9D112393B80000400D /* jpeg.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC0620554660B00DB518D /* jpeg */;
+			remoteGlobalIDString = D2AAC0620554660B00DB518D;
 			remoteInfo = jpeg;
 		};
 		5A4DC1931028284400A9DD55 /* PBXContainerItemProxy */ = {
