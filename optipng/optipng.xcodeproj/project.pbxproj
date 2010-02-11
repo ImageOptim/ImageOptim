@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A7399E00EA2836300D751E1 /* liblibpng.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7399DF0EA2835D00D751E1 /* liblibpng.dylib */; };
+		5A984A8C11237F85007622D7 /* liblibpng.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A984A8911237F68007622D7 /* liblibpng.dylib */; };
+		5A984A8D11237F88007622D7 /* liblibpng.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A984A8911237F68007622D7 /* liblibpng.dylib */; };
+		5A984A9511237FE2007622D7 /* opngoptim.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A984A9411237FE2007622D7 /* opngoptim.c */; };
 		5A9D56410E7F21AD000F129F /* gifread.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D55F60E7F21AD000F129F /* gifread.c */; };
 		5A9D56420E7F21AD000F129F /* minitiff.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D55F90E7F21AD000F129F /* minitiff.c */; };
 		5A9D56430E7F21AD000F129F /* tiffread.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D55FC0E7F21AD000F129F /* tiffread.c */; };
@@ -30,34 +32,48 @@
 		5A9D56750E7F21AD000F129F /* optipng.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D563A0E7F21AD000F129F /* optipng.c */; };
 		5A9D56760E7F21AD000F129F /* osys.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D563B0E7F21AD000F129F /* osys.c */; };
 		5A9D56770E7F21AD000F129F /* strutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D563E0E7F21AD000F129F /* strutil.c */; };
-		8DD76FB00486AB0100D96B5E /* optipng.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* optipng.1 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5A7399DE0EA2835D00D751E1 /* PBXContainerItemProxy */ = {
+		5A984A8811237F68007622D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A7399DA0EA2835D00D751E1 /* libpng.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC0630554660B00DB518D;
+			remoteGlobalIDString = D2AAC0630554660B00DB518D /* liblibpng.dylib */;
 			remoteInfo = libpng;
+		};
+		5A984A8A11237F74007622D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A7399DA0EA2835D00D751E1 /* libpng.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC0620554660B00DB518D /* libpng */;
+			remoteInfo = libpng;
+		};
+		5A984AA91123802F007622D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A984AA611238023007622D7 /* download */;
+			remoteInfo = download;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
-				8DD76FB00486AB0100D96B5E /* optipng.1 in CopyFiles */,
+				5A984A8D11237F88007622D7 /* liblibpng.dylib in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5A7399DA0EA2835D00D751E1 /* libpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpng.xcodeproj; path = lib/libpng/libpng.xcodeproj; sourceTree = "<group>"; };
+		5A7399DA0EA2835D00D751E1 /* libpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpng.xcodeproj; path = ../libpng/libpng.xcodeproj; sourceTree = "<group>"; };
+		5A984A9411237FE2007622D7 /* opngoptim.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = opngoptim.c; sourceTree = "<group>"; };
 		5A9D55F60E7F21AD000F129F /* gifread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gifread.c; sourceTree = "<group>"; };
 		5A9D55F70E7F21AD000F129F /* gifread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gifread.h; sourceTree = "<group>"; };
 		5A9D55F90E7F21AD000F129F /* minitiff.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = minitiff.c; sourceTree = "<group>"; };
@@ -92,7 +108,6 @@
 		5A9D563E0E7F21AD000F129F /* strutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = strutil.c; sourceTree = "<group>"; };
 		5A9D563F0E7F21AD000F129F /* strutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strutil.h; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* optipng */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = optipng; sourceTree = BUILT_PRODUCTS_DIR; };
-		C6A0FF2C0290799A04C91782 /* optipng.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = optipng.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A7399E00EA2836300D751E1 /* liblibpng.dylib in Frameworks */,
+				5A984A8C11237F85007622D7 /* liblibpng.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7399DA0EA2835D00D751E1 /* libpng.xcodeproj */,
-				5A9D55F20E7F21AD000F129F /* src */,
+				5A9D55F20E7F21AD000F129F /* optipng */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -134,17 +149,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5A7399DB0EA2835D00D751E1 /* Products */ = {
+		5A984A8311237F68007622D7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A7399DF0EA2835D00D751E1 /* liblibpng.dylib */,
+				5A984A8911237F68007622D7 /* liblibpng.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5A9D55F20E7F21AD000F129F /* src */ = {
+		5A9D55F20E7F21AD000F129F /* optipng */ = {
 			isa = PBXGroup;
 			children = (
+				5A984A9411237FE2007622D7 /* opngoptim.c */,
 				5A9D56360E7F21AD000F129F /* cbitset.c */,
 				5A9D56370E7F21AD000F129F /* cbitset.h */,
 				5A9D56380E7F21AD000F129F /* cexcept.h */,
@@ -157,7 +173,7 @@
 				5A9D563F0E7F21AD000F129F /* strutil.h */,
 				5A9D55F30E7F21AD000F129F /* pngxtern */,
 			);
-			path = src;
+			name = optipng;
 			sourceTree = "<group>";
 		};
 		5A9D55F30E7F21AD000F129F /* pngxtern */ = {
@@ -218,12 +234,27 @@
 		C6A0FF2B0290797F04C91782 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
-				C6A0FF2C0290799A04C91782 /* optipng.1 */,
 			);
 			name = Documentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		5A984AA611238023007622D7 /* download */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 5A984ABF112380E4007622D7 /* Build configuration list for PBXLegacyTarget "download" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = download;
+			passBuildSettingsInEnvironment = 1;
+			productName = download;
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		8DD76FA90486AB0100D96B5E /* optipng */ = {
@@ -237,6 +268,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				5A984A8B11237F74007622D7 /* PBXTargetDependency */,
+				5A984AAA1123802F007622D7 /* PBXTargetDependency */,
 			);
 			name = optipng;
 			productInstallPath = "$(HOME)/bin";
@@ -256,23 +289,24 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 5A7399DB0EA2835D00D751E1 /* Products */;
+					ProductGroup = 5A984A8311237F68007622D7 /* Products */;
 					ProjectRef = 5A7399DA0EA2835D00D751E1 /* libpng.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
 				8DD76FA90486AB0100D96B5E /* optipng */,
+				5A984AA611238023007622D7 /* download */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		5A7399DF0EA2835D00D751E1 /* liblibpng.dylib */ = {
+		5A984A8911237F68007622D7 /* liblibpng.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
 			path = liblibpng.dylib;
-			remoteRef = 5A7399DE0EA2835D00D751E1 /* PBXContainerItemProxy */;
+			remoteRef = 5A984A8811237F68007622D7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -304,10 +338,24 @@
 				5A9D56750E7F21AD000F129F /* optipng.c in Sources */,
 				5A9D56760E7F21AD000F129F /* osys.c in Sources */,
 				5A9D56770E7F21AD000F129F /* strutil.c in Sources */,
+				5A984A9511237FE2007622D7 /* opngoptim.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A984A8B11237F74007622D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libpng;
+			targetProxy = 5A984A8A11237F74007622D7 /* PBXContainerItemProxy */;
+		};
+		5A984AAA1123802F007622D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A984AA611238023007622D7 /* download */;
+			targetProxy = 5A984AA91123802F007622D7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB928608733DD80010E9CD /* Debug */ = {
@@ -351,9 +399,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				"GCC_VERSION[sdk=macosx10.6][arch=*]" = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "~/libpng/";
+				HEADER_SEARCH_PATHS = ../libpng/;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
@@ -366,12 +415,34 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				"GCC_VERSION[sdk=macosx10.6][arch=*]" = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "~/libpng/";
+				HEADER_SEARCH_PATHS = ../libpng/;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PREBINDING = NO;
 				VALID_ARCHS = "i386 ppc x86_64";
+			};
+			name = Release;
+		};
+		5A984AA711238024007622D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = download;
+			};
+			name = Debug;
+		};
+		5A984AA811238024007622D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = download;
+				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -392,6 +463,15 @@
 			buildConfigurations = (
 				1DEB928A08733DD80010E9CD /* Debug */,
 				1DEB928B08733DD80010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A984ABF112380E4007622D7 /* Build configuration list for PBXLegacyTarget "download" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A984AA711238024007622D7 /* Debug */,
+				5A984AA811238024007622D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
