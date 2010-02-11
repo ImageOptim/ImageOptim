@@ -17,21 +17,21 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5A98486711235366007622D7 /* download */;
+			remoteGlobalIDString = 5A98486711235366007622D7;
 			remoteInfo = download;
 		};
 		5A98488B11235489007622D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A7399790EA27F7E00D751E1 /* libpng.xcodeproj */;
 			proxyType = 2;
-			remoteGlobalIDString = D2AAC0630554660B00DB518D /* liblibpng.dylib */;
+			remoteGlobalIDString = D2AAC0630554660B00DB518D;
 			remoteInfo = libpng;
 		};
 		5A984893112354B7007622D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A7399790EA27F7E00D751E1 /* libpng.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = D2AAC0620554660B00DB518D /* libpng */;
+			remoteGlobalIDString = D2AAC0620554660B00DB518D;
 			remoteInfo = libpng;
 		};
 /* End PBXContainerItemProxy section */
@@ -50,35 +50,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5A7398D30EA27D4A00D751E1 /* zutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zutil.c; sourceTree = "<group>"; };
-		5A7398D40EA27D4A00D751E1 /* uncompr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uncompr.c; sourceTree = "<group>"; };
-		5A7398D50EA27D4A00D751E1 /* trees.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = trees.c; sourceTree = "<group>"; };
-		5A7398D60EA27D4A00D751E1 /* inftrees.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = inftrees.c; sourceTree = "<group>"; };
-		5A7398D70EA27D4A00D751E1 /* compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = compress.c; sourceTree = "<group>"; };
-		5A7398D80EA27D4A00D751E1 /* inflate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = inflate.c; sourceTree = "<group>"; };
-		5A7398D90EA27D4A00D751E1 /* gzio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gzio.c; sourceTree = "<group>"; };
-		5A7398DA0EA27D4A00D751E1 /* adler32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = adler32.c; sourceTree = "<group>"; };
-		5A7398DB0EA27D4A00D751E1 /* deflate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = deflate.c; sourceTree = "<group>"; };
-		5A7398DC0EA27D4A00D751E1 /* crc32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crc32.c; sourceTree = "<group>"; };
-		5A7398DD0EA27D4A00D751E1 /* inffast.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = inffast.c; sourceTree = "<group>"; };
-		5A7398DE0EA27D4A00D751E1 /* infback.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = infback.c; sourceTree = "<group>"; };
-		5A7398DF0EA27D4A00D751E1 /* pngwutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngwutil.c; path = ../optipng/lib/libpng/pngwutil.c; sourceTree = SOURCE_ROOT; };
-		5A7398E00EA27D4A00D751E1 /* pngwtran.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngwtran.c; path = ../optipng/lib/libpng/pngwtran.c; sourceTree = SOURCE_ROOT; };
-		5A7398E10EA27D4A00D751E1 /* pngwrite.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngwrite.c; path = ../optipng/lib/libpng/pngwrite.c; sourceTree = SOURCE_ROOT; };
-		5A7398E20EA27D4A00D751E1 /* pngwio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngwio.c; path = ../optipng/lib/libpng/pngwio.c; sourceTree = SOURCE_ROOT; };
-		5A7398E30EA27D4A00D751E1 /* pngvcrd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngvcrd.c; path = ../optipng/lib/libpng/pngvcrd.c; sourceTree = SOURCE_ROOT; };
-		5A7398E40EA27D4A00D751E1 /* pngtrans.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngtrans.c; path = ../optipng/lib/libpng/pngtrans.c; sourceTree = SOURCE_ROOT; };
-		5A7398E50EA27D4A00D751E1 /* pngset.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngset.c; path = ../optipng/lib/libpng/pngset.c; sourceTree = SOURCE_ROOT; };
-		5A7398E60EA27D4A00D751E1 /* pngrutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngrutil.c; path = ../optipng/lib/libpng/pngrutil.c; sourceTree = SOURCE_ROOT; };
-		5A7398E70EA27D4A00D751E1 /* pngrtran.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngrtran.c; path = ../optipng/lib/libpng/pngrtran.c; sourceTree = SOURCE_ROOT; };
-		5A7398E80EA27D4A00D751E1 /* pngrio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngrio.c; path = ../optipng/lib/libpng/pngrio.c; sourceTree = SOURCE_ROOT; };
-		5A7398E90EA27D4A00D751E1 /* pngread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngread.c; path = ../optipng/lib/libpng/pngread.c; sourceTree = SOURCE_ROOT; };
-		5A7398EA0EA27D4A00D751E1 /* pngpread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngpread.c; path = ../optipng/lib/libpng/pngpread.c; sourceTree = SOURCE_ROOT; };
-		5A7398EB0EA27D4A00D751E1 /* pngmem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngmem.c; path = ../optipng/lib/libpng/pngmem.c; sourceTree = SOURCE_ROOT; };
-		5A7398EC0EA27D4A00D751E1 /* pngget.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngget.c; path = ../optipng/lib/libpng/pngget.c; sourceTree = SOURCE_ROOT; };
-		5A7398ED0EA27D4A00D751E1 /* pnggccrd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pnggccrd.c; path = ../optipng/lib/libpng/pnggccrd.c; sourceTree = SOURCE_ROOT; };
-		5A7398EE0EA27D4A00D751E1 /* pngerror.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngerror.c; path = ../optipng/lib/libpng/pngerror.c; sourceTree = SOURCE_ROOT; };
-		5A7398EF0EA27D4A00D751E1 /* png.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = png.c; path = ../optipng/lib/libpng/png.c; sourceTree = SOURCE_ROOT; };
 		5A7399790EA27F7E00D751E1 /* libpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpng.xcodeproj; path = ../libpng/libpng.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A8165E00EA1163300962CF2 /* pngcrush.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngcrush.c; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* pngcrush */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = pngcrush; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,9 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7399790EA27F7E00D751E1 /* libpng.xcodeproj */,
-				5A7398D20EA27D4A00D751E1 /* zlib */,
 				5A8165E00EA1163300962CF2 /* pngcrush.c */,
-				5A7398D10EA27D4A00D751E1 /* libpng */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -123,49 +92,6 @@
 				8DD76FB20486AB0100D96B5E /* pngcrush */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		5A7398D10EA27D4A00D751E1 /* libpng */ = {
-			isa = PBXGroup;
-			children = (
-				5A7398DF0EA27D4A00D751E1 /* pngwutil.c */,
-				5A7398E00EA27D4A00D751E1 /* pngwtran.c */,
-				5A7398E10EA27D4A00D751E1 /* pngwrite.c */,
-				5A7398E20EA27D4A00D751E1 /* pngwio.c */,
-				5A7398E30EA27D4A00D751E1 /* pngvcrd.c */,
-				5A7398E40EA27D4A00D751E1 /* pngtrans.c */,
-				5A7398E50EA27D4A00D751E1 /* pngset.c */,
-				5A7398E60EA27D4A00D751E1 /* pngrutil.c */,
-				5A7398E70EA27D4A00D751E1 /* pngrtran.c */,
-				5A7398E80EA27D4A00D751E1 /* pngrio.c */,
-				5A7398E90EA27D4A00D751E1 /* pngread.c */,
-				5A7398EA0EA27D4A00D751E1 /* pngpread.c */,
-				5A7398EB0EA27D4A00D751E1 /* pngmem.c */,
-				5A7398EC0EA27D4A00D751E1 /* pngget.c */,
-				5A7398ED0EA27D4A00D751E1 /* pnggccrd.c */,
-				5A7398EE0EA27D4A00D751E1 /* pngerror.c */,
-				5A7398EF0EA27D4A00D751E1 /* png.c */,
-			);
-			name = libpng;
-			sourceTree = "<group>";
-		};
-		5A7398D20EA27D4A00D751E1 /* zlib */ = {
-			isa = PBXGroup;
-			children = (
-				5A7398D30EA27D4A00D751E1 /* zutil.c */,
-				5A7398D40EA27D4A00D751E1 /* uncompr.c */,
-				5A7398D50EA27D4A00D751E1 /* trees.c */,
-				5A7398D60EA27D4A00D751E1 /* inftrees.c */,
-				5A7398D70EA27D4A00D751E1 /* compress.c */,
-				5A7398D80EA27D4A00D751E1 /* inflate.c */,
-				5A7398D90EA27D4A00D751E1 /* gzio.c */,
-				5A7398DA0EA27D4A00D751E1 /* adler32.c */,
-				5A7398DB0EA27D4A00D751E1 /* deflate.c */,
-				5A7398DC0EA27D4A00D751E1 /* crc32.c */,
-				5A7398DD0EA27D4A00D751E1 /* inffast.c */,
-				5A7398DE0EA27D4A00D751E1 /* infback.c */,
-			);
-			name = zlib;
 			sourceTree = "<group>";
 		};
 		5A98488811235489007622D7 /* Products */ = {
@@ -327,12 +253,18 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
 				GCC_OBJC_CALL_CXX_CDTORS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					PNG_CONFIGURE_LIBPNG,
+					HAVE_CONFIG_H,
+				);
 				GCC_THREADSAFE_STATICS = NO;
+				"GCC_VERSION[sdk=macosx10.6][arch=*]" = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../libpng/";
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Debug;
@@ -349,12 +281,18 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_OBJC_CALL_CXX_CDTORS = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					PNG_CONFIGURE_LIBPNG,
+					HAVE_CONFIG_H,
+				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_THREADSAFE_STATICS = NO;
+				"GCC_VERSION[sdk=macosx10.6][arch=*]" = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PREBINDING = NO;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../libpng/";
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Release;
