@@ -8,7 +8,7 @@
 #import "Worker.h"
 @class FilesQueue;
 
-@interface DirWorker : Worker {
+@interface DirWorker : NSOperation {
 	FilesQueue *filesQueue;
 	NSString *path;
     NSArray *extensions;

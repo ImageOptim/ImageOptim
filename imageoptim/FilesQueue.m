@@ -36,10 +36,7 @@
 	[tableView registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType,NSStringPboardType,nil]];
     
 	[self setEnabled:YES];	
-    
-    
-    //[NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(updateProgressbar) userInfo:nil repeats:YES];
-    
+        
 	return self;
 }
 
@@ -48,21 +45,14 @@
     
     if ([queueWaitingLock tryLock])
     {        
-        @try{       
-            /* sleep for a moment just in case other processes need time to start*/
-            usleep(100000);
-            [cpuQueue waitUntilAllOperationsAreFinished];
-            [dirWorkerQueue waitUntilAllOperationsAreFinished];            
-            [fileIOQueue waitUntilAllOperationsAreFinished];
-            
-            /* while it was waiting for the last queue, one of previous queues could get busy, so let's go over it again */
-            usleep(100000);
-            [cpuQueue waitUntilAllOperationsAreFinished];
-            [dirWorkerQueue waitUntilAllOperationsAreFinished];            
-            [fileIOQueue waitUntilAllOperationsAreFinished];
-            
-            [[NSGarbageCollector defaultCollector] collectIfNeeded];
-        }
+        @try{ 
+			do { // any queue may be re-filled while waiting for another queue, so double-check is necessary
+				[dirWorkerQueue waitUntilAllOperationsAreFinished];            
+				[fileIOQueue waitUntilAllOperationsAreFinished];
+				[cpuQueue waitUntilAllOperationsAreFinished];
+				
+			} while (dirWorkerQueue.operationCount || fileIOQueue.operationCount || cpuQueue.operationCount);
+		}
         @finally {
             [queueWaitingLock unlock];
         }
@@ -178,12 +168,12 @@
 	return YES;
 }
 
--(void)addDir:(NSString *)path extensions:(NSArray*)e
+-(void)addDir:(NSString *)path
 {
     if (!isEnabled) return;
     
     @try {            
-        DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self extensions:e];
+        DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self extensions:[self extensions]];
         [dirWorkerQueue addOperation:w];
     }
     @catch (NSException *e) {
@@ -198,14 +188,12 @@
  */
 -(File *)findFileByPath:(NSString *)path
 {
-	NSArray *array = [filesController content];
-    
     if (![seenPathHashes containsObject:path])
     {
         return nil;
     }
-    
-    for(File *f in array)
+ 
+    for(File *f in [filesController content])
 	{
 		if ([path isEqualToString:[f filePath]])
 		{
@@ -215,40 +203,59 @@
 	return nil;
 }
 
--(void)addFilePath:(NSString*)path {
-    if ([path characterAtIndex:[path length]-1] == '~') // backup file
-    {
-        NSLog(@"Refusing to optimize backup file");
-        NSBeep();
-        return;
-    }
-    
-    [filesControllerLock lock];    
-    @try {  
-        File *f;
-        if (f = [self findFileByPath:path])
-        {
-            if (![f isBusy]) [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];;
-        }
-        else
-        {
-            [seenPathHashes addObject:path];
-            f = [[File alloc] initWithFilePath:path];
-            [filesController addObject:f];
-            [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
-        }            
-    }
-    @catch (NSException *e) {
-        NSLog(@"add file path failed %@",e);
-    }
-    @finally {
-        [filesControllerLock unlock];
-    }
-    
+-(void)addFileObjects:(NSArray *)files
+{
+	for(File *f in files)
+	{
+		[filesController addObject:f];
+		[f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
+	}
+	
     [self runAdded];
 }
 
--(void)addPath:(NSString *)path dirs:(NSArray*)extensionsOrNil
+-(void)addFilePaths:(NSArray*)paths 
+{
+	NSMutableArray *toAdd = [NSMutableArray arrayWithCapacity:[paths count]];
+	BOOL beepWhenDone = NO;
+
+	[filesControllerLock lock];    
+	@try {  	
+		for(NSString *path in paths)
+		{
+			if ([path characterAtIndex:[path length]-1] == '~') // backup file
+			{
+				NSLog(@"Refusing to optimize backup file");
+				beepWhenDone = YES;
+				continue;
+			}
+
+			File *f = [self findFileByPath:path];
+			if (f)
+			{
+				if (![f isBusy]) [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];;
+			}
+			else
+			{
+				[seenPathHashes addObject:path]; // used by findFileByPath
+				f = [[File alloc] initWithFilePath:path];
+				[toAdd addObject:f];
+			}   
+		}
+		
+		[self performSelectorOnMainThread:@selector(addFileObjects:) withObject:toAdd waitUntilDone:YES];
+	}
+	@catch (NSException *e) {
+		NSLog(@"add file path failed %@",e);
+	}
+	@finally {
+		[filesControllerLock unlock];
+	}
+	
+	if (beepWhenDone) NSBeep();
+}
+
+-(void)addPath:(NSString *)path
 {	
 	if (!isEnabled) {
         NSLog(@"Ignored %@",path);
@@ -260,11 +267,11 @@
 	{		
 		if (!isDir)
 		{
-			[self performSelectorOnMainThread:@selector(addFilePath:) withObject:path waitUntilDone:NO];
+			[self performSelectorOnMainThread:@selector(addFilePaths:) withObject:[NSArray arrayWithObject:path] waitUntilDone:NO];
 		}
-		else if (extensionsOrNil)
+		else
 		{            
-			[self addDir:path extensions:extensionsOrNil];
+			[self addDir:path];
 		}
 	}
 }
@@ -305,7 +312,7 @@
 
 -(void)updateProgressbar
 {
-	if (![cpuQueue.operations count] && ![dirWorkerQueue.operations count] && ![fileIOQueue.operations count])
+	if (!cpuQueue.operationCount && !dirWorkerQueue.operationCount && !fileIOQueue.operationCount)
 	{		
         //NSLog(@"Done!");
 		[progressBar stopAnimation:nil];
@@ -320,20 +327,11 @@
 	}
 }
 
--(void)addFilePaths:(NSArray *)paths 
-{
-    for(NSString *path in paths)
-	{
-		[self addFilePath:path];
-	}
-}
 -(void)addPaths:(NSArray *)paths
 {
-    NSArray *ext = [self extensions];
-    //NSLog(@"Adding paths %@",paths);
 	for(NSString *path in paths)
 	{
-		[self addPath:path dirs:ext];
+		[self addPath:path];
 	}
     
     [self runAdded];

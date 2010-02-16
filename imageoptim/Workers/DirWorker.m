@@ -23,21 +23,35 @@
 	return self;
 }
 
--(void)run
+-(void)main
 {
-    @try {
-            
-	for(NSString *filePath in [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:path error:nil])
+	const NSUInteger buffer_capacity = 256;
+	NSUInteger buffer_size = 1;
+	NSUInteger buffered = 0;
+	NSMutableArray *buffer = [NSMutableArray arrayWithCapacity:buffer_capacity];
+	
+    @try 
 	{
-		NSString *newPath = [path stringByAppendingPathComponent:filePath];
-		
-		if ([extensions containsObject:[newPath pathExtension]])
+		for(NSString *filePath in [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:path error:nil])
 		{
-			[filesQueue addPath:newPath dirs:NO];
+			NSString *newPath = [path stringByAppendingPathComponent:filePath];
+			
+			if ([extensions containsObject:[newPath pathExtension]])
+			{
+				[buffer addObject:newPath]; buffered++;
+				if (buffered >= buffer_size)
+				{
+					// assuming that previous buffer flushes created some work to do
+					// buffer size can be increased to lower overhead
+					buffer_size = MIN(buffer_capacity, buffer_size*2 + 4);
+					[filesQueue addFilePaths:buffer];
+					[buffer removeAllObjects]; buffered=0;
+				}
+			}
 		}
-	}
-	//NSLog(@"DirWorker finished completely");
-        
+		
+		if ([buffer count]) [filesQueue addFilePaths:buffer];
+		//NSLog(@"DirWorker finished completely");			
     }
     @catch (NSException *ex) {
         NSLog(@"DIR worker failed %@",ex);
