@@ -33,7 +33,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5F084AA61124134B00C7B074 /* download */;
+			remoteGlobalIDString = 5F084AA61124134B00C7B074;
 			remoteInfo = download;
 		};
 /* End PBXContainerItemProxy section */
@@ -78,7 +78,6 @@
 			children = (
 				5A401AF1111A75A500908C9B /* jpeg.xcodeproj */,
 				08FB7795FE84155DC02AAC07 /* jpegoptim */,
-				C6A0FF2B0290797F04C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
 			name = jpegoptim;
@@ -118,13 +117,6 @@
 				5AA49DB0111CC23000137D50 /* libjpeg.dylib */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C6A0FF2B0290797F04C91782 /* Documentation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Documentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,21 +277,29 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SSE41_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
 				GCC_FAST_MATH = YES;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_MODEL_TUNING = G5;
+				"GCC_MODEL_TUNING[arch=x86_64]" = "-mtune=core2";
+				GCC_OBJC_CALL_CXX_CDTORS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
 					HAVE_CONFIG_H,
 				);
+				GCC_STRICT_ALIASING = YES;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_THREADSAFE_STATICS = NO;
 				GCC_UNROLL_LOOPS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
+				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				PREBINDING = NO;
-				RUN_CLANG_STATIC_ANALYZER = YES;
+				PREBINDING = YES;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Release;
