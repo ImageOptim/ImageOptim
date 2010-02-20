@@ -8,6 +8,16 @@
 
 #import "Workers/DirWorker.h"
 
+@interface FilesQueue ()
+
+-(NSArray*)extensions;
+-(BOOL)isAnyQueueBusy;
+-(void)setEnabled:(BOOL)y;
+-(void)updateProgressbar;
+
+@end
+
+
 @implementation FilesQueue
 
 -(id)initWithTableView:(NSTableView*)inTableView progressBar:(NSProgressIndicator *)inBar andController:(NSArrayController*)inController
@@ -41,6 +51,20 @@
 }
 
 
+-(BOOL)isAnyQueueBusy
+{
+	if ([dirWorkerQueue respondsToSelector:@selector(operationCount)])
+	{
+		assert(NSFoundationVersionNumber >= (1.0+kCFCoreFoundationVersionNumber10_5));
+		return dirWorkerQueue.operationCount || fileIOQueue.operationCount || cpuQueue.operationCount;
+	}
+	else 
+	{
+		assert(NSFoundationVersionNumber < (1.0+kCFCoreFoundationVersionNumber10_5));
+		return dirWorkerQueue.operations.count || fileIOQueue.operations.count || cpuQueue.operations.count;		
+	}
+}
+
 -(void)waitForQueuesToFinish {   
     
     if ([queueWaitingLock tryLock])
@@ -51,7 +75,7 @@
 				[fileIOQueue waitUntilAllOperationsAreFinished];
 				[cpuQueue waitUntilAllOperationsAreFinished];
 				
-			} while (dirWorkerQueue.operationCount || fileIOQueue.operationCount || cpuQueue.operationCount);
+			} while ([self isAnyQueueBusy]);
 		}
         @finally {
             [queueWaitingLock unlock];
@@ -312,7 +336,7 @@
 
 -(void)updateProgressbar
 {
-	if (!cpuQueue.operationCount && !dirWorkerQueue.operationCount && !fileIOQueue.operationCount)
+	if (![self isAnyQueueBusy])
 	{		
         //NSLog(@"Done!");
 		[progressBar stopAnimation:nil];

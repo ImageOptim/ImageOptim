@@ -32,7 +32,6 @@
 -(void)addPaths:(NSArray *)paths;
 -(void)addFilePaths:(NSArray *)paths;
 -(void)addPath:(NSString*)s;
--(void)setEnabled:(BOOL)y;
 
 -(void)runAdded;
 -(void)startAgain;
@@ -40,12 +39,9 @@
 -(IBAction)delete:(id)sender;
 -(void)quickLook;
 
--(void)updateProgressbar;
 -(void)cleanup;
 
 -(void)openRowInFinder:(NSUInteger)row;
 
-
 -(NSArray *)fileTypes;
--(NSArray*)extensions;
 @end
