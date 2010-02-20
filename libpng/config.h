@@ -76,7 +76,7 @@
 //#define VERSION "1.2.32"
 
 #define PNG_WRITE_SUPPORTED
-#define PNG_USE_GLOBAL_ARRAYS
+#define PNG_USE_LOCAL_ARRAYS
 #define PNG_ALWAYS_EXTERN
 #define PNG_READ_SUPPORTED
 #define PNG_READ_16_TO_8_SUPPORTED
@@ -92,7 +92,8 @@
 /* Define to `unsigned int' if <sys/types.h> does not define. */
 /* #undef size_t */
 
-
+#undef ZEXTERN
+#define ZEXTERN
 
 /* pngcrush */
 #ifdef __ppc__
@@ -105,19 +106,13 @@
 #  define PNG_NO_ZALLOC_ZERO  /* speeds it up a little */
 #endif
 
-#ifndef PNG_USER_MEM_SUPPORTED
-#  define PNG_USER_MEM_SUPPORTED
-#endif
+#undef PNG_USER_MEM_SUPPORTED /* disables debug malloc in pngcrush; required for optipng compat */
 
 /*pngcrush can't compile without it :( */
 #define PNG_MNG_FEATURES_SUPPORTED /* extra filter type */
 
 #ifndef PNG_NO_LEGACY_SUPPORTED
 #  define PNG_NO_LEGACY_SUPPORTED
-#endif
-
-#ifndef PNG_SETJMP_NOT_SUPPORTED
-#  define PNG_SETJMP_NOT_SUPPORTED
 #endif
 
 #define PNG_READ_GRAY_TO_RGB_SUPPORTED
@@ -135,6 +130,7 @@
 #define PNG_NO_WRITE_zTXt
 #define PNG_NO_WRITE_sTER
 #define PNG_NO_READ_sTER
+#define PNG_NO_iTXt_SUPPORTED
 
 #define PNG_NO_INFO_IMAGE
 #define PNG_EASY_ACCESS
@@ -149,6 +145,7 @@
 #define PNG_NO_READ_INVERT_ALPHA
 #define PNG_NO_READ_BGR
 #define PNG_NO_READ_SWAP
+#define PNG_NO_SET_USER_LIMITS
 
 #define PNG_READ_STRIP_ALPHA_SUPPORTED
 #define PNG_READ_FILLER_SUPPORTED
@@ -166,11 +163,5 @@
 #undef TOO_FAR
 #define TOO_FAR 32768U
 
-#define PNG_NO_iTXt_SUPPORTED
 
-/* This allows png_default_error() to return, when it is called after our
- own exception handling, which only returns after "Too many IDAT's",
- or anything else that we might want to handle as a warning instead of
- an error. */
-#define PNG_ABORT() {}
 

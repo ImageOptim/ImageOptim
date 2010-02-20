@@ -439,9 +439,9 @@
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_MODEL_PPC64 = NO;
 				GCC_MODEL_TUNING = G5;
-				"GCC_MODEL_TUNING[arch=i386]" = "pentium-m";
+				"GCC_MODEL_TUNING[arch=i386]" = "-mtune=pentium-m";
 				"GCC_MODEL_TUNING[arch=ppc]" = G5;
-				"GCC_MODEL_TUNING[arch=x86_64]" = core2;
+				"GCC_MODEL_TUNING[arch=x86_64]" = "-mtune=core2";
 				GCC_OBJC_CALL_CXX_CDTORS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					PNG_CONFIGURE_LIBPNG,
@@ -450,7 +450,6 @@
 				);
 				GCC_STRICT_ALIASING = YES;
 				GCC_THREADSAFE_STATICS = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
@@ -460,7 +459,6 @@
 				"OTHER_CFLAGS[arch=x86_64]" = "-mtune=core2";
 				PREBINDING = YES;
 				RUN_CLANG_STATIC_ANALYZER = NO;
-				SDKROOT = macosx10.6;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
