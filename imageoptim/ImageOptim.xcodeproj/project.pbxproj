@@ -226,6 +226,7 @@
 		5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pngcrush.xcodeproj; path = ../pngcrush/pngcrush.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A20CC8E1123939C0000400D /* libpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpng.xcodeproj; path = ../libpng/libpng.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A20CC9D112393B80000400D /* jpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpeg.xcodeproj; path = ../libjpeg/jpeg.xcodeproj; sourceTree = SOURCE_ROOT; };
+		5A44976911303B01006EAA56 /* ImageOptim.tar.bz2 */ = {isa = PBXFileReference; explicitFileType = archive; path = ImageOptim.tar.bz2; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A44F4B20CB1868100BD2884 /* PngCrushWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PngCrushWorker.h; sourceTree = "<group>"; };
 		5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PngCrushWorker.m; sourceTree = "<group>"; };
 		5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommandWorker.m; sourceTree = "<group>"; };
@@ -366,6 +367,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* ImageOptim.app */,
+				5A44976911303B01006EAA56 /* ImageOptim.tar.bz2 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1092,7 +1094,6 @@
 				GCC_STRICT_ALIASING = YES;
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
-				GCC_VERSION = 4.2;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
