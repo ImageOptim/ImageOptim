@@ -1,0 +1,33 @@
+--- lib/pngxtern/pngxread.c	2010-02-20 11:16:37.000000000 +0000
++++ lib/pngxtern/pngxread.c	2010-02-20 11:16:58.000000000 +0000
+@@ -126,30 +126,5 @@
+       return 1;
+    }
+ 
+-   /* Check the signature bytes against other known image formats. */
+-   if (pngx_sig_is_bmp(sig, num,
+-       fmt_name_buf, fmt_name_buf_size, fmt_desc_buf, fmt_desc_buf_size) > 0)
+-      read_fn = pngx_read_bmp;
+-   else if (pngx_sig_is_gif(sig, num,
+-       fmt_name_buf, fmt_name_buf_size, fmt_desc_buf, fmt_desc_buf_size) > 0)
+-      read_fn = pngx_read_gif;
+-   else if (pngx_sig_is_jpeg(sig, num,
+-       fmt_name_buf, fmt_name_buf_size, fmt_desc_buf, fmt_desc_buf_size) > 0)
+-      read_fn = pngx_read_jpeg;
+-   else if (pngx_sig_is_pnm(sig, num,
+-       fmt_name_buf, fmt_name_buf_size, fmt_desc_buf, fmt_desc_buf_size) > 0)
+-      read_fn = pngx_read_pnm;
+-   else if (pngx_sig_is_tiff(sig, num,
+-       fmt_name_buf, fmt_name_buf_size, fmt_desc_buf, fmt_desc_buf_size) > 0)
+-      read_fn = pngx_read_tiff;
+-   else
+       return 0;  /* not a known image format */
+-
+-   /* Read the image. */
+-   result = read_fn(png_ptr, info_ptr, stream);
+-   /* Signature checking may give false positives; reading can still fail. */
+-   if (result <= 0)  /* this isn't the format we thought it was */
+-      if (fsetpos(stream, &fpos) != 0)
+-         png_error(png_ptr, "Can't fseek in input file stream");
+-   return result;
+ }
