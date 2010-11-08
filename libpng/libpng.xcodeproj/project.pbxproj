@@ -288,7 +288,14 @@
 			isa = PBXProject;
 			buildConfigurationList = 1DEB914E08733D8E0010E9CD /* Build configuration list for PBXProject "libpng" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
 			mainGroup = 08FB7794FE84155DC02AAC07 /* libpng */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -395,6 +402,7 @@
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
 				GCC_FAST_MATH = YES;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OBJC_CALL_CXX_CDTORS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					HAVE_CONFIG_H,
@@ -405,7 +413,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
-				LD_DYLIB_INSTALL_NAME = ./liblibpng.dylib;
+				LD_DYLIB_INSTALL_NAME = "@loader_path/liblibpng.dylib";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = YES;
@@ -450,7 +458,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
-				LD_DYLIB_INSTALL_NAME = ./liblibpng.dylib;
+				LD_DYLIB_INSTALL_NAME = "@loader_path/liblibpng.dylib";
 				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				"OTHER_CFLAGS[arch=x86_64]" = "-mtune=core2";
