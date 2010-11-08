@@ -13,7 +13,8 @@ src/optipng.c:
 	
 clean:
 	test \! -e ./patched || rm ./patched
-	test \! -e ./src/optipng.c || rm -rf ./src/
+	test \! -d ./src/ || rm -rf ./src/
+	test \! -d ./lib/ || rm -rf ./lib/
 
 install:
 	
