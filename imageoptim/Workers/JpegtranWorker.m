@@ -52,7 +52,7 @@
 	[task setStandardOutput: commandPipe];	
 	[task setStandardError: commandPipe];	
 	
-    NSLog(@"jpegtran ready to run");
+    //NSLog(@"jpegtran ready to run");
 	[self launchTask:task];
 	
 	[self parseLinesFromHandle:commandHandle];

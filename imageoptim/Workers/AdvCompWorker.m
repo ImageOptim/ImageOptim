@@ -73,7 +73,7 @@
 		//[file setByteSizeOptimized:optimized];
 		return YES;		
 	}
-	NSLog(@"advpng: %@",line);
+	//NSLog(@"advpng: %@",line);
 	return NO;
 }
 

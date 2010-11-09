@@ -240,7 +240,7 @@
 
 -(void)workerHasFinished:(Worker *)worker
 {
-	NSLog(@"Worker finished notification 2");
+	//NSLog(@"Worker finished notification 2");
 	@synchronized(self) 
     {
         workersActive--;
