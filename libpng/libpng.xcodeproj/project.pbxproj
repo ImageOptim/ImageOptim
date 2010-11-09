@@ -33,7 +33,6 @@
 		5A19427E0FF974E7007C3324 /* pngconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A19427D0FF974E7007C3324 /* pngconf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A1944050FF98722007C3324 /* pngerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F30FF98722007C3324 /* pngerror.c */; };
 		5A1944060FF98722007C3324 /* pngset.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F40FF98722007C3324 /* pngset.c */; };
-		5A1944070FF98722007C3324 /* pnggccrd.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F50FF98722007C3324 /* pnggccrd.c */; };
 		5A1944080FF98722007C3324 /* pngread.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F60FF98722007C3324 /* pngread.c */; };
 		5A1944090FF98722007C3324 /* pngget.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F70FF98722007C3324 /* pngget.c */; };
 		5A19440A0FF98722007C3324 /* pngtest.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F80FF98722007C3324 /* pngtest.c */; };
@@ -42,7 +41,6 @@
 		5A19440D0FF98722007C3324 /* pngwio.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FB0FF98722007C3324 /* pngwio.c */; };
 		5A19440E0FF98722007C3324 /* pngrutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FC0FF98722007C3324 /* pngrutil.c */; };
 		5A19440F0FF98722007C3324 /* pngmem.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FD0FF98722007C3324 /* pngmem.c */; };
-		5A1944100FF98722007C3324 /* pngvcrd.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FE0FF98722007C3324 /* pngvcrd.c */; };
 		5A1944110FF98722007C3324 /* pngrtran.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FF0FF98722007C3324 /* pngrtran.c */; };
 		5A1944120FF98722007C3324 /* png.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1944000FF98722007C3324 /* png.c */; };
 		5A1944130FF98722007C3324 /* pngwrite.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1944010FF98722007C3324 /* pngwrite.c */; };
@@ -97,7 +95,6 @@
 		5A19427D0FF974E7007C3324 /* pngconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pngconf.h; sourceTree = "<group>"; };
 		5A1943F30FF98722007C3324 /* pngerror.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngerror.c; sourceTree = "<group>"; };
 		5A1943F40FF98722007C3324 /* pngset.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngset.c; sourceTree = "<group>"; };
-		5A1943F50FF98722007C3324 /* pnggccrd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pnggccrd.c; sourceTree = "<group>"; };
 		5A1943F60FF98722007C3324 /* pngread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngread.c; sourceTree = "<group>"; };
 		5A1943F70FF98722007C3324 /* pngget.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngget.c; sourceTree = "<group>"; };
 		5A1943F80FF98722007C3324 /* pngtest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngtest.c; sourceTree = "<group>"; };
@@ -106,7 +103,6 @@
 		5A1943FB0FF98722007C3324 /* pngwio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngwio.c; sourceTree = "<group>"; };
 		5A1943FC0FF98722007C3324 /* pngrutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngrutil.c; sourceTree = "<group>"; };
 		5A1943FD0FF98722007C3324 /* pngmem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngmem.c; sourceTree = "<group>"; };
-		5A1943FE0FF98722007C3324 /* pngvcrd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngvcrd.c; sourceTree = "<group>"; };
 		5A1943FF0FF98722007C3324 /* pngrtran.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngrtran.c; sourceTree = "<group>"; };
 		5A1944000FF98722007C3324 /* png.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = png.c; sourceTree = "<group>"; };
 		5A1944010FF98722007C3324 /* pngwrite.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngwrite.c; sourceTree = "<group>"; };
@@ -146,7 +142,6 @@
 				5A19427D0FF974E7007C3324 /* pngconf.h */,
 				5A1943F30FF98722007C3324 /* pngerror.c */,
 				5A1943F40FF98722007C3324 /* pngset.c */,
-				5A1943F50FF98722007C3324 /* pnggccrd.c */,
 				5A1943F60FF98722007C3324 /* pngread.c */,
 				5A1943F70FF98722007C3324 /* pngget.c */,
 				5A1943F80FF98722007C3324 /* pngtest.c */,
@@ -155,7 +150,6 @@
 				5A1943FB0FF98722007C3324 /* pngwio.c */,
 				5A1943FC0FF98722007C3324 /* pngrutil.c */,
 				5A1943FD0FF98722007C3324 /* pngmem.c */,
-				5A1943FE0FF98722007C3324 /* pngvcrd.c */,
 				5A1943FF0FF98722007C3324 /* pngrtran.c */,
 				5A1944000FF98722007C3324 /* png.c */,
 				5A1944010FF98722007C3324 /* pngwrite.c */,
@@ -325,7 +319,6 @@
 				5A1941BA0FF96FAD007C3324 /* zutil.c in Sources */,
 				5A1944050FF98722007C3324 /* pngerror.c in Sources */,
 				5A1944060FF98722007C3324 /* pngset.c in Sources */,
-				5A1944070FF98722007C3324 /* pnggccrd.c in Sources */,
 				5A1944080FF98722007C3324 /* pngread.c in Sources */,
 				5A1944090FF98722007C3324 /* pngget.c in Sources */,
 				5A19440A0FF98722007C3324 /* pngtest.c in Sources */,
@@ -334,7 +327,6 @@
 				5A19440D0FF98722007C3324 /* pngwio.c in Sources */,
 				5A19440E0FF98722007C3324 /* pngrutil.c in Sources */,
 				5A19440F0FF98722007C3324 /* pngmem.c in Sources */,
-				5A1944100FF98722007C3324 /* pngvcrd.c in Sources */,
 				5A1944110FF98722007C3324 /* pngrtran.c in Sources */,
 				5A1944120FF98722007C3324 /* png.c in Sources */,
 				5A1944130FF98722007C3324 /* pngwrite.c in Sources */,
