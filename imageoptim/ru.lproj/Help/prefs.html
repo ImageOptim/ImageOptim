@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"	"http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<title>ImageOptim Preferences</title>
+<link rel="stylesheet" href="style.css">
+<meta name="AppleTitle" content="ImageOptim Preferences Help">
+<!--meta name="AppleIcon" content="AppName%20Help/images/icon-name.png"-->
+<meta name="AppleFont" content="Lucida Grande,Helvetica,Arial">
+<meta name="AppleSearchResultsFont" content="Lucida Grande,Geneva,Arial">
+<meta name="description" content="ImageOptim Preferences">
+<body>
+<a name="general">general</a>
+<h1>ImageOptim Preferences</h1>
+<p><a href="index.html">« Back to index</a></p>
+<p>You shouldn't need to change any of these (except path to PNGOUT if you've installed it).</p>
+<h2>General preferences</h2>
+<dl>
+	<dt>Preserve file permissions, attributes and hardlinks</dt>
+	<dd>
+		<p>Instead of deleting old file writing a new one with the same name, just replaces old file's content in-place. This ensures that all hardlinks, aliases, file ownership, permissions, extended file attributes will stay the same.
+		<p>It's slightly faster not to preserve permissions.
+	</dd>
+	<dt>Backup original files before saving</dt>
+	<dd><p>Will write copy of a file with <samp>~</samp> appended to its name. This makes optimisation a bit slower and litters your disk with backup files.</p></dd>
+
+	<dt>Number of tasks run at once</dt>
+	<dd><p>If you have multi-CPU or multi-core system running more than one task at the same time will speed things up a lot.</p></dd>
+	<dt>Run tasks with lower priority</dt>
+	<dd><p>This will prevent whole system from feeling sluggish during optimisation.</p></dd>
+</dl>
+<div id="jpegoptim">
+<a name="jpegoptim">jpegoptim</a>
+<h2>JPEGOptim</h2>
+<dl>
+	<dt>Enabled</dt>
+<dd><p>If checked, ImageOptim will try to optimize JPEG files.</dd>
+<dt>JPEGOptim path</dt>
+<dd><p>Path to <samp>jpegoptim</samp> executable file. Usually <samp>/usr/bin/jpegoptim</samp> or <samp>/sw/bin/jpegoptim</samp>.</dd>
+
+<dt>Maximum quality</dt>
+<dd><p>If set to 100%, optimisation will be <strong>lossless</strong>.</p>
+	<p>Anything below 100% will cause <strong>lower quality</strong> of files if they appear to have been saved with higher quality setting.</p>
+
+<dt>Strip Comments from files</dt>
+<dt>Strip EXIF markers from files</dt>
+<dd><p>Removes image metadata, like name of program or model of camera which created the file.</dd>
+</dl>
+</div>
+<div id="pngout">
+<a name="pngout">pngout</a>
+<h2>PNGOUT</h2>
+<dl>
+<dt>Enabled</dt>
+<dd><p>If checked, ImageOptim will try to optimize PNG files using PNGOUT.
+    <p>PNGOUT is not bundled with ImageOptim. It's a great tool, but and <a href="http://www.advsys.net/ken/utils.htm">author of PNGOUT</a> forbids redistribution of it, so <a target="_blank" href="http://www.jonof.id.au/index.php?p=pngout">you have to download PNGOUT yourself</a>.</dd>
+<dt>PNGOUT path</dt>
+<dd><p>Path to <samp>pngout</samp> (or <samp>pngout-darwin</samp>) executable file.</dd>
+
+<dl>
+	<dt>Optimisation type</dt>
+	<dd><p>PNGOUT is very effective, but very slow. Use lower level if you're impatient.</dd>
+
+	<dt>Interrupt if takes too long</dt>
+	<dd><p>PNGOUT may need <em>a lot</em> of time to optimize very large images. This option gracefully interrupts PNGOUT after 1 minute.</p></dd>
+		
+	<dt>Remove optional chunks</dt>
+	<dd><p>Keep it on if you optimize for web. Disable if you have special PNGs with extra metadata.</p></dd>
+</dl>
+</div>
+<div id="pngcrush">
+<a name="pngcrush">pngcrush</a>
+<h2>PNGCrush</h2>
+<dl>
+<dt>Enabled</dt>
+<dd><p>If checked, ImageOptim will try to optimize PNG files using PNGCrush.
+<dt>PNGCrush path</dt>
+<dd><p>Path to <samp>pngcrush</samp> executable file.</dd>
+
+<dl>
+	<dt>Try fixing damaged files</dt>
+	<dd><p>PNGCrush will not reject PNG files that have invalid checksums</dd>
+
+	<dt>Remove chunks</dt>
+	<dd><p>PNG stores information in chunks and many of them are optional. Enter 4-letter names of chunks you wish to remove or press <samp>γ</samp> button to pre-fill list with gamma-related chunks.</p></dd>
+</dl>
+</div>
+<div id="advpng">
+<a name="advpng">advpng</a>
+<h2>AdvPNG</h2>
+<dl>
+<dt>Enabled</dt>
+<dd><p>If checked, ImageOptim will try to optimize PNG files using AdvPNG tool.</dd>
+<dt>AdvPNG path</dt>
+<dd><p>Path to <samp>advpng</samp> executable file. Usually <samp>/usr/bin/advpng</samp> or <samp>/sw/bin/advpng</samp>.</dd>
+
+<dl>
+	<dt>Optimisation level</dt>
+	<dd>AdvPNG is relatively fast, so you can use maximum level.</dd>
+</dl>
+</div>
+<div id="optipng">
+<a name="optipng">optipng</a>
+<h2>OptiPNG</h2>
+<dl>
+<dt>Enabled</dt>
+<dd><p>If checked, ImageOptim will try to optimize PNG files using OptiPNG tool.</dd>
+<dt>OptiPNG path</dt>
+<dd><p>Path to <samp>optipng</samp> executable file. Usually <samp>/usr/bin/optipng</samp> or <samp>/sw/bin/optipng</samp>.</dd>
+
+<dl>
+	<dt>Optimisation level</dt>
+	<dd><p>Number of different setting combinations tested. It rarely makes sense to try them all.</dd>
+	
+	<dt>Make images interlaced (progressive)</dt>
+	<dd><p>Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.<p>
+		<p>This checkbox has three states: if checked, will force images to be interlaced. When mixed, it will keep file's interlace unchanged, unchecked will remove interlace from files.</dd>
+</dl>
+</div>
+<div id="gifsicle">
+<a name="gifsicle">gifsicle</a>
+<h2>Gifsicle</h2>
+<dl>
+<dt>Enabled</dt>
+<dd><p>If checked, ImageOptim will try to optimize GIF files using Gifsicle.
+<dt>Gifsicle path</dt>
+<dd><p>Path to <samp>gifsicle</samp> executable file.</dd>
+
+<p>GIF files will be changed to interlaced or non-interlaced automatically, whichever is smaller. In-file comments will be removed.</p>
+<p>Please note that Gifsicle works best with animated GIFs and non-animated GIFs rarely can be optimized</p>
+
+<p>For best compression, you should convert GIF files to PNGs (ImageOptim does not do that automatically).</p>
+</div>

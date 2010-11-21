@@ -37,7 +37,6 @@
 		5A44F5840CB2ECEB00BD2884 /* CommandWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */; };
 		5A45530C1024EB1100A69944 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A45530A1024EB1100A69944 /* MainMenu.xib */; };
 		5A45530F1024EB3000A69944 /* PrefsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A45530D1024EB3000A69944 /* PrefsController.xib */; };
-		5A4DC14D1028259000A9DD55 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A4DC14B1028259000A9DD55 /* InfoPlist.strings */; };
 		5A4DC21B1028AE1800A9DD55 /* GifsicleWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DC21A1028AE1800A9DD55 /* GifsicleWorker.m */; };
 		5A5C29430CB04A0F00FAF446 /* OptiPngWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5C29420CB04A0F00FAF446 /* OptiPngWorker.m */; };
 		5A6242080CA86DC7005942A3 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6242070CA86DC7005942A3 /* PrefsController.m */; };
@@ -221,6 +220,12 @@
 		5A0343B012998485002091AA /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = pt; path = pt.lproj/Credits.rtf; sourceTree = "<group>"; };
 		5A0343BE129984B3002091AA /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5A0343BF129984BA002091AA /* pt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = pt; path = pt.lproj/PrefsController.xib; sourceTree = "<group>"; };
+		5A034423129985D5002091AA /* pt */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pt; path = pt.lproj/Help; sourceTree = "<group>"; };
+		5A03443612998825002091AA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ru; path = ru.lproj/Credits.rtf; sourceTree = "<group>"; };
+		5A0344371299882B002091AA /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5A0344381299882F002091AA /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/PrefsController.xib; sourceTree = "<group>"; };
+		5A03443A12998845002091AA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A03443B1299884F002091AA /* ru */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ru; path = ru.lproj/Help; sourceTree = "<group>"; };
 		5A09013F0ED8D6AA00F3965B /* appcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 		5A0901400ED8D6B800F3965B /* sparkle.sig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = sparkle.sig; path = build/Release/sparkle.sig; sourceTree = "<group>"; };
 		5A0D2E550C922AB700FD7CDE /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = File.h; sourceTree = "<group>"; };
@@ -240,7 +245,6 @@
 		5A4553121024EF3000A69944 /* Polish */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Polish; path = pl.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5A4553131024EF4100A69944 /* Polish */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Polish; path = pl.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5A4554F81025EBE900A69944 /* optimal_file_list */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = optimal_file_list; sourceTree = "<group>"; };
-		5A4DC14C1028259000A9DD55 /* French */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = French; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A4DC2051028ADB200A9DD55 /* gifsicle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = gifsicle.xcodeproj; path = ../gifsicle/gifsicle.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A4DC2191028AE1800A9DD55 /* GifsicleWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifsicleWorker.h; sourceTree = "<group>"; };
 		5A4DC21A1028AE1800A9DD55 /* GifsicleWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifsicleWorker.m; sourceTree = "<group>"; };
@@ -415,7 +419,6 @@
 				5A45530A1024EB1100A69944 /* MainMenu.xib */,
 				5AA21EAF10CB20E700DAFE84 /* drag.png */,
 				5A887F8310C17361006A0687 /* Credits.rtf */,
-				5A4DC14B1028259000A9DD55 /* InfoPlist.strings */,
 				5A95FEBE0CB8041A00737B79 /* Help */,
 				5A9EE4490CB59CDC00F08CC5 /* err.png */,
 				5A94A03A10275E11005CC9CB /* Localizable.strings */,
@@ -611,6 +614,7 @@
 				Italian,
 				pt,
 				pt_PT,
+				ru,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ImageOptim */;
 			projectDirPath = "";
@@ -743,7 +747,6 @@
 				5A45530C1024EB1100A69944 /* MainMenu.xib in Resources */,
 				5A45530F1024EB3000A69944 /* PrefsController.xib in Resources */,
 				5A94A03C10275E11005CC9CB /* Localizable.strings in Resources */,
-				5A4DC14D1028259000A9DD55 /* InfoPlist.strings in Resources */,
 				5A887F8510C17361006A0687 /* Credits.rtf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -876,6 +879,7 @@
 				5AA2213E10DE9CF900D67435 /* Italian */,
 				5AA339011117C41400046C79 /* German */,
 				5A0343BE129984B3002091AA /* pt */,
+				5A0344371299882B002091AA /* ru */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -890,16 +894,9 @@
 				5AA2213F10DE9D0100D67435 /* Italian */,
 				5AA339021117C41B00046C79 /* German */,
 				5A0343BF129984BA002091AA /* pt */,
+				5A0344381299882F002091AA /* ru */,
 			);
 			name = PrefsController.xib;
-			sourceTree = "<group>";
-		};
-		5A4DC14B1028259000A9DD55 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5A4DC14C1028259000A9DD55 /* French */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		5A887F8310C17361006A0687 /* Credits.rtf */ = {
@@ -912,6 +909,7 @@
 				5AA2213210DE9CD500D67435 /* Italian */,
 				5AA338A21117BF1900046C79 /* German */,
 				5A0343B012998485002091AA /* pt */,
+				5A03443612998825002091AA /* ru */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -924,6 +922,7 @@
 				5A8DFBEB10C09812009A5C8E /* Dutch */,
 				5AA2213310DE9CEF00D67435 /* Italian */,
 				5AA338BF1117C00300046C79 /* German */,
+				5A03443A12998845002091AA /* ru */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -935,6 +934,8 @@
 				5A94A02610275AFD005CC9CB /* Help */,
 				5A8DFBD910C097B9009A5C8E /* Dutch */,
 				5AA338A31117BF5500046C79 /* German */,
+				5A034423129985D5002091AA /* pt */,
+				5A03443B1299884F002091AA /* ru */,
 			);
 			name = Help;
 			sourceTree = "<group>";
