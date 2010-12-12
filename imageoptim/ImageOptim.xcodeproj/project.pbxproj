@@ -11,8 +11,8 @@
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 5ABB9FF10E8518FE006F51BB /* Build configuration list for PBXAggregateTarget "bzip archive" */;
 			buildPhases = (
-				5ABB9FEB0E8518DA006F51BB /* ShellScript */,
-				5A81644C0E9ACABE00962CF2 /* ShellScript */,
+				5ABB9FEB0E8518DA006F51BB /* Tar */,
+				5A81644C0E9ACABE00962CF2 /* Sign */,
 			);
 			dependencies = (
 				5ABB9FF00E8518DF006F51BB /* PBXTargetDependency */,
@@ -55,7 +55,7 @@
 		5AACA13F0CAF241B004D45CA /* Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA13E0CAF241B004D45CA /* Worker.m */; };
 		5AACA3850CAF3DA5004D45CA /* minus.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AACA3830CAF3DA5004D45CA /* minus.png */; };
 		5AACA3860CAF3DA5004D45CA /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AACA3840CAF3DA5004D45CA /* plus.png */; };
-		5AACA8100CAFE3CA004D45CA /* crusher.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5AACA80F0CAFE3CA004D45CA /* crusher.icns */; };
+		5AACA8100CAFE3CA004D45CA /* ImageOptim.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */; };
 		5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA8300CAFE74E004D45CA /* Transformers.m */; };
 		5AC63C320E9ABCDF0053B879 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC63C310E9ABCDF0053B879 /* Sparkle.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		5AC63C420E9ABD2C0053B879 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC63C310E9ABCDF0053B879 /* Sparkle.framework */; };
@@ -195,6 +195,13 @@
 			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = ImageOptim;
 		};
+		5ACED04512A5C51900CCF006 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A20CC8E1123939C0000400D /* libpng.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5ACECF3812A59B1B00CCF006;
+			remoteInfo = static;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -294,13 +301,11 @@
 		5AACA3830CAF3DA5004D45CA /* minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minus.png; sourceTree = "<group>"; };
 		5AACA3840CAF3DA5004D45CA /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
 		5AACA7BA0CAFD0D2004D45CA /* MyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableView.h; sourceTree = "<group>"; };
-		5AACA80F0CAFE3CA004D45CA /* crusher.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = crusher.icns; sourceTree = "<group>"; };
+		5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ImageOptim.icns; sourceTree = "<group>"; };
 		5AACA82F0CAFE74E004D45CA /* Transformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformers.h; sourceTree = "<group>"; };
 		5AACA8300CAFE74E004D45CA /* Transformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transformers.m; sourceTree = "<group>"; };
 		5AC63C310E9ABCDF0053B879 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		5AC63C490E9ABF0A0053B879 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
-		5AC97A830FF7AB9700A870B5 /* Dupe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dupe.h; sourceTree = "<group>"; };
-		5AC97A840FF7AB9700A870B5 /* Dupe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dupe.m; sourceTree = "<group>"; };
 		5AD3032010D555E4002A5558 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		5AD3032110D555ED002A5558 /* Polish */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Polish; path = pl.lproj/Credits.rtf; sourceTree = "<group>"; };
 		5AD3032210D555F7002A5558 /* French */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = French; path = fr.lproj/Credits.rtf; sourceTree = "<group>"; };
@@ -346,8 +351,6 @@
 				5A714AAC0CB0196A00C242C0 /* MyTableView.m */,
 				5AACA82F0CAFE74E004D45CA /* Transformers.h */,
 				5AACA8300CAFE74E004D45CA /* Transformers.m */,
-				5AC97A830FF7AB9700A870B5 /* Dupe.h */,
-				5AC97A840FF7AB9700A870B5 /* Dupe.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -426,7 +429,7 @@
 				5A9EE44B0CB59CDC00F08CC5 /* ok.png */,
 				5A9EE4720CB59EC100F08CC5 /* progress.png */,
 				5A9EE44C0CB59CDC00F08CC5 /* wait.png */,
-				5AACA80F0CAFE3CA004D45CA /* crusher.icns */,
+				5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */,
 				5AACA3830CAF3DA5004D45CA /* minus.png */,
 				5AACA3840CAF3DA5004D45CA /* plus.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -474,6 +477,7 @@
 			isa = PBXGroup;
 			children = (
 				5A20CC951123939C0000400D /* liblibpng.dylib */,
+				5ACED04612A5C51900CCF006 /* libstatic.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -718,6 +722,13 @@
 			remoteRef = 5A984D4911238E51007622D7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		5ACED04612A5C51900CCF006 /* libstatic.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libstatic.a;
+			remoteRef = 5ACED04512A5C51900CCF006 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -734,7 +745,7 @@
 				5A20CC01112393360000400D /* advpng in Resources */,
 				5A20CC811123933C0000400D /* pngcrush in Resources */,
 				5AE54D810CAEE8AC00903DF4 /* defaults.plist in Resources */,
-				5AACA8100CAFE3CA004D45CA /* crusher.icns in Resources */,
+				5AACA8100CAFE3CA004D45CA /* ImageOptim.icns in Resources */,
 				5AACA3850CAF3DA5004D45CA /* minus.png in Resources */,
 				5AACA3860CAF3DA5004D45CA /* plus.png in Resources */,
 				5A9EE44D0CB59CDC00F08CC5 /* err.png in Resources */,
@@ -754,7 +765,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5A81644C0E9ACABE00962CF2 /* ShellScript */ = {
+		5A81644C0E9ACABE00962CF2 /* Sign */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -762,6 +773,7 @@
 			inputPaths = (
 				"$(TARGET_BUILD_DIR)/ImageOptim.tar.bz2",
 			);
+			name = Sign;
 			outputPaths = (
 				"$(TARGET_BUILD_DIR)/sparkle.sig",
 			);
@@ -769,7 +781,7 @@
 			shellPath = /bin/sh;
 			shellScript = "ruby \"$SRCROOT/sign_update.rb\" \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" ~/.ssh/dsa_priv_imageoptim.pem > \"$TARGET_BUILD_DIR/sparkle.sig\"\nwc -c \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" >> \"$TARGET_BUILD_DIR/sparkle.sig\"\ndate '+%a, %e %b %Y %H:%M:%S %z' >> \"$TARGET_BUILD_DIR/sparkle.sig\"";
 		};
-		5ABB9FEB0E8518DA006F51BB /* ShellScript */ = {
+		5ABB9FEB0E8518DA006F51BB /* Tar */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 8;
 			files = (
@@ -778,12 +790,13 @@
 				"$(BUILT_PRODUCTS_DIR)/ImageOptim.app",
 				"$(SRCROOT)/optimal_file_list",
 			);
+			name = Tar;
 			outputPaths = (
 				"$(TARGET_BUILD_DIR)/ImageOptim.tar.bz2",
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$BUILT_PRODUCTS_DIR/\" && tar cjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" --format=ustar --files-from=\"$SRCROOT/optimal_file_list\"\n";
+			shellScript = "cd \"$BUILT_PRODUCTS_DIR/\" && /sw/bin/tar cjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" --format=ustar --files-from=\"$SRCROOT/optimal_file_list\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1020,6 +1033,7 @@
 				GCC_STRICT_ALIASING = YES;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = 4.2;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_PEDANTIC = NO;
 				GCC_WARN_PROTOTYPE_CONVERSION = NO;
@@ -1034,6 +1048,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = macosx;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				VALID_ARCHS = x86_64;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1094,6 +1109,7 @@
 				PLIST_FILE_OUTPUT_FORMAT = binary;
 				PREBINDING = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				VALID_ARCHS = "i386 ppc x86_64";
 				VERSIONING_SYSTEM = "apple-generic";
