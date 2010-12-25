@@ -43,6 +43,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5A07072C12C41519008AB68D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A19439E0FF982D4007C3324 /* libpng.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5ACECF3812A59B1B00CCF006;
+			remoteInfo = static;
+		};
 		5A7439C7111DA4EF001C2D27 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A19439E0FF982D4007C3324 /* libpng.xcodeproj */;
@@ -184,6 +191,7 @@
 		08FB7794FE84155DC02AAC07 /* advpng */ = {
 			isa = PBXGroup;
 			children = (
+				5A19439E0FF982D4007C3324 /* libpng.xcodeproj */,
 				08FB7795FE84155DC02AAC07 /* advancecomp */,
 				C6A0FF2B0290797F04C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
@@ -194,7 +202,6 @@
 		08FB7795FE84155DC02AAC07 /* advancecomp */ = {
 			isa = PBXGroup;
 			children = (
-				5A19439E0FF982D4007C3324 /* libpng.xcodeproj */,
 				5A8166580EA117BB00962CF2 /* 7z */,
 				5A8166410EA117B600962CF2 /* lib */,
 				5A8166260EA117B100962CF2 /* compress.h */,
@@ -229,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7439C8111DA4EF001C2D27 /* liblibpng.dylib */,
+				5A07072D12C41519008AB68D /* libstatic.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -394,6 +402,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		5A07072D12C41519008AB68D /* libstatic.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libstatic.a;
+			remoteRef = 5A07072C12C41519008AB68D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5A7439C8111DA4EF001C2D27 /* liblibpng.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
@@ -486,7 +501,6 @@
 		1DEB928A08733DD80010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_ALTIVEC_EXTENSIONS = YES;
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -496,8 +510,8 @@
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
 				GCC_FAST_MATH = YES;
-				GCC_FAST_OBJC_DISPATCH = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OBJC_CALL_CXX_CDTORS = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
 				GCC_STRICT_ALIASING = YES;
@@ -510,7 +524,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = YES;
-				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx10.5;
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Debug;
@@ -530,7 +544,6 @@
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
 				GCC_FAST_MATH = YES;
-				GCC_FAST_OBJC_DISPATCH = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
 				GCC_MODEL_TUNING = G5;
@@ -543,14 +556,12 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_THREADSAFE_STATICS = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = 7z/../;
-				LLVM_LTO = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				"OTHER_CFLAGS[arch=x86_64]" = "-mtune=core2";
 				PREBINDING = YES;
-				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = macosx10.5;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
