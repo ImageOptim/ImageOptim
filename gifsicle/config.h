@@ -98,7 +98,7 @@
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "1.58"
+#define VERSION "1.61-imageoptim"
 
 /* Define if X is not available. */
 #define X_DISPLAY_MISSING 1
