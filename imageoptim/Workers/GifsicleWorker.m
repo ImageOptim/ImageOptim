@@ -26,7 +26,7 @@
 {	
 	NSString *temp = [self tempPath];
 	//
-	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-o",temp,@"-O2",@"--no-comments",@"--no-names",@"--same-delay",@"--same-loopcount",@"--no-warnings",@"--",[file filePath],nil];
+	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-o",temp,@"-O3",@"--no-comments",@"--no-names",@"--same-delay",@"--same-loopcount",@"--no-warnings",@"--",[file filePath],nil];
     
     if (interlace)
     {
