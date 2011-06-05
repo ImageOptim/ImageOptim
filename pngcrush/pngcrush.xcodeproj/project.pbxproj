@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5A8165FE0EA1163300962CF2 /* pngcrush.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8165E00EA1163300962CF2 /* pngcrush.c */; };
 		5A98488F11235498007622D7 /* liblibpng.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A98488C11235489007622D7 /* liblibpng.dylib */; };
-		5A9848901123549C007622D7 /* liblibpng.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A98488C11235489007622D7 /* liblibpng.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,19 +34,6 @@
 			remoteInfo = libpng;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				5A9848901123549C007622D7 /* liblibpng.dylib in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5A27BA12139B08C00095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -131,7 +117,6 @@
 			buildPhases = (
 				8DD76FAB0486AB0100D96B5E /* Sources */,
 				8DD76FAD0486AB0100D96B5E /* Frameworks */,
-				8DD76FAF0486AB0100D96B5E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -241,7 +226,6 @@
 					HAVE_CONFIG_H,
 				);
 				GCC_THREADSAFE_STATICS = NO;
-				"GCC_VERSION[sdk=macosx10.6][arch=*]" = com.apple.compilers.llvm.clang.1_0;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../libpng/";
 			};
 			name = Debug;

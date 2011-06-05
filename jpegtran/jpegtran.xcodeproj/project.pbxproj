@@ -12,7 +12,6 @@
 		5A739C140EA406A000D751E1 /* cdjpeg.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739C130EA406A000D751E1 /* cdjpeg.c */; };
 		5A739C1C0EA406F600D751E1 /* rdswitch.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739C1B0EA406F600D751E1 /* rdswitch.c */; };
 		5A8ACE8E111CCCB700EC4491 /* libjpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8ACE8D111CCCB200EC4491 /* libjpeg.dylib */; };
-		5A8ACE90111CCCC000EC4491 /* libjpeg.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A8ACE8D111CCCB200EC4491 /* libjpeg.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,19 +30,6 @@
 			remoteInfo = jpeg;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				5A8ACE90111CCCC000EC4491 /* libjpeg.dylib in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5A27BA26139B08E10095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -117,7 +103,6 @@
 			buildPhases = (
 				8DD76FAB0486AB0100D96B5E /* Sources */,
 				8DD76FAD0486AB0100D96B5E /* Frameworks */,
-				8DD76FAF0486AB0100D96B5E /* CopyFiles */,
 			);
 			buildRules = (
 			);

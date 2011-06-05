@@ -39,7 +39,6 @@
 		5A8166A60EA117BB00962CF2 /* WindowIn.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5A8166910EA117BB00962CF2 /* WindowIn.cc */; };
 		5A8166A70EA117BB00962CF2 /* WindowOut.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5A8166930EA117BB00962CF2 /* WindowOut.cc */; };
 		5A984B1511238220007622D7 /* liblibpng.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7439C8111DA4EF001C2D27 /* liblibpng.dylib */; };
-		5A984B1611238223007622D7 /* liblibpng.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A7439C8111DA4EF001C2D27 /* liblibpng.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,19 +64,6 @@
 			remoteInfo = download;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				5A984B1611238223007622D7 /* liblibpng.dylib in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5A19439E0FF982D4007C3324 /* libpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpng.xcodeproj; path = ../libpng/libpng.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -342,7 +328,6 @@
 			buildPhases = (
 				8DD76FAB0486AB0100D96B5E /* Sources */,
 				8DD76FAD0486AB0100D96B5E /* Frameworks */,
-				8DD76FAF0486AB0100D96B5E /* CopyFiles */,
 			);
 			buildRules = (
 			);

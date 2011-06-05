@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5A984A8C11237F85007622D7 /* liblibpng.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A984A8911237F68007622D7 /* liblibpng.dylib */; };
-		5A984A8D11237F88007622D7 /* liblibpng.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A984A8911237F68007622D7 /* liblibpng.dylib */; };
 		5A984A9511237FE2007622D7 /* opngoptim.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A984A9411237FE2007622D7 /* opngoptim.c */; };
 		5A9D56450E7F21AD000F129F /* pngxio.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D55FF0E7F21AD000F129F /* pngxio.c */; };
 		5A9D56460E7F21AD000F129F /* pngxmem.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D56000E7F21AD000F129F /* pngxmem.c */; };
@@ -45,19 +44,6 @@
 			remoteInfo = download;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				5A984A8D11237F88007622D7 /* liblibpng.dylib in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5A18C3BC1288BD310037F881 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -193,7 +179,6 @@
 			buildPhases = (
 				8DD76FAB0486AB0100D96B5E /* Sources */,
 				8DD76FAD0486AB0100D96B5E /* Frameworks */,
-				8DD76FAF0486AB0100D96B5E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -293,7 +278,6 @@
 				INSTALL_PATH = /usr/local/bin;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/lib/libpng/build/Debug\"",
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = optipng;
@@ -306,7 +290,6 @@
 				INSTALL_PATH = /usr/local/bin;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/lib/libpng/build/Debug\"",
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = optipng;
