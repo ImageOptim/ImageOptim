@@ -195,13 +195,6 @@
 			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = ImageOptim;
 		};
-		5ACED04512A5C51900CCF006 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A20CC8E1123939C0000400D /* libpng.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5ACECF3812A59B1B00CCF006;
-			remoteInfo = static;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -284,7 +277,6 @@
 		5A9EE44B0CB59CDC00F08CC5 /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
 		5A9EE44C0CB59CDC00F08CC5 /* wait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wait.png; sourceTree = "<group>"; };
 		5A9EE4720CB59EC100F08CC5 /* progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress.png; sourceTree = "<group>"; };
-		5AA21EAF10CB20E700DAFE84 /* drag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drag.png; sourceTree = "<group>"; };
 		5AA2213210DE9CD500D67435 /* Italian */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Italian; path = it.lproj/Credits.rtf; sourceTree = "<group>"; };
 		5AA2213310DE9CEF00D67435 /* Italian */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Italian; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5AA2213E10DE9CF900D67435 /* Italian */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Italian; path = it.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -420,7 +412,6 @@
 			children = (
 				5A45530D1024EB3000A69944 /* PrefsController.xib */,
 				5A45530A1024EB1100A69944 /* MainMenu.xib */,
-				5AA21EAF10CB20E700DAFE84 /* drag.png */,
 				5A887F8310C17361006A0687 /* Credits.rtf */,
 				5A95FEBE0CB8041A00737B79 /* Help */,
 				5A9EE4490CB59CDC00F08CC5 /* err.png */,
@@ -477,7 +468,6 @@
 			isa = PBXGroup;
 			children = (
 				5A20CC951123939C0000400D /* liblibpng.dylib */,
-				5ACED04612A5C51900CCF006 /* libstatic.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -720,13 +710,6 @@
 			fileType = "compiled.mach-o.executable";
 			path = advpng;
 			remoteRef = 5A984D4911238E51007622D7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5ACED04612A5C51900CCF006 /* libstatic.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libstatic.a;
-			remoteRef = 5ACED04512A5C51900CCF006 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

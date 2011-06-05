@@ -442,7 +442,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				RUN_CLANG_STATIC_ANALYZER = NO;
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Debug;
@@ -479,7 +478,6 @@
 				LD_DYLIB_INSTALL_NAME = "@loader_path/libjpeg.dylib";
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				PREBINDING = NO;
-				RUN_CLANG_STATIC_ANALYZER = YES;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				VALID_ARCHS = "i386 ppc x86_64";
 			};

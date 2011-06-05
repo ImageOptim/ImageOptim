@@ -43,13 +43,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5A07072C12C41519008AB68D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A19439E0FF982D4007C3324 /* libpng.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5ACECF3812A59B1B00CCF006;
-			remoteInfo = static;
-		};
 		5A7439C7111DA4EF001C2D27 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A19439E0FF982D4007C3324 /* libpng.xcodeproj */;
@@ -236,7 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				5A7439C8111DA4EF001C2D27 /* liblibpng.dylib */,
-				5A07072D12C41519008AB68D /* libstatic.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -375,6 +367,9 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "advpng" */;
 			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
@@ -402,13 +397,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		5A07072D12C41519008AB68D /* libstatic.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libstatic.a;
-			remoteRef = 5A07072C12C41519008AB68D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		5A7439C8111DA4EF001C2D27 /* liblibpng.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
@@ -524,7 +512,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = YES;
-				SDKROOT = macosx10.5;
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
 			name = Debug;
@@ -561,7 +548,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				"OTHER_CFLAGS[arch=x86_64]" = "-mtune=core2";
 				PREBINDING = YES;
-				SDKROOT = macosx10.5;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
 				VALID_ARCHS = "i386 ppc x86_64";
 			};
