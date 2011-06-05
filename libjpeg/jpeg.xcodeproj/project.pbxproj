@@ -142,7 +142,7 @@
 		5A7C06F9111CC8D20025045A /* jdarith.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jdarith.c; sourceTree = "<group>"; };
 		5A7C06FD111CC8DE0025045A /* jcarith.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jcarith.c; sourceTree = "<group>"; };
 		5A7C0701111CC8FB0025045A /* jaricom.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jaricom.c; sourceTree = "<group>"; };
-		D2AAC0630554660B00DB518D /* libjpeg.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libjpeg.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2AAC0630554660B00DB518D /* libimageoptimjpeg.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libimageoptimjpeg.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +178,7 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D2AAC0630554660B00DB518D /* libjpeg.dylib */,
+				D2AAC0630554660B00DB518D /* libimageoptimjpeg.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -308,7 +308,7 @@
 			);
 			name = jpeg;
 			productName = jpeg;
-			productReference = D2AAC0630554660B00DB518D /* libjpeg.dylib */;
+			productReference = D2AAC0630554660B00DB518D /* libimageoptimjpeg.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -406,7 +406,7 @@
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
 				GCC_DYNAMIC_NO_PIC = NO;
-				PRODUCT_NAME = jpeg;
+				PRODUCT_NAME = imageoptimjpeg;
 			};
 			name = Debug;
 		};
@@ -414,7 +414,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = jpeg;
+				PRODUCT_NAME = imageoptimjpeg;
 			};
 			name = Release;
 		};
@@ -422,7 +422,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9E6139B08640095FC2F /* debug.xcconfig */;
 			buildSettings = {
-				LD_DYLIB_INSTALL_NAME = "@loader_path/libjpeg.dylib";
+				LD_DYLIB_INSTALL_NAME = "@loader_path/libimageoptimjpeg.dylib";
 			};
 			name = Debug;
 		};
@@ -430,7 +430,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9E5139B08640095FC2F /* release.xcconfig */;
 			buildSettings = {
-				LD_DYLIB_INSTALL_NAME = "@loader_path/libjpeg.dylib";
+				LD_DYLIB_INSTALL_NAME = "@loader_path/libimageoptimjpeg.dylib";
 			};
 			name = Release;
 		};

@@ -32,7 +32,7 @@
 		5A20CC841123934F0000400D /* optipng in Resources */ = {isa = PBXBuildFile; fileRef = 5A1943680FF980B3007C3324 /* optipng */; };
 		5A20CC85112393540000400D /* gifsicle in Resources */ = {isa = PBXBuildFile; fileRef = 5A4DC20D1028ADB200A9DD55 /* gifsicle */; };
 		5A20CC96112393A10000400D /* liblibpng.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 5A20CC951123939C0000400D /* liblibpng.dylib */; };
-		5A20CCA3112393BE0000400D /* libjpeg.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 5A20CCA2112393B90000400D /* libjpeg.dylib */; };
+		5A20CCA3112393BE0000400D /* libimageoptimjpeg.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */; };
 		5A27B957139B03090095FC2F /* release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5A27B956139B03090095FC2F /* release.xcconfig */; };
 		5A27B9C3139B079A0095FC2F /* debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5A27B9C2139B079A0095FC2F /* debug.xcconfig */; };
 		5A44F4B40CB1868100BD2884 /* PngCrushWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */; };
@@ -481,7 +481,7 @@
 		5A20CC9E112393B90000400D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A20CCA2112393B90000400D /* libjpeg.dylib */,
+				5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -683,10 +683,10 @@
 			remoteRef = 5A20CC941123939C0000400D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5A20CCA2112393B90000400D /* libjpeg.dylib */ = {
+		5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libjpeg.dylib;
+			path = libimageoptimjpeg.dylib;
 			remoteRef = 5A20CCA1112393B90000400D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -725,7 +725,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A20CCA3112393BE0000400D /* libjpeg.dylib in Resources */,
+				5A20CCA3112393BE0000400D /* libimageoptimjpeg.dylib in Resources */,
 				5A20CC96112393A10000400D /* liblibpng.dylib in Resources */,
 				5A20CC85112393540000400D /* gifsicle in Resources */,
 				5A20CC841123934F0000400D /* optipng in Resources */,

@@ -10,7 +10,7 @@
 		5A8167B30EA11E3F00962CF2 /* getopt.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167820EA11E3F00962CF2 /* getopt.c */; };
 		5A8167B40EA11E3F00962CF2 /* getopt1.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167830EA11E3F00962CF2 /* getopt1.c */; };
 		5A8167B50EA11E3F00962CF2 /* jpegoptim.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167840EA11E3F00962CF2 /* jpegoptim.c */; };
-		5AA49DB5111CC25500137D50 /* libjpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA49DB0111CC23000137D50 /* libjpeg.dylib */; };
+		5AA49DB5111CC25500137D50 /* libimageoptimjpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA49DB0111CC23000137D50 /* libimageoptimjpeg.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AA49DB5111CC25500137D50 /* libjpeg.dylib in Frameworks */,
+				5AA49DB5111CC25500137D50 /* libimageoptimjpeg.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +104,7 @@
 		5AA49DAC111CC23000137D50 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5AA49DB0111CC23000137D50 /* libjpeg.dylib */,
+				5AA49DB0111CC23000137D50 /* libimageoptimjpeg.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,10 +179,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		5AA49DB0111CC23000137D50 /* libjpeg.dylib */ = {
+		5AA49DB0111CC23000137D50 /* libimageoptimjpeg.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libjpeg.dylib;
+			path = libimageoptimjpeg.dylib;
 			remoteRef = 5AA49DAF111CC23000137D50 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};

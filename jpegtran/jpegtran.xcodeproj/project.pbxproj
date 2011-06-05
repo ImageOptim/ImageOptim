@@ -11,7 +11,7 @@
 		5A739BB80EA4042600D751E1 /* transupp.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739BB70EA4042600D751E1 /* transupp.c */; };
 		5A739C140EA406A000D751E1 /* cdjpeg.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739C130EA406A000D751E1 /* cdjpeg.c */; };
 		5A739C1C0EA406F600D751E1 /* rdswitch.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739C1B0EA406F600D751E1 /* rdswitch.c */; };
-		5A8ACE8E111CCCB700EC4491 /* libjpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8ACE8D111CCCB200EC4491 /* libjpeg.dylib */; };
+		5A8ACE8E111CCCB700EC4491 /* libimageoptimjpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8ACE8D111CCCB200EC4491 /* libimageoptimjpeg.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A8ACE8E111CCCB700EC4491 /* libjpeg.dylib in Frameworks */,
+				5A8ACE8E111CCCB700EC4491 /* libimageoptimjpeg.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,7 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				5A739BA30EA4034800D751E1 /* jpeg.xcodeproj */,
-				08FB7795FE84155DC02AAC07 /* libjpeg */,
+				08FB7795FE84155DC02AAC07 /* libimageoptimjpeg */,
 				5A27BA26139B08E10095FC2F /* release.xcconfig */,
 				5A27BA27139B08E10095FC2F /* debug.xcconfig */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
@@ -66,7 +66,7 @@
 			name = jpegtran;
 			sourceTree = "<group>";
 		};
-		08FB7795FE84155DC02AAC07 /* libjpeg */ = {
+		08FB7795FE84155DC02AAC07 /* libimageoptimjpeg */ = {
 			isa = PBXGroup;
 			children = (
 				5A739C1B0EA406F600D751E1 /* rdswitch.c */,
@@ -74,7 +74,7 @@
 				5A739BAE0EA4038A00D751E1 /* jpegtran.c */,
 				5A739BB70EA4042600D751E1 /* transupp.c */,
 			);
-			name = libjpeg;
+			name = libimageoptimjpeg;
 			path = ../libjpeg;
 			sourceTree = SOURCE_ROOT;
 		};
@@ -89,7 +89,7 @@
 		5A8ACE89111CCCB200EC4491 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A8ACE8D111CCCB200EC4491 /* libjpeg.dylib */,
+				5A8ACE8D111CCCB200EC4491 /* libimageoptimjpeg.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,10 +149,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		5A8ACE8D111CCCB200EC4491 /* libjpeg.dylib */ = {
+		5A8ACE8D111CCCB200EC4491 /* libimageoptimjpeg.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
-			path = libjpeg.dylib;
+			path = libimageoptimjpeg.dylib;
 			remoteRef = 5A8ACE8C111CCCB200EC4491 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
