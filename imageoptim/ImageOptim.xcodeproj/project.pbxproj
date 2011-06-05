@@ -33,8 +33,6 @@
 		5A20CC85112393540000400D /* gifsicle in Resources */ = {isa = PBXBuildFile; fileRef = 5A4DC20D1028ADB200A9DD55 /* gifsicle */; };
 		5A20CC96112393A10000400D /* liblibpng.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 5A20CC951123939C0000400D /* liblibpng.dylib */; };
 		5A20CCA3112393BE0000400D /* libimageoptimjpeg.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */; };
-		5A27B957139B03090095FC2F /* release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5A27B956139B03090095FC2F /* release.xcconfig */; };
-		5A27B9C3139B079A0095FC2F /* debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5A27B9C2139B079A0095FC2F /* debug.xcconfig */; };
 		5A44F4B40CB1868100BD2884 /* PngCrushWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */; };
 		5A44F5840CB2ECEB00BD2884 /* CommandWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */; };
 		5A45530C1024EB1100A69944 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A45530A1024EB1100A69944 /* MainMenu.xib */; };
@@ -748,8 +746,6 @@
 				5A45530F1024EB3000A69944 /* PrefsController.xib in Resources */,
 				5A94A03C10275E11005CC9CB /* Localizable.strings in Resources */,
 				5A887F8510C17361006A0687 /* Credits.rtf in Resources */,
-				5A27B957139B03090095FC2F /* release.xcconfig in Resources */,
-				5A27B9C3139B079A0095FC2F /* debug.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -999,7 +995,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9C2139B079A0095FC2F /* debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				CURRENT_PROJECT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
@@ -1026,7 +1021,6 @@
 				GCC_OBJC_CALL_CXX_CDTORS = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				SDKROOT = macosx;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
