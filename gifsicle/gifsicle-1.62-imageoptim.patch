@@ -39,19 +39,19 @@ index f84549e..e85d8d7 100644
 -    verbose_out = stdout;
  }
 diff --git a/src/gifsicle.c b/src/gifsicle.c
-index 516f0ca..a89fe23 100644
+index 41947c8..f62e07d 100644
 --- a/src/gifsicle.c
 +++ b/src/gifsicle.c
-@@ -697,7 +697,7 @@ input_stream(const char *name)
+@@ -690,7 +690,7 @@ input_stream(const char *name)
    def_frame = old_def_frame;
  
    if (unoptimizing)
 -    if (!Gif_FullUnoptimize(gfs, GIF_UNOPTIMIZE_SIMPLEST_DISPOSAL)) {
 +    if (0) {
        static int context = 0;
-       warning("'%s' is too complex to unoptimize", name);
+       warning(1, "GIF too complex to unoptimize", name);
        if (!context) {
-@@ -1280,16 +1280,7 @@ main(int argc, char *argv[])
+@@ -1273,16 +1273,7 @@ main(int argc, char *argv[])
    dmalloc_verbose("fudge");
  #endif
  
@@ -70,10 +70,10 @@ index 516f0ca..a89fe23 100644
    while (1) {
      int opt = Clp_Next(clp);
 diff --git a/src/gifwrite.c b/src/gifwrite.c
-index a687b65..9fc4066 100644
+index fe6018d..bf6ad93 100644
 --- a/src/gifwrite.c
 +++ b/src/gifwrite.c
-@@ -304,6 +304,8 @@ write_compressed_data(uint8_t **img, unsigned width, unsigned height,
+@@ -308,6 +308,8 @@ write_compressed_data(uint8_t **img, unsigned width, unsigned height,
  	  next_node->suffix = suffix;
  	  next_node->child.s = 0;
  
@@ -82,7 +82,7 @@ index a687b65..9fc4066 100644
  	  /* link next_node into work_node's set of children */
  	  if (work_node->type == TABLE_TYPE)
  	    work_node->child.m[suffix] = next_node;
-@@ -324,6 +326,7 @@ write_compressed_data(uint8_t **img, unsigned width, unsigned height,
+@@ -328,6 +330,7 @@ write_compressed_data(uint8_t **img, unsigned width, unsigned height,
  
  	/* Output the current code. */
  	output_code = work_node->code;
@@ -91,7 +91,7 @@ index a687b65..9fc4066 100644
  	work_depth = 1;
  	goto found_output_code;
 diff --git a/src/quantize.c b/src/quantize.c
-index 6c91104..60352b3 100644
+index 4d257be..c2ca1e3 100644
 --- a/src/quantize.c
 +++ b/src/quantize.c
 @@ -101,7 +101,7 @@ histogram(Gif_Stream *gfs, int *nhist_store)
