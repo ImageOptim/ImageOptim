@@ -21,7 +21,7 @@
 -(id)init
 {
 	if (self = [super init])
-	{	
+	{
 		runningWorkers = [[NSMutableArray alloc] init];
 		queuedWorkers =  [[NSMutableArray alloc] init];
 		workersLock = [NSRecursiveLock new];
@@ -37,42 +37,42 @@
 
 -(void)removeWorkersOf:(File *)file
 {
-	[workersLock lock];	
+	[workersLock lock];
 	Worker *w;
 	NSMutableArray *toRemove = [NSMutableArray new];
-	
+
 	for(w in runningWorkers)
 		if ([w isRelatedTo:file])
 			[toRemove addObject:file];
-	
+
 	[runningWorkers removeObjectsInArray:toRemove];
-	
+
 	for(w in queuedWorkers)
 		if ([w isRelatedTo:file])
 			[toRemove addObject:file];
-	
+
 	[queuedWorkers removeObjectsInArray:toRemove];
-	
+
 	[workersLock unlock];
-	
-	
+
+
 
 }
 
 -(void)runWorkers
-{	
-	[workersLock lock];	
+{
+	[workersLock lock];
 	@try
 	{
 //		NSLog(@"Run workers in %@",self);
-		
-		
+
+
 		BOOL keepRunning = NO;
 		BOOL completelyFinished = NO;
-		
+
 		Worker *runWorker = NULL;
 		do
-		{								
+		{
 			int i,count;
 				if([runningWorkers count] < maxWorkersCount && (count = [queuedWorkers count]))
 				{
@@ -80,7 +80,7 @@
 					{
 						Worker *w = [queuedWorkers objectAtIndex:i];
 						Worker *dependence;
-						
+
 						if (!(dependence = [w dependsOn]) || (NSNotFound == [runningWorkers indexOfObjectIdenticalTo:dependence] && NSNotFound == [queuedWorkers indexOfObjectIdenticalTo:dependence]))
 						{
 //							NSLog(@"runnable worker found %@",w);
@@ -88,9 +88,9 @@
                             [queuedWorkers removeObjectAtIndex:i];
 							/*[queuedWorkers replaceObjectAtIndex:i withObject:[queuedWorkers lastObject]];
 							[queuedWorkers removeLastObject];*/
-							
+
 							runWorker = w;
-							
+
 //							NSLog(@"queue:%@",self);
 							break;
 						}
@@ -105,18 +105,18 @@
 								[queuedWorkers replaceObjectAtIndex:dependenceIndex withObject:w];
 //								NSLog(@"queue:%@",self);
 								continue;
-							}*/						
+							}*/
 						}
-					}				
-				}	
-				
+					}
+				}
+
 				keepRunning = (runWorker && [runningWorkers count] < maxWorkersCount && [queuedWorkers count]);
 
 				completelyFinished = !runWorker && [runningWorkers count] == 0 && [queuedWorkers count] == 0;
-									
+
 			if (runWorker)
 			{
-				if (isAsync) 
+				if (isAsync)
 				{
 					[NSThread detachNewThreadSelector:@selector(threadEntry:) toTarget:self withObject:runWorker];
 				}
@@ -128,7 +128,7 @@
 			}
 		}
 		while(keepRunning);
-		
+
 		if (completelyFinished)
 		{
 			[owner workersHaveFinished:self];
@@ -140,19 +140,19 @@
 	}
 	@finally
 	{
-		[workersLock unlock];		
+		[workersLock unlock];
 	}
 }
 
 -(void)addOperation:(Worker *)w
-{	
-	[workersLock lock];	
-		
-//	NSLog(@"Adding worker %@ in %@",w,self);		
+{
+	[workersLock lock];
+
+//	NSLog(@"Adding worker %@ in %@",w,self);
 	[queuedWorkers addObject:w];
-		
+
 	[workersLock unlock];
-    
+
 	[self runWorkers];
 }
 
@@ -161,10 +161,10 @@
     [w retain];
 	[workersLock lock];
 //		NSLog(@"Worker %@ finished",w);
-		[runningWorkers removeObjectIdenticalTo:w];	
-        [w autorelease];	
+		[runningWorkers removeObjectIdenticalTo:w];
+        [w autorelease];
 	[workersLock unlock];
-	
+
 	[self runWorkers];
 }
 
@@ -173,9 +173,9 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 //	NSLog(@"Worker %@ thread start",w);
 	@try
-	{		
+	{
 		[w main];
-//		NSLog(@"worker's %@ [run] ended, starting delegate",w);		
+//		NSLog(@"worker's %@ [run] ended, starting delegate",w);
 //		NSLog(@"worker's %@ [delegate workerHasFinished] finished",w);
 	}
 	@catch(NSException *e)
@@ -194,7 +194,7 @@
 {
 	return [NSString stringWithFormat:@"queued: %@ running: %@",[queuedWorkers description],[runningWorkers description]];
 }
--(NSArray*)operations {    
+-(NSArray*)operations {
     if ([queuedWorkers count]) return queuedWorkers;
     return runningWorkers;
 }

@@ -24,29 +24,29 @@
 {
 	progressBar = [inBar retain];
 	filesController = [inController retain];
-	tableView = [inTableView retain];	
+	tableView = [inTableView retain];
 	seenPathHashes = [[NSHashTable alloc] initWithOptions:NSHashTableZeroingWeakMemory capacity:1000];
-    
+
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-	
+
     cpuQueue = [[NSOperationQueue alloc] init];
     [cpuQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentTasks"]];
-	
+
 	dirWorkerQueue = [[NSOperationQueue alloc] init];
-    [dirWorkerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentDirscans"]];	
-    
+    [dirWorkerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentDirscans"]];
+
 	fileIOQueue = [[NSOperationQueue alloc] init];
     NSUInteger fileops = [defs integerForKey:@"RunConcurrentFileops"];
     [fileIOQueue setMaxConcurrentOperationCount:fileops?fileops:3];
 
     queueWaitingLock = [NSLock new];
-    
+
 	[tableView setDelegate:self];
 	[tableView setDataSource:self];
 	[tableView registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType,NSStringPboardType,nil]];
-    
-	[self setEnabled:YES];	
-        
+
+	[self setEnabled:YES];
+
 	return self;
 }
 
@@ -58,23 +58,23 @@
 		assert(NSFoundationVersionNumber >= (1.0+kCFCoreFoundationVersionNumber10_5));
 		return dirWorkerQueue.operationCount || fileIOQueue.operationCount || cpuQueue.operationCount;
 	}
-	else 
+	else
 	{
 		assert(NSFoundationVersionNumber < (1.0+kCFCoreFoundationVersionNumber10_5));
-		return dirWorkerQueue.operations.count || fileIOQueue.operations.count || cpuQueue.operations.count;		
+		return dirWorkerQueue.operations.count || fileIOQueue.operations.count || cpuQueue.operations.count;
 	}
 }
 
--(void)waitForQueuesToFinish {   
-    
+-(void)waitForQueuesToFinish {
+
     if ([queueWaitingLock tryLock])
-    {        
-        @try{ 
+    {
+        @try{
 			do { // any queue may be re-filled while waiting for another queue, so double-check is necessary
-				[dirWorkerQueue waitUntilAllOperationsAreFinished];            
+				[dirWorkerQueue waitUntilAllOperationsAreFinished];
 				[fileIOQueue waitUntilAllOperationsAreFinished];
 				[cpuQueue waitUntilAllOperationsAreFinished];
-				
+
 			} while ([self isAnyQueueBusy]);
 		}
         @finally {
@@ -88,7 +88,7 @@
     if ([queueWaitingLock tryLock]) // if it's locked, there's thread waiting for finish
     {
         [queueWaitingLock unlock]; // can't lock/unlock across threads, so new lock will have to be made
-        [self performSelectorInBackground:@selector(waitForQueuesToFinish) withObject:nil];        
+        [self performSelectorInBackground:@selector(waitForQueuesToFinish) withObject:nil];
     }
 }
 
@@ -114,9 +114,9 @@
     }
 }
 
-- (NSDragOperation)tableView:(NSTableView *)atableView 
-                validateDrop:(id <NSDraggingInfo>)info 
-                 proposedRow:(NSInteger)row 
+- (NSDragOperation)tableView:(NSTableView *)atableView
+                validateDrop:(id <NSDraggingInfo>)info
+                 proposedRow:(NSInteger)row
        proposedDropOperation:(NSTableViewDropOperation)operation
 {
 	if (!isEnabled) return NSDragOperationNone;
@@ -124,7 +124,7 @@
 	[filesControllerLock lock];
 
 	[atableView setDropRow:[[filesController arrangedObjects] count] dropOperation:NSTableViewDropAbove];
-	
+
 	[filesControllerLock unlock];
 	return NSDragOperationCopy;
 }
@@ -132,7 +132,7 @@
 -(IBAction)delete:(id)sender
 {
 //	NSLog(@"delete action");
-    
+
     NSArray *files = nil;
 	[filesControllerLock lock];
 
@@ -141,7 +141,7 @@
         files = [filesController selectedObjects];
 		[filesController removeObjects:files];
     }
-	
+
     if (files)
     {
 //        NSLog(@"Removing %@",files);
@@ -150,9 +150,9 @@
             [f cleanup];
         }
     }
-    else NSBeep();    
+    else NSBeep();
 	[filesControllerLock unlock];
-    
+
     [self runAdded];
 }
 
@@ -169,41 +169,41 @@
 }
 
 -(void)openRowInFinder:(NSUInteger)row
-{    
+{
     NSArray *objs = [filesController arrangedObjects];
     if (row < [objs count])
     {
         File *f = [objs objectAtIndex:row];
         [[NSWorkspace sharedWorkspace] selectFile:[f filePath] inFileViewerRootedAtPath: @""];
-    }    
+    }
 }
 
 - (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation
 {
 	NSPasteboard *pboard = [info draggingPasteboard];
 	NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
-	
+
 //	NSLog(@"Dropping files %@",paths);
 	[self performSelectorInBackground:@selector(addPaths:) withObject:paths];
 
 	[[aTableView window] makeKeyAndOrderFront:aTableView];
 
-//	NSLog(@"Finished adding drop");	
+//	NSLog(@"Finished adding drop");
 	return YES;
 }
 
 -(void)addDir:(NSString *)path
 {
     if (!isEnabled) return;
-    
-    @try {            
+
+    @try {
         DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self extensions:[self extensions]];
         [dirWorkerQueue addOperation:w];
     }
     @catch (NSException *e) {
         NSLog(@"Add dir failed %@",e);
     }
-    
+
     [self runAdded];
 }
 
@@ -216,7 +216,7 @@
     {
         return nil;
     }
- 
+
     for(File *f in [filesController content])
 	{
 		if ([path isEqualToString:[f filePath]])
@@ -234,17 +234,17 @@
 		[filesController addObject:f];
 		[f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
 	}
-	
+
     [self runAdded];
 }
 
--(void)addFilePaths:(NSArray*)paths 
+-(void)addFilePaths:(NSArray*)paths
 {
 	NSMutableArray *toAdd = [NSMutableArray arrayWithCapacity:[paths count]];
 	BOOL beepWhenDone = NO;
 
-	[filesControllerLock lock];    
-	@try {  	
+	[filesControllerLock lock];
+	@try {
 		for(NSString *path in paths)
 		{
 			if ([path characterAtIndex:[path length]-1] == '~') // backup file
@@ -264,9 +264,9 @@
 				[seenPathHashes addObject:path]; // used by findFileByPath
 				f = [[File alloc] initWithFilePath:path];
 				[toAdd addObject:f];
-			}   
+			}
 		}
-		
+
 		[self performSelectorOnMainThread:@selector(addFileObjects:) withObject:toAdd waitUntilDone:YES];
 	}
 	@catch (NSException *e) {
@@ -275,26 +275,26 @@
 	@finally {
 		[filesControllerLock unlock];
 	}
-	
+
 	if (beepWhenDone) NSBeep();
 }
 
 -(void)addPath:(NSString *)path
-{	
+{
 	if (!isEnabled) {
         NSLog(@"Ignored %@",path);
-        return;   
+        return;
     }
-	
+
 	BOOL isDir;
 	if ([[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir])
-	{		
+	{
 		if (!isDir)
 		{
 			[self performSelectorOnMainThread:@selector(addFilePaths:) withObject:[NSArray arrayWithObject:path] waitUntilDone:NO];
 		}
 		else
-		{            
+		{
 			[self addDir:path];
 		}
 	}
@@ -310,34 +310,34 @@
 {
     BOOL anyStarted = NO;
 	[filesControllerLock lock];
-    @try {         
+    @try {
         NSArray *array = [filesController selectedObjects];
         if (![array count]) array = [filesController content];
-        
-        
+
+
         for(File *f in array)
         {
-            if (![f isBusy]) 
+            if (![f isBusy])
             {
                 [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
                 anyStarted = YES;
             }
         }
-            
+
     }
-    @finally {        
+    @finally {
         [filesControllerLock unlock];
     }
-	
+
 	if (!anyStarted) NSBeep();
-	
+
 	[self runAdded];
 }
 
 -(void)updateProgressbar
 {
 	if (![self isAnyQueueBusy])
-	{		
+	{
         //NSLog(@"Done!");
 		[progressBar stopAnimation:nil];
 		[[NSApplication sharedApplication] requestUserAttention:NSInformationalRequest];
@@ -357,21 +357,21 @@
 	{
 		[self addPath:path];
 	}
-    
+
     [self runAdded];
 }
 
 -(void) quickLook {
-        
+
     NSMutableArray *args;
-    
+
     if (currentQLManageTask && [currentQLManageTask isRunning])
     {
         [currentQLManageTask interrupt];
         currentQLManageTask = nil;
         return;
     }
-    
+
     [filesControllerLock lock];
     @try {
         NSArray *files = [filesController selectedObjects];
@@ -383,10 +383,10 @@
             [args addObject:f.filePath];
         }
     }
-    @finally {        
+    @finally {
         [filesControllerLock unlock];
     }
-    
+
     @try {
         NSTask *qltask = [[NSTask alloc] init];
         [qltask setLaunchPath:@"/usr/bin/qlmanage"];
@@ -395,7 +395,7 @@
         [qltask setStandardInput:[NSFileHandle fileHandleWithNullDevice]];
         [qltask setArguments:args];
         [qltask launch];
-        
+
         currentQLManageTask = qltask;
     }
     @catch(NSException *e) {
@@ -411,55 +411,55 @@
 -(int)typesEnabled {
     int types = 0;
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-    
+
     if ([defs boolForKey:@"PngCrush.Enabled"] || [defs boolForKey:@"PngOut.Enabled"] ||
         [defs boolForKey:@"OptiPng.Enabled"] || [defs boolForKey:@"AdvPng.Enabled"])
     {
         types |= PNG_ENABLED;
     }
-    
+
     if ([defs boolForKey:@"JpegOptim.Enabled"] || [defs boolForKey:@"JpegTran.Enabled"])
     {
         types |= JPEG_ENABLED;
     }
-    
+
     if ([defs boolForKey:@"Gifsicle.Enabled"])
     {
         types |= GIF_ENABLED;
     }
-    
+
     if (!types) types = PNG_ENABLED; // will show error in the list
     return types;
 }
 
 
 -(NSArray*)extensions {
-    
+
     int types = [self typesEnabled];
     NSMutableArray *extensions = [NSMutableArray array];
-    
-    if (types & PNG_ENABLED)        
+
+    if (types & PNG_ENABLED)
     {
-        [extensions addObject:@"png"]; [extensions addObject:@"PNG"];        
+        [extensions addObject:@"png"]; [extensions addObject:@"PNG"];
     }
-    if (types & JPEG_ENABLED)  
+    if (types & JPEG_ENABLED)
     {
         [extensions addObjectsFromArray:[NSArray arrayWithObjects:@"jpg",@"JPG",@"jpeg",@"JPEG",nil]];
-    }    
-    if (types & GIF_ENABLED)  
+    }
+    if (types & GIF_ENABLED)
     {
         [extensions addObject:@"gif"]; [extensions addObject:@"GIF"];
     }
-    
+
     return extensions;
 }
 
 
 -(NSArray *)fileTypes {
     int types = [self typesEnabled];
-    
+
     NSMutableArray *fileTypes = [NSMutableArray array];
-    
+
     if (types & PNG_ENABLED)
     {
         [fileTypes addObjectsFromArray:[NSArray arrayWithObjects:@"png",@"PNG",NSFileTypeForHFSTypeCode( 'PNGf' ),@"public.png",@"image/png",nil]];
@@ -467,11 +467,11 @@
     if (types & JPEG_ENABLED)
     {
         [fileTypes addObjectsFromArray:[NSArray arrayWithObjects:@"jpg",@"jpeg",@"JPG",@"JPEG",NSFileTypeForHFSTypeCode( 'JPEG' ),@"public.jpeg",@"image/jpeg",nil]];
-    }     
+    }
     if (types & GIF_ENABLED)
     {
         [fileTypes addObjectsFromArray:[NSArray arrayWithObjects:@"gif",@"GIF",NSFileTypeForHFSTypeCode( 'GIFf' ),@"public.gif",@"image/gif",nil]];
-    }     
+    }
 	return fileTypes;
 }
 

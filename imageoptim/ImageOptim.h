@@ -9,11 +9,11 @@
 	NSTableView *tableView;
 	//IBOutlet NSMutableArray *files;
 	NSArrayController *filesController;
-	
+
 	FilesQueue *filesQueue;
 	NSApplication *application;
 	PrefsController *prefsController;
-	
+
 	NSProgressIndicator *progressBar;
     NSTextField *statusBarLabel;
     NSTextView *credits;

@@ -9,7 +9,7 @@
 
 @interface PrefsController : NSWindowController {
 	ImageOptim *owner;
-	
+
 	NSSlider *tasksSlider;
 	NSArrayController *chunksController;
 

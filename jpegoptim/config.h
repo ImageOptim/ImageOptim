@@ -1,6 +1,6 @@
 /* config.h.  Generated automatically by configure.  */
-/* config.h.in. 
- * $Id: config.h.in,v 1.2 2002/12/04 13:17:58 tjko Exp $
+/* config.h.in.
+ * $Id: $
  *
  */
 

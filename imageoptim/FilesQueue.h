@@ -11,19 +11,19 @@
 	NSTableView *tableView;
 	NSArrayController *filesController;
 	BOOL isEnabled;
-	
+
 	NSOperationQueue *cpuQueue;
     NSOperationQueue *fileIOQueue;
-	NSOperationQueue *dirWorkerQueue;	
-	
+	NSOperationQueue *dirWorkerQueue;
+
 	NSRecursiveLock *filesControllerLock;
-	
+
     NSHashTable *seenPathHashes;
-    
+
 	NSProgressIndicator *progressBar;
-    
+
     NSLock *queueWaitingLock;
-    
+
     NSTask *currentQLManageTask;
 }
 

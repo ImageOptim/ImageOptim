@@ -10,7 +10,7 @@
 @interface PngoutWorker : CommandWorker {
     BOOL tryfilters, removechunks, interruptIfTakesTooLong;
     NSInteger level;
-    
+
 	NSInteger fileSizeOptimized;
 }
 

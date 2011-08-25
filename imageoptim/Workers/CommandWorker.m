@@ -35,12 +35,12 @@
 {
 	NSData *temp;
 	char inputBuffer[4096];
-	NSInteger inputBufferPos=0;	
-	while((temp = [commandHandle availableData]) && [temp length]) 
-	{			
+	NSInteger inputBufferPos=0;
+	while((temp = [commandHandle availableData]) && [temp length])
+	{
 		const char *tempBytes = [temp bytes];
 		NSInteger bytesPos=0, bytesLength = [temp length];
-		
+
 		while(bytesPos < bytesLength)
 		{
 			if (tempBytes[bytesPos] == '\n' || tempBytes[bytesPos] == '\r' || inputBufferPos == sizeof(inputBuffer)-1)
@@ -48,7 +48,7 @@
 				inputBuffer[inputBufferPos] = '\0';
 				if ([self parseLine:[NSString stringWithUTF8String:inputBuffer]])
 				{
-					return;				
+					return;
 				}
 				inputBufferPos=0;bytesPos++;
 			}
@@ -64,9 +64,9 @@
 {
 	NSTask *task;
 	task = [[NSTask alloc] init];
-	
+
 	NSLog(@"Launching %@ with %@",path,arguments);
-	
+
 	[task setLaunchPath: path];
 	[task setArguments: arguments];
 
@@ -75,22 +75,22 @@
 		[NSMutableDictionary dictionaryWithDictionary:
 			[[NSProcessInfo processInfo] environment]
 		];
-    
+
     NSString *libPath = [[NSBundle mainBundle] pathForResource:@"liblibpng" ofType:@"dylib"];
-    if (!libPath) 
+    if (!libPath)
     {
         NSLog(@"Can't find liblibpng.dylib in Resources");
         return nil;
     }
     libPath = [libPath stringByDeletingLastPathComponent];
-    
+
 	[environment setObject:libPath forKey:@"DYLD_FALLBACK_LIBRARY_PATH"];
 //    NSLog(@"Library path: %@",libPath);
 
     // set up for unbuffered I/O
 	[environment setObject:@"YES" forKey:@"NSUnbufferedIO"];
 
-    [task setEnvironment:environment];		
+    [task setEnvironment:environment];
 
 //	NSLog(@"Ready to run %@ %@",path,arguments);
 	return task;
@@ -99,9 +99,9 @@
 -(void)launchTask:(NSTask *)task
 {
 	@try
-	{			
+	{
 		[task launch];
-		
+
 		if ([[NSUserDefaults standardUserDefaults] boolForKey:@"RunLowPriority"])
 		{
 			int pid = [task processIdentifier];
@@ -118,12 +118,12 @@
 -(long)readNumberAfter:(NSString *)str inLine:(NSString *)line
 {
 	NSRange substr = [line rangeOfString:str];
-	
+
 	if (substr.length && [line length] > substr.location + [str length])
-	{		
-		NSScanner *scan = [NSScanner scannerWithString:line];	
+	{
+		NSScanner *scan = [NSScanner scannerWithString:line];
 		[scan setScanLocation:substr.location + [str length]];
-		
+
 		int res;
 		if ([scan scanInt:&res])
 		{
@@ -137,14 +137,14 @@
 -(NSTask *)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args
 {
 	NSString *executable = [self executablePathForKey:key bundleName:resourceName];
-	if (!executable) 
+	if (!executable)
     {
         NSLog(@"Could not launch %@",resourceName);
         [file setStatus:@"err" order:8 text:[NSString stringWithFormat:NSLocalizedString(@"%@ failed to start",@"tooltip"),key]];
-        return nil;        
+        return nil;
     }
-	
-	return [self taskWithPath:executable arguments:args];	
+
+	return [self taskWithPath:executable arguments:args];
 }
 
 -(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName
@@ -152,7 +152,7 @@
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	NSString *path = nil;
     NSString *const kBundle = [NSString stringWithFormat:@"%@.Bundle",prefsName];
-	
+
 	if ([defs boolForKey:kBundle])
 	{
 		if ((path = [[NSBundle mainBundle] pathForResource:resourceName ofType:nil])
@@ -172,11 +172,11 @@
 	{
 		return path;
 	}
-	
+
 	NSLog(@"Can't find working executable for %@ - disabling",prefsName);
-	
+
 	[defs setBool:NO forKey:[NSString stringWithFormat:@"%@.Enabled",prefsName]];
-	
+
 	return nil;
 }
 

@@ -17,7 +17,7 @@
 	<dt>Preserve file permissions, attributes and hardlinks</dt>
 	<dd>
 		<p>Instead of deleting old file writing a new one with the same name, just replaces old file's content in-place. This ensures that all hardlinks, aliases, file ownership, permissions, extended file attributes will stay the same.
-		<p>It's slightly faster not to preserve permissions. 
+		<p>It's slightly faster not to preserve permissions.
 	</dd>
 	<dt>Backup original files before saving</dt>
 	<dd><p>Will write copy of a file with <samp>~</samp> appended to its name. This makes optimisation a bit slower and litters your disk with backup files.</p></dd>
@@ -61,7 +61,7 @@
 
 	<dt>Interrupt if takes too long</dt>
 	<dd><p>PNGOUT may need <em>a lot</em> of time to optimize very large images. This option gracefully interrupts PNGOUT after 1 minute.</p></dd>
-		    
+
 	<dt>Remove optional chunks</dt>
 	<dd><p>Keep it on if you optimize for web. Disable if you have special PNGs with extra metadata.</p></dd>
 </dl>
@@ -71,7 +71,7 @@
 <h2>PNGCrush</h2>
 <dl>
 <dt>Enabled</dt>
-<dd><p>If checked, ImageOptim will try to optimize PNG files using PNGCrush.    
+<dd><p>If checked, ImageOptim will try to optimize PNG files using PNGCrush.
 <dt>PNGCrush path</dt>
 <dd><p>Path to <samp>pngcrush</samp> executable file.</dd>
 
@@ -109,7 +109,7 @@
 <dl>
 	<dt>Optimisation level</dt>
 	<dd><p>Number of different setting combinations tested. It rarely makes sense to try them all.</dd>
-	
+
 	<dt>Make images interlaced (progressive)</dt>
 	<dd><p>Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.<p>
 		<p>This checkbox has three states: if checked, will force images to be interlaced. When mixed, it will keep file's interlace unchanged, unchecked will remove interlace from files.</dd>
@@ -120,7 +120,7 @@
 <h2>Gifsicle</h2>
 <dl>
 <dt>Enabled</dt>
-<dd><p>If checked, ImageOptim will try to optimize GIF files using Gifsicle.    
+<dd><p>If checked, ImageOptim will try to optimize GIF files using Gifsicle.
 <dt>Gifsicle path</dt>
 <dd><p>Path to <samp>gifsicle</samp> executable file.</dd>
 

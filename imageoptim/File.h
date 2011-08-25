@@ -10,24 +10,24 @@
 @interface File : NSObject <NSCopying, WorkerQueueDelegate> {
 	NSString *filePath;
 	NSString *displayName;
-	
+
 	NSUInteger byteSize;
-    NSUInteger byteSizeOptimized;	
+    NSUInteger byteSizeOptimized;
     NSString *bestToolName;
 	double percentDone;
-	
-	NSString *filePathOptimized;	
-		
+
+	NSString *filePathOptimized;
+
 	NSImage *statusImage;
     NSString *statusText;
     NSInteger statusOrder;
-    
+
     NSMutableArray *workers;
-    
+
 	NSUInteger workersActive;
 	NSUInteger workersFinished;
 	NSUInteger workersTotal;
-    
+
     NSOperationQueue *fileIOQueue;
 }
 

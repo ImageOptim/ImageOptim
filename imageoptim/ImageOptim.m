@@ -14,23 +14,23 @@
 	//srandom(random() ^ time(NULL));
 
 	NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
-	
+
 	int maxTasks = [self numberOfCPUs]+1;
 	if (maxTasks > 6) maxTasks++;
-	
+
 	[defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
 	[defs setObject:[NSNumber numberWithInt:(int)ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
-	
+
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
 }
 
 
 -(void)awakeFromNib
-{		                       
+{
     [[statusBarLabel cell] setBackgroundStyle:NSBackgroundStyleRaised];
 	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
 //    [self performSelectorInBackground:@selector(loadDupes) withObject:nil];
-    
+
     [credits setString:@"Ooops"];
     [credits readRTFDFromFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"]];
 }
@@ -38,7 +38,7 @@
 +(int)numberOfCPUs
 {
 	host_basic_info_data_t hostInfo;
-	mach_msg_type_number_t infoCount;	
+	mach_msg_type_number_t infoCount;
 	infoCount = HOST_BASIC_INFO_COUNT;
 	host_info(mach_host_self(), HOST_BASIC_INFO, (host_info_t)&hostInfo, &infoCount);
 	return MIN(32,MAX(1,(hostInfo.max_cpus)));
@@ -62,7 +62,7 @@
 //	NSLog(@"show prefs");
 
 //    [Dupe resetDupes]; // changes in prefs invalidate dupes database; FIXME: this is inaccurate and lame
-    
+
 	if (!prefsController)
 	{
 		prefsController = [PrefsController new];
@@ -88,7 +88,7 @@
 -(IBAction)browseForFiles:(id)sender
 {
     NSOpenPanel *oPanel = [NSOpenPanel openPanel];
-	
+
     [oPanel setAllowsMultipleSelection:YES];
 	[oPanel setCanChooseDirectories:YES];
 	[oPanel setResolvesAliases:YES];
@@ -107,7 +107,7 @@
     [application performSelectorOnMainThread:@selector(terminate:) withObject:self waitUntilDone:NO];
 }
 
--(void)applicationWillTerminate:(NSNotification*)n {    
+-(void)applicationWillTerminate:(NSNotification*)n {
     [filesQueue cleanup];
 }
 

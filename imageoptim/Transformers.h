@@ -14,7 +14,7 @@
 @end
 
 @interface DisabledColor : NSValueTransformer {
-	
+
 }
 
 @end

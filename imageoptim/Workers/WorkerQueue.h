@@ -16,13 +16,13 @@
 @interface WorkerQueue : NSObject {
 	NSMutableArray *runningWorkers;
 	NSMutableArray *queuedWorkers;
-	
+
 	int maxWorkersCount;
-	
-	BOOL isAsync;	
-	
+
+	BOOL isAsync;
+
 	id owner;
-	
+
 	NSRecursiveLock *workersLock;
 }
 

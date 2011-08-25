@@ -9,14 +9,14 @@
 }
 
 - (void)keyDown:(NSEvent *)theEvent {
-   
+
     if (![theEvent isARepeat] && [theEvent keyCode] == 49/*space*/ && [self numberOfSelectedRows])
     {
         [(FilesQueue*)[self delegate] quickLook];
     }
     else
     {
-        [super keyDown:theEvent];        
+        [super keyDown:theEvent];
     }
 }
 
@@ -29,7 +29,7 @@
 {
     NSInteger row = [self clickedRow];
     if (row < 0) return;
-    
+
     FilesQueue *fc = (FilesQueue *)[self delegate];
     assert([fc isKindOfClass:[FilesQueue class]]);
     [fc openRowInFinder:row];

@@ -25,7 +25,7 @@
                 <li>Added Gifsicle for optimisation of <em>animated</em> GIF files (use PNG instead of static GIFs!)</li>
                 <li>Added tools menu for quick disabling/enabling of tools used</li>
                 <li>Added more chunk names to default configuration of PNGCrush</li>
-            </ul>    
+            </ul>
             <p>New in 1.2:</p>
             <ul>
                 <li><strong>Requires Leopard (10.5.7)</strong></li>
@@ -50,9 +50,9 @@
                 <li>Status column is sortable</li>
 				<li>Write errors are now properly reported</li>
 				<li>64-bit and Snow Leopard compatibility improved</li>
-            </ul>    
+            </ul>
             ]]></description>
             <enclosure url="http://imageoptim.pornel.net/ImageOptim1.2.3.tar.bz2" sparkle:version="1.2.3.1" length="1415146" type="application/bzip2" sparkle:dsaSignature="MCwCFCwE4yS6N4oy5SBw0Qn5qB1PRR3SAhQw9dWfTPy5hBHPtVSxCWCoG6i2GA==" />
-         </item>    
+         </item>
 </channel>
 </rss>
