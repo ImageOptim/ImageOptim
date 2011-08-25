@@ -978,6 +978,7 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = ImageOptim;
 			};
@@ -986,6 +987,7 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = ImageOptim;
 			};
@@ -1004,6 +1006,7 @@
 				GCC_OBJC_CALL_CXX_CDTORS = NO;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
