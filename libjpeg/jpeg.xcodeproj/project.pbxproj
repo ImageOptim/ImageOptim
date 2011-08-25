@@ -283,7 +283,7 @@
 			buildConfigurationList = 5A20CCC2112395100000400D /* Build configuration list for PBXLegacyTarget "download" */;
 			buildPhases = (
 			);
-			buildToolPath = /usr/bin/make;
+			buildToolPath = /Developer/usr/bin/make;
 			dependencies = (
 			);
 			name = download;
