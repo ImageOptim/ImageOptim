@@ -12,7 +12,7 @@
 
 -(id)init
 {
-	if (self = [super initWithWindowNibName:@"PrefsController"])
+	if ((self = [super initWithWindowNibName:@"PrefsController"]))
 	{
 		int cpus = [ImageOptim numberOfCPUs];
 		maxNumberOfTasks = MIN(cpus*6, MAX(8, cpus * 2 + 2));
@@ -63,13 +63,7 @@
 		[oPanel setCanChooseDirectories:NO];
 		[oPanel setResolvesAliases:YES];
 		
-		[oPanel beginSheetForDirectory:nil file:nil types:nil modalForWindow:[self window] modalDelegate:self didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:key];		
-	}
-}
-
-- (void)openPanelDidEnd:(NSOpenPanel *)oPanel returnCode:(int)returnCode  contextInfo:(void  *)contextInfo
-{
-	NSString *key = contextInfo;
+		[oPanel beginSheetModalForWindow:[self window] completionHandler:^(NSInteger returnCode) {
 	if (returnCode == NSOKButton) 
 	{
 		NSArray *files = [oPanel filenames];
@@ -82,6 +76,8 @@
 			[defs setObject:[files objectAtIndex:0] forKey:keypath];			
 			[defs didChangeValueForKey:keypath];
 		}
+	}
+        }];
 	}
 }
 

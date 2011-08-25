@@ -92,15 +92,13 @@
     [oPanel setAllowsMultipleSelection:YES];
 	[oPanel setCanChooseDirectories:YES];
 	[oPanel setResolvesAliases:YES];
+    [oPanel setAllowedFileTypes:[filesQueue fileTypes]];
 
-    [oPanel beginSheetForDirectory:nil file:nil types:[filesQueue fileTypes] modalForWindow:[tableView window] modalDelegate:self didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];		
-}
-
-- (void)openPanelDidEnd:(NSOpenPanel *)oPanel returnCode:(int)returnCode  contextInfo:(void  *)contextInfo
-{
+    [oPanel beginSheetModalForWindow:[tableView window] completionHandler:^(NSInteger returnCode) {
 	if (returnCode == NSOKButton) {
         [filesQueue addPaths:[oPanel filenames]];
     }
+    }];
 }
 
 - (void)windowWillClose:(NSNotification *)aNotification
