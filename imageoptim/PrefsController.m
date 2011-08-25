@@ -51,10 +51,10 @@
 
 -(IBAction)browseForExecutable:(id)sender
 {
+    static NSString *const keys[] = {@"JpegOptim",@"AdvPng",@"OptiPng",@"PngCrush",@"PngOut",@"JpegTran",@"Gifsicle"};
 	NSInteger tag = [sender tag];
-	if (tag >= 1 && tag <= 7)
+	if (tag >= 1 && tag <= sizeof(keys)/sizeof(keys[0]))
 	{
-		static NSString *keys[] = {@"JpegOptim",@"AdvPng",@"OptiPng",@"PngCrush",@"PngOut",@"JpegTran",@"Gifsicle"};
 		NSString *key = keys[tag-1];
 		
 		NSOpenPanel *oPanel = [NSOpenPanel openPanel];

@@ -151,17 +151,19 @@
 {
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	NSString *path = nil;
+    NSString *const kBundle = [NSString stringWithFormat:@"%@.Bundle",prefsName];
 	
-	if ([defs boolForKey:[NSString stringWithFormat:@"%@.Bundle",prefsName]])
+	if ([defs boolForKey:kBundle])
 	{
-		if ((path = [[NSBundle mainBundle] pathForResource:resourceName ofType:nil]) && [[NSFileManager defaultManager] isExecutableFileAtPath:path])
+		if ((path = [[NSBundle mainBundle] pathForResource:resourceName ofType:nil])
+             && [[NSFileManager defaultManager] isExecutableFileAtPath:path])
 		{
 			return path;
 		}
 		else
 		{
 			NSLog(@"There's no bundled executable for %@ at %@ - disabling",prefsName, path);
-			[defs setBool:NO forKey:[NSString stringWithFormat:@"%@.Bundle",prefsName]];
+			[defs setBool:NO forKey:kBundle];
 		}
 	}
 
