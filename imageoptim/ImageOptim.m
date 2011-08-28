@@ -53,6 +53,7 @@
 // invoked by Dock
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)path
 {
+    [filesQueue setRow:-1];
     [filesQueue addPath:path];
 	[filesQueue runAdded];
 	return YES;
@@ -102,6 +103,7 @@
 
     [oPanel beginSheetModalForWindow:[tableView window] completionHandler:^(NSInteger returnCode) {
 	if (returnCode == NSOKButton) {
+		[filesQueue setRow:-1];
         [filesQueue addPaths:[oPanel filenames]];
     }
     }];

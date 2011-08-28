@@ -11,19 +11,19 @@
 	NSTableView *tableView;
 	NSArrayController *filesController;
 	BOOL isEnabled;
-
+	NSInteger nextInsertRow;
 	NSOperationQueue *cpuQueue;
     NSOperationQueue *fileIOQueue;
-	NSOperationQueue *dirWorkerQueue;
-
+	NSOperationQueue *dirWorkerQueue;	
+	
 	NSRecursiveLock *filesControllerLock;
-
+	
     NSHashTable *seenPathHashes;
-
+    
 	NSProgressIndicator *progressBar;
-
+    
     NSLock *queueWaitingLock;
-
+    
     NSTask *currentQLManageTask;
 }
 
@@ -33,6 +33,11 @@
 -(void)addFilePaths:(NSArray *)paths;
 -(void)addPath:(NSString*)s;
 
+-(void) moveObjectsInArrangedObjectsFromIndexes:(NSIndexSet*)indexSet
+										toIndex:(NSUInteger)insertIndex;
+- (NSUInteger)rowsAboveRow:(NSUInteger)row inIndexSet:(NSIndexSet *)indexSet;
+- (NSUInteger)numberOfRowsInTableView:(NSTableView *)tableview;
+
 -(void)runAdded;
 -(void)startAgain;
 
@@ -40,6 +45,7 @@
 -(void)quickLook;
 
 -(void)cleanup;
+-(void)setRow:(NSInteger)row;
 -(void)openRowInFinder:(NSInteger)row withPreview:(BOOL)preview;
 
 -(NSArray *)fileTypes;

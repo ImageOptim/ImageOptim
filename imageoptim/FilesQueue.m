@@ -103,6 +103,11 @@
 	return isEnabled;
 }
 
+-(void)setRow:(NSInteger)row
+{
+	nextInsertRow=row;
+}
+
 -(void)cleanup {
     isEnabled = NO;
     [dirWorkerQueue cancelAllOperations];
@@ -123,10 +128,40 @@
 
 	[filesControllerLock lock];
 
-	[atableView setDropRow:[[filesController arrangedObjects] count] dropOperation:NSTableViewDropAbove];
+	NSDragOperation dragOp = ([info draggingSource] == tableView) ? NSDragOperationMove : NSDragOperationCopy;
+	nextInsertRow=row;
+
+	[atableView setDropRow:row dropOperation:NSTableViewDropAbove];
 
 	[filesControllerLock unlock];
-	return NSDragOperationCopy;
+	return dragOp;
+}
+
+- (BOOL)tableView:(NSTableView *)tv
+		writeRows:(NSArray*)rows
+	 toPasteboard:(NSPasteboard*)pboard
+{
+	if (!isEnabled) return NO;
+
+	NSArray *selectedFiles=[filesController selectedObjects];
+	NSEnumerator *fileEnum=[selectedFiles objectEnumerator];
+	NSMutableArray *filePathlist=[NSMutableArray array];
+
+	id afile;
+	while (afile=[fileEnum nextObject]) {
+		[filePathlist addObject:[afile valueForKey:@"filePath"]];
+	}
+
+	NSArray *typesArray=[NSArray arrayWithObject:NSFilenamesPboardType];
+
+	if ([filePathlist count]>0)
+	{
+		[pboard declareTypes:typesArray owner:self];
+		if([pboard setPropertyList:filePathlist forType:NSFilenamesPboardType])
+		return YES;
+
+	}
+	return NO;
 }
 
 -(IBAction)delete:(id)sender
@@ -152,7 +187,6 @@
     }
     else NSBeep();
 	[filesControllerLock unlock];
-
     [self runAdded];
 }
 
@@ -178,13 +212,73 @@
     }    
 }
 
+// Better in NSArrayController class
+- (NSUInteger)rowsAboveRow:(NSUInteger)row inIndexSet:(NSIndexSet *)indexSet
+{
+    NSUInteger currentIndex = [indexSet firstIndex];
+    NSUInteger i = 0;
+    while (currentIndex != NSNotFound)
+    {
+		if (currentIndex < row) { i++; }
+		currentIndex = [indexSet indexGreaterThanIndex:currentIndex];
+    }
+    return i;
+}
+- (NSUInteger)numberOfRowsInTableView:(NSTableView *)tableview
+{
+	return [[filesController arrangedObjects] count];
+}
+
+-(void) moveObjectsInArrangedObjectsFromIndexes:(NSIndexSet*)indexSet
+										toIndex:(NSUInteger)insertIndex
+{
+
+    NSArray		*objects = [filesController arrangedObjects];
+	NSUInteger	idx = [indexSet lastIndex];
+
+    NSUInteger	aboveInsertIndexCount = 0;
+    id			object;
+    NSUInteger	removeIndex;
+
+    while (NSNotFound != idx)
+	{
+		if (idx >= insertIndex) {
+			removeIndex = idx + aboveInsertIndexCount;
+			aboveInsertIndexCount += 1;
+		}
+		else
+		{
+			removeIndex = idx;
+			insertIndex -= 1;
+		}
+		object = [objects objectAtIndex:removeIndex];
+		[filesController removeObjectAtArrangedObjectIndex:removeIndex];
+		[filesController insertObject:object atArrangedObjectIndex:insertIndex];
+
+		idx = [indexSet indexLessThanIndex:idx];
+    }
+}
+
+
 - (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation
 {
+
 	NSPasteboard *pboard = [info draggingPasteboard];
 	NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
 
-//	NSLog(@"Dropping files %@",paths);
-	[self performSelectorInBackground:@selector(addPaths:) withObject:paths];
+	if ([info draggingSource] == tableView){
+
+		NSIndexSet  *indexSet = [filesController selectionIndexes];//[self indexSetFromRows:paths];
+
+		[self moveObjectsInArrangedObjectsFromIndexes:indexSet toIndex:row];
+		NSUInteger rowsAbove = [self rowsAboveRow:row inIndexSet:indexSet];
+
+		NSRange range = NSMakeRange(row - rowsAbove, [indexSet count]);
+		indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+		[filesController setSelectionIndexes:indexSet];
+		return YES;
+
+	}else [self performSelectorInBackground:@selector(addPaths:) withObject:paths];
 
 	[[aTableView window] makeKeyAndOrderFront:aTableView];
 
@@ -229,9 +323,15 @@
 
 -(void)addFileObjects:(NSArray *)files
 {
-	for(File *f in files)
-	{
-		[filesController addObject:f];
+    if (nextInsertRow < 0 || nextInsertRow >= [[filesController arrangedObjects] count]) {
+        [filesController addObjects:files];
+    } else {
+        NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(nextInsertRow, [files count])];
+        [filesController insertObjects:files atArrangedObjectIndexes:set];
+        nextInsertRow += [files count];
+    }
+
+	for(File *f in files) {
 		[f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
 	}
 

@@ -110,6 +110,15 @@
 }
 
 
+
+- (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)isLocal
+{
+	if (isLocal) return NSDragOperationMove;
+
+	return NSDragOperationCopy;
+
+}
+
 -(void)awakeFromNib
 {
     [self setDoubleAction:@selector(openInPreview)];
