@@ -864,6 +864,9 @@ AAAAAAAAAAAAAAAAA</bytes>
 				<string key="NSMinSize">{411, 132}</string>
 				<string key="NSMaxSize">{1200, 2022}</string>
 				<string key="NSFrameAutosaveName">MainWindow</string>
+				<bool key="NSAutorecalculatesContentBorderThicknessMinY">NO</bool>
+				<double key="NSContentBorderThicknessMinY">39</double>
+				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSMenu" id="717955284">
 				<string key="NSTitle">Hauptmenü</string>
