@@ -37,7 +37,7 @@
 {
 	if (displayName) return displayName;
 	if (filePath) return filePath;
-	return @"N/A";
+	return nil;
 }
 
 -(void)setFilePath:(NSString *)s

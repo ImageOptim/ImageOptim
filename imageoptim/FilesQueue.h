@@ -40,8 +40,7 @@
 -(void)quickLook;
 
 -(void)cleanup;
-
--(void)openRowInFinder:(NSUInteger)row;
+-(void)openRowInFinder:(NSInteger)row withPreview:(BOOL)preview;
 
 -(NSArray *)fileTypes;
 @end

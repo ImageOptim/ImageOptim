@@ -377,6 +377,7 @@ AAAAAAAAAAAAAAAAA</bytes>
 													<string key="NSHeaderToolTip">Estado da optimização</string>
 												</object>
 												<object class="NSTableColumn" id="56751955">
+													<string key="NSIdentifier">filename</string>
 													<double key="NSWidth">436</double>
 													<double key="NSMinWidth">100</double>
 													<double key="NSMaxWidth">1000</double>
@@ -2943,6 +2944,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<string>236.IBPluginDependency</string>
 					<string>237.CustomClassName</string>
 					<string>237.IBPluginDependency</string>
+					<string>238.CustomClassName</string>
 					<string>238.IBPluginDependency</string>
 					<string>239.IBAttributePlaceholdersKey</string>
 					<string>239.IBPluginDependency</string>
@@ -3068,6 +3070,7 @@ AAEAAQAAAT0AAwAAAAEAAgAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>MyTableView</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>RevealButtonCell</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<object class="NSMutableDictionary">
 						<string key="NS.key.0">AccessibilityDescription</string>

@@ -377,6 +377,7 @@ AAAAAAAAAAAAAAAAA</bytes>
 													<string key="NSHeaderToolTip">Состояние оптимизации</string>
 												</object>
 												<object class="NSTableColumn" id="56751955">
+													<string key="NSIdentifier">filename</string>
 													<double key="NSWidth">436</double>
 													<double key="NSMinWidth">100</double>
 													<double key="NSMaxWidth">1000</double>

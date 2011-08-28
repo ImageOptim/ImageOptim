@@ -112,16 +112,20 @@
 
 -(void)awakeFromNib
 {
-    [self setDoubleAction:@selector(openInFinder)];
+    [self setDoubleAction:@selector(openInPreview)];
+}
+
+-(void)openInPreview
+{
+    FilesQueue *fc = (FilesQueue *)[self delegate];
+    assert([fc isKindOfClass:[FilesQueue class]]);
+    [fc openRowInFinder:[self clickedRow] withPreview:YES];
 }
 
 -(void)openInFinder
 {
-    NSInteger row = [self clickedRow];
-    if (row < 0) return;
-
     FilesQueue *fc = (FilesQueue *)[self delegate];
     assert([fc isKindOfClass:[FilesQueue class]]);
-    [fc openRowInFinder:row];
+    [fc openRowInFinder:[self clickedRow] withPreview:NO];
 }
 @end

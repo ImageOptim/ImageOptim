@@ -1,5 +1,6 @@
 #import "ImageOptim.h"
 #import "FilesQueue.h"
+#import "RevealButtonCell.h"
 #import "Workers/Worker.h"
 #import "PrefsController.h"
 #include <mach/mach_host.h>
@@ -30,6 +31,11 @@
     [[statusBarLabel cell] setBackgroundStyle:NSBackgroundStyleRaised];
 	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
 //    [self performSelectorInBackground:@selector(loadDupes) withObject:nil];
+    
+
+	RevealButtonCell* cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
+	[cell setInfoButtonAction:@selector(openInFinder)];
+	[cell setTarget:tableView];
 
     [credits setString:@"Ooops"];
     [credits readRTFDFromFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"]];

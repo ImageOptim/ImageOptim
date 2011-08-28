@@ -168,14 +168,14 @@
     return nil;
 }
 
--(void)openRowInFinder:(NSUInteger)row
-{
+-(void)openRowInFinder:(NSInteger)row withPreview:(BOOL)preview {
     NSArray *objs = [filesController arrangedObjects];
-    if (row < [objs count])
+    if (row >= 0 && row < [objs count])
     {
         File *f = [objs objectAtIndex:row];
-        [[NSWorkspace sharedWorkspace] selectFile:[f filePath] inFileViewerRootedAtPath: @""];
-    }
+		if (preview) [[NSWorkspace sharedWorkspace] openFile:[f filePath]];
+        else [[NSWorkspace sharedWorkspace] selectFile:[f filePath] inFileViewerRootedAtPath:@""];
+    }    
 }
 
 - (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation
@@ -282,7 +282,6 @@
 -(void)addPath:(NSString *)path
 {
 	if (!isEnabled) {
-        NSLog(@"Ignored %@",path);
         return;
     }
 
