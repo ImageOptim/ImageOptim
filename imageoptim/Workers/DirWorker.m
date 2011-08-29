@@ -51,7 +51,6 @@
 		}
 
 		if ([buffer count]) [filesQueue addFilePaths:buffer];
-		//NSLog(@"DirWorker finished completely");
     }
     @catch (NSException *ex) {
         NSLog(@"DIR worker failed %@",ex);

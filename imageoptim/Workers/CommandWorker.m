@@ -81,7 +81,6 @@
 
     [task setEnvironment:environment];
 
-//	NSLog(@"Ready to run %@ %@",path,arguments);
 	return task;
 }
 
@@ -94,7 +93,6 @@
 		if ([[NSUserDefaults standardUserDefaults] boolForKey:@"RunLowPriority"])
 		{
 			int pid = [task processIdentifier];
-	//		NSLog(@"running with lopri %d",pid);
 			if (pid > 1) setpriority(PRIO_PROCESS, pid, PRIO_MAX/2); // PRIO_MAX is minimum priority. POSIX is intuitive.
 		}
 	}

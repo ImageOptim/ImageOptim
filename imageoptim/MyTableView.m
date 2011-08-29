@@ -25,7 +25,6 @@
 // Tracking rect support
 - (void)updateTrackingAreas {
 
-    NSLog(@"Retrack!");
     for (NSTrackingArea *area in [self trackingAreas]) {
         // We have to uniquely identify our own tracking areas
         if (([area owner] == self) && ([[area userInfo] objectForKey:@"Row"] != nil)) {

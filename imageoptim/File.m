@@ -28,7 +28,6 @@
 		workersTotal = 0;
 		workersActive = 0;
 		workersFinished = 0;
-//		NSLog(@"Created new");
 	}
 	return self;
 }
@@ -56,7 +55,6 @@
 	[f setByteSize:byteSize];
 	[f setByteSizeOptimized:byteSizeOptimized];
 	[f setFilePath:filePath];
-//	NSLog(@"copied");
 	return f;
 }
 
@@ -66,13 +64,8 @@
     {
         if (!byteSize && size > 10)
         {
-    //		NSLog(@"setting file size of %@ to %d",self,size);
             byteSize = size;
             if (!byteSizeOptimized || byteSizeOptimized > byteSize) [self setByteSizeOptimized:size];
-        }
-        else if (byteSize != size)
-        {
-    //		NSLog(@"crappy size given! %d, have %d",size,byteSize);
         }
     }
 }
@@ -113,7 +106,6 @@
 	{
         if ([filePathOptimized length])
         {
-            //NSLog(@"Removing %@",filePath);
             [[NSFileManager defaultManager] removeItemAtPath:filePathOptimized error:nil];
         }
         filePathOptimized = nil;
@@ -240,7 +232,6 @@
 
 -(void)workerHasFinished:(Worker *)worker
 {
-	//NSLog(@"Worker finished notification 2");
 	@synchronized(self)
     {
         workersActive--;
@@ -307,7 +298,6 @@
 {
     fileIOQueue = aFileIOQueue; // will be used for saving
 
-    //NSLog(@"%@ add",filePath);
     [self setStatus:@"wait" order:0 text:NSLocalizedString(@"Waiting in queue",@"tooltip")];
 
     @synchronized(self)
@@ -322,9 +312,8 @@
     [fileIOQueue addOperation:actualEnqueue];
 }
 
--(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue {
-
-    //NSLog(@"%@ inspect",filePath);
+-(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue
+{
     [self setStatus:@"progress" order:3 text:NSLocalizedString(@"Inspecting file",@"tooltip")];
 
     @synchronized(self)
@@ -354,7 +343,6 @@
 	if (fileType == FILETYPE_PNG)
 	{
         Worker *w = nil;
-		//NSLog(@"%@ is png",filePath);
 		if ([defs boolForKey:@"PngCrush.Enabled"])
 		{
 			w = [[PngCrushWorker alloc] initWithFile:self];
@@ -384,14 +372,12 @@
     {
         if ([defs boolForKey:@"JpegOptim.Enabled"])
         {
-            //NSLog(@"%@ is jpeg",filePath);
             Worker *w = [[JpegoptimWorker alloc] initWithFile:self];
             if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
         }
         if ([defs boolForKey:@"JpegTran.Enabled"])
         {
-            //NSLog(@"%@ is jpeg",filePath);
             Worker *w = [[JpegtranWorker alloc] initWithFile:self];
             [runLater addObject:w];
         }
@@ -417,8 +403,6 @@
     }
 
 	Worker *lastWorker = nil;
-
-//	NSLog(@"file %@ has workers first %@ and later %@",self,runFirst,runLater);
 
 	workersTotal += [runFirst count] + [runLater count];
 
@@ -447,7 +431,6 @@
 
 	if (!workersTotal)
 	{
-		//NSLog(@"all relevant tools are unavailable/disabled - nothing to do!");
 		[self setStatus:@"err" order:8 text:NSLocalizedString(@"All neccessary tools have been disabled in Preferences",@"tooltip")];
         [self cleanup];
 	}

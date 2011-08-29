@@ -166,8 +166,6 @@
 
 -(IBAction)delete:(id)sender
 {
-//	NSLog(@"delete action");
-
     NSArray *files = nil;
 	[filesControllerLock lock];
 
@@ -179,7 +177,6 @@
 
     if (files)
     {
-//        NSLog(@"Removing %@",files);
         for(File *f in files)
         {
             [f cleanup];
@@ -192,7 +189,6 @@
 
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation
 {
-    //NSLog(@"Tooltip for col %@ in row %d",aTableColumn,row);
     NSArray *objs = [filesController arrangedObjects];
     if (row < (signed)[objs count])
     {
@@ -282,7 +278,6 @@
 
 	[[aTableView window] makeKeyAndOrderFront:aTableView];
 
-//	NSLog(@"Finished adding drop");
 	return YES;
 }
 
@@ -437,14 +432,12 @@
 {
 	if (![self isAnyQueueBusy])
 	{
-        //NSLog(@"Done!");
 		[progressBar stopAnimation:nil];
 		[[NSApplication sharedApplication] requestUserAttention:NSInformationalRequest];
 		[tableView setNeedsDisplay:YES];
 	}
 	else
 	{
-//        NSLog(@"There are still operations to do: %@ %@",workerQueue.operations,dirWorkerQueue.operations);
 		[progressBar startAnimation:nil];
         [self waitInBackgroundForQueuesToFinish];
 	}
