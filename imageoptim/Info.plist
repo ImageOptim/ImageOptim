@@ -97,14 +97,12 @@
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleGetInfoString</key>
-	<string>1.2.5</string>
 	<key>CFBundleHelpBookFolder</key>
 	<string>Help</string>
 	<key>CFBundleHelpBookName</key>
 	<string>ImageOptim Help</string>
 	<key>CFBundleIconFile</key>
-	<string>ImageOptim</string>
+	<string>ImageOptim.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>net.pornel.ImageOptim</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -113,18 +111,18 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.3</string>
 	<key>CFBundleVersion</key>
-	<string>1.2.5</string>
+	<string>1.3.0</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.developer-tools</string>
 	<key>LSArchitecturePriority</key>
 	<array>
 		<string>x86_64</string>
-		<string>i386</string>
-		<string>ppc</string>
 	</array>
 	<key>LSMinimumSystemVersion</key>
-	<string>10.5.7</string>
+	<string>10.6.4</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
