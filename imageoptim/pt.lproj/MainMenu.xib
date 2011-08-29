@@ -2033,6 +2033,7 @@
 							<reference ref="695734933"/>
 							<reference ref="639089882"/>
 							<reference ref="342358740"/>
+							<reference ref="949864029"/>
 						</array>
 						<reference key="parent" ref="118427520"/>
 					</object>
@@ -2402,6 +2403,11 @@
 						<reference key="object" ref="326808065"/>
 						<reference key="parent" ref="646228687"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">708</int>
+						<reference key="object" ref="949864029"/>
+						<reference key="parent" ref="810587040"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -2535,7 +2541,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">707</int>
+			<int key="maxID">716</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
