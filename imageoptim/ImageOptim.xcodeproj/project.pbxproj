@@ -25,14 +25,14 @@
 /* Begin PBXBuildFile section */
 		5A0D2E570C922AB700FD7CDE /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E560C922AB700FD7CDE /* File.m */; };
 		5A0D2E5D0C922D6D00FD7CDE /* ImageOptim.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E5C0C922D6D00FD7CDE /* ImageOptim.m */; };
-		5A20CC01112393360000400D /* advpng in Resources */ = {isa = PBXBuildFile; fileRef = 5A984D4A11238E51007622D7 /* advpng */; };
-		5A20CC811123933C0000400D /* pngcrush in Resources */ = {isa = PBXBuildFile; fileRef = 5A1943450FF97F86007C3324 /* pngcrush */; };
-		5A20CC82112393430000400D /* jpegtran in Resources */ = {isa = PBXBuildFile; fileRef = 5A739C2B0EA4073700D751E1 /* jpegtran */; };
-		5A20CC83112393490000400D /* jpegoptim in Resources */ = {isa = PBXBuildFile; fileRef = 5A62DB07111CCE9F008848D0 /* jpegoptim */; };
-		5A20CC841123934F0000400D /* optipng in Resources */ = {isa = PBXBuildFile; fileRef = 5A1943680FF980B3007C3324 /* optipng */; };
-		5A20CC85112393540000400D /* gifsicle in Resources */ = {isa = PBXBuildFile; fileRef = 5A4DC20D1028ADB200A9DD55 /* gifsicle */; };
-		5A20CC96112393A10000400D /* liblibpng.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 5A20CC951123939C0000400D /* liblibpng.dylib */; };
-		5A20CCA3112393BE0000400D /* libimageoptimjpeg.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */; };
+		5A3470A9140BC7D10014F638 /* libimageoptimjpeg.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */; };
+		5A3470AA140BC7DD0014F638 /* liblibpng.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A20CC951123939C0000400D /* liblibpng.dylib */; };
+		5A3470AB140BC80F0014F638 /* advpng in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A984D4A11238E51007622D7 /* advpng */; };
+		5A3470AC140BC81A0014F638 /* pngcrush in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A1943450FF97F86007C3324 /* pngcrush */; };
+		5A3470AD140BC8250014F638 /* optipng in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A1943680FF980B3007C3324 /* optipng */; };
+		5A3470AE140BC8540014F638 /* jpegoptim in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A62DB07111CCE9F008848D0 /* jpegoptim */; };
+		5A3470AF140BC8590014F638 /* jpegtran in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A739C2B0EA4073700D751E1 /* jpegtran */; };
+		5A3470B0140BC8600014F638 /* gifsicle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A4DC20D1028ADB200A9DD55 /* gifsicle */; };
 		5A391881140A9B10001B4FD7 /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
 		5A44F4B40CB1868100BD2884 /* PngCrushWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */; };
 		5A44F5840CB2ECEB00BD2884 /* CommandWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */; };
@@ -200,6 +200,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		5A3470A8140BC7B50014F638 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				5A3470B0140BC8600014F638 /* gifsicle in CopyFiles */,
+				5A3470AF140BC8590014F638 /* jpegtran in CopyFiles */,
+				5A3470AE140BC8540014F638 /* jpegoptim in CopyFiles */,
+				5A3470AD140BC8250014F638 /* optipng in CopyFiles */,
+				5A3470AC140BC81A0014F638 /* pngcrush in CopyFiles */,
+				5A3470AB140BC80F0014F638 /* advpng in CopyFiles */,
+				5A3470AA140BC7DD0014F638 /* liblibpng.dylib in CopyFiles */,
+				5A3470A9140BC7D10014F638 /* libimageoptimjpeg.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5AC63C410E9ABCFD0053B879 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -578,6 +595,7 @@
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				5AC63C410E9ABCFD0053B879 /* Copy Frameworks */,
+				5A3470A8140BC7B50014F638 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -732,14 +750,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A9AEC19140996D700C9E97D /* reveal.png in Resources */,
-				5A20CCA3112393BE0000400D /* libimageoptimjpeg.dylib in Resources */,
-				5A20CC96112393A10000400D /* liblibpng.dylib in Resources */,
-				5A20CC85112393540000400D /* gifsicle in Resources */,
-				5A20CC841123934F0000400D /* optipng in Resources */,
-				5A20CC83112393490000400D /* jpegoptim in Resources */,
-				5A20CC82112393430000400D /* jpegtran in Resources */,
-				5A20CC01112393360000400D /* advpng in Resources */,
-				5A20CC811123933C0000400D /* pngcrush in Resources */,
 				5AE54D810CAEE8AC00903DF4 /* defaults.plist in Resources */,
 				5AACA8100CAFE3CA004D45CA /* ImageOptim.icns in Resources */,
 				5AACA3850CAF3DA5004D45CA /* minus.png in Resources */,
