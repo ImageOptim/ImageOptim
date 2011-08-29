@@ -1,14 +1,27 @@
 #import "ImageOptim.h"
 #import "FilesQueue.h"
 #import "RevealButtonCell.h"
+#import "File.h"
 #import "Workers/Worker.h"
 #import "PrefsController.h"
 #include <mach/mach_host.h>
 #include <mach/host_info.h>
+#import <Quartz/Quartz.h>
 
 @implementation ImageOptim
 
-@synthesize statusBarLabel,tableView,filesController,application,progressBar,credits;
+@synthesize statusBarLabel,tableView,filesController,application,progressBar,credits, selectedIndexes;
+
+- (void)setSelectedIndexes:(NSIndexSet *)indexSet
+{
+	//Get information from ArrayController
+    if (indexSet != selectedIndexes) {
+		indexSet = [indexSet copy];
+		[selectedIndexes release];
+		selectedIndexes = indexSet;
+		[previewPanel reloadData];
+	}
+}
 
 +(void)initialize
 {
@@ -31,7 +44,7 @@
     [[statusBarLabel cell] setBackgroundStyle:NSBackgroundStyleRaised];
 	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
 //    [self performSelectorInBackground:@selector(loadDupes) withObject:nil];
-    
+
 
 	RevealButtonCell* cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
 	[cell setInfoButtonAction:@selector(openInFinder)];
@@ -57,6 +70,12 @@
     [filesQueue addPath:path];
 	[filesQueue runAdded];
 	return YES;
+}
+
+
+-(IBAction)quickLookAction:(id)sender
+{
+	[filesQueue performSelector:@selector(quickLook)];
 }
 
 - (IBAction)startAgain:(id)sender
@@ -121,6 +140,85 @@
 
 -(NSString*)version {
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleGetInfoString"];
+}
+
+// Quick Look panel support
+
+- (BOOL)acceptsPreviewPanelControl:(QLPreviewPanel *)panel;
+{
+    return YES;
+}
+
+- (void)beginPreviewPanelControl:(QLPreviewPanel *)panel
+{
+    // This document is now responsible of the preview panel
+    // It is allowed to set the delegate, data source and refresh panel.
+    previewPanel = [panel retain];
+    panel.delegate = self;
+    panel.dataSource = self;
+}
+
+- (void)endPreviewPanelControl:(QLPreviewPanel *)panel
+{
+    // This document loses its responsisibility on the preview panel
+    // Until the next call to -beginPreviewPanelControl: it must not
+    // change the panel's delegate, data source or refresh it.
+    [previewPanel release];
+    previewPanel = nil;
+}
+
+// Quick Look panel data source
+
+- (NSInteger)numberOfPreviewItemsInPreviewPanel:(QLPreviewPanel *)panel
+{
+    return [[filesController selectedObjects] count];
+}
+
+- (id <QLPreviewItem>)previewPanel:(QLPreviewPanel *)panel previewItemAtIndex:(NSInteger)index
+{
+    return [NSURL fileURLWithPath:[[[filesController selectedObjects] objectAtIndex:index]filePath] ];
+}
+
+// Quick Look panel delegate
+
+- (BOOL)previewPanel:(QLPreviewPanel *)panel handleEvent:(NSEvent *)event
+{
+    // redirect all key down events to the table view
+    if ([event type] == NSKeyDown) {
+        [tableView keyDown:event];
+        return YES;
+    }
+    return NO;
+}
+
+// This delegate method provides the rect on screen from which the panel will zoom.
+- (NSRect)previewPanel:(QLPreviewPanel *)panel sourceFrameOnScreenForPreviewItem:(id <QLPreviewItem>)item
+{
+    NSInteger index = [[filesController arrangedObjects] indexOfObject:item];
+    if (index == NSNotFound) {
+        return NSZeroRect;
+    }
+
+    NSRect iconRect = [tableView frameOfCellAtColumn:0 row:index];
+
+    // check that the icon rect is visible on screen
+    NSRect visibleRect = [tableView visibleRect];
+
+    if (!NSIntersectsRect(visibleRect, iconRect)) {
+        return NSZeroRect;
+    }
+
+    // convert icon rect to screen coordinates
+    iconRect = [tableView convertRectToBase:iconRect];
+    iconRect.origin = [[tableView window] convertBaseToScreen:iconRect.origin];
+
+    return iconRect;
+}
+
+// This delegate method provides a transition image between the table view and the preview panel
+- (id)previewPanel:(QLPreviewPanel *)panel transitionImageForPreviewItem:(id <QLPreviewItem>)item contentRect:(NSRect *)contentRect
+{
+	return [[NSWorkspace sharedWorkspace] iconForFile:[(NSURL *)item path]];
 }
 
 

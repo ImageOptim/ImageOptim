@@ -453,46 +453,15 @@
     [self runAdded];
 }
 
--(void) quickLook {
-
-    NSMutableArray *args;
-
-    if (currentQLManageTask && [currentQLManageTask isRunning])
-    {
-        [currentQLManageTask interrupt];
-        currentQLManageTask = nil;
-        return;
-    }
-
-    [filesControllerLock lock];
-    @try {
-        NSArray *files = [filesController selectedObjects];
-        args = [NSMutableArray arrayWithCapacity:2+[files count]];
-        [args addObject:@"-p"];
-        [args addObject:@"--"];
-        for(File *f in files)
-        {
-            [args addObject:f.filePath];
-        }
-    }
-    @finally {
-        [filesControllerLock unlock];
-    }
-
-    @try {
-        NSTask *qltask = [[NSTask alloc] init];
-        [qltask setLaunchPath:@"/usr/bin/qlmanage"];
-        [qltask setStandardError:[NSFileHandle fileHandleWithNullDevice]];
-        [qltask setStandardOutput:[NSFileHandle fileHandleWithNullDevice]];
-        [qltask setStandardInput:[NSFileHandle fileHandleWithNullDevice]];
-        [qltask setArguments:args];
-        [qltask launch];
-
-        currentQLManageTask = qltask;
-    }
-    @catch(NSException *e) {
-        NSLog(@"Can't run quicklook %@",e);
-    }
+-(void) quickLook
+{
+	if ([QLPreviewPanel sharedPreviewPanelExists] && [[QLPreviewPanel sharedPreviewPanel] isVisible]) {
+		[[QLPreviewPanel sharedPreviewPanel] orderOut:nil];
+	} else {
+		[filesControllerLock lock];
+		[[QLPreviewPanel sharedPreviewPanel] makeKeyAndOrderFront:nil];
+		[filesControllerLock unlock];
+	}
 }
 
 

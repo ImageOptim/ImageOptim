@@ -5,6 +5,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Quartz/Quartz.h>
+
 @class File;
 
 @interface FilesQueue : NSObject <NSTableViewDelegate,NSTableViewDataSource> {
@@ -23,8 +25,6 @@
 	NSProgressIndicator *progressBar;
     
     NSLock *queueWaitingLock;
-    
-    NSTask *currentQLManageTask;
 }
 
 -(id)initWithTableView:(NSTableView*)a progressBar:(NSProgressIndicator *)p andController:(NSArrayController*)b;

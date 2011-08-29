@@ -1,13 +1,13 @@
 /* ImageOptim */
+#import <Quartz/Quartz.h>
 
-#import <Cocoa/Cocoa.h>
+
 @class FilesQueue;
 @class PrefsController;
 
-@interface ImageOptim : NSObject
+@interface ImageOptim : NSObject <QLPreviewPanelDataSource, QLPreviewPanelDelegate>
 {
 	NSTableView *tableView;
-	//IBOutlet NSMutableArray *files;
 	NSArrayController *filesController;
 
 	FilesQueue *filesQueue;
@@ -17,12 +17,15 @@
 	NSProgressIndicator *progressBar;
     NSTextField *statusBarLabel;
     NSTextView *credits;
+
+    NSIndexSet* selectedIndexes;
+	QLPreviewPanel* previewPanel;
 }
 
 - (IBAction)showPrefs:(id)sender;
 - (IBAction)startAgain:(id)sender;
 
-
+-(IBAction)quickLookAction:(id)sender;
 -(IBAction)openPngOutHomepage:(id)sender;
 -(IBAction)openPngOutDownload:(id)sender;
 
@@ -38,4 +41,6 @@
 @property (retain) IBOutlet NSApplication *application;
 @property (retain) IBOutlet NSProgressIndicator *progressBar;
 @property (retain,nonatomic) IBOutlet NSTextView *credits;
+@property(copy) NSIndexSet* selectedIndexes;
+
 @end
