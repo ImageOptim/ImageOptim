@@ -461,6 +461,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27BA03139B08A00095FC2F /* debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = NO;
@@ -472,7 +473,8 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THREADSAFE_STATICS = NO;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
-				HEADER_SEARCH_PATHS = 7z/../;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				USER_HEADER_SEARCH_PATHS = 7z/../;
 			};
 			name = Debug;
 		};
@@ -480,6 +482,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27BA02139B08A00095FC2F /* release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
 				GCC_ENABLE_CPP_RTTI = NO;
@@ -491,8 +494,9 @@
 					NDEBUG,
 				);
 				GCC_THREADSAFE_STATICS = NO;
-				HEADER_SEARCH_PATHS = 7z/../;
 				"OTHER_CFLAGS[arch=x86_64]" = "-mtune=core2";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				USER_HEADER_SEARCH_PATHS = 7z/../;
 			};
 			name = Release;
 		};
