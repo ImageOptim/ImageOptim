@@ -150,6 +150,7 @@
 		else
 		{
 			NSLog(@"There's no bundled executable for %@ at %@ - disabling",prefsName, path);
+            NSBeep();
 			[defs setBool:NO forKey:kBundle];
 		}
 	}
@@ -161,7 +162,7 @@
 	}
 
 	NSLog(@"Can't find working executable for %@ - disabling",prefsName);
-
+    NSBeep();
 	[defs setBool:NO forKey:[NSString stringWithFormat:@"%@.Enabled",prefsName]];
 
 	return nil;
