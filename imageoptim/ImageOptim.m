@@ -45,7 +45,6 @@
 	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
 //    [self performSelectorInBackground:@selector(loadDupes) withObject:nil];
 
-
 	RevealButtonCell* cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
 	[cell setInfoButtonAction:@selector(openInFinder)];
 	[cell setTarget:tableView];
