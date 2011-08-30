@@ -52,7 +52,7 @@
 			<object class="NSWindowTemplate" id="576848067">
 				<int key="NSWindowStyleMask">4111</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{669, 1072}, {640, 239}}</string>
+				<string key="NSWindowRect">{{669, 1072}, {640, 238}}</string>
 				<int key="NSWTFlags">813171712</int>
 				<string key="NSWindowTitle">ImageOptim</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -486,7 +486,7 @@
 							</object>
 						</object>
 					</array>
-					<string key="NSFrameSize">{640, 239}</string>
+					<string key="NSFrameSize">{640, 238}</string>
 					<reference key="NSNextKeyView" ref="188613459"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {2560, 1578}}</string>
