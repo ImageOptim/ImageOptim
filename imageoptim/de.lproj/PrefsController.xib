@@ -469,7 +469,7 @@ IGRlcyBQcm9ncmFtbXM</string>
 												<object class="NSButtonCell" key="NSCell" id="893971151">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134348800</int>
-													<string key="NSContents">Durchsuchen</string>
+													<string key="NSContents">Suchen</string>
 													<object class="NSFont" key="NSSupport" id="26">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">11</double>
@@ -754,7 +754,7 @@ IGRlcyBQcm9ncmFtbXM</string>
 												<object class="NSButtonCell" key="NSCell" id="746330584">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Breche die Optimierung ab, falls der Prozess zu lange läuft</string>
+													<string key="NSContents">Breche bei zu langer Optimierung ab</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="801424669"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -1113,7 +1113,7 @@ IGRlcyBQcm9ncmFtbXM</string>
 												<object class="NSButtonCell" key="NSCell" id="989291490">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134348800</int>
-													<string key="NSContents">Durchsuchen</string>
+													<string key="NSContents">Suchen</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="178617466"/>
 													<int key="NSTag">4</int>
@@ -1315,7 +1315,7 @@ IGRlcyBQcm9ncmFtbXM</string>
 												<object class="NSButtonCell" key="NSCell" id="297042805">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134348800</int>
-													<string key="NSContents">Durchsuchen</string>
+													<string key="NSContents">Suchen</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="1017529749"/>
 													<int key="NSTag">3</int>
@@ -1636,7 +1636,7 @@ IGRlcyBQcm9ncmFtbXM</string>
 												<object class="NSButtonCell" key="NSCell" id="707664397">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134348800</int>
-													<string key="NSContents">Durchsuchen</string>
+													<string key="NSContents">Suchen</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="739713858"/>
 													<int key="NSTag">2</int>
@@ -1931,7 +1931,7 @@ IGRlcyBQcm9ncmFtbXM</string>
 												<object class="NSButtonCell" key="NSCell" id="737534581">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Entferne Kommentare aus den Dateien</string>
+													<string key="NSContents">Entferne Kommentare</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="75736740"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -1954,7 +1954,7 @@ IGRlcyBQcm9ncmFtbXM</string>
 												<object class="NSButtonCell" key="NSCell" id="1057182871">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Entferne EXIF Markierungen aus den Dateien</string>
+													<string key="NSContents">Entferne EXIF Markierungen</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="60500168"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -1978,7 +1978,7 @@ IGRlcyBQcm9ncmFtbXM</string>
 												<object class="NSButtonCell" key="NSCell" id="539699012">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134348800</int>
-													<string key="NSContents">Durchsuchen</string>
+													<string key="NSContents">Suchen</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="155795433"/>
 													<int key="NSTag">1</int>
@@ -2343,7 +2343,7 @@ IGRlcyBQcm9ncmFtbXM</string>
 												<object class="NSButtonCell" key="NSCell" id="458069250">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Entferne EXIF Markierungen und Kommentare aus den Dateien</string>
+													<string key="NSContents">Entferne EXIF Markierungen und Kommentare</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="354107699"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -2367,7 +2367,7 @@ IGRlcyBQcm9ncmFtbXM</string>
 												<object class="NSButtonCell" key="NSCell" id="557190178">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134348800</int>
-													<string key="NSContents">Durchsuchen</string>
+													<string key="NSContents">Suchen</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="74423797"/>
 													<int key="NSTag">1</int>
@@ -2508,7 +2508,7 @@ IGRlcyBQcm9ncmFtbXM</string>
 												<object class="NSButtonCell" key="NSCell" id="158213720">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134348800</int>
-													<string key="NSContents">Durchsuchen</string>
+													<string key="NSContents">Suchen</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="637662945"/>
 													<int key="NSTag">3</int>
