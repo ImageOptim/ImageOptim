@@ -451,7 +451,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSTextFieldCell" key="NSCell" id="195415995">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Ruta de acceso a PNGOUT</string>
+													<string key="NSContents">Ruta de acceso </string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="637265323"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -822,7 +822,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSTextFieldCell" key="NSCell" id="453018031">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Ruta de acceso a PNGCrush</string>
+													<string key="NSContents">Ruta de acceso </string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="906433482"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -839,7 +839,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSButtonCell" key="NSCell" id="979916268">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Try fixing damaged files</string>
+													<string key="NSContents">Atentar arreglar archivos dañados</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="893970803"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -1008,7 +1008,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSTextFieldCell" key="NSCell" id="682746709">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Remove chunks</string>
+													<string key="NSContents">Quitar trozos</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="876722330"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1079,7 +1079,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSTextFieldCell" key="NSCell" id="367692974">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string type="base64-UTF8" key="NSContents">TmFtZXMgYXJlIApjYXNlLXNlbnNpdGl2ZQ</string>
+													<string key="NSContents">Los nombres son mayúsculas y minúsculas</string>
 													<reference key="NSSupport" ref="22"/>
 													<reference key="NSControlView" ref="965757588"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1232,14 +1232,14 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 											<object class="NSTextField" id="622082568">
 												<reference key="NSNextResponder" ref="981882792"/>
 												<int key="NSvFlags">292</int>
-												<string key="NSFrame">{{194, 10}, {282, 14}}</string>
+												<string key="NSFrame">{{194, 7}, {282, 17}}</string>
 												<reference key="NSSuperview" ref="981882792"/>
 												<reference key="NSNextKeyView" ref="359108219"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSTextFieldCell" key="NSCell" id="590979537">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Web browsers require gamma to be removed</string>
+													<string key="NSContents">Los navegadores web requieren se quite gama</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="622082568"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1249,14 +1249,14 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 											<object class="NSTextField" id="992745705">
 												<reference key="NSNextResponder" ref="981882792"/>
 												<int key="NSvFlags">268</int>
-												<string key="NSFrame">{{220, 284}, {296, 14}}</string>
+												<string key="NSFrame">{{220, 270}, {389, 28}}</string>
 												<reference key="NSSuperview" ref="981882792"/>
 												<reference key="NSNextKeyView" ref="837889792"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSTextFieldCell" key="NSCell" id="652922267">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">272629760</int>
-													<string key="NSContents">(PNGCrush is redundant when using PNGOUT)</string>
+													<string key="NSContents">(El uso de PNGCrush es redundante cuando está utilizando PNGOUT)</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="992745705"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1605,7 +1605,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSTextFieldCell" key="NSCell" id="70758045">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Ruta de acceso a AdvPNG</string>
+													<string key="NSContents">Ruta de acceso</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="410861309"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1882,7 +1882,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSTextFieldCell" key="NSCell" id="17794403">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Ruta de acceso a JPEGOptim</string>
+													<string key="NSContents">Ruta de acceso</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="781787218"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -2290,7 +2290,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSTextFieldCell" key="NSCell" id="375638532">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Ruta de acceso a Jpegtran</string>
+													<string key="NSContents">Ruta de acceso</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="819041770"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -2415,7 +2415,6 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 											</object>
 										</array>
 										<string key="NSFrame">{{10, 33}, {643, 303}}</string>
-										<reference key="NSSuperview" ref="772667599"/>
 										<reference key="NSNextKeyView" ref="461573954"/>
 									</object>
 									<string key="NSLabel">Jpegtran</string>
@@ -2455,7 +2454,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSTextFieldCell" key="NSCell" id="960275438">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Ruta de acceso a Gifsicle</string>
+													<string key="NSContents">Ruta de acceso</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="366797170"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
