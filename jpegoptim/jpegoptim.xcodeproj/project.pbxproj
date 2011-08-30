@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -152,15 +152,15 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0410;
+			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "jpegoptim" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
+				en,
 			);
 			mainGroup = 08FB7794FE84155DC02AAC07 /* jpegoptim */;
 			projectDirPath = "";
@@ -218,7 +218,6 @@
 		1DEB928608733DD80010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_DYNAMIC_NO_PIC = NO;
 				INSTALL_PATH = /usr/local/bin;
 				PRODUCT_NAME = jpegoptim;
 			};
@@ -229,7 +228,6 @@
 			buildSettings = {
 				INSTALL_PATH = /usr/local/bin;
 				PRODUCT_NAME = jpegoptim;
-				STRIP_INSTALLED_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -253,8 +251,6 @@
 					NDEBUG,
 					HAVE_CONFIG_H,
 				);
-				GCC_THREADSAFE_STATICS = NO;
-				GCC_UNROLL_LOOPS = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
 			};
 			name = Release;

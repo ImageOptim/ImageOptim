@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -284,8 +284,12 @@
 /* Begin PBXProject section */
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0410;
+			};
 			buildConfigurationList = 1DEB914E08733D8E0010E9CD /* Build configuration list for PBXProject "libpng" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -360,7 +364,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				EXECUTABLE_PREFIX = lib;
-				GCC_DYNAMIC_NO_PIC = NO;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = libpng;
 			};
@@ -379,19 +382,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9F2139B087F0095FC2F /* debug.xcconfig */;
 			buildSettings = {
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
-				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
-				GCC_OBJC_CALL_CXX_CDTORS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					HAVE_CONFIG_H,
 					PNG_CONFIGURE_LIBPNG,
 				);
-				GCC_THREADSAFE_STATICS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
-				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
 				LD_DYLIB_INSTALL_NAME = "@loader_path/liblibpng.dylib";
 			};
 			name = Debug;
@@ -400,24 +396,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9F1139B087F0095FC2F /* release.xcconfig */;
 			buildSettings = {
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_CPP_EXCEPTIONS = NO;
-				GCC_ENABLE_CPP_RTTI = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
-				"GCC_ENABLE_SSE41_EXTENSIONS[arch=x86_64]" = YES;
-				"GCC_ENABLE_SSE42_EXTENSIONS[arch=x86_64]" = YES;
-				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;				
-				GCC_OBJC_CALL_CXX_CDTORS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					PNG_CONFIGURE_LIBPNG,
 					HAVE_CONFIG_H,
 					NDEBUG,
 				);
-				GCC_THREADSAFE_STATICS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
-				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
 				LD_DYLIB_INSTALL_NAME = "@loader_path/liblibpng.dylib";
-				"OTHER_CFLAGS[arch=x86_64]" = "-mtune=core2";
 			};
 			name = Release;
 		};
