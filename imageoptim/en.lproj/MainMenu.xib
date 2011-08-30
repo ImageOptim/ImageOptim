@@ -10,6 +10,29 @@
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			<string key="NS.object.0">1617</string>
 		</object>
+		<array key="IBDocument.IntegratedClassDependencies">
+			<string>NSTextView</string>
+			<string>NSMenu</string>
+			<string>NSButton</string>
+			<string>NSCustomObject</string>
+			<string>NSArrayController</string>
+			<string>NSImageView</string>
+			<string>NSImageCell</string>
+			<string>NSTableView</string>
+			<string>NSTextField</string>
+			<string>NSNumberFormatter</string>
+			<string>NSWindowTemplate</string>
+			<string>NSTextFieldCell</string>
+			<string>NSButtonCell</string>
+			<string>NSTableColumn</string>
+			<string>NSView</string>
+			<string>NSScrollView</string>
+			<string>NSUserDefaultsController</string>
+			<string>NSProgressIndicator</string>
+			<string>NSScroller</string>
+			<string>NSMenuItem</string>
+			<string>NSTableHeaderView</string>
+		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 		</array>
@@ -68,6 +91,7 @@
 											<object class="_NSCornerView" key="NSCornerView">
 												<int key="NSvFlags">-2147483392</int>
 												<string key="NSFrame">{{567, 1}, {16, 17}}</string>
+												<reference key="NSNextKeyView" ref="356058265"/>
 											</object>
 											<array class="NSMutableArray" key="NSTableColumns">
 												<object class="NSTableColumn" id="238366736">
@@ -1007,7 +1031,10 @@
 						<object class="NSImageView" id="20443895">
 							<reference key="NSNextResponder" ref="216029037"/>
 							<int key="NSvFlags">269</int>
-							<set class="NSMutableSet" key="NSDragTypes"/>
+							<set class="NSMutableSet" key="NSDragTypes">
+								<string>Apple PNG pasteboard type</string>
+								<string>NSFilenamesPboardType</string>
+							</set>
 							<string key="NSFrame">{{84, 216}, {128, 128}}</string>
 							<reference key="NSSuperview" ref="216029037"/>
 							<bool key="NSEnabled">YES</bool>
@@ -2388,6 +2415,8 @@
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
+				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="-3.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="130.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="131.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

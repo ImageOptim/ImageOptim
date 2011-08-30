@@ -93,6 +93,7 @@
 												<nil key="NSNextResponder"/>
 												<int key="NSvFlags">-2147483392</int>
 												<string key="NSFrame">{{567, 1}, {16, 17}}</string>
+												<reference key="NSNextKeyView" ref="356058265"/>
 											</object>
 											<array class="NSMutableArray" key="NSTableColumns">
 												<object class="NSTableColumn" id="238366736">
@@ -411,6 +412,7 @@
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{43, -17}, {410, 42}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
+							<reference key="NSNextKeyView" ref="218087580"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="326808065">
 								<int key="NSCellFlags">67239488</int>

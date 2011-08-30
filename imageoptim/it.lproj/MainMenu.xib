@@ -63,6 +63,7 @@
 				<string key="NSWindowContentMaxSize">{1200, 2000}</string>
 				<string key="NSWindowContentMinSize">{411, 110}</string>
 				<object class="NSView" key="NSWindowView" id="633482293">
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSScrollView" id="188613459">
@@ -92,6 +93,7 @@
 												<nil key="NSNextResponder"/>
 												<int key="NSvFlags">-2147483392</int>
 												<string key="NSFrame">{{567, 1}, {16, 17}}</string>
+												<reference key="NSNextKeyView" ref="356058265"/>
 											</object>
 											<array class="NSMutableArray" key="NSTableColumns">
 												<object class="NSTableColumn" id="238366736">
@@ -652,9 +654,7 @@
 						<reference key="NSMixedImage" ref="898714739"/>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="810587040">
-							<object class="NSMutableString" key="NSTitle">
-								<characters key="NS.bytes">File</characters>
-							</object>
+							<string key="NSTitle">File</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="920522896">
 									<reference key="NSMenu" ref="810587040"/>
