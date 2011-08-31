@@ -64,19 +64,13 @@
 		[oPanel setResolvesAliases:YES];
 
 		[oPanel beginSheetModalForWindow:[self window] completionHandler:^(NSInteger returnCode) {
-	if (returnCode == NSOKButton)
-	{
-		NSArray *files = [oPanel filenames];
-		NSString *keypath = [NSString stringWithFormat:@"%@.Path",key];
-		if ([files count])
-		{
-			//NSLog(@"Setting path %@ for %@",files,keypath);
-			NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-			[defs willChangeValueForKey:keypath];
-			[defs setObject:[files objectAtIndex:0] forKey:keypath];
-			[defs didChangeValueForKey:keypath];
-		}
-	}
+            if (returnCode == NSOKButton) {
+                NSString *file = [[oPanel filenames] lastObject];
+                if (file) {
+                    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+                    [defs setObject:file forKey:[key stringByAppendingString:@"Path"]];
+                }
+            }
         }];
 	}
 }

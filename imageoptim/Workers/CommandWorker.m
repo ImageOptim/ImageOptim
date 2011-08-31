@@ -71,10 +71,8 @@
 	[task setArguments: arguments];
 
 	// clone the current environment
-	NSMutableDictionary* environment =
-		[NSMutableDictionary dictionaryWithDictionary:
-			[[NSProcessInfo processInfo] environment]
-		];
+	NSMutableDictionary*
+	environment =[NSMutableDictionary dictionaryWithDictionary: [[NSProcessInfo processInfo] environment]];
 
     // set up for unbuffered I/O
 	[environment setObject:@"YES" forKey:@"NSUnbufferedIO"];
@@ -124,6 +122,7 @@
 -(NSTask *)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args
 {
 	NSString *executable = [self executablePathForKey:key bundleName:resourceName];
+
 	if (!executable)
     {
         NSLog(@"Could not launch %@",resourceName);
@@ -138,24 +137,21 @@
 {
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	NSString *path = nil;
-    NSString *const kBundle = [NSString stringWithFormat:@"%@.Bundle",prefsName];
+    NSString *const kBundle = [prefsName stringByAppendingString:@"Bundle"];
 
 	if ([defs boolForKey:kBundle])
 	{
 		if ((path = [[NSBundle mainBundle] pathForAuxiliaryExecutable:resourceName])
-             && [[NSFileManager defaultManager] isExecutableFileAtPath:path])
-		{
+             && [[NSFileManager defaultManager] isExecutableFileAtPath:path]) {
 			return path;
-		}
-		else
-		{
+		} else {
 			NSLog(@"There's no bundled executable for %@ at %@ - disabling",prefsName, path);
-            NSBeep();
 			[defs setBool:NO forKey:kBundle];
 		}
 	}
 
-	path = [defs stringForKey:[NSString stringWithFormat:@"%@.Path",prefsName]];
+    NSString *const kPath = [prefsName stringByAppendingString:@"Path"];
+	path = [defs stringForKey:kPath];
 	if ([path length] && [[NSFileManager defaultManager] isExecutableFileAtPath:path])
 	{
 		return path;
@@ -163,7 +159,7 @@
 
 	NSLog(@"Can't find working executable for %@ - disabling",prefsName);
     NSBeep();
-	[defs setBool:NO forKey:[NSString stringWithFormat:@"%@.Enabled",prefsName]];
+	[defs setBool:NO forKey:[prefsName stringByAppendingString:@"@Enabled"]];
 
 	return nil;
 }

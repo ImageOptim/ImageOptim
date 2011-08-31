@@ -14,9 +14,9 @@
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-        comments = [defaults boolForKey:@"JpegOptim.StripComments"];
-        exif = [defaults boolForKey:@"JpegOptim.StripExif"];
-        maxquality = [defaults integerForKey:@"JpegOptim.MaxQuality"];
+        comments = [defaults boolForKey:@"JpegOptimStripComments"];
+        exif = [defaults boolForKey:@"JpegOptimStripExif"];
+        maxquality = [defaults integerForKey:@"JpegOptimMaxQuality"];
     }
     return self;
 }

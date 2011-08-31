@@ -13,8 +13,8 @@
     if (self = [super init])
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        chunks = [defaults arrayForKey:@"PngCrush.Chunks"];
-        tryfix = [defaults boolForKey:@"PngCrush.Fix"];
+        chunks = [defaults arrayForKey:@"PngCrushChunks"];
+        tryfix = [defaults boolForKey:@"PngCrushFix"];
     }
     return self;
 }

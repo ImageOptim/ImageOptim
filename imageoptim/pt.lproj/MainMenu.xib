@@ -1006,7 +1006,7 @@
 					<string>isOptimized</string>
 					<string>percentDone</string>
 					<string>statusImage</string>
-					<string>AdvPng.Enabled</string>
+					<string>AdvPngEnabled</string>
 				</array>
 				<string key="NSObjectClassName">File</string>
 				<bool key="NSEditable">YES</bool>
@@ -1614,15 +1614,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.OptiPng.Enabled</string>
+						<string key="label">value: values.OptiPngEnabled</string>
 						<reference key="source" ref="362613240"/>
 						<reference key="destination" ref="342046411"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="362613240"/>
 							<reference key="NSDestination" ref="342046411"/>
-							<string key="NSLabel">value: values.OptiPng.Enabled</string>
+							<string key="NSLabel">value: values.OptiPngEnabled</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.OptiPng.Enabled</string>
+							<string key="NSKeyPath">values.OptiPngEnabled</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1630,15 +1630,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.PngCrush.Enabled</string>
+						<string key="label">value: values.PngCrushEnabled</string>
 						<reference key="source" ref="751880370"/>
 						<reference key="destination" ref="342046411"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="751880370"/>
 							<reference key="NSDestination" ref="342046411"/>
-							<string key="NSLabel">value: values.PngCrush.Enabled</string>
+							<string key="NSLabel">value: values.PngCrushEnabled</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.PngCrush.Enabled</string>
+							<string key="NSKeyPath">values.PngCrushEnabled</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1646,15 +1646,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.AdvPng.Enabled</string>
+						<string key="label">value: values.AdvPngEnabled</string>
 						<reference key="source" ref="643361958"/>
 						<reference key="destination" ref="342046411"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="643361958"/>
 							<reference key="NSDestination" ref="342046411"/>
-							<string key="NSLabel">value: values.AdvPng.Enabled</string>
+							<string key="NSLabel">value: values.AdvPngEnabled</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.AdvPng.Enabled</string>
+							<string key="NSKeyPath">values.AdvPngEnabled</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1662,15 +1662,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.PngOut.Enabled</string>
+						<string key="label">value: values.PngOutEnabled</string>
 						<reference key="source" ref="536859034"/>
 						<reference key="destination" ref="342046411"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="536859034"/>
 							<reference key="NSDestination" ref="342046411"/>
-							<string key="NSLabel">value: values.PngOut.Enabled</string>
+							<string key="NSLabel">value: values.PngOutEnabled</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.PngOut.Enabled</string>
+							<string key="NSKeyPath">values.PngOutEnabled</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1678,15 +1678,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.JpegTran.Enabled</string>
+						<string key="label">value: values.JpegTranEnabled</string>
 						<reference key="source" ref="962223028"/>
 						<reference key="destination" ref="342046411"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="962223028"/>
 							<reference key="NSDestination" ref="342046411"/>
-							<string key="NSLabel">value: values.JpegTran.Enabled</string>
+							<string key="NSLabel">value: values.JpegTranEnabled</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.JpegTran.Enabled</string>
+							<string key="NSKeyPath">values.JpegTranEnabled</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1694,15 +1694,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.JpegOptim.Enabled</string>
+						<string key="label">value: values.JpegOptimEnabled</string>
 						<reference key="source" ref="86268337"/>
 						<reference key="destination" ref="342046411"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="86268337"/>
 							<reference key="NSDestination" ref="342046411"/>
-							<string key="NSLabel">value: values.JpegOptim.Enabled</string>
+							<string key="NSLabel">value: values.JpegOptimEnabled</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.JpegOptim.Enabled</string>
+							<string key="NSKeyPath">values.JpegOptimEnabled</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1710,15 +1710,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.Gifsicle.Enabled</string>
+						<string key="label">value: values.GifsicleEnabled</string>
 						<reference key="source" ref="900403355"/>
 						<reference key="destination" ref="342046411"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="900403355"/>
 							<reference key="NSDestination" ref="342046411"/>
-							<string key="NSLabel">value: values.Gifsicle.Enabled</string>
+							<string key="NSLabel">value: values.GifsicleEnabled</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.Gifsicle.Enabled</string>
+							<string key="NSKeyPath">values.GifsicleEnabled</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>

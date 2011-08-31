@@ -15,8 +15,8 @@
 //    if (self = [super init])
 //    {
 //        NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-//        optlevel = [defs integerForKey:@"OptiPng.Level"];
-//        interlace = [defs integerForKey:@"OptiPng.Interlace"];
+//        optlevel = [defs integerForKey:@"OptiPngLevel"];
+//        interlace = [defs integerForKey:@"OptiPngInterlace"];
 //
 //    }
 //    return self;

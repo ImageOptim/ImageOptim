@@ -533,18 +533,18 @@
     int types = 0;
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 
-    if ([defs boolForKey:@"PngCrush.Enabled"] || [defs boolForKey:@"PngOut.Enabled"] ||
-        [defs boolForKey:@"OptiPng.Enabled"] || [defs boolForKey:@"AdvPng.Enabled"])
+    if ([defs boolForKey:@"PngCrushEnabled"] || [defs boolForKey:@"PngOutEnabled"] ||
+        [defs boolForKey:@"OptiPngEnabled"] || [defs boolForKey:@"AdvPngEnabled"])
     {
         types |= PNG_ENABLED;
     }
 
-    if ([defs boolForKey:@"JpegOptim.Enabled"] || [defs boolForKey:@"JpegTran.Enabled"])
+    if ([defs boolForKey:@"JpegOptimEnabled"] || [defs boolForKey:@"JpegTranEnabled"])
     {
         types |= JPEG_ENABLED;
     }
 
-    if ([defs boolForKey:@"Gifsicle.Enabled"])
+    if ([defs boolForKey:@"GifsicleEnabled"])
     {
         types |= GIF_ENABLED;
     }

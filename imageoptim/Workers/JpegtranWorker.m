@@ -13,7 +13,7 @@
     if (self = [super init])
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        strip = [defaults boolForKey:@"JpegTran.StripAll"];
+        strip = [defaults boolForKey:@"JpegTranStripAll"];
     }
     return self;
 }

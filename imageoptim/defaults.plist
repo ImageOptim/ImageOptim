@@ -2,47 +2,47 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AdvPng.Bundle</key>
+	<key>AdvPngBundle</key>
 	<true/>
-	<key>AdvPng.Enabled</key>
+	<key>AdvPngEnabled</key>
 	<true/>
-	<key>AdvPng.Path</key>
+	<key>AdvPngPath</key>
 	<string>/usr/bin/advpng</string>
-	<key>AdvPng.Level</key>
+	<key>AdvPngLevel</key>
 	<real>4</real>
-	<key>JpegOptim.Bundle</key>
+	<key>JpegOptimBundle</key>
 	<true/>
-	<key>JpegOptim.Enabled</key>
+	<key>JpegOptimEnabled</key>
 	<true/>
-	<key>JpegOptim.Path</key>
+	<key>JpegOptimPath</key>
 	<string>/sw/bin/jpegoptim</string>
-	<key>JpegOptim.MaxQuality</key>
+	<key>JpegOptimMaxQuality</key>
 	<integer>100</integer>
-	<key>JpegOptim.StripComments</key>
+	<key>JpegOptimStripComments</key>
 	<true/>
-	<key>JpegOptim.StripExif</key>
+	<key>JpegOptimStripExif</key>
 	<true/>
-	<key>JpegTran.Bundle</key>
+	<key>JpegTranBundle</key>
 	<true/>
-	<key>JpegTran.Enabled</key>
+	<key>JpegTranEnabled</key>
 	<true/>
-	<key>JpegTran.Path</key>
+	<key>JpegTranPath</key>
 	<string>/sw/bin/jpegtran</string>
-	<key>OptiPng.Bundle</key>
+	<key>OptiPngBundle</key>
 	<true/>
-	<key>OptiPng.Enabled</key>
+	<key>OptiPngEnabled</key>
 	<true/>
-	<key>OptiPng.Path</key>
+	<key>OptiPngPath</key>
 	<string>/usr/bin/optipng</string>
-	<key>OptiPng.Level</key>
+	<key>OptiPngLevel</key>
 	<real>6</real>
-	<key>PngCrush.Bundle</key>
+	<key>PngCrushBundle</key>
 	<true/>
-	<key>PngCrush.Enabled</key>
+	<key>PngCrushEnabled</key>
 	<true/>
-	<key>PngCrush.Path</key>
+	<key>PngCrushPath</key>
 	<string>/usr/bin/pngcrush</string>
-	<key>PngCrush.Chunks</key>
+	<key>PngCrushChunks</key>
 	<array>
 		<dict>
 			<key>name</key>
@@ -73,23 +73,23 @@
 			<string>iTXt</string>
 		</dict>
 	</array>
-	<key>PngOut.Bundle</key>
+	<key>PngOutBundle</key>
 	<false/>
-	<key>PngOut.Enabled</key>
+	<key>PngOutEnabled</key>
 	<false/>
-	<key>PngOut.Path</key>
+	<key>PngOutPath</key>
 	<string>/usr/bin/pngout-darwin</string>
-	<key>PngOut.Level</key>
+	<key>PngOutLevel</key>
 	<integer>3</integer>
-	<key>PngOut.RemoveChunks</key>
+	<key>PngOutRemoveChunks</key>
 	<true/>
-	<key>PngOut.InterruptIfTakesTooLong</key>
+	<key>PngOutInterruptIfTakesTooLong</key>
 	<true/>
-	<key>Gifsicle.Bundle</key>
+	<key>GifsicleBundle</key>
 	<true/>
-	<key>Gifsicle.Enabled</key>
+	<key>GifsicleEnabled</key>
 	<true/>
-	<key>Gifsicle.Path</key>
+	<key>GifsiclePath</key>
 	<string>/usr/local/bin/gifsicle</string>
 	<key>PreservePermissions</key>
 	<true/>

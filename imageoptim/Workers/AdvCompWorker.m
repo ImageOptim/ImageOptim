@@ -13,7 +13,7 @@
     if (self = [super init])
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        level = [defaults integerForKey:@"AdvPng.Level"];
+        level = [defaults integerForKey:@"AdvPngLevel"];
 
     }
     return self;

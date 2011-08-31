@@ -15,10 +15,10 @@
     if (self = [super init])
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        tryfilters = [defaults boolForKey:@"PngOut.TryFilters"];
-        level = 3-[defaults integerForKey:@"PngOut.Level"];
-        removechunks = [defaults boolForKey:@"PngOut.RemoveChunks"];
-        interruptIfTakesTooLong = [defaults boolForKey:@"PngOut.InterruptIfTakesTooLong"];
+        tryfilters = [defaults boolForKey:@"PngOutTryFilters"];
+        level = 3-[defaults integerForKey:@"PngOutLevel"];
+        removechunks = [defaults boolForKey:@"PngOutRemoveChunks"];
+        interruptIfTakesTooLong = [defaults boolForKey:@"PngOutInterruptIfTakesTooLong"];
     }
     return self;
 }
