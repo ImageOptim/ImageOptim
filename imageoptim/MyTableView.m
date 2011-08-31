@@ -25,6 +25,22 @@
 	[(FilesQueue*)[self delegate] pasteObjects];
 }
 
+- (BOOL)validateMenuItem:(NSMenuItem*)menuItem
+{
+	SEL action = [menuItem action];
+
+	if (action == @selector(delete:) || action == @selector(copy:) || action ==  @selector(cut:)) {
+		return [self selectedRow]>=0;
+	} else if (action == @selector(paste:)) {
+		NSPasteboard *pboard = [NSPasteboard generalPasteboard];
+		NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
+		return [paths count]>0;
+	} else if (action == @selector(selectAll:)) {
+		return [self numberOfRows]>0;
+	}
+	return [menuItem isEnabled];
+}
+
 - (void)keyDown:(NSEvent *)theEvent {
 
     if (![theEvent isARepeat] && [theEvent keyCode] == 49/*space*/ && [self numberOfSelectedRows])

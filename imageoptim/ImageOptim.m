@@ -190,6 +190,14 @@
     return NO;
 }
 
+- (BOOL)validateMenuItem:(NSMenuItem*)menuItem
+{
+	if ([menuItem action] == @selector(startAgain:)) {
+		return [tableView numberOfRows]>0;
+    }
+	return [menuItem isEnabled];
+}
+
 // This delegate method provides the rect on screen from which the panel will zoom.
 - (NSRect)previewPanel:(QLPreviewPanel *)panel sourceFrameOnScreenForPreviewItem:(id <QLPreviewItem>)item
 {
