@@ -215,7 +215,8 @@
 	@synchronized(self)
     {
 		workersActive++;
-        [self setStatus:@"progress" order:4 text:[NSString stringWithFormat:NSLocalizedString(@"Started %@",@"command name"),[worker className]]];
+        NSString *name = [[worker className] stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
+        [self setStatus:@"progress" order:4 text:[NSString stringWithFormat:NSLocalizedString(@"Started %@",@"command name"),name]];
     }
 }
 
