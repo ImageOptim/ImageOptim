@@ -4,9 +4,25 @@
 
 @implementation MyTableView
 
+
 - (IBAction)delete:(id)sender
 {
 	[(FilesQueue*)[self delegate] delete:sender];
+}
+
+- (IBAction)copy:(id)sender
+{
+	[(FilesQueue*)[self delegate] copyObjects];
+}
+
+- (IBAction)cut:(id)sender
+{
+	[(FilesQueue*)[self delegate] cutObjects];
+}
+
+- (IBAction)paste:(id)sender
+{
+	[(FilesQueue*)[self delegate] pasteObjects];
 }
 
 - (void)keyDown:(NSEvent *)theEvent {

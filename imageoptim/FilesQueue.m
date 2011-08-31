@@ -14,7 +14,8 @@
 -(BOOL)isAnyQueueBusy;
 -(void)setEnabled:(BOOL)y;
 -(void)updateProgressbar;
-
+-(NSArray*)selectedFilePaths;
+-(void)deleteObjects:(NSArray*)objects;
 @end
 
 
@@ -137,21 +138,22 @@
 	return dragOp;
 }
 
+-(void)pasteObjects{
+
+	NSPasteboard *pboard = [NSPasteboard generalPasteboard];
+	NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
+	[filesControllerLock lock];
+	[self performSelectorInBackground:@selector(addPaths:) withObject:paths];
+
+	[filesControllerLock unlock];
+}
+
 - (BOOL)tableView:(NSTableView *)tv
 		writeRows:(NSArray*)rows
 	 toPasteboard:(NSPasteboard*)pboard
 {
 	if (!isEnabled) return NO;
-
-	NSArray *selectedFiles=[filesController selectedObjects];
-	NSEnumerator *fileEnum=[selectedFiles objectEnumerator];
-	NSMutableArray *filePathlist=[NSMutableArray array];
-
-	id afile;
-	while (afile=[fileEnum nextObject]) {
-		[filePathlist addObject:[afile valueForKey:@"filePath"]];
-	}
-
+	NSArray *filePathlist=[self selectedFilePaths];
 	NSArray *typesArray=[NSArray arrayWithObject:NSFilenamesPboardType];
 
 	if ([filePathlist count]>0)
@@ -164,6 +166,47 @@
 	return NO;
 }
 
+-(BOOL)copyObjects
+{
+		if (!isEnabled) return NO;
+		NSPasteboard *pboard=[NSPasteboard generalPasteboard];
+		NSArray *filePathlist=[self selectedFilePaths];
+
+		NSArray *typesArray=[NSArray arrayWithObject:NSFilenamesPboardType];
+
+		if ([filePathlist count]>0)
+		{
+			[pboard declareTypes:typesArray owner:self];
+			if([pboard setPropertyList:filePathlist forType:NSFilenamesPboardType])
+				return YES;
+
+		}
+	return NO;
+}
+
+-(NSArray*)selectedFilePaths
+{
+	NSArray *selectedFiles=[filesController selectedObjects];
+	NSEnumerator *fileEnum=[selectedFiles objectEnumerator];
+	NSMutableArray *filePathlist=[NSMutableArray array];
+
+	id afile;
+	while (afile=[fileEnum nextObject]) {
+		[filePathlist addObject:[afile valueForKey:@"filePath"]];
+	}
+	return filePathlist;
+}
+
+
+-(void)cutObjects
+	{
+	if ([self copyObjects]){
+		[self deleteObjects:[filesController selectedObjects]];
+		[[tableView undoManager] setActionName:NSLocalizedString(@"Cut",nil)];
+	}
+}
+
+
 -(IBAction)delete:(id)sender
 {
     NSArray *files = nil;
@@ -171,8 +214,10 @@
 
 	if ([filesController canRemove])
 	{
+
         files = [filesController selectedObjects];
-		[filesController removeObjects:files];
+
+		[self  deleteObjects:files];
     }
 
     if (files)
@@ -185,6 +230,19 @@
     else NSBeep();
 	[filesControllerLock unlock];
     [self runAdded];
+}
+-(void)addObjects:(NSArray*)objects
+{
+	NSUndoManager *undo=[tableView undoManager];
+	[undo registerUndoWithTarget:self selector:@selector(deleteObjects:) object:objects];
+	[filesController addObjects:objects];
+}
+
+-(void)deleteObjects:(NSArray*)objects
+{
+	NSUndoManager *undo=[tableView undoManager];
+	[undo registerUndoWithTarget:self selector:@selector(addObjects:) object:objects];
+	[filesController removeObjects:objects];
 }
 
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation
@@ -372,6 +430,8 @@
 	}
 
 	if (beepWhenDone) NSBeep();
+	[[tableView undoManager] registerUndoWithTarget:self selector:@selector(deleteObjects:) object:toAdd];
+	[[tableView undoManager] setActionName:NSLocalizedString(@"Add",nil)];
 }
 
 -(void)addPath:(NSString *)path

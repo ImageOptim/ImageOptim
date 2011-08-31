@@ -43,7 +43,9 @@
 
 -(IBAction)delete:(id)sender;
 -(void)quickLook;
-
+-(BOOL)copyObjects;
+-(void)cutObjects;
+-(void)pasteObjects;
 -(void)cleanup;
 -(void)setRow:(NSInteger)row;
 -(void)openRowInFinder:(NSInteger)row withPreview:(BOOL)preview;
