@@ -23,10 +23,38 @@
 	}
 }
 
++ (void)migrateOldPreferences
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+
+    BOOL migrated = [userDefaults boolForKey:@"PrefsMigrated"];
+    if (!migrated) {
+        NSString *const oldKeys[] = {
+            @"AdvPng.Bundle", @"AdvPng.Enabled", @"AdvPng.Level", @"AdvPng.Path", @"Gifsicle.Bundle", @"Gifsicle.Enabled", @"Gifsicle.Path",
+            @"JpegOptim.Bundle", @"JpegOptim.Enabled", @"JpegOptim.MaxQuality", @"JpegOptim.Path", @"JpegOptim.StripComments", @"JpegOptim.StripExif",
+            @"JpegTran.Bundle", @"JpegTran.Enabled", @"JpegTran.Path", @"OptiPng.Bundle", @"OptiPng.Enabled", @"OptiPng.Level", @"OptiPng.Path",
+            @"PngCrush.Bundle", @"PngCrush.Chunks", @"PngCrush.Enabled", @"PngCrush.Path", @"PngOut.Bundle", @"PngOut.Enabled",
+            @"PngOut.InterruptIfTakesTooLong", @"PngOut.Level", @"PngOut.Path", @"PngOut.RemoveChunks",
+        };
+
+        for(int i=0; i < sizeof(oldKeys)/sizeof(oldKeys[0]); i++) {
+            id oldValue = [userDefaults objectForKey:oldKeys[i]];
+            if (oldValue) {
+                NSString *newKey = [oldKeys[i] stringByReplacingOccurrencesOfString:@"." withString:@""];
+                id newValue = [userDefaults objectForKey:newKey];
+                if (![oldValue isEqual:newValue]) {
+                    [userDefaults setObject:oldValue forKey:newKey];
+                } else {
+                    [userDefaults removeObjectForKey:oldKeys[i]]; // FIXME: remove unconditionally after a while
+                }
+            }
+        }
+        [userDefaults setBool:YES forKey:@"PrefsMigrated"];
+    }
+}
+
 +(void)initialize
 {
-	//srandom(random() ^ time(NULL));
-
 	NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 
 	int maxTasks = [self numberOfCPUs]+1;
@@ -36,6 +64,8 @@
 	[defs setObject:[NSNumber numberWithInt:(int)ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
 
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
+
+    [self migrateOldPreferences];
 }
 
 
