@@ -24,10 +24,6 @@
 	{
 		[self setFilePath:name];
 		[self setStatus:@"wait" order:0 text:NSLocalizedString(@"New file",@"newly added to the queue")];
-
-		workersTotal = 0;
-		workersActive = 0;
-		workersFinished = 0;
 	}
 	return self;
 }
@@ -115,17 +111,18 @@
 
 -(void)setFilePathOptimized:(NSString *)path size:(NSUInteger)size toolName:(NSString*)toolname
 {
-    @synchronized(self)
-    {
-        NSLog(@"File %@ optimized with %@ from %d to %d in %@",filePath?filePath:filePathOptimized,toolname,byteSizeOptimized,size,path);
+    @synchronized(self) 
+    {        
+        NSLog(@"File %@ optimized with %@ from %u to %u in %@",filePath?filePath:filePathOptimized,toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,path);
         if (size <= byteSizeOptimized)
         {
             bestToolName = [toolname stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
+            assert(![filePathOptimized isEqualToString:path]);
             [self removeOldFilePathOptimized];
             filePathOptimized = [path copy];
             [self setByteSizeOptimized:size];
+        }
     }
-}
 }
 
 -(BOOL)saveResult
@@ -181,8 +178,8 @@
 			}
 			else
 			{
-				NSLog(@"Temp file size %d does not match expected %d in %@ for %@",[data length],byteSizeOptimized,filePathOptimized,filePath);
-				return NO;
+				NSLog(@"Temp file size %u does not match expected %u in %@ for %@",(unsigned int)[data length],(unsigned int)byteSizeOptimized,filePathOptimized,filePath);
+				return NO;				
 			}
 		}
 		else

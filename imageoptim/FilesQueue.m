@@ -44,7 +44,7 @@
 
 	[tableView setDelegate:self];
 	[tableView setDataSource:self];
-	[tableView registerForDraggedTypes:[NSArray arrayWithObjects:NSFilenamesPboardType,NSStringPboardType,nil]];
+	[tableView registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
 
 	[self setEnabled:YES];
 

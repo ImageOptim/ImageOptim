@@ -66,7 +66,7 @@
 	if (![task terminationStatus])
 	{
 		NSUInteger fileSizeOptimized;
-		if (fileSizeOptimized = [File fileByteSize:temp])
+		if ((fileSizeOptimized = [File fileByteSize:temp]))
 		{
 			[file setFilePathOptimized:temp	size:fileSizeOptimized toolName:[self className]];
 		}

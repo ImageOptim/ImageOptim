@@ -79,13 +79,13 @@
 			NSLog(@"Idat %d guesstimate %d",res,fileSize - idatSize + res);
 		}
 		else*/
-		if (res = [self readNumberAfter:@"Input file size = " inLine:line])
+		if ((res = [self readNumberAfter:@"Input file size = " inLine:line]))
 		{
 			fileSize = res;
 			[file setByteSize:fileSize];
 			//NSLog(@"OptiPng input file %d",res);
 		}
-		else if (res = [self readNumberAfter:@"Output file size = " inLine:line])
+		else if ((res = [self readNumberAfter:@"Output file size = " inLine:line]))
 		{
 			fileSizeOptimized = res;
 			//[file setByteSizeOptimized:fileSizeOptimized];
