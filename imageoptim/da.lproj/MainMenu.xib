@@ -19,6 +19,7 @@
 			<string>NSImageView</string>
 			<string>NSImageCell</string>
 			<string>NSTableView</string>
+			<string>NSCustomView</string>
 			<string>NSTextField</string>
 			<string>NSNumberFormatter</string>
 			<string>NSWindowTemplate</string>
@@ -486,6 +487,15 @@
 								<int key="NSPeriodicDelay">200</int>
 								<int key="NSPeriodicInterval">25</int>
 							</object>
+						</object>
+						<object class="NSCustomView" id="714728707">
+							<reference key="NSNextResponder" ref="633482293"/>
+							<int key="NSvFlags">274</int>
+							<string key="NSFrame">{{0, 39}, {640, 199}}</string>
+							<reference key="NSSuperview" ref="633482293"/>
+							<reference key="NSNextKeyView" ref="866301361"/>
+							<string key="NSReuseIdentifierKey">_NS:499</string>
+							<string key="NSClassName">DragDropImageView</string>
 						</object>
 					</array>
 					<string key="NSFrameSize">{640, 238}</string>
@@ -1809,6 +1819,7 @@
 							<reference ref="718675695"/>
 							<reference ref="866301361"/>
 							<reference ref="646228687"/>
+							<reference ref="714728707"/>
 						</array>
 						<reference key="parent" ref="576848067"/>
 					</object>
@@ -2425,6 +2436,12 @@
 						<reference key="object" ref="900222994"/>
 						<reference key="parent" ref="810587040"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">712</int>
+						<reference key="object" ref="714728707"/>
+						<reference key="parent" ref="633482293"/>
+						<string key="objectName">Drop</string>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -2569,13 +2586,14 @@
 				<string key="665.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="666.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="708.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="712.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">711</int>
+			<int key="maxID">712</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

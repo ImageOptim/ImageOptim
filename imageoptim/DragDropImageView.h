@@ -3,9 +3,10 @@
 #import <Cocoa/Cocoa.h>
 #import <AppKit/AppKit.h>
 
-@interface DragDropImageView : NSImageView
+@interface DragDropImageView : NSView
 {
-    BOOL highlight;//highlight the drop zone
+    BOOL highlight; //highlight the drop zone
+    BOOL smoothSizes; // use blurry fractional sizes for smooth animation during live resize
 }
-- (id)initWithCoder:(NSCoder *)coder;
+
 @end
