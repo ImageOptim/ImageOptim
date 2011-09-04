@@ -1816,6 +1816,7 @@
 						<int key="objectID">428</int>
 						<reference key="object" ref="218087580"/>
 						<reference key="parent" ref="633482293"/>
+						<string key="objectName">Progress</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">29</int>
@@ -2280,6 +2281,7 @@
 							<reference ref="995883823"/>
 						</array>
 						<reference key="parent" ref="633482293"/>
+						<string key="objectName">Table Scroll View</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">642</int>
@@ -2306,6 +2308,7 @@
 							<reference ref="56751955"/>
 						</array>
 						<reference key="parent" ref="188613459"/>
+						<string key="objectName">Table</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">462</int>
@@ -2382,6 +2385,7 @@
 							<reference ref="650797074"/>
 						</array>
 						<reference key="parent" ref="633482293"/>
+						<string key="objectName">Again</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">635</int>
@@ -2395,6 +2399,7 @@
 							<reference ref="16446775"/>
 						</array>
 						<reference key="parent" ref="633482293"/>
+						<string key="objectName">Add</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">633</int>
@@ -2408,6 +2413,7 @@
 							<reference ref="326808065"/>
 						</array>
 						<reference key="parent" ref="633482293"/>
+						<string key="objectName">Status</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">632</int>
