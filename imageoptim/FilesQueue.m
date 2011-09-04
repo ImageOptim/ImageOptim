@@ -23,20 +23,20 @@
 
 -(id)initWithTableView:(NSTableView*)inTableView progressBar:(NSProgressIndicator *)inBar andController:(NSArrayController*)inController
 {
-	progressBar = [inBar retain];
-	filesController = [inController retain];
-	tableView = [inTableView retain];
+	progressBar = inBar;
+	filesController = inController;
+	tableView = inTableView;
 	seenPathHashes = [[NSHashTable alloc] initWithOptions:NSHashTableZeroingWeakMemory capacity:1000];
 
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 
-    cpuQueue = [[NSOperationQueue alloc] init];
+    cpuQueue = [NSOperationQueue new];
     [cpuQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentTasks"]];
 
-	dirWorkerQueue = [[NSOperationQueue alloc] init];
+	dirWorkerQueue = [NSOperationQueue new];
     [dirWorkerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentDirscans"]];
 
-	fileIOQueue = [[NSOperationQueue alloc] init];
+	fileIOQueue = [NSOperationQueue new];
     NSUInteger fileops = [defs integerForKey:@"RunConcurrentFileops"];
     [fileIOQueue setMaxConcurrentOperationCount:fileops?fileops:3];
 

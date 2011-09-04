@@ -19,10 +19,10 @@
 		recommendedNumberOfTasks = cpus+2 + (cpus>6?1:0);
 		criticalNumberOfTasks = (maxNumberOfTasks + recommendedNumberOfTasks)/2;
 
-		CeilFormatter *cf = [[[CeilFormatter alloc] init] autorelease];
+		CeilFormatter *cf = [CeilFormatter new];
 		[NSValueTransformer setValueTransformer:cf forName:@"CeilFormatter"];
 
-		DisabledColor *dc = [[[DisabledColor alloc] init] autorelease];
+		DisabledColor *dc = [DisabledColor new];
 		[NSValueTransformer setValueTransformer:dc forName:@"DisabledColor"];
 	}
 //	NSLog(@"init prefs %@",self);

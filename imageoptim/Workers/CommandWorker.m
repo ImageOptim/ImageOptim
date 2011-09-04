@@ -63,7 +63,7 @@
 -(NSTask *)taskWithPath:(NSString*)path arguments:(NSArray *)arguments;
 {
 	NSTask *task;
-	task = [[NSTask alloc] init];
+	task = [NSTask new];
 
 	NSLog(@"Launching %@ with %@",path,arguments);
 
