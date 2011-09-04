@@ -442,10 +442,7 @@
 {
     @synchronized(self)
     {
-        for(NSOperation *w in workers)
-        {
-            [w cancel];
-        }
+        [workers makeObjectsPerformSelector:@selector(cancel)];
         [workers removeAllObjects];
         [self removeOldFilePathOptimized];
     }

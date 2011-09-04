@@ -257,10 +257,7 @@
 }
 
 -(void)openRowInFinder:(NSInteger)row withPreview:(BOOL)preview {
-    NSArray *objs = [filesController arrangedObjects];
-    if (row >= 0 && row < [objs count])
-    {
-        File *f = [objs objectAtIndex:row];
+    for(File *f in [filesController arrangedObjects]) {
 		if (preview) [[NSWorkspace sharedWorkspace] openFile:[f filePath]];
         else [[NSWorkspace sharedWorkspace] selectFile:[f filePath] inFileViewerRootedAtPath:@""];
     }    
