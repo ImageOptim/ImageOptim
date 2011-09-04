@@ -168,7 +168,7 @@
 }
 
 -(NSString*)version {
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleGetInfoString"];
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 }
 
 // Quick Look panel support
