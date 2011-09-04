@@ -10,7 +10,7 @@
 
 @implementation ImageOptim
 
-@synthesize statusBarLabel,tableView,filesController,application,progressBar,credits, selectedIndexes;
+@synthesize selectedIndexes,filesQueue;
 
 - (void)setSelectedIndexes:(NSIndexSet *)indexSet
 {
@@ -158,7 +158,7 @@
 - (void)windowWillClose:(NSNotification *)aNotification
 {
     // let the window close immediately, clean in background
-    [application performSelectorOnMainThread:@selector(terminate:) withObject:self waitUntilDone:NO];
+    [NSApp performSelectorOnMainThread:@selector(terminate:) withObject:self waitUntilDone:NO];
 }
 
 -(void)applicationWillTerminate:(NSNotification*)n {

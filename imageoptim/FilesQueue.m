@@ -493,7 +493,7 @@
 	if (![self isAnyQueueBusy])
 	{
 		[progressBar stopAnimation:nil];
-		[[NSApplication sharedApplication] requestUserAttention:NSInformationalRequest];
+		[NSApp requestUserAttention:NSInformationalRequest];
 		[tableView setNeedsDisplay:YES];
 	}
 	else

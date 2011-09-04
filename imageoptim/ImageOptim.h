@@ -7,16 +7,15 @@
 
 @interface ImageOptim : NSObject <QLPreviewPanelDataSource, QLPreviewPanelDelegate>
 {
-	NSTableView *tableView;
-	NSArrayController *filesController;
+	IBOutlet NSTableView *tableView;
+	IBOutlet NSArrayController *filesController;
 
 	FilesQueue *filesQueue;
-	NSApplication *application;
 	PrefsController *prefsController;
 
-	NSProgressIndicator *progressBar;
-    NSTextField *statusBarLabel;
-    NSTextView *credits;
+	IBOutlet NSProgressIndicator *progressBar;
+    IBOutlet NSTextField *statusBarLabel;
+    IBOutlet NSTextView *credits;
 
     NSIndexSet* selectedIndexes;
 	QLPreviewPanel* previewPanel;
@@ -35,12 +34,7 @@
 
 +(int)numberOfCPUs;
 
-@property (retain,nonatomic) IBOutlet NSTextField *statusBarLabel;
-@property (retain) IBOutlet NSTableView *tableView;
-@property (retain) IBOutlet NSArrayController *filesController;
-@property (retain) IBOutlet NSApplication *application;
-@property (retain) IBOutlet NSProgressIndicator *progressBar;
-@property (retain,nonatomic) IBOutlet NSTextView *credits;
-@property(copy) NSIndexSet* selectedIndexes;
+@property (copy) NSIndexSet* selectedIndexes;
 
+@property (readonly) FilesQueue *filesQueue;
 @end
