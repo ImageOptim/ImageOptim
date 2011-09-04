@@ -47,8 +47,7 @@
 		[args insertObject:@"-k1" atIndex:0];
 	}
 
-	NSTask *task = [self taskForKey:@"PngOut" bundleName:@"pngout" arguments:args];
-    if (!task) {
+    if (![self taskForKey:@"PngOut" bundleName:@"pngout" arguments:args]) {
         return;
     }
 
@@ -66,7 +65,7 @@
 	[task setStandardError: commandPipe];
 
     if (interruptIfTakesTooLong) [task performSelector:@selector(interrupt) withObject:nil afterDelay:60.0];// TODO: configurable timeout?
-	[self launchTask:task];
+	[self launchTask];
 
 //	NSLog(@"launched pngout");
 	[self parseLinesFromHandle:commandHandle];
@@ -79,6 +78,8 @@
 	[task waitUntilExit];
     [commandHandle closeFile];
 	[fileOutputHandle closeFile];
+
+    if ([self isCancelled]) return;
 
 	if (![task terminationStatus] && fileSizeOptimized)
 	{

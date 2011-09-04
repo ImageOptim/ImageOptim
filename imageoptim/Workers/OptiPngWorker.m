@@ -32,8 +32,7 @@
 		[args insertObject:[NSString stringWithFormat:@"-i%d",interlace] atIndex:0];
 	}
 
-	NSTask *task = [self taskForKey:@"OptiPng" bundleName:@"optipng" arguments:args];
-	if (!task) {
+	if (![self taskForKey:@"OptiPng" bundleName:@"optipng" arguments:args]) {
         return;
     }
 
@@ -43,7 +42,7 @@
 	[task setStandardError: commandPipe];
 	[task setStandardOutput: commandPipe];
 
-	[self launchTask:task];
+	[self launchTask];
 
 	[self parseLinesFromHandle:commandHandle];
 
@@ -51,6 +50,8 @@
 
 	[task waitUntilExit];
 	[commandHandle closeFile];
+
+    if ([self isCancelled]) return;
 
 	if (![task terminationStatus] && fileSizeOptimized)
 	{

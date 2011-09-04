@@ -41,11 +41,9 @@
 		[args insertObject:@"-fix" atIndex:0];
 	}
 
-	NSTask *task = [self taskForKey:@"PngCrush" bundleName:@"pngcrush" arguments:args];
-    if (!task) {
+    if (![self taskForKey:@"PngCrush" bundleName:@"pngcrush" arguments:args]) {
         return;
     }
-
 
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
@@ -53,7 +51,7 @@
 	[task setStandardOutput: commandPipe];
 	[task setStandardError: commandPipe];
 
-	[self launchTask:task];
+	[self launchTask];
 
 	//[self parseLinesFromHandle:commandHandle];
 
@@ -62,6 +60,8 @@
 	[task waitUntilExit];
 
 	[commandHandle closeFile];
+
+    if ([self isCancelled]) return;
 
 	if (![task terminationStatus])
 	{

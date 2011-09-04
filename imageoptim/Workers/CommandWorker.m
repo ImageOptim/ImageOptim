@@ -60,9 +60,8 @@
 	}
 }
 
--(NSTask *)taskWithPath:(NSString*)path arguments:(NSArray *)arguments;
+-(void)taskWithPath:(NSString*)path arguments:(NSArray *)arguments;
 {
-	NSTask *task;
 	task = [NSTask new];
 
 	NSLog(@"Launching %@ with %@",path,arguments);
@@ -78,11 +77,9 @@
 	[environment setObject:@"YES" forKey:@"NSUnbufferedIO"];
 
     [task setEnvironment:environment];
-
-	return task;
 }
 
--(void)launchTask:(NSTask *)task
+-(void)launchTask
 {
 	@try
 	{
@@ -118,8 +115,12 @@
 	return 0;
 }
 
+-(void)cancel {
+    [task terminate];
+    [super cancel];
+}
 
--(NSTask *)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args
+-(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args
 {
 	NSString *executable = [self executablePathForKey:key bundleName:resourceName];
 
@@ -127,10 +128,11 @@
     {
         NSLog(@"Could not launch %@",resourceName);
         [file setStatus:@"err" order:8 text:[NSString stringWithFormat:NSLocalizedString(@"%@ failed to start",@"tooltip"),key]];
-        return nil;
+        return NO;
     }
 
-	return [self taskWithPath:executable arguments:args];
+    [self taskWithPath:executable arguments:args];
+	return YES;
 }
 
 -(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName

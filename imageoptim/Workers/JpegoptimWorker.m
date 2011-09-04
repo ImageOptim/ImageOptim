@@ -57,7 +57,9 @@
 		[args insertObject:[NSString stringWithFormat:@"-m%d",maxquality] atIndex:0];
 	}
 
-	NSTask *task = [self taskForKey:@"JpegOptim" bundleName:@"jpegoptim" arguments:args];
+    if (![self taskForKey:@"JpegOptim" bundleName:@"jpegoptim" arguments:args]) {
+        return;
+    }
 
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
@@ -65,7 +67,7 @@
 	[task setStandardOutput: commandPipe];
 	[task setStandardError: commandPipe];
 
-	[self launchTask:task];
+	[self launchTask];
 
 	[self parseLinesFromHandle:commandHandle];
 
@@ -73,6 +75,8 @@
 	[task waitUntilExit];
 
     [commandHandle closeFile];
+
+    if ([self isCancelled]) return;
 
 	if (![task terminationStatus] && fileSizeOptimized)
 	{

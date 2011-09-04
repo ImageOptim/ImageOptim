@@ -10,24 +10,25 @@
 
 @interface CommandWorker : Worker {
 	File *file;
+    NSTask *task;
 }
 -(id)initWithFile:(File *)aFile;
 
 -(BOOL)parseLine:(NSString *)line;
 -(void)parseLinesFromHandle:(NSFileHandle *)commandHandle;
 
--(NSTask *)taskWithPath:(NSString*)path arguments:(NSArray *)arguments;
+-(void)taskWithPath:(NSString*)path arguments:(NSArray *)arguments;
 
 
 -(long)readNumberAfter:(NSString *)str inLine:(NSString *)line;
 
--(void)launchTask:(NSTask *)task;
+-(void)launchTask;
 
 -(NSString *)tempPath;
 
 -(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName;
 
--(NSTask *)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args;
+-(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args;
 
 @property (retain) File *file;
 @end

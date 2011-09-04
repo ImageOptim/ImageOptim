@@ -33,8 +33,7 @@
         [args insertObject:@"-i" atIndex:0];
     }
 
-	NSTask *task = [self taskForKey:@"Gifsicle" bundleName:@"gifsicle" arguments:args];
-	if (!task) {
+	if (![self taskForKey:@"Gifsicle" bundleName:@"gifsicle" arguments:args]) {
         return;
     }
 
@@ -44,10 +43,12 @@
 	[task setStandardError: devnull];
 	[task setStandardOutput: devnull];
 
-	[self launchTask:task];
+	[self launchTask];
 	[task waitUntilExit];
 
 	[devnull closeFile];
+
+    if ([self isCancelled]) return;
 
     NSUInteger fileSizeOptimized = [File fileByteSize:temp];
     NSInteger termstatus = [task terminationStatus];

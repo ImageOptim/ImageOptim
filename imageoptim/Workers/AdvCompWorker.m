@@ -31,9 +31,8 @@
         return;
 	}
 
-	NSTask *task = [self taskForKey:@"AdvPng" bundleName:@"advpng"
-						  arguments:[NSArray arrayWithObjects: [NSString stringWithFormat:@"-%d",level ? level : 4],@"-z",@"--",temp,nil]];
-    if (!task) {
+    if (![self taskForKey:@"AdvPng" bundleName:@"advpng"
+                arguments:[NSArray arrayWithObjects: [NSString stringWithFormat:@"-%d",level ? level : 4],@"-z",@"--",temp,nil]]) {
         return;
     }
 
@@ -43,7 +42,7 @@
 	[task setStandardOutput: commandPipe];
 	[task setStandardError: commandPipe];
 
-	[self launchTask:task];
+	[self launchTask];
 
 	[self parseLinesFromHandle:commandHandle];
 
@@ -51,6 +50,8 @@
 	[task waitUntilExit];
 
 	[commandHandle closeFile];
+
+    if ([self isCancelled]) return;
 
 	if (![task terminationStatus] && fileSizeOptimized)
 	{

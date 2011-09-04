@@ -43,8 +43,9 @@
 		[args insertObject:@"all" atIndex:1];
     }
 
-	NSTask *task = [self taskForKey:@"JpegTran" bundleName:@"jpegtran" arguments:args];
-
+    if (![self taskForKey:@"JpegTran" bundleName:@"jpegtran" arguments:args]) {
+        return;
+    }
 
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
@@ -53,7 +54,7 @@
 	[task setStandardError: commandPipe];
 
     //NSLog(@"jpegtran ready to run");
-	[self launchTask:task];
+	[self launchTask];
 
 	[self parseLinesFromHandle:commandHandle];
 
@@ -61,6 +62,8 @@
 	[task waitUntilExit];
 
 	[commandHandle closeFile];
+
+    if ([self isCancelled]) return;
 
 	if (![task terminationStatus])
 	{
