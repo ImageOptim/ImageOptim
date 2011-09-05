@@ -418,7 +418,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="326808065">
 								<int key="NSCellFlags">67239488</int>
 								<int key="NSCellFlags2">4327424</int>
-								<string key="NSContents">Przeciągnij pliki obrazków do tabeli powyżej</string>
+								<string key="NSContents">Przeciągnij pliki obrazków do obszaru powyżej</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="646228687"/>
 								<bool key="NSDrawsBackground">YES</bool>
@@ -1774,6 +1774,26 @@
 					</object>
 					<int key="connectionID">711</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">hidden: arrangedObjects.@count</string>
+						<reference key="source" ref="714728707"/>
+						<reference key="destination" ref="130688837"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="714728707"/>
+							<reference key="NSDestination" ref="130688837"/>
+							<string key="NSLabel">hidden: arrangedObjects.@count</string>
+							<string key="NSBinding">hidden</string>
+							<string key="NSKeyPath">arrangedObjects.@count</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSRaisesForNotApplicableKeys</string>
+								<boolean value="NO" key="NS.object.0"/>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">720</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -2585,7 +2605,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">712</int>
+			<int key="maxID">724</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
