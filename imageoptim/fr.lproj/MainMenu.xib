@@ -94,7 +94,6 @@
 												<nil key="NSNextResponder"/>
 												<int key="NSvFlags">-2147483392</int>
 												<string key="NSFrame">{{567, 1}, {16, 17}}</string>
-												<reference key="NSNextKeyView" ref="356058265"/>
 											</object>
 											<array class="NSMutableArray" key="NSTableColumns">
 												<object class="NSTableColumn" id="238366736">
@@ -143,7 +142,7 @@
 														<int key="NSAlign">0</int>
 														<int key="NSScale">2</int>
 														<int key="NSStyle">0</int>
-														<bool key="NSAnimates">YES</bool>
+														<bool key="NSAnimates">NO</bool>
 													</object>
 													<reference key="NSTableView" ref="995883823"/>
 													<object class="NSSortDescriptor" key="NSSortDescriptorPrototype">
@@ -411,23 +410,16 @@
 						<object class="NSTextField" id="646228687">
 							<reference key="NSNextResponder" ref="633482293"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{43, -17}, {410, 42}}</string>
+							<string key="NSFrame">{{43, 12}, {410, 14}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
 							<reference key="NSNextKeyView" ref="218087580"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="326808065">
 								<int key="NSCellFlags">67239488</int>
-								<int key="NSCellFlags2">4327424</int>
+								<int key="NSCellFlags2">306321472</int>
 								<string key="NSContents">Déposez les fichiers à optimiser ci-dessus.</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="646228687"/>
-								<bool key="NSDrawsBackground">YES</bool>
-								<object class="NSColor" key="NSBackgroundColor" id="1027818951">
-									<int key="NSColorSpace">6</int>
-									<string key="NSCatalogName">System</string>
-									<string key="NSColorName">controlColor</string>
-									<reference key="NSColor" ref="330983875"/>
-								</object>
 								<reference key="NSTextColor" ref="777625168"/>
 							</object>
 						</object>
@@ -451,8 +443,6 @@
 								</object>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
-								<int key="NSPeriodicDelay">400</int>
-								<int key="NSPeriodicInterval">75</int>
 							</object>
 						</object>
 						<object class="NSProgressIndicator" id="218087580">
@@ -484,8 +474,6 @@
 								</object>
 								<string key="NSAlternateContents">Optimiser à nouveau</string>
 								<string key="NSKeyEquivalent">r</string>
-								<int key="NSPeriodicDelay">200</int>
-								<int key="NSPeriodicInterval">25</int>
 							</object>
 						</object>
 						<object class="NSCustomView" id="714728707">
@@ -1065,9 +1053,9 @@
 								<int key="NSAlign">0</int>
 								<int key="NSScale">0</int>
 								<int key="NSStyle">0</int>
-								<bool key="NSAnimates">YES</bool>
+								<bool key="NSAnimates">NO</bool>
 							</object>
-							<bool key="NSEditable">YES</bool>
+							<bool key="NSEditable">NO</bool>
 						</object>
 						<object class="NSScrollView" id="842977522">
 							<reference key="NSNextResponder" ref="216029037"/>
@@ -1200,11 +1188,7 @@
 								<string key="NSContents">version</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="805991443"/>
-								<reference key="NSBackgroundColor" ref="1027818951"/>
 								<reference key="NSTextColor" ref="777625168"/>
-								<array key="NSAllowedInputLocales">
-									<string>NSAllRomanInputSourcesLocaleIdentifier</string>
-								</array>
 							</object>
 						</object>
 					</array>
@@ -1467,11 +1451,10 @@
 							<string key="NSLabel">value: arrangedObjects.percentOptimized</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">arrangedObjects.percentOptimized</string>
-							<dictionary key="NSOptions">
-								<integer value="0" key="NSAllowsEditingMultipleValuesSelection"/>
-								<integer value="1" key="NSConditionallySetsEditable"/>
-								<integer value="0" key="NSRaisesForNotApplicableKeys"/>
-							</dictionary>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSRaisesForNotApplicableKeys</string>
+								<integer value="0" key="NS.object.0"/>
+							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1488,10 +1471,10 @@
 							<string key="NSLabel">value: arrangedObjects.byteSizeOptimized</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">arrangedObjects.byteSizeOptimized</string>
-							<dictionary key="NSOptions">
-								<integer value="0" key="NSAllowsEditingMultipleValuesSelection"/>
-								<integer value="0" key="NSRaisesForNotApplicableKeys"/>
-							</dictionary>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSRaisesForNotApplicableKeys</string>
+								<integer value="0" key="NS.object.0"/>
+							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1508,11 +1491,10 @@
 							<string key="NSLabel">value: arrangedObjects.fileName</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">arrangedObjects.fileName</string>
-							<dictionary key="NSOptions">
-								<integer value="0" key="NSAllowsEditingMultipleValuesSelection"/>
-								<integer value="1" key="NSConditionallySetsEditable"/>
-								<integer value="0" key="NSRaisesForNotApplicableKeys"/>
-							</dictionary>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSRaisesForNotApplicableKeys</string>
+								<integer value="0" key="NS.object.0"/>
+							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1529,10 +1511,10 @@
 							<string key="NSLabel">value: arrangedObjects.statusImage</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">arrangedObjects.statusImage</string>
-							<dictionary key="NSOptions">
-								<integer value="0" key="NSAllowsEditingMultipleValuesSelection"/>
-								<integer value="0" key="NSRaisesForNotApplicableKeys"/>
-							</dictionary>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSRaisesForNotApplicableKeys</string>
+								<integer value="0" key="NS.object.0"/>
+							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1613,10 +1595,10 @@
 							<string key="NSLabel">value: version</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">version</string>
-							<dictionary key="NSOptions">
-								<boolean value="NO" key="NSAllowsEditingMultipleValuesSelection"/>
-								<boolean value="NO" key="NSRaisesForNotApplicableKeys"/>
-							</dictionary>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSRaisesForNotApplicableKeys</string>
+								<boolean value="NO" key="NS.object.0"/>
+							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
