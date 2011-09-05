@@ -39,7 +39,8 @@
 - (NSUInteger)numberOfRowsInTableView:(NSTableView *)tableview;
 
 -(void)runAdded;
--(void)startAgain;
+-(void)startAgainOptimized:(BOOL)optimized;
+-(BOOL)canStartAgainOptimized:(BOOL)optimized;
 -(void)clearComplete;
 -(BOOL)canClearComplete;
 -(IBAction)delete:(id)sender;

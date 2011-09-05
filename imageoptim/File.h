@@ -34,6 +34,7 @@
 }
 
 -(BOOL)isBusy;
+-(BOOL)isOptimized;
 -(BOOL)isDone;
 
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue;

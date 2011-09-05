@@ -23,6 +23,7 @@
 
 - (IBAction)showPrefs:(id)sender;
 - (IBAction)startAgain:(id)sender;
+- (IBAction)startAgainOptimized:(id)sender;
 - (IBAction)clearComplete:(id)sender;
 
 -(IBAction)quickLookAction:(id)sender;

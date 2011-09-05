@@ -80,7 +80,6 @@
 											<int key="NSvFlags">274</int>
 											<string key="NSFrameSize">{640, 183}</string>
 											<reference key="NSSuperview" ref="180760454"/>
-											<reference key="NSNextKeyView" ref="496677504"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="733806295">
 												<reference key="NSNextResponder" ref="532173874"/>
@@ -672,6 +671,17 @@
 									<reference key="NSOnImage" ref="855672835"/>
 									<reference key="NSMixedImage" ref="898714739"/>
 								</object>
+								<object class="NSMenuItem" id="424164903">
+									<reference key="NSMenu" ref="810587040"/>
+									<bool key="NSIsHidden">YES</bool>
+									<bool key="NSIsAlternate">YES</bool>
+									<string key="NSTitle">Optymalizuj zoptymalizowane</string>
+									<string key="NSKeyEquiv">r</string>
+									<int key="NSKeyEquivModMask">1572864</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="855672835"/>
+									<reference key="NSMixedImage" ref="898714739"/>
+								</object>
 								<object class="NSMenuItem" id="900222994">
 									<reference key="NSMenu" ref="810587040"/>
 									<string key="NSTitle">Quick Look</string>
@@ -785,7 +795,7 @@
 									<reference key="NSMenu" ref="777814834"/>
 									<bool key="NSIsHidden">YES</bool>
 									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Delete Completed</string>
+									<string key="NSTitle">Usuń ukończone</string>
 									<string type="base64-UTF8" key="NSKeyEquiv">CA</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1806,6 +1816,14 @@
 					</object>
 					<int key="connectionID">723</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">startAgainOptimized:</string>
+						<reference key="source" ref="335302141"/>
+						<reference key="destination" ref="424164903"/>
+					</object>
+					<int key="connectionID">727</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -2091,6 +2109,7 @@
 							<reference ref="639089882"/>
 							<reference ref="342358740"/>
 							<reference ref="900222994"/>
+							<reference ref="424164903"/>
 						</array>
 						<reference key="parent" ref="118427520"/>
 					</object>
@@ -2486,6 +2505,11 @@
 						<reference key="object" ref="885379171"/>
 						<reference key="parent" ref="777814834"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">725</int>
+						<reference key="object" ref="424164903"/>
+						<reference key="parent" ref="810587040"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -2625,13 +2649,14 @@
 				<string key="712.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="721.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="724.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="725.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">724</int>
+			<int key="maxID">727</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

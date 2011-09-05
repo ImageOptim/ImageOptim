@@ -82,7 +82,7 @@
 
 -(BOOL)isOptimized
 {
-	return byteSizeOptimized!=0;
+	return byteSizeOptimized < byteSize;
 }
 
 -(BOOL)isDone

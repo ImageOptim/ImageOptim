@@ -481,7 +481,17 @@
 	[filesControllerLock unlock];
 }
 
--(void)startAgain
+-(BOOL)canStartAgainOptimized:(BOOL)optimized {
+    NSArray *array = [filesController selectedObjects];
+    if (![array count]) array = [filesController content];
+
+    for(File *f in array) {
+        if (!f.isBusy && (!optimized || f.isOptimized)) return YES;
+    }
+    return NO;
+}
+
+-(void)startAgainOptimized:(BOOL)optimized
 {
     BOOL anyStarted = NO;
 	[filesControllerLock lock];
@@ -489,16 +499,12 @@
         NSArray *array = [filesController selectedObjects];
         if (![array count]) array = [filesController content];
 
-
-        for(File *f in array)
-        {
-            if (![f isBusy])
-            {
+        for(File *f in array) {
+            if (!f.isBusy && (!optimized || f.isOptimized)) {
                 [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
                 anyStarted = YES;
             }
         }
-
     }
     @finally {
         [filesControllerLock unlock];
