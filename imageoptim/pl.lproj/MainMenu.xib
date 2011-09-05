@@ -776,6 +776,28 @@
 									<reference key="NSMenu" ref="777814834"/>
 									<string key="NSTitle">Usuń</string>
 									<string type="base64-UTF8" key="NSKeyEquiv">CA</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="855672835"/>
+									<reference key="NSMixedImage" ref="898714739"/>
+								</object>
+								<object class="NSMenuItem" id="885379171">
+									<reference key="NSMenu" ref="777814834"/>
+									<bool key="NSIsHidden">YES</bool>
+									<bool key="NSIsAlternate">YES</bool>
+									<string key="NSTitle">Delete Completed</string>
+									<string type="base64-UTF8" key="NSKeyEquiv">CA</string>
+									<int key="NSKeyEquivModMask">1572864</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="855672835"/>
+									<reference key="NSMixedImage" ref="898714739"/>
+								</object>
+								<object class="NSMenuItem" id="434786511">
+									<reference key="NSMenu" ref="777814834"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<bool key="NSIsSeparator">YES</bool>
+									<string key="NSTitle"/>
+									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
 									<reference key="NSMixedImage" ref="898714739"/>
@@ -1776,6 +1798,14 @@
 					</object>
 					<int key="connectionID">720</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">clearComplete:</string>
+						<reference key="source" ref="335302141"/>
+						<reference key="destination" ref="885379171"/>
+					</object>
+					<int key="connectionID">723</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -1999,6 +2029,8 @@
 							<reference ref="330968477"/>
 							<reference ref="147728722"/>
 							<reference ref="511265743"/>
+							<reference ref="885379171"/>
+							<reference ref="434786511"/>
 						</array>
 						<reference key="parent" ref="117073295"/>
 					</object>
@@ -2444,6 +2476,16 @@
 						<reference key="parent" ref="633482293"/>
 						<string key="objectName">Drop</string>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">724</int>
+						<reference key="object" ref="434786511"/>
+						<reference key="parent" ref="777814834"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">721</int>
+						<reference key="object" ref="885379171"/>
+						<reference key="parent" ref="777814834"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -2581,6 +2623,8 @@
 				<string key="666.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="708.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="712.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="721.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="724.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>

@@ -40,7 +40,8 @@
 
 -(void)runAdded;
 -(void)startAgain;
-
+-(void)clearComplete;
+-(BOOL)canClearComplete;
 -(IBAction)delete:(id)sender;
 -(void)quickLook;
 -(BOOL)copyObjects;

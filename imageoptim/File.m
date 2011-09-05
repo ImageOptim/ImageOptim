@@ -62,14 +62,14 @@
         if (!byteSize && size > 10)
         {
             byteSize = size;
-            if (!byteSizeOptimized || byteSizeOptimized > byteSize) [self setByteSizeOptimized:size];
-        }
+            if (!byteSizeOptimized || byteSizeOptimized > byteSize) [self setByteSizeOptimized:size];		
         }
     }
+}
 
 -(double)percentOptimized
 {
-	if (![self isOptimized]) return 0.0;
+	if (!byteSizeOptimized) return 0.0;
 	double p = 100.0 - 100.0* (double)byteSizeOptimized/(double)byteSize;
 	if (p<0) return 0.0;
 	return p;
@@ -79,9 +79,15 @@
 {
 	// just for KVO
 }
+
 -(BOOL)isOptimized
 {
 	return byteSizeOptimized!=0;
+}
+
+-(BOOL)isDone
+{
+	return done;
 }
 
 -(void)setByteSizeOptimized:(NSUInteger)size
@@ -219,7 +225,8 @@
 
 -(void)saveResultAndUpdateStatus {
     if ([self saveResult])
-    {
+    { 
+        done = YES;
         [self setStatus:@"ok" order:7 text:[NSString stringWithFormat:NSLocalizedString(@"Optimized successfully with %@",@"tooltip"),bestToolName]];
     }
     else
@@ -253,7 +260,8 @@
                 }
                 else
                 {
-                    [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
+                    done = YES;
+                    [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];	
 //                    if (dupe) [Dupe addDupe:dupe];
                 }
             }

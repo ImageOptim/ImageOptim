@@ -457,6 +457,30 @@
     [self waitInBackgroundForQueuesToFinish];
 }
 
+-(BOOL)canClearComplete {
+	for(File *f in [filesController arrangedObjects]) {
+        if (f.isDone) return YES;
+    }
+    return NO;
+}
+
+-(void)clearComplete
+{
+	[filesControllerLock lock];
+    NSUInteger i=0;
+    NSMutableIndexSet *set = [NSMutableIndexSet new];
+	for(File *f in [filesController arrangedObjects]) {
+        if (f.isDone) [set addIndex:i];
+        i++;
+	}
+    if ([set count]) {
+        [filesController removeObjectsAtArrangedObjectIndexes:set];
+        [self setRow:-1];
+        [tableView setNeedsDisplay:YES];
+    }
+	[filesControllerLock unlock];
+}
+
 -(void)startAgain
 {
     BOOL anyStarted = NO;
