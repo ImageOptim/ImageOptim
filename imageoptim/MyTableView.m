@@ -42,15 +42,19 @@
 }
 
 - (void)keyDown:(NSEvent *)theEvent {
+    if (![theEvent isARepeat] && [self numberOfSelectedRows]) {
+        switch ([theEvent keyCode]) {
+            case 49: /*space*/
+                [(FilesQueue*)[self delegate] quickLook];
+                return;
+            case 51: /*backspace*/
+            case 117: /*delete*/
+                [(FilesQueue*)[self delegate] delete:self];
+                return;
+        }
+    }
 
-    if (![theEvent isARepeat] && [theEvent keyCode] == 49/*space*/ && [self numberOfSelectedRows])
-    {
-        [(FilesQueue*)[self delegate] quickLook];
-    }
-    else
-    {
-        [super keyDown:theEvent];
-    }
+    [super keyDown:theEvent];
 }
 
 
