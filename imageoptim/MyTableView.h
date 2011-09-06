@@ -10,4 +10,5 @@
     RevealButtonCell *iMouseCell;
 }
 - (IBAction)delete:(id)sender;
+-(void)openInFinder;
 @end

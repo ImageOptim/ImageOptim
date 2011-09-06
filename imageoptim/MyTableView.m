@@ -154,9 +154,16 @@
 
 }
 
+
+-(void)openRowInPreview
+{
+    if ([self clickedRow] < 0) return;
+    [self openInFinder];
+}
+
 -(void)awakeFromNib
 {
-    [self setDoubleAction:@selector(openInPreview)];
+    [self setDoubleAction:@selector(openRowInPreview)];
 }
 
 -(void)openInPreview
