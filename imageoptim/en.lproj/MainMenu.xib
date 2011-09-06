@@ -64,6 +64,7 @@
 				<string key="NSWindowContentMaxSize">{1200, 2000}</string>
 				<string key="NSWindowContentMinSize">{411, 110}</string>
 				<object class="NSView" key="NSWindowView" id="633482293">
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSScrollView" id="188613459">
@@ -79,16 +80,20 @@
 											<int key="NSvFlags">274</int>
 											<string key="NSFrameSize">{640, 183}</string>
 											<reference key="NSSuperview" ref="180760454"/>
+											<reference key="NSWindow"/>
+											<reference key="NSNextKeyView" ref="356058265"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="733806295">
 												<reference key="NSNextResponder" ref="532173874"/>
 												<int key="NSvFlags">256</int>
 												<string key="NSFrameSize">{640, 17}</string>
 												<reference key="NSSuperview" ref="532173874"/>
+												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="180760454"/>
 												<reference key="NSTableView" ref="995883823"/>
 											</object>
 											<object class="_NSCornerView" key="NSCornerView">
+												<nil key="NSNextResponder"/>
 												<int key="NSvFlags">-2147483392</int>
 												<string key="NSFrame">{{567, 1}, {16, 17}}</string>
 											</object>
@@ -139,6 +144,7 @@
 														<int key="NSAlign">0</int>
 														<int key="NSScale">2</int>
 														<int key="NSStyle">0</int>
+														<bool key="NSAnimates">NO</bool>
 													</object>
 													<reference key="NSTableView" ref="995883823"/>
 													<object class="NSSortDescriptor" key="NSSortDescriptorPrototype">
@@ -217,29 +223,25 @@
 														<reference key="NSSupport" ref="725316391"/>
 														<object class="NSNumberFormatter" key="NSFormatter" id="362801636">
 															<dictionary class="NSMutableDictionary" key="NS.attributes">
-																<integer value="1" key="allowsFloats"/>
-																<object class="NSAttributedString" key="attributedStringForZero" id="270421425">
-																	<string key="NSString">0</string>
-																	<dictionary key="NSAttributes" id="442369173"/>
-																</object>
-																<string key="decimalSeparator">.</string>
-																<integer value="1000" key="formatterBehavior"/>
-																<string type="base64-UTF8" key="groupingSeparator">wqA</string>
-																<string key="negativeFormat">-0</string>
-																<string key="positiveFormat">0</string>
-																<boolean value="NO" key="usesGroupingSeparator"/>
+																<boolean value="YES" key="allowsFloats"/>
+																<integer value="1040" key="formatterBehavior"/>
+																<boolean value="NO" key="lenient"/>
+																<string key="negativeInfinitySymbol">-∞</string>
+																<string key="nilSymbol"/>
+																<integer value="1" key="numberStyle"/>
+																<string key="positiveInfinitySymbol">+∞</string>
 															</dictionary>
-															<string key="NS.positiveformat">0</string>
-															<string key="NS.negativeformat">-0</string>
+															<string key="NS.positiveformat">#,##0.###</string>
+															<string key="NS.negativeformat">#,##0.###</string>
 															<nil key="NS.positiveattrs"/>
 															<nil key="NS.negativeattrs"/>
-															<reference key="NS.zero" ref="270421425"/>
+															<nil key="NS.zero"/>
 															<object class="NSAttributedString" key="NS.nil">
 																<string key="NSString"/>
 															</object>
 															<object class="NSAttributedString" key="NS.nan">
 																<string key="NSString">NaN</string>
-																<reference key="NSAttributes" ref="442369173"/>
+																<dictionary key="NSAttributes" id="858468946"/>
 															</object>
 															<object class="NSDecimalNumberPlaceholder" key="NS.min" id="828961484">
 																<int key="NS.exponent">0</int>
@@ -250,10 +252,15 @@
 																<bytes key="NS.mantissa">AAAAAAAAAAAAAAAAAAAAAA</bytes>
 															</object>
 															<reference key="NS.max" ref="828961484"/>
-															<nil key="NS.rounding"/>
+															<object class="NSDecimalNumberHandler" key="NS.rounding">
+																<int key="NS.roundingmode">3</int>
+																<bool key="NS.raise.overflow">YES</bool>
+																<bool key="NS.raise.underflow">YES</bool>
+																<bool key="NS.raise.dividebyzero">YES</bool>
+															</object>
 															<string key="NS.decimal">.</string>
 															<string type="base64-UTF8" key="NS.thousand">wqA</string>
-															<bool key="NS.hasthousands">NO</bool>
+															<bool key="NS.hasthousands">YES</bool>
 															<bool key="NS.localized">YES</bool>
 															<bool key="NS.allowsfloats">YES</bool>
 														</object>
@@ -282,36 +289,44 @@
 														<object class="NSNumberFormatter" key="NSFormatter" id="1069041673">
 															<dictionary class="NSMutableDictionary" key="NS.attributes">
 																<integer value="1" key="allowsFloats"/>
-																<object class="NSAttributedString" key="attributedStringForZero" id="630024335">
+																<object class="NSAttributedString" key="attributedStringForZero">
 																	<string key="NSString">0%</string>
-																	<reference key="NSAttributes" ref="442369173"/>
+																	<reference key="NSAttributes" ref="858468946"/>
 																</object>
 																<string key="decimalSeparator">.</string>
-																<integer value="1000" key="formatterBehavior"/>
+																<integer value="1040" key="formatterBehavior"/>
 																<string type="base64-UTF8" key="groupingSeparator">wqA</string>
+																<object class="NSLocale" key="locale">
+																	<string key="NS.identifier"/>
+																</object>
+																<integer value="1" key="maximumFractionDigits"/>
+																<integer value="1" key="minimumFractionDigits"/>
 																<string key="negativeFormat">-0%</string>
 																<string key="positiveFormat">0.#%</string>
+																<integer value="6" key="roundingMode"/>
 																<boolean value="NO" key="usesGroupingSeparator"/>
 															</dictionary>
 															<string key="NS.positiveformat">0.#%</string>
 															<string key="NS.negativeformat">-0%</string>
 															<nil key="NS.positiveattrs"/>
 															<nil key="NS.negativeattrs"/>
-															<reference key="NS.zero" ref="630024335"/>
-															<object class="NSAttributedString" key="NS.nil">
-																<string key="NSString"/>
-															</object>
+															<nil key="NS.zero"/>
+															<nil key="NS.nil"/>
 															<object class="NSAttributedString" key="NS.nan">
 																<string key="NSString">NaN</string>
-																<reference key="NSAttributes" ref="442369173"/>
+																<reference key="NSAttributes" ref="858468946"/>
 															</object>
 															<reference key="NS.min" ref="828961484"/>
 															<reference key="NS.max" ref="828961484"/>
-															<nil key="NS.rounding"/>
+															<object class="NSDecimalNumberHandler" key="NS.rounding">
+																<bool key="NS.raise.overflow">YES</bool>
+																<bool key="NS.raise.underflow">YES</bool>
+																<bool key="NS.raise.dividebyzero">YES</bool>
+															</object>
 															<string key="NS.decimal">.</string>
 															<string type="base64-UTF8" key="NS.thousand">wqA</string>
 															<bool key="NS.hasthousands">NO</bool>
-															<bool key="NS.localized">YES</bool>
+															<bool key="NS.localized">NO</bool>
 															<bool key="NS.allowsfloats">YES</bool>
 														</object>
 														<reference key="NSControlView" ref="995883823"/>
@@ -355,6 +370,7 @@
 									</array>
 									<string key="NSFrame">{{0, 17}, {640, 183}}</string>
 									<reference key="NSSuperview" ref="188613459"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="995883823"/>
 									<reference key="NSDocView" ref="995883823"/>
 									<reference key="NSBGColor" ref="678811562"/>
@@ -365,6 +381,8 @@
 									<int key="NSvFlags">-2147483392</int>
 									<string key="NSFrame">{{567, 18}, {15, 277}}</string>
 									<reference key="NSSuperview" ref="188613459"/>
+									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView" ref="714728707"/>
 									<reference key="NSTarget" ref="188613459"/>
 									<string key="NSAction">_doScroller:</string>
 									<double key="NSPercent">0.99609375</double>
@@ -374,6 +392,8 @@
 									<int key="NSvFlags">-2147483392</int>
 									<string key="NSFrame">{{-100, -100}, {524, 15}}</string>
 									<reference key="NSSuperview" ref="188613459"/>
+									<reference key="NSWindow"/>
+									<reference key="NSNextKeyView" ref="532173874"/>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="188613459"/>
 									<string key="NSAction">_doScroller:</string>
@@ -387,6 +407,7 @@
 									</array>
 									<string key="NSFrameSize">{640, 17}</string>
 									<reference key="NSSuperview" ref="188613459"/>
+									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="733806295"/>
 									<reference key="NSDocView" ref="733806295"/>
 									<reference key="NSBGColor" ref="678811562"/>
@@ -395,6 +416,8 @@
 							</array>
 							<string key="NSFrame">{{0, 39}, {640, 200}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="496677504"/>
 							<int key="NSsFlags">133648</int>
 							<reference key="NSVScroller" ref="356058265"/>
 							<reference key="NSHScroller" ref="496677504"/>
@@ -407,6 +430,7 @@
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{43, 12}, {410, 14}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="218087580"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="326808065">
@@ -423,6 +447,8 @@
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{8, 6}, {30, 25}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="646228687"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="16446775">
 								<int key="NSCellFlags">67239424</int>
@@ -446,6 +472,8 @@
 							<object class="NSPSMatrix" key="NSDrawMatrix"/>
 							<string key="NSFrame">{{525, 11}, {16, 16}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="718675695"/>
 							<int key="NSpiFlags">28938</int>
 							<double key="NSMaxValue">100</double>
 						</object>
@@ -454,6 +482,8 @@
 							<int key="NSvFlags">289</int>
 							<string key="NSFrame">{{549, 6}, {71, 25}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="650797074">
 								<int key="NSCellFlags">67239424</int>
@@ -476,12 +506,15 @@
 							<int key="NSvFlags">274</int>
 							<string key="NSFrame">{{0, 39}, {640, 199}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="866301361"/>
 							<string key="NSReuseIdentifierKey">_NS:499</string>
 							<string key="NSClassName">DragDropImageView</string>
 						</object>
 					</array>
 					<string key="NSFrameSize">{640, 238}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="188613459"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {2560, 1578}}</string>
@@ -1054,11 +1087,20 @@
 				<string key="NSWindowContentMaxSize">{465, 570}</string>
 				<string key="NSWindowContentMinSize">{211, 243}</string>
 				<object class="NSView" key="NSWindowView" id="216029037">
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSImageView" id="20443895">
 							<reference key="NSNextResponder" ref="216029037"/>
 							<int key="NSvFlags">269</int>
+							<set class="NSMutableSet" key="NSDragTypes">
+								<string>Apple PDF pasteboard type</string>
+								<string>Apple PICT pasteboard type</string>
+								<string>Apple PNG pasteboard type</string>
+								<string>NSFilenamesPboardType</string>
+								<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
+								<string>NeXT TIFF v4.0 pasteboard type</string>
+							</set>
 							<string key="NSFrame">{{82, 227}, {128, 128}}</string>
 							<reference key="NSSuperview" ref="216029037"/>
 							<bool key="NSEnabled">YES</bool>
@@ -1072,6 +1114,7 @@
 								<int key="NSAlign">0</int>
 								<int key="NSScale">0</int>
 								<int key="NSStyle">0</int>
+								<bool key="NSAnimates">NO</bool>
 							</object>
 							<bool key="NSEditable">NO</bool>
 						</object>
@@ -1469,9 +1512,10 @@
 							<string key="NSLabel">value: arrangedObjects.percentOptimized</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">arrangedObjects.percentOptimized</string>
-							<dictionary key="NSOptions">
-								<integer value="0" key="NSRaisesForNotApplicableKeys"/>
-							</dictionary>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSRaisesForNotApplicableKeys</string>
+								<integer value="0" key="NS.object.0"/>
+							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1488,9 +1532,10 @@
 							<string key="NSLabel">value: arrangedObjects.byteSizeOptimized</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">arrangedObjects.byteSizeOptimized</string>
-							<dictionary key="NSOptions">
-								<integer value="0" key="NSRaisesForNotApplicableKeys"/>
-							</dictionary>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSRaisesForNotApplicableKeys</string>
+								<integer value="0" key="NS.object.0"/>
+							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1507,9 +1552,10 @@
 							<string key="NSLabel">value: arrangedObjects.fileName</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">arrangedObjects.fileName</string>
-							<dictionary key="NSOptions">
-								<integer value="0" key="NSRaisesForNotApplicableKeys"/>
-							</dictionary>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSRaisesForNotApplicableKeys</string>
+								<integer value="0" key="NS.object.0"/>
+							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1526,9 +1572,10 @@
 							<string key="NSLabel">value: arrangedObjects.statusImage</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">arrangedObjects.statusImage</string>
-							<dictionary key="NSOptions">
-								<integer value="0" key="NSRaisesForNotApplicableKeys"/>
-							</dictionary>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSRaisesForNotApplicableKeys</string>
+								<integer value="0" key="NS.object.0"/>
+							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -1609,9 +1656,10 @@
 							<string key="NSLabel">value: version</string>
 							<string key="NSBinding">value</string>
 							<string key="NSKeyPath">version</string>
-							<dictionary key="NSOptions">
-								<boolean value="NO" key="NSRaisesForNotApplicableKeys"/>
-							</dictionary>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSRaisesForNotApplicableKeys</string>
+								<boolean value="NO" key="NS.object.0"/>
+							</object>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
@@ -2388,6 +2436,7 @@
 						<int key="objectID">253</int>
 						<reference key="object" ref="1069041673"/>
 						<reference key="parent" ref="959501761"/>
+						<string key="objectName">Number Formatter</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">239</int>
@@ -2537,7 +2586,13 @@
 				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="243.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="251.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<integer value="1040" key="253.IBNumberFormatterBehaviorMetadataKey"/>
+				<boolean value="YES" key="253.IBNumberFormatterLocalizesFormatMetadataKey"/>
+				<real value="0.75434999999999997" key="253.IBNumberFormatterSampleNumberKey"/>
 				<string key="253.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<integer value="1041" key="254.IBNumberFormatterBehaviorMetadataKey"/>
+				<boolean value="YES" key="254.IBNumberFormatterLocalizesFormatMetadataKey"/>
+				<real value="1231234" key="254.IBNumberFormatterSampleNumberKey"/>
 				<string key="254.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="294.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2647,7 +2702,186 @@
 			<nil key="sourceID"/>
 			<int key="maxID">727</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes"/>
+		<object class="IBClassDescriber" key="IBDocument.Classes">
+			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">DragDropImageView</string>
+					<string key="superclassName">NSView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/DragDropImageView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">FilesQueue</string>
+					<string key="superclassName">NSObject</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">delete:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">delete:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">delete:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/FilesQueue.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ImageOptim</string>
+					<string key="superclassName">NSObject</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="browseForFiles:">id</string>
+						<string key="clearComplete:">id</string>
+						<string key="openPngOutDownload:">id</string>
+						<string key="openPngOutHomepage:">id</string>
+						<string key="quickLookAction:">id</string>
+						<string key="showPrefs:">id</string>
+						<string key="startAgain:">id</string>
+						<string key="startAgainOptimized:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="browseForFiles:">
+							<string key="name">browseForFiles:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="clearComplete:">
+							<string key="name">clearComplete:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="openPngOutDownload:">
+							<string key="name">openPngOutDownload:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="openPngOutHomepage:">
+							<string key="name">openPngOutHomepage:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="quickLookAction:">
+							<string key="name">quickLookAction:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showPrefs:">
+							<string key="name">showPrefs:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="startAgain:">
+							<string key="name">startAgain:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="startAgainOptimized:">
+							<string key="name">startAgainOptimized:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="credits">NSTextView</string>
+						<string key="filesController">NSArrayController</string>
+						<string key="progressBar">NSProgressIndicator</string>
+						<string key="statusBarLabel">NSTextField</string>
+						<string key="tableView">NSTableView</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="credits">
+							<string key="name">credits</string>
+							<string key="candidateClassName">NSTextView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="filesController">
+							<string key="name">filesController</string>
+							<string key="candidateClassName">NSArrayController</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="progressBar">
+							<string key="name">progressBar</string>
+							<string key="candidateClassName">NSProgressIndicator</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="statusBarLabel">
+							<string key="name">statusBarLabel</string>
+							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="tableView">
+							<string key="name">tableView</string>
+							<string key="candidateClassName">NSTableView</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/ImageOptim.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">MyTableView</string>
+					<string key="superclassName">NSTableView</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">delete:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">delete:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">delete:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/MyTableView.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">PrefsController</string>
+					<string key="superclassName">NSWindowController</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="addGammaChunks:">id</string>
+						<string key="browseForExecutable:">id</string>
+						<string key="showHelp:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="addGammaChunks:">
+							<string key="name">addGammaChunks:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="browseForExecutable:">
+							<string key="name">browseForExecutable:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="showHelp:">
+							<string key="name">showHelp:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="chunksController">NSArrayController</string>
+						<string key="tasksSlider">NSSlider</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="chunksController">
+							<string key="name">chunksController</string>
+							<string key="candidateClassName">NSArrayController</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="tasksSlider">
+							<string key="name">tasksSlider</string>
+							<string key="candidateClassName">NSSlider</string>
+						</object>
+					</dictionary>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/PrefsController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">RevealButtonCell</string>
+					<string key="superclassName">NSTextFieldCell</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/RevealButtonCell.h</string>
+					</object>
+				</object>
+			</array>
+		</object>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">

@@ -44,6 +44,7 @@
 		5A6242080CA86DC7005942A3 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6242070CA86DC7005942A3 /* PrefsController.m */; };
 		5A6E04430EA40B6A00380DE7 /* JpegtranWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E04420EA40B6A00380DE7 /* JpegtranWorker.m */; };
 		5A714AAD0CB0196A00C242C0 /* MyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A714AAC0CB0196A00C242C0 /* MyTableView.m */; };
+		5A8A18141416D1D700D62DB7 /* SavingsFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */; };
 		5A887F8510C17361006A0687 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 5A887F8310C17361006A0687 /* Credits.rtf */; };
 		5A94A03C10275E11005CC9CB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A94A03A10275E11005CC9CB /* Localizable.strings */; };
 		5A95FEC20CB8041A00737B79 /* Help in Resources */ = {isa = PBXBuildFile; fileRef = 5A95FEBE0CB8041A00737B79 /* Help */; };
@@ -285,6 +286,8 @@
 		5A739C260EA4073700D751E1 /* jpegtran.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpegtran.xcodeproj; path = ../jpegtran/jpegtran.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A8167EC0EA11F9D00962CF2 /* jpegoptim.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpegoptim.xcodeproj; path = ../jpegoptim/jpegoptim.xcodeproj; sourceTree = "<group>"; };
 		5A887F8410C17361006A0687 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Dutch; path = nl.lproj/Credits.rtf; sourceTree = "<group>"; };
+		5A8A18121416D1D700D62DB7 /* SavingsFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavingsFormatter.h; sourceTree = "<group>"; };
+		5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavingsFormatter.m; sourceTree = "<group>"; };
 		5A8DFBD710C097A0009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Dutch; path = nl.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5A8DFBD810C097AC009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Dutch; path = nl.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5A8DFBD910C097B9009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Dutch; path = nl.lproj/Help; sourceTree = "<group>"; };
@@ -377,6 +380,8 @@
 				5A391880140A9B10001B4FD7 /* RevealButtonCell.m */,
 				5A34A632140EEDB900DE44D2 /* DragDropImageView.h */,
 				5A34A633140EEDB900DE44D2 /* DragDropImageView.m */,
+				5A8A18121416D1D700D62DB7 /* SavingsFormatter.h */,
+				5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -840,6 +845,7 @@
 				5A4DC21B1028AE1800A9DD55 /* GifsicleWorker.m in Sources */,
 				5A391881140A9B10001B4FD7 /* RevealButtonCell.m in Sources */,
 				5A34A634140EEDB900DE44D2 /* DragDropImageView.m in Sources */,
+				5A8A18141416D1D700D62DB7 /* SavingsFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
