@@ -10,27 +10,14 @@
 		5A1941A40FF96FAD007C3324 /* adler32.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A19418B0FF96FAD007C3324 /* adler32.c */; };
 		5A1941A50FF96FAD007C3324 /* compress.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A19418C0FF96FAD007C3324 /* compress.c */; };
 		5A1941A60FF96FAD007C3324 /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A19418D0FF96FAD007C3324 /* crc32.c */; };
-		5A1941A70FF96FAD007C3324 /* crc32.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A19418E0FF96FAD007C3324 /* crc32.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A1941A80FF96FAD007C3324 /* deflate.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A19418F0FF96FAD007C3324 /* deflate.c */; };
-		5A1941A90FF96FAD007C3324 /* deflate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A1941900FF96FAD007C3324 /* deflate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A1941AB0FF96FAD007C3324 /* infback.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1941920FF96FAD007C3324 /* infback.c */; };
 		5A1941AC0FF96FAD007C3324 /* inffast.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1941930FF96FAD007C3324 /* inffast.c */; };
-		5A1941AD0FF96FAD007C3324 /* inffast.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A1941940FF96FAD007C3324 /* inffast.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5A1941AE0FF96FAD007C3324 /* inffixed.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A1941950FF96FAD007C3324 /* inffixed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A1941AF0FF96FAD007C3324 /* inflate.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1941960FF96FAD007C3324 /* inflate.c */; };
-		5A1941B00FF96FAD007C3324 /* inflate.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A1941970FF96FAD007C3324 /* inflate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A1941B10FF96FAD007C3324 /* inftrees.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1941980FF96FAD007C3324 /* inftrees.c */; };
-		5A1941B20FF96FAD007C3324 /* inftrees.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A1941990FF96FAD007C3324 /* inftrees.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A1941B40FF96FAD007C3324 /* trees.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A19419B0FF96FAD007C3324 /* trees.c */; };
-		5A1941B50FF96FAD007C3324 /* trees.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A19419C0FF96FAD007C3324 /* trees.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A1941B60FF96FAD007C3324 /* uncompr.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A19419D0FF96FAD007C3324 /* uncompr.c */; };
-		5A1941B70FF96FAD007C3324 /* zconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A19419E0FF96FAD007C3324 /* zconf.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5A1941B80FF96FAD007C3324 /* zconf.in.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A19419F0FF96FAD007C3324 /* zconf.in.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5A1941B90FF96FAD007C3324 /* zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A1941A10FF96FAD007C3324 /* zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A1941BA0FF96FAD007C3324 /* zutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1941A20FF96FAD007C3324 /* zutil.c */; };
-		5A1941BB0FF96FAD007C3324 /* zutil.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A1941A30FF96FAD007C3324 /* zutil.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5A19420E0FF97333007C3324 /* config.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A19420D0FF97333007C3324 /* config.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5A19427E0FF974E7007C3324 /* pngconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A19427D0FF974E7007C3324 /* pngconf.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A1944050FF98722007C3324 /* pngerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F30FF98722007C3324 /* pngerror.c */; };
 		5A1944060FF98722007C3324 /* pngset.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F40FF98722007C3324 /* pngset.c */; };
 		5A1944080FF98722007C3324 /* pngread.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F60FF98722007C3324 /* pngread.c */; };
@@ -47,7 +34,33 @@
 		5A1944140FF98722007C3324 /* pngpread.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1944020FF98722007C3324 /* pngpread.c */; };
 		5A1944150FF98722007C3324 /* pngtrans.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1944030FF98722007C3324 /* pngtrans.c */; };
 		5A1944160FF98722007C3324 /* pngwtran.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1944040FF98722007C3324 /* pngwtran.c */; };
-		5A1944180FF98734007C3324 /* png.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A1944170FF98734007C3324 /* png.h */; };
+		5ABF9073139400BE0054E027 /* adler32.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A19418B0FF96FAD007C3324 /* adler32.c */; };
+		5ABF9074139400BE0054E027 /* compress.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A19418C0FF96FAD007C3324 /* compress.c */; };
+		5ABF9075139400BE0054E027 /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A19418D0FF96FAD007C3324 /* crc32.c */; };
+		5ABF9076139400BE0054E027 /* deflate.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A19418F0FF96FAD007C3324 /* deflate.c */; };
+		5ABF9077139400BE0054E027 /* infback.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1941920FF96FAD007C3324 /* infback.c */; };
+		5ABF9078139400BE0054E027 /* inffast.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1941930FF96FAD007C3324 /* inffast.c */; };
+		5ABF9079139400BE0054E027 /* inflate.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1941960FF96FAD007C3324 /* inflate.c */; };
+		5ABF907A139400BE0054E027 /* inftrees.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1941980FF96FAD007C3324 /* inftrees.c */; };
+		5ABF907B139400BE0054E027 /* trees.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A19419B0FF96FAD007C3324 /* trees.c */; };
+		5ABF907C139400BE0054E027 /* uncompr.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A19419D0FF96FAD007C3324 /* uncompr.c */; };
+		5ABF907D139400BE0054E027 /* zutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1941A20FF96FAD007C3324 /* zutil.c */; };
+		5AC2B4DD13394F2200376783 /* pngerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F30FF98722007C3324 /* pngerror.c */; };
+		5AC2B4DE13394F2200376783 /* pngset.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F40FF98722007C3324 /* pngset.c */; };
+		5AC2B4DF13394F2200376783 /* pngread.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F60FF98722007C3324 /* pngread.c */; };
+		5AC2B4E013394F2200376783 /* pngget.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F70FF98722007C3324 /* pngget.c */; };
+		5AC2B4E113394F2200376783 /* pngtest.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F80FF98722007C3324 /* pngtest.c */; };
+		5AC2B4E213394F2200376783 /* pngwutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F90FF98722007C3324 /* pngwutil.c */; };
+		5AC2B4E313394F2200376783 /* pngrio.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FA0FF98722007C3324 /* pngrio.c */; };
+		5AC2B4E413394F2200376783 /* pngwio.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FB0FF98722007C3324 /* pngwio.c */; };
+		5AC2B4E513394F2200376783 /* pngrutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FC0FF98722007C3324 /* pngrutil.c */; };
+		5AC2B4E613394F2200376783 /* pngmem.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FD0FF98722007C3324 /* pngmem.c */; };
+		5AC2B4E713394F2200376783 /* pngrtran.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FF0FF98722007C3324 /* pngrtran.c */; };
+		5AC2B4E813394F2200376783 /* png.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1944000FF98722007C3324 /* png.c */; };
+		5AC2B4E913394F2200376783 /* pngwrite.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1944010FF98722007C3324 /* pngwrite.c */; };
+		5AC2B4EA13394F2200376783 /* pngpread.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1944020FF98722007C3324 /* pngpread.c */; };
+		5AC2B4EB13394F2200376783 /* pngtrans.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1944030FF98722007C3324 /* pngtrans.c */; };
+		5AC2B4EC13394F2200376783 /* pngwtran.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1944040FF98722007C3324 /* pngwtran.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,16 +127,6 @@
 		5A27B9F2139B087F0095FC2F /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../imageoptim/debug.xcconfig; sourceTree = SOURCE_ROOT; };
 		D2AAC0630554660B00DB518D /* liblibpng.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = liblibpng.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		D289988505E68E00004EDB86 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		08FB7794FE84155DC02AAC07 /* libpng */ = {
@@ -206,24 +209,10 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		D2AAC0600554660B00DB518D /* Headers */ = {
+		5AC2B4D413394EDA00376783 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A1941A70FF96FAD007C3324 /* crc32.h in Headers */,
-				5A1941A90FF96FAD007C3324 /* deflate.h in Headers */,
-				5A1941AD0FF96FAD007C3324 /* inffast.h in Headers */,
-				5A1941AE0FF96FAD007C3324 /* inffixed.h in Headers */,
-				5A1941B00FF96FAD007C3324 /* inflate.h in Headers */,
-				5A1941B20FF96FAD007C3324 /* inftrees.h in Headers */,
-				5A1941B50FF96FAD007C3324 /* trees.h in Headers */,
-				5A1941B70FF96FAD007C3324 /* zconf.h in Headers */,
-				5A1941B80FF96FAD007C3324 /* zconf.in.h in Headers */,
-				5A1941B90FF96FAD007C3324 /* zlib.h in Headers */,
-				5A1941BB0FF96FAD007C3324 /* zutil.h in Headers */,
-				5A19420E0FF97333007C3324 /* config.h in Headers */,
-				5A19427E0FF974E7007C3324 /* pngconf.h in Headers */,
-				5A1944180FF98734007C3324 /* png.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,9 +253,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB914A08733D8E0010E9CD /* Build configuration list for PBXNativeTarget "libpng" */;
 			buildPhases = (
-				D2AAC0600554660B00DB518D /* Headers */,
 				D2AAC0610554660B00DB518D /* Sources */,
-				D289988505E68E00004EDB86 /* Frameworks */,
 			);
 			buildRules = (
 			);
