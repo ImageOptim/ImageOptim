@@ -66,7 +66,7 @@
     NSRect bounds = [self bounds];
     CGFloat size = MIN(bounds.size.width/4.0, bounds.size.height/1.5);
     CGFloat width = MAX(2.0, size/32.0);
-    CGRect frame = NSMakeRect((bounds.size.width-size)/2.0, (bounds.size.height-size)/2.0, size, size);
+    NSRect frame = NSMakeRect((bounds.size.width-size)/2.0, (bounds.size.height-size)/2.0, size, size);
 
     if (!smoothSizes) {
         width = round(width);
