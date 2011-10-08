@@ -333,6 +333,11 @@
 		5AACA8300CAFE74E004D45CA /* Transformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transformers.m; sourceTree = "<group>"; };
 		5AC63C310E9ABCDF0053B879 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		5AC63C490E9ABF0A0053B879 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		5AD299B71436756D0048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = no; path = no.lproj/Credits.rtf; sourceTree = "<group>"; };
+		5AD299B9143675770048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5AD299BB1436757F0048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = no; path = no.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5AD299BD143675870048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = no; path = no.lproj/PrefsController.xib; sourceTree = "<group>"; };
+		5AD299C2143675BB0048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = folder; name = no; path = no.lproj/Help; sourceTree = "<group>"; };
 		5AD3032010D555E4002A5558 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		5AD3032110D555ED002A5558 /* Polish */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Polish; path = pl.lproj/Credits.rtf; sourceTree = "<group>"; };
 		5AD3032210D555F7002A5558 /* French */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = French; path = fr.lproj/Credits.rtf; sourceTree = "<group>"; };
@@ -658,6 +663,9 @@
 				pt,
 				pt_PT,
 				ru,
+				es,
+				da,
+				no,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ImageOptim */;
 			projectDirPath = "";
@@ -785,6 +793,11 @@
 				5A94A03C10275E11005CC9CB /* Localizable.strings in Resources */,
 				5A887F8510C17361006A0687 /* Credits.rtf in Resources */,
 				5A1D3E8C14366933004EE809 /* style.css in Resources */,
+				5AD299B81436756D0048C725 /* style.css in Resources */,
+				5AD299BA143675770048C725 /* style.css in Resources */,
+				5AD299BC1436757F0048C725 /* style.css in Resources */,
+				5AD299BE143675870048C725 /* style.css in Resources */,
+				5AD299C3143675BB0048C725 /* style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -922,6 +935,9 @@
 				5AA339011117C41400046C79 /* German */,
 				5A0343BE129984B3002091AA /* pt */,
 				5A0344371299882B002091AA /* ru */,
+				5ABF610913E37B07009F6F22 /* da */,
+				5A7D24F313EDF5F100815AAA /* es */,
+				5AD299BB1436757F0048C725 /* no */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -937,6 +953,9 @@
 				5AA339021117C41B00046C79 /* German */,
 				5A0343BF129984BA002091AA /* pt */,
 				5A0344381299882F002091AA /* ru */,
+				5ABF610813E37AFC009F6F22 /* da */,
+				5A7D24F413EDF5F100815AAA /* es */,
+				5AD299BD143675870048C725 /* no */,
 			);
 			name = PrefsController.xib;
 			sourceTree = "<group>";
@@ -952,6 +971,9 @@
 				5AA338A21117BF1900046C79 /* German */,
 				5A0343B012998485002091AA /* pt */,
 				5A03443612998825002091AA /* ru */,
+				5ABF610A13E37B5F009F6F22 /* da */,
+				5A7D24F013EDF5F100815AAA /* es */,
+				5AD299B71436756D0048C725 /* no */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -965,6 +987,10 @@
 				5AA2213310DE9CEF00D67435 /* Italian */,
 				5AA338BF1117C00300046C79 /* German */,
 				5A03443A12998845002091AA /* ru */,
+				5ABF611613E37BC3009F6F22 /* da */,
+				5A7A314713E436690012DCFB /* pt */,
+				5A7D24F213EDF5F100815AAA /* es */,
+				5AD299B9143675770048C725 /* no */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -978,6 +1004,9 @@
 				5AA338A31117BF5500046C79 /* German */,
 				5A034423129985D5002091AA /* pt */,
 				5A03443B1299884F002091AA /* ru */,
+				5ABF611313E37B86009F6F22 /* da */,
+				5A7D24F113EDF5F100815AAA /* es */,
+				5AD299C2143675BB0048C725 /* no */,
 			);
 			name = Help;
 			sourceTree = "<group>";
