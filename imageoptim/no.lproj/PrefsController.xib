@@ -149,7 +149,7 @@
 																<object class="NSButtonCell" key="NSCell" id="517277602">
 																	<int key="NSCellFlags">67239424</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">Ta sikkerhetskopi av filene før de skrives til disk</string>
+																	<string key="NSContents">Ta sikkerhetskopi før filer skrives til disk</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="402133490"/>
 																	<int key="NSButtonFlags">1211912703</int>
@@ -175,7 +175,7 @@
 												<object class="NSTextFieldCell" key="NSTitleCell">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Skriver filer til disk</string>
+													<string key="NSContents">Alternativer for filhåndtering</string>
 													<object class="NSFont" key="NSSupport" id="744891273">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">11</double>
@@ -275,9 +275,9 @@
 																<object class="NSTextFieldCell" key="NSCell" id="96456046">
 																	<int key="NSCellFlags">67239424</int>
 																	<int key="NSCellFlags2">272629760</int>
-																	<string type="base64-UTF8" key="NSContents">Rm9yIGJlc3QgeXRlbHNlIHNldHQgdGlsIGFudGFsbGV0IENQVS1ramVybmVyLgpFbmRyaW5nIGF2IGRl
-dHRlIGFsdGVybmF0aXZldCB2aWwgaWtrZSB0cmUgaSBrcmFmdCBmw7hyIEltYWdlT3B0aW0gc3RhcnRl
-cyBww6Ugbnl0dC4</string>
+																	<string type="base64-UTF8" key="NSContents">Rm9yIGJlc3QgeXRlbHNlIHNldHQgZGV0dGUgdGlsIGFudGFsbGV0IENQVS1ramVybmVyLgpFbmRyaW5n
+IGF2IGRldHRlIGFsdGVybmF0aXZldCB2aWwgaWtrZSB0cmUgaSBrcmFmdCBmw7hyIEltYWdlT3B0aW0g
+c3RhcnRlcyBww6Ugbnl0dC4</string>
 																	<object class="NSFont" key="NSSupport" id="604814779">
 																		<string key="NSName">LucidaGrande</string>
 																		<double key="NSSize">10</double>
@@ -365,7 +365,7 @@ cyBww6Ugbnl0dC4</string>
 												<object class="NSTextFieldCell" key="NSTitleCell">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">CPU-bruk</string>
+													<string key="NSContents">Prosessorbruk</string>
 													<reference key="NSSupport" ref="744891273"/>
 													<reference key="NSBackgroundColor" ref="265439438"/>
 													<object class="NSColor" key="NSTextColor">
@@ -452,7 +452,7 @@ cyBww6Ugbnl0dC4</string>
 												<object class="NSTextFieldCell" key="NSCell" id="195415995">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">PNGOUT path</string>
+													<string key="NSContents">Sti til PNGOUT</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="637265323"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -470,7 +470,7 @@ cyBww6Ugbnl0dC4</string>
 												<object class="NSButtonCell" key="NSCell" id="893971151">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134348800</int>
-													<string key="NSContents">Bla</string>
+													<string key="NSContents">Velg…</string>
 													<object class="NSFont" key="NSSupport" id="26">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">11</double>
@@ -729,7 +729,7 @@ cyBww6Ugbnl0dC4</string>
 												<object class="NSButtonCell" key="NSCell" id="827977715">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Aktivert</string>
+													<string key="NSContents">Slått på</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="751259872"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -752,7 +752,7 @@ cyBww6Ugbnl0dC4</string>
 												<object class="NSTextFieldCell" key="NSCell" id="477679095">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">4194304</int>
-													<string key="NSContents">Nettlesere fungerer best med gamma-delen fjernet</string>
+													<string key="NSContents">Nettlesere fungerer bedre uten gamma-del</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="1045259908"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1009,7 +1009,7 @@ cyBww6Ugbnl0dC4</string>
 												<object class="NSTextFieldCell" key="NSCell" id="682746709">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Fjern deler</string>
+													<string key="NSContents">Fjern følgende deler</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="876722330"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1123,7 +1123,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSButtonCell" key="NSCell" id="989291490">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134348800</int>
-													<string key="NSContents">Browse</string>
+													<string key="NSContents">Velg…</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="178617466"/>
 													<int key="NSTag">4</int>
@@ -1146,7 +1146,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSButtonCell" key="NSCell" id="52279720">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Use built-in version</string>
+													<string key="NSContents">Bruk innnebygd versjon</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="837889792"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -1218,7 +1218,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSButtonCell" key="NSCell" id="623212064">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Aktivert</string>
+													<string key="NSContents">Slått på</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="729126354"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -1241,7 +1241,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSTextFieldCell" key="NSCell" id="590979537">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Nettlesere fungerer bedre med gamma-delen fjernet</string>
+													<string key="NSContents">Nettlesere fungerer bedre uten gamma-del</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="622082568"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1258,7 +1258,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSTextFieldCell" key="NSCell" id="652922267">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">272629760</int>
-													<string key="NSContents">(PNGCrush er overflødig når PNGOUT er aktivert)</string>
+													<string key="NSContents">(PNGCrush er overflødig når PNGOUT er valgt)</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="992745705"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1570,7 +1570,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSButtonCell" key="NSCell" id="311069677">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Aktivert</string>
+													<string key="NSContents">Slått på</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="894569771"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -1665,7 +1665,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSButtonCell" key="NSCell" id="538700816">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Bruk innbygd versjon</string>
+													<string key="NSContents">Bruk innebygd versjon</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="998292515"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -1847,7 +1847,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSButtonCell" key="NSCell" id="157416987">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Aktivert</string>
+													<string key="NSContents">Slått på</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="1017967547"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -1935,7 +1935,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSButtonCell" key="NSCell" id="737534581">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Slett kommentarer</string>
+													<string key="NSContents">Fjern kommentarer</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="75736740"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -1982,7 +1982,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSButtonCell" key="NSCell" id="539699012">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134348800</int>
-													<string key="NSContents">Bla</string>
+													<string key="NSContents">Velg…</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="155795433"/>
 													<int key="NSTag">1</int>
@@ -2254,7 +2254,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSButtonCell" key="NSCell" id="823407209">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Aktivert</string>
+													<string key="NSContents">Slått på</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="128042295"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -2350,7 +2350,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSButtonCell" key="NSCell" id="557190178">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134348800</int>
-													<string key="NSContents">Bla</string>
+													<string key="NSContents">Velg…</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="74423797"/>
 													<int key="NSTag">1</int>
@@ -2419,7 +2419,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSButtonCell" key="NSCell" id="316677287">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Aktivert</string>
+													<string key="NSContents">Slått på</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="461573954"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -2491,7 +2491,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSButtonCell" key="NSCell" id="158213720">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134348800</int>
-													<string key="NSContents">Bla</string>
+													<string key="NSContents">Velg…</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="637662945"/>
 													<int key="NSTag">3</int>
@@ -2560,7 +2560,7 @@ bGl0ZW4gYm9rc3Rhdg</string>
 												<object class="NSButtonCell" key="NSCell" id="615131508">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Aktivert</string>
+													<string key="NSContents">Slått på</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="607719519"/>
 													<int key="NSButtonFlags">1211912703</int>
