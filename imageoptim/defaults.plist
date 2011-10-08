@@ -26,6 +26,8 @@
 	<true/>
 	<key>JpegTranEnabled</key>
 	<true/>
+	<key>JpegTranStripAll</key>
+	<true/>
 	<key>JpegTranPath</key>
 	<string>/sw/bin/jpegtran</string>
 	<key>OptiPngBundle</key>
