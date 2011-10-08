@@ -53,9 +53,7 @@
 
 	[self launchTask];
 
-	//[self parseLinesFromHandle:commandHandle];
-
-    [commandHandle readInBackgroundAndNotify];
+    [commandHandle readToEndOfFileInBackgroundAndNotify];
 
 	[task waitUntilExit];
 
