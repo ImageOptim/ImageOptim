@@ -273,6 +273,7 @@
 		5A4553121024EF3000A69944 /* Polish */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Polish; path = pl.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5A4553131024EF4100A69944 /* Polish */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Polish; path = pl.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5A4554F81025EBE900A69944 /* optimal_file_list */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = optimal_file_list; sourceTree = "<group>"; };
+		5A48B74A1423F3AD00AE15FB /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		5A4DC2051028ADB200A9DD55 /* gifsicle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = gifsicle.xcodeproj; path = ../gifsicle/gifsicle.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A4DC2191028AE1800A9DD55 /* GifsicleWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifsicleWorker.h; sourceTree = "<group>"; };
 		5A4DC21A1028AE1800A9DD55 /* GifsicleWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifsicleWorker.m; sourceTree = "<group>"; };
@@ -440,6 +441,7 @@
 				5A9D56BC0E7F242C000F129F /* optipng.xcodeproj */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				5A4554F81025EBE900A69944 /* optimal_file_list */,
+				5A48B74A1423F3AD00AE15FB /* Makefile */,
 				5A27B956139B03090095FC2F /* release.xcconfig */,
 				5A27B9C2139B079A0095FC2F /* debug.xcconfig */,
 			);
