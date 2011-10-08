@@ -499,7 +499,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSButtonCell" key="NSCell" id="731398776">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Remove all optional chunks</string>
+													<string key="NSContents">Eliminar todos los fragmentos opcionales</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="469954983"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -842,7 +842,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSButtonCell" key="NSCell" id="979916268">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Atentar arreglar archivos dañados</string>
+													<string key="NSContents">Intente reparar los archivos dañados</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="893970803"/>
 													<int key="NSButtonFlags">1211912703</int>
@@ -1011,7 +1011,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSTextFieldCell" key="NSCell" id="682746709">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Quitar trozos</string>
+													<string key="NSContents">Eliminar fragmentos</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="876722330"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1057,7 +1057,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSButtonCell" key="NSCell" id="376194663">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">134217728</int>
-													<string key="NSContents">Remove</string>
+													<string key="NSContents">Eliminar</string>
 													<reference key="NSSupport" ref="24"/>
 													<reference key="NSControlView" ref="854475588"/>
 													<int key="NSButtonFlags">-2033958657</int>
@@ -1082,7 +1082,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSTextFieldCell" key="NSCell" id="367692974">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Los nombres son mayúsculas y minúsculas</string>
+													<string type="base64-UTF8" key="NSContents">TG9zIG5vbWJyZXMgc29uIApjYXNlIHNlbnNpdGl2ZQ</string>
 													<reference key="NSSupport" ref="22"/>
 													<reference key="NSControlView" ref="965757588"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1242,7 +1242,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSTextFieldCell" key="NSCell" id="590979537">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Los navegadores web requieren se quite gama</string>
+													<string key="NSContents">Los navegadores web requieren eliminar el gamma</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="622082568"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1259,7 +1259,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSTextFieldCell" key="NSCell" id="652922267">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">272629760</int>
-													<string key="NSContents">(El uso de PNGCrush es redundante cuando está utilizando PNGOUT)</string>
+													<string key="NSContents">(PNGCrush es redundante cuando se utiliza PNGOUT)</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSControlView" ref="992745705"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1434,7 +1434,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSTextFieldCell" key="NSCell" id="645880451">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">272629760</int>
-													<string key="NSContents">Interlaced files are usually larger</string>
+													<string key="NSContents">Archivos entrelazados suelen ser más grandes</string>
 													<reference key="NSSupport" ref="604814779"/>
 													<reference key="NSControlView" ref="310054693"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1959,7 +1959,7 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 												<object class="NSButtonCell" key="NSCell" id="1057182871">
 													<int key="NSCellFlags">-2080244224</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Elimina marcadores EXIF de los archivos</string>
+													<string key="NSContents">Eliminar marcadores EXIF de los archivos</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="60500168"/>
 													<int key="NSButtonFlags">1211912703</int>
