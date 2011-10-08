@@ -22,7 +22,6 @@
 		5A1944060FF98722007C3324 /* pngset.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F40FF98722007C3324 /* pngset.c */; };
 		5A1944080FF98722007C3324 /* pngread.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F60FF98722007C3324 /* pngread.c */; };
 		5A1944090FF98722007C3324 /* pngget.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F70FF98722007C3324 /* pngget.c */; };
-		5A19440A0FF98722007C3324 /* pngtest.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F80FF98722007C3324 /* pngtest.c */; };
 		5A19440B0FF98722007C3324 /* pngwutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F90FF98722007C3324 /* pngwutil.c */; };
 		5A19440C0FF98722007C3324 /* pngrio.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FA0FF98722007C3324 /* pngrio.c */; };
 		5A19440D0FF98722007C3324 /* pngwio.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FB0FF98722007C3324 /* pngwio.c */; };
@@ -49,7 +48,6 @@
 		5AC2B4DE13394F2200376783 /* pngset.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F40FF98722007C3324 /* pngset.c */; };
 		5AC2B4DF13394F2200376783 /* pngread.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F60FF98722007C3324 /* pngread.c */; };
 		5AC2B4E013394F2200376783 /* pngget.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F70FF98722007C3324 /* pngget.c */; };
-		5AC2B4E113394F2200376783 /* pngtest.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F80FF98722007C3324 /* pngtest.c */; };
 		5AC2B4E213394F2200376783 /* pngwutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F90FF98722007C3324 /* pngwutil.c */; };
 		5AC2B4E313394F2200376783 /* pngrio.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FA0FF98722007C3324 /* pngrio.c */; };
 		5AC2B4E413394F2200376783 /* pngwio.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FB0FF98722007C3324 /* pngwio.c */; };
@@ -110,7 +108,6 @@
 		5A1943F40FF98722007C3324 /* pngset.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngset.c; sourceTree = "<group>"; };
 		5A1943F60FF98722007C3324 /* pngread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngread.c; sourceTree = "<group>"; };
 		5A1943F70FF98722007C3324 /* pngget.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngget.c; sourceTree = "<group>"; };
-		5A1943F80FF98722007C3324 /* pngtest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngtest.c; sourceTree = "<group>"; };
 		5A1943F90FF98722007C3324 /* pngwutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngwutil.c; sourceTree = "<group>"; };
 		5A1943FA0FF98722007C3324 /* pngrio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngrio.c; sourceTree = "<group>"; };
 		5A1943FB0FF98722007C3324 /* pngwio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngwio.c; sourceTree = "<group>"; };
@@ -152,7 +149,6 @@
 				5A1943F40FF98722007C3324 /* pngset.c */,
 				5A1943F60FF98722007C3324 /* pngread.c */,
 				5A1943F70FF98722007C3324 /* pngget.c */,
-				5A1943F80FF98722007C3324 /* pngtest.c */,
 				5A1943F90FF98722007C3324 /* pngwutil.c */,
 				5A1943FA0FF98722007C3324 /* pngrio.c */,
 				5A1943FB0FF98722007C3324 /* pngwio.c */,
@@ -317,7 +313,6 @@
 				5A1944060FF98722007C3324 /* pngset.c in Sources */,
 				5A1944080FF98722007C3324 /* pngread.c in Sources */,
 				5A1944090FF98722007C3324 /* pngget.c in Sources */,
-				5A19440A0FF98722007C3324 /* pngtest.c in Sources */,
 				5A19440B0FF98722007C3324 /* pngwutil.c in Sources */,
 				5A19440C0FF98722007C3324 /* pngrio.c in Sources */,
 				5A19440D0FF98722007C3324 /* pngwio.c in Sources */,

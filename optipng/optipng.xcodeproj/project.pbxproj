@@ -18,7 +18,6 @@
 		5A9D56740E7F21AD000F129F /* opngreduc.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D56390E7F21AD000F129F /* opngreduc.c */; };
 		5A9D56750E7F21AD000F129F /* optipng.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D563A0E7F21AD000F129F /* optipng.c */; };
 		5A9D56760E7F21AD000F129F /* osys.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D563B0E7F21AD000F129F /* osys.c */; };
-		5A9D56770E7F21AD000F129F /* strutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A9D563E0E7F21AD000F129F /* strutil.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,8 +65,6 @@
 		5A9D563B0E7F21AD000F129F /* osys.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = osys.c; sourceTree = "<group>"; };
 		5A9D563C0E7F21AD000F129F /* osys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = osys.h; sourceTree = "<group>"; };
 		5A9D563D0E7F21AD000F129F /* proginfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = proginfo.h; sourceTree = "<group>"; };
-		5A9D563E0E7F21AD000F129F /* strutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = strutil.c; sourceTree = "<group>"; };
-		5A9D563F0E7F21AD000F129F /* strutil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strutil.h; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* optipng */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = optipng; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -132,8 +129,6 @@
 				5A9D563B0E7F21AD000F129F /* osys.c */,
 				5A9D563C0E7F21AD000F129F /* osys.h */,
 				5A9D563D0E7F21AD000F129F /* proginfo.h */,
-				5A9D563E0E7F21AD000F129F /* strutil.c */,
-				5A9D563F0E7F21AD000F129F /* strutil.h */,
 				5A9D55F30E7F21AD000F129F /* pngxtern */,
 			);
 			path = src;
@@ -251,7 +246,6 @@
 				5A9D56740E7F21AD000F129F /* opngreduc.c in Sources */,
 				5A9D56750E7F21AD000F129F /* optipng.c in Sources */,
 				5A9D56760E7F21AD000F129F /* osys.c in Sources */,
-				5A9D56770E7F21AD000F129F /* strutil.c in Sources */,
 				5A984A9511237FE2007622D7 /* opngoptim.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
