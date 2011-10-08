@@ -1,8 +1,7 @@
-diff --git a/src/opngoptim.c b/src/opngoptim.c
-index aab5580..ceaa60f 100644
+index 16f7acd..7b4a3c5 100644
 --- a/src/opngoptim.c
 +++ b/src/opngoptim.c
-@@ -1091,6 +1091,8 @@ opng_read_file(FILE *infile)
+@@ -1063,6 +1063,8 @@ opng_read_file(FILE *infile)
           reductions &= ~OPNG_REDUCE_BIT_DEPTH;
        if (options.nc)
           reductions &= ~OPNG_REDUCE_COLOR_TYPE;
@@ -12,19 +11,10 @@ index aab5580..ceaa60f 100644
           reductions &= ~OPNG_REDUCE_PALETTE_ALL;
        if (options.nz && (process.status & INPUT_HAS_PNG_DATASTREAM))
 diff --git a/src/opngreduc.c b/src/opngreduc.c
-index 1f01401..ac37521 100644
+index e4d5c98..5e82152 100644
 --- a/src/opngreduc.c
 +++ b/src/opngreduc.c
-@@ -515,7 +515,7 @@ opng_reduce_bits(png_structp png_ptr, png_infop info_ptr,
-       src_bit_depth, dest_bit_depth, src_byte_depth, dest_byte_depth,
-       src_color_type, dest_color_type, src_channels, dest_channels,
-       src_sample_size, dest_sample_size, src_offset_alpha;
--   unsigned int tran_tbl[8], k;
-+   unsigned int tran_tbl[8]={0}, k;
- 
-    png_debug(1, "in opng_reduce_bits\n");
- 
-@@ -1105,6 +1105,69 @@ opng_analyze_sample_usage(png_structp png_ptr, png_infop info_ptr,
+@@ -1151,6 +1151,69 @@ opng_analyze_sample_usage(png_structp png_ptr, png_infop info_ptr,
        usage_map[info_ptr->background.index] = 1;
  }
  
@@ -94,16 +84,16 @@ index 1f01401..ac37521 100644
  
  /*
   * Reduce the palette (only the fast method is implemented).
-@@ -1292,7 +1355,7 @@ opng_reduce_image(png_structp png_ptr, png_infop info_ptr,
+@@ -1339,7 +1402,7 @@ opng_reduce_image(png_structp png_ptr, png_infop info_ptr,
     png_uint_32 reductions)
  {
     unsigned int color_type;
 -   png_uint_32 result;
 +   png_uint_32 result = 0;
  
-    png_debug(1, "in opng_reduce_image_type\n");
+    opng_debug(1, "in opng_reduce_image_type");
  
-@@ -1317,8 +1380,14 @@ opng_reduce_image(png_structp png_ptr, png_infop info_ptr,
+@@ -1354,8 +1417,14 @@ opng_reduce_image(png_structp png_ptr, png_infop info_ptr,
  
     /* The reductions below must be applied in the given order. */
  
@@ -120,10 +110,10 @@ index 1f01401..ac37521 100644
     /* Try to reduce the palette image. */
     if (color_type == PNG_COLOR_TYPE_PALETTE &&
 diff --git a/src/opngreduc.h b/src/opngreduc.h
-index 1877058..e5d6443 100644
+index 23f2eb0..a9f27e3 100644
 --- a/src/opngreduc.h
 +++ b/src/opngreduc.h
-@@ -83,6 +83,8 @@ extern PNG_EXPORT(png_uint_32,opng_reduce_image)
+@@ -74,6 +74,8 @@ png_uint_32 PNGAPI opng_reduce_image(png_structp png_ptr, png_infop info_ptr,
                                                  from PLTE and tRNS */
  #define OPNG_REDUCE_PALETTE_FAST     0x0200  /* remove trailing sterile entries
                                                  from PLTE and tRNS */
@@ -132,7 +122,7 @@ index 1877058..e5d6443 100644
  #define OPNG_REDUCE_ANCILLARY        0x1000
  
  #define OPNG_REDUCE_BIT_DEPTH  \
-@@ -98,6 +100,6 @@ extern PNG_EXPORT(png_uint_32,opng_reduce_image)
+@@ -89,7 +91,7 @@ png_uint_32 PNGAPI opng_reduce_image(png_structp png_ptr, png_infop info_ptr,
  
  #define OPNG_REDUCE_ALL  \
     (OPNG_REDUCE_BIT_DEPTH | OPNG_REDUCE_COLOR_TYPE | \
@@ -140,11 +130,12 @@ index 1877058..e5d6443 100644
 +    OPNG_REDUCE_PALETTE_ALL | OPNG_REDUCE_ANCILLARY | OPNG_REDUCE_DIRTY_ALPHA)
  
  #endif /* OPNG_IMAGE_REDUCTIONS_SUPPORTED */
+
 diff --git a/src/optipng.c b/src/optipng.c
-index 5fc1ca1..6f9c710 100644
+index 1768859..06b4902 100644
 --- a/src/optipng.c
 +++ b/src/optipng.c
-@@ -109,6 +109,7 @@ static const char *msg_help =
+@@ -111,6 +111,7 @@ static const char *msg_help =
     "    -nb\t\t\tno bit depth reduction\n"
     "    -nc\t\t\tno color type reduction\n"
     "    -np\t\t\tno palette reduction\n"
@@ -152,7 +143,7 @@ index 5fc1ca1..6f9c710 100644
  #if 0  /* not implemented */
     "    -nm\t\t\tno metadata optimization\n"
  #endif
-@@ -379,6 +380,10 @@ parse_args(int argc, char *argv[])
+@@ -551,6 +552,10 @@ parse_args(int argc, char *argv[])
              options.nb = options.nc = options.np = 1;
              /* options.nm = 1; */
          }
@@ -162,8 +153,8 @@ index 5fc1ca1..6f9c710 100644
 +        }
          else if (strcmp("nz", opt) == 0)
          {
-             options.nz = 1;
-@@ -668,9 +673,9 @@ app_print_cntrl(int cntrl_code)
+             /* -nz */
+@@ -846,9 +851,9 @@ app_print_cntrl(int cntrl_code)
      }
  
      if (con_file != NULL)
@@ -176,7 +167,7 @@ index 5fc1ca1..6f9c710 100644
  
  
 diff --git a/src/optipng.h b/src/optipng.h
-index 646ccaa..f671b21 100644
+index cb6343e..55c4b2b 100644
 --- a/src/optipng.h
 +++ b/src/optipng.h
 @@ -31,7 +31,7 @@ struct opng_options
@@ -189,13 +180,13 @@ index 646ccaa..f671b21 100644
      int quiet;
      int simulate;
 diff --git a/src/proginfo.h b/src/proginfo.h
-index eac9b1c..11540f3 100644
+index 48bc8e8..1c2da30 100644
 --- a/src/proginfo.h
 +++ b/src/proginfo.h
 @@ -1,5 +1,5 @@
  #define PROGRAM_NAME        "OptiPNG"
  #define PROGRAM_DESCRIPTION "Advanced PNG optimizer"
--#define PROGRAM_VERSION     "0.6.4"
-+#define PROGRAM_VERSION     "0.6.4 + dirtyalpha patch"
- #define PROGRAM_COPYRIGHT   "Copyright (C) 2001-2010 Cosmin Truta"
+-#define PROGRAM_VERSION     "0.6.5"
++#define PROGRAM_VERSION     "0.6.5 + dirtyalpha patch"
+ #define PROGRAM_COPYRIGHT   "Copyright (C) 2001-2011 Cosmin Truta"
  #define PROGRAM_URI         "http://optipng.sourceforge.net/"

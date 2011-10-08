@@ -1,5 +1,5 @@
 
-VERSION=0.6.4
+VERSION=0.6.5
 OPTIPNG_FILENAME=optipng-$(VERSION).tar.gz
 
 all: patched
