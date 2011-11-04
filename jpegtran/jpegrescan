@@ -11,7 +11,8 @@ $ftmp = "$fout-$$.scan";
 $jtmp = $fout;
 $verbose = $v;
 $quiet = $q;
-undef $_ for $v,$q;
+@strip = $s ? ("-copy","none") : ("-copy","all");
+undef $_ for $v,$q,$s;
 undef $/;
 $|=1;
 
@@ -21,7 +22,7 @@ $old_size = -s $fin;
 # FIXME there's still a bunch of redundant computation in separate calls to jpegtran
 open $OLDERR, ">&", STDERR;
 open STDERR, ">", $ftmp;
-open TRAN, "-|", "./jpegtran", "-v", "-optimize", $fin or die;
+open TRAN, "-|", "./jpegtran", "-v", @strip, "-optimize", $fin or die;
 write_file($jtmp, <TRAN>);
 close TRAN;
 open STDERR, ">&", $OLDERR;
@@ -49,7 +50,7 @@ sub try {
     my $txt = canonize(shift);
     return $memo{$txt} if $memo{$txt};
     write_file($ftmp, $txt);
-    open TRAN, "-|", "./jpegtran", "-scans", $ftmp, $jtmp or die;
+    open TRAN, "-|", "./jpegtran", @strip, "-scans", $ftmp, $jtmp or die;
     $data = <TRAN>;
     close TRAN;
     my $s = length $data;
