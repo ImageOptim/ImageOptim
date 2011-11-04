@@ -1,0 +1,135 @@
+#!/usr/bin/perl -ws
+# jpegrescan by Loren Merritt
+# Last updated: 2008-11-29
+# This code is public domain.
+
+use File::Slurp;
+@ARGV==2 or die "usage: jpegrescan in.jpg out.jpg\ntries various progressive scan orders\n";
+$fin = $ARGV[0];
+$fout = $ARGV[1];
+$ftmp = "/tmp/$$.scan";
+$jtmp = "/tmp/$$.jpg";
+$verbose = $v;
+$quiet = $q;
+@restart = $r ? ("-restart", 1) : ();
+undef $_ for $v,$q,$r;
+undef $/;
+$|=1;
+
+# convert the input to baseline, just to make all the other conversions faster
+# FIXME there's still a bunch of redundant computation in separate calls to jpegtran
+open $OLDERR, ">&", STDERR;
+open STDERR, ">", $ftmp;
+open TRAN, "-|", "jpegtran", "-v", "-optimize", $fin or die;
+write_file($jtmp, <TRAN>);
+close TRAN;
+open STDERR, ">&", $OLDERR;
+
+$type = read_file($ftmp);
+$type =~ /components=(\d+)/ or die;
+$rgb = $1==3 ? 1 : $1==1 ? 0 : die "not RGB nor gray\n";
+
+# FIXME optimize order for either progressive transfer or decoding speed
+sub canonize {
+    my $txt = $prefix.$suffix.shift;
+    $txt =~ s/\s*;\s*/;\n/g;
+    $txt =~ s/^\s*//;
+    $txt =~ s/ +/ /g;
+    $txt =~ s/: (\d+) (\d+)/sprintf ": %2d %2d", $1, $2/ge;
+    # treat u and v identically. I shouldn't need to do this, but with jpegtran overhead it saves 9% speed. cost: .008% bitrate.
+    $txt =~ s/^2:.*\n//gm;
+    $txt =~ s/^1:(.+)\n/1:$1\n2:$1\n/gm;
+    # dc before ac, coarse before fine
+    my @txt = sort {"$a\n$b" =~ /: *(\d+) .* (\d);\n.*: *(\d+) .* (\d);/ or die; !$3 <=> !$1 or $4 <=> $2 or $a cmp $b;} split /\n/, $txt;
+    return join "\n", @txt;
+}
+
+sub try {
+    my $txt = canonize(shift);
+    return $memo{$txt} if $memo{$txt};
+    write_file($ftmp, $txt);
+    open TRAN, "-|", "jpegtran", "-scans", $ftmp, @restart, $jtmp or die;
+    $data = <TRAN>;
+    close TRAN;
+    my $s = length $data;
+    $s or die;
+    $memo{$txt} = $s;
+    !$quiet && print $verbose ? "$txt\n$s\n\n" : ".";
+    return $s;
+}
+
+sub triesn {
+    my($bmode, $bsize);
+    my ($limit, @modes) = @_;
+    my $overshoot = 0;
+    for(@modes) {
+        my $s = try($_);
+        if(!$bsize || $s < $bsize) {
+            $bsize = $s;
+            $bmode = $_;
+            $overshoot = 0;
+        } elsif(++$overshoot >= $limit) {
+            last;
+        }
+    }
+    return $bmode;
+}
+
+sub tries { triesn(99, @_); }
+
+$prefix = "";
+$suffix = "";
+
+if($rgb) {
+    # 012 helps very little
+    # 0/12 and 0/1/2 are pretty evenly matched in frequency, but 0/12 wins in total size if every image had to use the same mode
+    # dc refinement passes never help
+    $dc = tries("0: 0 0 0 0; 1 2: 0 0 0 0;",
+                "0: 0 0 0 0; 1: 0 0 0 0; 2: 0 0 0 0;");
+    # jpegtran won't let me omit dc entirely, but I can at least quantize it away to make the rest of the tests faster.
+    $prefix = "0 1 2: 0 0 0 9;";
+} else {
+    $dc = "0: 0 0 0 0;";
+    $prefix = "0: 0 0 0 9;";
+}
+
+# luma can make use of up to 3 refinement passes.
+# chroma can make use of up to 2 refinement passes.
+# refinement passes have some chance of being split (luma: 4%,4%,4%. chroma: 20%,8%) but the total bit gain is negligible.
+# msb pass should almost always be split (luma: 87%, chroma: 81%).
+# I have no theoretical reason for this list of split positions, they're just the most common in practice.
+# splitting into 3 ections is often slightly better, but the total number of bits saved is negligible.
+# FIXME: penalize lots of refinement passes because it's slower to decode. if so, then also force overwrite if bigger than the input.
+sub try_splits {
+    my $str = shift;
+    my %n = map {$_ => sprintf "$c: 1 %d $str; $c: %d 63 $str;", $_, $_+1} 2,5,8,12,18;
+    my $mode = triesn(2, "$c: 1 63 $str;", @n{2,8,5});
+    return $mode if $mode ne $n{8};
+    return triesn(1, $mode, @n{12,18});
+}
+
+foreach $c (0..$rgb) {
+    my @modes;
+    my $ml = "";
+    for(0..($c?2:3)) {
+        push @modes, "$c: 1 8 0 $_; $c: 9 63 0 $_;".$ml;
+        $ml .= sprintf("$c: 1 63 %d %d;", $_+1, $_);
+    }
+    my $refine = triesn(1, @modes);
+    $refine =~ s/.* (0 \d);//;
+    $ac .= $refine . try_splits($1);
+}
+
+$prefix = "";
+undef %memo;
+$mode = canonize($dc.$ac);
+try($mode);
+$size = $memo{$mode};
+!$quiet && print "\n$mode\n$size\n";
+$old_size = -s $fin;
+!$quiet && printf "%+.2f%%\n", ($size/$old_size-1)*100;
+if($size > $old_size && !@restart) {
+    $data = read_file($fin);
+}
+write_file($fout, $data);
+unlink $ftmp, $jtmp;
