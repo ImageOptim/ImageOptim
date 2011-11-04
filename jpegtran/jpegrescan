@@ -15,6 +15,8 @@ undef $_ for $v,$q;
 undef $/;
 $|=1;
 
+$old_size = -s $fin;
+
 # convert the input to baseline, just to make all the other conversions faster
 # FIXME there's still a bunch of redundant computation in separate calls to jpegtran
 open $OLDERR, ">&", STDERR;
@@ -125,7 +127,6 @@ $mode = canonize($dc.$ac);
 try($mode);
 $size = $memo{$mode};
 !$quiet && print "\n$mode\n$size\n";
-$old_size = -s $fin;
 if($size < $old_size) {
 	write_file($fout, $data);
 }
