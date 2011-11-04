@@ -11,8 +11,7 @@ $ftmp = "$fout-$$.scan";
 $jtmp = $fout;
 $verbose = $v;
 $quiet = $q;
-@restart = $r ? ("-restart", 1) : ();
-undef $_ for $v,$q,$r;
+undef $_ for $v,$q;
 undef $/;
 $|=1;
 
@@ -48,7 +47,7 @@ sub try {
     my $txt = canonize(shift);
     return $memo{$txt} if $memo{$txt};
     write_file($ftmp, $txt);
-    open TRAN, "-|", "./jpegtran", "-scans", $ftmp, @restart, $jtmp or die;
+    open TRAN, "-|", "./jpegtran", "-scans", $ftmp, $jtmp or die;
     $data = <TRAN>;
     close TRAN;
     my $s = length $data;
