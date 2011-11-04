@@ -1,14 +1,14 @@
 #!/usr/bin/perl -ws
 # jpegrescan by Loren Merritt
-# Last updated: 2008-11-29
+# Last updated: 2008-11-29 / 2011-11-01
 # This code is public domain.
 
 use File::Slurp;
 @ARGV==2 or die "usage: jpegrescan in.jpg out.jpg\ntries various progressive scan orders\n";
 $fin = $ARGV[0];
 $fout = $ARGV[1];
-$ftmp = "/tmp/$$.scan";
-$jtmp = "/tmp/$$.jpg";
+$ftmp = "$fout-$$.scan";
+$jtmp = $fout;
 $verbose = $v;
 $quiet = $q;
 @restart = $r ? ("-restart", 1) : ();
@@ -20,7 +20,7 @@ $|=1;
 # FIXME there's still a bunch of redundant computation in separate calls to jpegtran
 open $OLDERR, ">&", STDERR;
 open STDERR, ">", $ftmp;
-open TRAN, "-|", "jpegtran", "-v", "-optimize", $fin or die;
+open TRAN, "-|", "./jpegtran", "-v", "-optimize", $fin or die;
 write_file($jtmp, <TRAN>);
 close TRAN;
 open STDERR, ">&", $OLDERR;
@@ -48,7 +48,7 @@ sub try {
     my $txt = canonize(shift);
     return $memo{$txt} if $memo{$txt};
     write_file($ftmp, $txt);
-    open TRAN, "-|", "jpegtran", "-scans", $ftmp, @restart, $jtmp or die;
+    open TRAN, "-|", "./jpegtran", "-scans", $ftmp, @restart, $jtmp or die;
     $data = <TRAN>;
     close TRAN;
     my $s = length $data;
@@ -127,9 +127,7 @@ try($mode);
 $size = $memo{$mode};
 !$quiet && print "\n$mode\n$size\n";
 $old_size = -s $fin;
-!$quiet && printf "%+.2f%%\n", ($size/$old_size-1)*100;
-if($size > $old_size && !@restart) {
-    $data = read_file($fin);
+if($size < $old_size) {
+	write_file($fout, $data);
 }
-write_file($fout, $data);
-unlink $ftmp, $jtmp;
+unlink $ftmp;
