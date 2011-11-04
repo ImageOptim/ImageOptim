@@ -20,32 +20,20 @@
 
 -(void)run
 {
-	NSFileManager *fm = [NSFileManager defaultManager];
 	NSString *temp = [self tempPath];
-    NSError *error = nil;
-
-	if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error])
-	{
-		NSLog(@"Can't make temp copy of %@ in %@; %@",[file filePath],temp, error);
-	}
 
     // eh, handling of paths starting with "-" is unsafe here. Hopefully all paths from dropped files will be absolute...
-	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-verbose",@"-optimize",@"-progressive",@"-outfile",temp,[file filePath],nil];
+	NSMutableArray *args = [NSMutableArray arrayWithObjects:[file filePath],temp,nil];
 
-	if (strip)
-	{
-		[args insertObject:@"-copy" atIndex:0];
-		[args insertObject:@"none" atIndex:1];
- 	}
-    else
-    {
-		[args insertObject:@"-copy" atIndex:0];
-		[args insertObject:@"all" atIndex:1];
-    }
+	if (strip) {
+		[args insertObject:@"-s" atIndex:0];
+	}
 
-    if (![self taskForKey:@"JpegTran" bundleName:@"jpegtran" arguments:args]) {
+    if (![self taskForKey:@"JpegTran" bundleName:@"jpegrescan" arguments:args]) {
         return;
     }
+
+    [task setCurrentDirectoryPath:[[[NSBundle mainBundle] pathForAuxiliaryExecutable:@"jpegtran"] stringByDeletingLastPathComponent]];
 
 	NSPipe *commandPipe = [NSPipe pipe];
 	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
@@ -53,12 +41,9 @@
 	[task setStandardOutput: commandPipe];
 	[task setStandardError: commandPipe];
 
-    //NSLog(@"jpegtran ready to run");
 	[self launchTask];
 
-	[self parseLinesFromHandle:commandHandle];
-
-	[commandHandle readInBackgroundAndNotify];
+	[commandHandle readToEndOfFileInBackgroundAndNotify];
 	[task waitUntilExit];
 
 	[commandHandle closeFile];
@@ -73,7 +58,6 @@
 			[file setFilePathOptimized:temp	size:fileSizeOptimized toolName:[self className]];
 		}
 	}
-
 }
 
 -(BOOL)parseLine:(NSString *)line
