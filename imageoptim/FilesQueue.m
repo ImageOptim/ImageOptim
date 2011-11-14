@@ -23,6 +23,7 @@
 
 -(id)initWithTableView:(NSTableView*)inTableView progressBar:(NSProgressIndicator *)inBar andController:(NSArrayController*)inController
 {
+    if (self = [super init]) {
 	progressBar = inBar;
 	filesController = inController;
 	tableView = inTableView;
@@ -47,7 +48,7 @@
 	[tableView registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
 
 	[self setEnabled:YES];
-
+    }
 	return self;
 }
 
