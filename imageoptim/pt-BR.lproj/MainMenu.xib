@@ -153,7 +153,7 @@
 														<bool key="NSAscending">YES</bool>
 														<string key="NSSelector">compare:</string>
 													</object>
-													<string key="NSHeaderToolTip">Estado da optimização</string>
+													<string key="NSHeaderToolTip">Estado da otimização</string>
 												</object>
 												<object class="NSTableColumn" id="56751955">
 													<string key="NSIdentifier">filename</string>
@@ -163,7 +163,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75628096</int>
 														<int key="NSCellFlags2">2048</int>
-														<string key="NSContents">Ficheiro</string>
+														<string key="NSContents">Arquivo</string>
 														<reference key="NSSupport" ref="26"/>
 														<object class="NSColor" key="NSBackgroundColor" id="162739633">
 															<int key="NSColorSpace">3</int>
@@ -429,7 +429,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="326808065">
 								<int key="NSCellFlags">67239488</int>
 								<int key="NSCellFlags2">306321472</int>
-								<string key="NSContents">Arraste ficheiros de imagem para a tabela acima</string>
+								<string key="NSContents">Arraste arquivos de imagem para a tabela acima</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="646228687"/>
 								<reference key="NSTextColor" ref="777625168"/>
@@ -486,7 +486,7 @@
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">NSRefreshTemplate</string>
 								</object>
-								<string key="NSAlternateContents">Executar optimizações novamente</string>
+								<string key="NSAlternateContents">Executar otimizações novamente</string>
 								<string key="NSKeyEquivalent">r</string>
 							</object>
 						</object>
@@ -512,7 +512,7 @@
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSMenu" id="717955284">
-				<string key="NSTitle">MainMenu</string>
+				<string key="NSTitle">Principal</string>
 				<array class="NSMutableArray" key="NSMenuItems">
 					<object class="NSMenuItem" id="193076470">
 						<reference key="NSMenu" ref="717955284"/>
@@ -534,7 +534,7 @@
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="195931994">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Acerca do ImageOptim</string>
+									<string key="NSTitle">Sobre o ImageOptim</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -542,7 +542,7 @@
 								</object>
 								<object class="NSMenuItem" id="540149195">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Procurar actualizações</string>
+									<string key="NSTitle">Procurar atualizações</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -658,7 +658,7 @@
 					</object>
 					<object class="NSMenuItem" id="118427520">
 						<reference key="NSMenu" ref="717955284"/>
-						<string key="NSTitle">Ficheiro</string>
+						<string key="NSTitle">Arquivo</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -666,11 +666,11 @@
 						<reference key="NSMixedImage" ref="898714739"/>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="810587040">
-							<string key="NSTitle">Ficheiro</string>
+							<string key="NSTitle">Arquivo</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="920522896">
 									<reference key="NSMenu" ref="810587040"/>
-									<string key="NSTitle">Adicionar ficheiros…</string>
+									<string key="NSTitle">Adicionar arquivos…</string>
 									<string key="NSKeyEquiv">o</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -679,7 +679,7 @@
 								</object>
 								<object class="NSMenuItem" id="342358740">
 									<reference key="NSMenu" ref="810587040"/>
-									<string key="NSTitle">Optimizar novamente</string>
+									<string key="NSTitle">Otimizar novamente</string>
 									<string key="NSKeyEquiv">r</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -690,7 +690,7 @@
 									<reference key="NSMenu" ref="810587040"/>
 									<bool key="NSIsHidden">YES</bool>
 									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Optimize Optimized</string>
+									<string key="NSTitle">Otimização Completa</string>
 									<string key="NSKeyEquiv">r</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -699,7 +699,7 @@
 								</object>
 								<object class="NSMenuItem" id="900222994">
 									<reference key="NSMenu" ref="810587040"/>
-									<string key="NSTitle">Quick Look</string>
+									<string key="NSTitle">Pré-visualizar</string>
 									<string key="NSKeyEquiv">y</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -810,7 +810,7 @@
 									<reference key="NSMenu" ref="777814834"/>
 									<bool key="NSIsHidden">YES</bool>
 									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Delete Completed</string>
+									<string key="NSTitle">Remoção Compltea</string>
 									<string type="base64-UTF8" key="NSKeyEquiv">CA</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -829,7 +829,7 @@
 								</object>
 								<object class="NSMenuItem" id="540020044">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Seleccionar tudo</string>
+									<string key="NSTitle">Selecionar tudo</string>
 									<string key="NSKeyEquiv">a</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1017,7 +1017,7 @@
 								</object>
 								<object class="NSMenuItem" id="1053470926">
 									<reference key="NSMenu" ref="572557097"/>
-									<string key="NSTitle">Descarregar o PNGOUT para OS X</string>
+									<string key="NSTitle">Baixar o PNGOUT para OS X</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1064,7 +1064,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{682, 258}, {290, 366}}</string>
 				<int key="NSWTFlags">-260570112</int>
-				<string key="NSWindowTitle">Acerca do ImageOptim</string>
+				<string key="NSWindowTitle">Sobre do ImageOptim</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<object class="NSMutableString" key="NSViewClass">
 					<characters key="NS.bytes">View</characters>
@@ -2553,7 +2553,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="188613459"/>
-						<string key="accessibilityValue">Lista de ficheiros a optimizar</string>
+						<string key="accessibilityValue">Lista de arquivos a otimizar</string>
 					</object>
 				</object>
 				<string key="236.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2601,7 +2601,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="866301361"/>
-						<string key="accessibilityValue">Adicionar novos ficheiros ou directórios</string>
+						<string key="accessibilityValue">Adicionar novos arquivos ou pastas</string>
 					</object>
 				</object>
 				<string key="423.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

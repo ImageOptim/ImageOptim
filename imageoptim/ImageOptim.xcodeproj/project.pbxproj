@@ -386,6 +386,11 @@
 		5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PngoutWorker.m; sourceTree = "<group>"; };
 		5AE54E1F0CAF16D800903DF4 /* AdvCompWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvCompWorker.h; sourceTree = "<group>"; };
 		5AE54E200CAF16D800903DF4 /* AdvCompWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvCompWorker.m; sourceTree = "<group>"; };
+		5AE74B57146DEC8700287FA6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5AE74B5C146DECA300287FA6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/MainMenu.xib"; sourceTree = "<group>"; };
+		5AE74B5E146DECAA00287FA6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/PrefsController.xib"; sourceTree = "<group>"; };
+		5AE74B60146DECB100287FA6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pt-BR"; path = "pt-BR.lproj/Help"; sourceTree = "<group>"; };
+		5AE74B62146DECB800287FA6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "pt-BR"; path = "pt-BR.lproj/Credits.rtf"; sourceTree = "<group>"; };
 		5AEF1B1D10F2BCA900E3E4F0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		5AEF1B2110F2BCB200E3E4F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = Info.plist; sourceTree = "<group>"; };
@@ -707,6 +712,7 @@
 				es,
 				da,
 				no,
+				"pt-BR",
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ImageOptim */;
 			projectDirPath = "";
@@ -986,6 +992,7 @@
 				5ABF610913E37B07009F6F22 /* da */,
 				5A7D24F313EDF5F100815AAA /* es */,
 				5AD299BB1436757F0048C725 /* no */,
+				5AE74B5C146DECA300287FA6 /* pt-BR */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1004,6 +1011,7 @@
 				5ABF610813E37AFC009F6F22 /* da */,
 				5A7D24F413EDF5F100815AAA /* es */,
 				5AD299BD143675870048C725 /* no */,
+				5AE74B5E146DECAA00287FA6 /* pt-BR */,
 			);
 			name = PrefsController.xib;
 			sourceTree = "<group>";
@@ -1022,6 +1030,7 @@
 				5ABF610A13E37B5F009F6F22 /* da */,
 				5A7D24F013EDF5F100815AAA /* es */,
 				5AD299B71436756D0048C725 /* no */,
+				5AE74B62146DECB800287FA6 /* pt-BR */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -1039,6 +1048,7 @@
 				5A7A314713E436690012DCFB /* pt */,
 				5A7D24F213EDF5F100815AAA /* es */,
 				5AD299B9143675770048C725 /* no */,
+				5AE74B57146DEC8700287FA6 /* pt-BR */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1055,6 +1065,7 @@
 				5ABF611313E37B86009F6F22 /* da */,
 				5A7D24F113EDF5F100815AAA /* es */,
 				5AD299C2143675BB0048C725 /* no */,
+				5AE74B60146DECB100287FA6 /* pt-BR */,
 			);
 			name = Help;
 			sourceTree = "<group>";
