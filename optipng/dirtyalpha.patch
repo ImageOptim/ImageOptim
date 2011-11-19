@@ -130,7 +130,7 @@ index 23f2eb0..a9f27e3 100644
 +    OPNG_REDUCE_PALETTE_ALL | OPNG_REDUCE_ANCILLARY | OPNG_REDUCE_DIRTY_ALPHA)
  
  #endif /* OPNG_IMAGE_REDUCTIONS_SUPPORTED */
-
+ 
 diff --git a/src/optipng.c b/src/optipng.c
 index 1768859..06b4902 100644
 --- a/src/optipng.c

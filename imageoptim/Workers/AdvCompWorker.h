@@ -9,8 +9,8 @@
 
 @interface AdvCompWorker : CommandWorker {
     NSInteger level;
-
-	NSInteger fileSizeOptimized;
+    
+	NSInteger fileSizeOptimized;	
 }
 
 @end

@@ -42,6 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5A05263F13D8DABD00BA0213 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A19439E0FF982D4007C3324 /* libpng.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5AC2B4D613394EDA00376783;
+			remoteInfo = static;
+		};
 		5A7439C7111DA4EF001C2D27 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A19439E0FF982D4007C3324 /* libpng.xcodeproj */;
@@ -217,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7439C8111DA4EF001C2D27 /* liblibpng.dylib */,
+				5A05264013D8DABD00BA0213 /* libstatic.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -377,6 +385,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		5A05264013D8DABD00BA0213 /* libstatic.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libstatic.a;
+			remoteRef = 5A05263F13D8DABD00BA0213 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5A7439C8111DA4EF001C2D27 /* liblibpng.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
@@ -473,7 +488,13 @@
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THREADSAFE_STATICS = NO;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
+				GCC_WARN_SIGN_COMPARE = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				USER_HEADER_SEARCH_PATHS = 7z/../;
 			};
@@ -495,6 +516,11 @@
 					NDEBUG,
 				);
 				GCC_THREADSAFE_STATICS = NO;
+				GCC_TREAT_IMPLICIT_FUNCTION_DECLARATIONS_AS_ERRORS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_SIGN_COMPARE = NO;
 				"OTHER_CFLAGS[arch=x86_64]" = "-mtune=core2";
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				USER_HEADER_SEARCH_PATHS = 7z/../;

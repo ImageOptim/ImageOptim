@@ -12,6 +12,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5A05264913D8DABD00BA0213 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A7399790EA27F7E00D751E1 /* libpng.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5AC2B4D613394EDA00376783;
+			remoteInfo = static;
+		};
 		5A98486A11235373007622D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
@@ -87,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				5A98488C11235489007622D7 /* liblibpng.dylib */,
+				5A05264A13D8DABD00BA0213 /* libstatic.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,6 +173,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		5A05264A13D8DABD00BA0213 /* libstatic.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libstatic.a;
+			remoteRef = 5A05264913D8DABD00BA0213 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5A98488C11235489007622D7 /* liblibpng.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
@@ -226,6 +241,7 @@
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				LLVM_LTO = NO;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../libpng/";
 			};
@@ -242,6 +258,7 @@
 				);
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				LLVM_LTO = NO;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../libpng/";
 			};

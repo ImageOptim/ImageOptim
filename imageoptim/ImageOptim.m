@@ -8,6 +8,8 @@
 #include <mach/host_info.h>
 #import <Quartz/Quartz.h>
 
+//#import "Dupe.h";
+
 @implementation ImageOptim
 
 @synthesize selectedIndexes,filesQueue;
@@ -66,6 +68,9 @@
     [self migrateOldPreferences];
 }
 
+//-(void)loadDupes {
+//    [Dupe loadDupes];
+//}
 
 -(void)awakeFromNib
 {
@@ -77,7 +82,7 @@
 	[cell setInfoButtonAction:@selector(openInFinder)];
 	[cell setTarget:tableView];
 
-    [credits setString:@"Ooops"];
+    [credits setString:@""];
     [credits readRTFDFromFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"]];
 }
 
@@ -162,6 +167,8 @@
 
     [oPanel beginSheetModalForWindow:[tableView window] completionHandler:^(NSInteger returnCode) {
 	if (returnCode == NSOKButton) {
+		NSWindow *myWindow=[tableView window];
+		[myWindow setStyleMask:[myWindow styleMask]| NSResizableWindowMask ];
 		[filesQueue setRow:-1];
         [filesQueue addPaths:[oPanel filenames]];
     }
@@ -176,6 +183,7 @@
 
 -(void)applicationWillTerminate:(NSNotification*)n {
     [filesQueue cleanup];
+//    [Dupe saveDupes];
 }
 
 -(NSString*)version {

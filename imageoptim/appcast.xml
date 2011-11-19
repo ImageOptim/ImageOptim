@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+<channel>
+<title>ImageOptim</title>
+<link>http://imageoptim.pornel.net/appcast.xml</link>
+<description>ImageOptim updates</description>
+<language>en</language>
+<item>
+<title>Version 1.3.2</title>
+<description><![CDATA[
+<ul>
+<li>Extended <code>jpegtran</code> optimisation with <code>jpegrescan</code> script by Loren Merritt</li>
+<li>Norwegian Bokmål localization (thanks to Henrik Helmers)</li>
+<li>Portuguese Brasil localization (thanks to Luiz Menezes)</li>
+<li>Updated Gifsicle to 1.63</li>
+<li>Fixed revealing of multiple files in Finder</li>
+</ul>
+]]></description>
+<pubDate>Sat, 19 Nov 2011 17:21:36 +0000</pubDate>
+<enclosure url="http://imageoptim.pornel.net/ImageOptim1.3.2.tar.bz2" sparkle:version="1.3.2" length="1328760" type="application/bzip2" sparkle:dsaSignature="MCwCFFdYlK0oM7TO8AadcNKI6hXs2BtvAhQWaWIT4nDKODttwqJwmiBesvFKQQ=="/>
+<sparkle:minimumSystemVersion>10.6.4</sparkle:minimumSystemVersion>
+
+
+</item>
+<item>
+<title>Version 1.2.5</title>
+<pubDate>Mon, 27 Dec 2010 22:46:48 +0000</pubDate>
+<sparkle:minimumSystemVersion>10.5.7</sparkle:minimumSystemVersion>
+<description><![CDATA[
+<ul><li>Portugese localization (thanks to Sérgio Miranda)</li>
+<li>Russian localization (thanks to Nicom)</li>
+<li>Updated to Gifsicle 1.60</li>
+<li>Updated to OptiPNG to 0.6.4</li>
+<li>Updated to Pngcrush to 1.7.12</li></ul>
+]]></description>
+<enclosure sparkle:version="1.2.5" url="http://imageoptim.pornel.net/ImageOptim1.2.5.tar.bz2" length="1616930" sparkle:dsaSignature="MCwCFBQf5NFP4jW2TlNoPgNHupymehqrAhQ5vYLKN5Y9LdC658llBV/tn1T+oA=="/>
+</item>
+</channel>
+</rss>

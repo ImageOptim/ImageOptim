@@ -4858,14 +4858,6 @@ YXIgbGEgYXBsaWNhY2nDs24</string>
 					<int key="connectionID">1017</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">pngoutTextFieldThatShouldObserveButDoesnt</string>
-						<reference key="source" ref="94567570"/>
-						<reference key="destination" ref="813573651"/>
-					</object>
-					<int key="connectionID">1018</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">browseForExecutable:</string>
 						<reference key="source" ref="94567570"/>

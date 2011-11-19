@@ -29,13 +29,13 @@
 	NSUInteger buffer_size = 1;
 	NSUInteger buffered = 0;
 	NSMutableArray *buffer = [NSMutableArray arrayWithCapacity:buffer_capacity];
-
-    @try
+	
+    @try 
 	{
 		for(NSString *filePath in [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:path error:nil])
 		{
 			NSString *newPath = [path stringByAppendingPathComponent:filePath];
-
+			
 			if ([extensions containsObject:[newPath pathExtension]])
 			{
 				[buffer addObject:newPath]; buffered++;
@@ -49,7 +49,7 @@
 				}
 			}
 		}
-
+		
 		if ([buffer count]) [filesQueue addFilePaths:buffer];
     }
     @catch (NSException *ex) {

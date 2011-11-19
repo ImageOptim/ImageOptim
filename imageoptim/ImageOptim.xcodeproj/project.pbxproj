@@ -564,6 +564,7 @@
 			isa = PBXGroup;
 			children = (
 				5A20CC951123939C0000400D /* liblibpng.dylib */,
+				5A95D413139D72A8005FD6FB /* libstatic.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -711,6 +712,8 @@
 				ru,
 				es,
 				da,
+				fr,
+				be,
 				no,
 				"pt-BR",
 			);
@@ -814,6 +817,13 @@
 			fileType = text.script.perl;
 			path = jpegrescan;
 			remoteRef = 5A8594E61460BCF20044095A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5A95D413139D72A8005FD6FB /* libstatic.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libstatic.a;
+			remoteRef = 5A95D412139D72A8005FD6FB /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5A984D4A11238E51007622D7 /* advpng */ = {
@@ -1028,6 +1038,7 @@
 				5A0343B012998485002091AA /* pt */,
 				5A03443612998825002091AA /* ru */,
 				5ABF610A13E37B5F009F6F22 /* da */,
+				5A7A315013E437600012DCFB /* be */,
 				5A7D24F013EDF5F100815AAA /* es */,
 				5AD299B71436756D0048C725 /* no */,
 				5AE74B62146DECB800287FA6 /* pt-BR */,
@@ -1046,6 +1057,7 @@
 				5A03443A12998845002091AA /* ru */,
 				5ABF611613E37BC3009F6F22 /* da */,
 				5A7A314713E436690012DCFB /* pt */,
+				5A7A315213E437650012DCFB /* be */,
 				5A7D24F213EDF5F100815AAA /* es */,
 				5AD299B9143675770048C725 /* no */,
 				5AE74B57146DEC8700287FA6 /* pt-BR */,
@@ -1063,6 +1075,7 @@
 				5A034423129985D5002091AA /* pt */,
 				5A03443B1299884F002091AA /* ru */,
 				5ABF611313E37B86009F6F22 /* da */,
+				5A7A314A13E437430012DCFB /* be */,
 				5A7D24F113EDF5F100815AAA /* es */,
 				5AD299C2143675BB0048C725 /* no */,
 				5AE74B60146DECB100287FA6 /* pt-BR */,

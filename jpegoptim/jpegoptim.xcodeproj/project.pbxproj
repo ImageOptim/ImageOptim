@@ -236,6 +236,9 @@
 			baseConfigurationReference = 5A27BA32139B09080095FC2F /* debug.xcconfig */;
 			buildSettings = {
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_SIGN_COMPARE = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
 			};
 			name = Debug;
@@ -251,6 +254,9 @@
 					NDEBUG,
 					HAVE_CONFIG_H,
 				);
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
+				GCC_WARN_SIGN_COMPARE = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
 			};
 			name = Release;

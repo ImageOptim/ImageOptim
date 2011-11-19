@@ -1,6 +1,12 @@
 
 #import "RevealButtonCell.h"
 
+// These defines should be on, and are simply for demo purposes
+#define HIT_TEST 1
+#define EDIT_FRAME 1
+#define TRACKING 1
+#define TRACKING_AREA 1
+
 
 @implementation RevealButtonCell
 

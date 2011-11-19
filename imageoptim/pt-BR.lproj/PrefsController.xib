@@ -1238,7 +1238,7 @@ bmljaWFyIGFwbGljYcOnw6NvA</string>
 											<object class="NSTextField" id="622082568">
 												<reference key="NSNextResponder" ref="981882792"/>
 												<int key="NSvFlags">292</int>
-												<string key="NSFrame">{{199, 10}, {282, 14}}</string>
+												<string key="NSFrame">{{199, 3}, {282, 28}}</string>
 												<reference key="NSSuperview" ref="981882792"/>
 												<reference key="NSNextKeyView" ref="359108219"/>
 												<bool key="NSEnabled">YES</bool>
@@ -2540,7 +2540,6 @@ bmljaWFyIGFwbGljYcOnw6NvA</string>
 												<int key="NSvFlags">268</int>
 												<string key="NSFrame">{{145, 262}, {346, 18}}</string>
 												<reference key="NSSuperview" ref="552235042"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="568353004"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSButtonCell" key="NSCell" id="639212219">
@@ -2564,7 +2563,6 @@ bmljaWFyIGFwbGljYcOnw6NvA</string>
 												<int key="NSvFlags">268</int>
 												<string key="NSFrame">{{145, 282}, {346, 18}}</string>
 												<reference key="NSSuperview" ref="552235042"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="366797170"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSButtonCell" key="NSCell" id="615131508">
@@ -2585,8 +2583,6 @@ bmljaWFyIGFwbGljYcOnw6NvA</string>
 											</object>
 										</array>
 										<string key="NSFrame">{{10, 33}, {643, 303}}</string>
-										<reference key="NSSuperview" ref="772667599"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="607719519"/>
 									</object>
 									<string key="NSLabel">Gifsicle</string>

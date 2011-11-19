@@ -21,41 +21,41 @@
 }
 
 -(void)run
-{
+{	
 	NSString *temp = [self tempPath];
-
+	
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",optlevel ? optlevel : 6],
 							@"-out",temp,@"--",[file filePath],nil];
 
 	if (interlace != -1)
 	{
 		[args insertObject:[NSString stringWithFormat:@"-i%d",interlace] atIndex:0];
-	}
-
+	}	
+	
 	if (![self taskForKey:@"OptiPng" bundleName:@"optipng" arguments:args]) {
         return;
     }
-
+	
 	NSPipe *commandPipe = [NSPipe pipe];
-	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
-
-	[task setStandardError: commandPipe];
-	[task setStandardOutput: commandPipe];
-
+	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];		
+	
+	[task setStandardError: commandPipe];	
+	[task setStandardOutput: commandPipe];			
+	
 	[self launchTask];
-
+	
 	[self parseLinesFromHandle:commandHandle];
-
+	
     [commandHandle readInBackgroundAndNotify];
-
+	
 	[task waitUntilExit];
-	[commandHandle closeFile];
-
+	[commandHandle closeFile];	
+	
     if ([self isCancelled]) return;
 
 	if (![task terminationStatus] && fileSizeOptimized)
 	{
-		[file setFilePathOptimized:temp size:fileSizeOptimized toolName:[self className]];
+		[file setFilePathOptimized:temp size:fileSizeOptimized toolName:[self className]];	
 	}
 	//else NSLog(@"Optipng failed to optimize anything");
 }
@@ -63,9 +63,9 @@
 -(BOOL)parseLine:(NSString *)line
 {
 	//NSLog(@"### %@",line);
-
+		
 	NSUInteger res;
-
+	
 	if ([line length] > 20)
 	{
 		// idat sizes are totally broken in latest optipng
@@ -75,7 +75,7 @@
 			NSLog(@"OptiPng input idat %d",res);
 		}
 		else if (res = [self readNumberAfter:@"IDAT size = " inLine:line])
-		{
+		{		
 			//[file setByteSizeOptimized: fileSize - idatSize + res];
 			NSLog(@"Idat %d guesstimate %d",res,fileSize - idatSize + res);
 		}
@@ -93,7 +93,7 @@
 			//NSLog(@"OptiPng output %d",res);
 
 			return YES;
-		}
+		}			
 	}
 	return NO;
 }

@@ -35,12 +35,12 @@
 {
 	NSData *temp;
 	char inputBuffer[4096];
-	NSInteger inputBufferPos=0;
-	while((temp = [commandHandle availableData]) && [temp length])
-	{
+	NSInteger inputBufferPos=0;	
+	while((temp = [commandHandle availableData]) && [temp length]) 
+	{			
 		const char *tempBytes = [temp bytes];
 		NSInteger bytesPos=0, bytesLength = [temp length];
-
+		
 		while(bytesPos < bytesLength)
 		{
 			if (tempBytes[bytesPos] == '\n' || tempBytes[bytesPos] == '\r' || inputBufferPos == sizeof(inputBuffer)-1)
@@ -48,7 +48,7 @@
 				inputBuffer[inputBufferPos] = '\0';
 				if ([self parseLine:[NSString stringWithUTF8String:inputBuffer]])
 				{
-					return;
+					return;				
 				}
 				inputBufferPos=0;bytesPos++;
 			}
@@ -63,9 +63,9 @@
 -(void)taskWithPath:(NSString*)path arguments:(NSArray *)arguments;
 {
 	task = [NSTask new];
-
+	
 	NSLog(@"Launching %@ with %@",path,arguments);
-
+	
 	[task setLaunchPath: path];
 	[task setArguments: arguments];
 
@@ -76,15 +76,15 @@
     // set up for unbuffered I/O
 	[environment setObject:@"YES" forKey:@"NSUnbufferedIO"];
 
-    [task setEnvironment:environment];
+    [task setEnvironment:environment];		
 }
 
 -(void)launchTask
 {
 	@try
-	{
+	{			
 		[task launch];
-
+		
 		if ([[NSUserDefaults standardUserDefaults] boolForKey:@"RunLowPriority"])
 		{
 			int pid = [task processIdentifier];
@@ -100,12 +100,12 @@
 -(long)readNumberAfter:(NSString *)str inLine:(NSString *)line
 {
 	NSRange substr = [line rangeOfString:str];
-
+	
 	if (substr.length && [line length] > substr.location + [str length])
-	{
-		NSScanner *scan = [NSScanner scannerWithString:line];
+	{		
+		NSScanner *scan = [NSScanner scannerWithString:line];	
 		[scan setScanLocation:substr.location + [str length]];
-
+		
 		int res;
 		if ([scan scanInt:&res])
 		{
@@ -124,13 +124,13 @@
 {
 	NSString *executable = [self executablePathForKey:key bundleName:resourceName];
 
-	if (!executable)
+	if (!executable) 
     {
         NSLog(@"Could not launch %@",resourceName);
         [file setStatus:@"err" order:8 text:[NSString stringWithFormat:NSLocalizedString(@"%@ failed to start",@"tooltip"),key]];
         return NO;
     }
-
+	
     [self taskWithPath:executable arguments:args];
 	return YES;
 }
@@ -140,7 +140,7 @@
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	NSString *path = nil;
     NSString *const kBundle = [prefsName stringByAppendingString:@"Bundle"];
-
+	
 	if ([defs boolForKey:kBundle])
 	{
 		if ((path = [[NSBundle mainBundle] pathForAuxiliaryExecutable:resourceName])
@@ -158,11 +158,11 @@
 	{
 		return path;
 	}
-
+	
 	NSLog(@"Can't find working executable for %@ - disabling",prefsName);
     NSBeep();
 	[defs setBool:NO forKey:[prefsName stringByAppendingString:@"@Enabled"]];
-
+	
 	return nil;
 }
 

@@ -24,17 +24,17 @@
 	assert([self delegate]);
     [[self delegate] workerHasStarted:self];
     @try {
-        [self run];
+        [self run]; 
     }
     @catch (NSException *exception) {
         NSLog(@"Caught %@: %@ %@", [exception name], [exception  reason], self);
     }
-    @finally {
-//                [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:@"WorkersMayHaveFinished" object:nil]
-//                                                           postingStyle:NSPostWhenIdle
+    @finally {        
+//                [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:@"WorkersMayHaveFinished" object:nil] 
+//                                                           postingStyle:NSPostWhenIdle 
 //                                                           coalesceMask:NSNotificationCoalescingOnName forModes:nil];
 		assert([self delegate]);
-        [[self delegate] workerHasFinished:self];
+        [[self delegate] workerHasFinished:self];        
     }
 //    NSLog(@"Worker done ok %@",self);
 }

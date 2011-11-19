@@ -9,7 +9,7 @@
 {
 	IBOutlet NSTableView *tableView;
 	IBOutlet NSArrayController *filesController;
-
+	
 	FilesQueue *filesQueue;
 	PrefsController *prefsController;
 
