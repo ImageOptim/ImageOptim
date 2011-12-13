@@ -176,7 +176,7 @@
 			NSFileHandle *writehandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
 			NSData *data = [NSData dataWithContentsOfFile:filePathOptimized];
 			
-			if (writehandle && data && [data length] == byteSizeOptimized && [data length] > 30)
+			if (writehandle && data && [data length] == byteSizeOptimized && [data length] > 34)
 			{
 				[writehandle writeData:data];
 				[writehandle truncateFileAtOffset:[data length]];
