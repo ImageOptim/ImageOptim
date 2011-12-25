@@ -22,6 +22,10 @@
 	<dt>Backup original files before saving</dt>
 	<dd><p>Will write copy of a file with <samp>~</samp> appended to its name. This makes optimisation a bit slower and litters your disk with backup files.</p></dd>
 
+	<dt>Remove optional chunks</dt>
+	<dd><p>Keep it on if you optimize for web. Disable if you have special PNGs with extra metadata.</p></dd>
+    <dt>Strip EXIF markers from files</dt>
+    <dd><p>Removes image metadata, like name of program or model of camera which created the file.</dd>
 </dl>
 <div id="jpegoptim">
 <a name="jpegoptim">jpegoptim</a>
@@ -34,9 +38,6 @@
 <dd><p>If set to 100%, optimisation will be <strong>lossless</strong>.</p>
 	<p>Anything below 100% will cause <strong>lower quality</strong> of files if they appear to have been saved with higher quality setting.</p>
 
-<dt>Strip Comments from files</dt>
-<dt>Strip EXIF markers from files</dt>
-<dd><p>Removes image metadata, like name of program or model of camera which created the file.</dd>
 </dl>
 </div>
 <div id="pngout">
@@ -53,9 +54,6 @@
 
 	<dt>Interrupt if takes too long</dt>
 	<dd><p>PNGOUT may need <em>a lot</em> of time to optimize very large images. This option gracefully interrupts PNGOUT after 1 minute.</p></dd>
-
-	<dt>Remove optional chunks</dt>
-	<dd><p>Keep it on if you optimize for web. Disable if you have special PNGs with extra metadata.</p></dd>
 </dl>
 </div>
 <div id="advpng">

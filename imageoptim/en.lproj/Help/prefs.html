@@ -22,6 +22,11 @@
 	<dt>Backup original files before saving</dt>
 	<dd><p>Will write copy of a file with <samp>~</samp> appended to its name. This makes optimisation a bit slower and litters your disk with backup files.</p></dd>
 
+	<dt>Remove optional chunks</dt>
+	<dd><p>Keep it on if you optimize for web. Disable if you have special PNGs with extra metadata.</p></dd>
+    <dt>Strip EXIF markers from files</dt>
+    <dd><p>Removes image metadata, like name of program or model of camera which created the file.</dd>
+
 </dl>
 <div id="jpegoptim">
 <a name="jpegoptim">jpegoptim</a>
@@ -34,9 +39,6 @@
 <dd><p>If set to 100%, optimisation will be <strong>lossless</strong>.</p>
 	<p>Anything below 100% will cause <strong>lower quality</strong> of files if they appear to have been saved with higher quality setting.</p>
 
-<dt>Strip Comments from files</dt>
-<dt>Strip EXIF markers from files</dt>
-<dd><p>Removes image metadata, like name of program or model of camera which created the file.</dd>
 </dl>
 </div>
 <div id="pngout">
@@ -53,9 +55,6 @@
 
 	<dt>Interrupt if takes too long</dt>
 	<dd><p>PNGOUT may need <em>a lot</em> of time to optimize very large images. This option gracefully interrupts PNGOUT after 1 minute.</p></dd>
-		    
-	<dt>Remove optional chunks</dt>
-	<dd><p>Keep it on if you optimize for web. Disable if you have special PNGs with extra metadata.</p></dd>
 </dl>
 </div>
 <div id="advpng">
@@ -86,12 +85,6 @@
 		<p>This checkbox has three states: if checked, will force images to be interlaced. When mixed, it will keep file's interlace unchanged, unchecked will remove interlace from files.</dd>
 </dl>
 </div>
-<div id="jpegrescan">
-<a name="jpegrescan">jpegrescan</a>
-<h2>JpegRescan</h2>
-
-<p>Jpegrescan is a script based on <code>jpegtran</code>. It uses creates JPEG files with unusual number of progressive scans to achieve better compression, but such files may not be compatible with all browsers.</p>
-</div>
 <div id="gifsicle">
 <a name="gifsicle">gifsicle</a>
 <h2>Gifsicle</h2>
@@ -103,4 +96,10 @@
 <p>Please note that Gifsicle works best with animated GIFs and non-animated GIFs rarely can be optimized</p>
 
 <p>For best compression, you should convert GIF files to PNGs (ImageOptim does not do that automatically).</p>
+</div>
+<div id="jpegrescan">
+<a name="jpegrescan">jpegrescan</a>
+<h2>JpegRescan</h2>
+
+<p>Jpegrescan is a script based on <code>jpegtran</code>. It uses creates JPEG files with unusual number of progressive scans to achieve better compression, but such files may not be compatible with all browsers.</p>
 </div>
