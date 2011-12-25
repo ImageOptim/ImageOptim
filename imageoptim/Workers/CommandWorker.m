@@ -139,26 +139,12 @@
 {
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	NSString *path = nil;
-    NSString *const kBundle = [prefsName stringByAppendingString:@"Bundle"];
 	
-	if ([defs boolForKey:kBundle])
-	{
-		if ((path = [[NSBundle mainBundle] pathForAuxiliaryExecutable:resourceName])
-             && [[NSFileManager defaultManager] isExecutableFileAtPath:path]) {
-			return path;
-		} else {
-			NSLog(@"There's no bundled executable for %@ at %@ - disabling",prefsName, path);
-			[defs setBool:NO forKey:kBundle];
-		}
-	}
+    if ((path = [[NSBundle mainBundle] pathForAuxiliaryExecutable:resourceName])
+         && [[NSFileManager defaultManager] isExecutableFileAtPath:path]) {
+        return path;
+    }
 
-    NSString *const kPath = [prefsName stringByAppendingString:@"Path"];
-	path = [defs stringForKey:kPath];
-	if ([path length] && [[NSFileManager defaultManager] isExecutableFileAtPath:path])
-	{
-		return path;
-	}
-	
 	NSLog(@"Can't find working executable for %@ - disabling",prefsName);
     NSBeep();
 	[defs setBool:NO forKey:[prefsName stringByAppendingString:@"@Enabled"]];
