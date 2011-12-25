@@ -8,9 +8,6 @@
 #import "CommandWorker.h"
 
 @interface PngCrushWorker : CommandWorker {    
-    NSArray *chunks;
-    BOOL tryfix;
-    
 	int firstIdatSize;	
 
 }

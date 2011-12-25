@@ -9,38 +9,18 @@
 
 @implementation PngCrushWorker
 
--(id)init {
-    if (self = [super init])
-    {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        chunks = [defaults arrayForKey:@"PngCrushChunks"];
-        tryfix = [defaults boolForKey:@"PngCrushFix"];
-    }
-    return self;
-}
-
 -(void)run
 {
 	NSString *temp = [self tempPath];
 
 	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-reduce",@"-brute",@"-cc",@"--",[file filePath],temp,nil];
 	
-	NSDictionary *dict;
-	for(dict in chunks)
-	{
-		NSString *name = [dict objectForKey:@"name"];
-		if (name)
-		{
-			[args insertObject:name atIndex:0];
-			[args insertObject:@"-rem" atIndex:0];
-		}
-	}
+    // Reusing PngOut config here
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"PngOutRemoveChunks"]) {
+        [args insertObject:@"-rem" atIndex:0];
+        [args insertObject:@"alla" atIndex:1];
+    }
 	
-	if (tryfix)
-	{
-		[args insertObject:@"-fix" atIndex:0];
-	}
-
     if (![self taskForKey:@"PngCrush" bundleName:@"pngcrush" arguments:args]) {
         return;
     }
