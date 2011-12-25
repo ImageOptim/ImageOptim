@@ -25,6 +25,7 @@
 /* Begin PBXBuildFile section */
 		5A0D2E570C922AB700FD7CDE /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E560C922AB700FD7CDE /* File.m */; };
 		5A0D2E5D0C922D6D00FD7CDE /* ImageOptim.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E5C0C922D6D00FD7CDE /* ImageOptim.m */; };
+		5A0FA76214A7EFCB008FA381 /* pngout in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A0FA76114A7EFCB008FA381 /* pngout */; };
 		5A16343E140BF97400758D99 /* ImageOptim.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */; };
 		5A1D3E8C14366933004EE809 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D3E8B14366933004EE809 /* style.css */; };
 		5A3470A9140BC7D10014F638 /* libimageoptimjpeg.dylib in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */; };
@@ -232,6 +233,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
+				5A0FA76214A7EFCB008FA381 /* pngout in Copy Executables */,
 				5A8594E81460BCF20044095A /* jpegrescan in Copy Executables */,
 				5A3470B0140BC8600014F638 /* gifsicle in Copy Executables */,
 				5A3470AF140BC8590014F638 /* jpegtran in Copy Executables */,
@@ -279,6 +281,7 @@
 		5A0D2E560C922AB700FD7CDE /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = File.m; sourceTree = "<group>"; };
 		5A0D2E5B0C922D6D00FD7CDE /* ImageOptim.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageOptim.h; sourceTree = "<group>"; };
 		5A0D2E5C0C922D6D00FD7CDE /* ImageOptim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageOptim.m; sourceTree = "<group>"; };
+		5A0FA76114A7EFCB008FA381 /* pngout */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = pngout; sourceTree = "<group>"; };
 		5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pngcrush.xcodeproj; path = ../pngcrush/pngcrush.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A1D3E8B14366933004EE809 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		5A20CC8E1123939C0000400D /* libpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpng.xcodeproj; path = ../libpng/libpng.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -499,6 +502,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5A0FA76114A7EFCB008FA381 /* pngout */,
 				5A1D3E8B14366933004EE809 /* style.css */,
 				5A9AEC18140996D700C9E97D /* reveal.png */,
 				5A45530D1024EB3000A69944 /* PrefsController.xib */,
