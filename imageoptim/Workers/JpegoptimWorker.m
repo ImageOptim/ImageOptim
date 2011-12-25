@@ -14,8 +14,8 @@
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
-        comments = [defaults boolForKey:@"JpegOptimStripComments"];
-        exif = [defaults boolForKey:@"JpegOptimStripExif"];
+        // Sharing setting with jpegtran
+        strip = [defaults boolForKey:@"JpegTranStripAll"];
         maxquality = [defaults integerForKey:@"JpegOptimMaxQuality"];
     }
     return self;
@@ -39,17 +39,8 @@
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-q",@"--",temp,nil];
 	
 
-	if (exif && comments)
-	{
+	if (strip) {
 		[args insertObject:@"--strip-all" atIndex:0];
-	}
-	else if (exif)
-	{
-		[args insertObject:@"--strip-exif" atIndex:0];
-	}
-	else if (comments)
-	{
-		[args insertObject:@"--strip-com" atIndex:0];
 	}
 	
 	if (maxquality > 10 && maxquality < 100)

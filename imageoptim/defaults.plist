@@ -2,97 +2,34 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AdvPngBundle</key>
-	<true/>
 	<key>AdvPngEnabled</key>
 	<true/>
-	<key>AdvPngPath</key>
-	<string>/usr/bin/advpng</string>
 	<key>AdvPngLevel</key>
 	<real>4</real>
-	<key>JpegOptimBundle</key>
-	<true/>
 	<key>JpegOptimEnabled</key>
 	<true/>
-	<key>JpegOptimPath</key>
-	<string>/sw/bin/jpegoptim</string>
 	<key>JpegOptimMaxQuality</key>
 	<integer>100</integer>
-	<key>JpegOptimStripComments</key>
-	<true/>
 	<key>JpegOptimStripExif</key>
-	<true/>
-	<key>JpegTranBundle</key>
 	<true/>
 	<key>JpegTranEnabled</key>
 	<true/>
-	<key>JpegTranStripAll</key>
-	<true/>
-	<key>JpegTranPath</key>
-	<string>/sw/bin/jpegtran</string>
-	<key>OptiPngBundle</key>
-	<true/>
 	<key>OptiPngEnabled</key>
 	<true/>
-	<key>OptiPngPath</key>
-	<string>/usr/bin/optipng</string>
 	<key>OptiPngLevel</key>
 	<real>6</real>
-	<key>PngCrushBundle</key>
-	<true/>
 	<key>PngCrushEnabled</key>
 	<true/>
-	<key>PngCrushPath</key>
-	<string>/usr/bin/pngcrush</string>
-	<key>PngCrushChunks</key>
-	<array>
-		<dict>
-			<key>name</key>
-			<string>gAMA</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>cHRM</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>iCCP</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>sRGB</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>tIME</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>tEXT</string>
-		</dict>
-		<dict>
-			<key>name</key>
-			<string>iTXt</string>
-		</dict>
-	</array>
-	<key>PngOutBundle</key>
-	<false/>
 	<key>PngOutEnabled</key>
 	<false/>
-	<key>PngOutPath</key>
-	<string>/usr/bin/pngout-darwin</string>
 	<key>PngOutLevel</key>
 	<integer>3</integer>
 	<key>PngOutRemoveChunks</key>
 	<true/>
 	<key>PngOutInterruptIfTakesTooLong</key>
 	<true/>
-	<key>GifsicleBundle</key>
-	<true/>
 	<key>GifsicleEnabled</key>
 	<true/>
-	<key>GifsiclePath</key>
-	<string>/usr/local/bin/gifsicle</string>
 	<key>PreservePermissions</key>
 	<true/>
 	<key>RunConcurrentDirscans</key>
