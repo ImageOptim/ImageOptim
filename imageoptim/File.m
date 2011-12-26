@@ -364,22 +364,23 @@
 	if (fileType == FILETYPE_PNG)
 	{
         Worker *w = nil;
+        BOOL chunksRemoved=NO;
 		if ([defs boolForKey:@"PngCrushEnabled"])
 		{
 			w = [[PngCrushWorker alloc] initWithFile:self];
-			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
-			else [runLater addObject:w];
-		}
-		if ([defs boolForKey:@"PngOutEnabled"])
-		{
-			w = [[PngoutWorker alloc] initWithFile:self];
-			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
+			if ([w makesNonOptimizingModifications]) {chunksRemoved=YES;[runFirst addObject:w];}
 			else [runLater addObject:w];
 		}
 		if ([defs boolForKey:@"OptiPngEnabled"])
 		{
 			w = [[OptiPngWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
+			else [runLater addObject:w];
+		}
+		if ([defs boolForKey:@"PngOutEnabled"])
+		{
+			w = [[PngoutWorker alloc] initWithFile:self];
+			if (!chunksRemoved && [w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
 		}
 		if ([defs boolForKey:@"AdvPngEnabled"])

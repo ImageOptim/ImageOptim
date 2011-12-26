@@ -9,7 +9,7 @@
 
 @interface PngCrushWorker : CommandWorker {    
 	int firstIdatSize;	
-
+    BOOL strip;
 }
 
 -(BOOL)makesNonOptimizingModifications;

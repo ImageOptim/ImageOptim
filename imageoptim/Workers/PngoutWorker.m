@@ -95,7 +95,7 @@
 
 -(BOOL)makesNonOptimizingModifications
 {
-	return YES;
+	return removechunks;
 }
 
 -(BOOL)parseLine:(NSString *)line

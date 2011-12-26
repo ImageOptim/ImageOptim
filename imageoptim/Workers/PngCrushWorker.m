@@ -8,6 +8,12 @@
 
 
 @implementation PngCrushWorker
+- (id)init {
+    if ((self = [super init])) {
+        strip = [[NSUserDefaults standardUserDefaults] boolForKey:@"PngOutRemoveChunks"];
+    }
+    return self;
+}
 
 -(void)run
 {
@@ -16,7 +22,7 @@
 	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-reduce",@"-brute",@"-cc",@"--",[file filePath],temp,nil];
 	
     // Reusing PngOut config here
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"PngOutRemoveChunks"]) {
+    if (strip) {
         [args insertObject:@"-rem" atIndex:0];
         [args insertObject:@"alla" atIndex:1];
     }
@@ -74,7 +80,7 @@
 
 -(BOOL)makesNonOptimizingModifications
 {
-	return YES;
+	return strip;
 }
 
 @end
