@@ -484,7 +484,6 @@
 							<string key="NSFrame">{{549, 6}, {71, 25}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="650797074">
 								<int key="NSCellFlags">67239424</int>
@@ -1077,7 +1076,7 @@
 			<object class="NSWindowTemplate" id="76991373">
 				<int key="NSWindowStyleMask">3</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{682, 258}, {290, 366}}</string>
+				<string key="NSWindowRect">{{682, 258}, {295, 370}}</string>
 				<int key="NSWTFlags">-260570112</int>
 				<string key="NSWindowTitle">About ImageOptim</string>
 				<string key="NSWindowClass">NSPanel</string>
@@ -1130,7 +1129,7 @@
 										<object class="NSTextView" id="857203264">
 											<reference key="NSNextResponder" ref="183240755"/>
 											<int key="NSvFlags">2322</int>
-											<string key="NSFrameSize">{279, 14}</string>
+											<string key="NSFrameSize">{284, 8}</string>
 											<reference key="NSSuperview" ref="183240755"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="458419734">
 												<object class="NSLayoutManager" key="NSLayoutManager">
@@ -1147,7 +1146,7 @@
 													<nil key="NSDelegate"/>
 												</object>
 												<reference key="NSTextView" ref="857203264"/>
-												<double key="NSWidth">279</double>
+												<double key="NSWidth">284</double>
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
@@ -1192,7 +1191,7 @@
 											<nil key="NSDelegate"/>
 										</object>
 									</array>
-									<string key="NSFrameSize">{290, 215}</string>
+									<string key="NSFrameSize">{295, 228}</string>
 									<reference key="NSSuperview" ref="842977522"/>
 									<reference key="NSNextKeyView" ref="857203264"/>
 									<reference key="NSDocView" ref="857203264"/>
@@ -1229,7 +1228,7 @@
 									<double key="NSPercent">0.94565220000000005</double>
 								</object>
 							</array>
-							<string key="NSFrameSize">{290, 215}</string>
+							<string key="NSFrameSize">{295, 228}</string>
 							<reference key="NSSuperview" ref="216029037"/>
 							<reference key="NSNextKeyView" ref="183240755"/>
 							<int key="NSsFlags">133648</int>
@@ -1241,12 +1240,12 @@
 						<object class="NSTextField" id="805991443">
 							<reference key="NSNextResponder" ref="216029037"/>
 							<int key="NSvFlags">265</int>
-							<string key="NSFrame">{{146, 227}, {56, 14}}</string>
+							<string key="NSFrame">{{166, 243}, {87, 14}}</string>
 							<reference key="NSSuperview" ref="216029037"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="877771820">
 								<int key="NSCellFlags">70385217</int>
-								<int key="NSCellFlags2">71472128</int>
+								<int key="NSCellFlags2">4363264</int>
 								<string key="NSContents">version</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="805991443"/>
@@ -1254,7 +1253,7 @@
 							</object>
 						</object>
 					</array>
-					<string key="NSFrameSize">{290, 366}</string>
+					<string key="NSFrameSize">{295, 370}</string>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {2560, 1578}}</string>
 				<string key="NSMinSize">{211, 265}</string>
