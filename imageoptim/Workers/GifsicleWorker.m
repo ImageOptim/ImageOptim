@@ -26,12 +26,10 @@
 {	
 	NSString *temp = [self tempPath];
 	//
-	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-o",temp,@"-O3",@"--no-comments",@"--no-names",@"--same-delay",@"--same-loopcount",@"--no-warnings",@"--",[file filePath],nil];
-    
-    if (interlace)
-    {
-        [args insertObject:@"-i" atIndex:0];
-    }
+	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-o",temp,
+                            interlace ? @"--interlace" : @"--no-interlace",
+                            @"-O3",@"--no-comments",@"--no-names",@"--same-delay",@"--same-loopcount",@"--no-warnings",
+                            @"--",[file filePath],nil];
 
 	if (![self taskForKey:@"Gifsicle" bundleName:@"gifsicle" arguments:args]) {
         return;        
