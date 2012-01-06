@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5A4553E21025E50700A69944 /* gifread.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553D01025E50700A69944 /* gifread.c */; };
-		5A4553E31025E50700A69944 /* strerror.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553D11025E50700A69944 /* strerror.c */; };
 		5A4553E41025E50700A69944 /* giffunc.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553D21025E50700A69944 /* giffunc.c */; };
 		5A4553E81025E50700A69944 /* fmalloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553D61025E50700A69944 /* fmalloc.c */; };
 		5A4553EB1025E50700A69944 /* support.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553D91025E50700A69944 /* support.c */; };
@@ -18,9 +17,7 @@
 		5A4553EF1025E50700A69944 /* gifwrite.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553DD1025E50700A69944 /* gifwrite.c */; };
 		5A4553F11025E50700A69944 /* gifsicle.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553DF1025E50700A69944 /* gifsicle.c */; };
 		5A4554541025E76F00A69944 /* clp.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4554531025E76F00A69944 /* clp.c */; };
-		5A4554761025E81100A69944 /* quantize.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553D31025E50700A69944 /* quantize.c */; };
 		5A4554AC1025E97100A69944 /* xform.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553DE1025E50700A69944 /* xform.c */; };
-		5A47171C111CD1C60008E5F6 /* gifunopt.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553D41025E50700A69944 /* gifunopt.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,18 +34,15 @@
 		5A27B9D0139B07DA0095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A27B9D3139B07EA0095FC2F /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../imageoptim/debug.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A4553D01025E50700A69944 /* gifread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gifread.c; path = src/gifread.c; sourceTree = "<group>"; };
-		5A4553D11025E50700A69944 /* strerror.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = strerror.c; path = src/strerror.c; sourceTree = "<group>"; };
 		5A4553D21025E50700A69944 /* giffunc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = giffunc.c; path = src/giffunc.c; sourceTree = "<group>"; };
-		5A4553D31025E50700A69944 /* quantize.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = quantize.c; path = src/quantize.c; sourceTree = "<group>"; };
-		5A4553D41025E50700A69944 /* gifunopt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gifunopt.c; path = src/gifunopt.c; sourceTree = "<group>"; };
 		5A4553D61025E50700A69944 /* fmalloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fmalloc.c; path = src/fmalloc.c; sourceTree = "<group>"; };
 		5A4553D91025E50700A69944 /* support.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = support.c; path = src/support.c; sourceTree = "<group>"; };
 		5A4553DA1025E50700A69944 /* merge.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = merge.c; path = src/merge.c; sourceTree = "<group>"; };
 		5A4553DB1025E50700A69944 /* optimize.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = optimize.c; path = src/optimize.c; sourceTree = "<group>"; };
 		5A4553DC1025E50700A69944 /* dmalloc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = dmalloc.c; path = src/dmalloc.c; sourceTree = "<group>"; };
-		5A4553DD1025E50700A69944 /* gifwrite.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gifwrite.c; path = src/gifwrite.c; sourceTree = "<group>"; };
+		5A4553DD1025E50700A69944 /* gifwrite.c */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.c; name = gifwrite.c; path = src/gifwrite.c; sourceTree = "<group>"; };
 		5A4553DE1025E50700A69944 /* xform.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = xform.c; path = src/xform.c; sourceTree = "<group>"; };
-		5A4553DF1025E50700A69944 /* gifsicle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gifsicle.c; path = src/gifsicle.c; sourceTree = "<group>"; };
+		5A4553DF1025E50700A69944 /* gifsicle.c */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.c; name = gifsicle.c; path = src/gifsicle.c; sourceTree = "<group>"; };
 		5A4554531025E76F00A69944 /* clp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = clp.c; path = src/clp.c; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* gifsicle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gifsicle; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -80,10 +74,7 @@
 			children = (
 				5A4554531025E76F00A69944 /* clp.c */,
 				5A4553D01025E50700A69944 /* gifread.c */,
-				5A4553D11025E50700A69944 /* strerror.c */,
 				5A4553D21025E50700A69944 /* giffunc.c */,
-				5A4553D31025E50700A69944 /* quantize.c */,
-				5A4553D41025E50700A69944 /* gifunopt.c */,
 				5A4553D61025E50700A69944 /* fmalloc.c */,
 				5A4553D91025E50700A69944 /* support.c */,
 				5A4553DA1025E50700A69944 /* merge.c */,
@@ -174,9 +165,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A47171C111CD1C60008E5F6 /* gifunopt.c in Sources */,
 				5A4553E21025E50700A69944 /* gifread.c in Sources */,
-				5A4553E31025E50700A69944 /* strerror.c in Sources */,
 				5A4553E41025E50700A69944 /* giffunc.c in Sources */,
 				5A4553E81025E50700A69944 /* fmalloc.c in Sources */,
 				5A4553EB1025E50700A69944 /* support.c in Sources */,
@@ -186,7 +175,6 @@
 				5A4553EF1025E50700A69944 /* gifwrite.c in Sources */,
 				5A4553F11025E50700A69944 /* gifsicle.c in Sources */,
 				5A4554541025E76F00A69944 /* clp.c in Sources */,
-				5A4554761025E81100A69944 /* quantize.c in Sources */,
 				5A4554AC1025E97100A69944 /* xform.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
