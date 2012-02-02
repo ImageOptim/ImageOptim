@@ -1,6 +1,6 @@
 #!/usr/bin/perl -ws
 # jpegrescan by Loren Merritt
-# Last updated: 2008-11-29 / 2011-11-01
+# Last updated: 2008-11-29 / 2012-02-01
 # This code is public domain.
 
 use File::Slurp;
@@ -86,7 +86,8 @@ if($rgb) {
     # 012 helps very little
     # 0/12 and 0/1/2 are pretty evenly matched in frequency, but 0/12 wins in total size if every image had to use the same mode
     # dc refinement passes never help
-    $dc = tries("0: 0 0 0 0; 1 2: 0 0 0 0;",
+    $dc = tries(
+    #           "0: 0 0 0 0; 1 2: 0 0 0 0;", # two scans expose a bug in Opera <= 11.61
                 "0: 0 0 0 0; 1: 0 0 0 0; 2: 0 0 0 0;");
     # jpegtran won't let me omit dc entirely, but I can at least quantize it away to make the rest of the tests faster.
     $prefix = "0 1 2: 0 0 0 9;";
