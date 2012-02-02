@@ -452,6 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				LD_DYLIB_INSTALL_NAME = "@loader_path/liblibpng.dylib";
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
@@ -467,6 +468,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				LD_DYLIB_INSTALL_NAME = "@loader_path/liblibpng.dylib";
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
