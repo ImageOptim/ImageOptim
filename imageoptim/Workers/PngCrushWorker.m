@@ -50,7 +50,8 @@
 	if (![task terminationStatus])
 	{
 		NSUInteger fileSizeOptimized;
-		if ((fileSizeOptimized = [File fileByteSize:temp]))
+        // pngcrush sometimes writes only PNG header (70 bytes)!
+		if ((fileSizeOptimized = [File fileByteSize:temp]) && fileSizeOptimized > 70)
 		{
 			[file setFilePathOptimized:temp	size:fileSizeOptimized toolName:[self className]];			
 		}
