@@ -10,9 +10,11 @@
 	<true/>
 	<key>JpegOptimMaxQuality</key>
 	<integer>100</integer>
-	<key>JpegOptimStripExif</key>
+	<key>JpegTranStripAll</key>
 	<true/>
 	<key>JpegTranEnabled</key>
+	<true/>
+	<key>JpegRescanEnabled</key>
 	<true/>
 	<key>OptiPngEnabled</key>
 	<true/>
