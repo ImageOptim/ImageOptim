@@ -133,5 +133,11 @@
 	<string>dsa_pub.pem</string>
 	<key>SUShowReleaseNotes</key>
 	<true/>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+	<key>SUAllowsAutomaticUpdates</key>
+	<true/>
+	<key>SUEnableSystemProfiling</key>
+	<false/>
 </dict>
 </plist>
