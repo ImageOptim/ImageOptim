@@ -54,7 +54,7 @@
 		5A739C130EA406A000D751E1 /* cdjpeg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cdjpeg.c; sourceTree = "<group>"; };
 		5A739C1B0EA406F600D751E1 /* rdswitch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rdswitch.c; sourceTree = "<group>"; };
 		5A8594CD1460BB340044095A /* jpegrescan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = jpegrescan; sourceTree = "<group>"; };
-		5A8594DF1460BCA70044095A /* jpegrescan */ = {isa = PBXFileReference; explicitFileType = "text.script.perl"; includeInIndex = 0; path = jpegrescan; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A8594DF1460BCA70044095A /* jpegrescan */ = {isa = PBXFileReference; explicitFileType = text.script.perl; includeInIndex = 0; path = jpegrescan; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD76FB20486AB0100D96B5E /* jpegtran */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = jpegtran; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -155,7 +155,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "jpegtran" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -297,6 +297,7 @@
 				5A8594E41460BCA70044095A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
