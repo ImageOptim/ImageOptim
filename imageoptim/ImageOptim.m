@@ -8,8 +8,6 @@
 #include <mach/host_info.h>
 #import <Quartz/Quartz.h>
 
-//#import "Dupe.h";
-
 @implementation ImageOptim
 
 @synthesize selectedIndexes,filesQueue;
@@ -68,15 +66,11 @@
     [self migrateOldPreferences];
 }
 
-//-(void)loadDupes {
-//    [Dupe loadDupes];
-//}
 
 -(void)awakeFromNib
 {
     [[statusBarLabel cell] setBackgroundStyle:NSBackgroundStyleRaised];
 	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
-//    [self performSelectorInBackground:@selector(loadDupes) withObject:nil];
 
 	RevealButtonCell* cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
 	[cell setInfoButtonAction:@selector(openInFinder)];
@@ -128,16 +122,11 @@
 	[filesQueue clearComplete];
 }
 
+
 - (IBAction)showPrefs:(id)sender
 {
-//	NSLog(@"show prefs");
-
-//    [Dupe resetDupes]; // changes in prefs invalidate dupes database; FIXME: this is inaccurate and lame
-
-	if (!prefsController)
-	{
+	if (!prefsController) {
 		prefsController = [PrefsController new];
-//		NSLog(@"new prefs = %@",prefsController);
 	}
 	[prefsController showWindow:self];
 }
@@ -183,7 +172,6 @@
 
 -(void)applicationWillTerminate:(NSNotification*)n {
     [filesQueue cleanup];
-//    [Dupe saveDupes];
 }
 
 -(NSString*)version {
@@ -191,7 +179,6 @@
 }
 
 // Quick Look panel support
-
 - (BOOL)acceptsPreviewPanelControl:(QLPreviewPanel *)panel;
 {
     return YES;
@@ -215,7 +202,6 @@
 }
 
 // Quick Look panel data source
-
 - (NSInteger)numberOfPreviewItemsInPreviewPanel:(QLPreviewPanel *)panel
 {
     return [[filesController selectedObjects] count];
@@ -227,7 +213,6 @@
 }
 
 // Quick Look panel delegate
-
 - (BOOL)previewPanel:(QLPreviewPanel *)panel handleEvent:(NSEvent *)event
 {
     // redirect all key down events to the table view
