@@ -131,19 +131,21 @@
 	[prefsController showWindow:self];
 }
 
+-(IBAction)openHomepage:(id)sender
+{
+    [self openURL:@"http://imageoptim.pornel.net"];
+}
+
+-(IBAction)viewSource:(id)sender
+{
+	[self openURL:@"http://imageoptim.pornel.net/source"];
+}
+
 -(void)openURL:(NSString *)stringURL
 {
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:stringURL]];
 }
 
--(IBAction)openPngOutHomepage:(id)sender
-{
-	[self openURL:@"http://www.advsys.net/ken/utils.htm"];
-}
--(IBAction)openPngOutDownload:(id)sender
-{
-	[self openURL:@"http://www.jonof.id.au/pngout"];
-}
 
 -(IBAction)browseForFiles:(id)sender
 {
