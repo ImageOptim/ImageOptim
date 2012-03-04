@@ -239,7 +239,7 @@
 			buildConfigurationList = 5A984A5B11237CA3007622D7 /* Build configuration list for PBXLegacyTarget "download-libpng" */;
 			buildPhases = (
 			);
-			buildToolPath = /Developer/usr/bin/make;
+			buildToolPath = /usr/bin/make;
 			dependencies = (
 			);
 			name = "download-libpng";
@@ -252,7 +252,7 @@
 			buildConfigurationList = 5A984A6611237D09007622D7 /* Build configuration list for PBXLegacyTarget "download-zlib" */;
 			buildPhases = (
 			);
-			buildToolPath = /Developer/usr/bin/make;
+			buildToolPath = /usr/bin/make;
 			buildWorkingDirectory = ../zlib/;
 			dependencies = (
 			);

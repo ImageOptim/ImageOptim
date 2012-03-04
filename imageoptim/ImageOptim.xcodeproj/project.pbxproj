@@ -648,7 +648,7 @@
 			buildConfigurationList = 5A20CBF81123928E0000400D /* Build configuration list for PBXLegacyTarget "download-sparkle" */;
 			buildPhases = (
 			);
-			buildToolPath = /Developer/usr/bin/make;
+			buildToolPath = /usr/bin/make;
 			dependencies = (
 			);
 			name = "download-sparkle";
