@@ -2,7 +2,7 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
 <channel>
 <title>ImageOptim</title>
-<link>http://imageoptim.pornel.net/appcast.xml</link>
+<link>http://imageoptim.com/appcast.xml</link>
 <description>ImageOptim updates</description>
 <language>en</language>
 
@@ -14,10 +14,11 @@
 <li>Simplified preferences: options for stripping PNG chunks and JPEG EXIF data are in one place.</li>
 <li>Localization fixes by Gildas Lormeau</li>
 <li>“View Source” option — because not only web apps have viewable source code :)</li>
+<li><a href="http://imageoptim.com/">Website moved to http://imageoptim.com</a>
 </ul>
 ]]></description>
-<pubDate>Sun, 04 Mar 2012 14:22:20 +0000</pubDate>
-<enclosure url="http://imageoptim.pornel.net/ImageOptim1.4.0.tar.bz2" sparkle:version="1.4.0" length="1278715" type="application/bzip2" sparkle:dsaSignature="MCwCFEYgOLg0HnrPw5cBY3aggLCUBEKJAhQ27F8LtroP7JC8Aanj2KI+7fY+jQ=="/>
+<pubDate>Sun, 04 Mar 2012 15:09:34 +0000</pubDate>
+<enclosure url="http://imageoptim.com/ImageOptim1.4.0.tar.bz2" sparkle:version="1.4.0" length="1278488" type="application/bzip2" sparkle:dsaSignature="MCwCFCb4asrtEC0AD+g9vCIKbKK6TXHBAhQE1wj36HJI0ZpLCBoT/8GVgETIiA=="/>
 <sparkle:minimumSystemVersion>10.6.4</sparkle:minimumSystemVersion>
 
 </item>
@@ -33,7 +34,7 @@
 </ul>
 ]]></description>
 <pubDate>Fri, 06 Jan 2012 02:00:20 +0000</pubDate>
-<enclosure url="http://imageoptim.pornel.net/ImageOptim1.3.3.tar.bz2" sparkle:version="1.3.3" length="1326355" type="application/bzip2" sparkle:dsaSignature="MCwCFEX/61F9gjLJflLf5PVz3nd5DHZcAhRIvzyBkoeGCrsnlPI4B93GzTs36A=="/>
+<enclosure url="http://imageoptim.com/ImageOptim1.3.3.tar.bz2" sparkle:version="1.3.3" length="1326355" type="application/bzip2" sparkle:dsaSignature="MCwCFEX/61F9gjLJflLf5PVz3nd5DHZcAhRIvzyBkoeGCrsnlPI4B93GzTs36A=="/>
 <sparkle:minimumSystemVersion>10.6.4</sparkle:minimumSystemVersion>
 </item>
 
@@ -48,7 +49,7 @@
 <li>Updated to OptiPNG to 0.6.4</li>
 <li>Updated to Pngcrush to 1.7.12</li></ul>
 ]]></description>
-<enclosure sparkle:version="1.2.5" url="http://imageoptim.pornel.net/ImageOptim1.2.5.tar.bz2" length="1616930" sparkle:dsaSignature="MCwCFBQf5NFP4jW2TlNoPgNHupymehqrAhQ5vYLKN5Y9LdC658llBV/tn1T+oA=="/>
+<enclosure sparkle:version="1.2.5" url="http://imageoptim.com/ImageOptim1.2.5.tar.bz2" length="1616930" sparkle:dsaSignature="MCwCFBQf5NFP4jW2TlNoPgNHupymehqrAhQ5vYLKN5Y9LdC658llBV/tn1T+oA=="/>
 </item>
 </channel>
 </rss>

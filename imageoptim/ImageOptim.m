@@ -133,12 +133,12 @@
 
 -(IBAction)openHomepage:(id)sender
 {
-    [self openURL:@"http://imageoptim.pornel.net"];
+    [self openURL:@"http://imageoptim.com"];
 }
 
 -(IBAction)viewSource:(id)sender
 {
-	[self openURL:@"http://imageoptim.pornel.net/source"];
+	[self openURL:@"http://imageoptim.com/source"];
 }
 
 -(void)openURL:(NSString *)stringURL
