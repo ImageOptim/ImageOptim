@@ -220,8 +220,7 @@
 													</object>
 													<object class="NSTextFieldCell" key="NSDataCell" id="462145279">
 														<int key="NSCellFlags">337772096</int>
-														<int key="NSCellFlags2">-2147481600</int>
-														<string key="NSContents">Text Cell</string>
+														<int key="NSCellFlags2">2048</int>
 														<reference key="NSSupport" ref="725316391"/>
 														<object class="NSNumberFormatter" key="NSFormatter" id="820537206">
 															<dictionary class="NSMutableDictionary" key="NS.attributes">
@@ -412,7 +411,7 @@
 													<object class="NSTextFieldCell" key="NSDataCell" id="554869756">
 														<int key="NSCellFlags">337772096</int>
 														<int key="NSCellFlags2">2048</int>
-														<string key="NSContents">Text Cell</string>
+														<string key="NSContents"/>
 														<reference key="NSSupport" ref="725316391"/>
 														<reference key="NSControlView" ref="995883823"/>
 														<reference key="NSBackgroundColor" ref="678811562"/>
