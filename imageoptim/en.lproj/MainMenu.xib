@@ -173,8 +173,8 @@
 														<reference key="NSTextColor" ref="739485553"/>
 													</object>
 													<object class="NSTextFieldCell" key="NSDataCell" id="261324427">
-														<int key="NSCellFlags">337772096</int>
-														<int key="NSCellFlags2">2048</int>
+														<int key="NSCellFlags">67239488</int>
+														<int key="NSCellFlags2">6208</int>
 														<string key="NSContents"/>
 														<object class="NSFont" key="NSSupport" id="725316391">
 															<string key="NSName">LucidaGrande</string>
@@ -221,8 +221,8 @@
 														<reference key="NSTextColor" ref="739485553"/>
 													</object>
 													<object class="NSTextFieldCell" key="NSDataCell" id="462145279">
-														<int key="NSCellFlags">337772096</int>
-														<int key="NSCellFlags2">2048</int>
+														<int key="NSCellFlags">67239488</int>
+														<int key="NSCellFlags2">67115072</int>
 														<reference key="NSSupport" ref="725316391"/>
 														<object class="NSNumberFormatter" key="NSFormatter" id="820537206">
 															<dictionary class="NSMutableDictionary" key="NS.attributes">
@@ -288,8 +288,8 @@
 														<reference key="NSTextColor" ref="739485553"/>
 													</object>
 													<object class="NSTextFieldCell" key="NSDataCell" id="567272527">
-														<int key="NSCellFlags">337772096</int>
-														<int key="NSCellFlags2">67110912</int>
+														<int key="NSCellFlags">67239488</int>
+														<int key="NSCellFlags2">67115072</int>
 														<reference key="NSSupport" ref="725316391"/>
 														<object class="NSNumberFormatter" key="NSFormatter" id="362801636">
 															<dictionary class="NSMutableDictionary" key="NS.attributes">
@@ -347,8 +347,8 @@
 														<reference key="NSTextColor" ref="739485553"/>
 													</object>
 													<object class="NSTextFieldCell" key="NSDataCell" id="959501761">
-														<int key="NSCellFlags">337772096</int>
-														<int key="NSCellFlags2">67110912</int>
+														<int key="NSCellFlags">67239488</int>
+														<int key="NSCellFlags2">67115072</int>
 														<reference key="NSSupport" ref="725316391"/>
 														<object class="NSNumberFormatter" key="NSFormatter" id="1069041673">
 															<dictionary class="NSMutableDictionary" key="NS.attributes">
@@ -401,7 +401,7 @@
 													<string key="NSIdentifier">besttool</string>
 													<double key="NSWidth">85</double>
 													<double key="NSMinWidth">40</double>
-													<double key="NSMaxWidth">200</double>
+													<double key="NSMaxWidth">150</double>
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75628096</int>
 														<int key="NSCellFlags2">2048</int>
@@ -411,8 +411,8 @@
 														<reference key="NSTextColor" ref="739485553"/>
 													</object>
 													<object class="NSTextFieldCell" key="NSDataCell" id="554869756">
-														<int key="NSCellFlags">337772096</int>
-														<int key="NSCellFlags2">2048</int>
+														<int key="NSCellFlags">67239488</int>
+														<int key="NSCellFlags2">6208</int>
 														<string key="NSContents"/>
 														<reference key="NSSupport" ref="725316391"/>
 														<reference key="NSControlView" ref="995883823"/>
@@ -565,7 +565,6 @@
 							<string key="NSFrame">{{458, 6}, {71, 25}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="650797074">
 								<int key="NSCellFlags">67239424</int>
@@ -1390,7 +1389,6 @@
 							<string key="NSFrame">{{166, 243}, {87, 14}}</string>
 							<reference key="NSSuperview" ref="216029037"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="877771820">
 								<int key="NSCellFlags">70385217</int>
