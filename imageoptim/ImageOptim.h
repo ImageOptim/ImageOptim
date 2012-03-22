@@ -17,6 +17,8 @@
     IBOutlet NSTextField *statusBarLabel;
     IBOutlet NSTextView *credits;
 
+    IBOutlet NSTableColumn *sizeColumn, *originalSizeColumn, *savingsColumn, *bestToolColumn;
+
     NSIndexSet* selectedIndexes;
 	QLPreviewPanel* previewPanel;
 }
