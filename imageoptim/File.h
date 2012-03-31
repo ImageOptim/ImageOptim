@@ -54,7 +54,7 @@
 -(NSString *)fileName;
 
 @property (assign) NSUInteger byteSize, byteSizeOptimized;
-@property (retain) NSString *statusText, *filePath, *displayName;
+@property (retain) NSString *statusText, *filePath, *displayName, *bestToolName;
 @property (retain) NSImage *statusImage;
 @property (assign,readonly) NSInteger statusOrder;
 

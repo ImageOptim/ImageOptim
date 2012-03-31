@@ -17,7 +17,7 @@
 
 @implementation File
 
-@synthesize byteSize, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone;
+@synthesize byteSize, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName;
 
 -(id)initWithFilePath:(NSString *)name;
 {
@@ -123,7 +123,7 @@
         NSLog(@"File %@ optimized with %@ from %u to %u in %@",filePath?filePath:filePathOptimized,toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,path);
         if (size <= byteSizeOptimized)
         {
-            bestToolName = [toolname stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
+            self.bestToolName = [toolname stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
             assert(![filePathOptimized isEqualToString:path]);
             [self removeOldFilePathOptimized];
             filePathOptimized = path;
