@@ -37,13 +37,16 @@
 		[args insertObject:@"-r" atIndex:0];
 	}
 	
-	if (level)
-	{
-		[args insertObject:[NSString stringWithFormat:@"-s%d",level] atIndex:0];
+    int actualLevel = level;
+    if ([file isLarge] && level < 2) {
+        actualLevel++; // use faster setting for large files
+    }
+
+	if (actualLevel) { // s0 is default
+		[args insertObject:[NSString stringWithFormat:@"-s%d",actualLevel] atIndex:0];
 	}
 	
-	if (!removechunks)
-	{
+	if (!removechunks) { // -k0 (remove) is default
 		[args insertObject:@"-k1" atIndex:0];
 	}
 	
