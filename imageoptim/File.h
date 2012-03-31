@@ -49,6 +49,10 @@
 -(void)setByteSizeOptimized:(NSUInteger)size;
 -(BOOL)isOptimized;
 
+
+-(BOOL)isLarge;
+-(BOOL)isSmall;
+
 -(void)setFilePath:(NSString *)s;
 
 -(NSString *)fileName;

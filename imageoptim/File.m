@@ -29,6 +29,13 @@
 	return self;	
 }
 
+-(BOOL)isLarge {
+    return byteSize > 2*1024*1024;
+}
+
+-(BOOL)isSmall {
+    return byteSize < 2048;
+}
 
 -(NSString *)fileName
 {	
