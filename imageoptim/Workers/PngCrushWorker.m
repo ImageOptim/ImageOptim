@@ -19,12 +19,16 @@
 {
 	NSString *temp = [self tempPath];
 
-	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-reduce",@"-brute",@"-cc",@"--",[file filePath],temp,nil];
+	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-reduce",@"-cc",@"--",[file filePath],temp,nil];
 	
     // Reusing PngOut config here
     if (strip) {
         [args insertObject:@"-rem" atIndex:0];
         [args insertObject:@"alla" atIndex:1];
+    }
+
+    if ([file isSmall]) {
+        [args insertObject:@"-brute" atIndex:0];
     }
 	
     if (![self taskForKey:@"PngCrush" bundleName:@"pngcrush" arguments:args]) {
