@@ -66,7 +66,6 @@
 							<int key="NSvFlags">274</int>
 							<string key="NSFrame">{{13, 10}, {627, 297}}</string>
 							<reference key="NSSuperview" ref="571401575"/>
-							<reference key="NSNextKeyView" ref="158173503"/>
 							<array class="NSMutableArray" key="NSTabViewItems">
 								<object class="NSTabViewItem" id="229729678">
 									<object class="NSView" key="NSView" id="158173503">
@@ -632,7 +631,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="17662428">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Optimization type</string>
+													<string key="NSContents">Optimisation type</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="382989766"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -829,7 +828,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="924028585">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Optimization level</string>
+													<string key="NSContents">Optimisation level</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="578376454"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1025,7 +1024,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="350569712">
 													<int key="NSCellFlags">67239424</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Optimization level</string>
+													<string key="NSContents">Optimisation level</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="534469546"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>

@@ -107,8 +107,8 @@
 - (IBAction)startAgain:(id)sender
 {
     // alt-click on a button (this is used from menu too, but alternative menu item covers that anyway
-    BOOL onlyOptimised = !!([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask);
-	[filesQueue startAgainOptimized:onlyOptimised];
+    BOOL onlyOptimized = !!([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask);
+	[filesQueue startAgainOptimized:onlyOptimized];
 }
 
 - (IBAction)startAgainOptimized:(id)sender

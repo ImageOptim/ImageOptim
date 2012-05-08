@@ -275,7 +275,7 @@
             }
             else
             {
-                [self setStatus:@"wait" order:2 text:NSLocalizedString(@"Waiting to start more optimisations",@"tooltip")];
+                [self setStatus:@"wait" order:2 text:NSLocalizedString(@"Waiting to start more optimizations",@"tooltip")];
             }
         }
     }	    

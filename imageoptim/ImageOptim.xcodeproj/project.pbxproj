@@ -353,6 +353,10 @@
 		5A887F8410C17361006A0687 /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Dutch; path = nl.lproj/Credits.rtf; sourceTree = "<group>"; };
 		5A8A18121416D1D700D62DB7 /* SavingsFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavingsFormatter.h; sourceTree = "<group>"; };
 		5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavingsFormatter.m; sourceTree = "<group>"; };
+		5A8B52D31559C269005AA6E3 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "en-GB"; path = "en-GB.lproj/PrefsController.xib"; sourceTree = "<group>"; };
+		5A8B52D41559C278005AA6E3 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "en-GB"; path = "en-GB.lproj/MainMenu.xib"; sourceTree = "<group>"; };
+		5A8B52D51559C291005AA6E3 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5A8B52D61559C29D005AA6E3 /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "en-GB"; path = "en-GB.lproj/Help"; sourceTree = "<group>"; };
 		5A8DFBD710C097A0009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Dutch; path = nl.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5A8DFBD810C097AC009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Dutch; path = nl.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5A8DFBD910C097B9009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Dutch; path = nl.lproj/Help; sourceTree = "<group>"; };
@@ -741,6 +745,7 @@
 				be,
 				no,
 				"pt-BR",
+				"en-GB",
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ImageOptim */;
 			projectDirPath = "";
@@ -1059,6 +1064,7 @@
 				5A7D24F313EDF5F100815AAA /* es */,
 				5AD299BB1436757F0048C725 /* no */,
 				5AE74B5C146DECA300287FA6 /* pt-BR */,
+				5A8B52D41559C278005AA6E3 /* en-GB */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1078,6 +1084,7 @@
 				5A7D24F413EDF5F100815AAA /* es */,
 				5AD299BD143675870048C725 /* no */,
 				5AE74B5E146DECAA00287FA6 /* pt-BR */,
+				5A8B52D31559C269005AA6E3 /* en-GB */,
 			);
 			name = PrefsController.xib;
 			sourceTree = "<group>";
@@ -1115,6 +1122,7 @@
 				5A7D24F213EDF5F100815AAA /* es */,
 				5AD299B9143675770048C725 /* no */,
 				5AE74B57146DEC8700287FA6 /* pt-BR */,
+				5A8B52D51559C291005AA6E3 /* en-GB */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1133,6 +1141,7 @@
 				5A7D24F113EDF5F100815AAA /* es */,
 				5AD299C2143675BB0048C725 /* no */,
 				5AE74B60146DECB100287FA6 /* pt-BR */,
+				5A8B52D61559C29D005AA6E3 /* en-GB */,
 			);
 			name = Help;
 			sourceTree = "<group>";

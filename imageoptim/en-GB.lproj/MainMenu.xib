@@ -65,7 +65,7 @@
 				<string key="NSWindowContentMaxSize">{1200, 2000}</string>
 				<string key="NSWindowContentMinSize">{411, 110}</string>
 				<object class="NSView" key="NSWindowView" id="633482293">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSScrollView" id="188613459">
@@ -81,7 +81,6 @@
 											<int key="NSvFlags">274</int>
 											<string key="NSFrameSize">{549, 242}</string>
 											<reference key="NSSuperview" ref="180760454"/>
-											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="496677504"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="NSTableHeaderView" key="NSHeaderView" id="733806295">
@@ -89,7 +88,6 @@
 												<int key="NSvFlags">256</int>
 												<string key="NSFrameSize">{549, 17}</string>
 												<reference key="NSSuperview" ref="532173874"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="180760454"/>
 												<reference key="NSTableView" ref="995883823"/>
 											</object>
@@ -154,7 +152,7 @@
 														<bool key="NSAscending">YES</bool>
 														<string key="NSSelector">compare:</string>
 													</object>
-													<string key="NSHeaderToolTip">Optimization status</string>
+													<string key="NSHeaderToolTip">Optimisation status</string>
 												</object>
 												<object class="NSTableColumn" id="56751955">
 													<string key="NSIdentifier">filename</string>
@@ -452,7 +450,6 @@
 									</array>
 									<string key="NSFrame">{{0, 17}, {549, 242}}</string>
 									<reference key="NSSuperview" ref="188613459"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="995883823"/>
 									<reference key="NSDocView" ref="995883823"/>
 									<reference key="NSBGColor" ref="678811562"/>
@@ -463,7 +460,6 @@
 									<int key="NSvFlags">-2147483392</int>
 									<string key="NSFrame">{{567, 18}, {15, 277}}</string>
 									<reference key="NSSuperview" ref="188613459"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="714728707"/>
 									<reference key="NSTarget" ref="188613459"/>
 									<string key="NSAction">_doScroller:</string>
@@ -474,7 +470,6 @@
 									<int key="NSvFlags">-2147483392</int>
 									<string key="NSFrame">{{-100, -100}, {524, 15}}</string>
 									<reference key="NSSuperview" ref="188613459"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="532173874"/>
 									<int key="NSsFlags">1</int>
 									<reference key="NSTarget" ref="188613459"/>
@@ -489,7 +484,6 @@
 									</array>
 									<string key="NSFrameSize">{549, 17}</string>
 									<reference key="NSSuperview" ref="188613459"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="733806295"/>
 									<reference key="NSDocView" ref="733806295"/>
 									<reference key="NSBGColor" ref="678811562"/>
@@ -498,7 +492,6 @@
 							</array>
 							<string key="NSFrame">{{0, 39}, {549, 259}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="180760454"/>
 							<int key="NSsFlags">133648</int>
 							<reference key="NSVScroller" ref="356058265"/>
@@ -512,7 +505,6 @@
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{43, 12}, {410, 14}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="218087580"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="326808065">
@@ -529,7 +521,6 @@
 							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{8, 6}, {30, 25}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="646228687"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="16446775">
@@ -554,7 +545,6 @@
 							<object class="NSPSMatrix" key="NSDrawMatrix"/>
 							<string key="NSFrame">{{434, 11}, {16, 16}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="718675695"/>
 							<int key="NSpiFlags">28938</int>
 							<double key="NSMaxValue">100</double>
@@ -564,7 +554,6 @@
 							<int key="NSvFlags">289</int>
 							<string key="NSFrame">{{458, 6}, {71, 25}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
-							<reference key="NSWindow"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="650797074">
 								<int key="NSCellFlags">67239424</int>
@@ -578,7 +567,7 @@
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">NSRefreshTemplate</string>
 								</object>
-								<string key="NSAlternateContents">Run optimizations again</string>
+								<string key="NSAlternateContents">Run optimisations again</string>
 								<string key="NSKeyEquivalent">r</string>
 							</object>
 						</object>
@@ -587,15 +576,12 @@
 							<int key="NSvFlags">274</int>
 							<string key="NSFrame">{{0, 39}, {549, 258}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="866301361"/>
 							<string key="NSReuseIdentifierKey">_NS:499</string>
 							<string key="NSClassName">DragDropImageView</string>
 						</object>
 					</array>
 					<string key="NSFrameSize">{549, 297}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="188613459"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {2560, 1578}}</string>
@@ -774,7 +760,7 @@
 								</object>
 								<object class="NSMenuItem" id="342358740">
 									<reference key="NSMenu" ref="810587040"/>
-									<string key="NSTitle">Optimize Again</string>
+									<string key="NSTitle">Optimise Again</string>
 									<string key="NSKeyEquiv">r</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -785,7 +771,7 @@
 									<reference key="NSMenu" ref="810587040"/>
 									<bool key="NSIsHidden">YES</bool>
 									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Optimize Optimized</string>
+									<string key="NSTitle">Optimise Optimised</string>
 									<string key="NSKeyEquiv">r</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1038,7 +1024,7 @@
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="146427746">
 									<reference key="NSMenu" ref="564456469"/>
-									<string key="NSTitle">Minimize</string>
+									<string key="NSTitle">Minimise</string>
 									<string key="NSKeyEquiv">m</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1105,7 +1091,7 @@
 											</object>
 											<object class="NSMenuItem" id="726135706">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">Optimized Size</string>
+												<string key="NSTitle">Optimised Size</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<int key="NSState">1</int>
@@ -1223,7 +1209,7 @@
 				<string key="NSWindowContentMaxSize">{465, 570}</string>
 				<string key="NSWindowContentMinSize">{211, 243}</string>
 				<object class="NSView" key="NSWindowView" id="216029037">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<array class="NSMutableArray" key="NSSubviews">
 						<object class="NSImageView" id="20443895">
@@ -1239,7 +1225,6 @@
 							</set>
 							<string key="NSFrame">{{82, 227}, {128, 128}}</string>
 							<reference key="NSSuperview" ref="216029037"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="805991443"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="618816986">
@@ -1269,7 +1254,6 @@
 											<int key="NSvFlags">2322</int>
 											<string key="NSFrame">{{0, -6}, {284, 14}}</string>
 											<reference key="NSSuperview" ref="183240755"/>
-											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="573940884"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="458419734">
 												<object class="NSLayoutManager" key="NSLayoutManager">
@@ -1290,7 +1274,7 @@
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
-												<int key="NSFlags">67110917</int>
+												<int key="NSFlags">33556485</int>
 												<int key="NSTextCheckingTypes">0</int>
 												<nil key="NSMarkedAttributes"/>
 												<object class="NSColor" key="NSBackgroundColor" id="504455196">
@@ -1333,7 +1317,6 @@
 									</array>
 									<string key="NSFrameSize">{295, 228}</string>
 									<reference key="NSSuperview" ref="842977522"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="857203264"/>
 									<reference key="NSDocView" ref="857203264"/>
 									<reference key="NSBGColor" ref="504455196"/>
@@ -1351,7 +1334,6 @@
 									<int key="NSvFlags">-2147483392</int>
 									<string key="NSFrame">{{-22, 0}, {11, 315}}</string>
 									<reference key="NSSuperview" ref="842977522"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="183240755"/>
 									<int key="NSsFlags">256</int>
 									<reference key="NSTarget" ref="842977522"/>
@@ -1364,7 +1346,6 @@
 									<int key="NSvFlags">-2147483392</int>
 									<string key="NSFrame">{{-100, -100}, {87, 18}}</string>
 									<reference key="NSSuperview" ref="842977522"/>
-									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="912368459"/>
 									<int key="NSsFlags">257</int>
 									<reference key="NSTarget" ref="842977522"/>
@@ -1375,7 +1356,6 @@
 							</array>
 							<string key="NSFrameSize">{295, 228}</string>
 							<reference key="NSSuperview" ref="216029037"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="183240755"/>
 							<int key="NSsFlags">133648</int>
 							<reference key="NSVScroller" ref="912368459"/>
@@ -1388,7 +1368,6 @@
 							<int key="NSvFlags">265</int>
 							<string key="NSFrame">{{166, 243}, {87, 14}}</string>
 							<reference key="NSSuperview" ref="216029037"/>
-							<reference key="NSWindow"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="877771820">
 								<int key="NSCellFlags">70385217</int>
@@ -1401,8 +1380,6 @@
 						</object>
 					</array>
 					<string key="NSFrameSize">{295, 370}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="842977522"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {2560, 1578}}</string>
@@ -3065,7 +3042,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="188613459"/>
-						<string key="accessibilityValue">List of files to optimize</string>
+						<string key="accessibilityValue">List of files to optimise</string>
 					</object>
 				</object>
 				<string key="236.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3077,7 +3054,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="237316198"/>
-						<string key="accessibilityValue">Size of file after optimization</string>
+						<string key="accessibilityValue">Size of file after optimisation</string>
 					</object>
 				</object>
 				<string key="239.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3126,7 +3103,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="238366736"/>
-						<string key="accessibilityValue">Optimization status</string>
+						<string key="accessibilityValue">Optimisation status</string>
 					</object>
 				</object>
 				<string key="462.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3220,7 +3197,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="985798113"/>
-						<string key="accessibilityValue">Size of file after optimization</string>
+						<string key="accessibilityValue">Size of file after optimisation</string>
 					</object>
 				</object>
 				<string key="792.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
