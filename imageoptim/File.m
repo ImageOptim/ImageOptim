@@ -29,8 +29,12 @@
 	return self;	
 }
 
+-(BOOL)isCameraPhoto {
+    return byteSize > 1.3*1024*1024L; // Just a guess unfortunately. It's approx size of an iPhone 4 photo.
+}
+
 -(BOOL)isLarge {
-    return byteSize > 2*1024*1024;
+    return byteSize > 1*1024*1024;
 }
 
 -(BOOL)isSmall {

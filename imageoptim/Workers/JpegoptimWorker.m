@@ -9,13 +9,14 @@
 
 @implementation JpegoptimWorker
 
--(id)init {
-    if (self = [super init])
+-(id)initWithFile:(File *)aFile {
+    if (self = [super initWithFile:aFile])
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
         // Sharing setting with jpegtran
         strip = [defaults boolForKey:@"JpegTranStripAll"];
+
         maxquality = [defaults integerForKey:@"JpegOptimMaxQuality"];
     }
     return self;
@@ -40,7 +41,12 @@
 	
 
 	if (strip) {
-		[args insertObject:@"--strip-all" atIndex:0];
+        // Photographers prefer EXIF/ICC kept.
+        if ([file isCameraPhoto]) {
+            [args insertObject:@"--strip-com" atIndex:0];
+        } else {
+            [args insertObject:@"--strip-all" atIndex:0];
+        }
 	}
 	
 	if (maxquality > 10 && maxquality < 100)

@@ -14,6 +14,7 @@
 <li>Slowest settings are not used for very large files to avoid optimisation taking “forever”</li>
 <li>Less aggressive optimization of GIF files to avoid bugs in Safari</li>
 <li>British locali<em>s</em>ation</li>
+<li><abbr>EXIF</abbr> and color profiles are not stripped from large <abbr>JPEG</abbr> files (i.e. usually photos form digital cameras)</li>
 </ul>
 <p>Previously:</p>
 <ul>

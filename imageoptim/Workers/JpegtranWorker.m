@@ -9,11 +9,13 @@
 
 @implementation JpegtranWorker
 
--(id)init {
-    if (self = [super init])
+-(id)initWithFile:(File *)aFile {
+    if (self = [super initWithFile:aFile])
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        strip = [defaults boolForKey:@"JpegTranStripAll"];
+        // Photographers prefer EXIF/ICC kept.
+        strip = [defaults boolForKey:@"JpegTranStripAll"] && ![file isCameraPhoto];
+
         jpegrescan = [defaults boolForKey:@"JpegRescanEnabled"];
     }
     return self;
