@@ -39,7 +39,7 @@
 
 	fileIOQueue = [NSOperationQueue new];
     NSUInteger fileops = [defs integerForKey:@"RunConcurrentFileops"];
-    [fileIOQueue setMaxConcurrentOperationCount:fileops?fileops:3];
+    [fileIOQueue setMaxConcurrentOperationCount:fileops?fileops:2];
 
     queueWaitingLock = [NSLock new];
 

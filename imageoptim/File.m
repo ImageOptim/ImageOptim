@@ -340,6 +340,10 @@
     workers = [[NSMutableArray alloc] initWithCapacity:10];
     
     NSOperation *actualEnqueue = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doEnqueueWorkersInCPUQueue:) object:queue];
+    if (queue.operationCount < queue.maxConcurrentOperationCount) {
+        actualEnqueue.queuePriority = NSOperationQueuePriorityHigh;
+    }
+
     [workers addObject:actualEnqueue];
     [fileIOQueue addOperation:actualEnqueue];        
 }

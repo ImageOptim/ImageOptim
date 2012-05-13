@@ -56,7 +56,7 @@
 	NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 
 	int maxTasks = [self numberOfCPUs]+1;
-	if (maxTasks > 6) maxTasks++;
+	if (maxTasks > 8) maxTasks++;
 
 	[defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
 	[defs setObject:[NSNumber numberWithInt:(int)ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
