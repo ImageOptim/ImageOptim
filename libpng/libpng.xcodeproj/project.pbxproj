@@ -305,7 +305,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = 1DEB914E08733D8E0010E9CD /* Build configuration list for PBXProject "libpng" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -452,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				LD_DYLIB_INSTALL_NAME = "@loader_path/liblibpng.dylib";
-				SDKROOT = macosx10.6;
+				SDKROOT = "";
 			};
 			name = Debug;
 		};
@@ -468,7 +468,7 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				LD_DYLIB_INSTALL_NAME = "@loader_path/liblibpng.dylib";
-				SDKROOT = macosx10.6;
+				SDKROOT = "";
 			};
 			name = Release;
 		};

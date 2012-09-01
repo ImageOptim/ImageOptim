@@ -63,11 +63,6 @@
 		5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99FE83140AE80600BB2F79 /* Quartz.framework */; };
 		5A9AEC19140996D700C9E97D /* reveal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9AEC18140996D700C9E97D /* reveal.png */; };
 		5A9E5B2B0CB961E000E05D28 /* JpegoptimWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E5B2A0CB961E000E05D28 /* JpegoptimWorker.m */; };
-		5A9ED38115F2213F005B8CA5 /* Help in Resources */ = {isa = PBXBuildFile; fileRef = 5A95FEBE0CB8041A00737B79 /* Help */; };
-		5A9ED38315F2214F005B8CA5 /* PrefsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A45530D1024EB3000A69944 /* PrefsController.xib */; };
-		5A9ED38515F22153005B8CA5 /* PrefsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A45530D1024EB3000A69944 /* PrefsController.xib */; };
-		5A9ED38715F22159005B8CA5 /* reveal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9AEC18140996D700C9E97D /* reveal.png */; };
-		5A9ED38915F22199005B8CA5 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A45530A1024EB1100A69944 /* MainMenu.xib */; };
 		5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
 		5AA6D2501503EA1B006DDB3E /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA6D2471503E9F6006DDB3E /* Sparkle.framework */; };
 		5AA6D2511503EA29006DDB3E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA6D2471503E9F6006DDB3E /* Sparkle.framework */; };
@@ -737,7 +732,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ImageOptim" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -935,11 +930,6 @@
 				5A9AEC19140996D700C9E97D /* reveal.png in Resources */,
 				5A16343E140BF97400758D99 /* ImageOptim.icns in Resources */,
 				5A1D3E8C14366933004EE809 /* style.css in Resources */,
-				5A9ED38115F2213F005B8CA5 /* Help in Resources */,
-				5A9ED38315F2214F005B8CA5 /* PrefsController.xib in Resources */,
-				5A9ED38515F22153005B8CA5 /* PrefsController.xib in Resources */,
-				5A9ED38715F22159005B8CA5 /* reveal.png in Resources */,
-				5A9ED38915F22199005B8CA5 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1184,6 +1174,7 @@
 		5ABB9FED0E8518DA006F51BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				PRODUCT_NAME = BuildArchive;
 			};
 			name = Debug;
@@ -1191,6 +1182,7 @@
 		5ABB9FEE0E8518DA006F51BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				PRODUCT_NAME = BuildArchive;
 			};
@@ -1199,6 +1191,7 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
@@ -1209,6 +1202,7 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
