@@ -516,7 +516,7 @@
 
 -(NSString *)description
 {
-	return [NSString stringWithFormat:@"%@ %d/%d (workers active %d, finished %d, total %d)", self.filePath,self.byteSize,self.byteSizeOptimized, workersActive, workersFinished, workersTotal];
+	return [NSString stringWithFormat:@"%@ %ld/%ld (workers active %ld, finished %ld, total %ld)", self.filePath,(long)self.byteSize,(long)self.byteSizeOptimized, (long)workersActive, (long)workersFinished, (long)workersTotal];
 }
 
 +(NSInteger)fileByteSize:(NSString *)afile

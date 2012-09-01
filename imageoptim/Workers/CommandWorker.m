@@ -155,7 +155,7 @@
 -(NSString *)tempPath
 {
     static int uid=0; if (uid==0) uid = getpid()<<12;
-	return [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.temp",[self className],[file hash]^[self hash],uid++]];
+	return [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.temp",[self className],(unsigned int)([file hash]^[self hash]),uid++]];
 }
 
 -(NSObject<WorkerQueueDelegate>*)delegate

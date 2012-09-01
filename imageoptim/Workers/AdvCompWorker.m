@@ -32,7 +32,7 @@
 	}
     
     if (![self taskForKey:@"AdvPng" bundleName:@"advpng"
-                arguments:[NSArray arrayWithObjects: [NSString stringWithFormat:@"-%d",level ? level : 4],@"-z",@"--",temp,nil]]) {
+                arguments:[NSArray arrayWithObjects: [NSString stringWithFormat:@"-%d",(int)(level ? level : 4)],@"-z",@"--",temp,nil]]) {
         return;
     }
     	

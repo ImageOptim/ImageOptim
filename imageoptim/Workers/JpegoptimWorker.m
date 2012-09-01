@@ -51,7 +51,7 @@
 	
 	if (maxquality > 10 && maxquality < 100)
 	{
-		[args insertObject:[NSString stringWithFormat:@"-m%d",maxquality] atIndex:0];
+		[args insertObject:[NSString stringWithFormat:@"-m%d",(int)maxquality] atIndex:0];
 	}
 		
     if (![self taskForKey:@"JpegOptim" bundleName:@"jpegoptim" arguments:args]) {

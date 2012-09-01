@@ -24,12 +24,12 @@
 {	
 	NSString *temp = [self tempPath];
 	
-	NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",optlevel ? optlevel : 6],
+	NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],
 							@"-out",temp,@"--",[file filePath],nil];
 
 	if (interlace != -1)
 	{
-		[args insertObject:[NSString stringWithFormat:@"-i%d",interlace] atIndex:0];
+		[args insertObject:[NSString stringWithFormat:@"-i%d",(int)interlace] atIndex:0];
 	}	
 	
 	if (![self taskForKey:@"OptiPng" bundleName:@"optipng" arguments:args]) {
