@@ -187,17 +187,27 @@
 			NSFileHandle *writehandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
 			NSData *data = [NSData dataWithContentsOfFile:filePathOptimized];
 			
-			if (writehandle && data && [data length] == byteSizeOptimized && [data length] > 34)
-			{
+            if (!writehandle) {
+                NSLog(@"Unable to open %@ for writing. Check file permissions.", filePath);
+                return NO;
+            }
+            else if (!data) {
+                NSLog(@"Unable to read %@", filePathOptimized);
+                return NO;
+            }
+            else if ([data length] != byteSizeOptimized) {
+                NSLog(@"Temp file size %u does not match expected %u in %@ for %@",(unsigned int)[data length],(unsigned int)byteSizeOptimized,filePathOptimized,filePath);
+                return NO;
+            }
+            else if ([data length] <= 34) {
+                NSLog(@"File %@ is suspiciously small, could be truncated", filePathOptimized);
+                return NO;
+            }
+			else {
 				[writehandle writeData:data];
 				[writehandle truncateFileAtOffset:[data length]];
                 [writehandle closeFile];
                 [self removeOldFilePathOptimized];
-			}
-			else 
-			{
-				NSLog(@"Temp file size %u does not match expected %u in %@ for %@",(unsigned int)[data length],(unsigned int)byteSizeOptimized,filePathOptimized,filePath);
-				return NO;				
 			}
 		}
 		else
