@@ -31,7 +31,7 @@
 	
     [args insertObject:@"-r" atIndex:0];
 	
-    int actualLevel = level;
+    int actualLevel = (int)level;
     if ([file isLarge] && level < 2) {
         actualLevel++; // use faster setting for large files
     }
