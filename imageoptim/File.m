@@ -132,7 +132,7 @@
     @synchronized(self) 
     {        
         NSLog(@"File %@ optimized with %@ from %u to %u in %@",filePath?filePath:filePathOptimized,toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,path);
-        if (size <= byteSizeOptimized)
+        if (size < byteSizeOptimized)
         {
             self.bestToolName = [toolname stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
             assert(![filePathOptimized isEqualToString:path]);
