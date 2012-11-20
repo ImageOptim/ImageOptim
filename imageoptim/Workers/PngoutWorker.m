@@ -64,13 +64,11 @@
     if (interruptIfTakesTooLong) [task performSelector:@selector(interrupt) withObject:nil afterDelay:60.0];// TODO: configurable timeout?
 	[self launchTask];
 	
-//	NSLog(@"launched pngout");
 	[self parseLinesFromHandle:commandHandle];
 	   
     if (interruptIfTakesTooLong) [NSObject cancelPreviousPerformRequestsWithTarget:task selector:@selector(interrupt) object:nil];
     
     [commandHandle readInBackgroundAndNotify];
-//	NSLog(@"finished reading lines");
 	
 	[task waitUntilExit];
     [commandHandle closeFile];
@@ -79,15 +77,9 @@
     if ([self isCancelled]) return;
 
 	if (![task terminationStatus] && fileSizeOptimized)
-	{		
-//		NSLog(@"Will save data");
+	{
 		[file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"PNGOUT"];
 	}
-	//else NSLog(@"pngout failed");
-	
-	;
-	
-//	NSLog(@"PNGOUT finished");
 }
 
 -(BOOL)makesNonOptimizingModifications

@@ -7,7 +7,6 @@
 #import "Worker.h"
 
 @implementation Worker
-//@synthesize dependsOn;
 
 -(NSObject <WorkerQueueDelegate>*)delegate
 {
@@ -20,7 +19,6 @@
 }
 
 -(void)main {
-//    NSLog(@"Worker start %@",self);
 	assert([self delegate]);
     [[self delegate] workerHasStarted:self];
     @try {
@@ -30,13 +28,9 @@
         NSLog(@"Caught %@: %@ %@", [exception name], [exception  reason], self);
     }
     @finally {        
-//                [[NSNotificationQueue defaultQueue] enqueueNotification:[NSNotification notificationWithName:@"WorkersMayHaveFinished" object:nil] 
-//                                                           postingStyle:NSPostWhenIdle 
-//                                                           coalesceMask:NSNotificationCoalescingOnName forModes:nil];
 		assert([self delegate]);
         [[self delegate] workerHasFinished:self];        
     }
-//    NSLog(@"Worker done ok %@",self);
 }
 
 -(void)run

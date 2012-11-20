@@ -104,7 +104,6 @@
 	{
 		anchor = anchors[tag-1];
 	}
-	//NSLog(@"opening help for %@ in %@",anchor, locBookName);
 	[[NSHelpManager sharedHelpManager] openHelpAnchor:anchor inBook:locBookName];
 }
 @synthesize tasksSlider;
