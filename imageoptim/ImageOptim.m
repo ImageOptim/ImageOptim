@@ -67,9 +67,34 @@
 }
 
 
+-(void)initStatusbar
+{
+    __block NSString *defaultText = statusBarLabel.stringValue;
+
+    // statusbar
+    [[statusBarLabel cell] setBackgroundStyle:NSBackgroundStyleRaised];
+    statusBarUpdateQueue = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_OR, 0, 0, dispatch_get_main_queue());
+    dispatch_source_set_event_handler(statusBarUpdateQueue, ^{
+        NSString *str;
+        if ([filesController.arrangedObjects count]) {
+            str = [NSString stringWithFormat:@"%f saved on average, %llu bytes, %llu optimized",
+                     [[filesController valueForKeyPath:@"arrangedObjects.@avg.percentOptimized"] doubleValue],
+                     [[filesController valueForKeyPath:@"arrangedObjects.@sum.byteSize"] unsignedLongLongValue],
+                     [[filesController valueForKeyPath:@"arrangedObjects.@sum.byteSizeOptimized"] unsignedLongLongValue]];
+        } else {
+            str = defaultText;
+        }
+        [statusBarLabel setStringValue:str];
+    });
+    dispatch_resume(statusBarUpdateQueue);
+
+    [filesController addObserver:self forKeyPath:@"arrangedObjects.@count" options:NSKeyValueObservingOptionNew context:nil];
+    [filesController addObserver:self forKeyPath:@"arrangedObjects.@avg.percentOptimized" options:NSKeyValueObservingOptionNew context:nil];
+    [filesController addObserver:self forKeyPath:@"arrangedObjects.@sum.byteSizeOptimized" options:NSKeyValueObservingOptionNew context:nil];
+}
+
 -(void)awakeFromNib
 {
-    [[statusBarLabel cell] setBackgroundStyle:NSBackgroundStyleRaised];
 	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
 
 	RevealButtonCell* cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
@@ -78,6 +103,14 @@
 
     [credits setString:@""];
     [credits readRTFDFromFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"]];
+
+    [self initStatusbar];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    // Defer and coalesce statusbar updates
+    dispatch_source_merge_data(statusBarUpdateQueue, 1);
 }
 
 +(int)numberOfCPUs

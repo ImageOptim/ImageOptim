@@ -21,6 +21,9 @@
 
     NSIndexSet* selectedIndexes;
 	QLPreviewPanel* previewPanel;
+
+    dispatch_source_t statusBarUpdateQueue;
+    IBOutlet NSNumberFormatter *savingsFormatter;
 }
 
 - (IBAction)showPrefs:(id)sender;
