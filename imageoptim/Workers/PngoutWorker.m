@@ -15,7 +15,6 @@
     if (self = [super init])
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        tryfilters = [defaults boolForKey:@"PngOutTryFilters"];
         level = 3-[defaults integerForKey:@"PngOutLevel"];
         removechunks = [defaults boolForKey:@"PngOutRemoveChunks"];
         interruptIfTakesTooLong = [defaults boolForKey:@"PngOutInterruptIfTakesTooLong"];
@@ -25,17 +24,12 @@
 
 -(void)run
 {
-//	NSLog(@"PNGOUT running");
 	NSString *temp = [self tempPath];
 		
     // uses stdout for file to force progress output to unbufferred stderr
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/[file filePath],@"-",nil];
 	
-
-	if (tryfilters) // -r is not this option... I'll implement it later, maybe
-	{
-		[args insertObject:@"-r" atIndex:0];
-	}
+    [args insertObject:@"-r" atIndex:0];
 	
     int actualLevel = level;
     if ([file isLarge] && level < 2) {

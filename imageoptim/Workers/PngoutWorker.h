@@ -8,7 +8,7 @@
 #import "CommandWorker.h"
 
 @interface PngoutWorker : CommandWorker {
-    BOOL tryfilters, removechunks, interruptIfTakesTooLong;
+    BOOL removechunks, interruptIfTakesTooLong;
     NSInteger level;
     
 	NSInteger fileSizeOptimized;
