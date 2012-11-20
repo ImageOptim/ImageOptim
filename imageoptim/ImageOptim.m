@@ -66,23 +66,72 @@
     [self migrateOldPreferences];
 }
 
+NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
+{
+    NSString *unit;
+    double size;
+
+    if (byteSize > 1000*1000LL) {
+        size = (double)byteSize / (1000.0*1000.0);
+        unit = NSLocalizedString(@"MB", "megabytes suffix");
+    } else {
+        size = (double)byteSize / 1000.0;
+        unit = NSLocalizedString(@"KB", "kilobytes suffix");
+    }
+
+    return [[formatter stringFromNumber:[NSNumber numberWithDouble:size]] stringByAppendingString:unit];
+};
+
 
 -(void)initStatusbar
 {
-    __block NSString *defaultText = statusBarLabel.stringValue;
-
-    // statusbar
     [[statusBarLabel cell] setBackgroundStyle:NSBackgroundStyleRaised];
+
+    __block NSString *defaultText = statusBarLabel.stringValue;
+    __block BOOL overallAvg = NO;
+    __block NSNumberFormatter* formatter = [NSNumberFormatter new];
+    __block NSNumberFormatter* percFormatter = [NSNumberFormatter new];
+
+    [formatter setMaximumFractionDigits:1];
+    [percFormatter setMaximumFractionDigits:1];
+    [formatter setNumberStyle: NSNumberFormatterDecimalStyle];
+    [percFormatter setNumberStyle: NSNumberFormatterPercentStyle];
+
     statusBarUpdateQueue = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_OR, 0, 0, dispatch_get_main_queue());
     dispatch_source_set_event_handler(statusBarUpdateQueue, ^{
-        NSString *str;
-        if ([filesController.arrangedObjects count]) {
-            str = [NSString stringWithFormat:@"%f saved on average, %llu bytes, %llu optimized",
-                     [[filesController valueForKeyPath:@"arrangedObjects.@avg.percentOptimized"] doubleValue],
-                     [[filesController valueForKeyPath:@"arrangedObjects.@sum.byteSize"] unsignedLongLongValue],
-                     [[filesController valueForKeyPath:@"arrangedObjects.@sum.byteSizeOptimized"] unsignedLongLongValue]];
-        } else {
-            str = defaultText;
+        NSString *str = defaultText;
+        if ([filesController.arrangedObjects count] > 1) {
+            NSNumber *bytes = [filesController valueForKeyPath:@"arrangedObjects.@sum.byteSize"],
+                 *optimized = [filesController valueForKeyPath:@"arrangedObjects.@sum.byteSizeOptimized"];
+
+            if ([bytes longLongValue] != [optimized longLongValue]) {
+                long long bytesL = [bytes longLongValue], bytesSaved = bytesL - [optimized longLongValue];
+                double savedAvg = [[filesController valueForKeyPath:@"arrangedObjects.@avg.percentOptimized"] doubleValue];
+                double savedTotal = 100.0*(1.0-[optimized doubleValue]/[bytes doubleValue]);
+
+                NSString *fmtStr; NSNumber *avgNum;
+                if (savedTotal*0.9 > savedAvg) {
+                    overallAvg = YES;
+                } else if (savedAvg*0.9 > savedTotal){
+                    overallAvg = NO;
+                }
+
+                if (overallAvg) {
+                    fmtStr = NSLocalizedString(@"Saved %@ out of %@. %@ overall (up to %@ per file)","total ratio");
+                    avgNum = [NSNumber numberWithDouble:savedTotal/100.0];
+                } else {
+                    fmtStr = NSLocalizedString(@"Saved %@ out of %@. %@ per file on average (up to %@)","per file avg");
+                    avgNum = [NSNumber numberWithDouble:savedAvg/100.0];
+                }
+
+                double max = [[filesController valueForKeyPath:@"arrangedObjects.@max.percentOptimized"] doubleValue];
+
+                str = [NSString stringWithFormat:fmtStr,
+                         formatSize(bytesSaved, formatter),
+                         formatSize(bytesL, formatter),
+                         [percFormatter stringFromNumber: avgNum],
+                         [percFormatter stringFromNumber: [NSNumber numberWithDouble:max/100.0]]];
+            }
         }
         [statusBarLabel setStringValue:str];
     });

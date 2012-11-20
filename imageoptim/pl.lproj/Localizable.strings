@@ -12,3 +12,6 @@
 "Waiting to be optimized" = "Oczekuje na optymalizację";
 "Waiting to start more optimizations" = "Oczekuje na kolejną rundę optymalizacji";
 "%@ failed to start" = "Nie udało się uruchomić %@";
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Zyskano %@ z %@. Średnio %@ (maksymalnie %@)";
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Zyskano %@ z %@. Ogólnie %@ (maksymalnie %@)";
+
