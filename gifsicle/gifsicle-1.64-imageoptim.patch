@@ -38,8 +38,21 @@ index f84549e..e85d8d7 100644
 -  else
 -    verbose_out = stdout;
  }
+diff --git a/src/gifread.c b/src/gifread.c
+index 2518230..7006a4e 100644
+--- a/src/gifread.c
++++ b/src/gifread.c
+@@ -513,7 +513,7 @@ uncompress_image(Gif_Context *gfc, Gif_Image *gfi, Gif_Reader *grr)
+ int
+ Gif_FullUncompressImage(Gif_Image *gfi, Gif_ReadErrorHandler h, void *hthunk)
+ {
+-  Gif_Context gfc;
++  Gif_Context gfc = {};
+   Gif_Stream fake_gfs;
+   Gif_Reader grr;
+   int ok = 0;
 diff --git a/src/gifsicle.c b/src/gifsicle.c
-index b4277c9..3eb4506 100644
+index 146110a..7dc0521 100644
 --- a/src/gifsicle.c
 +++ b/src/gifsicle.c
 @@ -33,7 +33,6 @@ Gt_Frameset *nested_frames = 0;
@@ -50,7 +63,7 @@ index b4277c9..3eb4506 100644
  
  static int gif_read_flags = 0;
  static int nextfile = 0;
-@@ -290,7 +289,6 @@ const Clp_Option options[] = {
+@@ -294,7 +293,6 @@ const Clp_Option options[] = {
      Clp_Negate },
    { "transparent", 't', 't', COLOR_TYPE, Clp_Negate },
  
@@ -58,7 +71,7 @@ index b4277c9..3eb4506 100644
    { "use-colormap", 0, USE_COLORMAP_OPT, Clp_ValString, Clp_Negate },
  
    { "verbose", 'V', VERBOSE_OPT, 0, Clp_Negate },
-@@ -697,17 +695,6 @@ input_stream(const char *name)
+@@ -706,17 +704,6 @@ input_stream(const char *name)
      add_frame(frames, -1, gfs, gfs->images[i]);
    def_frame = old_def_frame;
  
@@ -76,7 +89,7 @@ index b4277c9..3eb4506 100644
    apply_color_transforms(input_transforms, gfs);
    gfs->refcount++;
  
-@@ -770,69 +757,6 @@ set_new_fixed_colormap(const char *name)
+@@ -779,69 +766,6 @@ set_new_fixed_colormap(const char *name)
      def_output_data.colormap_fixed = read_colormap_file(name, 0);
  }
  
@@ -146,9 +159,9 @@ index b4277c9..3eb4506 100644
  
  /*****
   * output GIF images
-@@ -883,8 +807,7 @@ merge_and_write_frames(const char *outfile, int f1, int f2)
-   if (verbosing)
+@@ -893,8 +817,7 @@ merge_and_write_frames(const char *outfile, int f1, int f2)
      verbose_open('[', outfile ? outfile : "#stdout#");
+   active_output_data.active_output_name = outfile;
  
 -  colormap_change = active_output_data.colormap_size > 0
 -    || active_output_data.colormap_fixed;
@@ -156,7 +169,7 @@ index b4277c9..3eb4506 100644
    warn_local_colormaps = !colormap_change;
  
    compress_immediately = 1;
-@@ -907,8 +830,6 @@ merge_and_write_frames(const char *outfile, int f1, int f2)
+@@ -917,8 +840,6 @@ merge_and_write_frames(const char *outfile, int f1, int f2)
      else if (active_output_data.scaling == GT_SCALING_RESIZE_FIT)
        resize_stream(out, active_output_data.resize_width,
  		    active_output_data.resize_height, 1);
@@ -164,8 +177,8 @@ index b4277c9..3eb4506 100644
 -      do_colormap_change(out);
      if (output_transforms)
        apply_color_transforms(output_transforms, out);
-     if (active_output_data.optimizing > 0)
-@@ -1284,16 +1205,6 @@ main(int argc, char *argv[])
+     if (active_output_data.optimizing & GT_OPT_MASK)
+@@ -1302,16 +1223,6 @@ main(int argc, char *argv[])
    dmalloc_verbose("fudge");
  #endif
  
@@ -182,9 +195,9 @@ index b4277c9..3eb4506 100644
  
    while (1) {
      int opt = Clp_Next(clp);
-@@ -1605,11 +1516,6 @@ main(int argc, char *argv[])
- 	def_output_data.optimizing = (clp->have_val ? clp->val.i : 1);
+@@ -1641,11 +1552,6 @@ main(int argc, char *argv[])
        break;
+     }
  
 -     case UNOPTIMIZE_OPT:
 -      UNCHECKED_MARK_CH(input, CH_UNOPTIMIZE);
@@ -195,7 +208,7 @@ index b4277c9..3eb4506 100644
  
       case CAREFUL_OPT: {
 diff --git a/src/quantize.c b/src/quantize.c
-index 4d257be..5d96f36 100644
+index aa0859c..a1662cd 100644
 --- a/src/quantize.c
 +++ b/src/quantize.c
 @@ -101,7 +101,7 @@ histogram(Gif_Stream *gfs, int *nhist_store)
