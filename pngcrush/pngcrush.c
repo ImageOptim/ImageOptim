@@ -1,8 +1,8 @@
 /*
  * pngcrush.c - recompresses png files
- * Copyright (C) 1998-2002,2006-2011 Glenn Randers-Pehrson
+ * Copyright (C) 1998-2002, 2006-2013 Glenn Randers-Pehrson
  *                                   (glennrp at users.sf.net)
- * Portions copyright (C) 2005      Greg Roelofs
+ * Portions copyright (C) 2005       Greg Roelofs
  *
  * This software is released under a license derived from the libpng
  * license (see LICENSE, below).
@@ -13,8 +13,7 @@
  * This program reads in a PNG image, and writes it out again, with the
  * optimum filter_method and zlib_level.  It uses brute force (trying
  * filter_method none, and libpng adaptive filtering, with compression
- * levels 3 and 9).  It does the most time-consuming method last in case
- * it turns out to be the best.
+ * levels 3 and 9).
  *
  * Optionally, it can remove unwanted chunks or add gAMA, sRGB, bKGD,
  * tEXt/zTXt, and tRNS chunks.  It will remove some chunks such as gAMA,
@@ -22,8 +21,6 @@
  * mistake.
  *
  * Uses libpng and zlib.  This program was based upon libpng's pngtest.c.
- * If using a "system" libpng and not the bundled libpng15 that comes
- * with pngcrush, this must at present be libpng14 or earlier.
  *
  * Thanks to Greg Roelofs for various bug fixes, suggestions, and
  * occasionally creating Linux executables.
@@ -31,19 +28,35 @@
  * Thanks to Stephan Levavej for some helpful suggestions about gcc compiler
  * options and for a suggestion to increase the Z_MEM_LEVEL from default.
  *
- * Caution: there is another version of pngcrush that has been distributed by
+ */
+
+/*
+ * CAUTION:
+ *
+ * There is another version of pngcrush that has been distributed by
  * Apple since mid-2008 as a part of the Xcode SDK.   Although it claims
  * to be pngcrush by Glenn Randers-Pehrson, it has additional options
- * "-iPhone" * and "-speed".  It writes files that have the PNG 8-byte signature
- * but are not valid PNG files, due to at least
+ * "-iPhone", "-speed", "-revert-iphone-optimizations", and perhaps others.
+ * It is an "altered version" but is not "plainly marked as such" as
+ * required by the license.
+ *
+ * It writes files that have the PNG 8-byte signature but are not valid PNG
+ * files (instead they are "IOS-optimized PNG files"), due to at least
  *
  *   o the presence of the CgBI chunk ahead of the IHDR chunk,
- *   o nonstandard deflate compression in IDAT, iCCP, and perhaps zTXt chunks,
+ *   o nonstandard deflate compression in IDAT, iCCP, and perhaps zTXt chunks;
+ *     I believe this only amounts to the omission of the zlib header from
+ *     the IDAT and perhaps other compressed chunks.
+ *   o Omission of the CRC bytes from the IDAT chunk and perhaps other chunks.
  *   o the use of premultiplied alpha in color_type 6 files, and
- *   o the sample order is ARGB instead of RGBA in color_type 6 files.
+ *   o the sample order, which is ARGB instead of RGBA in color_type 6 files.
  *
- * The original PNG file cannot be losslessly recovered from such files
- * because of the use of premultiplied alpha.
+ * See http://iphonedevwiki.net/index.php/CgBI_file_format for more info.
+ *
+ * Although there is no loss in converting a CgBI PNG back to a regular
+ * PNG file, the original PNG file cannot be losslessly recovered from such
+ * files because of the losses that occurred during the conversion to
+ * premultiplied alpha.
  *
  * Most PNG decoders will recognize the fact that an unknown critical
  * chunk "CgBI" is present and will immediately reject the file.
@@ -52,14 +65,22 @@
  * when PNG files are prepared for downloading to the iPhone unless the
  * user takes special measures to prevent it.
  *
+ * It is said that the Xcode pngcrush does have a command to undo the
+ * premultiplied alpha.  It's not theoretically possible, however, to recover
+ * the original file without loss.  The underlying color data must either be
+ * reduced in precision, or, in the case of fully-transparent pixels,
+ * completely lost.
+ *
  * I have not seen the source for the Xcode version of pngcrush.  All I
- * know, for now, is from running "strings -a" on a copy of the executable,
- * looking at two Xcode-PNG files, and reading Apple's patent application
- * <http://www.freepatentsonline.com/y2008/0177769.html>.
+ * know, for now, is from running "strings -a" on an old copy of the
+ * executable, looking at two Xcode-PNG files, and reading Apple's patent
+ * application <http://www.freepatentsonline.com/y2008/0177769.html>.  Anyone
+ * who does have access to the revised pngcrush code cannot show it to me
+ * anyhow because of their Non-Disclosure Agreement with Apple.
  *
  */
 
-#define PNGCRUSH_VERSION "1.7.22"
+#define PNGCRUSH_VERSION "1.7.43"
 
 /* Experimental: define these if you wish, but, good luck.
 #define PNGCRUSH_COUNT_COLORS
@@ -75,9 +96,9 @@
  *
  * COPYRIGHT:
  *
- * Copyright (C) 1998-2002,2006-2011 Glenn Randers-Pehrson
+ * Copyright (C) 1998-2002, 2006-2013 Glenn Randers-Pehrson
  *                                   (glennrp at users.sf.net)
- * Portions copyright (C) 2005      Greg Roelofs
+ * Portions copyright (C) 2005       Greg Roelofs
  *
  * DISCLAIMERS:
  *
@@ -112,21 +133,24 @@
 
 /* To do:
  *
- *   Eliminate direct access to png_info members so pngcrush will work
- *   with the system libpng15.  For now, it works with the bundled libpng15,
- *   but requires libpng14 or an earlier system library, or libpng-1.5.6
- *   or later.  See about 300 lines enclosed in
+ *   (As noted below, some of the features that aren't yet implemented
+ *   in pngcrush are already available in ImageMagick; you can try a
+ *   workflow that makes a first pass over the image with ImageMagick
+ *   to select the bit depth, color type, interlacing, etc., and then makes
+ *   another pass with pngcrush to optimize the compression.)
  *
- *       #if (!defined(PNGCRUSH_H))
- *         ...
- *       #endif
- *
- *   Reset CINFO to reflect decoder's required window size (instead of
+ *   1. Reset CINFO to reflect decoder's required window size (instead of
  *   libz-1.1.3 encoder's required window size, which is 262 bytes larger).
  *   See discussion about zlib in png-list archives for April 2001.
  *   libpng-1.2.9 does some of this and libpng-1.5.4 does better.
  *   But neither has access to the entire datastream, so pngcrush could
  *   do even better.
+ *
+ *   This has no effect on the "crushed" filesize.  The reason for setting
+ *   CINFO properly is to provide the *decoder* with information that will
+ *   allow it to request only the minimum amount of memory required to decode
+ *   the image (note that libpng-based decoders don't make use of this
+ *   hint until libpng-1.6.0).
  *
  *   In the meantime, one can just do the following and select the smallest
  *   window that does not increase the filesize, after running pngcrush once
@@ -137,42 +161,100 @@
  *      pngcrush -m <best_pngcrush_method> -w $w $1 w-$w.png
  *      done
  *
- *   Use pngcheck -v and look at the IDAT report to find out what window
- *   size is actually set in a png file.
+ *   then use pngcheck -v and look at the IDAT report to find out what window
+ *   size is actually set in a png file (or revise pngcrush -v to report
+ *   the window size).
  *
- *   Add a "pcRu" ancillary chunk that keeps track of the best method,
+ *   There are several ways that pngcrush could implement this.
+ *
+ *      a. Revise the bundled zlib to report the maximum window size that
+ *      it actually used, then rewrite CINFO to contain the next power-of-two
+ *      size equal or larger than the size.  This method would of course
+ *      only work when pngcrush is built with the bundled zlib.
+ *
+ *      b. Do additional trials after the best filter method, strategy,
+ *      and compression level have been determined, using those settings
+ *      and reducing the window size until the measured filesize increases,
+ *      then choosing the smallest size which did not cause the filesize
+ *      to increase.
+ *
+ *      c. After the trials are complete, replace CINFO with smaller
+ *      settings, then attempt to decode the zlib datastream, and choose
+ *      the smallest setting whose datastream can still be decoded
+ *      successfully.  This is likely to be the simplest and fastest
+ *      solution.
+ *
+ *   2. Check for unused alpha channel in color-type 4 and 6.
+ *
+ *     a. If the image is entirely opaque, reduce the color-type to 0 or 2.
+ *
+ *     b. Check for the possiblity of using the tRNS chunk instead of
+ *     the full alpha channel.  If all of the transparent pixels are
+ *     fully transparent, and they all have the same underlying color,
+ *     and no opaque pixel has that same color, then write a tRNS
+ *     chunk and reduce the color-type to 0 or 2. This is a lossless
+ *     operation.  ImageMagick already does this, as of version 6.7.0.
+ *     If the lossy "-blacken" option is present, do that operation first.
+ *
+ *   3. Check for equal R-G-B channels in color-type 2 or 6.
+ *
+ *   If this is true for all pixels, reduce the color-type to 0 or 4.
+ *   This operation is lossless.  ImageMagick already does this.
+ *
+ *   4. Check for ok-to-reduce-depth (i.e., every pixel has color samples
+ *   that can be expressed exactly using a smaller depth).
+ *
+ *   If so, reduce the bit depth accordingly.  This operation is lossless.
+ *
+ *   Note for 2, 3, 4: Take care that sBIT and bKGD data are not lost or
+ *   become invalid when reducing images from truecolor to grayscale or
+ *   when reducing the bit depth.
+ *
+ *   5. Add choice of interlaced or non-interlaced output. Corrently you
+ *   can change interlaced to non-interlaced and vice versa by using
+ *   ImageMagick before running pngcrush.
+ *
+ *   6. Use a better compression algorithm for "deflating" (result must
+ *   still be readable with zlib!)  e.g., http://en.wikipedia.org/wiki/7-Zip
+ *   says that the 7-zip deflate compressor achieves better compression
+ *   (smaller files) than zlib.  If tests show that this would be worth
+ *   while, incorporate the 7-zip compressor as an optional alternative
+ *   or additional method of pngcrush compression. See the GPL-licensed code
+ *   at http://en.wikipedia.org/wiki/AdvanceCOMP and note that if this
+ *   is incorporated in pngcrush, then pngcrush would have to be re-licensed,
+ *   or released in two versions, one libpng-licensed and one GPL-licensed!
+ *
+ *   7. Implement palette-building (from ImageMagick-6.7.0 or later, minus
+ *   the "PNG8" part) -- actually ImageMagick puts the transparent colors
+ *   first, then the semitransparent colors, and finally the opaque colors,
+ *   and does not sort colors by frequency of use but just adds them
+ *   to the palette/colormap as it encounters them, so it might be improved.
+ *   Also it might be made faster by using a hash table as was partially
+ *   implemented in pngcrush-1.6.x.  If the latter is done, also port that
+ *   back to ImageMagick/GraphicsMagick.  See also ppmhist from the NetPBM
+ *   package which counts RGB pixels in an image; this and its supporting
+ *   lib/libppmcmap.c would need to be revised to count RGBA pixels instead.
+ *
+ *   8. Improve the -help output and/or write a good man page.
+ *
+ *   9. Finish pplt (MNG partial palette) feature.
+ *
+ *   10. Remove text-handling and color-handling features and put
+ *   those in a separate program or programs, to avoid unnecessary
+ *   recompressing.  Note that in pngcrush-1.7.34, pngcrush began doing
+ *   this extra work only once instead of for every trial, so the potential
+ *   benefit in CPU savings is much smaller now.
+ *
+ *   11. Add a "pcRu" ancillary chunk that keeps track of the best method,
  *   methods already tried, and whether "loco crushing" was effective.
  *
- *   Try both transformed and untransformed colors when "-loco" is used.
+ *   12. Try both transformed and untransformed colors when "-loco" is used.
  *
- *   Check for unused alpha channel and ok-to-reduce-depth.
- *   Take care that sBIT and bKGD data are not lost when reducing images
- *   from truecolor to grayscale.
+ *   13. Move the Photoshop-fixing stuff into a separate program.
  *
- *   Rearrange palette to put most-used color first and transparent color
- *   second (see ImageMagick 5.1.1 and later).
- *
- *   Finish pplt (partial palette) feature.
- *
- *   Allow in-place file replacement or as a filter, as in
- *    "pngcrush -overwrite file.png"
- *    "pngcreator | pngcrush > output.png"
- *
- *   Use an alternate write function for the trial passes, that
- *   simply counts bytes rather than actually writing to a file, to save wear
- *   and tear on disk drives (actually, on modern operating systems it
- *   will only save wear and tear on the memory cache) and possibly some
- *   CPU time.
- *
- *   Remove text-handling and color-handling features and put
- *   those in a separate program or programs, to avoid unnecessary
- *   recompressing.
- *
- *   Move the Photoshop-fixing stuff into a separate program.
- *
- *   GRR: More generally (superset of previous 3 items):  split into separate
- *   "edit" and "crush" programs (or functions).  Former is fully libpng-
- *   aware, much like current pngcrush; latter makes little or no use of
+ *   14. GRR: More generally (superset of previous 3 items):  split into
+ *   separate "edit" and "crush" programs (or functions).  Former is fully
+ *   libpng-aware, much like current pngcrush; latter makes little or no use of
  *   libpng (maybe IDAT-compression parts only?), instead handling virtually
  *   all chunks as opaque binary blocks that are copied to output file _once_,
  *   with IDATs alone replaced (either by best in-memory result or by original
@@ -181,17 +263,141 @@
  *   _one_ pass through args list, creating table of PNG_UINTs for removal;
  *   then make initial pass through PNG image, creating (in-order) table of
  *   all chunks (and byte offsets?) and marking each as "keep" or "remove"
- *   according to args table.  Could start with static table of ~20-30 slots,
+ *   according to args table.  Could start with static table of 16 or 32 slots,
  *   then double size & copy if run out of room:  still O(n) algorithm.
- *
- *   Blacken underlying colors of fully transparent pixels using a
- *     png user transform callback function, if "-blacken" option is present.
  *
  */
 
 #if 0 /* changelog */
 
 Change log:
+
+Version 1.7.43 (built with libpng-1.5.13 and zlib-1.2.7)
+  Added "remove(inname)" before "rename(outname, inname)" when using the "-ow"
+    option on CYGWIN/MinGW because "rename()" does not work if the target file
+    exists.
+  Use the bundled "zlib.h" when PNGCRUSH_H is defined, otherwise use the
+    system <zlib.h>.
+
+Version 1.7.42 (built with libpng-1.5.13 and zlib-1.2.7)
+  Use malloc() and free() instead of png_malloc_default() and
+    png_free_default().  This will be required to run with libpng-1.7.x.
+  Revised the PNG_ABORT definition in pngcrush.h to work with libpng-1.7.x.
+  Revised zutil.h to avoid redefining ptrdiff_t on MinGW/CYGWIN platforms.
+
+Version 1.7.41 (built with libpng-1.5.13 and zlib-1.2.7)
+  Reverted to version 1.7.38.  Versions 1.7.39 and 1.7.40 failed to
+    open an output file.
+
+Version 1.7.40 (built with libpng-1.5.13 and zlib-1.2.7)
+  Revised the "To do" list.
+
+Version 1.7.39 (built with libpng-1.5.13 and zlib-1.2.7)
+  Removed "PNGCRUSH_COUNT_COLORS" blocks which I no longer intend to
+    implement because that feature is already available in ImageMagick.  Kept
+    "reduce_to_gray" and "it_is_opaque" flags which I do hope to implement
+    soon.
+  Changed NULL to pngcrush_default_read_data in png_set_read_fn() calls, to fix
+    an insignificant error introduced in pngcrush-1.7.14, that caused most
+    reads to not go through the alternate read function.  Also always set this
+    function, instead of depending on STDIO_SUPPORTED.
+
+Version 1.7.38 (built with libpng-1.5.13 and zlib-1.2.7)
+  Bail out of a trial if byte count exceeds best byte count so far.  This
+    avoids wasting CPU time on trial compressions of trials that exceed the
+    best compression found so far.
+  Added -bail and -nobail options.  Use -nobail to get a complete report
+    of filesizes; otherwise the report just says ">N" for any trial
+    that exceeds size N where N is the best size achieved so far.
+  Added -blacken option, to enable changing the color samples of any
+    fully-transparent pixels to zero in PNG files with color-type 4 or 6,
+    potentially improving their compressibility. Note that this is an
+    irreversible lossy change: the underlying colors of all fully transparent
+    pixels are lost, if they were not already black.
+
+Version 1.7.37 (built with libpng-1.5.12 and zlib-1.2.7)
+  Reverted pngcrush.c back to 1.7.35 and fixed the bug with PLTE handling.
+
+Version 1.7.36 (built with libpng-1.5.12 and zlib-1.2.7)
+  Reverted pngcrush.c to version 1.7.34 because pngcrush is failing with
+    some paletted PNGs.
+  Separated CFLAGS and CPPFLAGS in the makefile (with "-I" and "-DZ_SOLO"
+    in CPPFLAGS)
+
+Version 1.7.35 (built with libpng-1.5.12 and zlib-1.2.7)
+  Removed FOPEN of fpout except for the last trial.  The open files caused
+    "pngcrush -brute -e _ext.png *.png" to fail on the 10th file (about the
+    1024th compression trial) due to being unable to open the output file.
+
+Version 1.7.34 (built with libpng-1.5.12 and zlib-1.2.7)
+  Compute and report sum of critical chunk lengths IHDR, PLTE, IDAT, and IEND,
+    plus the 8-byte PNG signature instead of just the total IDAT data length.
+    Simplify finding the lengths from the trial compressions, by replacing
+    the write function with one that simply counts the bytes that would have
+    been written to a trial PNG, instead of actually writing a PNG, reading it
+    back, and counting the IDAT bytes.
+  Removed comments about the system library having to be libpng14 or earlier.
+    This restriction was fixed in version 1.7.20.
+
+Version 1.7.33  (built with libpng-1.5.12 and zlib-1.2.7)
+  Ignore all ancillary chunks except during the final trial.  This can be
+    significantly faster when large ancillary chunks such as iCCP and zTXt
+    are present.
+
+Version 1.7.32  (built with libpng-1.5.12 and zlib-1.2.7)
+  Fixed bug introduced in 1.7.30: Do not call png_set_check_for_invalid_index()
+    when nosave != 0 (otherwise pngcrush crashes with the "-n" option).
+
+Version 1.7.31  (built with libpng-1.5.11 and zlib-1.2.7)
+  Dropped *.tar.bz2 from distribution.
+  Added a comma that was missing from one of the "usage" strings (error
+    introduced in version 1.7.29).
+
+Version 1.7.30  (built with libpng-1.5.11 and zlib-1.2.7)
+  Only run the new (in libpng-1.5.10) test of palette indexes during the
+    first trial.
+
+Version 1.7.29  (built with libpng-1.5.10 and zlib-1.2.7)
+  Set "things_have_changed" flag when adding text chunks, so the "-force"
+    option is no longer necessary when adding text to an already-compressed
+    file.
+  Direct usage message and error messages to stderr instead of stdout. If
+    anyone is still using DOS they may have to change the "if 0" at line
+    990 to "if 1".  If you need to have the messages on standard output
+    as in the past, use 2>&1 to redirect them.
+  Added "pngcrush -n -v files.png" to the usage message.
+
+Version 1.7.28  (built with libpng-1.5.10 and zlib-1.2.7)
+  Write proper copyright year for zlib, depending upon ZLIB_VERNUM
+
+Version 1.7.27  (built with libpng-1.5.10 and zlib-1.2.6)
+  Increased row_buf malloc to row_bytes+64 instead of row_bytes+16, to
+    match the size of big_row_buf in pngrutil.c (it is 48 in libpng14, 15, 16,
+    and 64 in libpng10, 12.  Otherwise there is a double-free crash when the
+    row_buf is destroyed.
+
+Version 1.7.26  (built with libpng-1.5.10 and zlib-1.2.6)
+  Increased the text_text buffer from 2048 to 10*2048 (Ralph Giles), and
+    changed an incorrect test for keyword length "< 180" to "< 80".  The
+    text_text buffer was inadvertently reduced from 20480 to 2048 in
+    pngcrush-1.7.9.
+  Added -DZ_SOLO to CFLAGS, needed to compile zlib-1.2.6.
+  Changed user limits to width and height max 500000, malloc max 2MB,
+    cache max 500.
+  Added -nolimits option which sets the user limits to the default
+    unlimited values.
+
+Version 1.7.25  (built with libpng-1.5.9 and zlib-1.2.5)
+
+Version 1.7.24  (built with libpng-1.5.7 and zlib-1.2.5)
+  Do not append a slash to the directory name if it already has one.
+
+Version 1.7.23  (built with libpng-1.5.7 and zlib-1.2.5)
+  Ignore any attempt to use "-ow" with the "-d" or "-e" options, with warning.
+  Include zlib.h if ZLIB_H is not defined (instead of checking the libpng
+    version; see entry below for pngcrush-1.7.14), and include string.h
+    if _STRING_H_ is not defined (because libpng-1.6 does not include string.h)
+  Define SLASH = backslash on Windows platforms so the "-d" option will work..
 
 Version 1.7.22  (built with libpng-1.5.6 and zlib-1.2.5)
   Added "-ow" (overwrite) option.  The input file is overwritten and the
@@ -261,6 +467,7 @@ Version 1.7.9  (built with libpng-1.4.1 and zlib-1.2.3.9)
   Defined TOO_FAR == 32767 in pngcrush.h (instead of in deflate.c)
   Revised the "nolib" Makefiles to remove reference to gzio.c and
     pnggccrd.c
+  Imposed user limits of chunk_malloc_max=4000000 and chunk_cache_max=500.
 
 Version 1.7.8  (built with libpng-1.4.0 and zlib-1.2.3.5)
   Removed gzio.c
@@ -758,39 +965,49 @@ Version 1.1.4: added ability to restrict brute_force to one or more filter
 #endif
 
 #if PNGCRUSH_LIBPNG_VER >= 10500
-#  ifdef PNGCRUSH_H
-#    include "zlib.h"
-#  else
-#    include <zlib.h>
+   /* "#include <zlib.h>" is not provided by libpng15 */
+#ifdef PNGCRUSH_H
+   /* Use the bundled zlib */
+#  include "zlib.h"
+#else
+   /* Use the system zlib */
+#  include <zlib.h>
+#endif
+
+#  ifndef PNG_UNUSED
+#    define PNG_UNUSED(param) (void)param;
 #  endif
 
-/* The following became unavailable in libpng16 (and were
- * deprecated in libpng14 and 15)
- */
-#ifdef USE_FAR_KEYWORD
-/* Use this to make far-to-near assignments */
-#  define CHECK   1
-#  define NOCHECK 0
-#  define CVT_PTR(ptr) (png_far_to_near(png_ptr,ptr,CHECK))
-#  define CVT_PTR_NOCHECK(ptr) (png_far_to_near(png_ptr,ptr,NOCHECK))
-#  define png_memcmp  _fmemcmp    /* SJT: added */
-#  define png_memcpy  _fmemcpy
-#  define png_memset  _fmemset
-#else
-#  ifdef _WINDOWS_  /* Favor Windows over C runtime fns */
-#    define CVT_PTR(ptr)         (ptr)
-#    define CVT_PTR_NOCHECK(ptr) (ptr)
-#    define png_memcmp  memcmp
-#    define png_memcpy  CopyMemory
-#    define png_memset  memset
+   /* Not provided by libpng16 */
+#  include <string.h>
+
+   /* The following became unavailable in libpng16 (and were
+    * deprecated in libpng14 and 15)
+    */
+#  ifdef   USE_FAR_KEYWORD
+     /*   Use this to make far-to-near assignments */
+#    define CHECK   1
+#    define NOCHECK 0
+#    define CVT_PTR(ptr) (png_far_to_near(png_ptr,ptr,CHECK))
+#    define CVT_PTR_NOCHECK(ptr) (png_far_to_near(png_ptr,ptr,NOCHECK))
+#    define png_memcmp  _fmemcmp    /* SJT: added */
+#    define png_memcpy  _fmemcpy
+#    define png_memset  _fmemset
 #  else
-#    define CVT_PTR(ptr)         (ptr)
-#    define CVT_PTR_NOCHECK(ptr) (ptr)
-#    define png_memcmp  memcmp      /* SJT: added */
-#    define png_memcpy  memcpy
-#    define png_memset  memset
+#    ifdef _WINDOWS_  /* Favor Windows over C runtime fns */
+#      define CVT_PTR(ptr)         (ptr)
+#      define CVT_PTR_NOCHECK(ptr) (ptr)
+#      define png_memcmp  memcmp
+#      define png_memcpy  CopyMemory
+#      define png_memset  memset
+#    else
+#      define CVT_PTR(ptr)         (ptr)
+#      define CVT_PTR_NOCHECK(ptr) (ptr)
+#      define png_memcmp  memcmp      /* SJT: added */
+#      define png_memcpy  memcpy
+#      define png_memset  memset
+#    endif
 #  endif
-#endif
 #endif
 
 #if PNGCRUSH_LIBPNG_VER < 10600 || defined(PNGCRUSH_H)
@@ -903,6 +1120,7 @@ Version 1.1.4: added ability to restrict brute_force to one or more filter
 #  define PNG_UINT_sRGB PNG_UINT_32_NAME(115, 82, 71, 66)
 #endif
 
+/* glennrp added sTER at pngcrush-1.6.10 */
 #ifndef PNG_UINT_sTER
 #  define PNG_UINT_sTER PNG_UINT_32_NAME(115, 84, 69, 82)
 #endif
@@ -950,8 +1168,11 @@ Version 1.1.4: added ability to restrict brute_force to one or more filter
  */
 
 /* Defined so I can write to a file on gui/windowing platforms */
-/*  #define STDERR stderr  */
-#define STDERR stdout /* for DOS */
+#if 0 /* Change this to "#if 1" if you need to. */
+#  define STDERR stdout /* for DOS */
+#else
+#  define STDERR stderr
+#endif
 
 #ifndef PNGCRUSH_LIBPNG_VER
 #  define PNGCRUSH_LIBPNG_VER PNG_LIBPNG_VER
@@ -976,10 +1197,13 @@ png_uint_32 pngcrush_crc;
 #define PNG_HANDLE_CHUNK_IF_SAFE HANDLE_CHUNK_IF_SAFE
 #endif
 
-#ifdef __DJGPP__
-#  if ((__DJGPP__ == 2) && (__DJGPP_MINOR__ == 0))
-#    include <libc/dosio.h>     /* for _USE_LFN, djgpp 2.0 only */
-#  endif
+#if defined(__DJGPP__) && ((__DJGPP__ == 2) && (__DJGPP_MINOR__ == 0))
+#  include <libc/dosio.h>     /* for _USE_LFN, djgpp 2.0 only */
+#endif 
+
+#if ( defined(_Windows) || defined(_WINDOWS) || defined(WIN32) ||  \
+   defined(_WIN32) || defined(__WIN32__) || defined(__CYGWIN__) || \
+   defined(__DJGPP__) )
 #  define SLASH "\\"
 #  define DOT "."
 #else
@@ -991,6 +1215,9 @@ png_uint_32 pngcrush_crc;
 #    define DOT "."
 #  endif
 #endif
+
+#define BACK_SLASH "\\"
+#define FWD_SLASH "/"
 
 #ifndef GAS_VERSION
 #  define GAS_VERSION "2.9.5(?)"  /* used only in help/usage screen */
@@ -1023,7 +1250,7 @@ png_uint_32 pngcrush_crc;
 #define FOPEN(file, how) fopen(file, how)
 #define FCLOSE(file)     {fclose(file); file=NULL;--number_of_open_files;};
 
-#define P0 if(first_trial && verbose > 0)printf
+#define P0 if(last_trial && verbose > 0)printf
 #define P1 if(verbose > 1)printf
 #define P2 if(verbose > 2)printf
 
@@ -1120,9 +1347,9 @@ static int text_inputs = 0;
 int text_where[10];           /* 0: no text; 1: before PLTE; 2: after PLTE */
 int text_compression[10];     /* -1: uncompressed tEXt; 0: compressed zTXt
                                   1: uncompressed iTXt; 2: compressed iTXt */
-char text_text[2048];        /* It would be nice to png_malloc this, but we
+char text_text[10*2048];      /* It would be nice to png_malloc this, but we
                                * don't have a png_ptr yet when we need it. */
-char text_keyword[800];
+char text_keyword[10*80];
 
 /* PNG_iTXt_SUPPORTED */
 char text_lang[800];
@@ -1157,9 +1384,14 @@ static int force_output_bit_depth = 0;
 static int input_color_type;
 static int input_bit_depth;
 static int trial;
-static int first_trial = 0;
+static int last_trial = 0;
+static png_uint_32 pngcrush_write_byte_count;
+static png_uint_32 pngcrush_best_byte_count=0xffffffff;
+            
 static int verbose = 1;
 static int fix = 0;
+static int bail = 0; /* if 0, bail out of trial early */
+static int blacken = 0; /* if 0, do not blacken color samples */
 static int things_have_changed = 0;
 static int global_things_have_changed = 0;
 static int default_compression_window = 15;
@@ -1183,6 +1415,7 @@ static int nosave = 0;
 static int overwrite = 0; /* overwrite the input file instead of creating
                            a new output file */
 static int nofilecheck = 0;
+static int no_limits = 0;
 #ifdef PNGCRUSH_LOCO
 static int new_mng = 0;
 #endif
@@ -1262,6 +1495,29 @@ static png_uint_32 crushed_idat_size = 0x3ffffffL;
 static int already_crushed = 0;
 int ia;
 
+#if defined(PNG_UNKNOWN_CHUNKS_SUPPORTED)
+static /* const */ png_byte chunks_to_ignore[] = {
+
+     98,  75,  71 , 68, '\0',  /* bKGD */
+     99,  72,  82,  77, '\0',  /* cHRM */
+    103,  65,  77,  65, '\0',  /* gAMA */
+    104,  73,  83,  84, '\0',  /* hIST */
+    105,  67,  67,  80, '\0',  /* iCCP */
+    105,  84,  88, 116, '\0',  /* iTXt */
+    111,  70,  70, 115, '\0',  /* oFFs */
+    112,  67,  65,  76, '\0',  /* pCAL */
+    112,  72,  89, 115, '\0',  /* pHYs */
+    115,  66,  73,  84, '\0',  /* sBIT */
+    115,  67,  65,  76, '\0',  /* sCAL */
+    115,  80,  76,  84, '\0',  /* sPLT */
+    115,  82,  71,  66, '\0',  /* sRGB */
+    115,  84,  69,  82, '\0',  /* sTER */
+    116,  69,  88, 116, '\0',  /* tEXt */
+    116,  73,  77,  69, '\0',  /* tIME */
+    116,  82,  78,  83, '\0',  /* tRNS */
+    122,  84,  88, 116, '\0'   /* zTXt */
+};
+#endif
 
 /* Prototypes */
 static void png_cexcept_error(png_structp png_ptr, png_const_charp message);
@@ -1273,8 +1529,11 @@ void PNGAPI pngcrush_default_read_data(png_structp png_ptr, png_bytep data,
 void png_read_transform_info(png_structp png_ptr, png_infop info_ptr);
 #endif
 
-void PNGAPI png_defaultwrite_data(png_structp png_ptr, png_bytep data,
+void PNGAPI pngcrush_default_write_data(png_structp png_ptr, png_bytep data,
   png_size_t length);
+
+void pngcrush_write_png(png_structp write_pointer, png_bytep data,
+     png_size_t length);
 
 #ifdef PNGCRUSH_H
 void png_reset_crc(png_structp png_ptr);
@@ -1541,7 +1800,8 @@ pngcrush_default_read_data(png_structp png_ptr, png_bytep data,
  */
 #ifndef USE_FAR_KEYWORD
 void PNGAPI
-png_defaultwrite_data(png_structp png_ptr, png_bytep data, png_size_t length)
+pngcrush_default_write_data(png_structp png_ptr, png_bytep data,
+   png_size_t length)
 {
    png_uint_32 check;
    png_FILE_p io_ptr;
@@ -1563,7 +1823,8 @@ png_defaultwrite_data(png_structp png_ptr, png_bytep data, png_size_t length)
 #define MIN(a,b) (a <= b ? a : b)
 
 void PNGAPI
-png_defaultwrite_data(png_structp png_ptr, png_bytep data, png_size_t length)
+pngcrush_default_write_data(png_structp png_ptr, png_bytep data,
+   png_size_t length)
 {
    png_uint_32 check;
    png_byte *near_data;  /* Needs to be "png_byte *" instead of "png_bytep" */
@@ -1668,13 +1929,12 @@ png_voidp png_debug_malloc(png_structp png_ptr, png_uint_32 size)
      * buffer and once to get a new free list entry.
      */
     {
-        memory_infop pinfo = (memory_infop)png_malloc_default(png_ptr,
-           sizeof *pinfo);
+        memory_infop pinfo = (memory_infop)malloc(sizeof *pinfo);
         pinfo->size = size;
         current_allocation += size;
         if (current_allocation > maximum_allocation)
             maximum_allocation = current_allocation;
-        pinfo->pointer = png_malloc_default(png_ptr, size);
+        pinfo->pointer = malloc(size);
         pinfo->next = pinformation;
         pinformation = pinfo;
         /* Make sure the caller isn't assuming zeroed memory. */
@@ -1717,7 +1977,7 @@ void png_debug_free(png_structp png_ptr, png_voidp ptr)
                 if (verbose > 2)
                     fprintf(STDERR, "Pointer %lux freed %lu bytes\n",
                             (unsigned long) ptr, (unsigned long)pinfo->size);
-                png_free_default(png_ptr, pinfo);
+                free(pinfo);
                 break;
             }
             if (pinfo->next == NULL) {
@@ -1730,7 +1990,7 @@ void png_debug_free(png_structp png_ptr, png_voidp ptr)
     }
 
     /* Finally free the data. */
-    png_free_default(png_ptr, ptr);
+    free(ptr);
 }
 
 #endif /* PNG_USER_MEM_SUPPORTED */
@@ -1906,11 +2166,11 @@ int keep_unknown_chunk(png_const_charp name, char *argv[])
 int keep_chunk(png_const_charp name, char *argv[])
 {
     int i;
-    if (verbose > 2 && first_trial)
+    if (verbose > 2 && last_trial)
         fprintf(STDERR, "   Read the %s chunk.\n", name);
     if (remove_chunks == 0)
         return 1;
-    if (verbose > 1 && first_trial)
+    if (verbose > 1 && last_trial)
         fprintf(STDERR, "     Check for removal of the %s chunk.\n", name);
     for (i = 1; i <= remove_chunks; i++) {
         if (!strncmp(argv[i], "-rem", 4)) {
@@ -1978,13 +2238,13 @@ int keep_chunk(png_const_charp name, char *argv[])
                 things_have_changed = 1;
                 /* (caller actually does the removal--by failing to create
                  * copy) */
-                if (verbose > 0 && first_trial)
+                if (verbose > 0 && last_trial)
                     fprintf(STDERR, "   Removed the %s chunk.\n", name);
                 return 0;
             }
         }
     }
-    if (verbose > 1 && first_trial)
+    if (verbose > 1 && last_trial)
         fprintf(STDERR, "   Preserving the %s chunk.\n", name);
     return 1;
 }
@@ -2045,7 +2305,100 @@ void show_result(void)
         "   **** Discarded APNG chunks. ****\n");
 }
 
+void pngcrush_write_png(png_structp write_pointer, png_bytep data,
+     png_size_t length)
+{
+    pngcrush_write_byte_count += (int) length;
+    if (nosave == 0 && last_trial == 1)
+      pngcrush_default_write_data(write_pointer, data, length);
+}
 
+static void pngcrush_flush(png_structp png_ptr)
+{
+   /* Do nothing. */
+   //PNG_UNUSED(png_ptr);
+}
+
+
+void blacken_fn(png_structp png_ptr, png_row_infop row_info, png_bytep data)
+{
+   /* change the underlying color of any fully transparent pixels to black */
+   
+   int i;
+
+   if (row_info->color_type < 4)
+     return;
+
+   i=(int) row_info->rowbytes-1;
+
+   if (row_info->color_type == 4) /* GA */
+   {
+     if (row_info->bit_depth == 8)
+       {
+         for ( ; i > 0 ; )
+         {
+            if (data[i--] == 0)
+                data[i--]=0;
+
+            else
+                i--;
+         }
+       }
+
+     else /* bit depth == 16 */
+       {
+         for ( ; i > 0 ; )
+         {
+            if (data[i] && data[i]== 0)
+              {
+                 i-=2;
+                 data[i--]=0;
+                 data[i--]=0;
+              }
+            else
+                 i-=4;
+         }
+       }
+   }
+
+   else /* color_type == 6, RGBA */
+   {
+     if (row_info->bit_depth == 8)
+       {
+         for ( ; i > 0 ; )
+         {
+            if (data[i] == 0)
+              {
+                 i--;
+                 data[i--]=0;
+                 data[i--]=0;
+                 data[i--]=0;
+              }
+            else
+                 i-=4;
+         }
+       }
+
+     else /* bit depth == 16 */
+       {
+         for ( ; i > 0 ; )
+         {
+            if (data[i]==0 && data[i-1]== 0)
+              {
+                 i-=2;
+                 data[i--]=0;
+                 data[i--]=0;
+                 data[i--]=0;
+                 data[i--]=0;
+                 data[i--]=0;
+                 data[i--]=0;
+              }
+            else
+                 i-=8;
+         }
+       }
+   }
+}
 
 
 int main(int argc, char *argv[])
@@ -2178,7 +2531,6 @@ int main(int argc, char *argv[])
 
     num_methods = method;   /* GRR */
 
-
 #define BUMP_I i++;if(i >= argc) {printf("insufficient parameters\n");exit(1);}
     names = 1;
 
@@ -2226,6 +2578,12 @@ int main(int argc, char *argv[])
             crushed_idat_size = (png_uint_32) atoi(argv[i]);
         }
 
+        else if (!strncmp(argv[i], "-bail", 5))
+            bail=0;
+ 
+        else if (!strncmp(argv[i], "-nobail", 7))
+            bail=1;
+
         else if (!strncmp(argv[i], "-bkgd", 5) ||
                  !strncmp(argv[i], "-bKGD", 5))
         {
@@ -2235,6 +2593,9 @@ int main(int argc, char *argv[])
             bkgd_green = (png_uint_16) atoi(argv[++i]);
             bkgd_blue = (png_uint_16) atoi(argv[++i]);
         }
+
+        else if (!strncmp(argv[i], "-blacken", 8))
+            blacken=1;
 
         else if (!strncmp(argv[i], "-brute", 6))
             /* brute force:  try everything */
@@ -2455,15 +2816,21 @@ int main(int argc, char *argv[])
             else
             {
                 int ic;
+                number_of_open_files++;
                 iccp_text = (char*)malloc(iccp_length);
+
                 for (ic = 0; ic < iccp_length; ic++)
                 {
                     png_size_t num_in;
                     num_in = fread(buffer, 1, 1, iccp_fn);
+
                     if (!num_in)
                         break;
+
                     iccp_text[ic] = buffer[0];
                 }
+
+                FCLOSE(iccp_fn);
             }
         }
 #endif /* PNG_iCCP_SUPPORTED */
@@ -2512,10 +2879,17 @@ int main(int argc, char *argv[])
               method = MAX_METHODS;
             }
         }
+
         else if (!strncmp(argv[i], "-nofilecheck", 5))
         {
             nofilecheck++;
         }
+
+        else if (!strncmp(argv[i], "-nolimits", 5))
+        {
+            no_limits++;
+        }
+
         else if (!strncmp(argv[i], "-nosave", 2))
         {
             /* no save; I just use this for testing decode speed */
@@ -2529,8 +2903,7 @@ int main(int argc, char *argv[])
         }
         else if(!strncmp(argv[i], "-ow",3))
         {
-                        //names++;
-                        overwrite = 1;
+            overwrite = 1;
         }
         else if (!strncmp(argv[i], "-premultiply", 5))
         {
@@ -2687,7 +3060,8 @@ int main(int argc, char *argv[])
             i += 2;
             BUMP_I;
             i -= 3;
-            if (strlen(argv[i + 2]) < 180 && strlen(argv[i + 3]) < 2048 &&
+            global_things_have_changed = 1;
+            if (strlen(argv[i + 2]) < 80 && strlen(argv[i + 3]) < 2048 &&
                 text_inputs < 10)
             {
 #ifdef PNG_iTXt_SUPPORTED
@@ -2911,7 +3285,7 @@ int main(int argc, char *argv[])
 
     for (;;)  /* loop on input files */
     {
-        first_trial = 1;
+        last_trial = 0;
 
         things_have_changed = global_things_have_changed;
 
@@ -2960,9 +3334,13 @@ int main(int argc, char *argv[])
                   directory_name);
                 exit(1);
             }
+
             strcpy(out_string, directory_name);
-            /*strcpy(out_string+outlen, SLASH); */
-            out_string[outlen++] = SLASH[0];   /* (assuming SLASH is 1 byte) */
+            /* Append a slash if it hasn't already got one at the end. */
+            if (out_string[outlen-1] != SLASH[0] &&
+                out_string[outlen-1] != FWD_SLASH[0] &&
+                out_string[outlen-1] != BACK_SLASH[0])
+              out_string[outlen++] = SLASH[0];   /* (assume SLASH is 1 byte) */
             out_string[outlen] = '\0';
 
             inlen = strlen(inname);
@@ -3001,6 +3379,17 @@ int main(int argc, char *argv[])
             strcpy(out_string+outlen, op);
             /*outlen += inlen - (op - in_string); */
             outname = out_string;
+        }
+
+        if (overwrite && (pngcrush_mode == EXTENSION_MODE ||
+            pngcrush_mode == DIRECTORY_MODE ||
+            pngcrush_mode == DIREX_MODE))
+        {
+            if (overwrite > 0)
+            {
+               P1( "Ignoring \"-ow\"; cannot use it with \"-d\" or \"-e\"");
+               overwrite=0;
+            }
         }
 
         /*
@@ -3108,8 +3497,8 @@ int main(int argc, char *argv[])
                number_of_open_files++;
                png_init_io(mng_ptr, mng_out);
                png_set_write_fn(mng_ptr, (png_voidp) mng_out,
-                               (png_rw_ptr) NULL,
-                               NULL);
+                                (png_rw_ptr) pngcrush_write_png,
+                                pngcrush_flush);
 #endif /* PNGCRUSH_LOCO */
 
             }
@@ -3132,7 +3521,7 @@ int main(int argc, char *argv[])
                 
                 fprintf(STDERR, "   Recompressing %s\n", inname);
                 fprintf(STDERR,
-                  "   Total length of data found in IDAT chunks    = %8lu\n",
+                  "   Total length of data found in critical chunks = %8lu\n",
                   (unsigned long)idat_length[0]);
                 fflush(STDERR);
             }
@@ -3292,6 +3681,11 @@ int main(int argc, char *argv[])
         P1("\n\nENTERING MAIN LOOP OVER %d METHODS\n", MAX_METHODS);
         for (trial = 1; trial <= MAX_METHODS; trial++)
         {
+            if (nosave || trial == MAX_METHODS)
+               last_trial = 1;
+
+            pngcrush_write_byte_count=0;
+
             idat_length[trial] = (png_uint_32) 0xffffffff;
 
             /* this part of if-block is for final write-the-best-file
@@ -3368,25 +3762,18 @@ int main(int argc, char *argv[])
                     break;
                 }
 
-                if (idat_length[best] == idat_length[final_method])
-                {
-                    break;
-                }
-                else
-                {
-                    filter_type = fm[best];
-                    zlib_level = lv[best];
-                    if (zs[best] == 1)
-                        z_strategy = Z_FILTERED;
-                    else if (zs[best] == 2)
-                        z_strategy = Z_HUFFMAN_ONLY;
+                filter_type = fm[best];
+                zlib_level = lv[best];
+                if (zs[best] == 1)
+                    z_strategy = Z_FILTERED;
+                else if (zs[best] == 2)
+                    z_strategy = Z_HUFFMAN_ONLY;
 #ifdef Z_RLE
-                    else if (zs[best] == 3)
-                        z_strategy = Z_RLE;
+                else if (zs[best] == 3)
+                    z_strategy = Z_RLE;
 #endif
-                    else /* if (zs[best] == 0) */
-                        z_strategy = Z_DEFAULT_STRATEGY;
-                }
+                else /* if (zs[best] == 0) */
+                    z_strategy = Z_DEFAULT_STRATEGY;
             }
             else
             {
@@ -3447,14 +3834,15 @@ int main(int argc, char *argv[])
                 continue;
             }
             number_of_open_files++;
-            if (nosave == 0)
+
+            if (last_trial && nosave == 0)
             {
 #ifndef __riscos
                 /* Can't sensibly check this on RISC OS without opening a file
                    for update or output
                  */
                 struct stat stat_in, stat_out;
-                if (first_trial && !nofilecheck
+                if (last_trial && !nofilecheck
                     && (stat(inname, &stat_in) == 0)
                     && (stat(outname, &stat_out) == 0) &&
 #if defined(_MSC_VER) || defined(__MINGW32__)   /* maybe others? */
@@ -3511,12 +3899,17 @@ int main(int argc, char *argv[])
                     Throw "pngcrush could not create read_ptr";
 
 #ifdef PNG_SET_USER_LIMITS_SUPPORTED
+                if (no_limits == 0)
+                {
 # if PNG_LIBPNG_VER >= 10400
-                png_set_chunk_cache_max(read_ptr, 500);
+                   png_set_chunk_cache_max(read_ptr, 500);
+                   png_set_user_limits(read_ptr, 500000L, 500000L);
+                   png_set_chunk_cache_max(read_ptr, 500);
 # endif
 # if PNG_LIBPNG_VER >= 10401
-                png_set_chunk_malloc_max(read_ptr, 4000000L);
+                   png_set_chunk_malloc_max(read_ptr, 2000000L);
 # endif
+                }
 #endif /* PNG_SET_USER_LIMITS_SUPPORTED */
 
 #if 0
@@ -3524,6 +3917,21 @@ int main(int argc, char *argv[])
                 png_set_compression_buffer_size(read_ptr,
                     (png_size_t)256);
 #endif /* 0 */
+
+    /* Change the underlying color of any fully transparent pixel to black */
+    if (blacken)
+      png_set_read_user_transform_fn(read_ptr, blacken_fn);
+
+#ifdef PNG_READ_UNKNOWN_CHUNKS_SUPPORTED
+                if (last_trial == 0)
+                {
+                   png_set_keep_unknown_chunks(read_ptr,
+                        PNG_HANDLE_CHUNK_NEVER, (png_bytep) NULL, 0);
+                   png_set_keep_unknown_chunks(read_ptr,
+                        PNG_HANDLE_CHUNK_NEVER, chunks_to_ignore,
+                        sizeof (chunks_to_ignore)/5);
+                }
+#endif
 
                 if (nosave == 0)
                 {
@@ -3566,20 +3974,15 @@ int main(int argc, char *argv[])
                 P1( "Initializing input and output streams\n");
 #ifdef PNG_STDIO_SUPPORTED
                 png_init_io(read_ptr, fpin);
-                if (nosave == 0)
-                    png_init_io(write_ptr, fpout);
 #else
                 png_set_read_fn(read_ptr, (png_voidp) fpin,
                                 (png_rw_ptr) NULL);
+#endif /* PNG_STDIO_SUPPORTED */
+
                 if (nosave == 0)
                     png_set_write_fn(write_ptr, (png_voidp) fpout,
-                                     (png_rw_ptr) NULL,
-#ifdef PNG_WRITE_FLUSH_SUPPORTED
-                                     png_default_flush);
-#else
-                                     NULL);
-#endif
-#endif /* PNG_STDIO_SUPPORTED */
+                                     (png_rw_ptr) pngcrush_write_png,
+                                     pngcrush_flush);
 
                 P2("io has been initialized.\n");
                 pngcrush_pause();
@@ -3592,6 +3995,20 @@ int main(int argc, char *argv[])
                                    PNG_CRC_QUIET_USE);
 #endif
 
+#ifdef PNG_READ_CHECK_FOR_INVALID_INDEX_SUPPORTED
+                /* Only run this test (new in libpng-1.5.10) during the
+                 * final trial
+                 */
+                png_set_check_for_invalid_index (read_ptr, last_trial);
+#endif
+#ifdef PNG_WRITE_CHECK_FOR_INVALID_INDEX_SUPPORTED
+                if (last_trial && nosave == 0)
+                   png_set_check_for_invalid_index (write_ptr, last_trial);
+#endif
+
+            if (last_trial == 1)
+            {
+
 #ifdef PNG_READ_UNKNOWN_CHUNKS_SUPPORTED
                 png_set_keep_unknown_chunks(read_ptr, PNG_HANDLE_CHUNK_ALWAYS,
                                             (png_bytep) NULL, 0);
@@ -3602,6 +4019,7 @@ int main(int argc, char *argv[])
                 {
                     if (save_apng_chunks == 1)
                     {
+                       /* To do: Why use write_ptr not read_ptr here? */
                        png_set_keep_unknown_chunks(write_ptr,
                                                 PNG_HANDLE_CHUNK_ALWAYS,
                                                 (png_bytep) "acTL", 1);
@@ -3642,6 +4060,8 @@ int main(int argc, char *argv[])
                         png_byte chunk_name[5];
                         chunk_name[4] = '\0';
 #endif
+
+                        /* To do: Why use write_ptr not read_ptr here? */
 
                         if (keep_unknown_chunk("alla", argv) &&
                             keep_unknown_chunk("allb", argv))
@@ -3739,6 +4159,7 @@ int main(int argc, char *argv[])
                     }
                 }
 #endif /* PNG_WRITE_UNKNOWN_CHUNKS_SUPPORTED */
+            } /* Ancillary chunk handling */
 
                 P1( "Reading info struct\n");
                 {
@@ -3771,7 +4192,7 @@ int main(int argc, char *argv[])
                         png_error(read_ptr,
                             "PNG file corrupted by ASCII conversion");
                     }
-                    if(fix && found_CgBI)
+                    if (fix && found_CgBI)
                     {
                         /* Skip the CgBI chunk */
 
@@ -3839,7 +4260,7 @@ int main(int argc, char *argv[])
                             output_color_type = input_color_type;
                         }
 
-                        if (verbose > 1 && first_trial)
+                        if (verbose > 1 && last_trial)
                         {
                             fprintf(STDERR, "   IHDR chunk data:\n");
                             fprintf(STDERR,
@@ -3879,7 +4300,7 @@ int main(int argc, char *argv[])
                              (output_color_type == 0 ||
                              output_color_type == 4))
                         {
-                            if (verbose > 0 && first_trial)
+                            if (verbose > 0 && last_trial)
                             {
 #ifdef PNGCRUSH_COUNT_COLORS
                                 if (reduce_to_gray)
@@ -3922,7 +4343,7 @@ int main(int argc, char *argv[])
                             (output_color_type != 4
                              && output_color_type != 6))
                         {
-                            if (verbose > 0 && first_trial)
+                            if (verbose > 0 && last_trial)
                             {
 #ifdef PNGCRUSH_COUNT_COLORS
                                 if (it_is_opaque)
@@ -3943,7 +4364,7 @@ int main(int argc, char *argv[])
                                                             && color_type
                                                             != 6))
                         {
-                            if (verbose > 0 && first_trial)
+                            if (verbose > 0 && last_trial)
                                 fprintf(STDERR,
                                   "   Adding an opaque alpha channel.\n");
 #ifdef PNG_READ_FILLER_SUPPORTED
@@ -3961,7 +4382,7 @@ int main(int argc, char *argv[])
                              || output_color_type == 6)
                             && color_type == 3)
                         {
-                            if (verbose > 0 && first_trial)
+                            if (verbose > 0 && last_trial)
                                 fprintf(STDERR,
                                   "   Expanding indexed color file.\n");
                             need_expand = 1;
@@ -3983,6 +4404,8 @@ int main(int argc, char *argv[])
                             png_set_shift(read_ptr, &true_bits);
                         }
 #endif
+                        if (last_trial == 1)
+                        {
                         if (save_apng_chunks == 1 || found_acTL_chunk == 1)
                         {
                            if (save_apng_chunks == 0)
@@ -4011,6 +4434,7 @@ int main(int argc, char *argv[])
                            if (save_apng_chunks != 1 && found_acTL_chunk == 1)
                               found_acTL_chunk = 2;
                         }
+                        }
 
                         if (verbose > 1)
                             fprintf(STDERR, "   Setting IHDR\n");
@@ -4024,8 +4448,10 @@ int main(int argc, char *argv[])
                             {
                                 output_format = 1;
                                 filter_method = 64;
-                                png_permit_mng_features(write_ptr,
-                                                        PNG_FLAG_MNG_FILTER_64);
+                                if (nosave == 0 && last_trial == 1)
+                                   png_permit_mng_features(write_ptr,
+                                       PNG_FLAG_MNG_FILTER_64);
+                       
                             }
                         } else
                             filter_method = 0;
@@ -4061,6 +4487,9 @@ int main(int argc, char *argv[])
             }
 
 
+            /* Handle ancillary chunks */
+            if (last_trial == 1)
+            {
 #if defined(PNG_READ_bKGD_SUPPORTED) && defined(PNG_WRITE_bKGD_SUPPORTED)
                 {
                     png_color_16p background;
@@ -4144,7 +4573,7 @@ int main(int argc, char *argv[])
                 {
                     if (force_specified_gamma)
                     {
-                        if (first_trial)
+                        if (last_trial)
                         {
                             things_have_changed = 1;
                             if (verbose > 0)
@@ -4180,7 +4609,7 @@ int main(int argc, char *argv[])
                         {
                             if (image_specified_gamma)
                                 file_gamma = image_specified_gamma;
-                            if (verbose > 1 && first_trial)
+                            if (verbose > 1 && last_trial)
 #ifdef PNG_FIXED_POINT_SUPPORTED
                                 fprintf(STDERR, "   gamma=(%d/100000)\n",
                                         (int) file_gamma);
@@ -4200,7 +4629,7 @@ int main(int argc, char *argv[])
                     }
                     else if (specified_gamma)
                     {
-                        if (first_trial)
+                        if (last_trial)
                         {
                             things_have_changed = 1;
                             if (verbose > 0)
@@ -4249,7 +4678,7 @@ int main(int argc, char *argv[])
 #  endif
                         {
                             things_have_changed = 1;
-                            if (verbose > 0 && first_trial)
+                            if (verbose > 0 && last_trial)
                                 fprintf(STDERR,
                                   "   Inserting sRGB chunk with intent=%d\n",
                                   intent);
@@ -4258,13 +4687,13 @@ int main(int argc, char *argv[])
                         }
                         else if (file_gamma != 0)
                         {
-                            if (verbose > 0 && first_trial)
+                            if (verbose > 0 && last_trial)
                             {
                                 fprintf(STDERR, "   Ignoring sRGB request; "
 #  ifdef PNG_FIXED_POINT_SUPPORTED
                                   "gamma=(%lu/100000)"
 #  else
-                                  "gamma=%f"
+                                  "gamma=%lu"
 #  endif
                                   " is not approx. 0.455\n",
                                   (unsigned long)file_gamma);
@@ -4333,7 +4762,7 @@ int main(int argc, char *argv[])
                          &unit_type)) {
                         if (offset_x == 0 && offset_y == 0)
                         {
-                            if (verbose > 0 && first_trial)
+                            if (verbose > 0 && last_trial)
                                 fprintf(STDERR,
                                   "   Deleting useless oFFs 0 0 chunk\n");
                         }
@@ -4380,7 +4809,7 @@ int main(int argc, char *argv[])
                         {
                             if (res_x == 0 && res_y == 0)
                             {
-                                if (verbose > 0 && first_trial)
+                                if (verbose > 0 && last_trial)
                                     fprintf(STDERR,
                                       "   Deleting useless pHYs 0 0 chunk\n");
                             }
@@ -4397,7 +4826,7 @@ int main(int argc, char *argv[])
                             (png_uint_32) ((resolution / .0254 + 0.5));
                         png_set_pHYs(write_ptr, write_info_ptr, res_x,
                                      res_y, unit_type);
-                        if (verbose > 0 && first_trial)
+                        if (verbose > 0 && last_trial)
                             fprintf(STDERR, "   Added pHYs %lu %lu 1 chunk\n",
                             (unsigned long)res_x, 
                             (unsigned long)res_y);
@@ -4427,7 +4856,7 @@ int main(int argc, char *argv[])
                         (read_ptr, read_info_ptr, &trans, &num_trans,
                          &trans_values))
                     {
-                        if (verbose > 1 && first_trial)
+                        if (verbose > 1 && last_trial)
                             fprintf(STDERR,
                               "  Found tRNS chunk in input file.\n");
                         if (have_trns == 1)
@@ -4452,7 +4881,7 @@ int main(int argc, char *argv[])
                                     if (trns_array[ia] != 255)
                                         last_nonmax = ia;
                                 }
-                                if (first_trial && verbose > 0)
+                                if (last_trial && verbose > 0)
                                 {
                                     if (last_nonmax < 0)
                                         fprintf(STDERR, "   Deleting "
@@ -4514,7 +4943,7 @@ int main(int argc, char *argv[])
                         for (ia = 0; ia < 256; ia++)
                             trns_array[ia] = 255;
                     }
-                    if (verbose > 1 && first_trial)
+                    if (verbose > 1 && last_trial)
                     {
                         int last = -1;
                         for (i = 0; ia < num_palette; ia++)
@@ -4535,6 +4964,7 @@ int main(int argc, char *argv[])
                     }
                 }
 #endif /* PNG_READ_tRNS_SUPPORTED && PNG_WRITE_tRNS_SUPPORTED */
+            }  /* End of ancillary chunk handling */
 
                 if (png_get_PLTE
                     (read_ptr, read_info_ptr, &palette, &num_palette))
@@ -4546,13 +4976,18 @@ int main(int argc, char *argv[])
                         printf("PPLT: %s\n", pplt_string);
                         printf("Sorry, PPLT is not implemented yet.\n");
                     }
+
+                    if (nosave == 0)
+                    {
                     if (output_color_type == 3)
                         png_set_PLTE(write_ptr, write_info_ptr, palette,
                                      num_palette);
                     else if (keep_chunk("PLTE", argv))
                         png_set_PLTE(write_ptr, write_info_ptr, palette,
                                      num_palette);
-                    if (verbose > 1 && first_trial)
+
+                    }
+                    if (verbose > 1 && last_trial)
                     {
                         png_colorp p = palette;
                         fprintf(STDERR, "   Palette:\n");
@@ -4570,6 +5005,9 @@ int main(int argc, char *argv[])
                 }
 
 
+            /* Handle ancillary chunks */
+            if (last_trial == 1)
+            {
 #if defined(PNG_READ_sBIT_SUPPORTED) && defined(PNG_WRITE_sBIT_SUPPORTED)
                 {
                     png_color_8p sig_bit;
@@ -4601,7 +5039,8 @@ int main(int argc, char *argv[])
                                     || output_color_type == 6))
                                 sig_bit->alpha = 1;
 
-                            png_set_sBIT(write_ptr, write_info_ptr,
+                            if (nosave == 0)
+                               png_set_sBIT(write_ptr, write_info_ptr,
                                          sig_bit);
                         }
                     }
@@ -4673,7 +5112,7 @@ int main(int argc, char *argv[])
                         P1( "Handling %d tEXt/zTXt chunks before IDAT\n",
                                    num_text);
 
-                        if (verbose > 1 && first_trial && num_text > 0)
+                        if (verbose > 1 && last_trial && num_text > 0)
                         {
                             for (ntext = 0; ntext < num_text; ntext++)
                             {
@@ -4704,7 +5143,7 @@ int main(int argc, char *argv[])
                                 int num_to_write = num_text;
                                 for (ntext = 0; ntext < num_text; ntext++)
                                 {
-                                    if (first_trial)
+                                    if (last_trial)
                                         P2("Text chunk before IDAT, "
                                           "compression=%d\n",
                                           text_ptr[ntext].compression);
@@ -4762,7 +5201,7 @@ int main(int argc, char *argv[])
                                     text_compression[ntext];
                                 png_set_text(write_ptr, write_info_ptr,
                                              added_text, 1);
-                                if (verbose > 0 && first_trial)
+                                if (verbose > 0 && last_trial)
                                 {
                                   if (added_text[0].compression < 0)
                                       printf("   Added a tEXt chunk.\n");
@@ -4886,8 +5325,9 @@ int main(int argc, char *argv[])
                         png_free(write_ptr, unknowns_keep);
                     }
                 }
-              P1("unknown chunk handling done.\n");
+              P1( "Finished handling ancillary chunks after IDAT\n");
 #endif /* PNG_WRITE_UNKNOWN_CHUNKS_SUPPORTED */
+            }  /* End of ancillary chunk handling */
 
                 /* } GRR added for quick %-navigation (1) */
 
@@ -4908,6 +5348,12 @@ int main(int argc, char *argv[])
                 /* png_read_update_info(read_ptr, read_info_ptr); */
 #ifdef PNGCRUSH_H
                 png_read_transform_info(read_ptr, read_info_ptr);
+#else
+                /* Some pngcrush capabilities are lacking with the system
+                 * libpng is used instead of the one bundled with pngcrush
+                 *
+                 * To do: list those capabilities here
+                 */
 #endif
 
                 /* This is the default case (nosave == 1 -> perf-testing
@@ -4939,7 +5385,8 @@ int main(int argc, char *argv[])
                         if (outname[strlen(outname) - 3] == 'p')
                             png_warning(read_ptr,
                               "  Writing a MNG file with a .png extension");
-                        png_defaultwrite_data(write_ptr, &mng_signature[0],
+                        pngcrush_default_write_data(write_ptr,
+                                       &mng_signature[0],
                                        (png_size_t) 8);
                         png_set_sig_bytes(write_ptr, 8);
 
@@ -4971,9 +5418,7 @@ int main(int argc, char *argv[])
                     if (found_CgBI)
                     {
                         png_warning(read_ptr,
-                            "Cannot read Xcode CgBI PNG. Even if we could,");
-                        png_error(read_ptr,
-                            "the original PNG could not be recovered.");
+                            "Cannot read Xcode CgBI PNG");
                     }
                     P1( "\nWriting info struct\n");
 
@@ -5052,7 +5497,7 @@ int main(int argc, char *argv[])
                             compression_window =
                                 default_compression_window;
 
-                        if (verbose > 1 && first_trial
+                        if (verbose > 1 && last_trial
                             && (compression_window != 15
                                 || force_compression_window))
                             fprintf(STDERR,
@@ -5098,9 +5543,9 @@ int main(int argc, char *argv[])
 #  ifdef PNGCRUSH_MULTIPLE_ROWS
                         row_buf =
                             png_malloc(read_ptr,
-                                       rows_at_a_time * rowbytes + 16);
+                                       rows_at_a_time * rowbytes + 64);
 #  else
-                        row_buf = png_malloc(read_ptr, rowbytes + 16);
+                        row_buf = png_malloc(read_ptr, rowbytes + 64);
 #  endif
                     else
                         row_buf = NULL;
@@ -5122,10 +5567,10 @@ int main(int argc, char *argv[])
                     row_buf =
                         (png_bytep) png_malloc(read_ptr,
                                                rows_at_a_time *
-                                               row_length + 16);
+                                               row_length + 64);
 #  else
                     row_buf =
-                        (png_bytep) png_malloc(read_ptr, row_length + 16);
+                        (png_bytep) png_malloc(read_ptr, row_length + 64);
 #  endif
                 }
 #endif /* PNGCRUSH_LARGE */
@@ -5218,9 +5663,19 @@ int main(int argc, char *argv[])
                             }
                             t_start = t_stop;
                         }
+                        /* Bail if byte count exceeds best so far */
+                        if (bail == 0 && trial != MAX_METHODS &&
+                            pngcrush_write_byte_count >
+                            pngcrush_best_byte_count)
+                           break;
                     }
                     P2( "End interlace pass %d\n\n", pass);
+                    if (bail == 0 && trial != MAX_METHODS &&
+                        pngcrush_write_byte_count >
+                        pngcrush_best_byte_count)
+                       break;
                 }
+
                 if (nosave)
                 {
                     t_stop = (TIME_T) clock();
@@ -5241,7 +5696,7 @@ int main(int argc, char *argv[])
                 {
                     png_byte rgb_error =
                         png_get_rgb_to_gray_status(read_ptr);
-                    if (first_trial && verbose > 0 && rgb_error)
+                    if (last_trial && verbose > 0 && rgb_error)
                         printf(
                           "   **** Converted non-gray image to gray. **** \n");
                 }
@@ -5262,11 +5717,18 @@ int main(int argc, char *argv[])
                 png_free_unknown_chunks(write_ptr, write_info_ptr, -1);
 #  endif
 #endif /* PNG_FREE_UNKN */
-                P1( "Reading and writing end_info data\n");
-                png_read_end(read_ptr, end_info_ptr);
 
                 /* { GRR:  added for %-navigation (2) */
+                if (!(bail == 0 && trial != MAX_METHODS &&
+                    pngcrush_write_byte_count >
+                    pngcrush_best_byte_count))
+                {
+                   P1( "Reading and writing end_info data\n");
+                   png_read_end(read_ptr, end_info_ptr);
 
+            /* Handle ancillary chunks */
+            if (last_trial == 1)
+            {
 #if (defined(PNG_READ_tEXt_SUPPORTED) && defined(PNG_WRITE_tEXt_SUPPORTED)) \
  || (defined(PNG_READ_iTXt_SUPPORTED) && defined(PNG_WRITE_iTXt_SUPPORTED)) \
  || (defined(PNG_READ_zTXt_SUPPORTED) && defined(PNG_WRITE_zTXt_SUPPORTED))
@@ -5287,8 +5749,7 @@ int main(int argc, char *argv[])
 #endif
                                    num_text);
 
-                        if (verbose > 1 && (!nosave || first_trial) &&
-                            num_text > 0)
+                        if (verbose > 1 && last_trial && num_text > 0)
                         {
                             for (ntext = 0; ntext < num_text; ntext++)
                             {
@@ -5320,7 +5781,7 @@ int main(int argc, char *argv[])
                                 int num_to_write = num_text;
                                 for (ntext = 0; ntext < num_text; ntext++)
                                 {
-                                    if (first_trial)
+                                    if (last_trial)
                                         P2("Text chunk after IDAT, "
                                           "compression=%d\n",
                                           text_ptr[ntext].compression);
@@ -5386,7 +5847,7 @@ int main(int argc, char *argv[])
                                 png_set_text(write_ptr, write_end_info_ptr,
                                              added_text, 1);
   
-                                if (verbose > 0 && first_trial)
+                                if (verbose > 0 && last_trial)
                                 {
                                   if (added_text[0].compression < 0)
                                       printf("   Added a tEXt chunk.\n");
@@ -5417,6 +5878,7 @@ int main(int argc, char *argv[])
 
                     if (png_get_tIME(read_ptr, end_info_ptr, &mod_time))
                     {
+                        P1( "Handling tIME chunk after IDAT\n");
                         if (keep_chunk("tIME", argv))
                             png_set_tIME(write_ptr, write_end_info_ptr,
                                          mod_time);
@@ -5434,7 +5896,7 @@ int main(int argc, char *argv[])
                                                      &unknowns);
                     if (num_unknowns && nosave == 0)
                     {
-                        printf("setting %d unknown chunks after IDAT\n",
+                        printf("Handling %d unknown chunks after IDAT\n",
                                num_unknowns);
                         png_set_unknown_chunks(write_ptr,
                                                write_end_info_ptr,
@@ -5449,7 +5911,7 @@ int main(int argc, char *argv[])
                     }
                 }
 #endif
-                /* } GRR:  added for %-navigation (2) */
+            }  /* End of ancillary chunk handling */
 
                 if (nosave == 0) {
 #if 0 /* doesn't work; compression level has to be the same as in IDAT */
@@ -5462,6 +5924,8 @@ int main(int argc, char *argv[])
 #endif /* 0 */
                     png_write_end(write_ptr, write_end_info_ptr);
                 }
+                }
+                /* } GRR:  added for %-navigation (2) */
 
                 P1( "Destroying data structs\n");
                 if (row_buf != (png_bytep) NULL)
@@ -5532,7 +5996,7 @@ int main(int argc, char *argv[])
             read_ptr = NULL;
             write_ptr = NULL;
             FCLOSE(fpin);
-            if (nosave == 0)
+            if (last_trial && nosave == 0)
             {
                 FCLOSE(fpout);
                 setfiletype(outname);
@@ -5541,37 +6005,29 @@ int main(int argc, char *argv[])
             if (nosave)
                 break;
 
-            first_trial = 0;
+            idat_length[trial] = pngcrush_write_byte_count;
 
-            if (nosave == 0)
-            {
-                P1( "Opening file for length measurement\n");
-                if ((fpin = FOPEN(outname, "rb")) == NULL)
-                {
-                    fprintf(STDERR, "Could not find output file %s\n", outname);
-                    if (png_row_filters != NULL)
-                    {
-                        free(png_row_filters);
-                        png_row_filters = NULL;
-                    }
-                    exit(1);
-                }
-                number_of_open_files++;
-
-                idat_length[trial] = measure_idats(fpin);
-
-                FCLOSE(fpin);
-            }
+            if (pngcrush_write_byte_count < pngcrush_best_byte_count)
+               pngcrush_best_byte_count = pngcrush_write_byte_count;
 
             if (verbose > 0 && trial != MAX_METHODS)
             {
-                fprintf(STDERR,
-                  "   IDAT length with method %3d (fm %d zl %d zs %d) = %8lu\n",
-                  trial, filter_type, zlib_level, z_strategy,
-                  (unsigned long)idat_length[trial]);
+                if (bail==0 &&
+                    pngcrush_write_byte_count > pngcrush_best_byte_count)
+                   fprintf(STDERR,
+                     "   Critical chunk length with method %3d"
+                     " (fm %d zl %d zs %d) > %8lu\n",
+                     trial, filter_type, zlib_level, z_strategy,
+                     (unsigned long)pngcrush_best_byte_count);
+                else
+                   fprintf(STDERR,
+                     "   Critical chunk length with method %3d"
+                     " (fm %d zl %d zs %d) = %8lu\n",
+                     trial, filter_type, zlib_level, z_strategy,
+                     (unsigned long)idat_length[trial]);
                 fflush(STDERR);
             }
-
+            
         } /* end of trial-loop */
        
         P1("\n\nFINISHED MAIN LOOP OVER %d METHODS\n\n\n", MAX_METHODS);
@@ -5587,16 +6043,20 @@ int main(int argc, char *argv[])
         {
             FCLOSE(fpin);
         }
-        if (nosave == 0 && fpout)
+        if (last_trial && nosave == 0 && fpout)
         {
             FCLOSE(fpout);
             setfiletype(outname);
         }
-
-        if (nosave == 0 && overwrite != 0)
+        
+        if (last_trial && nosave == 0 && overwrite != 0)
         {
             /* rename the new file , outname = inname */
-            if (rename(outname, inname) != 0 )
+            if (
+#ifdef CYGWIN
+              remove(inname) != 0 ||
+#endif
+              rename(outname, inname) != 0 )
             {
                 fprintf(STDERR,
                     "error while renaming \"%s\" to \"%s\" \n",outname,inname);
@@ -5606,7 +6066,7 @@ int main(int argc, char *argv[])
                 P2("rename %s to %s complete.\n",outname,inname);
         }
 
-        if (nosave == 0)
+        if (last_trial && nosave == 0)
         {
             png_uint_32 input_length, output_length;
 #ifndef __riscos
@@ -5643,16 +6103,16 @@ int main(int argc, char *argv[])
                 {
                 fprintf(STDERR,
                   "   Best pngcrush method = %d (fm %d zl %d zs %d)\n"
-                  "for %s\n", best, fm[best], lv[best], zs[best], outname);
+                  "     for %s\n", best, fm[best], lv[best], zs[best], outname);
                 }
 
                 if (idat_length[0] == idat_length[best])
-                    fprintf(STDERR, "     (no IDAT change)\n");
+                    fprintf(STDERR, "     (no critical chunk change)\n");
                 else if (idat_length[0] > idat_length[best])
-                    fprintf(STDERR, "     (%4.2f%% IDAT reduction)\n",
+                    fprintf(STDERR, "     (%4.2f%% critical chunk reduction)\n",
                       (100.0 - (100.0 * idat_length[best]) / idat_length[0]));
                 else
-                    fprintf(STDERR, "     (%4.2f%% IDAT increase)\n",
+                    fprintf(STDERR, "     (%4.2f%% critical chunk increase)\n",
                       -(100.0 - (100.0 * idat_length[best]) / idat_length[0]));
                 if (input_length == output_length)
                     fprintf(STDERR, "     (no filesize change)\n\n");
@@ -5698,8 +6158,9 @@ int main(int argc, char *argv[])
 
 png_uint_32 measure_idats(FILE * fp_in)
 {
-    /* Copyright (C) 1999-2002,2006 Glenn Randers-Pehrson (glennrp@users.sf.net)
-       See notice in pngcrush.c for conditions of use and distribution */
+    /* Copyright (C) 1999-2002, 2006-2013 Glenn Randers-Pehrson
+       (glennrp@users.sf.net).  See notice in pngcrush.c for conditions of
+       use and distribution */
     P2("\nmeasure_idats:\n");
     P1( "Allocating read structure\n");
 /* OK to ignore any warning about the address of exception__prev in "Try" */
@@ -5741,9 +6202,13 @@ png_uint_32 measure_idats(FILE * fp_in)
 
 png_uint_32 png_measure_idat(png_structp png_ptr)
 {
-    /* Copyright (C) 1999-2002,2006 Glenn Randers-Pehrson (glennrp@users.sf.net)
+    /* Copyright (C) 1999-2002, 2006-2013 Glenn Randers-Pehrson
+       (glennrp@users.sf.net)
        See notice in pngcrush.c for conditions of use and distribution */
-    png_uint_32 sum_idat_length = 0;
+
+    /* Signature + IHDR + IEND; we'll add PLTE + IDAT lengths */
+    png_uint_32 sum_idat_length = 45;
+
     png_byte *bb = NULL;
     png_uint_32 malloced_length=0;
 
@@ -5794,7 +6259,7 @@ png_uint_32 png_measure_idat(png_structp png_ptr)
             if (new_mng)
             {
                 /* write the MNG 8-byte signature */
-                png_defaultwrite_data(mng_ptr, &mng_signature[0],
+                pngcrush_write_png(mng_ptr, &mng_signature[0],
                                   (png_size_t) 8);
 
                 /* Write a MHDR chunk */
@@ -5846,7 +6311,7 @@ png_uint_32 png_measure_idat(png_structp png_ptr)
 #    ifdef PNG_iCCP_SUPPORTED
         const png_byte png_iCCP[5] = { 105, 67, 67, 80, '\0' };
 #    endif
-        const png_byte png_acTL[5] = { 97,  99,  84,  76, '\0'};
+        const png_byte png_acTL[5] = {  97, 99, 84, 76, '\0' };
 #  endif
 #endif
 
@@ -5863,9 +6328,9 @@ png_uint_32 png_measure_idat(png_structp png_ptr)
 
         if (new_mng)
         {
-          const png_byte png_DHDR[5] = { 68, 72, 68, 82, '\0' };
-          const png_byte png_DEFI[5] = { 68, 69, 70, 73, '\0' };
-          const png_byte png_FRAM[5] = { 70, 82, 65, 77, '\0' };
+          const png_byte png_DHDR[5] = {  68, 72, 68, 82, '\0' };
+          const png_byte png_DEFI[5] = {  68, 69, 70, 73, '\0' };
+          const png_byte png_FRAM[5] = {  70, 82, 65, 77, '\0' };
           const png_byte png_nEED[5] = { 110, 69, 69, 68, '\0' };
 
           if (!png_memcmp(chunk_name, png_nEED, 4))
@@ -5963,12 +6428,19 @@ png_uint_32 png_measure_idat(png_structp png_ptr)
         else
         {
 #ifdef PNG_UINT_IDAT
-            if (png_get_uint_32(chunk_name) == PNG_UINT_IDAT)
-#else
-            if (!png_memcmp(chunk_name, png_IDAT, 4))
+            if ((png_get_uint_32(chunk_name) == PNG_UINT_IDAT) ||
+#endif
+#ifndef PNG_UINT_IDAT
+            if ((!png_memcmp(chunk_name, png_IDAT, 4)) ||
+#endif
+#ifdef PNG_UINT_PLTE
+               (png_get_uint_32(chunk_name) == PNG_UINT_PLTE))
+#endif
+#ifndef PNG_UINT_PLTE
+               (!png_memcmp(chunk_name, png_PLTE, 4)))
 #endif
             {
-                sum_idat_length += length;
+                sum_idat_length += (length + 12);
                 if (length > crushed_idat_size)
                     already_crushed++;
             }
@@ -5982,7 +6454,7 @@ png_uint_32 png_measure_idat(png_structp png_ptr)
 
             if (png_get_uint_32(chunk_name) == PNG_UINT_CgBI)
             {
-                printf(" This is an Xcode CGBI file, not a PNG file.\n");
+                printf(" This is an Xcode CgBI file, not a PNG file.\n");
                 if (fix)
                 {
                     printf (" Removing the CgBI chunk.\n");
@@ -6059,7 +6531,7 @@ png_uint_32 png_measure_idat(png_structp png_ptr)
                 if (!strncmp((png_const_charp) buff, "Photoshop ICC profile",
                      21))
                 {
-                    printf("   Replacing bad Photoshop ICCP chunk with an "
+                    printf("   Replacing bad Photoshop iCCP chunk with an "
                       "sRGB chunk\n");
 #ifdef PNG_gAMA_SUPPORTED
 #  ifdef PNG_FIXED_POINT_SUPPORTED
@@ -6123,7 +6595,8 @@ png_uint_32 png_measure_idat(png_structp png_ptr)
 #define USE_HASHCODE
 int count_colors(FILE * fp_in)
 {
-    /* Copyright (C) 2000-2002,2006 Glenn Randers-Pehrson (glennrp@users.sf.net)
+    /* Copyright (C) 2000-2002, 2006-2013 Glenn Randers-Pehrson
+       (glennrp@users.sf.net)
        See notice in pngcrush.c for conditions of use and distribution */
     int bit_depth, color_type, interlace_method, filter_method,
         compression_method;
@@ -6290,7 +6763,7 @@ int count_colors(FILE * fp_in)
 
                 rowbytes = png_get_rowbytes(read_ptr, read_info_ptr);
 
-                row_buf = png_malloc(read_ptr, rowbytes + 16);
+                row_buf = png_malloc(read_ptr, rowbytes + 64);
 
                 for (pass = 0; pass < num_pass; pass++)
                 {
@@ -6686,12 +7159,39 @@ int count_colors(FILE * fp_in)
 
 void print_version_info(void)
 {
+    char *zlib_copyright;
+
+#ifndef ZLIB_VERNUM /* This became available in zlib-1.2 */
+         zlib_copyright=" (or later)";
+#else
+    switch (ZLIB_VERNUM)
+    {
+      case 0x1220:
+         zlib_copyright="-2004";
+         break;
+      case 0x1230:
+         zlib_copyright="-2005";
+         break;
+      case 0x1240:
+      case 0x1250:
+         zlib_copyright="-2010";
+         break;
+      case 0x1260:
+      case 0x1270:
+         zlib_copyright="-2012";
+         break;
+      default:
+         zlib_copyright=" (or later)";
+         break;
+    }
+#endif
+
     fprintf(STDERR,
       "\n"
       " | pngcrush %s\n"
       /* If you have modified this source, you may insert additional notices
        * immediately after this sentence: */
-      " |    Copyright (C) 1998-2002,2006-2011 Glenn Randers-Pehrson\n"
+      " |    Copyright (C) 1998-2002, 2006-2013 Glenn Randers-Pehrson\n"
       " |    Portions copyright (C) 2005       Greg Roelofs\n"
       " | This is a free, open-source program.  Permission is irrevocably\n"
       " | granted to everyone to use this version of pngcrush without\n"
@@ -6699,13 +7199,13 @@ void print_version_info(void)
       " | Executable name is %s\n"
       " | It was built with libpng version %s, and is\n"
       " | running with %s"
-      " |    Copyright (C) 1998-2004, 2006-2011 Glenn Randers-Pehrson,\n"
+      " |    Copyright (C) 1998-2004, 2006-2013 Glenn Randers-Pehrson,\n"
       " |    Copyright (C) 1996, 1997 Andreas Dilger,\n"
       " |    Copyright (C) 1995, Guy Eric Schalnat, Group 42 Inc.,\n"
-      " | and zlib version %s, Copyright (C) 1995-2010 (or later),\n"
+      " | and zlib version %s, Copyright (C) 1995%s,\n"
       " |    Jean-loup Gailly and Mark Adler.\n",
       PNGCRUSH_VERSION, progname, PNG_LIBPNG_VER_STRING,
-      png_get_header_version(NULL), ZLIB_VERSION);
+      png_get_header_version(NULL), ZLIB_VERSION,zlib_copyright);
 
 #if defined(__GNUC__)
     fprintf(STDERR,
@@ -6737,7 +7237,7 @@ static const char *pngcrush_legal[] = {
     "",
     "If you have modified this source, you may insert additional notices",
     "immediately after this sentence.",
-    "Copyright (C) 1998-2002,2006-2011 Glenn Randers-Pehrson",
+    "Copyright (C) 1998-2002, 2006-2013 Glenn Randers-Pehrson",
     "Portions copyright (C) 2005       Greg Roelofs",
     "",
     "DISCLAIMER: The pngcrush computer program is supplied \"AS IS\".",
@@ -6771,7 +7271,8 @@ static const char *pngcrush_legal[] = {
 static const char *pngcrush_usage[] = {
     "\nusage: %s [options] infile.png outfile.png\n",
     "       %s -e ext [other options] files.png ...\n",
-    "       %s -d dir [other options] files.png ...\n"
+    "       %s -d dir/ [other options] files.png ...\n",
+    "       %s -n -v files.png ...\n"
 };
 
 struct options_help pngcrush_options[] = {
@@ -6783,9 +7284,21 @@ struct options_help pngcrush_options[] = {
     {2, "               or the \"-force\" option is present."},
     {2, ""},
 
+    {0, "         -bail (bail out of trial when size exceeds best size found"},
+    {2, ""},
+    {2, "               Default is to bail out -- use -nobail to prevent that"},
+    {2, ""},
+
     {0, "    -bit_depth depth (bit_depth to use in output file)"},
     {2, ""},
     {2, "               Default output depth is same as input depth."},
+    {2, ""},
+
+    {0, "      -blacken (zero samples underlying fully-transparent pixels)"},
+    {2, ""},
+    {2, "               Changing the color samples to zero can improve the"},
+    {2, "               compressibility.  Since this is a lossy operation,"},
+    {2, "               blackening is off by default."},
     {2, ""},
 
 #ifdef Z_RLE
@@ -6817,13 +7330,16 @@ struct options_help pngcrush_options[] = {
     {2, ""},
 #endif
 
-    {0, "            -d directory_name (where output files will go)"},
+    {0, "            -d directory_name/ (where output files will go)"},
     {2, ""},
     {2, "               If a directory name is given, then the output"},
     {2, "               files are placed in it, with the same filenames as"},
     {2, "               those of the original files. For example,"},
-    {2, "               you would type 'pngcrush -directory CRUSHED *.png'"},
-    {2, "               to get *.png => CRUSHED/*.png"},
+    {2, "               you would type 'pngcrush -directory CRUSHED/ *.png'"},
+    {2, "               to get *.png => CRUSHED/*.png.  The trailing slash is"},
+    {2, "               optional, but if pngcrush appends the wrong kind of"},
+    {2, "               slash or backslash, please include the correct one"},
+    {2, "               at the end of the directory_name, as shown."},
     {2, ""},
 
     {0, FAKE_PAUSE_STRING},
@@ -6840,7 +7356,7 @@ struct options_help pngcrush_options[] = {
     {2, "               and -e _C.png means *.png => *_C.png"},
     {2, ""},
 
-    {0, "            -f user_filter [0-5]"},
+    {0, "            -f user_filter [0-5] for specified method"},
     {2, ""},
     {2, "               filter to use with the method specified in the"},
     {2, "               preceding '-m method' or '-brute_force' argument."},
@@ -6900,7 +7416,7 @@ struct options_help pngcrush_options[] = {
     {2, ""},
 
 
-    {0, "            -l zlib_compression_level [0-9]"},
+    {0, "            -l zlib_compression_level [0-9] for specified method"},
     {2, ""},
     {2, "               zlib compression level to use with method specified"},
     {2, "               with the preceding '-m method' or '-brute_force'"},
@@ -6939,9 +7455,10 @@ struct options_help pngcrush_options[] = {
     {2, ""},
 #endif
 
-    {0, " -newtimestamp"},
+    {0, " -newtimestamp (Reset file modification time [default])"},
     {2, ""},
-    {2, "               Reset file modification time [default]."},
+
+    {0, "       -nobail (do not bail out early from trial -- see -bail)"},
     {2, ""},
 
 #ifdef PNGCRUSH_COUNT_COLORS
@@ -6956,12 +7473,14 @@ struct options_help pngcrush_options[] = {
     {2, "               ensuring that the input file is not the output file."},
     {2, ""},
 
-
-    {0, " -oldtimestamp"},
+    {0, "     -nolimits (turns off limits on width, height, cache, malloc)"},
     {2, ""},
-    {2, "               Don't reset file modification time."},
+    {2, "               Instead, the user limits are inherited from libpng."},
     {2, ""},
 
+    {0, " -oldtimestamp (Do not reset file modification time)"},
+    {2, ""},
+    
     {0, "           -ow (Overwrite)"},
     {2, ""},
     {2, "               Overwrite the input file.  The input file is "},
@@ -6969,7 +7488,7 @@ struct options_help pngcrush_options[] = {
     {2, "               is renamed to the input file after recompression"},
     {2, "               and therefore they must reside on the same filesystem"},
     {2, ""},
-
+    
     {0, "            -n (no save; doesn't do compression or write output PNG)"},
     {2, ""},
     {2, "               Useful in conjunction with -v option to get info."},
@@ -7100,9 +7619,9 @@ struct options_help pngcrush_options[] = {
     {2, ""},
 
 #ifdef Z_RLE
-    {0, "            -z zlib_strategy [0, 1, 2, or 3]"},
+    {0, "            -z zlib_strategy [0, 1, 2, or 3] for specified method"},
 #else
-    {0, "            -z zlib_strategy [0, 1, or 2]"},
+    {0, "            -z zlib_strategy [0, 1, or 2] for specified method"},
 #endif
     {2, ""},
     {2, "               zlib compression strategy to use with the preceding"},
@@ -7162,7 +7681,7 @@ void print_usage(int retval)
           "\n"
           "options (Note: any option can be spelled out for clarity, e.g.,\n"
           "          \"pngcrush -dir New -method 7 -remove bkgd *.png\"\n"
-          "          is the same as \"pngcrush -d New -m 7 -rem bkgd *.png\"):"
+          "          is the same as \"pngcrush -d New/ -m 7 -rem bkgd *.png\"):"
           "\n\n");
     }
     else

@@ -98,7 +98,7 @@
 
 #define PNG_NO_FIXED_POINT_SUPPORTED 1
 #define PNG_FLOATING_POINT_SUPPORTED 1
-#define PNG_READ_TRANSFORMS_NOT_SUPPORTED
+#define PNG_READ_USER_TRANSFORM_SUPPORTED
 #define PNG_WRITE_TRANSFORMS_NOT_SUPPORTED
 /* Define to empty if `const' does not conform to ANSI C. */
 /* #undef const */
