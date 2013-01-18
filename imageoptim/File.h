@@ -58,9 +58,9 @@
 
 -(NSString *)fileName;
 
-@property (assign) NSUInteger byteSize, byteSizeOptimized;
 @property (retain) NSString *statusText, *filePath, *displayName, *bestToolName;
 @property (retain) NSImage *statusImage;
+@property (assign,nonatomic) NSUInteger byteSize, byteSizeOptimized;
 @property (assign,readonly) NSInteger statusOrder;
 
 @property (assign) double percentDone;

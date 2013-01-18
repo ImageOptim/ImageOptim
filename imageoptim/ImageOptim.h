@@ -40,7 +40,7 @@
 
 +(int)numberOfCPUs;
 
-@property (copy) NSIndexSet* selectedIndexes;
+@property (copy,nonatomic) NSIndexSet* selectedIndexes;
 
 @property (readonly) FilesQueue *filesQueue;
 @end
