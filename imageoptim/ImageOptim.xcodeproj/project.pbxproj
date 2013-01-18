@@ -1194,8 +1194,9 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
 				PRODUCT_NAME = ImageOptim;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1205,8 +1206,9 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
 				PRODUCT_NAME = ImageOptim;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
