@@ -859,7 +859,7 @@
 		};
 		5A8594E71460BCF20044095A /* jpegrescan */ = {
 			isa = PBXReferenceProxy;
-			fileType = text.script.perl;
+			fileType = "compiled.mach-o.executable";
 			path = jpegrescan;
 			remoteRef = 5A8594E61460BCF20044095A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -951,10 +951,11 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "ruby \"$SRCROOT/sign_update.rb\" \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" ~/.ssh/dsa_priv_imageoptim.pem > \"$TARGET_BUILD_DIR/sparkle.sig\"\nwc -c \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" >> \"$TARGET_BUILD_DIR/sparkle.sig\"\ndate '+%a, %e %b %Y %H:%M:%S %z' >> \"$TARGET_BUILD_DIR/sparkle.sig\"";
+			showEnvVarsInLog = 0;
 		};
 		5ABB9FEB0E8518DA006F51BB /* Tar */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -965,7 +966,7 @@
 			outputPaths = (
 				"$(TARGET_BUILD_DIR)/ImageOptim.tar.bz2",
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "cd \"$BUILT_PRODUCTS_DIR/\" && /usr/bin/gnutar cjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" --numeric-owner --owner=0 --group=0 --mtime=2012-03-03 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\"\n";
 			showEnvVarsInLog = 0;
@@ -1191,24 +1192,18 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
 				PRODUCT_NAME = ImageOptim;
-				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = Info.plist;
-				MACOSX_DEPLOYMENT_TARGET = 10.6.8;
 				PRODUCT_NAME = ImageOptim;
-				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -1216,14 +1211,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9C2139B079A0095FC2F /* debug.xcconfig */;
 			buildSettings = {
-				CURRENT_PROJECT_VERSION = 3;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
+				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_ENABLE_OBJC_GC = required;
-				GCC_OBJC_CALL_CXX_CDTORS = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1232,12 +1226,10 @@
 			baseConfigurationReference = 5A27B956139B03090095FC2F /* release.xcconfig */;
 			buildSettings = {
 				APPLY_RULES_IN_COPY_FILES = YES;
-				CURRENT_PROJECT_VERSION = 3;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
+				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_ENABLE_OBJC_GC = required;
-				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
