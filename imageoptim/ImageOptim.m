@@ -87,10 +87,10 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 {
     [[statusBarLabel cell] setBackgroundStyle:NSBackgroundStyleRaised];
 
-    __block NSString *defaultText = statusBarLabel.stringValue;
-    __block BOOL overallAvg = NO;
-    __block NSNumberFormatter* formatter = [NSNumberFormatter new];
-    __block NSNumberFormatter* percFormatter = [NSNumberFormatter new];
+    static BOOL overallAvg = NO;
+    static NSString *defaultText; defaultText = statusBarLabel.stringValue;
+    static NSNumberFormatter* formatter; formatter = [NSNumberFormatter new];
+    static NSNumberFormatter* percFormatter; percFormatter = [NSNumberFormatter new];
 
     [formatter setMaximumFractionDigits:1];
     [percFormatter setMaximumFractionDigits:1];
