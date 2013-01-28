@@ -1,0 +1,66 @@
+diff --git a/pngcrush/pngcrush.c b/pngcrush/pngcrush.c
+index bf625c6..f693089 100644
+--- a/pngcrush/pngcrush.c
++++ b/pngcrush/pngcrush.c
+@@ -2342,7 +2342,6 @@ void pngcrush_write_png(png_structp write_pointer, png_bytep data,
+ static void pngcrush_flush(png_structp png_ptr)
+ {
+    /* Do nothing. */
+-   PNG_UNUSED(png_ptr)
+ }
+ 
+ 
+@@ -3555,7 +3554,7 @@ int main(int argc, char *argv[])
+                                 pngcrush_flush);
+ #endif /* PNGCRUSH_LOCO */
+ 
+-            }
++
+ 
+             idat_length[0] = measure_idats(fpin);
+ 
+@@ -4755,7 +4754,7 @@ int main(int argc, char *argv[])
+                                   "gamma=%f"
+ #  endif
+                                   " is not approx. 0.455\n",
+-                                  (unsigned long)file_gamma);
++                                  file_gamma);
+                             }
+                         }
+ #endif /* PNG_gAMA_SUPPORTED */
+@@ -6385,7 +6384,7 @@ png_uint_32 png_measure_idat(png_structp png_ptr)
+         png_reset_crc(png_ptr);
+         png_crc_read(png_ptr, chunk_name, 4);
+ 
+-        if (new_mng)
++        if (0)
+         {
+           const png_byte png_DHDR[5] = {  68, 72, 68, 82, '\0' };
+           const png_byte png_DEFI[5] = {  68, 69, 70, 73, '\0' };
+@@ -6477,7 +6476,7 @@ png_uint_32 png_measure_idat(png_structp png_ptr)
+         }
+ 
+ #ifdef PNG_UINT_acTL
+-        else if (png_get_uint_32(chunk_name) == PNG_UINT_acTL)
++         if (png_get_uint_32(chunk_name) == PNG_UINT_acTL)
+ #else
+         else if (!png_memcmp(chunk_name, png_acTL, 4))
+ #endif
+@@ -6617,7 +6616,7 @@ png_uint_32 png_measure_idat(png_structp png_ptr)
+                 { 77, 69, 78, 68, '\0' };
+             if (!png_memcmp(chunk_name, png_MEND, 4))
+             {
+-                if (new_mng)
++                if (0)
+                 {
+                     png_free(mng_ptr,bb);
+                     return (0);
+@@ -6629,7 +6628,7 @@ png_uint_32 png_measure_idat(png_structp png_ptr)
+ #endif
+ 
+ 
+-        if (input_format == 0)
++        if (1)
+         {
+ #ifdef PNG_UINT_IEND
+             if (png_get_uint_32(chunk_name) == PNG_UINT_IEND)
