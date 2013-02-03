@@ -1,0 +1,5 @@
+#ImageOptim
+
+[ImageOptim](http://imageoptim.com) is a GUI for lossless image optimization tools: PNGOUT, AdvPNG, Pngcrush, OptiPNG, JpegOptim, jpegrescan, jpegtran, and Gifsicle.
+
+To get started, open `imageoptim/ImageOptim.xcodeproj`. It will automatically download and build all subprojects when run.
