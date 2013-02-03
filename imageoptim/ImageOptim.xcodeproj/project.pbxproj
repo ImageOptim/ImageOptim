@@ -119,6 +119,13 @@
 			remoteGlobalIDString = D2AAC0620554660B00DB518D;
 			remoteInfo = jpeg;
 		};
+		5A453F9A16BE79B6002AFE23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A453F8D16BE79A7002AFE23;
+			remoteInfo = downloads;
+		};
 		5A4DC1931028284400A9DD55 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A9D56BC0E7F242C000F129F /* optipng.xcodeproj */;
@@ -694,6 +701,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		5A453F8D16BE79A7002AFE23 /* downloads */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION) TARGET_BUILD_DIR=$(TARGET_BUILD_DIR)";
+			buildConfigurationList = 5A453F9916BE79A7002AFE23 /* Build configuration list for PBXLegacyTarget "downloads" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = downloads;
+			passBuildSettingsInEnvironment = 1;
+			productName = downloads;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		8D1107260486CEB800E47090 /* ImageOptim */ = {
 			isa = PBXNativeTarget;
@@ -708,6 +732,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5A453F9B16BE79B6002AFE23 /* PBXTargetDependency */,
 				5AA6D24F1503EA07006DDB3E /* PBXTargetDependency */,
 				5A8594D91460BC5B0044095A /* PBXTargetDependency */,
 				5A20CCA5112393CC0000400D /* PBXTargetDependency */,
@@ -803,6 +828,7 @@
 			targets = (
 				8D1107260486CEB800E47090 /* ImageOptim */,
 				5ABB9FEC0E8518DA006F51BB /* bzip archive */,
+				5A453F8D16BE79A7002AFE23 /* downloads */,
 			);
 		};
 /* End PBXProject section */
@@ -1014,6 +1040,11 @@
 			name = jpeg;
 			targetProxy = 5A20CCA4112393CC0000400D /* PBXContainerItemProxy */;
 		};
+		5A453F9B16BE79B6002AFE23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A453F8D16BE79A7002AFE23 /* downloads */;
+			targetProxy = 5A453F9A16BE79B6002AFE23 /* PBXContainerItemProxy */;
+		};
 		5A4DC1941028284400A9DD55 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = optipng;
@@ -1172,6 +1203,18 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5A453F8E16BE79A7002AFE23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		5A453F8F16BE79A7002AFE23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
 		5ABB9FED0E8518DA006F51BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1236,6 +1279,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5A453F9916BE79A7002AFE23 /* Build configuration list for PBXLegacyTarget "downloads" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A453F8E16BE79A7002AFE23 /* Debug */,
+				5A453F8F16BE79A7002AFE23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		5ABB9FF10E8518FE006F51BB /* Build configuration list for PBXAggregateTarget "bzip archive" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

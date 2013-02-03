@@ -1,15 +1,22 @@
+SPARKLE=$(TARGET_BUILD_DIR)/Sparkle.framework
 
-Sparkle.framework: /tmp/sparkle.zip
-	-rm -rf Sparkle.framework
-	unzip -o /tmp/sparkle.zip 'With Garbage Collection/*' && mv 'With Garbage Collection/Sparkle.framework' ./
-	-rm -rf /tmp/sparkle.zip 'With Garbage Collection'
-	-rm -rf Sparkle.framework/Versions/A/Resources/fr_CA.lproj
+all: $(SPARKLE) pngout
+
+$(SPARKLE): /tmp/sparkle.zip
+	-rm -rf $(SPARKLE)
+	unzip -o /tmp/sparkle.zip 'With Garbage Collection/*' && mv 'With Garbage Collection/Sparkle.framework' $(SPARKLE)
+	-rm -rf 'With Garbage Collection'
+	-rm -rf $(SPARKLE)/Versions/A/Resources/fr_CA.lproj
 
 /tmp/sparkle.zip:
 	curl http://sparkle.andymatuschak.org/files/Sparkle%201.5b6.zip -o /tmp/sparkle.zip
 
+pngout:
+	curl http://static.jonof.id.au/dl/kenutils/pngout-20120530-darwin.tar.gz | tar xz
+	mv pngout-20120530-darwin pngout
+
 clean:
-	-rm -rf 'With Garbage Collection'
+	-rm -rf $(SPARKLE) pngout /tmp/sparkle.zip
 
 install:
-	
+
