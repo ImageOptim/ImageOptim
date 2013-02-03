@@ -4,6 +4,7 @@
 *.xcuserdatad
 *.xcworkspace
 *.zip
+.DS_Store
 .svn
 advpng/*.c
 advpng/*.cc
