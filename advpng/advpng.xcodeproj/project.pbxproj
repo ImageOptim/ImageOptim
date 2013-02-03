@@ -152,7 +152,7 @@
 		5A81668A0EA117BB00962CF2 /* LZMAEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZMAEncoder.h; sourceTree = "<group>"; };
 		5A81668B0EA117BB00962CF2 /* OutByte.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OutByte.cc; sourceTree = "<group>"; };
 		5A81668C0EA117BB00962CF2 /* OutByte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutByte.h; sourceTree = "<group>"; };
-		5A81668D0EA117BB00962CF2 /* Portable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Portable.h; sourceTree = "<group>"; };
+		5A81668D0EA117BB00962CF2 /* Portable.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = Portable.h; sourceTree = "<group>"; };
 		5A81668E0EA117BB00962CF2 /* RangeCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RangeCoder.h; sourceTree = "<group>"; };
 		5A81668F0EA117BB00962CF2 /* RCDefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RCDefs.h; sourceTree = "<group>"; };
 		5A8166900EA117BB00962CF2 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
