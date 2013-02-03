@@ -350,7 +350,6 @@
 		5A714AAC0CB0196A00C242C0 /* MyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableView.m; sourceTree = "<group>"; };
 		5A739C260EA4073700D751E1 /* jpegtran.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpegtran.xcodeproj; path = ../jpegtran/jpegtran.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A7A314713E436690012DCFB /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5A7A314A13E437430012DCFB /* be */ = {isa = PBXFileReference; lastKnownFileType = folder; name = be; path = be.lproj/Help; sourceTree = "<group>"; };
 		5A7D24F013EDF5F100815AAA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
 		5A7D24F113EDF5F100815AAA /* es */ = {isa = PBXFileReference; lastKnownFileType = folder; name = es; path = es.lproj/Help; sourceTree = "<group>"; };
 		5A7D24F213EDF5F100815AAA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1189,7 +1188,6 @@
 				5A034423129985D5002091AA /* pt */,
 				5A03443B1299884F002091AA /* ru */,
 				5ABF611313E37B86009F6F22 /* da */,
-				5A7A314A13E437430012DCFB /* be */,
 				5A7D24F113EDF5F100815AAA /* es */,
 				5AD299C2143675BB0048C725 /* no */,
 				5AE74B60146DECB100287FA6 /* pt-BR */,
