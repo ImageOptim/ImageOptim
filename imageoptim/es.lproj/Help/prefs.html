@@ -23,7 +23,7 @@
 	<dd><p>Escribirá una copia del archivo con <samp>~</samp> anexado a su nombre. Esto hace que la optimización sea un poco más lenta y llena su disco duro con archivos de esas copias de seguridad.</p></dd>
 
 	<dt>Eliminar fragmentos opcionales</dt>
-	<dd><p>Manténgalo en caso de que optimizar para la web. Desactivalo si tiene PNGs especiales con metadatos adicionales.</p></dd>
+	<dd><p>Manténgalo en caso de que  quiera optimizar los archivos de imagen para la web. Desactivalo si tiene PNGs especiales con metadatos adicionales.</p></dd>
     <dt>Elimina marcadores EXIF de los archivos</dt>
     <dd><p>Elimina los metadatos de la imagen, como el nombre de la aplicación o del modelo de cámara que creó el archivo.</dd>
 
@@ -56,7 +56,7 @@
 	<dd><p>PNGOUT es muy eficaz, pero muy lento. Use un nivel inferior si eres impaciente.</dd>
 
 	<dt>Interrumpir si tarda demasiado</dt>
-	<dd><p>PNGOUT puede necesitar <em>mucho</em> tiempo para optimizar imágenes muy grandes. Esta opción interrumpe PNGOUT de manera armoniosa después de 1 minuto.</p></dd>
+	<dd><p>PNGOUT puede necesitar <em>mucho</em> tiempo para optimizar imágenes muy grandes. Esta opción interrumpe PNGOUT de manera controlada después de 1 minuto.</p></dd>
 
 </dl>
 </div>
@@ -70,7 +70,7 @@
 
 <dl>
 	<dt>Nivel de optimización</dt>
-	<dd>AdvPNG es relativamente rápido, así que usted puede utilizar el nivel máximo.</dd>
+	<dd>AdvPNG es relativamente rápido, así que puede utilizar el nivel máximo si asi lo desea.</dd>
 </dl>
 </div>
 <div id="optipng">
@@ -83,18 +83,18 @@
 
 <dl>
 	<dt>Nivel de optimización</dt>
-	<dd><p>Hemos probado numerosas combinaciones diferentes de ajustes. Rara vez tiene sentido probar las todas.</dd>
+	<dd><p>Hemos probado numerosas combinaciones diferentes de ajustes. Rara vez tiene sentido probarlas todas.</dd>
 
 	<dt>Entrelazar las imágenes (progresivo)</dt>
-	<dd><p>Imágenes entrelazadas se ven mejor cuando están parcialmente cargadas, pero por lo general entrelazarlas hace que la compresión sea menos eficiente.<p>
-		<p>Esta casilla tiene tres estados: si se activa, forzará entrelazar las imágenes. Cuando esta mezclado, mantendrá sin cambios el entrelazado del archivo, y cuando esté desactivado eliminará el entrelazado de los archivos.</dd>
+	<dd><p>Las imágenes entrelazadas se ven mejor cuando están parcialmente cargadas, pero por lo general entrelazarlas hace que la compresión sea menos eficiente.<p>
+		<p>Esta casilla tiene tres estados: si se activa, se forzará en entrelazado de las imágenes. Cuando está mezclado, mantendrá sin cambios el entrelazado del archivo, y cuando esté desactivado eliminará el entrelazado de los archivos.</dd>
 </dl>
 </div>
 <div id="jpegrescan">
 <a name="jpegrescan">jpegrescan</a>
 <h2>JpegRescan</h2>
 
-<p>Jpegrescan is a script based on <code>jpegtran</code>. It uses creates JPEG files with unusual number of progressive scans to achieve better compression, but such files may not be compatible with all browsers.</p>
+<p>Jpegrescan es un script basado en <code>jpegtran</code>. Se encarga de crear archivos JPEG con un inusual número de escaneos progresivos para obtener una mejor compresión. El problema es que los archivos obtenidos pueden no ser comparibles con todos los navegadores.</p>
 </div>
 <div id="gifsicle">
 <a name="gifsicle">gifsicle</a>
@@ -105,7 +105,7 @@
 
 
 <p>Los archivos GIF pasarán a ser entrelazados o no entrelazados de forma automática, según lo que sea más pequeño. Los comentarios en el archivo serán eliminados.</p>
-<p>Por favor tenga en cuenta que Gifsicle funciona mejor con GIFs animados, y GIFs no animados raramente se pueden optimizar</p>
+<p>Por favor tenga en cuenta que Gifsicle funciona mejor con GIFs animados. Los GIFs no animados raramente se pueden optimizar</p>
 
 <p>Para la mejor compresión, recomendamos convertir los archivos GIF a PNG (ImageOptim no lo hace automáticamente).</p>
 </div>
