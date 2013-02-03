@@ -73,16 +73,16 @@
 			isa = PBXGroup;
 			children = (
 				5A4554531025E76F00A69944 /* clp.c */,
-				5A4553D01025E50700A69944 /* gifread.c */,
-				5A4553D21025E50700A69944 /* giffunc.c */,
+				5A4553DC1025E50700A69944 /* dmalloc.c */,
 				5A4553D61025E50700A69944 /* fmalloc.c */,
-				5A4553D91025E50700A69944 /* support.c */,
+				5A4553D21025E50700A69944 /* giffunc.c */,
+				5A4553D01025E50700A69944 /* gifread.c */,
+				5A4553DF1025E50700A69944 /* gifsicle.c */,
+				5A4553DD1025E50700A69944 /* gifwrite.c */,
 				5A4553DA1025E50700A69944 /* merge.c */,
 				5A4553DB1025E50700A69944 /* optimize.c */,
-				5A4553DC1025E50700A69944 /* dmalloc.c */,
-				5A4553DD1025E50700A69944 /* gifwrite.c */,
+				5A4553D91025E50700A69944 /* support.c */,
 				5A4553DE1025E50700A69944 /* xform.c */,
-				5A4553DF1025E50700A69944 /* gifsicle.c */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -165,16 +165,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A4553E21025E50700A69944 /* gifread.c in Sources */,
-				5A4553E41025E50700A69944 /* giffunc.c in Sources */,
+				5A4554541025E76F00A69944 /* clp.c in Sources */,
+				5A4553EE1025E50700A69944 /* dmalloc.c in Sources */,
 				5A4553E81025E50700A69944 /* fmalloc.c in Sources */,
-				5A4553EB1025E50700A69944 /* support.c in Sources */,
+				5A4553E41025E50700A69944 /* giffunc.c in Sources */,
+				5A4553E21025E50700A69944 /* gifread.c in Sources */,
+				5A4553F11025E50700A69944 /* gifsicle.c in Sources */,
+				5A4553EF1025E50700A69944 /* gifwrite.c in Sources */,
 				5A4553EC1025E50700A69944 /* merge.c in Sources */,
 				5A4553ED1025E50700A69944 /* optimize.c in Sources */,
-				5A4553EE1025E50700A69944 /* dmalloc.c in Sources */,
-				5A4553EF1025E50700A69944 /* gifwrite.c in Sources */,
-				5A4553F11025E50700A69944 /* gifsicle.c in Sources */,
-				5A4554541025E76F00A69944 /* clp.c in Sources */,
+				5A4553EB1025E50700A69944 /* support.c in Sources */,
 				5A4554AC1025E97100A69944 /* xform.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

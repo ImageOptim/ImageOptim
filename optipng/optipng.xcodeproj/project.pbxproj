@@ -101,9 +101,9 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				5A7399DA0EA2835D00D751E1 /* libpng.xcodeproj */,
 				5A18C3BC1288BD310037F881 /* Makefile */,
 				5A9D55F20E7F21AD000F129F /* src */,
+				5A7399DA0EA2835D00D751E1 /* libpng.xcodeproj */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -128,16 +128,16 @@
 		5A9D55F20E7F21AD000F129F /* src */ = {
 			isa = PBXGroup;
 			children = (
-				5A984A9411237FE2007622D7 /* opngoptim.c */,
+				5A9D55F30E7F21AD000F129F /* pngxtern */,
 				5A9D56360E7F21AD000F129F /* cbitset.c */,
 				5A9D56370E7F21AD000F129F /* cbitset.h */,
 				5A9D56380E7F21AD000F129F /* cexcept.h */,
+				5A984A9411237FE2007622D7 /* opngoptim.c */,
 				5A9D56390E7F21AD000F129F /* opngreduc.c */,
 				5A9D563A0E7F21AD000F129F /* optipng.c */,
 				5A9D563B0E7F21AD000F129F /* osys.c */,
 				5A9D563C0E7F21AD000F129F /* osys.h */,
 				5A9D563D0E7F21AD000F129F /* proginfo.h */,
-				5A9D55F30E7F21AD000F129F /* pngxtern */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -252,16 +252,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A9D56730E7F21AD000F129F /* cbitset.c in Sources */,
+				5A984A9511237FE2007622D7 /* opngoptim.c in Sources */,
+				5A9D56740E7F21AD000F129F /* opngreduc.c in Sources */,
+				5A9D56750E7F21AD000F129F /* optipng.c in Sources */,
+				5A9D56760E7F21AD000F129F /* osys.c in Sources */,
 				5A9D56450E7F21AD000F129F /* pngxio.c in Sources */,
 				5A9D56460E7F21AD000F129F /* pngxmem.c in Sources */,
 				5A9D56480E7F21AD000F129F /* pngxread.c in Sources */,
 				5A9D564D0E7F21AD000F129F /* pngxset.c in Sources */,
 				5A9D564E0E7F21AD000F129F /* pngxwrite.c in Sources */,
-				5A9D56730E7F21AD000F129F /* cbitset.c in Sources */,
-				5A9D56740E7F21AD000F129F /* opngreduc.c in Sources */,
-				5A9D56750E7F21AD000F129F /* optipng.c in Sources */,
-				5A9D56760E7F21AD000F129F /* osys.c in Sources */,
-				5A984A9511237FE2007622D7 /* opngoptim.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

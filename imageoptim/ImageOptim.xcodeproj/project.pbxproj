@@ -268,16 +268,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
-				5A0FA76214A7EFCB008FA381 /* pngout in Copy Executables */,
-				5A8594E81460BCF20044095A /* jpegrescan in Copy Executables */,
+				5A3470AB140BC80F0014F638 /* advpng in Copy Executables */,
 				5A3470B0140BC8600014F638 /* gifsicle in Copy Executables */,
-				5A3470AF140BC8590014F638 /* jpegtran in Copy Executables */,
 				5A3470AE140BC8540014F638 /* jpegoptim in Copy Executables */,
+				5A8594E81460BCF20044095A /* jpegrescan in Copy Executables */,
+				5A3470AF140BC8590014F638 /* jpegtran in Copy Executables */,
+				5A3470A9140BC7D10014F638 /* libimageoptimjpeg.dylib in Copy Executables */,
+				5A3470AA140BC7DD0014F638 /* liblibpng.dylib in Copy Executables */,
 				5A3470AD140BC8250014F638 /* optipng in Copy Executables */,
 				5A3470AC140BC81A0014F638 /* pngcrush in Copy Executables */,
-				5A3470AB140BC80F0014F638 /* advpng in Copy Executables */,
-				5A3470AA140BC7DD0014F638 /* liblibpng.dylib in Copy Executables */,
-				5A3470A9140BC7D10014F638 /* libimageoptimjpeg.dylib in Copy Executables */,
+				5A0FA76214A7EFCB008FA381 /* pngout in Copy Executables */,
 			);
 			name = "Copy Executables";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,8 +451,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */,
 				5AA6D2511503EA29006DDB3E /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,24 +464,24 @@
 			isa = PBXGroup;
 			children = (
 				5AE54DE50CAEF51300903DF4 /* Workers */,
-				5A6242060CA86DC7005942A3 /* PrefsController.h */,
-				5A6242070CA86DC7005942A3 /* PrefsController.m */,
-				5A0D2E550C922AB700FD7CDE /* File.h */,
-				5A0D2E560C922AB700FD7CDE /* File.m */,
-				5A0D2E5B0C922D6D00FD7CDE /* ImageOptim.h */,
-				5A0D2E5C0C922D6D00FD7CDE /* ImageOptim.m */,
-				5AE1C4980CA6CDDC000CF636 /* FilesQueue.h */,
-				5AE1C4990CA6CDDC000CF636 /* FilesQueue.m */,
-				5AACA7BA0CAFD0D2004D45CA /* MyTableView.h */,
-				5A714AAC0CB0196A00C242C0 /* MyTableView.m */,
-				5AACA82F0CAFE74E004D45CA /* Transformers.h */,
-				5AACA8300CAFE74E004D45CA /* Transformers.m */,
-				5A391882140A9B19001B4FD7 /* RevealButtonCell.h */,
-				5A391880140A9B10001B4FD7 /* RevealButtonCell.m */,
 				5A34A632140EEDB900DE44D2 /* DragDropImageView.h */,
 				5A34A633140EEDB900DE44D2 /* DragDropImageView.m */,
+				5A0D2E550C922AB700FD7CDE /* File.h */,
+				5A0D2E560C922AB700FD7CDE /* File.m */,
+				5AE1C4980CA6CDDC000CF636 /* FilesQueue.h */,
+				5AE1C4990CA6CDDC000CF636 /* FilesQueue.m */,
+				5A0D2E5B0C922D6D00FD7CDE /* ImageOptim.h */,
+				5A0D2E5C0C922D6D00FD7CDE /* ImageOptim.m */,
+				5AACA7BA0CAFD0D2004D45CA /* MyTableView.h */,
+				5A714AAC0CB0196A00C242C0 /* MyTableView.m */,
+				5A6242060CA86DC7005942A3 /* PrefsController.h */,
+				5A6242070CA86DC7005942A3 /* PrefsController.m */,
+				5A391882140A9B19001B4FD7 /* RevealButtonCell.h */,
+				5A391880140A9B10001B4FD7 /* RevealButtonCell.m */,
 				5A8A18121416D1D700D62DB7 /* SavingsFormatter.h */,
 				5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */,
+				5AACA82F0CAFE74E004D45CA /* Transformers.h */,
+				5AACA8300CAFE74E004D45CA /* Transformers.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -529,19 +529,19 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5A48B74A1423F3AD00AE15FB /* Makefile */,
+				5A4554F81025EBE900A69944 /* optimal_file_list */,
+				5A984D4011238E51007622D7 /* advpng.xcodeproj */,
+				5A27B9C2139B079A0095FC2F /* debug.xcconfig */,
 				5A4DC2051028ADB200A9DD55 /* gifsicle.xcodeproj */,
 				5A20CC9D112393B80000400D /* jpeg.xcodeproj */,
-				5A20CC8E1123939C0000400D /* libpng.xcodeproj */,
-				5A984D4011238E51007622D7 /* advpng.xcodeproj */,
-				5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */,
-				5A739C260EA4073700D751E1 /* jpegtran.xcodeproj */,
 				5A8167EC0EA11F9D00962CF2 /* jpegoptim.xcodeproj */,
-				5A9D56BC0E7F242C000F129F /* optipng.xcodeproj */,
+				5A739C260EA4073700D751E1 /* jpegtran.xcodeproj */,
+				5A20CC8E1123939C0000400D /* libpng.xcodeproj */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
-				5A4554F81025EBE900A69944 /* optimal_file_list */,
-				5A48B74A1423F3AD00AE15FB /* Makefile */,
+				5A9D56BC0E7F242C000F129F /* optipng.xcodeproj */,
+				5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */,
 				5A27B956139B03090095FC2F /* release.xcconfig */,
-				5A27B9C2139B079A0095FC2F /* debug.xcconfig */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -549,25 +549,25 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5A0FA76114A7EFCB008FA381 /* pngout */,
-				5A1D3E8B14366933004EE809 /* style.css */,
-				5A9AEC18140996D700C9E97D /* reveal.png */,
-				5A45530D1024EB3000A69944 /* PrefsController.xib */,
-				5A45530A1024EB1100A69944 /* MainMenu.xib */,
-				5A887F8310C17361006A0687 /* Credits.rtf */,
 				5A95FEBE0CB8041A00737B79 /* Help */,
+				5A0FA76114A7EFCB008FA381 /* pngout */,
+				5A887F8310C17361006A0687 /* Credits.rtf */,
+				5AE54D800CAEE8AC00903DF4 /* defaults.plist */,
+				5AC63C490E9ABF0A0053B879 /* dsa_pub.pem */,
 				5A9EE4490CB59CDC00F08CC5 /* err.png */,
+				5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */,
+				8D1107310486CEB800E47090 /* Info.plist */,
 				5A94A03A10275E11005CC9CB /* Localizable.strings */,
+				5A45530A1024EB1100A69944 /* MainMenu.xib */,
+				5AACA3830CAF3DA5004D45CA /* minus.png */,
 				5A9EE44A0CB59CDC00F08CC5 /* noopt.png */,
 				5A9EE44B0CB59CDC00F08CC5 /* ok.png */,
-				5A9EE4720CB59EC100F08CC5 /* progress.png */,
-				5A9EE44C0CB59CDC00F08CC5 /* wait.png */,
-				5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */,
-				5AACA3830CAF3DA5004D45CA /* minus.png */,
 				5AACA3840CAF3DA5004D45CA /* plus.png */,
-				8D1107310486CEB800E47090 /* Info.plist */,
-				5AC63C490E9ABF0A0053B879 /* dsa_pub.pem */,
-				5AE54D800CAEE8AC00903DF4 /* defaults.plist */,
+				5A45530D1024EB3000A69944 /* PrefsController.xib */,
+				5A9EE4720CB59EC100F08CC5 /* progress.png */,
+				5A9AEC18140996D700C9E97D /* reveal.png */,
+				5A1D3E8B14366933004EE809 /* style.css */,
+				5A9EE44C0CB59CDC00F08CC5 /* wait.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -575,11 +575,11 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5A99FE83140AE80600BB2F79 /* Quartz.framework */,
-				5AEF1B2110F2BCB200E3E4F0 /* Foundation.framework */,
-				5AEF1B1D10F2BCA900E3E4F0 /* AppKit.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+				5AEF1B1D10F2BCA900E3E4F0 /* AppKit.framework */,
+				5AEF1B2110F2BCB200E3E4F0 /* Foundation.framework */,
+				5A99FE83140AE80600BB2F79 /* Quartz.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -587,9 +587,9 @@
 		5A09013A0ED8D68200F3965B /* Sparkle */ = {
 			isa = PBXGroup;
 			children = (
-				5AA6D23B1503E9F5006DDB3E /* Sparkle.xcodeproj */,
 				5A09013F0ED8D6AA00F3965B /* appcast.xml */,
 				5A0901400ED8D6B800F3965B /* sparkle.sig */,
+				5AA6D23B1503E9F5006DDB3E /* Sparkle.xcodeproj */,
 			);
 			name = Sparkle;
 			sourceTree = "<group>";
@@ -646,8 +646,8 @@
 		5A739C270EA4073700D751E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A739C2B0EA4073700D751E1 /* jpegtran */,
 				5A8594E71460BCF20044095A /* jpegrescan */,
+				5A739C2B0EA4073700D751E1 /* jpegtran */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -663,10 +663,10 @@
 		5AA6D23C1503E9F5006DDB3E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5AA6D2471503E9F6006DDB3E /* Sparkle.framework */,
+				5AA6D24D1503E9F6006DDB3E /* finish_installation.app */,
 				5AA6D2491503E9F6006DDB3E /* Sparkle Test App.app */,
 				5AA6D24B1503E9F6006DDB3E /* Sparkle Unit Tests.octest */,
-				5AA6D24D1503E9F6006DDB3E /* finish_installation.app */,
+				5AA6D2471503E9F6006DDB3E /* Sparkle.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -674,26 +674,26 @@
 		5AE54DE50CAEF51300903DF4 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
-				5A4DC2191028AE1800A9DD55 /* GifsicleWorker.h */,
-				5A4DC21A1028AE1800A9DD55 /* GifsicleWorker.m */,
+				5AE54E1F0CAF16D800903DF4 /* AdvCompWorker.h */,
+				5AE54E200CAF16D800903DF4 /* AdvCompWorker.m */,
 				5A44F5850CB2ECFE00BD2884 /* CommandWorker.h */,
 				5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */,
 				5AACA1360CAF23FF004D45CA /* DirWorker.h */,
 				5AACA1370CAF23FF004D45CA /* DirWorker.m */,
-				5A5C29410CB04A0F00FAF446 /* OptiPngWorker.h */,
-				5A5C29420CB04A0F00FAF446 /* OptiPngWorker.m */,
-				5AE54DED0CAEF56100903DF4 /* PngoutWorker.h */,
-				5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */,
-				5AE54E1F0CAF16D800903DF4 /* AdvCompWorker.h */,
-				5AE54E200CAF16D800903DF4 /* AdvCompWorker.m */,
-				5A44F4B20CB1868100BD2884 /* PngCrushWorker.h */,
-				5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */,
-				5AACA13D0CAF241B004D45CA /* Worker.h */,
-				5AACA13E0CAF241B004D45CA /* Worker.m */,
-				5A6E04410EA40B6A00380DE7 /* JpegtranWorker.h */,
-				5A6E04420EA40B6A00380DE7 /* JpegtranWorker.m */,
+				5A4DC2191028AE1800A9DD55 /* GifsicleWorker.h */,
+				5A4DC21A1028AE1800A9DD55 /* GifsicleWorker.m */,
 				5A9E5B290CB961E000E05D28 /* JpegoptimWorker.h */,
 				5A9E5B2A0CB961E000E05D28 /* JpegoptimWorker.m */,
+				5A6E04410EA40B6A00380DE7 /* JpegtranWorker.h */,
+				5A6E04420EA40B6A00380DE7 /* JpegtranWorker.m */,
+				5A5C29410CB04A0F00FAF446 /* OptiPngWorker.h */,
+				5A5C29420CB04A0F00FAF446 /* OptiPngWorker.m */,
+				5A44F4B20CB1868100BD2884 /* PngCrushWorker.h */,
+				5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */,
+				5AE54DED0CAEF56100903DF4 /* PngoutWorker.h */,
+				5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */,
+				5AACA13D0CAF241B004D45CA /* Worker.h */,
+				5AACA13E0CAF241B004D45CA /* Worker.m */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -938,23 +938,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A7D24E213E5BC3100815AAA /* PrefsController.xib in Resources */,
-				5A7D24E313E5BC3100815AAA /* MainMenu.xib in Resources */,
 				5A7D24E413E5BC3100815AAA /* Credits.rtf in Resources */,
-				5A7D24E513E5BC3100815AAA /* Help in Resources */,
+				5A7D24EF13E5BC3100815AAA /* defaults.plist in Resources */,
+				5A7D24EE13E5BC3100815AAA /* dsa_pub.pem in Resources */,
 				5A7D24E613E5BC3100815AAA /* err.png in Resources */,
+				5A7D24E513E5BC3100815AAA /* Help in Resources */,
+				5A16343E140BF97400758D99 /* ImageOptim.icns in Resources */,
 				5A7D24E713E5BC3100815AAA /* Localizable.strings in Resources */,
+				5A7D24E313E5BC3100815AAA /* MainMenu.xib in Resources */,
+				5A7D24EC13E5BC3100815AAA /* minus.png in Resources */,
 				5A7D24E813E5BC3100815AAA /* noopt.png in Resources */,
 				5A7D24E913E5BC3100815AAA /* ok.png in Resources */,
-				5A7D24EA13E5BC3100815AAA /* progress.png in Resources */,
-				5A7D24EB13E5BC3100815AAA /* wait.png in Resources */,
-				5A7D24EC13E5BC3100815AAA /* minus.png in Resources */,
 				5A7D24ED13E5BC3100815AAA /* plus.png in Resources */,
-				5A7D24EE13E5BC3100815AAA /* dsa_pub.pem in Resources */,
-				5A7D24EF13E5BC3100815AAA /* defaults.plist in Resources */,
+				5A7D24E213E5BC3100815AAA /* PrefsController.xib in Resources */,
+				5A7D24EA13E5BC3100815AAA /* progress.png in Resources */,
 				5A9AEC19140996D700C9E97D /* reveal.png in Resources */,
-				5A16343E140BF97400758D99 /* ImageOptim.icns in Resources */,
 				5A1D3E8C14366933004EE809 /* style.css in Resources */,
+				5A7D24EB13E5BC3100815AAA /* wait.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1003,26 +1003,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				5A0D2E570C922AB700FD7CDE /* File.m in Sources */,
-				5A0D2E5D0C922D6D00FD7CDE /* ImageOptim.m in Sources */,
-				5AE1C49A0CA6CDDC000CF636 /* FilesQueue.m in Sources */,
-				5A6242080CA86DC7005942A3 /* PrefsController.m in Sources */,
-				5AE54DEF0CAEF56100903DF4 /* PngoutWorker.m in Sources */,
 				5AE54E210CAF16D800903DF4 /* AdvCompWorker.m in Sources */,
+				5A44F5840CB2ECEB00BD2884 /* CommandWorker.m in Sources */,
 				5AACA1380CAF23FF004D45CA /* DirWorker.m in Sources */,
-				5AACA13F0CAF241B004D45CA /* Worker.m in Sources */,
-				5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */,
+				5A34A634140EEDB900DE44D2 /* DragDropImageView.m in Sources */,
+				5A0D2E570C922AB700FD7CDE /* File.m in Sources */,
+				5AE1C49A0CA6CDDC000CF636 /* FilesQueue.m in Sources */,
+				5A4DC21B1028AE1800A9DD55 /* GifsicleWorker.m in Sources */,
+				5A0D2E5D0C922D6D00FD7CDE /* ImageOptim.m in Sources */,
+				5A9E5B2B0CB961E000E05D28 /* JpegoptimWorker.m in Sources */,
+				5A6E04430EA40B6A00380DE7 /* JpegtranWorker.m in Sources */,
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				5A714AAD0CB0196A00C242C0 /* MyTableView.m in Sources */,
 				5A5C29430CB04A0F00FAF446 /* OptiPngWorker.m in Sources */,
 				5A44F4B40CB1868100BD2884 /* PngCrushWorker.m in Sources */,
-				5A44F5840CB2ECEB00BD2884 /* CommandWorker.m in Sources */,
-				5A9E5B2B0CB961E000E05D28 /* JpegoptimWorker.m in Sources */,
-				5A6E04430EA40B6A00380DE7 /* JpegtranWorker.m in Sources */,
-				5A4DC21B1028AE1800A9DD55 /* GifsicleWorker.m in Sources */,
+				5AE54DEF0CAEF56100903DF4 /* PngoutWorker.m in Sources */,
+				5A6242080CA86DC7005942A3 /* PrefsController.m in Sources */,
 				5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */,
-				5A34A634140EEDB900DE44D2 /* DragDropImageView.m in Sources */,
 				5A8A18141416D1D700D62DB7 /* SavingsFormatter.m in Sources */,
+				5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */,
+				5AACA13F0CAF241B004D45CA /* Worker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1095,21 +1095,21 @@
 		5A45530A1024EB1100A69944 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5A45530B1024EB1100A69944 /* English */,
-				5A4553121024EF3000A69944 /* Polish */,
-				5A94A00D102757F0005CC9CB /* French */,
-				5A8DFBD710C097A0009A5C8E /* Dutch */,
-				5AA2213E10DE9CF900D67435 /* Italian */,
-				5AA339011117C41400046C79 /* German */,
-				5A0343BE129984B3002091AA /* pt */,
-				5A0344371299882B002091AA /* ru */,
 				5ABF610913E37B07009F6F22 /* da */,
-				5A7D24F313EDF5F100815AAA /* es */,
-				5AD299BB1436757F0048C725 /* no */,
-				5AE74B5C146DECA300287FA6 /* pt-BR */,
+				5A8DFBD710C097A0009A5C8E /* Dutch */,
 				5A8B52D41559C278005AA6E3 /* en-GB */,
-				5AC98826155F1ACD00E221A0 /* sv */,
+				5A45530B1024EB1100A69944 /* English */,
+				5A7D24F313EDF5F100815AAA /* es */,
+				5A94A00D102757F0005CC9CB /* French */,
+				5AA339011117C41400046C79 /* German */,
+				5AA2213E10DE9CF900D67435 /* Italian */,
 				5A9ED38415F22153005B8CA5 /* ja */,
+				5AD299BB1436757F0048C725 /* no */,
+				5A4553121024EF3000A69944 /* Polish */,
+				5A0343BE129984B3002091AA /* pt */,
+				5AE74B5C146DECA300287FA6 /* pt-BR */,
+				5A0344371299882B002091AA /* ru */,
+				5AC98826155F1ACD00E221A0 /* sv */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1117,21 +1117,21 @@
 		5A45530D1024EB3000A69944 /* PrefsController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5A45530E1024EB3000A69944 /* English */,
-				5A4553131024EF4100A69944 /* Polish */,
-				5A94A00C102757E5005CC9CB /* French */,
-				5A8DFBD810C097AC009A5C8E /* Dutch */,
-				5AA2213F10DE9D0100D67435 /* Italian */,
-				5AA339021117C41B00046C79 /* German */,
-				5A0343BF129984BA002091AA /* pt */,
-				5A0344381299882F002091AA /* ru */,
 				5ABF610813E37AFC009F6F22 /* da */,
-				5A7D24F413EDF5F100815AAA /* es */,
-				5AD299BD143675870048C725 /* no */,
-				5AE74B5E146DECAA00287FA6 /* pt-BR */,
+				5A8DFBD810C097AC009A5C8E /* Dutch */,
 				5A8B52D31559C269005AA6E3 /* en-GB */,
-				5AC98827155F1ACD00E221A0 /* sv */,
+				5A45530E1024EB3000A69944 /* English */,
+				5A7D24F413EDF5F100815AAA /* es */,
+				5A94A00C102757E5005CC9CB /* French */,
+				5AA339021117C41B00046C79 /* German */,
+				5AA2213F10DE9D0100D67435 /* Italian */,
 				5A9ED38215F2214F005B8CA5 /* ja */,
+				5AD299BD143675870048C725 /* no */,
+				5A4553131024EF4100A69944 /* Polish */,
+				5A0343BF129984BA002091AA /* pt */,
+				5AE74B5E146DECAA00287FA6 /* pt-BR */,
+				5A0344381299882F002091AA /* ru */,
+				5AC98827155F1ACD00E221A0 /* sv */,
 			);
 			name = PrefsController.xib;
 			sourceTree = "<group>";
@@ -1139,20 +1139,20 @@
 		5A887F8310C17361006A0687 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
+				5ABF610A13E37B5F009F6F22 /* da */,
 				5A887F8410C17361006A0687 /* Dutch */,
 				5AD3032010D555E4002A5558 /* English */,
-				5AD3032110D555ED002A5558 /* Polish */,
-				5AD3032210D555F7002A5558 /* French */,
-				5AA2213210DE9CD500D67435 /* Italian */,
-				5AA338A21117BF1900046C79 /* German */,
-				5A0343B012998485002091AA /* pt */,
-				5A03443612998825002091AA /* ru */,
-				5ABF610A13E37B5F009F6F22 /* da */,
 				5A7D24F013EDF5F100815AAA /* es */,
-				5AD299B71436756D0048C725 /* no */,
-				5AE74B62146DECB800287FA6 /* pt-BR */,
-				5AC9882A155F1AE100E221A0 /* sv */,
+				5AD3032210D555F7002A5558 /* French */,
+				5AA338A21117BF1900046C79 /* German */,
+				5AA2213210DE9CD500D67435 /* Italian */,
 				5A9ED38815F22199005B8CA5 /* ja */,
+				5AD299B71436756D0048C725 /* no */,
+				5AD3032110D555ED002A5558 /* Polish */,
+				5A0343B012998485002091AA /* pt */,
+				5AE74B62146DECB800287FA6 /* pt-BR */,
+				5A03443612998825002091AA /* ru */,
+				5AC9882A155F1AE100E221A0 /* sv */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -1160,20 +1160,20 @@
 		5A94A03A10275E11005CC9CB /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5A94A03B10275E11005CC9CB /* Polish */,
-				5A94A04D10275F40005CC9CB /* French */,
-				5A8DFBEB10C09812009A5C8E /* Dutch */,
-				5AA2213310DE9CEF00D67435 /* Italian */,
-				5AA338BF1117C00300046C79 /* German */,
-				5A03443A12998845002091AA /* ru */,
 				5ABF611613E37BC3009F6F22 /* da */,
-				5A7A314713E436690012DCFB /* pt */,
-				5A7D24F213EDF5F100815AAA /* es */,
-				5AD299B9143675770048C725 /* no */,
-				5AE74B57146DEC8700287FA6 /* pt-BR */,
+				5A8DFBEB10C09812009A5C8E /* Dutch */,
 				5A8B52D51559C291005AA6E3 /* en-GB */,
-				5AC9882C155F1AE100E221A0 /* sv */,
+				5A7D24F213EDF5F100815AAA /* es */,
+				5A94A04D10275F40005CC9CB /* French */,
+				5AA338BF1117C00300046C79 /* German */,
+				5AA2213310DE9CEF00D67435 /* Italian */,
 				5A9ED38615F22159005B8CA5 /* ja */,
+				5AD299B9143675770048C725 /* no */,
+				5A94A03B10275E11005CC9CB /* Polish */,
+				5A7A314713E436690012DCFB /* pt */,
+				5AE74B57146DEC8700287FA6 /* pt-BR */,
+				5A03443A12998845002091AA /* ru */,
+				5AC9882C155F1AE100E221A0 /* sv */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1181,19 +1181,19 @@
 		5A95FEBE0CB8041A00737B79 /* Help */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5A95FEBF0CB8041A00737B79 /* English */,
-				5A94A02610275AFD005CC9CB /* fr */,
-				5A8DFBD910C097B9009A5C8E /* Dutch */,
-				5AA338A31117BF5500046C79 /* German */,
-				5A034423129985D5002091AA /* pt */,
-				5A03443B1299884F002091AA /* ru */,
 				5ABF611313E37B86009F6F22 /* da */,
-				5A7D24F113EDF5F100815AAA /* es */,
-				5AD299C2143675BB0048C725 /* no */,
-				5AE74B60146DECB100287FA6 /* pt-BR */,
+				5A8DFBD910C097B9009A5C8E /* Dutch */,
 				5A8B52D61559C29D005AA6E3 /* en-GB */,
-				5AC9882B155F1AE100E221A0 /* sv */,
+				5A95FEBF0CB8041A00737B79 /* English */,
+				5A7D24F113EDF5F100815AAA /* es */,
+				5A94A02610275AFD005CC9CB /* fr */,
+				5AA338A31117BF5500046C79 /* German */,
 				5A9ED38015F2213F005B8CA5 /* ja */,
+				5AD299C2143675BB0048C725 /* no */,
+				5A034423129985D5002091AA /* pt */,
+				5AE74B60146DECB100287FA6 /* pt-BR */,
+				5A03443B1299884F002091AA /* ru */,
+				5AC9882B155F1AE100E221A0 /* sv */,
 			);
 			name = Help;
 			sourceTree = "<group>";
@@ -1284,6 +1284,7 @@
 				5A453F8F16BE79A7002AFE23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5ABB9FF10E8518FE006F51BB /* Build configuration list for PBXAggregateTarget "bzip archive" */ = {
 			isa = XCConfigurationList;

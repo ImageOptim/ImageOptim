@@ -86,9 +86,9 @@
 		08FB7795FE84155DC02AAC07 /* libimageoptimjpeg */ = {
 			isa = PBXGroup;
 			children = (
-				5A739C1B0EA406F600D751E1 /* rdswitch.c */,
 				5A739C130EA406A000D751E1 /* cdjpeg.c */,
 				5A739BAE0EA4038A00D751E1 /* jpegtran.c */,
+				5A739C1B0EA406F600D751E1 /* rdswitch.c */,
 				5A739BB70EA4042600D751E1 /* transupp.c */,
 			);
 			name = libimageoptimjpeg;
@@ -98,8 +98,8 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD76FB20486AB0100D96B5E /* jpegtran */,
 				5A8594DF1460BCA70044095A /* jpegrescan */,
+				8DD76FB20486AB0100D96B5E /* jpegtran */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,10 +198,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A739BAF0EA4038A00D751E1 /* jpegtran.c in Sources */,
-				5A739BB80EA4042600D751E1 /* transupp.c in Sources */,
 				5A739C140EA406A000D751E1 /* cdjpeg.c in Sources */,
+				5A739BAF0EA4038A00D751E1 /* jpegtran.c in Sources */,
 				5A739C1C0EA406F600D751E1 /* rdswitch.c in Sources */,
+				5A739BB80EA4042600D751E1 /* transupp.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
