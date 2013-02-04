@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"	"http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<title>ImageOptim Preferences</title>
+<link rel="stylesheet" href="../../style.css">
+<meta name="AppleTitle" content="ImageOptim Preferences Help">
+<meta name="AppleIcon" content="../../crusher.icns" />
+<meta name="AppleFont" content="Lucida Grande,Helvetica,Arial" />
+    <meta name="AppleSearchResultsFont" content="Lucida Grande,Geneva,Arial" />
+<meta name="description" content="ImageOptim Preferences">
+<body>
+<a name="general">一般</a>
+<h1>ImageOptim 偏好設定</h1>
+<p><a href="index.html">« 回到主頁</a></p>
+<p>通常不需要變更下列各項設定。</p>
+<h2>一般設定</h2>
+<dl>
+	<dt>保留檔案權限、屬性及永久連結</dt>
+	<dd>
+		<p>並非刪除舊檔案再寫入同名的新檔案，而是直接取代原始檔案的內容。這樣可以保證所有的永久連結、檔案別名、檔案擁有者及權限或是其他檔案屬性維持原樣。</p>
+		<p>不保留檔案權限的話，處理速度會快一點。</p>
+	</dd>
+	<dt>在儲存前備份原始檔案</dt>
+	<dd><p>會以<samp>~</samp>前綴原檔案名稱來備份檔案。這會使得最佳化處理速度變慢一些，也會增加冗餘檔案。</p></dd>
+
+	<dt>清除所有輔助資料塊</dt>
+	<dd><p>如果你是為了網頁而最佳化，那麼請啟用它吧。若你需要PNG的額外訊息，就請關閉。</p></dd>
+    <dt>移除EXIF訊息及註解</dt>
+    <dd><p>移除圖片的額外訊息（影像色域空間、曝光時間、GPS座標、相機型號、產生此檔案的應用程式等等）。大於1.3MB的JPEG檔案不會刪除其額外訊息。</dd>
+
+</dl>
+<div id="jpegoptim">
+<a name="jpegoptim">jpegoptim</a>
+<h2>JPEGOptim</h2>
+<dl>
+	<dt>啟用</dt>
+<dd><p>選用的話，ImageOptim會最佳化JPEG檔案</dd>
+
+<dt>最佳品質</dt>
+<dd><p>設定為100%時，為<strong>無損壓縮</strong>。</p>
+	<p>設定為100%以下時，會導致影像品質<strong>下降</strong>。</p>
+
+</dl>
+</div>
+<div id="pngout">
+<a name="pngout">pngout</a>
+<h2>PNGOUT</h2>
+<dl>
+<dt>啟用</dt>
+<dd><p>選用的話，ImageOptim會嘗試利用PNGOUT來最佳化PNG檔案。
+    <p>PNGOUT並非與ImageOptim一起發佈。它是一個很好的工具程式，但<a href="http://www.advsys.net/ken/utils.htm">PNGOUT的作者</a>禁止重新散布。所以<a target="_blank" href="http://www.jonof.id.au/index.php?p=pngout">你必須自行下載PNGOUT</a>。</dd>
+
+<dl>
+	<dt>最佳化類型</dt>
+	<dd><p>PNGOUT對於壓縮非常有效，不過處理速度很慢。如果你沒有耐心等待，請選用較低的最佳化程度。</dd>
+
+	<dt>當處理時間過長時中斷處理</dt>
+	<dd><p>PNGOUT可能需要<em>大量的時間</em>來處理較大的圖片檔案。此選項啟用後，會將超過一分鐘處理時間的最佳化處理優雅地中斷。</p></dd>
+</dl>
+</div>
+<div id="advpng">
+<a name="advpng">advpng</a>
+<h2>AdvPNG</h2>
+<dl>
+<dt>啟用</dt>
+<dd><p>選用的話，ImageOptim會嘗試利用AdvPNG來最佳化PNG檔案。</dd>
+
+<dl>
+	<dt>最佳化程度</dt>
+	<dd>AdvPNG相比之下較為快速。推薦使用最大的最佳化程度。</dd>
+</dl>
+</div>
+<div id="optipng">
+<a name="optipng">optipng</a>
+<h2>OptiPNG</h2>
+<dl>
+<dt>啟用</dt>
+<dd><p>選用的話，ImageOptim會嘗試利用OptiPNG來最佳化PNG檔案。</dd>
+
+<dl>
+	<dt>最佳化程度</dt>
+	<dd><p>設定組合的測試數量。基本上不需測試所有的組合。</dd>
+
+	<dt>交錯化圖片</dt>
+	<dd><p>當圖片部份載入時，交錯式圖片有較好的顯示。但交錯化可能讓壓縮率較為低下。<p>
+		<p>這個核取方塊有三種狀態： 為選取時，會生成交錯化的圖片。為半選時，檔案的交錯化屬性不變。未選取時，會移除交錯化。</dd>
+</dl>
+</div>
+<div id="gifsicle">
+<a name="gifsicle">gifsicle</a>
+<h2>Gifsicle</h2>
+<dl>
+<dt>啟用</dt>
+<dd><p>選用的話，ImageOptim會嘗試利用Gifsicle來最佳化GIF檔案。
+
+<p>GIF會自動最佳化成交錯或非交錯式的檔案，端看何種檔案較小。檔案內的註解會被移除。</p>
+<p>請注意，Gifsicle對於GIF動畫較有效，而靜態GIF較難進一步最佳化。</p>
+
+<p>為了更好的壓縮率，請將GIF轉成PNG檔案。（ImageOptim並不會自動幫你做這件事。）</p>
+</div>
+<div id="jpegrescan">
+<a name="jpegrescan">jpegrescan</a>
+<h2>JpegRescan</h2>
+
+<p>Jpegrescan是基於<code>jpegtran</code>的腳本。它對JPEG檔案用不尋常數目的逐行掃描來實現較高的壓縮率。但是所產出的檔案並非適用於所有的瀏覽器。</p>
+</div>
