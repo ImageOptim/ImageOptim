@@ -699,10 +699,10 @@
 		5AA6D23C1503E9F5006DDB3E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5AA6D24D1503E9F6006DDB3E /* finish_installation.app */,
+				5AA6D2471503E9F6006DDB3E /* Sparkle.framework */,
 				5AA6D2491503E9F6006DDB3E /* Sparkle Test App.app */,
 				5AA6D24B1503E9F6006DDB3E /* Sparkle Unit Tests.octest */,
-				5AA6D2471503E9F6006DDB3E /* Sparkle.framework */,
+				5AA6D24D1503E9F6006DDB3E /* finish_installation.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
