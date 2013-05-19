@@ -28,7 +28,7 @@
 
 - (NSImage *)infoButtonImage {
     static NSImage *image;
-    if (!image) image = [NSImage imageNamed:@"reveal.png"];
+    if (!image) image = [NSImage imageNamed:@"reveal"];
     return image;
 }
 
