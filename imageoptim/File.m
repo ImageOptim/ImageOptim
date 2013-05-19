@@ -523,13 +523,12 @@
 
 -(void)setStatus:(NSString *)imageName order:(NSInteger)order text:(NSString *)text
 {
-    @synchronized(self) 
-    {
+    dispatch_async(dispatch_get_main_queue(), ^{
         if (statusText == text) return;
         statusOrder = order;
         self.statusText = text;
         self.statusImage = [NSImage imageNamed:imageName];
-    }
+    });
 }
 
 -(NSString *)description
