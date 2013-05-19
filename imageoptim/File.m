@@ -94,7 +94,7 @@
 
 -(BOOL)isOptimized
 {
-	return byteSizeOptimized < byteSize;
+	return byteSizeOptimized < byteSize && (!runAgainByteSize || byteSizeOptimized < runAgainByteSize);
 }
 
 -(BOOL)isDone
@@ -108,7 +108,6 @@
     {        
         if ((!byteSizeOptimized || size < byteSizeOptimized) && size > 30)
         {
-    //		NSLog(@"We've got a new winner. old %d new %d",byteSizeOptimized,size);
             byteSizeOptimized = size;
             [self setPercentOptimized:0.0]; //just for KVO
         }
@@ -274,7 +273,7 @@
             }
             else if (workersFinished == workersTotal)
             {
-                if (byteSize > byteSizeOptimized)
+                if ([self isOptimized])
                 {
                     NSOperation *saveOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(saveResultAndUpdateStatus) object:nil];
                     [workers addObject:saveOp];
@@ -361,15 +360,6 @@
 {  
     [self setStatus:@"progress" order:3 text:NSLocalizedString(@"Inspecting file",@"tooltip")];        
 
-    @synchronized(self)
-    {
-        workersActive--;
-
-        byteSize=0; // reset to allow restart
-        byteSizeOptimized=0;
-    }
-    	
-	
 	NSMutableArray *runFirst = [NSMutableArray new];
 	NSMutableArray *runLater = [NSMutableArray new];
 		
@@ -382,7 +372,25 @@
         [self setStatus:@"err" order:8 text:NSLocalizedString(@"Can't map file into memory",@"tooltip")]; 
         return;
     }
-    [self setByteSize:length];
+
+    @synchronized(self)
+    {
+        workersActive--;
+
+        filePathOptimized = nil;
+
+        if (byteSize && byteSizeOptimized && byteSize >= byteSizeOptimized) { // it's been set before, so it's now ran again
+            if (byteSizeOptimized != length) { // file has changed
+                runAgainByteSize = 0;
+                byteSizeOptimized=0;
+                [self setByteSize:length];
+            } else {
+                runAgainByteSize = length;
+            }
+        } else {
+            [self setByteSize:length];
+        }
+    }
 
     int fileType = [self fileType:fileData];
     

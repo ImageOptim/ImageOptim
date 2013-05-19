@@ -14,6 +14,7 @@
 	NSString *displayName;
 	
 	NSUInteger byteSize;
+    NSUInteger runAgainByteSize; // it's a poor name for actual byteSize when optimization is ran again (and byteSize is then previous pre-optimization size)
     NSUInteger byteSizeOptimized;	
     NSString *bestToolName;
 	double percentDone;
