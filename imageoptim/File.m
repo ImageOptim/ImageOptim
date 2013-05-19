@@ -338,16 +338,15 @@
 
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)aFileIOQueue
 {
-    fileIOQueue = aFileIOQueue; // will be used for saving
-    
-    [self setStatus:@"wait" order:0 text:NSLocalizedString(@"Waiting in queue",@"tooltip")];
-    
     @synchronized(self)
     {
         workersActive++; // isBusy must say yes!
+
+        fileIOQueue = aFileIOQueue; // will be used for saving
+        workers = [[NSMutableArray alloc] initWithCapacity:10];
     }
     
-    workers = [[NSMutableArray alloc] initWithCapacity:10];
+    [self setStatus:@"wait" order:0 text:NSLocalizedString(@"Waiting in queue",@"tooltip")];
     
     NSOperation *actualEnqueue = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doEnqueueWorkersInCPUQueue:) object:queue];
     if (queue.operationCount < queue.maxConcurrentOperationCount) {
@@ -364,7 +363,8 @@
 
     @synchronized(self)
     {
-        workersActive--;        
+        workersActive--;
+
         byteSize=0; // reset to allow restart
         byteSizeOptimized=0;
     }
