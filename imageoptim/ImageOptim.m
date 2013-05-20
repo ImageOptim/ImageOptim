@@ -11,6 +11,8 @@
 
 @implementation ImageOptim
 
+NSDictionary *statusImages;
+
 @synthesize selectedIndexes,filesQueue;
 
 - (void)setSelectedIndexes:(NSIndexSet *)indexSet
@@ -158,6 +160,17 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     [credits readRTFDFromFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"]];
 
     [self initStatusbar];
+    [self preloadStatusImages];
+}
+
+-(void)preloadStatusImages {
+    statusImages = [NSDictionary dictionaryWithObjectsAndKeys:
+                   [NSImage imageNamed:@"err"], @"err",
+                   [NSImage imageNamed:@"wait"], @"wait",
+                   [NSImage imageNamed:@"progress"], @"progress",
+                   [NSImage imageNamed:@"noopt"], @"noopt",
+                   [NSImage imageNamed:@"ok"], @"ok",
+                   nil];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

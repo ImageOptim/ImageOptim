@@ -1,6 +1,7 @@
 /* ImageOptim */
 #import <Quartz/Quartz.h>
 
+extern NSDictionary *statusImages;
 
 @class FilesQueue;
 @class PrefsController;

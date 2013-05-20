@@ -5,7 +5,7 @@
 //
 
 #import "File.h"
-
+#import "ImageOptim.h"
 #import "Workers/AdvCompWorker.h"
 #import "Workers/PngoutWorker.h"
 #import "Workers/OptiPngWorker.h"
@@ -527,7 +527,7 @@
         if (statusText == text) return;
         statusOrder = order;
         self.statusText = text;
-        self.statusImage = [NSImage imageNamed:imageName];
+        self.statusImage = [statusImages objectForKey:imageName];
     });
 }
 
