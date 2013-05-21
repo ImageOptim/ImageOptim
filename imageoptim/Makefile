@@ -12,11 +12,10 @@ $(SPARKLE): /tmp/sparkle.zip
 	curl http://sparkle.andymatuschak.org/files/Sparkle%201.5b6.zip -o /tmp/sparkle.zip
 
 pngout:
-	curl http://static.jonof.id.au/dl/kenutils/pngout-20120530-darwin.tar.gz | tar xz
-	mv pngout-20120530-darwin pngout
+	curl http://static.jonof.id.au/dl/kenutils/pngout-20130221-darwin.tar.gz | tar xz
+	mv pngout-20130221-darwin/pngout pngout
 
 clean:
 	-rm -rf $(SPARKLE) pngout /tmp/sparkle.zip
 
 install:
-
