@@ -37,7 +37,7 @@
 -(IBAction)browseForFiles:(id)sender;
 
 + (void)initialize;
-
++(void)regDefs;
 +(int)numberOfCPUs;
 
 @property (copy,nonatomic) NSIndexSet* selectedIndexes;
