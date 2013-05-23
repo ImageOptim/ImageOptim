@@ -8,6 +8,10 @@
 #include <mach/host_info.h>
 #import <Quartz/Quartz.h>
 
+static int maxTasks;
+static dispatch_once_t predicate;
+static dispatch_once_t predicate2;
+
 @implementation ImageOptim
 
 @synthesize selectedIndexes,filesQueue;
@@ -53,17 +57,25 @@
 
 +(void)initialize
 {
-	NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
+    dispatch_once(&predicate, ^{
+        maxTasks = [self numberOfCPUs]+1;
+        if (maxTasks > 8) maxTasks++;
+    });
 
-	int maxTasks = [self numberOfCPUs]+1;
-	if (maxTasks > 8) maxTasks++;
+    dispatch_once(&predicate2, ^{
+        [self regDefs];
+        [self migrateOldPreferences];
+    });
+}
 
-	[defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
++(void)regDefs
+{    
+    NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
+    
+    [defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
 	[defs setObject:[NSNumber numberWithInt:(int)ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
-
+    
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
-
-    [self migrateOldPreferences];
 }
 
 NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
