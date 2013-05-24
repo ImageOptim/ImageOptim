@@ -25,6 +25,8 @@
 	NSProgressIndicator *progressBar;
     
     NSLock *queueWaitingLock;
+    
+    NSNumber *queueCount;
 }
 
 -(id)initWithTableView:(NSTableView*)a progressBar:(NSProgressIndicator *)p andController:(NSArrayController*)b;
@@ -53,4 +55,7 @@
 -(void)openRowInFinder:(NSInteger)row withPreview:(BOOL)preview;
 
 -(NSArray *)fileTypes;
+
+@property (strong, nonatomic) NSNumber *queueCount;
+
 @end

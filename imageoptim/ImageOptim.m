@@ -7,6 +7,7 @@
 #include <mach/mach_host.h>
 #include <mach/host_info.h>
 #import <Quartz/Quartz.h>
+#import "Utilities.h"
 
 @implementation ImageOptim
 
@@ -57,6 +58,9 @@
 
 	int maxTasks = [self numberOfCPUs]+1;
 	if (maxTasks > 8) maxTasks++;
+    
+    // get the singleton instantiated
+    Utilities *tmp __attribute__((unused)) = [Utilities utilitiesSharedSingleton];
 
 	[defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
 	[defs setObject:[NSNumber numberWithInt:(int)ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
