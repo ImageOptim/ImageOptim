@@ -1,0 +1,222 @@
+
+/* Class = "NSMenuItem"; title = "Все окна- на передний план"; ObjectID = "5"; */
+"5.title" = "Все окна- на передний план";
+
+/* Class = "NSMenuItem"; title = "Окно"; ObjectID = "19"; */
+"19.title" = "Окно";
+
+/* Class = "NSWindow"; title = "ImageOptim"; ObjectID = "21"; */
+"21.title" = "ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Убрать в Dock"; ObjectID = "23"; */
+"23.title" = "Убрать в Dock";
+
+/* Class = "NSMenu"; title = "Окно"; ObjectID = "24"; */
+"24.title" = "Окно";
+
+/* Class = "NSMenu"; title = "MainMenu"; ObjectID = "29"; */
+"29.title" = "MainMenu";
+
+/* Class = "NSMenuItem"; title = "ImageOptim"; ObjectID = "56"; */
+"56.title" = "ImageOptim";
+
+/* Class = "NSMenu"; title = "ImageOptim"; ObjectID = "57"; */
+"57.title" = "ImageOptim";
+
+/* Class = "NSMenu"; title = "Службы"; ObjectID = "130"; */
+"130.title" = "Службы";
+
+/* Class = "NSMenuItem"; title = "Службы"; ObjectID = "131"; */
+"131.title" = "Службы";
+
+/* Class = "NSMenuItem"; title = "Скрыть ImageOptim"; ObjectID = "134"; */
+"134.title" = "Скрыть ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Завершить ImageOptim"; ObjectID = "136"; */
+"136.title" = "Завершить ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Скрыть другие"; ObjectID = "145"; */
+"145.title" = "Скрыть другие";
+
+/* Class = "NSMenuItem"; title = "Показать все"; ObjectID = "150"; */
+"150.title" = "Показать все";
+
+/* Class = "NSMenuItem"; title = "Изменить масштаб"; ObjectID = "197"; */
+"197.title" = "Изменить масштаб";
+
+/* Class = "NSScrollView"; ibExternalAccessibilityDescription = "Список файлов"; ObjectID = "236"; */
+"236.ibExternalAccessibilityDescription" = "Список файлов";
+
+/* Class = "NSTableColumn"; headerCell.title = "Файл"; ObjectID = "238"; */
+"238.headerCell.title" = "Файл";
+
+/* Class = "NSTableColumn"; headerCell.title = "размер"; ObjectID = "239"; */
+"239.headerCell.title" = "размер";
+
+/* Class = "NSTableColumn"; ibExternalAccessibilityDescription = "Размер файла после оптимизации"; ObjectID = "239"; */
+"239.ibExternalAccessibilityDescription" = "Размер файла после оптимизации";
+
+/* Class = "NSTableColumn"; headerCell.title = "Экономия"; ObjectID = "243"; */
+"243.headerCell.title" = "Экономия";
+
+/* Class = "NSMenuItem"; title = "О программе ImageOptim"; ObjectID = "361"; */
+"361.title" = "О программе ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Настройка…"; ObjectID = "363"; */
+"363.title" = "Настройка…";
+
+/* Class = "NSMenuItem"; title = "Правка"; ObjectID = "375"; */
+"375.title" = "Правка";
+
+/* Class = "NSMenu"; title = "Правка"; ObjectID = "376"; */
+"376.title" = "Правка";
+
+/* Class = "NSMenuItem"; title = "Выбрать все"; ObjectID = "377"; */
+"377.title" = "Выбрать все";
+
+/* Class = "NSMenuItem"; title = "Отменить"; ObjectID = "378"; */
+"378.title" = "Отменить";
+
+/* Class = "NSMenuItem"; title = "Повтор"; ObjectID = "384"; */
+"384.title" = "Повтор";
+
+/* Class = "NSMenuItem"; title = "Вырезать"; ObjectID = "398"; */
+"398.title" = "Вырезать";
+
+/* Class = "NSMenuItem"; title = "Копировать"; ObjectID = "399"; */
+"399.title" = "Копировать";
+
+/* Class = "NSMenuItem"; title = "Вставить"; ObjectID = "400"; */
+"400.title" = "Вставить";
+
+/* Class = "NSMenuItem"; title = "Удалить"; ObjectID = "402"; */
+"402.title" = "Удалить";
+
+/* Class = "NSButton"; ibExternalAccessibilityDescription = "Добавить новые файлы или папки"; ObjectID = "423"; */
+"423.ibExternalAccessibilityDescription" = "Добавить новые файлы или папки";
+
+/* Class = "NSMenuItem"; title = "Файл"; ObjectID = "429"; */
+"429.title" = "Файл";
+
+/* Class = "NSMenu"; title = "Файл"; ObjectID = "430"; */
+"430.title" = "Файл";
+
+/* Class = "NSMenuItem"; title = "Добавить файлы…"; ObjectID = "437"; */
+"437.title" = "Добавить файлы…";
+
+/* Class = "NSTableColumn"; headerToolTip = "Состояние оптимизации"; ObjectID = "462"; */
+"462.headerToolTip" = "Состояние оптимизации";
+
+/* Class = "NSTableColumn"; ibExternalAccessibilityDescription = "Optimization status"; ObjectID = "462"; */
+"462.ibExternalAccessibilityDescription" = "Optimization status";
+
+/* Class = "NSMenuItem"; title = "Завершить ImageOptim"; ObjectID = "498"; */
+"498.title" = "Завершить ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Справка"; ObjectID = "504"; */
+"504.title" = "Справка";
+
+/* Class = "NSMenu"; title = "Справка"; ObjectID = "505"; */
+"505.title" = "Справка";
+
+/* Class = "NSMenuItem"; title = "Справка ImageOptim"; ObjectID = "506"; */
+"506.title" = "Справка ImageOptim";
+
+/* Class = "NSPanel"; title = "О программе ImageOptim"; ObjectID = "526"; */
+"526.title" = "О программе ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Оптимизировать еще раз"; ObjectID = "593"; */
+"593.title" = "Оптимизировать еще раз";
+
+/* Class = "NSMenuItem"; title = "Обновления…"; ObjectID = "624"; */
+"624.title" = "Обновления…";
+
+/* Class = "NSTextFieldCell"; title = "Перетяните файлы в таблицу выше"; ObjectID = "632"; */
+"632.title" = "Перетяните файлы в таблицу выше";
+
+/* Class = "NSButtonCell"; title = "Добавить"; ObjectID = "633"; */
+"633.title" = "Добавить";
+
+/* Class = "NSButtonCell"; alternateTitle = "Запустить оптимизацию еще раз"; ObjectID = "635"; */
+"635.alternateTitle" = "Запустить оптимизацию еще раз";
+
+/* Class = "NSButtonCell"; title = "Повтор"; ObjectID = "635"; */
+"635.title" = "Повтор";
+
+/* Class = "NSTableHeaderView"; ibExternalAccessibilityDescription = "Status"; ObjectID = "642"; */
+"642.ibExternalAccessibilityDescription" = "Status";
+
+/* Class = "NSTextFieldCell"; title = "версия"; ObjectID = "646"; */
+"646.title" = "версия";
+
+/* Class = "NSMenuItem"; title = "Инструменты"; ObjectID = "655"; */
+"655.title" = "Инструменты";
+
+/* Class = "NSMenu"; title = "Инструменты"; ObjectID = "656"; */
+"656.title" = "Инструменты";
+
+/* Class = "NSMenuItem"; title = "PNGOUT"; ObjectID = "658"; */
+"658.title" = "PNGOUT";
+
+/* Class = "NSMenuItem"; title = "OptiPNG"; ObjectID = "659"; */
+"659.title" = "OptiPNG";
+
+/* Class = "NSMenuItem"; title = "PNGCrush"; ObjectID = "660"; */
+"660.title" = "PNGCrush";
+
+/* Class = "NSMenuItem"; title = "AdvPNG"; ObjectID = "661"; */
+"661.title" = "AdvPNG";
+
+/* Class = "NSMenuItem"; title = "Jpegtran"; ObjectID = "663"; */
+"663.title" = "Jpegtran";
+
+/* Class = "NSMenuItem"; title = "JPEGOptim"; ObjectID = "664"; */
+"664.title" = "JPEGOptim";
+
+/* Class = "NSMenuItem"; title = "Gifsicle"; ObjectID = "666"; */
+"666.title" = "Gifsicle";
+
+/* Class = "NSMenuItem"; title = "Quick Look"; ObjectID = "708"; */
+"708.title" = "Quick Look";
+
+/* Class = "DragDropImageView"; ibExternalAccessibilityDescription = "Перетяните сюда файлы"; ObjectID = "712"; */
+"712.ibExternalAccessibilityDescription" = "Перетяните сюда файлы";
+
+/* Class = "NSMenuItem"; title = "Delete Completed"; ObjectID = "721"; */
+"721.title" = "Delete Completed";
+
+/* Class = "NSMenuItem"; title = "Optimize Optimized"; ObjectID = "725"; */
+"725.title" = "Optimize Optimized";
+
+/* Class = "NSMenuItem"; title = "ImageOptim Website"; ObjectID = "733"; */
+"733.title" = "ImageOptim Website";
+
+/* Class = "NSMenuItem"; title = "View Source"; ObjectID = "735"; */
+"735.title" = "View Source";
+
+/* Class = "NSMenuItem"; title = "размер"; ObjectID = "740"; */
+"740.title" = "размер";
+
+/* Class = "NSMenuItem"; title = "Экономия"; ObjectID = "741"; */
+"741.title" = "Экономия";
+
+/* Class = "NSMenuItem"; title = "Инструменты"; ObjectID = "747"; */
+"747.title" = "Инструменты";
+
+/* Class = "NSTableColumn"; headerCell.title = "Инструменты"; ObjectID = "771"; */
+"771.headerCell.title" = "Инструменты";
+
+/* Class = "NSMenuItem"; title = "размер (original)"; ObjectID = "791"; */
+"791.title" = "размер (original)";
+
+/* Class = "NSTableColumn"; headerCell.title = "размер"; ObjectID = "792"; */
+"792.headerCell.title" = "размер";
+
+/* Class = "NSTableColumn"; ibExternalAccessibilityDescription = "Size of file after optimization"; ObjectID = "792"; */
+"792.ibExternalAccessibilityDescription" = "Size of file after optimization";
+
+/* Class = "NSTableColumn"; headerCell.title = "размер (original)"; ObjectID = "795"; */
+"795.headerCell.title" = "размер (original)";
+
+/* Class = "NSMenuItem"; title = "Show Columns"; ObjectID = "809"; */
+"809.title" = "Show Columns";
