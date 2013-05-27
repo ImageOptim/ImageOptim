@@ -23,6 +23,9 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */; };
+		1AD5B255174F8C5A00BC75FD /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5B254174F8C5900BC75FD /* Utilities.m */; };
+		1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */; };
 		5A0D2E570C922AB700FD7CDE /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E560C922AB700FD7CDE /* File.m */; };
 		5A0D2E5D0C922D6D00FD7CDE /* ImageOptim.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E5C0C922D6D00FD7CDE /* ImageOptim.m */; };
 		5A0FA76214A7EFCB008FA381 /* pngout in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A0FA76114A7EFCB008FA381 /* pngout */; };
@@ -298,6 +301,11 @@
 /* Begin PBXFileReference section */
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ImageOptimVerbs.sdef; sourceTree = "<group>"; };
+		1AD5B24F174F850900BC75FD /* GetQueueCountCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetQueueCountCommand.h; sourceTree = "<group>"; };
+		1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetQueueCountCommand.m; sourceTree = "<group>"; };
+		1AD5B253174F8C5900BC75FD /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		1AD5B254174F8C5900BC75FD /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		1B5210E316BFA7C90044C869 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "zh-Hant"; path = "zh-Hant.lproj/Help"; sourceTree = "<group>"; };
 		1B5210E416BFA7CA0044C869 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "zh-Hant"; path = "zh-Hant.lproj/Credits.rtf"; sourceTree = "<group>"; };
 		1B5210E516BFA7CA0044C869 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -468,6 +476,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1AD5B25A174FF51E00BC75FD /* Utils */,
 				5AE54DE50CAEF51300903DF4 /* Workers */,
 				5A34A632140EEDB900DE44D2 /* DragDropImageView.h */,
 				5A34A633140EEDB900DE44D2 /* DragDropImageView.m */,
@@ -518,6 +527,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1AD5B25A174FF51E00BC75FD /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1AD5B253174F8C5900BC75FD /* Utilities.h */,
+				1AD5B254174F8C5900BC75FD /* Utilities.m */,
+				1AD5B24F174F850900BC75FD /* GetQueueCountCommand.h */,
+				1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* ImageOptim */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,6 +554,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */,
 				5A48B74A1423F3AD00AE15FB /* Makefile */,
 				5A4554F81025EBE900A69944 /* optimal_file_list */,
 				5A984D4011238E51007622D7 /* advpng.xcodeproj */,
@@ -961,6 +982,7 @@
 				5A9AEC19140996D700C9E97D /* reveal.png in Resources */,
 				5A1D3E8C14366933004EE809 /* style.css in Resources */,
 				5A7D24EB13E5BC3100815AAA /* wait.png in Resources */,
+				1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,6 +1051,8 @@
 				5A8A18141416D1D700D62DB7 /* SavingsFormatter.m in Sources */,
 				5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */,
 				5AACA13F0CAF241B004D45CA /* Worker.m in Sources */,
+				1AD5B255174F8C5A00BC75FD /* Utilities.m in Sources */,
+				1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1266,7 +1290,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_ENABLE_OBJC_GC = required;
-				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUGX;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;

@@ -5,6 +5,7 @@
 //
 #import "File.h"
 #import "FilesQueue.h"
+#import "Utilities.h"
 
 #import "Workers/DirWorker.h"
 
@@ -21,12 +22,15 @@
 
 @implementation FilesQueue
 
+@synthesize queueCount;
+
 -(id)initWithTableView:(NSTableView*)inTableView progressBar:(NSProgressIndicator *)inBar andController:(NSArrayController*)inController
 {
     if (self = [super init]) {
 	progressBar = inBar;
 	filesController = inController;
 	tableView = inTableView;
+    self.queueCount = [NSNumber numberWithInt:0];
 	seenPathHashes = [[NSHashTable alloc] initWithOptions:NSHashTableZeroingWeakMemory capacity:1000];
 
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
@@ -48,6 +52,13 @@
 	[tableView registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
 
 	[self setEnabled:YES];
+    
+    // add observer to Utilities for queueCount
+    [self addObserver:[Utilities utilitiesSharedSingleton]
+           forKeyPath:@"queueCount"
+              options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld)
+              context:NULL];
+        
     }
 	return self;
 }
@@ -58,11 +69,19 @@
 	if ([dirWorkerQueue respondsToSelector:@selector(operationCount)])
 	{
 		assert(NSFoundationVersionNumber >= (1.0+kCFCoreFoundationVersionNumber10_5));
-		return dirWorkerQueue.operationCount || fileIOQueue.operationCount || cpuQueue.operationCount;
+        
+        DLog2(@" dirWorkerQueue.operationCount =  %ld", (unsigned long)dirWorkerQueue.operationCount);
+        DLog2(@" fileIOQueue.operationCount =  %ld", (unsigned long)fileIOQueue.operationCount);
+        DLog2(@" cpuQueue.operationCount =  %ld", (unsigned long)cpuQueue.operationCount);
+
+        // Im going to take the total number of operations
+        self.queueCount = [NSNumber numberWithInt:(dirWorkerQueue.operationCount + fileIOQueue.operationCount + cpuQueue.operationCount)];
+        return dirWorkerQueue.operationCount || fileIOQueue.operationCount || cpuQueue.operationCount;
 	}
 	else
 	{
 		assert(NSFoundationVersionNumber < (1.0+kCFCoreFoundationVersionNumber10_5));
+        self.queueCount = [NSNumber numberWithInt:(dirWorkerQueue.operations.count + fileIOQueue.operations.count + cpuQueue.operations.count)];
 		return dirWorkerQueue.operations.count || fileIOQueue.operations.count || cpuQueue.operations.count;
 	}
 }
