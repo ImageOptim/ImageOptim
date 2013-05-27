@@ -1,0 +1,135 @@
+
+/* Class = "NSWindow"; title = "Настройки ImageOptim"; ObjectID = "5"; */
+"5.title" = "Настройки ImageOptim";
+
+/* Class = "NSTabViewItem"; label = "Основные"; ObjectID = "167"; */
+"167.label" = "Основные";
+
+/* Class = "NSTabViewItem"; label = "AdvPNG"; ObjectID = "168"; */
+"168.label" = "AdvPNG";
+
+/* Class = "NSTabViewItem"; label = "OptiPNG"; ObjectID = "171"; */
+"171.label" = "OptiPNG";
+
+/* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
+"175.label" = "PNGOUT";
+
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
+
+/* Class = "NSBox"; title = "Записывать файлы на диск"; ObjectID = "280"; */
+"280.title" = "Записывать файлы на диск";
+
+/* Class = "NSButtonCell"; title = "Сохранять права файлов, атрибуты и ссылки"; ObjectID = "804"; */
+"804.title" = "Сохранять права файлов, атрибуты и ссылки";
+
+/* Class = "NSButtonCell"; title = "Резервные копии оригинальных файлов"; ObjectID = "805"; */
+"805.title" = "Резервные копии оригинальных файлов";
+
+/* Class = "NSTextFieldCell"; title = "Уровень оптимизации"; ObjectID = "818"; */
+"818.title" = "Уровень оптимизации";
+
+/* Class = "NSTextFieldCell"; title = "Быстрый"; ObjectID = "819"; */
+"819.title" = "Быстрый";
+
+/* Class = "NSTextFieldCell"; title = "Безумный"; ObjectID = "820"; */
+"820.title" = "Безумный";
+
+/* Class = "NSTextFieldCell"; title = "Нормальный"; ObjectID = "821"; */
+"821.title" = "Нормальный";
+
+/* Class = "NSTextFieldCell"; title = "Экстра"; ObjectID = "822"; */
+"822.title" = "Экстра";
+
+/* Class = "NSButtonCell"; title = "Сделать изображения с чересстрочной разверткой (прогрессивным)"; ObjectID = "828"; */
+"828.title" = "Сделать изображения с чересстрочной разверткой (прогрессивным)";
+
+/* Class = "NSTextFieldCell"; title = "Уровень оптимизации"; ObjectID = "829"; */
+"829.title" = "Уровень оптимизации";
+
+/* Class = "NSTextFieldCell"; title = "Прогрессивные изображения обычно больше"; ObjectID = "831"; */
+"831.title" = "Прогрессивные изображения обычно больше";
+
+/* Class = "NSTextFieldCell"; title = "24 прохода"; ObjectID = "833"; */
+"833.title" = "24 прохода";
+
+/* Class = "NSTextFieldCell"; title = "240 прохода"; ObjectID = "834"; */
+"834.title" = "240 прохода";
+
+/* Class = "NSButtonCell"; title = "Удалять чанки"; ObjectID = "854"; */
+"854.title" = "Удалять чанки";
+
+/* Class = "NSTextFieldCell"; title = "Тип оптимизации"; ObjectID = "856"; */
+"856.title" = "Тип оптимизации";
+
+/* Class = "NSTextFieldCell"; title = "Простой"; ObjectID = "857"; */
+"857.title" = "Простой";
+
+/* Class = "NSTextFieldCell"; title = "Экстремальный"; ObjectID = "858"; */
+"858.title" = "Экстремальный";
+
+/* Class = "NSTextFieldCell"; title = "Интенсивный"; ObjectID = "860"; */
+"860.title" = "Интенсивный";
+
+/* Class = "NSTextFieldCell"; title = "Длительное соответствие"; ObjectID = "861"; */
+"861.title" = "Длительное соответствие";
+
+/* Class = "NSButtonCell"; title = "Попытаться использовать дополнительные фильтры"; ObjectID = "862"; */
+"862.title" = "Попытаться использовать дополнительные фильтры";
+
+/* Class = "NSTextFieldCell"; title = "Веб-браузеры требуют удаление гаммы"; ObjectID = "865"; */
+"865.title" = "Веб-браузеры требуют удаление гаммы";
+
+/* Class = "NSTextFieldCell"; title = "Максимальное качество"; ObjectID = "868"; */
+"868.title" = "Максимальное качество";
+
+/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
+"872.title" = "-100%";
+
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
+"876.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
+
+/* Class = "NSButtonCell"; title = "Вырезать метки EXIF и комментарии из файла"; ObjectID = "911"; */
+"911.title" = "Вырезать метки EXIF и комментарии из файла";
+
+/* Class = "NSButtonCell"; title = "Пропускать,если оптимизация занимает много времени"; ObjectID = "946"; */
+"946.title" = "Пропускать,если оптимизация занимает много времени";
+
+/* Class = "NSBox"; title = "PNG"; ObjectID = "1043"; */
+"1043.title" = "PNG";
+
+/* Class = "NSBox"; title = "JPEG"; ObjectID = "1044"; */
+"1044.title" = "JPEG";
+
+/* Class = "NSButtonCell"; title = "Jpegtran"; ObjectID = "1092"; */
+"1092.title" = "Jpegtran";
+
+/* Class = "NSButtonCell"; title = "JPEGOptim"; ObjectID = "1093"; */
+"1093.title" = "JPEGOptim";
+
+/* Class = "NSButtonCell"; title = "AdvPNG"; ObjectID = "1094"; */
+"1094.title" = "AdvPNG";
+
+/* Class = "NSButtonCell"; title = "OptiPNG"; ObjectID = "1095"; */
+"1095.title" = "OptiPNG";
+
+/* Class = "NSButtonCell"; title = "PNGCrush"; ObjectID = "1096"; */
+"1096.title" = "PNGCrush";
+
+/* Class = "NSButtonCell"; title = "PNGOUT"; ObjectID = "1097"; */
+"1097.title" = "PNGOUT";
+
+/* Class = "NSButtonCell"; title = "Gifsicle"; ObjectID = "1098"; */
+"1098.title" = "Gifsicle";
+
+/* Class = "NSBox"; title = "Включен"; ObjectID = "1107"; */
+"1107.title" = "Включен";
+
+/* Class = "NSButtonCell"; title = "Jpegrescan"; ObjectID = "1111"; */
+"1111.title" = "Jpegrescan";
