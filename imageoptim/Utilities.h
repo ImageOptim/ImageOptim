@@ -16,7 +16,7 @@
 
 
 @interface Utilities : NSScriptCommand{
-    
+   // NSNumber *queueCount;
 }
 
 + (Utilities *)utilitiesSharedSingleton;
