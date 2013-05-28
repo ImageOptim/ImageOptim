@@ -48,7 +48,7 @@
 "236.ibExternalAccessibilityDescription" = "Список файлов для оптимизации";
 
 /* Class = "NSTableColumn"; headerCell.title = "File"; ObjectID = "238"; */
-"238.headerCell.title" = "Файл";
+"238.headerCell.title" = "Имя файла";
 
 /* Class = "NSTableColumn"; headerCell.title = "Size"; ObjectID = "239"; */
 "239.headerCell.title" = "Размер";
@@ -141,7 +141,7 @@
 "635.alternateTitle" = "Запустить оптимизацию еще раз";
 
 /* Class = "NSButtonCell"; title = "Again"; ObjectID = "635"; */
-"635.title" = "Повтор";
+"635.title" = "Повторить";
 
 /* Class = "NSTableHeaderView"; ibExternalAccessibilityDescription = "Status"; ObjectID = "642"; */
 "642.ibExternalAccessibilityDescription" = "Статус";

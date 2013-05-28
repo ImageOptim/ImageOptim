@@ -18,13 +18,13 @@
 "177.label" = "JPEGOptim";
 
 /* Class = "NSBox"; title = "Writing files to disk"; ObjectID = "280"; */
-"280.title" = "Записывать файлы на диск";
+"280.title" = "Запись файлов на диск";
 
 /* Class = "NSButtonCell"; title = "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
 "804.title" = "Сохранять права файлов, атрибуты и ссылки";
 
 /* Class = "NSButtonCell"; title = "Backup original files before saving"; ObjectID = "805"; */
-"805.title" = "Создать резервные копии оригинальных файлов перед сохранением";
+"805.title" = "Резервировать оригинальные файлы перед сохранением";
 
 /* Class = "NSTextFieldCell"; title = "Optimization level"; ObjectID = "818"; */
 "818.title" = "Уровень оптимизации";
@@ -42,7 +42,7 @@
 "822.title" = "Экстра";
 
 /* Class = "NSButtonCell"; title = "Make images interlaced (progressive)"; ObjectID = "828"; */
-"828.title" = "Сделать изображения с чересстрочной разверткой (прогрессивным)";
+"828.title" = "Использовать чересстрочную развертку (прогрессивно)";
 
 /* Class = "NSTextFieldCell"; title = "Optimization level"; ObjectID = "829"; */
 "829.title" = "Уровень оптимизации";
@@ -51,10 +51,10 @@
 "831.title" = "Прогрессивные изображения обычно больше";
 
 /* Class = "NSTextFieldCell"; title = "24 trials"; ObjectID = "833"; */
-"833.title" = "24 прохода";
+"833.title" = "24 пробы";
 
 /* Class = "NSTextFieldCell"; title = "240 trials"; ObjectID = "834"; */
-"834.title" = "240 прохода";
+"834.title" = "240 проб";
 
 /* Class = "NSButtonCell"; title = "Remove all optional chunks"; ObjectID = "854"; */
 "854.title" = "Удалять все дополнительные чанки";
@@ -66,7 +66,7 @@
 "857.title" = "Простой";
 
 /* Class = "NSTextFieldCell"; title = "Xtreme"; ObjectID = "858"; */
-"858.title" = "Экстремальный";
+"858.title" = "Безумный";
 
 /* Class = "NSTextFieldCell"; title = "Intense"; ObjectID = "860"; */
 "860.title" = "Интенсивный";
