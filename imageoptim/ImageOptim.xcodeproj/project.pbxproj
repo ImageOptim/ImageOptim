@@ -1270,6 +1270,7 @@
 			buildSettings = {
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = Info.plist;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = ImageOptim;
 			};
 			name = Debug;
