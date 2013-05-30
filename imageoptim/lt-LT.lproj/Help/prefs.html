@@ -1,0 +1,115 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<title>ImageOptim nustatymai</title>
+<link rel="stylesheet" href="../../style.css">
+<meta name="AppleTitle" content="ImageOptim Preferences Help">
+<meta name="AppleIcon" content="../../crusher.icns">
+<meta name="AppleFont" content="Lucida Grande,Helvetica,Arial">
+<meta name="AppleSearchResultsFont" content="Lucida Grande,Geneva,Arial">
+<meta name="description" content="ImageOptim Preferences">
+</head>
+<body>
+<a name="general">bendri</a><h1>ImageOptim nustatymai</h1>
+<p><a href="index.html">« Atgal į pradžią</a></p>
+<p>Jums nereikėtu keisti nieko iš šito</p>
+<h2>Bendri nustatymai</h2>
+<dl>
+<dt>Išsaugoti failų teisęs, parametrus ir nuorodas</dt>
+	<dd>
+		<p>Vietoj to kad ištrinti seną failą ir įrašinėti naują tuo pačiu pavadinimu, tiesiog pakeičia seno failo turinį. Tai užtikrina kad visos nuorodos, santraukos, failo savininkai, leidimai ir išplėstiniai parametrai lieka nepasikeitę.</p>
+<p>Šiek tiek greičiau nesaugoti leidimų.</p>
+</dd>
+	<dt>Padaryti originalų atsarginę kopiją prieš išsaugant</dt>
+	<dd><p>Įrašys failo kopija su <samp>~</samp> simbolių failo pavadinimo priekyje. Tai sulėtina optimizaciją ir užteršia disko vietą su atsarginiais failais.</p></dd>
+
+	<dt>Pašalinti galimas santraukas</dt>
+	<dd><p>Įjunkite jeigu optimizuojate žiniatinkliui. Išjunkite jeigu turite ypatingus PNG failus su papildomais meta duomenimis.</p></dd>
+    <dt>Ištrinti EXIF žymes iš failų</dt>
+    <dd><p>Pašalina paveikslėlio meta duomenys, tokius kaip spalvų profilis, išlaikymo trukmė, GPS koordinatės, fotoaparato modelis ir programinės įrangos naudotos sukūrimui pavadinimas. Meta duomenys niekada nešalinami iš JPEG failų didesnių nei 1.3MB.</p></dd>
+
+</dl>
+<div id="jpegoptim">
+<a name="jpegoptim">jpegoptim</a><h2>JPEGOptim</h2>
+<dl>
+<dt>Įgalinta</dt>
+<dd><p>Jeigu pažymėta, ImageOptim bandys optimizuoti JPEG failus.</p></dd>
+
+<dt>Aukščiausia kokybė</dt>
+<dd>
+<p>Jeigu nustatyta 100%, optimizacija bus <strong>lossless</strong>.</p>
+	<p>Betkas žemiau 100% duos <strong>žemesnes kokybės</strong> kokybės failus atrodančius lyg jie būtu išsaugoti su aukštesniais kokybės nustatymais.</p>
+
+</dd>
+</dl>
+</div>
+<div id="pngout">
+<a name="pngout">pngout</a><h2>PNGOUT</h2>
+<dl>
+<dt>Įgalinta</dt>
+<dd>
+<p>Jeigu pažymėta, ImageOptim bandys optimizuoti PNG failus naudojant PNGOUT.</p>
+<p>PNGOUT nėra ImageOptim paketo dalis. Tai nuostabus įrankis, bet <a href="http://www.advsys.net/ken/utils.htm">PNGOUT autorius</a> draudžia jo platinimą, taigi <a target="_blank" href="http://www.jonof.id.au/index.php?p=pngout">Jums teks parsisiųsti PNGOUT patiem</a>.</p>
+</dd>
+
+<dl>
+<dt>Optimizacijos tipas</dt>
+	<dd><p>PNGOUT labai efektyvus, bet labai lėtas. Jeigu esate nekantrus naudokite žemesnę kokybę.</p></dd>
+
+	<dt>Nutraukti jeigu užtrunka per ilgai</dt>
+	<dd><p>PNGOUT gali prireikti <em>labai daug</em> laiko optimizuojant didelis failus. Šis nustatymas grakščiai sutrugdys PNGOUT po vienos minutes.</p></dd>
+</dl>
+</dl>
+</div>
+<div id="advpng">
+<a name="advpng">advpng</a><h2>AdvPNG</h2>
+<dl>
+<dt>Įgalinta</dt>
+<dd><p>Jeigu pažymėtas, ImageOptim bandys optimizuoti PNG failus naudojant AdvPNG įrankį.</p></dd>
+
+<dl>
+<dt>Optimizacijos lygis</dt>
+	<dd>AdvPNG yra sąlyginiai greitas, todėl galite naudoti maksimalius lygius.</dd>
+</dl>
+</dl>
+</div>
+<div id="optipng">
+<a name="optipng">optipng</a><h2>OptiPNG</h2>
+<dl>
+<dt>Įgalinta</dt>
+<dd><p>Jeigu pažymėta, ImageOptim bandys optimizuoti PNG failus naudojant OptiPNG įrankį.</p></dd>
+
+<dl>
+<dt>Optimizacijos lygis</dt>
+	<dd><p>Didelis kiekis nustatymų jau išbandyta. Retai kada visu bandymas turi prasmės.</p></dd>
+	
+	<dt>Padaryti paveikslėlius supintais (progressive interlace)</dt>
+	<dd>
+<p>Supinti paveikslėliai atrodo geriau kai jie dalinai užkrauti, bet dažniausiai supynimas neigiamai įtakoja kompresijos efektyvumui.</p>
+<p>
+		</p>
+<p>Ši varnelė turi tris padėtis: jeigu pažymėta, tai priverstinai supina paveikslėlis. Jeigu mišriai, tai nekeis supynimo nustatymus. Jeigu nuimta, tai pašalins supynimus iš failų.</p>
+</dd>
+</dl>
+</dl>
+</div>
+<div id="gifsicle">
+<a name="gifsicle">gifsicle</a><h2>Gifsicle</h2>
+<dl>
+<dt>Įgalinta</dt>
+<dd>
+<p>Jeigu pažymėta, ImageOptim bandys optimizuoti GIF failus naudojant Gifsicle.</p>
+<p>GIF failai bus pakeisti supintais ar ne supintais automatiškai, priklausomai kuris bus mažesnis. Faile esantys komentarai bus pašalinti.</p>
+<p>Atkreipkit dėmesį kad Gifsicle geriausiai dirba su animuotais GIFais, o ne animuotu optimizacija dažniausiai negalima</p>
+
+<p>Geriausiam suspaudimui, reikėtu konvertuoti GIF failus Į PNG (ImageOptim automatiškai to ne daro).</p>
+</dd>
+</dl>
+</div>
+<div id="jpegrescan">
+<a name="jpegrescan">jpegrescan</a><h2>JpegRescan</h2>
+
+<p>Jpegrescan tai skriptas bazuojantis ant <code>jpegtran</code>. Jis sukuria JPEG failus su neįprastu progresyvaus skenavimo skaičiumi kad pasiekti geriausią rezultatą. Bet tokie failai gali būti nesuderinami su tam tikrom naršyklėm.</p>
+</div>
+</body>
+</html>
