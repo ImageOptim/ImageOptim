@@ -301,6 +301,16 @@
 /* Begin PBXFileReference section */
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1A9AF7C317565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lt; path = lt.lproj/Help; sourceTree = "<group>"; };
+		1A9AF7C417565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = lt; path = lt.lproj/Credits.rtf; sourceTree = "<group>"; };
+		1A9AF7C517565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1A9AF7C617565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = lt; path = lt.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		1A9AF7C717565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = lt; path = lt.lproj/PrefsController.xib; sourceTree = "<group>"; };
+		1A9AF7C817565DDB002ED2A5 /* lt-LT */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "lt-LT"; path = "lt-LT.lproj/Help"; sourceTree = "<group>"; };
+		1A9AF7C917565DDB002ED2A5 /* lt-LT */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = "lt-LT"; path = "lt-LT.lproj/Credits.rtf"; sourceTree = "<group>"; };
+		1A9AF7CA17565DDB002ED2A5 /* lt-LT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "lt-LT"; path = "lt-LT.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		1A9AF7CB17565DDB002ED2A5 /* lt-LT */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "lt-LT"; path = "lt-LT.lproj/MainMenu.xib"; sourceTree = "<group>"; };
+		1A9AF7CC17565DDB002ED2A5 /* lt-LT */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "lt-LT"; path = "lt-LT.lproj/PrefsController.xib"; sourceTree = "<group>"; };
 		1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ImageOptimVerbs.sdef; sourceTree = "<group>"; };
 		1AD5B24F174F850900BC75FD /* GetQueueCountCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetQueueCountCommand.h; sourceTree = "<group>"; };
 		1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetQueueCountCommand.m; sourceTree = "<group>"; };
@@ -809,6 +819,8 @@
 				sv,
 				ja,
 				"zh-Hant",
+				lt,
+				"lt-LT",
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ImageOptim */;
 			projectDirPath = "";
@@ -1141,6 +1153,8 @@
 				5A0344371299882B002091AA /* ru */,
 				5AC98826155F1ACD00E221A0 /* sv */,
 				1B5210E616BFA7CA0044C869 /* zh-Hant */,
+				1A9AF7C617565DCE002ED2A5 /* lt */,
+				1A9AF7CB17565DDB002ED2A5 /* lt-LT */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1164,6 +1178,8 @@
 				5A0344381299882F002091AA /* ru */,
 				5AC98827155F1ACD00E221A0 /* sv */,
 				1B5210E716BFA7CA0044C869 /* zh-Hant */,
+				1A9AF7C717565DCE002ED2A5 /* lt */,
+				1A9AF7CC17565DDB002ED2A5 /* lt-LT */,
 			);
 			name = PrefsController.xib;
 			sourceTree = "<group>";
@@ -1186,6 +1202,8 @@
 				5A03443612998825002091AA /* ru */,
 				5AC9882A155F1AE100E221A0 /* sv */,
 				1B5210E416BFA7CA0044C869 /* zh-Hant */,
+				1A9AF7C417565DCE002ED2A5 /* lt */,
+				1A9AF7C917565DDB002ED2A5 /* lt-LT */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -1208,6 +1226,8 @@
 				5A03443A12998845002091AA /* ru */,
 				5AC9882C155F1AE100E221A0 /* sv */,
 				1B5210E516BFA7CA0044C869 /* zh-Hant */,
+				1A9AF7C517565DCE002ED2A5 /* lt */,
+				1A9AF7CA17565DDB002ED2A5 /* lt-LT */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1229,6 +1249,8 @@
 				5A03443B1299884F002091AA /* ru */,
 				5AC9882B155F1AE100E221A0 /* sv */,
 				1B5210E316BFA7C90044C869 /* zh-Hant */,
+				1A9AF7C317565DCE002ED2A5 /* lt */,
+				1A9AF7C817565DDB002ED2A5 /* lt-LT */,
 			);
 			name = Help;
 			sourceTree = "<group>";
