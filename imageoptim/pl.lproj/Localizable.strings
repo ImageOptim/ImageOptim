@@ -12,6 +12,9 @@
 "Waiting to be optimized" = "Oczekuje na optymalizację";
 "Waiting to start more optimizations" = "Oczekuje na kolejną rundę optymalizacji";
 "%@ failed to start" = "Nie udało się uruchomić %@";
-"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Zyskano %@ z %@. Średnio %@ (maksymalnie %@)";
-"Saved %@ out of %@. %@ per file on average (up to %@)" = "Zyskano %@ z %@. Ogólnie %@ (maksymalnie %@)";
-
+"Add" = "Dodaj";
+"Cut" = "Wytnij";
+"KB" = "KB";
+"MB" = "MB";
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Oszczędzono %@ z %@. W sumie %@ (niektóre pliki do %@)";
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Oszczędzono %@ z %@. Średnio %@ na plik (aż do %@)";
