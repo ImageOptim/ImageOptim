@@ -457,6 +457,11 @@
 		5AEF1B2110F2BCB200E3E4F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ImageOptim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageOptim.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C4ABCD1755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ko; path = ko.lproj/Help; sourceTree = "<group>"; };
+		F8C4ABCE1755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ko; path = ko.lproj/Credits.rtf; sourceTree = "<group>"; };
+		F8C4ABCF1755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F8C4ABD01755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ko; path = ko.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		F8C4ABD11755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ko; path = ko.lproj/PrefsController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -809,6 +814,7 @@
 				sv,
 				ja,
 				"zh-Hant",
+				ko,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ImageOptim */;
 			projectDirPath = "";
@@ -1141,6 +1147,7 @@
 				5A0344371299882B002091AA /* ru */,
 				5AC98826155F1ACD00E221A0 /* sv */,
 				1B5210E616BFA7CA0044C869 /* zh-Hant */,
+				F8C4ABD01755C91B004FC041 /* ko */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1164,6 +1171,7 @@
 				5A0344381299882F002091AA /* ru */,
 				5AC98827155F1ACD00E221A0 /* sv */,
 				1B5210E716BFA7CA0044C869 /* zh-Hant */,
+				F8C4ABD11755C91B004FC041 /* ko */,
 			);
 			name = PrefsController.xib;
 			sourceTree = "<group>";
@@ -1186,6 +1194,7 @@
 				5A03443612998825002091AA /* ru */,
 				5AC9882A155F1AE100E221A0 /* sv */,
 				1B5210E416BFA7CA0044C869 /* zh-Hant */,
+				F8C4ABCE1755C91B004FC041 /* ko */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -1208,6 +1217,7 @@
 				5A03443A12998845002091AA /* ru */,
 				5AC9882C155F1AE100E221A0 /* sv */,
 				1B5210E516BFA7CA0044C869 /* zh-Hant */,
+				F8C4ABCF1755C91B004FC041 /* ko */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1229,6 +1239,7 @@
 				5A03443B1299884F002091AA /* ru */,
 				5AC9882B155F1AE100E221A0 /* sv */,
 				1B5210E316BFA7C90044C869 /* zh-Hant */,
+				F8C4ABCD1755C91B004FC041 /* ko */,
 			);
 			name = Help;
 			sourceTree = "<group>";
