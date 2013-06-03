@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
-		<int key="IBDocument.SystemTarget">1070</int>
+		<int key="IBDocument.SystemTarget">1060</int>
 		<string key="IBDocument.SystemVersion">12D78</string>
 		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
 		<string key="IBDocument.AppKitVersion">1187.37</string>
@@ -262,7 +262,7 @@
 																<bool key="NS.raise.dividebyzero">YES</bool>
 															</object>
 															<string key="NS.decimal">.</string>
-															<string key="NS.thousand">,</string>
+															<string type="base64-UTF8" key="NS.thousand">wqA</string>
 															<bool key="NS.hasthousands">YES</bool>
 															<bool key="NS.localized">YES</bool>
 															<bool key="NS.allowsfloats">YES</bool>
@@ -322,7 +322,7 @@
 																<bool key="NS.raise.dividebyzero">YES</bool>
 															</object>
 															<string key="NS.decimal">.</string>
-															<string key="NS.thousand">,</string>
+															<string type="base64-UTF8" key="NS.thousand">wqA</string>
 															<bool key="NS.hasthousands">YES</bool>
 															<bool key="NS.localized">YES</bool>
 															<bool key="NS.allowsfloats">YES</bool>
@@ -386,7 +386,7 @@
 																<bool key="NS.raise.dividebyzero">YES</bool>
 															</object>
 															<string key="NS.decimal">.</string>
-															<string key="NS.thousand">,</string>
+															<string type="base64-UTF8" key="NS.thousand">wqA</string>
 															<bool key="NS.hasthousands">YES</bool>
 															<bool key="NS.localized">YES</bool>
 															<bool key="NS.allowsfloats">YES</bool>
@@ -1284,7 +1284,7 @@
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
-												<int key="NSFlags">100665349</int>
+												<int key="NSFlags">33556485</int>
 												<int key="NSTextCheckingTypes">0</int>
 												<nil key="NSMarkedAttributes"/>
 												<object class="NSColor" key="NSBackgroundColor" id="504455196">
@@ -1459,7 +1459,7 @@
 							<bool key="NS.raise.dividebyzero">YES</bool>
 						</object>
 						<string key="NS.decimal">.</string>
-						<string key="NS.thousand">,</string>
+						<string type="base64-UTF8" key="NS.thousand">wqA</string>
 						<bool key="NS.hasthousands">YES</bool>
 						<bool key="NS.localized">YES</bool>
 						<bool key="NS.allowsfloats">YES</bool>
@@ -3486,7 +3486,7 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
-			<real value="1070" key="NS.object.0"/>
+			<real value="1060" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>

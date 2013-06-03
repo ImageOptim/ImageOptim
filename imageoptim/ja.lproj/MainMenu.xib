@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">12A269</string>
-		<string key="IBDocument.InterfaceBuilderVersion">2549</string>
-		<string key="IBDocument.AppKitVersion">1187</string>
-		<string key="IBDocument.HIToolboxVersion">624.00</string>
+		<string key="IBDocument.SystemVersion">12D78</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
+		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">2549</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSArrayController</string>
@@ -1262,7 +1262,7 @@
 										<object class="NSTextView" id="857203264">
 											<reference key="NSNextResponder" ref="183240755"/>
 											<int key="NSvFlags">2322</int>
-											<string key="NSFrame">{{0, -6}, {284, 228}}</string>
+											<string key="NSFrameSize">{284, 228}</string>
 											<reference key="NSSuperview" ref="183240755"/>
 											<reference key="NSNextKeyView" ref="573940884"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="458419734">
@@ -1321,6 +1321,7 @@
 											</object>
 											<int key="NSTVFlags">6</int>
 											<string key="NSMaxSize">{575, 10000000}</string>
+											<string key="NSMinize">{295, 228}</string>
 											<nil key="NSDelegate"/>
 										</object>
 									</array>
@@ -3321,6 +3322,7 @@
 						<string key="originalSizeColumn">NSTableColumn</string>
 						<string key="progressBar">NSProgressIndicator</string>
 						<string key="savingsColumn">NSTableColumn</string>
+						<string key="savingsFormatter">NSNumberFormatter</string>
 						<string key="sizeColumn">NSTableColumn</string>
 						<string key="statusBarLabel">NSTextField</string>
 						<string key="tableView">NSTableView</string>
@@ -3349,6 +3351,10 @@
 						<object class="IBToOneOutletInfo" key="savingsColumn">
 							<string key="name">savingsColumn</string>
 							<string key="candidateClassName">NSTableColumn</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="savingsFormatter">
+							<string key="name">savingsFormatter</string>
+							<string key="candidateClassName">NSNumberFormatter</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="sizeColumn">
 							<string key="name">sizeColumn</string>
@@ -3481,10 +3487,6 @@
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencies">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
 			<real value="1060" key="NS.object.0"/>
-		</object>
-		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
-			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin.macosx</string>
-			<real value="1070" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
