@@ -479,6 +479,11 @@
 		5AF71642174AF7C30018D3FE /* pngout */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = pngout; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ImageOptim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageOptim.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C4ABCD1755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ko; path = ko.lproj/Help; sourceTree = "<group>"; };
+		F8C4ABCE1755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ko; path = ko.lproj/Credits.rtf; sourceTree = "<group>"; };
+		F8C4ABCF1755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F8C4ABD01755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ko; path = ko.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		F8C4ABD11755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ko; path = ko.lproj/PrefsController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -839,6 +844,7 @@
 				"zh-Hant",
 				lt,
 				"lt-LT",
+				ko,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ImageOptim */;
 			projectDirPath = "";
@@ -1170,6 +1176,7 @@
 				5AA339011117C41400046C79 /* German */,
 				5AA2213E10DE9CF900D67435 /* Italian */,
 				5A9ED38415F22153005B8CA5 /* ja */,
+				F8C4ABD01755C91B004FC041 /* ko */,
 				1A9AF7C617565DCE002ED2A5 /* lt */,
 				1A9AF7CB17565DDB002ED2A5 /* lt-LT */,
 				5AD299BB1436757F0048C725 /* no */,
@@ -1195,6 +1202,7 @@
 				5AA339021117C41B00046C79 /* German */,
 				5AA2213F10DE9D0100D67435 /* Italian */,
 				5A9ED38215F2214F005B8CA5 /* ja */,
+				F8C4ABD11755C91B004FC041 /* ko */,
 				1A9AF7C717565DCE002ED2A5 /* lt */,
 				1A9AF7CC17565DDB002ED2A5 /* lt-LT */,
 				5AD299BD143675870048C725 /* no */,
@@ -1219,6 +1227,7 @@
 				5AA338A21117BF1900046C79 /* German */,
 				5AA2213210DE9CD500D67435 /* Italian */,
 				5A9ED38815F22199005B8CA5 /* ja */,
+				F8C4ABCE1755C91B004FC041 /* ko */,
 				1A9AF7C417565DCE002ED2A5 /* lt */,
 				1A9AF7C917565DDB002ED2A5 /* lt-LT */,
 				5AD299B71436756D0048C725 /* no */,
@@ -1243,6 +1252,7 @@
 				5AA338BF1117C00300046C79 /* German */,
 				5AA2213310DE9CEF00D67435 /* Italian */,
 				5A9ED38615F22159005B8CA5 /* ja */,
+				F8C4ABCF1755C91B004FC041 /* ko */,
 				1A9AF7C517565DCE002ED2A5 /* lt */,
 				1A9AF7CA17565DDB002ED2A5 /* lt-LT */,
 				5AD299B9143675770048C725 /* no */,
@@ -1267,6 +1277,7 @@
 				5A94A02610275AFD005CC9CB /* fr */,
 				5AA338A31117BF5500046C79 /* German */,
 				5A9ED38015F2213F005B8CA5 /* ja */,
+				F8C4ABCD1755C91B004FC041 /* ko */,
 				1A9AF7C317565DCE002ED2A5 /* lt */,
 				1A9AF7C817565DDB002ED2A5 /* lt-LT */,
 				5AD299C2143675BB0048C725 /* no */,

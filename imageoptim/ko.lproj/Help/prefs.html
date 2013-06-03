@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"	"http://www.w3.org/TR/html4/strict.dtd">
+<html class="no-js">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <title>ImageOptim Preferences</title>
+    <link rel="stylesheet" href="../../style.css">
+    <meta name="AppleTitle" content="ImageOptim Preferences Help">
+    <meta name="AppleIcon" content="../../crusher.icns" />
+    <meta name="AppleFont" content="Lucida Grande,Helvetica,Arial" />
+    <meta name="AppleSearchResultsFont" content="Lucida Grande,Geneva,Arial" />
+    <meta name="description" content="ImageOptim Preferences">
+  </head>
+  <body>
+    <a name="general">일반</a>
+    <h1>ImageOptim 환경설정</h1>
+    <p><a href="index.html">« 소개페이지로 이동</a></p>
+    <p>환경설정을 꼭 바꿀 필요는 없습니다.</p>
+    <h2>일반 환경설정</h2>
+    <dl>
+      <dt>파일 권한, 속성 그리고 하드링크 유지하기</dt>
+      <dd><p>같은 이름으로 된 파일을 삭제 후 생성하는 것이 아니라, 파일의 내용을 덮어씁니다. 그렇기 때문에 폴더 위치, 대체 이름, 파일 소유, 권한, 확장된 파일 속성 모두가 동일하게 유지됩니다.</p></dd>
+      <dd><p>또한, 권한을 유지하지 않기 때문에 조금 더 빠르게 진행됩니다.</p></dd>
+
+      <dt>저장하기 전에 원본 파일 백업하기</dt>
+      <dd><p>이것을 체크하면 원본 파일 이름에 <samp>~</samp>를 붙인 파일로 복사합니다. 이것은 최적화 작업을 조금 느리게 만들며, 백업 파일 저장으로 디스크가 지저분해 질 수 있습니다.</p></dd>
+
+      <dt>임의의 정보 모두 제거하기</dt>
+      <dd><p>웹에서 쓰일 파일을 최적화한다면 활성화하십시오. 만약 특정 메타데이터를 가진 PNG라면 비활성화하면 됩니다.</p></dd>
+
+      <dt>파일안에 EXIF 마크 제거하기</dt>
+      <dd><p>색상 프로파일, 노출시간, GPS 좌표, 카메라 모델, 파일 생성 때 사용된 소프트웨어의 이름 등의 이미지 메타데이터를 제거합니다. 메타데이터는 JPEG 파일이 1.3MB 보다 크면 절대 지워지지 않습니다.</p></dd>
+    </dl>
+
+    <div id="jpegoptim">
+      <a name="jpegoptim">jpegoptim</a>
+      <h2>JPEGOptim</h2>
+      <dl>
+        <dt>활성화</dt>
+        <dd><p>만약 체크되어 있다면, JPEG 파일들을 최적화합니다.</p></dd>
+
+        <dt>최대 품질</dt>
+        <dd>
+          <p>만약 100%로 설정하면, 최적화는 <strong>손실</strong>없이 진행됩니다.</p>
+          <p>만약 기존 파일들이 더 높은 품질로 저장되었더라도, 최적화 품질을 100% 미만으로 설정하면 <strong>더 낮은 품질</strong>로 진행됩니다.</p>
+        </dd>
+      </dl>
+    </div>
+
+    <div id="pngout">
+      <a name="pngout">pngout</a>
+      <h2>PNGOUT</h2>
+      <dl>
+        <dt>활성화</dt>
+        <dd><p>만약 체크되어있다면, PNGOUT을 사용한 PNG 파일을 최적화합니다.</p></dd>
+        <dd><p>PNGOUT은 ImageOptim에 포함되어 있지 않습니다. 좋은 툴이지만, <a href="http://www.advsys.net/ken/utils.htm">PNGOUT의 제작자</a>는 이것의 재배포를 금하고 있습니다. 그러므로 <a target="_blank" href="http://www.jonof.id.au/index.php?p=pngout">PNGOUT은 따로 다운로드 해야만 합니다</a>.</p></dd>
+
+        <dt>최적화 유형</dt>
+        <dd><p>PNGOUT은 매우 효과적이지만 느립니다. 만약 참기 힘들다면 더 낮은 단계를 사용하세요.</p></dd>
+
+        <dt>만약 너무 오랫동안 작업이 진행되면 중지시킵니다.</dt>
+        <dd><p>PNGOUT은 매우 큰 이미지를 최적화하는데 <em>많은</em>시간이 소요될 수도 있습니다. 이 옵션은 1분이 지나고 PNGOUT을 깔끔하게 중지시킵니다.</p></dd>
+      </dl>
+    </div>
+
+    <div id="advpng">
+      <a name="advpng">advpng</a>
+      <h2>AdvPNG</h2>
+      <dl>
+        <dt>활성화</dt>
+        <dd><p>체크되어 있으면, AdvPNG 툴을 사용하는 PNG파일들을 최적화합니다.</p></dd>
+
+        <dt>최적화 레벨</dt>
+        <dd>AdvPNG는 상대적으로 빠르며, 최대 레벨로 사용할 수 있습니다.</dd>
+      </dl>
+    </div>
+
+    <div id="optipng">
+      <a name="optipng">optipng</a>
+      <h2>OptiPNG</h2>
+      <dl>
+        <dt>활성화</dt>
+        <dd><p>체크되어 있으면, OptiPNG 툴을 사용한 PNG 파일들을 최적화합니다.</p></dd>
+
+        <dt>최적화 레벨</dt>
+        <dd><p>설정한 조합의 숫자만큼 테스트합니다. 드물게 모든 설정 조합이 테스트 될 수도 있습니다.</p></dd>
+
+        <dt>인터레이스(점진적) 된 이미지 만들기</dt>
+        <dd>
+          <p>파일을 부분적으로 로드될 때 인터레이스 된 이미지는 보기 좋습니다. 하지만 대게 인터레이스는 압출은 덜 효과적입니다.</p>
+          <p>이 체크박스는 3가지 상태를 가집니다. 만약 체크되면 이미지를 인터레이스되도록 만들어집니다. 혼합으로 선택할 때에는 파일에 인터레이스를 변경하지 않습니다. 마지막으로 체크를 해제하면 파일에 인터레이스를 제거합니다.</p>
+        </dd>
+      </dl>
+    </div>
+
+    <div id="gifsicle">
+      <a name="gifsicle">gifsicle</a>
+      <h2>Gifsicle</h2>
+      <dl>
+        <dt>활성화</dt>
+        <dd>
+          <p>체크되어 있으면, Gifsicle를 사용한 GIF 파일들을 최적화합니다.</p>
+          <p>GIF 파일들은 어느 부분이 더 작은지에 따라 인터레이스 적용 또는 미적용을 자동적으로 설정합니다. 파일 안의 주석들은 제거됩니다.</p>
+          <p>Gifsicle은 애니메이션 GIF에 가장 효과적이며, 비-애니메이션 GIF는 최적화에 효과적이지 않습니다.</p>
+          <p>최고의 압축을 위해, 당신은 GIF파일을 PNG로 변환해야 합니다.(ImageOptime가 자동적으로 그것을 해주지 않습니다).</p>
+        </dd>
+      </dl>
+    </div>
+
+    <div id="jpegrescan">
+    <a name="jpegrescan">jpegrescan</a>
+    <h2>JpegRescan</h2>
+    <p>Jpegrescan은 <code>jpegtran</code> 기반의 스크립트입니다. 더 나은 압축을 위해 일반적이지 않은 횟수의 점진적 탐색을 하여 JPEG 파일을 생성합니다. 하지만 그런 파일들은 모든 브라우저에서 호환되지 않을 수 있습니다.</p>
+    </div>
+  </body>
+</html>
