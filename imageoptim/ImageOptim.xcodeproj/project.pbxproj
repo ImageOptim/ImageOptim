@@ -552,10 +552,10 @@
 		1AD5B25A174FF51E00BC75FD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				1AD5B253174F8C5900BC75FD /* Utilities.h */,
-				1AD5B254174F8C5900BC75FD /* Utilities.m */,
 				1AD5B24F174F850900BC75FD /* GetQueueCountCommand.h */,
 				1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */,
+				1AD5B253174F8C5900BC75FD /* Utilities.h */,
+				1AD5B254174F8C5900BC75FD /* Utilities.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -576,12 +576,12 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */,
 				5A48B74A1423F3AD00AE15FB /* Makefile */,
 				5A4554F81025EBE900A69944 /* optimal_file_list */,
 				5A984D4011238E51007622D7 /* advpng.xcodeproj */,
 				5A27B9C2139B079A0095FC2F /* debug.xcconfig */,
 				5A4DC2051028ADB200A9DD55 /* gifsicle.xcodeproj */,
+				1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */,
 				5A20CC9D112393B80000400D /* jpeg.xcodeproj */,
 				5A8167EC0EA11F9D00962CF2 /* jpegoptim.xcodeproj */,
 				5A739C260EA4073700D751E1 /* jpegtran.xcodeproj */,
@@ -1002,6 +1002,7 @@
 				5A0A24FD17495224003264CC /* err@2x.png in Resources */,
 				5A7D24E513E5BC3100815AAA /* Help in Resources */,
 				5A16343E140BF97400758D99 /* ImageOptim.icns in Resources */,
+				1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */,
 				5A7D24E713E5BC3100815AAA /* Localizable.strings in Resources */,
 				5A7D24E313E5BC3100815AAA /* MainMenu.xib in Resources */,
 				5A7D24EC13E5BC3100815AAA /* minus.png in Resources */,
@@ -1017,7 +1018,6 @@
 				5A0A24FB174948B5003264CC /* reveal@2x.png in Resources */,
 				5A1D3E8C14366933004EE809 /* style.css in Resources */,
 				5A7D24EB13E5BC3100815AAA /* wait.png in Resources */,
-				1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */,
 				5A0A24F917494254003264CC /* wait@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1073,6 +1073,7 @@
 				5A34A634140EEDB900DE44D2 /* DragDropImageView.m in Sources */,
 				5A0D2E570C922AB700FD7CDE /* File.m in Sources */,
 				5AE1C49A0CA6CDDC000CF636 /* FilesQueue.m in Sources */,
+				1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */,
 				5A4DC21B1028AE1800A9DD55 /* GifsicleWorker.m in Sources */,
 				5A0D2E5D0C922D6D00FD7CDE /* ImageOptim.m in Sources */,
 				5A9E5B2B0CB961E000E05D28 /* JpegoptimWorker.m in Sources */,
@@ -1086,9 +1087,8 @@
 				5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */,
 				5A8A18141416D1D700D62DB7 /* SavingsFormatter.m in Sources */,
 				5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */,
-				5AACA13F0CAF241B004D45CA /* Worker.m in Sources */,
 				1AD5B255174F8C5A00BC75FD /* Utilities.m in Sources */,
-				1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */,
+				5AACA13F0CAF241B004D45CA /* Worker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1170,6 +1170,8 @@
 				5AA339011117C41400046C79 /* German */,
 				5AA2213E10DE9CF900D67435 /* Italian */,
 				5A9ED38415F22153005B8CA5 /* ja */,
+				1A9AF7C617565DCE002ED2A5 /* lt */,
+				1A9AF7CB17565DDB002ED2A5 /* lt-LT */,
 				5AD299BB1436757F0048C725 /* no */,
 				5A4553121024EF3000A69944 /* Polish */,
 				5A0343BE129984B3002091AA /* pt */,
@@ -1177,8 +1179,6 @@
 				5A0344371299882B002091AA /* ru */,
 				5AC98826155F1ACD00E221A0 /* sv */,
 				1B5210E616BFA7CA0044C869 /* zh-Hant */,
-				1A9AF7C617565DCE002ED2A5 /* lt */,
-				1A9AF7CB17565DDB002ED2A5 /* lt-LT */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1195,6 +1195,8 @@
 				5AA339021117C41B00046C79 /* German */,
 				5AA2213F10DE9D0100D67435 /* Italian */,
 				5A9ED38215F2214F005B8CA5 /* ja */,
+				1A9AF7C717565DCE002ED2A5 /* lt */,
+				1A9AF7CC17565DDB002ED2A5 /* lt-LT */,
 				5AD299BD143675870048C725 /* no */,
 				5A4553131024EF4100A69944 /* Polish */,
 				5A0343BF129984BA002091AA /* pt */,
@@ -1202,8 +1204,6 @@
 				5A0344381299882F002091AA /* ru */,
 				5AC98827155F1ACD00E221A0 /* sv */,
 				1B5210E716BFA7CA0044C869 /* zh-Hant */,
-				1A9AF7C717565DCE002ED2A5 /* lt */,
-				1A9AF7CC17565DDB002ED2A5 /* lt-LT */,
 			);
 			name = PrefsController.xib;
 			sourceTree = "<group>";
@@ -1219,6 +1219,8 @@
 				5AA338A21117BF1900046C79 /* German */,
 				5AA2213210DE9CD500D67435 /* Italian */,
 				5A9ED38815F22199005B8CA5 /* ja */,
+				1A9AF7C417565DCE002ED2A5 /* lt */,
+				1A9AF7C917565DDB002ED2A5 /* lt-LT */,
 				5AD299B71436756D0048C725 /* no */,
 				5AD3032110D555ED002A5558 /* Polish */,
 				5A0343B012998485002091AA /* pt */,
@@ -1226,8 +1228,6 @@
 				5A03443612998825002091AA /* ru */,
 				5AC9882A155F1AE100E221A0 /* sv */,
 				1B5210E416BFA7CA0044C869 /* zh-Hant */,
-				1A9AF7C417565DCE002ED2A5 /* lt */,
-				1A9AF7C917565DDB002ED2A5 /* lt-LT */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -1243,6 +1243,8 @@
 				5AA338BF1117C00300046C79 /* German */,
 				5AA2213310DE9CEF00D67435 /* Italian */,
 				5A9ED38615F22159005B8CA5 /* ja */,
+				1A9AF7C517565DCE002ED2A5 /* lt */,
+				1A9AF7CA17565DDB002ED2A5 /* lt-LT */,
 				5AD299B9143675770048C725 /* no */,
 				5A94A03B10275E11005CC9CB /* Polish */,
 				5A7A314713E436690012DCFB /* pt */,
@@ -1250,8 +1252,6 @@
 				5A03443A12998845002091AA /* ru */,
 				5AC9882C155F1AE100E221A0 /* sv */,
 				1B5210E516BFA7CA0044C869 /* zh-Hant */,
-				1A9AF7C517565DCE002ED2A5 /* lt */,
-				1A9AF7CA17565DDB002ED2A5 /* lt-LT */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1267,14 +1267,14 @@
 				5A94A02610275AFD005CC9CB /* fr */,
 				5AA338A31117BF5500046C79 /* German */,
 				5A9ED38015F2213F005B8CA5 /* ja */,
+				1A9AF7C317565DCE002ED2A5 /* lt */,
+				1A9AF7C817565DDB002ED2A5 /* lt-LT */,
 				5AD299C2143675BB0048C725 /* no */,
 				5A034423129985D5002091AA /* pt */,
 				5AE74B60146DECB100287FA6 /* pt-BR */,
 				5A03443B1299884F002091AA /* ru */,
 				5AC9882B155F1AE100E221A0 /* sv */,
 				1B5210E316BFA7C90044C869 /* zh-Hant */,
-				1A9AF7C317565DCE002ED2A5 /* lt */,
-				1A9AF7C817565DDB002ED2A5 /* lt-LT */,
 			);
 			name = Help;
 			sourceTree = "<group>";
