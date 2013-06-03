@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1070</int>
-		<string key="IBDocument.SystemVersion">12C60</string>
-		<string key="IBDocument.InterfaceBuilderVersion">3083</string>
-		<string key="IBDocument.AppKitVersion">1187.34</string>
-		<string key="IBDocument.HIToolboxVersion">625.00</string>
+		<string key="IBDocument.SystemVersion">12D78</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
+		<string key="IBDocument.AppKitVersion">1187.37</string>
+		<string key="IBDocument.HIToolboxVersion">626.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">3083</string>
+			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSArrayController</string>
@@ -166,7 +166,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">2048</int>
-														<string key="NSContents">File</string>
+														<string key="NSContents">파일</string>
 														<reference key="NSSupport" ref="26"/>
 														<object class="NSColor" key="NSBackgroundColor" id="162739633">
 															<int key="NSColorSpace">3</int>
@@ -217,7 +217,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">67110912</int>
-														<string key="NSContents">Original Size</string>
+														<string key="NSContents">원본 크기</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="651036953"/>
 														<reference key="NSTextColor" ref="739485553"/>
@@ -264,7 +264,7 @@
 																<bool key="NS.raise.dividebyzero">YES</bool>
 															</object>
 															<string key="NS.decimal">.</string>
-															<string type="base64-UTF8" key="NS.thousand">wqA</string>
+															<string key="NS.thousand">,</string>
 															<bool key="NS.hasthousands">YES</bool>
 															<bool key="NS.localized">YES</bool>
 															<bool key="NS.allowsfloats">YES</bool>
@@ -284,7 +284,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">67110912</int>
-														<string key="NSContents">Size</string>
+														<string key="NSContents">크기</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="162739633"/>
 														<reference key="NSTextColor" ref="739485553"/>
@@ -324,7 +324,7 @@
 																<bool key="NS.raise.dividebyzero">YES</bool>
 															</object>
 															<string key="NS.decimal">.</string>
-															<string type="base64-UTF8" key="NS.thousand">wqA</string>
+															<string key="NS.thousand">,</string>
 															<bool key="NS.hasthousands">YES</bool>
 															<bool key="NS.localized">YES</bool>
 															<bool key="NS.allowsfloats">YES</bool>
@@ -343,7 +343,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">67110912</int>
-														<string key="NSContents">Savings</string>
+														<string key="NSContents">압축률</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="651036953"/>
 														<reference key="NSTextColor" ref="739485553"/>
@@ -388,7 +388,7 @@
 																<bool key="NS.raise.dividebyzero">YES</bool>
 															</object>
 															<string key="NS.decimal">.</string>
-															<string type="base64-UTF8" key="NS.thousand">wqA</string>
+															<string key="NS.thousand">,</string>
 															<bool key="NS.hasthousands">YES</bool>
 															<bool key="NS.localized">YES</bool>
 															<bool key="NS.allowsfloats">YES</bool>
@@ -407,7 +407,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">2048</int>
-														<string key="NSContents">Best tool</string>
+														<string key="NSContents">최고의 도구</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="651036953"/>
 														<reference key="NSTextColor" ref="739485553"/>
@@ -525,8 +525,12 @@
 							<object class="NSTextFieldCell" key="NSCell" id="326808065">
 								<int key="NSCellFlags">67108928</int>
 								<int key="NSCellFlags2">306321472</int>
-								<string key="NSContents">Drag and drop image files onto the area above</string>
-								<reference key="NSSupport" ref="26"/>
+								<string key="NSContents">위 영역 위에 이미지 파일들을 끌어다 놓으세요</string>
+								<object class="NSFont" key="NSSupport">
+									<string key="NSName">AppleSDGothicNeo-Regular</string>
+									<double key="NSSize">11</double>
+									<int key="NSfFlags">16</int>
+								</object>
 								<reference key="NSControlView" ref="646228687"/>
 								<reference key="NSTextColor" ref="777625168"/>
 							</object>
@@ -578,8 +582,12 @@
 							<object class="NSButtonCell" key="NSCell" id="650797074">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Again</string>
-								<reference key="NSSupport" ref="725316391"/>
+								<string key="NSContents">다시</string>
+								<object class="NSFont" key="NSSupport">
+									<string key="NSName">AppleSDGothicNeo-Regular</string>
+									<double key="NSSize">13</double>
+									<int key="NSfFlags">16</int>
+								</object>
 								<reference key="NSControlView" ref="718675695"/>
 								<int key="NSButtonFlags">-2034483200</int>
 								<int key="NSButtonFlags2">268435491</int>
@@ -608,7 +616,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="188613459"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1578}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1920, 1080}}</string>
 				<string key="NSMinSize">{411, 132}</string>
 				<string key="NSMaxSize">{1200, 2022}</string>
 				<string key="NSFrameAutosaveName">MainWindow</string>
@@ -639,7 +647,7 @@
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="195931994">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">About ImageOptim</string>
+									<string key="NSTitle">ImageOptim에 대한 정보</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -647,7 +655,7 @@
 								</object>
 								<object class="NSMenuItem" id="540149195">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Check for Updates…</string>
+									<string key="NSTitle">업데이트 확인</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -666,7 +674,7 @@
 								</object>
 								<object class="NSMenuItem" id="280919078">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Preferences…</string>
+									<string key="NSTitle">환경 설정...</string>
 									<string key="NSKeyEquiv">,</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -686,7 +694,7 @@
 								</object>
 								<object class="NSMenuItem" id="1038949416">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Services</string>
+									<string key="NSTitle">서비스</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -694,7 +702,7 @@
 									<reference key="NSMixedImage" ref="898714739"/>
 									<string key="NSAction">submenuAction:</string>
 									<object class="NSMenu" key="NSSubmenu" id="926507347">
-										<string key="NSTitle">Services</string>
+										<string key="NSTitle">서비스</string>
 										<array class="NSMutableArray" key="NSMenuItems"/>
 										<string key="NSName">_NSServicesMenu</string>
 									</object>
@@ -712,7 +720,7 @@
 								</object>
 								<object class="NSMenuItem" id="794919055">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Hide ImageOptim</string>
+									<string key="NSTitle">ImageOptim 숨기기</string>
 									<string key="NSKeyEquiv">h</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -721,7 +729,7 @@
 								</object>
 								<object class="NSMenuItem" id="115432454">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Hide Others</string>
+									<string key="NSTitle">기타 숨기기</string>
 									<string key="NSKeyEquiv">h</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -730,7 +738,7 @@
 								</object>
 								<object class="NSMenuItem" id="1008306447">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Show All</string>
+									<string key="NSTitle">모두 보기</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -750,7 +758,7 @@
 								</object>
 								<object class="NSMenuItem" id="290352162">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Quit ImageOptim</string>
+									<string key="NSTitle">ImageOptim 종료</string>
 									<string key="NSKeyEquiv">q</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -763,7 +771,7 @@
 					</object>
 					<object class="NSMenuItem" id="118427520">
 						<reference key="NSMenu" ref="717955284"/>
-						<string key="NSTitle">File</string>
+						<string key="NSTitle">파일</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -771,11 +779,11 @@
 						<reference key="NSMixedImage" ref="898714739"/>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="810587040">
-							<string key="NSTitle">File</string>
+							<string key="NSTitle">파일</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="920522896">
 									<reference key="NSMenu" ref="810587040"/>
-									<string key="NSTitle">Add Files…</string>
+									<string key="NSTitle">파일 추가(O)...</string>
 									<string key="NSKeyEquiv">o</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -784,7 +792,7 @@
 								</object>
 								<object class="NSMenuItem" id="342358740">
 									<reference key="NSMenu" ref="810587040"/>
-									<string key="NSTitle">Optimize Again</string>
+									<string key="NSTitle">다시 최적화하기</string>
 									<string key="NSKeyEquiv">r</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -795,7 +803,7 @@
 									<reference key="NSMenu" ref="810587040"/>
 									<bool key="NSIsHidden">YES</bool>
 									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Optimize Optimized</string>
+									<string key="NSTitle">최적화 완료</string>
 									<string key="NSKeyEquiv">r</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -804,7 +812,7 @@
 								</object>
 								<object class="NSMenuItem" id="900222994">
 									<reference key="NSMenu" ref="810587040"/>
-									<string key="NSTitle">Quick Look</string>
+									<string key="NSTitle">훑어보기</string>
 									<string key="NSKeyEquiv">y</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -824,7 +832,7 @@
 								</object>
 								<object class="NSMenuItem" id="695734933">
 									<reference key="NSMenu" ref="810587040"/>
-									<string key="NSTitle">Close</string>
+									<string key="NSTitle">닫기(W)</string>
 									<string key="NSKeyEquiv">w</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -836,7 +844,7 @@
 					</object>
 					<object class="NSMenuItem" id="117073295">
 						<reference key="NSMenu" ref="717955284"/>
-						<string key="NSTitle">Edit</string>
+						<string key="NSTitle">편집</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -844,11 +852,11 @@
 						<reference key="NSMixedImage" ref="898714739"/>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="777814834">
-							<string key="NSTitle">Edit</string>
+							<string key="NSTitle">편집</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="472478634">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Undo</string>
+									<string key="NSTitle">실행 취소(Z)</string>
 									<string key="NSKeyEquiv">z</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -857,7 +865,7 @@
 								</object>
 								<object class="NSMenuItem" id="323992007">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Redo</string>
+									<string key="NSTitle">다시 실행</string>
 									<string key="NSKeyEquiv">Z</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -877,7 +885,7 @@
 								</object>
 								<object class="NSMenuItem" id="703244935">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Cut</string>
+									<string key="NSTitle">잘라내기(X)</string>
 									<string key="NSKeyEquiv">x</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -886,7 +894,7 @@
 								</object>
 								<object class="NSMenuItem" id="330968477">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Copy</string>
+									<string key="NSTitle">복사(C)</string>
 									<string key="NSKeyEquiv">c</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -895,7 +903,7 @@
 								</object>
 								<object class="NSMenuItem" id="147728722">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Paste</string>
+									<string key="NSTitle">붙여넣기(V)</string>
 									<string key="NSKeyEquiv">v</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -904,7 +912,7 @@
 								</object>
 								<object class="NSMenuItem" id="511265743">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Delete</string>
+									<string key="NSTitle">삭제</string>
 									<string type="base64-UTF8" key="NSKeyEquiv">CA</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -915,7 +923,7 @@
 									<reference key="NSMenu" ref="777814834"/>
 									<bool key="NSIsHidden">YES</bool>
 									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Delete Completed</string>
+									<string key="NSTitle">삭제 완료</string>
 									<string type="base64-UTF8" key="NSKeyEquiv">CA</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -934,7 +942,7 @@
 								</object>
 								<object class="NSMenuItem" id="540020044">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Select All</string>
+									<string key="NSTitle">모두 선택하기(A)...</string>
 									<string key="NSKeyEquiv">a</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -946,14 +954,14 @@
 					</object>
 					<object class="NSMenuItem" id="738309329">
 						<reference key="NSMenu" ref="717955284"/>
-						<string key="NSTitle">Tools</string>
+						<string key="NSTitle">도구</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="855672835"/>
 						<reference key="NSMixedImage" ref="898714739"/>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="956832752">
-							<string key="NSTitle">Tools</string>
+							<string key="NSTitle">도구</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="362613240">
 									<reference key="NSMenu" ref="956832752"/>
@@ -1036,7 +1044,7 @@
 					</object>
 					<object class="NSMenuItem" id="719690710">
 						<reference key="NSMenu" ref="717955284"/>
-						<string key="NSTitle">Window</string>
+						<string key="NSTitle">창</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -1044,11 +1052,11 @@
 						<reference key="NSMixedImage" ref="898714739"/>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="564456469">
-							<string key="NSTitle">Window</string>
+							<string key="NSTitle">창</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="146427746">
 									<reference key="NSMenu" ref="564456469"/>
-									<string key="NSTitle">Minimize</string>
+									<string key="NSTitle">창 닫기(M)</string>
 									<string key="NSKeyEquiv">m</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1057,7 +1065,7 @@
 								</object>
 								<object class="NSMenuItem" id="393845620">
 									<reference key="NSMenu" ref="564456469"/>
-									<string key="NSTitle">Zoom</string>
+									<string key="NSTitle">확대</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1077,7 +1085,7 @@
 								</object>
 								<object class="NSMenuItem" id="470500581">
 									<reference key="NSMenu" ref="564456469"/>
-									<string key="NSTitle">Bring All to Front</string>
+									<string key="NSTitle">앞으로 모두 가져오기</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1096,18 +1104,18 @@
 								</object>
 								<object class="NSMenuItem" id="825109488">
 									<reference key="NSMenu" ref="564456469"/>
-									<string key="NSTitle">Show Columns</string>
+									<string key="NSTitle">컬럼 보기</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
 									<reference key="NSMixedImage" ref="898714739"/>
 									<string key="NSAction">submenuAction:</string>
 									<object class="NSMenu" key="NSSubmenu" id="508032773">
-										<string key="NSTitle"/>
+										<string key="NSTitle">컬럼 보기</string>
 										<array class="NSMutableArray" key="NSMenuItems">
 											<object class="NSMenuItem" id="185434306">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">Original Size</string>
+												<string key="NSTitle">원본 크기</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="855672835"/>
@@ -1115,7 +1123,7 @@
 											</object>
 											<object class="NSMenuItem" id="726135706">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">Optimized Size</string>
+												<string key="NSTitle">최적화된 크기</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<int key="NSState">1</int>
@@ -1124,7 +1132,7 @@
 											</object>
 											<object class="NSMenuItem" id="1050342206">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">Savings</string>
+												<string key="NSTitle">압축률</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<int key="NSState">1</int>
@@ -1133,7 +1141,7 @@
 											</object>
 											<object class="NSMenuItem" id="428428762">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">Best tool</string>
+												<string key="NSTitle">최고의 도구</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="855672835"/>
@@ -1148,7 +1156,7 @@
 					</object>
 					<object class="NSMenuItem" id="524041950">
 						<reference key="NSMenu" ref="717955284"/>
-						<string key="NSTitle">Help</string>
+						<string key="NSTitle">도움말</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -1156,11 +1164,11 @@
 						<reference key="NSMixedImage" ref="898714739"/>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="572557097">
-							<string key="NSTitle">Help</string>
+							<string key="NSTitle">도움말</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="913954220">
 									<reference key="NSMenu" ref="572557097"/>
-									<string key="NSTitle">ImageOptim Help</string>
+									<string key="NSTitle">ImageOptim 도움말</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1169,7 +1177,7 @@
 								</object>
 								<object class="NSMenuItem" id="128963598">
 									<reference key="NSMenu" ref="572557097"/>
-									<string key="NSTitle">ImageOptim Website</string>
+									<string key="NSTitle">ImageOptim 웹사이트</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -1224,7 +1232,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{682, 258}, {295, 370}}</string>
 				<int key="NSWTFlags">-260570112</int>
-				<string key="NSWindowTitle">About ImageOptim</string>
+				<string key="NSWindowTitle">ImageOptim에 대한 정보</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<object class="NSMutableString" key="NSViewClass">
 					<characters key="NS.bytes">View</characters>
@@ -1301,7 +1309,7 @@
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
-												<int key="NSFlags">2053</int>
+												<int key="NSFlags">67110917</int>
 												<int key="NSTextCheckingTypes">0</int>
 												<nil key="NSMarkedAttributes"/>
 												<object class="NSColor" key="NSBackgroundColor" id="504455196">
@@ -1338,6 +1346,7 @@
 											</object>
 											<int key="NSTVFlags">6</int>
 											<string key="NSMaxSize">{575, 10000000}</string>
+											<string key="NSMinize">{295, 228}</string>
 											<nil key="NSDelegate"/>
 										</object>
 									</array>
@@ -1409,7 +1418,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="877771820">
 								<int key="NSCellFlags">70254657</int>
 								<int key="NSCellFlags2">4363264</int>
-								<string key="NSContents">version</string>
+								<string key="NSContents">버전</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="805991443"/>
 								<reference key="NSTextColor" ref="777625168"/>
@@ -1422,7 +1431,7 @@
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="842977522"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {2560, 1578}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1920, 1080}}</string>
 				<string key="NSMinSize">{211, 265}</string>
 				<string key="NSMaxSize">{465, 592}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -1483,7 +1492,7 @@
 							<bool key="NS.raise.dividebyzero">YES</bool>
 						</object>
 						<string key="NS.decimal">.</string>
-						<string type="base64-UTF8" key="NS.thousand">wqA</string>
+						<string key="NS.thousand">,</string>
 						<bool key="NS.hasthousands">YES</bool>
 						<bool key="NS.localized">YES</bool>
 						<bool key="NS.allowsfloats">YES</bool>
@@ -3464,36 +3473,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/RevealButtonCell.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">SUUpdater</string>
-					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">checkForUpdates:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">checkForUpdates:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">checkForUpdates:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">delegate</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">delegate</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">delegate</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/SUUpdater.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
