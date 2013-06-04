@@ -13,6 +13,7 @@
 #import "Workers/JpegoptimWorker.h"
 #import "Workers/JpegtranWorker.h"
 #import "Workers/GifsicleWorker.h"
+#import <sys/xattr.h>
 //#import "Dupe.h"
 
 @implementation File
@@ -142,9 +143,75 @@
     }
 }
 
+-(BOOL)removeExtendedAttr
+{
+    BOOL retVal = YES;
+    
+    // can add or remove keys as appropriate
+    NSMutableDictionary *extAttrToRemove = [NSMutableDictionary dictionaryWithDictionary:
+                                            @{
+                                             @"com.apple.FinderInfo" :[NSNumber numberWithInt:0],
+                                             @"com.apple.ResourceFork": [NSNumber numberWithInt:0],
+                                             @"com.apple.quarantine": [NSNumber numberWithInt:0]
+                                            }
+                                 ];
+    // need a copy to enumerate
+    NSDictionary *extAttrToRemoveCopy = [NSDictionary dictionaryWithDictionary:extAttrToRemove];
+    
+    const char *fileSystemPath = [filePath fileSystemRepresentation];
+    
+    size_t size = 0;
+    
+    ssize_t buf;
+    
+    // call with NULL for the char *namebuf param first
+    // in this case the method returns the size of the attributes buffer
+    buf = listxattr(fileSystemPath, NULL,  size, 0x0000);
+    
+    // so now we know the size
+    size = (size_t)buf;
+    
+    char nameBuf[size];
+    
+    memset(&nameBuf, 0, sizeof(nameBuf));
+    
+    
+    // get the list of xattrs
+    buf = listxattr(fileSystemPath, nameBuf, size, 0x0000);
+    
+    // loop throough and see if they match any in our extAttrToRemove dict
+    for (int i=0; i<size; i++) {        
+        for (NSString *tmpStr in extAttrToRemoveCopy){
+            if(strcmp(&nameBuf[i], [tmpStr UTF8String])  == 0){
+                // if present set value to 1
+                [extAttrToRemove setObject:[NSNumber numberWithInt:1] forKey:tmpStr];
+            }
+        }
+    }
+    
+    NSLog(@"extAttrToRemove - set new atts = %@", extAttrToRemove);
+    
+    // loop through the extAttrToRemove dict
+    for(NSString *tmpAtt in extAttrToRemove){
+        // if value is 1 then remove
+        if([[extAttrToRemove objectForKey:tmpAtt] isEqualToNumber:[NSNumber numberWithInt:1]]){
+            if(removexattr(fileSystemPath, [tmpAtt UTF8String], 0x0000) == 0){
+                NSLog(@"SUCCESS - set new atts.");
+            }
+            else{
+                NSLog(@"Failed to set new atts. errno = %d", errno);
+                retVal = NO;
+            }
+        }
+    }
+    
+    return retVal;
+}
+
+
 -(BOOL)saveResult
 {
-	if (!filePathOptimized) 
+	if (!filePathOptimized)
 	{
 		NSLog(@"WTF? save without filePathOptimized? for %@", filePath);
 		return NO;
