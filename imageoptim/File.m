@@ -147,12 +147,12 @@
 {
     BOOL retVal = YES;
     
-    // can add or remove keys as appropriate
+    // can add or remove keys as appropriate, or pass in as a param
     NSMutableDictionary *extAttrToRemove = [NSMutableDictionary dictionaryWithDictionary:
                                             @{
-                                             @"com.apple.FinderInfo" :[NSNumber numberWithInt:0],
+                                             @"com.apple.FinderInfo"  : [NSNumber numberWithInt:0],
                                              @"com.apple.ResourceFork": [NSNumber numberWithInt:0],
-                                             @"com.apple.quarantine": [NSNumber numberWithInt:0]
+                                             @"com.apple.quarantine"  : [NSNumber numberWithInt:0]
                                             }
                                  ];
     // need a copy to enumerate
@@ -174,7 +174,6 @@
     char nameBuf[size];
     
     memset(&nameBuf, 0, sizeof(nameBuf));
-    
     
     // get the list of xattrs
     buf = listxattr(fileSystemPath, nameBuf, size, 0x0000);
@@ -207,7 +206,6 @@
     
     return retVal;
 }
-
 
 -(BOOL)saveResult
 {
