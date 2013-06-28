@@ -59,6 +59,12 @@
 	}
 }
 
+-(NSString *)filePath
+{
+    if (filePath) return filePath;
+	return nil;
+}
+
 - (id)copyWithZone:(NSZone *)zone
 {
 	File *f = [[File allocWithZone:zone] init];

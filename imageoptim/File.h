@@ -56,6 +56,7 @@
 -(BOOL)isCameraPhoto;
 
 -(void)setFilePath:(NSString *)s;
+-(NSString *)filePath;
 
 -(NSString *)fileName;
 
