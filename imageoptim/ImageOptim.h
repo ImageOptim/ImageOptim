@@ -38,6 +38,7 @@ extern NSDictionary *statusImages;
 -(IBAction)browseForFiles:(id)sender;
 
 -(int)numberOfCPUs;
+-(void)loadCreditsHTML;
 
 @property (copy,nonatomic) NSIndexSet* selectedIndexes;
 

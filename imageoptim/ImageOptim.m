@@ -165,10 +165,40 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 	[cell setTarget:tableView];
 
     [credits setString:@""];
-    [credits readRTFDFromFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"]];
+
+    // this creates and sets the text for textview
+    [self loadCreditsHTML];
 
     [self initStatusbar];
     [self preloadStatusImages];
+}
+
+
+-(void)loadCreditsHTML{
+	@try{
+
+		NSError *error = nil;
+
+		NSString *html = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"html"] encoding:NSUTF8StringEncoding error:&error];
+
+		if (error != nil ){
+			NSLog(@"Failed to open Credits.html: %@", error);
+			// NSBundle should fall back to CFBundleDevelopmentRegion i.e. en
+			// but if it doesn't then html will be nil and an exception thrown
+			// set a default? set to "ERROR"?
+		}
+
+		[credits setEditable:YES];
+		NSAttributedString *tmpStr = [[NSAttributedString alloc]
+									  initWithHTML:[html dataUsingEncoding:NSUTF8StringEncoding]
+									  documentAttributes:nil];
+		[credits insertText:tmpStr];
+		[credits setEditable:NO];
+	}
+	@catch(NSException *e)
+	{
+		NSLog(@"Exception thrown %@",e);
+	}
 }
 
 -(void)preloadStatusImages {
