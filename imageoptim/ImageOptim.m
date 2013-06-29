@@ -157,10 +157,68 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 	[cell setTarget:tableView];
 
     [credits setString:@""];
-    [credits readRTFDFromFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"rtf"]];
+
+    // this creates and sets the text for textview
+    [self generateCreditsHTML];
 
     [self initStatusbar];
     [self preloadStatusImages];
+}
+
+
+-(void)generateCreditsHTML{
+    
+    NSMutableString *html = [[NSMutableString alloc] initWithCapacity:2000];
+    
+    [html appendString:@"<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.01//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">"];
+    [html appendString:@"<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><meta http-equiv=\"Content-Style-Type\" content=\"text/css\">"];
+    [html appendString:@"<style type=\"text/css\">p.p1{margin:.0px .0px 12.0px 10.0px;font:11.0px 'Lucida Grande'}p.p3{margin:.0px .0px .0px 10.0px;font:11.0px 'Lucida Grande';min-height:13.0px}li.li2{margin:.0px .0px .0px .0px;font:11.0px 'Lucida Grande'; color: #000000}span.s1{text-decoration:underline;color:#0431f3}span.s2{text-decoration:underline;color:#0432f5}ul.ul1{list-style-type:disc}</style>"];
+    [html appendString:@"</head><body>"];
+    [html appendString:@"<p class=\"p1\"><span class=\"s1\"><a href=\"http://pornel.net/imageoptim/en\">ImageOptim</a></span> "];
+    [html appendString:_(@"by")];
+    [html appendString:@" Kornel Lesiński "];
+    [html appendString:_(@"and contributors is a GUI for 3rd party utilities:")];
+    [html appendString:@"</p><ul class=\"ul1\">"];
+    [html appendString:@"<li class=\"li2\"><a href=\"http://optipng.sourceforge.net/\"><span class=\"s1\">OptiPNG</span></a> "]; 
+    [html appendString:_(@"by")];
+    [html appendString:@" Cosmin Truta,</li>"];
+    [html appendString:@"<li class=\"li2\"><a href=\"http://pmt.sourceforge.net/pngcrush/\"><span class=\"s1\">PNGCrush</span></a> "]; 
+    [html appendString:_(@"by")];
+    [html appendString:@" Glenn Randers-Pehrson,</li>"];
+    [html appendString:@" <li class=\"li2\"><a href=\"http://advancemame.sourceforge.net/doc-advpng.html\"><span class=\"s1\">AdvPNG</span></a> "];
+    [html appendString:_(@"by")];
+    [html appendString:@" Andrea Mazzoleni, Filipe Estima,</li>"];
+    [html appendString:@"<li class=\"li2\"><a href=\"http://www.kokkonen.net/tjko/projects.html\"><span class=\"s1\">Jpegoptim</span></a> "];
+    [html appendString:_(@"by")];
+    [html appendString:@" Timo Kokkonen,</li>"];
+    [html appendString:@"<li class=\"li2\"><a href=\"http://www.lcdf.org/gifsicle/\"><span class=\"s1\">Gifsicle</span></a> "];
+    [html appendString:_(@"by")];
+    [html appendString:@" Eddie Kohler,</li>"];
+    [html appendString:@"<li class=\"li2\">and <a href=\"http://www.advsys.net/ken/utils.htm\"><span class=\"s1\">PNGOUT</span></a> "];
+    [html appendString:_(@"by")];
+    [html appendString:@" Ken Silverman.</li>"];
+    [html appendString:@"</ul><p class=\"p3\"><br></p><p class=\"p1\">"];
+    [html appendString:_(@"ImageOptim can be redistributed and modified under")];
+    [html appendString:@" <a href=\"http://www.gnu.org/licenses/old-licenses/gpl-2.0.html\"><span class=\"s2\">"];
+    [html appendString:_(@"GNU General Public License version 2 or later")];
+    [html appendString:@"</span></a>. "];
+    [html appendString:_(@"Bundled PNGOUT is not covered by the GPL and is included with permission of Ardfry Imaging, LLC.")];
+    [html appendString:@"</p></body></html>"];
+    
+    [credits setEditable:YES];
+    
+    NSAttributedString *tmpStr = [[NSAttributedString alloc]
+                                  initWithHTML:[html dataUsingEncoding:NSUTF8StringEncoding]
+                                  documentAttributes:nil];
+    
+    [credits insertText:tmpStr];
+    [credits setEditable:NO];
+
+    // not sure if this is needed? release and sets to nil.
+    // I don't see any other memory man anywhere
+    IOWISafeRelease(html);
+    IOWISafeRelease(tmpStr);
+
 }
 
 -(void)preloadStatusImages {
