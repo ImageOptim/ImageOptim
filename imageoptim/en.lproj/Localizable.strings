@@ -1,26 +1,75 @@
-"All neccessary tools have been disabled in Preferences" = "All neccessary tools have been disabled in Preferences";
-"Can't map file into memory" = "Can't map file into memory";
-"File cannot be optimized any further" = "File cannot be optimized any further";
-"File is neither PNG, GIF nor JPEG" = "File is neither PNG, GIF nor JPEG";
-"Inspecting file" = "Inspecting file";
-"New file" = "New file";
-"Optimized file could not be saved" = "Optimized file could not be saved";
-"Optimized successfully with %@" = "Optimized successfully with %@";
-"Size of optimized file is 0" = "Size of optimized file is 0";
-"Started %@" = "Started %@";
-"Waiting in queue" = "Waiting in queue";
-"Waiting to be optimized" = "Waiting to be optimized";
-"Waiting to start more optimizations" = "Waiting to start more optimizations";
-"%@ failed to start" = "%@ failed to start";
+/* No comment provided by engineer. */
 "Add" = "Add";
-"Cut" = "Cut";
-"KB" = "KB";
-"MB" = "MB";
-"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Saved %@ out of %@. %@ overall (up to %@ per file)";
-"Saved %@ out of %@. %@ per file on average (up to %@)" = "Saved %@ out of %@. %@ per file on average (up to %@)";
-"by" = "by";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "All neccessary tools have been disabled in Preferences";
+
+/* No comment provided by engineer. */
 "and" = "and";
+
+/* No comment provided by engineer. */
 "and contributors is a GUI for 3rd party utilities:" = "and contributors is a GUI for 3rd party utilities:";
-"ImageOptim can be redistributed and modified under" = "ImageOptim can be redistributed and modified under";
-"GNU General Public License version 2 or later" = "GNU General Public License version 2 or later";
+
+/* No comment provided by engineer. */
 "Bundled PNGOUT is not covered by the GPL and is included with permission of Ardfry Imaging, LLC." = "Bundled PNGOUT is not covered by the GPL and is included with permission of Ardfry Imaging, LLC.";
+
+/* No comment provided by engineer. */
+"by" = "by";
+
+/* tooltip */
+"Can't map file into memory" = "Can't map file into memory";
+
+/* No comment provided by engineer. */
+"Cut" = "Cut";
+
+/* tooltip */
+"File cannot be optimized any further" = "File cannot be optimized any further";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "File is neither PNG, GIF nor JPEG";
+
+/* No comment provided by engineer. */
+"GNU General Public License version 2 or later" = "GNU General Public License version 2 or later";
+
+/* No comment provided by engineer. */
+"ImageOptim can be redistributed and modified under" = "ImageOptim can be redistributed and modified under";
+
+/* tooltip */
+"Inspecting file" = "Inspecting file";
+
+/* kilobytes suffix */
+"KB" = "KB";
+
+/* megabytes suffix */
+"MB" = "MB";
+
+/* newly added to the queue */
+"New file" = "New file";
+
+/* tooltip */
+"Optimized file could not be saved" = "Optimized file could not be saved";
+
+/* tooltip */
+"Optimized successfully with %@" = "Optimized successfully with %@";
+
+/* total ratio */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Saved %1$@ out of %2$@. %3$@ overall (up to %4$@ per file)";
+
+/* per file avg */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Saved %1$@ out of %2$@. %3$@ per file on average (up to %4$@)";
+
+/* tooltip */
+"Size of optimized file is 0" = "Size of optimized file is 0";
+
+/* command name */
+"Started %@" = "Started %@";
+
+/* tooltip */
+"Waiting in queue" = "Waiting in queue";
+
+/* tooltip */
+"Waiting to be optimized" = "Waiting to be optimized";
+
+/* tooltip */
+"Waiting to start more optimizations" = "Waiting to start more optimizations";
+

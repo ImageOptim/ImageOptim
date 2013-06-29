@@ -14,9 +14,6 @@
 #   define DLog2(...)
 #endif
 
-// wrapper for NSLocalizedString
-#define _(localizedString) NSLocalizedString(localizedString, nil)
-
 
 #if ! __has_feature(objc_arc)
 #define IOWIAutorelease(__v) ([__v autorelease]);
