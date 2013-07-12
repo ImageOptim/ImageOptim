@@ -221,7 +221,7 @@
 															<object class="NSButton" id="469954983">
 																<reference key="NSNextResponder" ref="293961962"/>
 																<int key="NSvFlags">264</int>
-																<string key="NSFrame">{{16, 61}, {405, 18}}</string>
+																<string key="NSFrame">{{16, 61}, {413, 18}}</string>
 																<reference key="NSSuperview" ref="293961962"/>
 																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="1045259908"/>
@@ -285,7 +285,7 @@
 															<object class="NSButton" id="354107699">
 																<reference key="NSNextResponder" ref="293961962"/>
 																<int key="NSvFlags">268</int>
-																<string key="NSFrame">{{16, 12}, {366, 18}}</string>
+																<string key="NSFrame">{{16, 12}, {413, 18}}</string>
 																<reference key="NSSuperview" ref="293961962"/>
 																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="34404067"/>
@@ -471,7 +471,7 @@
 																</object>
 																<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 															</object>
-															<object class="NSButton" id="643431811">
+															<object class="NSButton" id="999249840">
 																<reference key="NSNextResponder" ref="626644560"/>
 																<int key="NSvFlags">268</int>
 																<string key="NSFrame">{{16, 188}, {110, 18}}</string>
@@ -479,12 +479,12 @@
 																<reference key="NSWindow"/>
 																<reference key="NSNextKeyView" ref="704169110"/>
 																<bool key="NSEnabled">YES</bool>
-																<object class="NSButtonCell" key="NSCell" id="542999260">
+																<object class="NSButtonCell" key="NSCell" id="462320066">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
 																	<string key="NSContents">Zopfli</string>
 																	<reference key="NSSupport" ref="352456772"/>
-																	<reference key="NSControlView" ref="643431811"/>
+																	<reference key="NSControlView" ref="999249840"/>
 																	<int key="NSButtonFlags">1211912448</int>
 																	<int key="NSButtonFlags2">2</int>
 																	<reference key="NSNormalImage" ref="821789119"/>
@@ -575,7 +575,7 @@
 														<string key="NSFrame">{{1, 1}, {138, 214}}</string>
 														<reference key="NSSuperview" ref="939028595"/>
 														<reference key="NSWindow"/>
-														<reference key="NSNextKeyView" ref="643431811"/>
+														<reference key="NSNextKeyView" ref="999249840"/>
 														<string key="NSReuseIdentifierKey">_NS:11</string>
 													</object>
 												</array>
@@ -2262,10 +2262,10 @@
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: values.ZopfliEnabled</string>
-						<reference key="source" ref="643431811"/>
+						<reference key="source" ref="999249840"/>
 						<reference key="destination" ref="854114070"/>
 						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="643431811"/>
+							<reference key="NSSource" ref="999249840"/>
 							<reference key="NSDestination" ref="854114070"/>
 							<string key="NSLabel">value: values.ZopfliEnabled</string>
 							<string key="NSBinding">value</string>
@@ -2874,7 +2874,7 @@
 							<reference ref="925257977"/>
 							<reference ref="17671457"/>
 							<reference ref="704169110"/>
-							<reference ref="643431811"/>
+							<reference ref="999249840"/>
 							<reference ref="395555957"/>
 							<reference ref="867075905"/>
 							<reference ref="892321935"/>
@@ -3072,16 +3072,16 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">1117</int>
-						<reference key="object" ref="643431811"/>
+						<reference key="object" ref="999249840"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="542999260"/>
+							<reference ref="462320066"/>
 						</array>
 						<reference key="parent" ref="939028595"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">1118</int>
-						<reference key="object" ref="542999260"/>
-						<reference key="parent" ref="643431811"/>
+						<reference key="object" ref="462320066"/>
+						<reference key="parent" ref="999249840"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">890</int>

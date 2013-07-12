@@ -57,7 +57,7 @@
 "834.title" = "240 проб";
 
 /* Class = "NSButtonCell"; title = "Remove all optional chunks"; ObjectID = "854"; */
-"854.title" = "Удалять все дополнительные чанки";
+"854.title" = "PNG: Удалять все дополнительные чанки";
 
 /* Class = "NSTextFieldCell"; title = "Optimization type"; ObjectID = "856"; */
 "856.title" = "Тип оптимизации";
@@ -96,16 +96,15 @@
 "877.title" = "90%";
 
 /* Class = "NSButtonCell"; title = "Strip EXIF markers and comments from files"; ObjectID = "911"; */
-"911.title" = "Вырезать метки EXIF и комментарии из файлов";
+"911.title" = "JPEG: Вырезать метки EXIF и комментарии из файлов";
 
 /* Class = "NSButtonCell"; title = "Interrupt if takes too long to execute"; ObjectID = "946"; */
 "946.title" = "Прерывать, если оптимизация занимает много времени";
 
 /* Class = "NSBox"; title = "PNG"; ObjectID = "1043"; */
-"1043.title" = "PNG";
+"1043.title" = "Metadata";
 
 /* Class = "NSBox"; title = "JPEG"; ObjectID = "1044"; */
-"1044.title" = "JPEG";
 
 /* Class = "NSButtonCell"; title = "Jpegtran"; ObjectID = "1092"; */
 "1092.title" = "Jpegtran";
