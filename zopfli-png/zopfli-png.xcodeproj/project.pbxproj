@@ -1,0 +1,378 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A2ACD01179090BB004992B7 /* liblibpng.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A2ACCFC179090A4004992B7 /* liblibpng.dylib */; };
+		5A2ACD381790A38B004992B7 /* blocksplitter.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD281790A38B004992B7 /* blocksplitter.c */; };
+		5A2ACD391790A38B004992B7 /* cache.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD291790A38B004992B7 /* cache.c */; };
+		5A2ACD3A1790A38B004992B7 /* deflate.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD2A1790A38B004992B7 /* deflate.c */; };
+		5A2ACD3B1790A38B004992B7 /* gzip_container.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD2B1790A38B004992B7 /* gzip_container.c */; };
+		5A2ACD3C1790A38B004992B7 /* hash.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD2C1790A38B004992B7 /* hash.c */; };
+		5A2ACD3D1790A38B004992B7 /* katajainen.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD2D1790A38B004992B7 /* katajainen.c */; };
+		5A2ACD3E1790A38B004992B7 /* lz77.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD2E1790A38B004992B7 /* lz77.c */; };
+		5A2ACD3F1790A38B004992B7 /* squeeze.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD2F1790A38B004992B7 /* squeeze.c */; };
+		5A2ACD401790A38B004992B7 /* tree.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD301790A38B004992B7 /* tree.c */; };
+		5A2ACD411790A38B004992B7 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD311790A38B004992B7 /* util.c */; };
+		5A2ACD421790A38B004992B7 /* zlib_container.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD321790A38B004992B7 /* zlib_container.c */; };
+		5A2ACD431790A38B004992B7 /* zopfli_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD331790A38B004992B7 /* zopfli_lib.c */; };
+		5A2ACD441790A38B004992B7 /* lodepng.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD341790A38B004992B7 /* lodepng.cpp */; };
+		5A2ACD451790A38B004992B7 /* lodepng_util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD351790A38B004992B7 /* lodepng_util.cpp */; };
+		5A2ACD461790A38B004992B7 /* zopflipng_lib.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD361790A38B004992B7 /* zopflipng_lib.cc */; };
+		5A2ACD471790A38B004992B7 /* zopflipng_bin.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD371790A38B004992B7 /* zopflipng_bin.cc */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5A2ACCFB179090A4004992B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A1EBEE317908FE300361F08 /* libpng.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC0630554660B00DB518D;
+			remoteInfo = libpng;
+		};
+		5A2ACCFD179090A4004992B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A1EBEE317908FE300361F08 /* libpng.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5AC2B4D613394EDA00376783;
+			remoteInfo = static;
+		};
+		5A2ACCFF179090B7004992B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A1EBEE317908FE300361F08 /* libpng.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC0620554660B00DB518D;
+			remoteInfo = libpng;
+		};
+		5A2ACD821790B437004992B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A1EBE6217908D9D00361F08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A2ACD7B1790B421004992B7;
+			remoteInfo = download;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5A1EBE6817908D9D00361F08 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5A1EBE6A17908D9D00361F08 /* zopflipng */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = zopflipng; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A1EBEB317908E7400361F08 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = "<group>"; };
+		5A1EBEB417908E7400361F08 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../imageoptim/debug.xcconfig; sourceTree = "<group>"; };
+		5A1EBEE317908FE300361F08 /* libpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpng.xcodeproj; path = ../libpng/libpng.xcodeproj; sourceTree = "<group>"; };
+		5A2ACD281790A38B004992B7 /* blocksplitter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = blocksplitter.c; path = zopfli/src/zopfli/blocksplitter.c; sourceTree = "<group>"; };
+		5A2ACD291790A38B004992B7 /* cache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cache.c; path = zopfli/src/zopfli/cache.c; sourceTree = "<group>"; };
+		5A2ACD2A1790A38B004992B7 /* deflate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = deflate.c; path = zopfli/src/zopfli/deflate.c; sourceTree = "<group>"; };
+		5A2ACD2B1790A38B004992B7 /* gzip_container.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gzip_container.c; path = zopfli/src/zopfli/gzip_container.c; sourceTree = "<group>"; };
+		5A2ACD2C1790A38B004992B7 /* hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hash.c; path = zopfli/src/zopfli/hash.c; sourceTree = "<group>"; };
+		5A2ACD2D1790A38B004992B7 /* katajainen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = katajainen.c; path = zopfli/src/zopfli/katajainen.c; sourceTree = "<group>"; };
+		5A2ACD2E1790A38B004992B7 /* lz77.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lz77.c; path = zopfli/src/zopfli/lz77.c; sourceTree = "<group>"; };
+		5A2ACD2F1790A38B004992B7 /* squeeze.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = squeeze.c; path = zopfli/src/zopfli/squeeze.c; sourceTree = "<group>"; };
+		5A2ACD301790A38B004992B7 /* tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tree.c; path = zopfli/src/zopfli/tree.c; sourceTree = "<group>"; };
+		5A2ACD311790A38B004992B7 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = util.c; path = zopfli/src/zopfli/util.c; sourceTree = "<group>"; };
+		5A2ACD321790A38B004992B7 /* zlib_container.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zlib_container.c; path = zopfli/src/zopfli/zlib_container.c; sourceTree = "<group>"; };
+		5A2ACD331790A38B004992B7 /* zopfli_lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zopfli_lib.c; path = zopfli/src/zopfli/zopfli_lib.c; sourceTree = "<group>"; };
+		5A2ACD341790A38B004992B7 /* lodepng.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lodepng.cpp; path = zopfli/src/zopflipng/lodepng/lodepng.cpp; sourceTree = "<group>"; };
+		5A2ACD351790A38B004992B7 /* lodepng_util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lodepng_util.cpp; path = zopfli/src/zopflipng/lodepng/lodepng_util.cpp; sourceTree = "<group>"; };
+		5A2ACD361790A38B004992B7 /* zopflipng_lib.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = zopflipng_lib.cc; path = zopfli/src/zopflipng/zopflipng_lib.cc; sourceTree = "<group>"; };
+		5A2ACD371790A38B004992B7 /* zopflipng_bin.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = zopflipng_bin.cc; path = zopfli/src/zopflipng/zopflipng_bin.cc; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5A1EBE6717908D9D00361F08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A2ACD01179090BB004992B7 /* liblibpng.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5A1EBE6117908D9D00361F08 = {
+			isa = PBXGroup;
+			children = (
+				5A1EBE6B17908D9D00361F08 /* Products */,
+				5A1EBE9717908E1F00361F08 /* Source */,
+				5A1EBEB417908E7400361F08 /* debug.xcconfig */,
+				5A1EBEE317908FE300361F08 /* libpng.xcodeproj */,
+				5A1EBEB317908E7400361F08 /* release.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		5A1EBE6B17908D9D00361F08 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A1EBE6A17908D9D00361F08 /* zopflipng */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5A1EBE9717908E1F00361F08 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				5A2ACD281790A38B004992B7 /* blocksplitter.c */,
+				5A2ACD291790A38B004992B7 /* cache.c */,
+				5A2ACD2A1790A38B004992B7 /* deflate.c */,
+				5A2ACD2B1790A38B004992B7 /* gzip_container.c */,
+				5A2ACD2C1790A38B004992B7 /* hash.c */,
+				5A2ACD2D1790A38B004992B7 /* katajainen.c */,
+				5A2ACD341790A38B004992B7 /* lodepng.cpp */,
+				5A2ACD351790A38B004992B7 /* lodepng_util.cpp */,
+				5A2ACD2E1790A38B004992B7 /* lz77.c */,
+				5A2ACD2F1790A38B004992B7 /* squeeze.c */,
+				5A2ACD301790A38B004992B7 /* tree.c */,
+				5A2ACD311790A38B004992B7 /* util.c */,
+				5A2ACD321790A38B004992B7 /* zlib_container.c */,
+				5A2ACD331790A38B004992B7 /* zopfli_lib.c */,
+				5A2ACD371790A38B004992B7 /* zopflipng_bin.cc */,
+				5A2ACD361790A38B004992B7 /* zopflipng_lib.cc */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		5A2ACCF5179090A4004992B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A2ACCFC179090A4004992B7 /* liblibpng.dylib */,
+				5A2ACCFE179090A4004992B7 /* libstatic.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		5A2ACD7B1790B421004992B7 /* download */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 5A2ACD811790B421004992B7 /* Build configuration list for PBXLegacyTarget "download" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = download;
+			passBuildSettingsInEnvironment = 1;
+			productName = download;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		5A1EBE6917908D9D00361F08 /* zopflipng */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5A1EBE7317908D9D00361F08 /* Build configuration list for PBXNativeTarget "zopflipng" */;
+			buildPhases = (
+				5A1EBE6617908D9D00361F08 /* Sources */,
+				5A1EBE6717908D9D00361F08 /* Frameworks */,
+				5A1EBE6817908D9D00361F08 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A2ACD831790B437004992B7 /* PBXTargetDependency */,
+				5A2ACD00179090B7004992B7 /* PBXTargetDependency */,
+			);
+			name = zopflipng;
+			productName = zopflipng;
+			productReference = 5A1EBE6A17908D9D00361F08 /* zopflipng */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5A1EBE6217908D9D00361F08 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
+			buildConfigurationList = 5A1EBE6517908D9D00361F08 /* Build configuration list for PBXProject "zopfli-png" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5A1EBE6117908D9D00361F08;
+			productRefGroup = 5A1EBE6B17908D9D00361F08 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5A2ACCF5179090A4004992B7 /* Products */;
+					ProjectRef = 5A1EBEE317908FE300361F08 /* libpng.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				5A1EBE6917908D9D00361F08 /* zopflipng */,
+				5A2ACD7B1790B421004992B7 /* download */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5A2ACCFC179090A4004992B7 /* liblibpng.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = liblibpng.dylib;
+			remoteRef = 5A2ACCFB179090A4004992B7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5A2ACCFE179090A4004992B7 /* libstatic.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libstatic.a;
+			remoteRef = 5A2ACCFD179090A4004992B7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5A1EBE6617908D9D00361F08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A2ACD381790A38B004992B7 /* blocksplitter.c in Sources */,
+				5A2ACD391790A38B004992B7 /* cache.c in Sources */,
+				5A2ACD3A1790A38B004992B7 /* deflate.c in Sources */,
+				5A2ACD3B1790A38B004992B7 /* gzip_container.c in Sources */,
+				5A2ACD3C1790A38B004992B7 /* hash.c in Sources */,
+				5A2ACD3D1790A38B004992B7 /* katajainen.c in Sources */,
+				5A2ACD441790A38B004992B7 /* lodepng.cpp in Sources */,
+				5A2ACD451790A38B004992B7 /* lodepng_util.cpp in Sources */,
+				5A2ACD3E1790A38B004992B7 /* lz77.c in Sources */,
+				5A2ACD3F1790A38B004992B7 /* squeeze.c in Sources */,
+				5A2ACD401790A38B004992B7 /* tree.c in Sources */,
+				5A2ACD411790A38B004992B7 /* util.c in Sources */,
+				5A2ACD421790A38B004992B7 /* zlib_container.c in Sources */,
+				5A2ACD431790A38B004992B7 /* zopfli_lib.c in Sources */,
+				5A2ACD471790A38B004992B7 /* zopflipng_bin.cc in Sources */,
+				5A2ACD461790A38B004992B7 /* zopflipng_lib.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5A2ACD00179090B7004992B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libpng;
+			targetProxy = 5A2ACCFF179090B7004992B7 /* PBXContainerItemProxy */;
+		};
+		5A2ACD831790B437004992B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A2ACD7B1790B421004992B7 /* download */;
+			targetProxy = 5A2ACD821790B437004992B7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		5A1EBE7117908D9D00361F08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A1EBEB417908E7400361F08 /* debug.xcconfig */;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					NS_BLOCK_ASSERTIONS,
+				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libpng/";
+			};
+			name = Debug;
+		};
+		5A1EBE7217908D9D00361F08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A1EBEB317908E7400361F08 /* release.xcconfig */;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					NS_BLOCK_ASSERTIONS,
+				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libpng/";
+			};
+			name = Release;
+		};
+		5A1EBE7417908D9D00361F08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../imageoptim/DerivedData/ImageOptim/Build/Products/Release\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5A1EBE7517908D9D00361F08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEAD_CODE_STRIPPING = YES;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../imageoptim/DerivedData/ImageOptim/Build/Products/Release\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		5A2ACD7C1790B421004992B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		5A2ACD7D1790B421004992B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5A1EBE6517908D9D00361F08 /* Build configuration list for PBXProject "zopfli-png" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A1EBE7117908D9D00361F08 /* Debug */,
+				5A1EBE7217908D9D00361F08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A1EBE7317908D9D00361F08 /* Build configuration list for PBXNativeTarget "zopflipng" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A1EBE7417908D9D00361F08 /* Debug */,
+				5A1EBE7517908D9D00361F08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A2ACD811790B421004992B7 /* Build configuration list for PBXLegacyTarget "download" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A2ACD7C1790B421004992B7 /* Debug */,
+				5A2ACD7D1790B421004992B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5A1EBE6217908D9D00361F08 /* Project object */;
+}

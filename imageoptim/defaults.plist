@@ -30,6 +30,10 @@
 	<true/>
 	<key>PngOutInterruptIfTakesTooLong</key>
 	<true/>
+	<key>ZopfliEnabled</key>
+	<true/>
+	<key>ZopfliIterations</key>
+	<integer>15</integer>
 	<key>GifsicleEnabled</key>
 	<true/>
 	<key>PreservePermissions</key>

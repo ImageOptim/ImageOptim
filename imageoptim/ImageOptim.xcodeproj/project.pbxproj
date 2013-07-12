@@ -36,6 +36,8 @@
 		5A0D2E5D0C922D6D00FD7CDE /* ImageOptim.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E5C0C922D6D00FD7CDE /* ImageOptim.m */; };
 		5A16343E140BF97400758D99 /* ImageOptim.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */; };
 		5A1D3E8C14366933004EE809 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D3E8B14366933004EE809 /* style.css */; };
+		5A2ACD141790935C004992B7 /* ZopfliWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD131790935C004992B7 /* ZopfliWorker.m */; };
+		5A2ACD24179098EA004992B7 /* zopflipng in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A1EBED317908F8200361F08 /* zopflipng */; };
 		5A3470A9140BC7D10014F638 /* libimageoptimjpeg.dylib in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */; };
 		5A3470AA140BC7DD0014F638 /* liblibpng.dylib in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A20CC951123939C0000400D /* liblibpng.dylib */; };
 		5A3470AB140BC80F0014F638 /* advpng in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A984D4A11238E51007622D7 /* advpng */; };
@@ -100,6 +102,13 @@
 			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
 			remoteInfo = optipng;
 		};
+		5A1EBED217908F8200361F08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5A1EBE6A17908D9D00361F08;
+			remoteInfo = "zopfli-png";
+		};
 		5A20CC941123939C0000400D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A20CC8E1123939C0000400D /* libpng.xcodeproj */;
@@ -127,6 +136,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = D2AAC0620554660B00DB518D;
 			remoteInfo = jpeg;
+		};
+		5A2ACD22179098D9004992B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A1EBE6917908D9D00361F08;
+			remoteInfo = "zopfli-png";
 		};
 		5A453F9A16BE79B6002AFE23 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -287,6 +303,7 @@
 				5A3470AD140BC8250014F638 /* optipng in Copy Executables */,
 				5A3470AC140BC81A0014F638 /* pngcrush in Copy Executables */,
 				5AF71644174AF8910018D3FE /* pngout in Copy Executables */,
+				5A2ACD24179098EA004992B7 /* zopflipng in Copy Executables */,
 			);
 			name = "Copy Executables";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,10 +365,13 @@
 		5A0D2E5C0C922D6D00FD7CDE /* ImageOptim.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageOptim.m; sourceTree = "<group>"; };
 		5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pngcrush.xcodeproj; path = ../pngcrush/pngcrush.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A1D3E8B14366933004EE809 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "zopfli-png.xcodeproj"; path = "../zopfli-png/zopfli-png.xcodeproj"; sourceTree = "<group>"; };
 		5A20CC8E1123939C0000400D /* libpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpng.xcodeproj; path = ../libpng/libpng.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A20CC9D112393B80000400D /* jpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpeg.xcodeproj; path = ../libjpeg/jpeg.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A27B956139B03090095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
 		5A27B9C2139B079A0095FC2F /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
+		5A2ACD121790935C004992B7 /* ZopfliWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZopfliWorker.h; sourceTree = "<group>"; };
+		5A2ACD131790935C004992B7 /* ZopfliWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZopfliWorker.m; sourceTree = "<group>"; };
 		5A34A632140EEDB900DE44D2 /* DragDropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragDropImageView.h; sourceTree = "<group>"; };
 		5A34A633140EEDB900DE44D2 /* DragDropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropImageView.m; sourceTree = "<group>"; };
 		5A391880140A9B10001B4FD7 /* RevealButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RevealButtonCell.m; sourceTree = "<group>"; };
@@ -590,6 +610,7 @@
 				5A9D56BC0E7F242C000F129F /* optipng.xcodeproj */,
 				5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */,
 				5A27B956139B03090095FC2F /* release.xcconfig */,
+				5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -664,6 +685,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		5A1EBECF17908F8200361F08 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A1EBED317908F8200361F08 /* zopflipng */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		5A20CC8F1123939C0000400D /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -700,8 +729,8 @@
 		5A739C270EA4073700D751E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A739C2B0EA4073700D751E1 /* jpegtran */,
 				5A8594E71460BCF20044095A /* jpegrescan */,
+				5A739C2B0EA4073700D751E1 /* jpegtran */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -748,6 +777,8 @@
 				5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */,
 				5AACA13D0CAF241B004D45CA /* Worker.h */,
 				5AACA13E0CAF241B004D45CA /* Worker.m */,
+				5A2ACD121790935C004992B7 /* ZopfliWorker.h */,
+				5A2ACD131790935C004992B7 /* ZopfliWorker.m */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -785,6 +816,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5A2ACD23179098D9004992B7 /* PBXTargetDependency */,
 				5A453F9B16BE79B6002AFE23 /* PBXTargetDependency */,
 				5AA6D24F1503EA07006DDB3E /* PBXTargetDependency */,
 				5A8594D91460BC5B0044095A /* PBXTargetDependency */,
@@ -879,6 +911,10 @@
 					ProductGroup = 5AA6D23C1503E9F5006DDB3E /* Products */;
 					ProjectRef = 5AA6D23B1503E9F5006DDB3E /* Sparkle.xcodeproj */;
 				},
+				{
+					ProductGroup = 5A1EBECF17908F8200361F08 /* Products */;
+					ProjectRef = 5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -902,6 +938,13 @@
 			fileType = "compiled.mach-o.executable";
 			path = optipng;
 			remoteRef = 5A1943670FF980B3007C3324 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5A1EBED317908F8200361F08 /* zopflipng */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = zopflipng;
+			remoteRef = 5A1EBED217908F8200361F08 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5A20CC951123939C0000400D /* liblibpng.dylib */ = {
@@ -1089,6 +1132,7 @@
 				5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */,
 				1AD5B255174F8C5A00BC75FD /* Utilities.m in Sources */,
 				5AACA13F0CAF241B004D45CA /* Worker.m in Sources */,
+				5A2ACD141790935C004992B7 /* ZopfliWorker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1104,6 +1148,11 @@
 			isa = PBXTargetDependency;
 			name = jpeg;
 			targetProxy = 5A20CCA4112393CC0000400D /* PBXContainerItemProxy */;
+		};
+		5A2ACD23179098D9004992B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "zopfli-png";
+			targetProxy = 5A2ACD22179098D9004992B7 /* PBXContainerItemProxy */;
 		};
 		5A453F9B16BE79B6002AFE23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -10,6 +10,7 @@
 #import "Workers/PngoutWorker.h"
 #import "Workers/OptiPngWorker.h"
 #import "Workers/PngCrushWorker.h"
+#import "Workers/ZopfliWorker.h"
 #import "Workers/JpegoptimWorker.h"
 #import "Workers/JpegtranWorker.h"
 #import "Workers/GifsicleWorker.h"
@@ -438,13 +439,16 @@
         return;
     }
 
+    BOOL hasBeenRunBefore;
+
     @synchronized(self)
     {
         workersActive--;
 
         filePathOptimized = nil;
+        hasBeenRunBefore = (byteSize && byteSizeOptimized); // it's been set before, so it's now ran again
 
-        if (byteSize && byteSizeOptimized && byteSize >= byteSizeOptimized) { // it's been set before, so it's now ran again
+        if (hasBeenRunBefore && byteSize >= byteSizeOptimized) {
             if (byteSizeOptimized != length) { // file has changed
                 runAgainByteSize = 0;
                 byteSizeOptimized=0;
@@ -461,29 +465,35 @@
     
 	if (fileType == FILETYPE_PNG)
 	{
-        Worker *w = nil;
         BOOL chunksRemoved=NO;
 		if ([defs boolForKey:@"PngCrushEnabled"])
 		{
-			w = [[PngCrushWorker alloc] initWithFile:self];
+			Worker *w = [[PngCrushWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) {chunksRemoved=YES;[runFirst addObject:w];}
+			else [runLater addObject:w];
+		}
+        if ([defs boolForKey:@"ZopfliEnabled"])
+		{
+			ZopfliWorker *w = [[ZopfliWorker alloc] initWithFile:self];
+            w.alternativeStrategy = hasBeenRunBefore;
+			if (!chunksRemoved && [w makesNonOptimizingModifications]) {chunksRemoved=YES;[runFirst addObject:w];}
 			else [runLater addObject:w];
 		}
 		if ([defs boolForKey:@"OptiPngEnabled"])
 		{
-			w = [[OptiPngWorker alloc] initWithFile:self];
+			Worker *w = [[OptiPngWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
 		}
 		if ([defs boolForKey:@"PngOutEnabled"])
 		{
-			w = [[PngoutWorker alloc] initWithFile:self];
-			if (!chunksRemoved && [w makesNonOptimizingModifications]) [runFirst addObject:w];
+			Worker *w = [[PngoutWorker alloc] initWithFile:self];
+			if (!chunksRemoved && [w makesNonOptimizingModifications]) {chunksRemoved=YES;[runFirst addObject:w];}
 			else [runLater addObject:w];
 		}
 		if ([defs boolForKey:@"AdvPngEnabled"])
 		{
-			w = [[AdvCompWorker alloc] initWithFile:self];
+			Worker *w = [[AdvCompWorker alloc] initWithFile:self];
 			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
 			else [runLater addObject:w];
 		}
