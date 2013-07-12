@@ -514,10 +514,8 @@
             w.interlace = YES;
             [runLater addObject:w];
         }
-    }
-    else {
+    } else {
         [self setStatus:@"err" order:8 text:NSLocalizedString(@"File is neither PNG, GIF nor JPEG",@"tooltip")];
-		//NSBeep();
         [self cleanup];
         return;
     }
@@ -529,39 +527,33 @@
 //    [workers addObject:checkDupe];
 //    [fileIOQueue addOperation:checkDupe];
     
-	Worker *lastWorker = nil;
+	Worker *previousWorker = nil;
 	
 	workersTotal += [runFirst count] + [runLater count];
 
-	for(Worker *w in runFirst)
-	{
-        if (lastWorker) 
-        {
-            [w addDependency:lastWorker];            
-        }
-        else {
+	for(Worker *w in runFirst) {
+        if (previousWorker) {
+            [w addDependency:previousWorker];
+        } else {
             [w setQueuePriority:NSOperationQueuePriorityLow]; // finish first!
         }
 		[queue addOperation:w];
-		lastWorker = w;
+		previousWorker = w;
 	}
 	
-    lastWorker = [runFirst lastObject];
-	for(Worker *w in runLater)
-	{
-        if (lastWorker) [w addDependency:lastWorker];
+    previousWorker = [runFirst lastObject];
+	for(Worker *w in runLater) {
+        if (previousWorker) [w addDependency:previousWorker];
 		[queue addOperation:w];
 	}	
 	
     [workers addObjectsFromArray:runFirst];
     [workers addObjectsFromArray:runLater];
     
-	if (!workersTotal) 
-	{
+	if (!workersTotal) {
 		[self setStatus:@"err" order:8 text:NSLocalizedString(@"All neccessary tools have been disabled in Preferences",@"tooltip")];
         [self cleanup];
-	}
-    else {
+	} else {
         [self setStatus:@"wait" order:1 text:NSLocalizedString(@"Waiting to be optimized",@"tooltip")];
     }
 }
