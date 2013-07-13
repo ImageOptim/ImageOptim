@@ -546,8 +546,10 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
         if (previousWorker) {
             [w addDependency:previousWorker];
             previousWorker.nextOperation = w;
-        } else {
-            [w setQueuePriority:NSOperationQueuePriorityLow]; // finish first!
+        } else if ([self isSmall]) {
+            [w setQueuePriority: NSOperationQueuePriorityVeryLow];
+        } else if (![self isLarge]) {
+            [w setQueuePriority: NSOperationQueuePriorityLow];
         }
 		[queue addOperation:w];
 		previousWorker = w;
