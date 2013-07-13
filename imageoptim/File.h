@@ -33,6 +33,7 @@
     
     NSOperationQueue *fileIOQueue;
     
+    int fileType;
     BOOL done;
 }
 

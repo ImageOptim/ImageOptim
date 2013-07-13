@@ -19,6 +19,12 @@
 
 @implementation File
 
+enum {
+    FILETYPE_PNG=1,
+    FILETYPE_JPEG,
+    FILETYPE_GIF
+};
+
 @synthesize byteSize, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName;
 
 -(id)initWithFilePath:(NSString *)name;
@@ -36,11 +42,17 @@
 }
 
 -(BOOL)isLarge {
+    if (fileType == FILETYPE_PNG) {
+        return byteSize > 250*1024;
+    }
     return byteSize > 1*1024*1024;
 }
 
 -(BOOL)isSmall {
-    return byteSize < 2048;
+    if (fileType == FILETYPE_PNG) {
+        return byteSize < 2048;
+    }
+    return byteSize < 10*1024;
 }
 
 -(NSString *)fileName
@@ -373,9 +385,6 @@
 //    
 //}
 
-#define FILETYPE_PNG 1
-#define FILETYPE_JPEG 2
-#define FILETYPE_GIF 3
 
 -(int)fileType:(NSData *)data
 {
@@ -436,6 +445,8 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
         return;
     }
 
+    fileType = [self fileType:fileData];
+
     BOOL hasBeenRunBefore;
     BOOL isQueueBig = [queue operationCount] > 10 && [queue operationCount] > [queue maxConcurrentOperationCount]*2;
 
@@ -464,8 +475,6 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
 	NSMutableArray *runLater = [NSMutableArray new];
 
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-
-    int fileType = [self fileType:fileData];
     
     worker_list_t *worker_list;
     int worker_list_length=0;
