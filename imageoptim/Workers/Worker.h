@@ -17,9 +17,14 @@
 
 
 @interface Worker : NSOperation {
+    NSOperation *nextOperation;
     File *file;
 }
 
+// nextOperation will make given operation high priority after this one finishes,
+// which can be used to cause domino effect and process operations in order for each file
+// as long as there are more queued operations than processing threads.
+@property (atomic,retain) NSOperation *nextOperation;
 @property (atomic, retain) File *file;
 
 -(id)initWithFile:(File *)aFile;

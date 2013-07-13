@@ -422,14 +422,11 @@
     [fileIOQueue addOperation:actualEnqueue];        
 }
 
+typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list_t;
+
 -(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue 
 {  
     [self setStatus:@"progress" order:3 text:NSLocalizedString(@"Inspecting file",@"tooltip")];        
-
-	NSMutableArray *runFirst = [NSMutableArray new];
-	NSMutableArray *runLater = [NSMutableArray new];
-		
-	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 	
     NSData *fileData = [NSData dataWithContentsOfMappedFile:filePath];
     NSUInteger length = [fileData length];
@@ -440,6 +437,7 @@
     }
 
     BOOL hasBeenRunBefore;
+    BOOL isQueueBig = [queue operationCount] > 10 && [queue operationCount] > [queue maxConcurrentOperationCount]*2;
 
     @synchronized(self)
     {
@@ -461,56 +459,37 @@
         }
     }
 
+
+	NSMutableArray *runFirst = [NSMutableArray new];
+	NSMutableArray *runLater = [NSMutableArray new];
+
+	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+
     int fileType = [self fileType:fileData];
     
+    worker_list_t *worker_list;
+    int worker_list_length=0;
+
 	if (fileType == FILETYPE_PNG)
 	{
-        BOOL chunksRemoved=NO;
-		if ([defs boolForKey:@"PngCrushEnabled"])
-		{
-			Worker *w = [[PngCrushWorker alloc] initWithFile:self];
-			if ([w makesNonOptimizingModifications]) {chunksRemoved=YES;[runFirst addObject:w];}
-			else [runLater addObject:w];
-		}
-        if ([defs boolForKey:@"ZopfliEnabled"])
-		{
-			ZopfliWorker *w = [[ZopfliWorker alloc] initWithFile:self];
-            w.alternativeStrategy = hasBeenRunBefore;
-			if (!chunksRemoved && [w makesNonOptimizingModifications]) {chunksRemoved=YES;[runFirst addObject:w];}
-			else [runLater addObject:w];
-		}
-		if ([defs boolForKey:@"OptiPngEnabled"])
-		{
-			Worker *w = [[OptiPngWorker alloc] initWithFile:self];
-			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
-			else [runLater addObject:w];
-		}
-		if ([defs boolForKey:@"PngOutEnabled"])
-		{
-			Worker *w = [[PngoutWorker alloc] initWithFile:self];
-			if (!chunksRemoved && [w makesNonOptimizingModifications]) {chunksRemoved=YES;[runFirst addObject:w];}
-			else [runLater addObject:w];
-		}
-		if ([defs boolForKey:@"AdvPngEnabled"])
-		{
-			Worker *w = [[AdvCompWorker alloc] initWithFile:self];
-			if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
-			else [runLater addObject:w];
-		}
+        worker_list = (worker_list_t[]){
+            {@"PngCrushEnabled", [PngCrushWorker class]},
+            {@"ZopfliEnabled", [ZopfliWorker class], ^(Worker *w){
+                ((ZopfliWorker*)w).alternativeStrategy = hasBeenRunBefore;
+            }},
+            {@"OptiPngEnabled", [OptiPngWorker class]},
+            {@"PngOutEnabled", [PngoutWorker class]},
+            {@"AdvPngEnabled", [AdvCompWorker class]},
+        };
+        worker_list_length = 5;
 	}
 	else if (fileType == FILETYPE_JPEG)
     {
-        if ([defs boolForKey:@"JpegOptimEnabled"])
-        {
-            Worker *w = [[JpegoptimWorker alloc] initWithFile:self];
-            if ([w makesNonOptimizingModifications]) [runFirst addObject:w];
-			else [runLater addObject:w];
-        }
-        if ([defs boolForKey:@"JpegTranEnabled"])
-        {
-            Worker *w = [[JpegtranWorker alloc] initWithFile:self];
-            [runLater addObject:w];
-        }
+        worker_list = (worker_list_t[]){
+            {@"JpegOptimEnabled", [JpegoptimWorker class]},
+            {@"JpegTranEnabled", [JpegtranWorker class]},
+        };
+        worker_list_length = 2;
     }
 	else if (fileType == FILETYPE_GIF)
     {
@@ -530,6 +509,28 @@
         return;
     }
     
+    for(int i=0; i < worker_list_length; i++) {
+        if ([defs boolForKey:worker_list[i].key]) {
+            Worker *w = [worker_list[i].class alloc];
+            w = [w initWithFile:self];
+            if (worker_list[i].block) worker_list[i].block(w);
+
+            // generally optimizers that have side effects should always be run first, one at a time
+            // unfortunately that makes whole process single-core serial when there are very few files
+            // so for small queues rely on nextOperation to give some order when possible
+            if ([w makesNonOptimizingModifications]) {
+                if (isQueueBig || [self isSmall]) {
+                    [runFirst addObject:w];
+                } else {
+                    [w setQueuePriority:NSOperationQueuePriorityHigh];
+                    [runLater addObject:w];
+                }
+            } else {
+                [runLater addObject:w];
+            }
+        }
+    }
+
 //    NSOperation *checkDupe = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(checkDupe:) object:fileData];
 //    // largeish files are best to skip
 //    if (length > 10000) [checkDupe setQueuePriority:NSOperationQueuePriorityHigh];
@@ -537,13 +538,14 @@
 //    [workers addObject:checkDupe];
 //    [fileIOQueue addOperation:checkDupe];
     
-	Worker *previousWorker = nil;
 	
 	workersTotal += [runFirst count] + [runLater count];
 
+	Worker *previousWorker = nil;
 	for(Worker *w in runFirst) {
         if (previousWorker) {
             [w addDependency:previousWorker];
+            previousWorker.nextOperation = w;
         } else {
             [w setQueuePriority:NSOperationQueuePriorityLow]; // finish first!
         }
@@ -551,10 +553,16 @@
 		previousWorker = w;
 	}
 	
-    previousWorker = [runFirst lastObject];
+	Worker *runFirstDependency = previousWorker;
 	for(Worker *w in runLater) {
-        if (previousWorker) [w addDependency:previousWorker];
+        if (runFirstDependency) {
+            [w addDependency:runFirstDependency];
+        }
+        if (previousWorker) {
+            previousWorker.nextOperation = w;
+        }
 		[queue addOperation:w];
+        previousWorker = w;
 	}	
 	
     [workers addObjectsFromArray:runFirst];

@@ -58,8 +58,7 @@ NSDictionary *statusImages;
 {
 	NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 
-	int maxTasks = [self numberOfCPUs]+1;
-	if (maxTasks > 8) maxTasks++;
+	int maxTasks = [self numberOfCPUs];
     
     // get the singleton instantiated
     Utilities *tmp __attribute__((unused)) = [Utilities utilitiesSharedSingleton];

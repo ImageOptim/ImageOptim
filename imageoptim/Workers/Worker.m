@@ -8,7 +8,7 @@
 
 @implementation Worker
 
-@synthesize file;
+@synthesize file, nextOperation;
 
 -(id)initWithFile:(File *)aFile
 {
@@ -36,6 +36,7 @@
     @finally {        
 		assert([self delegate]);
         [file workerHasFinished:self];
+        [nextOperation setQueuePriority:NSOperationQueuePriorityVeryHigh];
     }
 }
 
