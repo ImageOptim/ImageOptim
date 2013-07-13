@@ -41,12 +41,7 @@
 	
 
 	if (strip) {
-        // Photographers prefer EXIF/ICC kept.
-        if ([file isCameraPhoto]) {
-            [args insertObject:@"--strip-com" atIndex:0];
-        } else {
-            [args insertObject:@"--strip-all" atIndex:0];
-        }
+        [args insertObject:@"--strip-all" atIndex:0];
 	}
 	
 	if (maxquality > 10 && maxquality < 100)

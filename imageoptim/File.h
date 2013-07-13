@@ -54,7 +54,6 @@
 
 -(BOOL)isLarge;
 -(BOOL)isSmall;
--(BOOL)isCameraPhoto;
 
 -(void)setFilePath:(NSString *)s;
 

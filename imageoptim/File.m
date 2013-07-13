@@ -37,10 +37,6 @@ enum {
 	return self;	
 }
 
--(BOOL)isCameraPhoto {
-    return byteSize > 1.3*1024*1024L; // Just a guess unfortunately. It's approx size of an iPhone 4 photo.
-}
-
 -(BOOL)isLarge {
     if (fileType == FILETYPE_PNG) {
         return byteSize > 250*1024;

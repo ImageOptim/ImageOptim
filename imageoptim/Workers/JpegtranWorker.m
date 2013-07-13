@@ -13,8 +13,7 @@
     if (self = [super initWithFile:aFile])
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        // Photographers prefer EXIF/ICC kept.
-        strip = [defaults boolForKey:@"JpegTranStripAll"] && ![file isCameraPhoto];
+        strip = [defaults boolForKey:@"JpegTranStripAll"];
 
         jpegrescan = [defaults boolForKey:@"JpegRescanEnabled"];
     }
