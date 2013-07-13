@@ -9,10 +9,9 @@
 #import "../File.h"
 
 @interface CommandWorker : Worker {
-	File *file;
     NSTask *task;
 }
--(id)initWithFile:(File *)aFile;
+
 
 -(BOOL)parseLine:(NSString *)line;
 -(void)parseLinesFromHandle:(NSFileHandle *)commandHandle;
@@ -30,5 +29,4 @@
 
 -(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args;
 
-@property (retain) File *file;
 @end

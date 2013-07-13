@@ -5,7 +5,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Worker.h"
+
 @class FilesQueue;
 
 @interface DirWorker : NSOperation {

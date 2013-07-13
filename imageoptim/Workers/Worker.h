@@ -17,14 +17,16 @@
 
 
 @interface Worker : NSOperation {
-
+    File *file;
 }
+
+@property (atomic, retain) File *file;
+
+-(id)initWithFile:(File *)aFile;
 
 -(BOOL)isRelatedTo:(File *)f;
 
 -(BOOL)makesNonOptimizingModifications;
-
--(NSObject <WorkerQueueDelegate> *)delegate;
 
 -(void)run;
 @end

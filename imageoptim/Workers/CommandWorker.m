@@ -10,20 +10,6 @@
 
 @implementation CommandWorker
 
--(id)initWithFile:(File *)aFile
-{
-	if (self = [self init])
-	{
-		self.file = aFile;
-	}
-	return self;
-}
-
--(BOOL)isRelatedTo:(File *)f
-{
-	return (f == file);
-}
-
 -(BOOL)parseLine:(NSString *)line
 {
 	/* stub */
@@ -158,9 +144,4 @@
 	return [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.temp",[self className],(unsigned int)([file hash]^[self hash]),uid++]];
 }
 
--(NSObject<WorkerQueueDelegate>*)delegate
-{
-	return file;
-}
-@synthesize file;
 @end

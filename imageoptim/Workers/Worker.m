@@ -8,19 +8,25 @@
 
 @implementation Worker
 
--(NSObject <WorkerQueueDelegate>*)delegate
+@synthesize file;
+
+-(id)initWithFile:(File *)aFile
 {
-	return nil;
+	if (self = [self init])
+	{
+		self.file = aFile;
+	}
+	return self;
 }
 
--(BOOL)isRelatedTo:(File *)unused
+-(BOOL)isRelatedTo:(File *)f
 {
-	return NO;
+	return (f == file);
 }
 
 -(void)main {
-	assert([self delegate]);
-    [[self delegate] workerHasStarted:self];
+
+    [file workerHasStarted:self];
     @try {
         [self run]; 
     }
@@ -29,7 +35,7 @@
     }
     @finally {        
 		assert([self delegate]);
-        [[self delegate] workerHasFinished:self];        
+        [file workerHasFinished:self];
     }
 }
 
@@ -46,7 +52,7 @@
 -(NSString *)description
 {
 	return [NSString stringWithFormat:@"%@ %X ready %d, running %d, deleg %@",
-            [self className],(unsigned int)[self hash],[self isReady],[self isExecuting],[self delegate]];
+            [self className],(unsigned int)[self hash],[self isReady],[self isExecuting],file];
 }
 
 @end
