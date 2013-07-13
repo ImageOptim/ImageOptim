@@ -280,7 +280,6 @@ enum {
 				[writehandle writeData:data];
 				[writehandle truncateFileAtOffset:[data length]];
                 [writehandle closeFile];
-                [self removeOldFilePathOptimized];
 			}
 		}
 		else
@@ -319,14 +318,12 @@ enum {
 }
 
 -(void)saveResultAndUpdateStatus {
-    if ([self saveResult])
-    { 
+    BOOL saved = [self saveResult];
+    [self removeOldFilePathOptimized];
+    if (saved) {
         done = YES;
         [self setStatus:@"ok" order:7 text:[NSString stringWithFormat:NSLocalizedString(@"Optimized successfully with %@",@"tooltip"),bestToolName]];
-    }
-    else 
-    {
-        NSLog(@"saveResult failed");
+    } else {
         [self setStatus:@"err" order:9 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];				
     }
 }
@@ -356,8 +353,9 @@ enum {
                 else
                 {
                     done = YES;
-                    [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];	
-//                    if (dupe) [Dupe addDupe:dupe];
+                    [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
+                    NSOperation *cleanup = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(removeOldFilePathOptimized) object:nil];
+                    [fileIOQueue addOperation:cleanup];
                 }
             }
             else
