@@ -28,11 +28,15 @@
     }
 
     int actualIterations = iterations;
+    int timelimit = 40;
+
     if ([file isLarge]) {
+        timelimit = 60;
         actualIterations /= 2; // use faster setting for large files
     }
 
     if ([file isSmall]) {
+        timelimit = 20;
         actualIterations *= 2;
         [args insertObject:@"--splitting=3" atIndex:0]; // try both splitting strategies
     } else if (alternativeStrategy) {
@@ -42,6 +46,8 @@
 	if (actualIterations) {
 		[args insertObject:[NSString stringWithFormat:@"--iterations=%d", actualIterations] atIndex:0];
 	}
+
+    [args insertObject:[NSString stringWithFormat:@"--timelimit=%d", timelimit] atIndex:0];
 
     if (![self taskForKey:@"Zopfli" bundleName:@"zopflipng" arguments:args]) {
         return;
