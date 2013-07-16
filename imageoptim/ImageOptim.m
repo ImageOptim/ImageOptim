@@ -109,10 +109,10 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
             NSNumber *bytes = [filesController valueForKeyPath:@"arrangedObjects.@sum.byteSize"],
                  *optimized = [filesController valueForKeyPath:@"arrangedObjects.@sum.byteSizeOptimized"];
 
-            if ([bytes longLongValue] != [optimized longLongValue]) {
+            double savedTotal = 100.0*(1.0-[optimized doubleValue]/[bytes doubleValue]);
+            if (savedTotal > 0.1) {
                 long long bytesL = [bytes longLongValue], bytesSaved = bytesL - [optimized longLongValue];
                 double savedAvg = [[filesController valueForKeyPath:@"arrangedObjects.@avg.percentOptimized"] doubleValue];
-                double savedTotal = 100.0*(1.0-[optimized doubleValue]/[bytes doubleValue]);
 
                 NSString *fmtStr; NSNumber *avgNum;
                 if (savedTotal*0.9 > savedAvg) {
