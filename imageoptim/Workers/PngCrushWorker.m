@@ -19,7 +19,7 @@
 {
 	NSString *temp = [self tempPath];
 
-	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-reduce",@"-cc",@"--",[file filePath],temp,nil];
+	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-nofilecheck",@"-bail",@"-blacken",@"-reduce",@"-cc",@"--",[file filePath],temp,nil];
 	
     // Reusing PngOut config here
     if (strip) {
