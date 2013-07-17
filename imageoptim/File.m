@@ -216,6 +216,29 @@ enum {
     return retVal;
 }
 
+-(BOOL)trashFileAtPath:(NSString*)path error:(NSError**)err
+{
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSURL *url = [NSURL fileURLWithPath:path];
+
+    if ([fm respondsToSelector:@selector(trashItemAtURL:resultingItemURL:error:)]) { // 10.8
+        return [fm trashItemAtURL:url resultingItemURL:nil error:err];
+    } else {
+        OSStatus status = 0;
+
+        FSRef ref;
+        status = FSPathMakeRefWithOptions((const UInt8 *)[path fileSystemRepresentation],
+                                          kFSPathMakeRefDoNotFollowLeafSymlink,
+                                          &ref, NULL);
+        if (status != 0) {
+            return NO;
+        }
+
+        status = FSMoveObjectToTrashSync(&ref, NULL, kFSFileOperationDefaultOptions);
+        return status == 0;
+    }
+}
+
 -(BOOL)saveResult
 {
 	if (!filePathOptimized)
@@ -228,79 +251,76 @@ enum {
 	{
 		NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 		BOOL preserve = [defs boolForKey:@"PreservePermissions"];
-		BOOL backup = [defs boolForKey:@"BackupFiles"];
 		NSFileManager *fm = [NSFileManager defaultManager];
 		
-		if (backup)
-		{
-            NSError *error = nil;
-			NSString *backupPath = [filePath stringByAppendingString:@"~"];
-			
-			[fm removeItemAtPath:backupPath error:nil];// ignore error
-			
-			BOOL res;
-			if (preserve)
-			{
-				res = [fm copyItemAtPath:filePath toPath:backupPath error:&error];
-			}
-            else
-			{
-				res = [fm moveItemAtPath:filePath toPath:backupPath error:&error];
-			}
-			
-			if (!res)
-			{
-				NSLog(@"failed to save backup as %@ (preserve = %d) %@",backupPath,preserve,error);
-				return NO;
-			}
-		}
-		
-		if (preserve)
-		{		
-			NSFileHandle *writehandle = [NSFileHandle fileHandleForWritingAtPath:filePath];
-			NSData *data = [NSData dataWithContentsOfFile:filePathOptimized];
-			
+        NSError *error = nil;
+        NSString *moveFromPath = filePathOptimized;
+
+        if (preserve)
+        {
+            NSString *writeToPath = [[[filePath stringByDeletingPathExtension] stringByAppendingString:@"~imageoptim"]
+                                    stringByAppendingPathExtension:[filePath pathExtension]];
+
+            if ([fm fileExistsAtPath:writeToPath]) {
+                [self trashFileAtPath:writeToPath error:nil]; // ignore error, as copy will fail if file still exists
+            }
+
+            // move destination to temporary location that will be overwritten
+            if (![fm moveItemAtPath:filePath toPath:writeToPath error:&error]) {
+                NSLog(@"Can't move to %@ %@", writeToPath, error);
+            }
+
+            // copy original data for trashing under original file name
+            if (![fm copyItemAtPath:writeToPath toPath:filePath error:&error]) {
+                NSLog(@"Can't write to %@ %@", filePath, error);
+                return NO;
+            }
+
+            NSData *data = [NSData dataWithContentsOfFile:filePathOptimized];
+            if (!data) {
+                NSLog(@"Unable to read %@", filePathOptimized);
+                return NO;
+            }
+
+            if ([data length] != byteSizeOptimized) {
+                NSLog(@"Temp file size %u does not match expected %u in %@ for %@",(unsigned int)[data length],(unsigned int)byteSizeOptimized,filePathOptimized,filePath);
+                return NO;
+            }
+
+            if ([data length] < 30) {
+                NSLog(@"File %@ is suspiciously small, could be truncated", filePathOptimized);
+                return NO;
+            }
+
+            // overwrite old file that is under temporary name (so only content is replaced, not file metadata)
+			NSFileHandle *writehandle = [NSFileHandle fileHandleForWritingAtPath:writeToPath];
             if (!writehandle) {
                 NSLog(@"Unable to open %@ for writing. Check file permissions.", filePath);
                 return NO;
             }
-            else if (!data) {
-                NSLog(@"Unable to read %@", filePathOptimized);
-                return NO;
-            }
-            else if ([data length] != byteSizeOptimized) {
-                NSLog(@"Temp file size %u does not match expected %u in %@ for %@",(unsigned int)[data length],(unsigned int)byteSizeOptimized,filePathOptimized,filePath);
-                return NO;
-            }
-            else if ([data length] <= 34) {
-                NSLog(@"File %@ is suspiciously small, could be truncated", filePathOptimized);
-                return NO;
-            }
-			else {
-				[writehandle writeData:data];
-				[writehandle truncateFileAtOffset:[data length]];
-                [writehandle closeFile];
-			}
-		}
-		else
-		{
-            NSError *error = nil;
-			if (!backup) {[fm removeItemAtPath:filePath error:nil];} //ignore error
-			
-			if ([fm moveItemAtPath:filePathOptimized toPath:filePath error:&error]) 
-			{
-                filePathOptimized = nil;
-            }            
-            else
-            {
-                NSLog(@"Failed to move from %@ to %@; %@",filePathOptimized, filePath, error);
-				return NO;				
-			}
-		}
+
+            [writehandle writeData:data]; // this throws on failure
+            [writehandle truncateFileAtOffset:[data length]];
+            [writehandle closeFile];
+
+            moveFromPath = writeToPath;
+        }
+
+        if (![self trashFileAtPath:filePath error:&error]) {
+            NSLog(@"Can't trash %@ %@", filePath, error);
+            return NO;
+        }
+
+        if (![fm moveItemAtPath:moveFromPath toPath:filePath error:&error]) {
+            NSLog(@"Failed to move from %@ to %@; %@",moveFromPath, filePath, error);
+            return NO;
+        }
+
+        filePathOptimized = nil;
 	}
 	@catch(NSException *e)
 	{
-		NSLog(@"Exception thrown %@",e);
+		NSLog(@"Exception thrown %@ while saving %@",e, filePath);
 		return NO;
 	}
 	
