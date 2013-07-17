@@ -88,6 +88,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		1A796CFE177E00BD004AC183 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AA6D23B1503E9F5006DDB3E /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D06E8D00FD68C7C005AE3F6;
+			remoteInfo = BinaryDelta;
+		};
 		5A1943440FF97F86007C3324 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */;
@@ -324,6 +331,7 @@
 /* Begin PBXFileReference section */
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1A796D00177E031C004AC183 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A9AF7C317565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lt; path = lt.lproj/Help; sourceTree = "<group>"; };
 		1A9AF7C417565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = lt; path = lt.lproj/Credits.rtf; sourceTree = "<group>"; };
 		1A9AF7C517565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -746,10 +754,11 @@
 		5AA6D23C1503E9F5006DDB3E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5AA6D24D1503E9F6006DDB3E /* finish_installation.app */,
+				5AA6D2471503E9F6006DDB3E /* Sparkle.framework */,
 				5AA6D2491503E9F6006DDB3E /* Sparkle Test App.app */,
 				5AA6D24B1503E9F6006DDB3E /* Sparkle Unit Tests.octest */,
-				5AA6D2471503E9F6006DDB3E /* Sparkle.framework */,
+				1A796CFF177E00BD004AC183 /* BinaryDelta */,
+				5AA6D24D1503E9F6006DDB3E /* finish_installation.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -871,6 +880,7 @@
 				"zh-Hant",
 				lt,
 				ko,
+				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ImageOptim */;
 			projectDirPath = "";
@@ -926,6 +936,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		1A796CFF177E00BD004AC183 /* BinaryDelta */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = BinaryDelta;
+			remoteRef = 1A796CFE177E00BD004AC183 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5A1943450FF97F86007C3324 /* pngcrush */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
@@ -1301,6 +1318,7 @@
 				5A03443A12998845002091AA /* ru */,
 				5AC9882C155F1AE100E221A0 /* sv */,
 				1B5210E516BFA7CA0044C869 /* zh-Hant */,
+				1A796D00177E031C004AC183 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

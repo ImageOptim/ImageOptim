@@ -37,6 +37,8 @@ extern NSDictionary *statusImages;
 -(IBAction)viewSource:(id)sender;
 -(IBAction)browseForFiles:(id)sender;
 
+-(void)generateCreditsHTML;
+
 + (void)initialize;
 
 +(int)numberOfCPUs;

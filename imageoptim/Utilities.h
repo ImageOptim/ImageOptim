@@ -15,6 +15,30 @@
 #endif
 
 
+#if ! __has_feature(objc_arc)
+#define IOWIAutorelease(__v) ([__v autorelease]);
+#define IOWIReturnAutoreleased IOWIAutorelease
+
+#define IOWIRetain(__v) ([__v retain]);
+#define IOWIReturnRetained IOWIRetain
+
+#define IOWIRelease(__v) ([__v release]);
+#define IOWISafeRelease(__v) ([__v release], __v = nil);
+
+#else
+// -fobjc-arc
+#define IOWIAutorelease(__v)
+#define IOWIReturnAutoreleased(__v) (__v)
+
+#define IOWIRetain(__v)
+#define IOWIReturnRetained(__v) (__v)
+
+#define IOWIRelease(__v)
+#define IOWISafeRelease(__v) (__v = nil);
+
+#endif
+
+
 @interface Utilities : NSScriptCommand{
    NSNumber *queueCount;
 }

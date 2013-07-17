@@ -56,6 +56,7 @@
 -(BOOL)isSmall;
 
 -(void)setFilePath:(NSString *)s;
+-(NSString *)filePath;
 
 -(NSString *)fileName;
 
