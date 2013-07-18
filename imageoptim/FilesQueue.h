@@ -49,7 +49,7 @@
 -(void)quickLook;
 -(BOOL)copyObjects;
 -(void)cutObjects;
--(void)pasteObjects;
+-(void)pasteObjectsFrom:(NSPasteboard *)pb;
 -(void)cleanup;
 -(void)setRow:(NSInteger)row;
 -(void)openRowInFinder:(NSInteger)row withPreview:(BOOL)preview;

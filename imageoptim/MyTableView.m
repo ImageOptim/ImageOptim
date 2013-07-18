@@ -22,7 +22,7 @@
 
 - (IBAction)paste:(id)sender
 {
-	[(FilesQueue*)[self delegate] pasteObjects];
+	[(FilesQueue*)[self delegate] pasteObjectsFrom:[NSPasteboard generalPasteboard]];
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem*)menuItem
@@ -30,7 +30,7 @@
 	SEL action = [menuItem action];
 
 	if (action == @selector(delete:) || action == @selector(copy:) || action ==  @selector(cut:)) {
-		return [self selectedRow]>=0;
+		return [self numberOfSelectedRows] > 0;
 	} else if (action == @selector(paste:)) {
 		NSPasteboard *pboard = [NSPasteboard generalPasteboard];
 		NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];

@@ -158,14 +158,9 @@
 	return dragOp;
 }
 
--(void)pasteObjects{
-
-	NSPasteboard *pboard = [NSPasteboard generalPasteboard];
+-(void)pasteObjectsFrom:(NSPasteboard *)pboard {
 	NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
-	[filesControllerLock lock];
 	[self performSelectorInBackground:@selector(addPaths:) withObject:paths];
-
-	[filesControllerLock unlock];
 }
 
 - (BOOL)tableView:(NSTableView *)tv

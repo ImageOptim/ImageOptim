@@ -129,6 +129,33 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSServices</key>
+	<array>
+		<dict>
+			<key>NSServiceDescription</key>
+			<string>Losslessly reduce image file sizes with ImageOptim</string>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>ImageOptimize</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>handleServices</string>
+			<key>NSRequiredContext</key>
+			<dict>
+				<key>NSApplicationIdentifier</key>
+				<string>com.apple.finder</string>
+				<key>NSTextContent</key>
+				<string>FilePath</string>
+			</dict>
+			<key>NSSendFileTypes</key>
+			<array>
+				<string>public.png</string>
+				<string>public.jpeg</string>
+				<string>com.compuserve.gif</string>
+			</array>
+		</dict>
+	</array>
 	<key>OSAScriptingDefinition</key>
 	<string>ImageOptimVerbs.sdef</string>
 	<key>SUAllowsAutomaticUpdates</key>

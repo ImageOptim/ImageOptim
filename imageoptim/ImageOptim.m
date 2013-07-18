@@ -70,6 +70,16 @@ NSDictionary *statusImages;
     [self migrateOldPreferences];
 
 	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
+
+    [NSApp setServicesProvider:self];
+    NSUpdateDynamicServices();
+}
+
+- (void)handleServices:(NSPasteboard *)pboard
+              userData:(NSString *)userData
+                 error:(NSString **)error {
+    NSLog(@"Service called");
+    [self.filesQueue pasteObjectsFrom:pboard];
 }
 
 NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
