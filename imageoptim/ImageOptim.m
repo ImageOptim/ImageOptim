@@ -24,7 +24,7 @@ NSDictionary *statusImages;
 	}
 }
 
-+ (void)migrateOldPreferences
+-(void)migrateOldPreferences
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 
@@ -54,21 +54,22 @@ NSDictionary *statusImages;
     }
 }
 
-+(void)initialize
-{
-	NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
+- (void)applicationDidFinishLaunching:(NSNotification *)unused {
+
+    NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 
 	int maxTasks = [self numberOfCPUs];
+    // this is for AppleScript
+    [Utilities utilitiesSharedSingleton];
     
-    // get the singleton instantiated
-    Utilities *tmp __attribute__((unused)) = [Utilities utilitiesSharedSingleton];
-
 	[defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
 	[defs setObject:[NSNumber numberWithInt:(int)ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
 
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
 
     [self migrateOldPreferences];
+
+	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
 }
 
 NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
@@ -147,9 +148,7 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     [filesController addObserver:self forKeyPath:@"arrangedObjects.@sum.byteSizeOptimized" options:NSKeyValueObservingOptionNew context:nil];
 }
 
--(void)awakeFromNib
-{
-	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
+-(void)awakeFromNib {
 
 	RevealButtonCell* cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
 	[cell setInfoButtonAction:@selector(openInFinder)];
@@ -178,7 +177,7 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     dispatch_source_merge_data(statusBarUpdateQueue, 1);
 }
 
-+(int)numberOfCPUs
+-(int)numberOfCPUs
 {
 	host_basic_info_data_t hostInfo;
 	mach_msg_type_number_t infoCount;
