@@ -37,9 +37,7 @@ extern NSDictionary *statusImages;
 -(IBAction)viewSource:(id)sender;
 -(IBAction)browseForFiles:(id)sender;
 
-+ (void)initialize;
-
-+(int)numberOfCPUs;
+-(int)numberOfCPUs;
 
 @property (copy,nonatomic) NSIndexSet* selectedIndexes;
 
