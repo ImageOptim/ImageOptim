@@ -126,9 +126,9 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
                 double savedAvg = [[filesController valueForKeyPath:@"arrangedObjects.@avg.percentOptimized"] doubleValue];
 
                 NSString *fmtStr; NSNumber *avgNum;
-                if (savedTotal*0.9 > savedAvg) {
+                if (savedTotal*0.8 > savedAvg) {
                     overallAvg = YES;
-                } else if (savedAvg*0.9 > savedTotal){
+                } else if (savedAvg*0.8 > savedTotal){
                     overallAvg = NO;
                 }
 
