@@ -623,12 +623,17 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
 
 -(void)setStatus:(NSString *)imageName order:(NSInteger)order text:(NSString *)text
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
+    void (^cb)() = ^{
         if (statusText == text) return;
         statusOrder = order;
         self.statusText = text;
         self.statusImage = [statusImages objectForKey:imageName];
-    });
+    };
+    if (statusText != nil) {
+        dispatch_async(dispatch_get_main_queue(), cb);
+    } else {
+        cb();
+    }
 }
 
 -(NSString *)description
