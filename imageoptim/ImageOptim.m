@@ -53,8 +53,8 @@ NSDictionary *statusImages;
         [userDefaults setBool:YES forKey:@"PrefsMigrated"];
     }
 }
+- (void)applicationWillFinishLaunching:(NSNotification *)unused {
 
-- (void)applicationDidFinishLaunching:(NSNotification *)unused {
 
     NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 
