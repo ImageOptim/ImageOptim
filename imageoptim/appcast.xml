@@ -7,24 +7,31 @@
 <language>en</language>
 
 <item>
-<title>Version 1.4.1</title>
+<title>Version 1.4.2</title>
 <description><![CDATA[
 <ul>
-<li>Added configurable columns (right-click table headers)</li>
-<li>Slowest settings are not used for very large files to avoid optimisation taking “forever”</li>
-<li>Less aggressive optimization of GIF files to avoid bugs in Safari</li>
-<li>British locali<em>s</em>ation</li>
-<li><abbr>EXIF</abbr> and color profiles are not stripped from large <abbr>JPEG</abbr> files (i.e. usually photos form digital cameras)</li>
-</ul>
-<p>Previously:</p>
-<ul>
-<li>Included PNGOUT by default (with permission of Ardfry Imaging, LLC). Now ImageOptim includes all best optimization tools out of the box.</li>
-<li><a href="http://imageoptim.com/">Website moved to http://imageoptim.com</a>
-</ul>
+        <li><a href="http://googledevelopers.blogspot.co.uk/2013/02/compress-data-more-densely-with-zopfli.html">Zopfli</a> compressor</li>
+        <li>Icons for &ldquo;Retina&rdquo; display</li>
+        <li><samp>ImageOptimize</samp> service in Finder's context menu. You can disable it or add a keyboard shortcut in <samp>Finder → Services → Services Preferences…</samp></li>
+        <li>Removal of Resource Forks and hidden attributes that inflated file size in Finder</li>
+        <li>Original images are &ldquo;backed up&rdquo; to Trash</li>
+        <li>ImageOptim no longer tries to be clever with preservation <abbr>EXIF</abbr> markers and always strips them when told to</li>
+        <li>Translations
+            <ul>
+            <li>Translations are now done via <a href="https://www.transifex.com/projects/p/imageoptim/" rel="nofollow">Transifex website</a>. You can sign up and help!</li>
+            <li>Korean translation (thanks to Byung Hoon Cho)</li>
+            <li>Chinese translation (thanks to Jason C. Huang)</li>
+            <li>Lithuanian translation and updated Russian translation (thanks to Aleksandr Jadov)</li>
+        </ul></li>
+        <li>Updated Pngcrush to 1.7.66</li>
+        <li>AppleScript command for checking how many optimizations are running (for integration with <a href="http://jamiemason.github.io/ImageOptim-CLI/">ImageOptim-<abbr>CLI</abbr></a>)</li>
+        <li>Overall optimization gain shown when optimizing same file multiple times</li>
+        <li>Tools are run in order that maximizes utilization of multicore <abbr>CPU</abbr>s</li>
+        </ul>
 ]]></description>
-<pubDate>Fri, 01 Feb 2013 22:09:54 +0000</pubDate>
-<enclosure url="http://imageoptim.com/ImageOptim1.4.1.tar.bz2" sparkle:version="1.4.1" length="1504721" type="application/bzip2" sparkle:dsaSignature="MCwCFHmRQeKo1VzPSQYHCOtJ8r9OEeKlAhQmKQ8owQZY2qoxL4ACEp92l4VSDQ=="/>
-<sparkle:minimumSystemVersion>10.8.2</sparkle:minimumSystemVersion>
+<pubDate>Fri, 19 Jul 2013 13:03:00 +0100</pubDate>
+<enclosure url="http://imageoptim.com/ImageOptim1.4.2.tar.bz2" sparkle:version="1.4.2" length="1610593" type="application/bzip2" sparkle:dsaSignature="MCwCFH+brCpsaAAld5lzmCM7ICPmfepmAhR/C0wiXA1cdDIKb8+LEzL5Lpa0ow=="/>
+<sparkle:minimumSystemVersion>10.8.4</sparkle:minimumSystemVersion>
 
 
 
