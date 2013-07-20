@@ -113,37 +113,40 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     statusBarUpdateQueue = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_OR, 0, 0, dispatch_get_main_queue());
     dispatch_source_set_event_handler(statusBarUpdateQueue, ^{
         NSString *str = defaultText;
-        if ([filesController.arrangedObjects count] > 1) {
-            NSNumber *bytes = [filesController valueForKeyPath:@"arrangedObjects.@sum.byteSize"],
-                 *optimized = [filesController valueForKeyPath:@"arrangedObjects.@sum.byteSizeOptimized"];
+        @synchronized (filesController) {
+            if ([filesController.arrangedObjects count] > 1) {
 
-            double savedTotal = 100.0*(1.0-[optimized doubleValue]/[bytes doubleValue]);
-            if (savedTotal > 0.1) {
-                long long bytesL = [bytes longLongValue], bytesSaved = bytesL - [optimized longLongValue];
-                double savedAvg = [[filesController valueForKeyPath:@"arrangedObjects.@avg.percentOptimized"] doubleValue];
+                NSNumber *bytes = [filesController valueForKeyPath:@"arrangedObjects.@sum.byteSize"],
+                *optimized = [filesController valueForKeyPath:@"arrangedObjects.@sum.byteSizeOptimized"];
 
-                NSString *fmtStr; NSNumber *avgNum;
-                if (savedTotal*0.8 > savedAvg) {
-                    overallAvg = YES;
-                } else if (savedAvg*0.8 > savedTotal){
-                    overallAvg = NO;
+                double savedTotal = 100.0*(1.0-[optimized doubleValue]/[bytes doubleValue]);
+                if (savedTotal > 0.1) {
+                    long long bytesL = [bytes longLongValue], bytesSaved = bytesL - [optimized longLongValue];
+                    double savedAvg = [[filesController valueForKeyPath:@"arrangedObjects.@avg.percentOptimized"] doubleValue];
+
+                    NSString *fmtStr; NSNumber *avgNum;
+                    if (savedTotal*0.8 > savedAvg) {
+                        overallAvg = YES;
+                    } else if (savedAvg*0.8 > savedTotal){
+                        overallAvg = NO;
+                    }
+
+                    if (overallAvg) {
+                        fmtStr = NSLocalizedString(@"Saved %@ out of %@. %@ overall (up to %@ per file)","total ratio");
+                        avgNum = [NSNumber numberWithDouble:savedTotal/100.0];
+                    } else {
+                        fmtStr = NSLocalizedString(@"Saved %@ out of %@. %@ per file on average (up to %@)","per file avg");
+                        avgNum = [NSNumber numberWithDouble:savedAvg/100.0];
+                    }
+
+                    double max = [[filesController valueForKeyPath:@"arrangedObjects.@max.percentOptimized"] doubleValue];
+
+                    str = [NSString stringWithFormat:fmtStr,
+                           formatSize(bytesSaved, formatter),
+                           formatSize(bytesL, formatter),
+                           [percFormatter stringFromNumber: avgNum],
+                           [percFormatter stringFromNumber: [NSNumber numberWithDouble:max/100.0]]];
                 }
-
-                if (overallAvg) {
-                    fmtStr = NSLocalizedString(@"Saved %@ out of %@. %@ overall (up to %@ per file)","total ratio");
-                    avgNum = [NSNumber numberWithDouble:savedTotal/100.0];
-                } else {
-                    fmtStr = NSLocalizedString(@"Saved %@ out of %@. %@ per file on average (up to %@)","per file avg");
-                    avgNum = [NSNumber numberWithDouble:savedAvg/100.0];
-                }
-
-                double max = [[filesController valueForKeyPath:@"arrangedObjects.@max.percentOptimized"] doubleValue];
-
-                str = [NSString stringWithFormat:fmtStr,
-                         formatSize(bytesSaved, formatter),
-                         formatSize(bytesL, formatter),
-                         [percFormatter stringFromNumber: avgNum],
-                         [percFormatter stringFromNumber: [NSNumber numberWithDouble:max/100.0]]];
             }
         }
         [statusBarLabel setStringValue:str];

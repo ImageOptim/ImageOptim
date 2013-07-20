@@ -110,15 +110,12 @@
 {
 	if (!isEnabled) return NSDragOperationNone;
 
-	[filesControllerLock lock];
-
-	NSDragOperation dragOp = ([info draggingSource] == tableView) ? NSDragOperationMove : NSDragOperationCopy;
-	nextInsertRow=row;
-
-	[atableView setDropRow:row dropOperation:NSTableViewDropAbove];
-
-	[filesControllerLock unlock];
-	return dragOp;
+    NSDragOperation dragOp = ([info draggingSource] == tableView) ? NSDragOperationMove : NSDragOperationCopy;
+	@synchronized (filesController) {
+        nextInsertRow=row;
+        [atableView setDropRow:row dropOperation:NSTableViewDropAbove];
+    }
+    return dragOp;
 }
 
 -(void)pasteObjectsFrom:(NSPasteboard *)pboard {
@@ -188,27 +185,18 @@
 -(IBAction)delete:(id)sender
 {
     NSArray *files = nil;
-	[filesControllerLock lock];
-
-	if ([filesController canRemove])
-	{
-
-        files = [filesController selectedObjects];
-
-		[self  deleteObjects:files];
-    }
-
-    if (files)
-    {
-        for(File *f in files)
-        {
-            [f cleanup];
+	@synchronized (filesController) {
+        if ([filesController canRemove]) {
+            files = [filesController selectedObjects];
+            [self deleteObjects:files];
         }
     }
+    if ([files count]) {
+        [files makeObjectsPerformSelector:@selector(cleanup)];
+    }
     else NSBeep();
-	[filesControllerLock unlock];
-    [self runAdded];
 }
+
 -(void)addObjects:(NSArray*)objects
 {
 	NSUndoManager *undo=[tableView undoManager];
@@ -371,26 +359,15 @@
 -(void)addFilePaths:(NSArray*)paths
 {
 	NSMutableArray *toAdd = [NSMutableArray arrayWithCapacity:[paths count]];
-	BOOL beepWhenDone = NO;
 
-	[filesControllerLock lock];
-	@try {
+	@synchronized (filesController) {
 		for(NSString *path in paths)
 		{
-			if ([path characterAtIndex:[path length]-1] == '~') // backup file
-			{
-				NSLog(@"Refusing to optimize backup file");
-				beepWhenDone = YES;
-				continue;
-			}
-
 			File *f = [self findFileByPath:path];
-			if (f)
-			{
-				if (![f isBusy]) [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];;
+			if (f) {
+				if (![f isBusy]) [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
 			}
-			else
-			{
+			else {
 				[seenPathHashes addObject:path]; // used by findFileByPath
 				f = [[File alloc] initWithFilePath:path];
 				[toAdd addObject:f];
@@ -399,14 +376,7 @@
 
 		[self performSelectorOnMainThread:@selector(addFileObjects:) withObject:toAdd waitUntilDone:YES];
 	}
-	@catch (NSException *e) {
-		NSLog(@"add file path failed %@",e);
-	}
-	@finally {
-		[filesControllerLock unlock];
-	}
 
-	if (beepWhenDone) NSBeep();
 	[[tableView undoManager] registerUndoWithTarget:self selector:@selector(deleteObjects:) object:toAdd];
 	[[tableView undoManager] setActionName:NSLocalizedString(@"Add",nil)];
 }
@@ -446,19 +416,20 @@
 
 -(void)clearComplete
 {
-	[filesControllerLock lock];
     NSUInteger i=0;
     NSMutableIndexSet *set = [NSMutableIndexSet new];
-	for(File *f in [filesController arrangedObjects]) {
-        if (f.isDone) [set addIndex:i];
-        i++;
-	}
-    if ([set count]) {
-        [filesController removeObjectsAtArrangedObjectIndexes:set];
-        [self setRow:-1];
-        [tableView setNeedsDisplay:YES];
+
+    @synchronized (filesController) {
+        for(File *f in [filesController arrangedObjects]) {
+            if (f.isDone) [set addIndex:i];
+            i++;
+        }
+        if ([set count]) {
+            [filesController removeObjectsAtArrangedObjectIndexes:set];
+        }
     }
-	[filesControllerLock unlock];
+    [self setRow:-1];
+    [tableView setNeedsDisplay:YES];
 }
 
 -(BOOL)canStartAgainOptimized:(BOOL)optimized {
@@ -474,8 +445,7 @@
 -(void)startAgainOptimized:(BOOL)optimized
 {
     BOOL anyStarted = NO;
-	[filesControllerLock lock];
-    @try {
+	@synchronized (filesController) {
         NSArray *array = [filesController selectedObjects];
         if (![array count]) array = [filesController content];
 
@@ -485,9 +455,6 @@
                 anyStarted = YES;
             }
         }
-    }
-    @finally {
-        [filesControllerLock unlock];
     }
 
 	if (!anyStarted) NSBeep();
@@ -524,9 +491,7 @@
 	if ([QLPreviewPanel sharedPreviewPanelExists] && [[QLPreviewPanel sharedPreviewPanel] isVisible]) {
 		[[QLPreviewPanel sharedPreviewPanel] orderOut:nil];
 	} else {
-		[filesControllerLock lock];
 		[[QLPreviewPanel sharedPreviewPanel] makeKeyAndOrderFront:nil];
-		[filesControllerLock unlock];
 	}
 }
 

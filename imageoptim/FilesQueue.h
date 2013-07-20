@@ -18,8 +18,6 @@
     NSOperationQueue *fileIOQueue;
 	NSOperationQueue *dirWorkerQueue;	
 	
-	NSRecursiveLock *filesControllerLock;
-	
     NSHashTable *seenPathHashes;
     
 	NSProgressIndicator *progressBar;
