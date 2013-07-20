@@ -72,7 +72,8 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     [formatter setNumberStyle: NSNumberFormatterDecimalStyle];
     [percFormatter setNumberStyle: NSNumberFormatterPercentStyle];
 
-    statusBarUpdateQueue = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_OR, 0, 0, dispatch_get_main_queue());
+    statusBarUpdateQueue = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_OR, 0, 0,
+                                                  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0));
     dispatch_source_set_event_handler(statusBarUpdateQueue, ^{
         NSString *str = defaultText;
         @synchronized (filesController) {
@@ -111,8 +112,12 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
                 }
             }
         }
+
+        dispatch_async(dispatch_get_main_queue(), ^(){
             [statusBarLabel setStringValue:str];
         });
+        usleep(100000); // 1/10th of a sec to avoid updating statusbar as fast as possible (100% cpu on the statusbar alone is ridiculous)
+    });
     dispatch_resume(statusBarUpdateQueue);
 
     [filesController addObserver:self forKeyPath:@"arrangedObjects.@count" options:0 context:nil];
@@ -171,9 +176,9 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     if (context == kIMPreviewPanelContext) {
         [previewPanel reloadData];
     } else {
-        // Defer and coalesce statusbar updates
-        dispatch_source_merge_data(statusBarUpdateQueue, 1);
-    }
+    // Defer and coalesce statusbar updates
+    dispatch_source_merge_data(statusBarUpdateQueue, 1);
+}
 }
 
 -(int)numberOfCPUs
