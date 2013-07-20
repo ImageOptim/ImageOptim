@@ -223,8 +223,7 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)path
 {
     [filesQueue setRow:-1];
-    [filesQueue addPath:path];
-	[filesQueue runAdded];
+    [filesQueue addPaths:[NSArray arrayWithObject:path]];
 	return YES;
 }
 

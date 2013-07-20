@@ -36,7 +36,6 @@
 - (NSUInteger)rowsAboveRow:(NSUInteger)row inIndexSet:(NSIndexSet *)indexSet;
 - (NSUInteger)numberOfRowsInTableView:(NSTableView *)tableview;
 
--(void)runAdded;
 -(void)startAgainOptimized:(BOOL)optimized;
 -(BOOL)canStartAgainOptimized:(BOOL)optimized;
 -(void)clearComplete;

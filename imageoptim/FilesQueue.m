@@ -315,8 +315,6 @@
     @catch (NSException *e) {
         NSLog(@"Add dir failed %@",e);
     }
-
-    [self runAdded];
 }
 
 /** filesControllerLock must be locked before using this
@@ -341,44 +339,41 @@
 
 -(void)addFileObjects:(NSArray *)files
 {
-    if (nextInsertRow < 0 || nextInsertRow >= [[filesController arrangedObjects] count]) {
-        [filesController addObjects:files];
-    } else {
-        NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(nextInsertRow, [files count])];
-        [filesController insertObjects:files atArrangedObjectIndexes:set];
-        nextInsertRow += [files count];
+	[[tableView undoManager] registerUndoWithTarget:self selector:@selector(deleteObjects:) object:files];
+	[[tableView undoManager] setActionName:NSLocalizedString(@"Add",nil)];
+
+    @synchronized (filesController) {
+        if (nextInsertRow < 0 || nextInsertRow >= [[filesController arrangedObjects] count]) {
+            [filesController addObjects:files];
+        } else {
+            NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(nextInsertRow, [files count])];
+            [filesController insertObjects:files atArrangedObjectIndexes:set];
+            nextInsertRow += [files count];
+        }
     }
 
-	for(File *f in files) {
-		[f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
-	}
-
-    [self runAdded];
+    [self updateProgressbar];
 }
 
 -(void)addFilePaths:(NSArray*)paths
 {
 	NSMutableArray *toAdd = [NSMutableArray arrayWithCapacity:[paths count]];
 
-	@synchronized (filesController) {
-		for(NSString *path in paths)
-		{
-			File *f = [self findFileByPath:path];
-			if (f) {
-				if (![f isBusy]) [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
-			}
-			else {
-				[seenPathHashes addObject:path]; // used by findFileByPath
-				f = [[File alloc] initWithFilePath:path];
-				[toAdd addObject:f];
-			}
-		}
+    for(NSString *path in paths)
+    {
+        File *f = [self findFileByPath:path];
+        if (f) {
+            if (![f isBusy]) [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
+        }
+        else {
+            [seenPathHashes addObject:path]; // used by findFileByPath
+            f = [[File alloc] initWithFilePath:path];
+            [toAdd addObject:f];
+            [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
+        }
+    }
 
-		[self performSelectorOnMainThread:@selector(addFileObjects:) withObject:toAdd waitUntilDone:YES];
-	}
-
-	[[tableView undoManager] registerUndoWithTarget:self selector:@selector(deleteObjects:) object:toAdd];
-	[[tableView undoManager] setActionName:NSLocalizedString(@"Add",nil)];
+    [self performSelectorOnMainThread:@selector(addFileObjects:) withObject:toAdd waitUntilDone:NO];
 }
 
 -(void)addPath:(NSString *)path
@@ -399,12 +394,6 @@
 			[self addDir:path];
 		}
 	}
-}
-
--(void)runAdded
-{
-	[self updateProgressbar];
-    [self waitInBackgroundForQueuesToFinish];
 }
 
 -(BOOL)canClearComplete {
@@ -459,7 +448,7 @@
 
 	if (!anyStarted) NSBeep();
 
-	[self runAdded];
+	[self updateProgressbar];
 }
 
 -(void)updateProgressbar
@@ -483,7 +472,7 @@
 		[self addPath:path];
 	}
 
-    [self runAdded];
+    [self updateProgressbar];
 }
 
 -(void) quickLook
