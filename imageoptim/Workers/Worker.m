@@ -28,10 +28,9 @@
 
     [file workerHasStarted:self];
     @try {
-        [self run]; 
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Caught %@: %@ %@", [exception name], [exception  reason], self);
+        if (![self isCancelled]) {
+            [self run];
+        }
     }
     @finally {        
 		assert([self delegate]);
