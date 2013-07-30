@@ -26,3 +26,7 @@ source_lang = en_US
 file_filter = <lang>.lproj/Credits.html
 source_lang = en_US
 
+[imageoptim.credits]
+file_filter = <lang>.lproj/Credits.rtf.html
+source_lang = en_US
+
