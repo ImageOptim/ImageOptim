@@ -11,7 +11,6 @@
 			<string key="NS.object.0">3084</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
-			<string>NSArrayController</string>
 			<string>NSBox</string>
 			<string>NSButton</string>
 			<string>NSButtonCell</string>
@@ -728,30 +727,6 @@
 												</object>
 												<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 											</object>
-											<object class="NSButton" id="84411070">
-												<reference key="NSNextResponder" ref="741715305"/>
-												<int key="NSvFlags">-2147483384</int>
-												<string key="NSFrame">{{145, 46}, {277, 18}}</string>
-												<reference key="NSSuperview" ref="741715305"/>
-												<reference key="NSNextKeyView" ref="528963408"/>
-												<bool key="NSEnabled">YES</bool>
-												<object class="NSButtonCell" key="NSCell" id="949331916">
-													<int key="NSCellFlags">67108864</int>
-													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Versuche verschiedene Filter</string>
-													<reference key="NSSupport" ref="352456772"/>
-													<reference key="NSControlView" ref="84411070"/>
-													<int key="NSButtonFlags">1211912448</int>
-													<int key="NSButtonFlags2">2</int>
-													<reference key="NSNormalImage" ref="821789119"/>
-													<reference key="NSAlternateImage" ref="951751864"/>
-													<string key="NSAlternateContents"/>
-													<string key="NSKeyEquivalent"/>
-													<int key="NSPeriodicDelay">200</int>
-													<int key="NSPeriodicInterval">25</int>
-												</object>
-												<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
-											</object>
 											<object class="NSButton" id="528963408">
 												<reference key="NSNextResponder" ref="741715305"/>
 												<int key="NSvFlags">289</int>
@@ -783,7 +758,7 @@
 												<int key="NSvFlags">266</int>
 												<string key="NSFrame">{{145, 120}, {910, 18}}</string>
 												<reference key="NSSuperview" ref="741715305"/>
-												<reference key="NSNextKeyView" ref="84411070"/>
+												<reference key="NSNextKeyView" ref="528963408"/>
 												<bool key="NSEnabled">YES</bool>
 												<object class="NSButtonCell" key="NSCell" id="746330584">
 													<int key="NSCellFlags">-2080374784</int>
@@ -1427,30 +1402,9 @@
 			<object class="NSUserDefaultsController" id="854114070">
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
-			<object class="NSArrayController" id="139626818">
-				<array class="NSMutableArray" key="NSDeclaredKeys">
-					<string>name</string>
-				</array>
-				<bool key="NSEditable">YES</bool>
-				<bool key="NSAutomaticallyPreparesContent">YES</bool>
-				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
-				<bool key="NSAvoidsEmptySelection">YES</bool>
-				<bool key="NSPreservesSelection">YES</bool>
-				<bool key="NSSelectsInsertedObjects">YES</bool>
-				<bool key="NSFilterRestrictsInsertion">YES</bool>
-				<bool key="NSClearsFilterPredicateOnInsertion">YES</bool>
-			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">chunksController</string>
-						<reference key="source" ref="94567570"/>
-						<reference key="destination" ref="139626818"/>
-					</object>
-					<int key="connectionID">611</int>
-				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">window</string>
@@ -1917,38 +1871,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: values.PngOutEnabled</string>
-						<reference key="source" ref="84411070"/>
-						<reference key="destination" ref="854114070"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="84411070"/>
-							<reference key="NSDestination" ref="854114070"/>
-							<string key="NSLabel">enabled: values.PngOutEnabled</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">values.PngOutEnabled</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">462</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.PngOut.TryFilters</string>
-						<reference key="source" ref="84411070"/>
-						<reference key="destination" ref="854114070"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="84411070"/>
-							<reference key="NSDestination" ref="854114070"/>
-							<string key="NSLabel">value: values.PngOut.TryFilters</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.PngOut.TryFilters</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">357</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
 						<string key="label">textColor: values.OptiPngEnabled</string>
 						<reference key="source" ref="310054693"/>
 						<reference key="destination" ref="854114070"/>
@@ -1966,43 +1888,6 @@
 						</object>
 					</object>
 					<int key="connectionID">654</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">editable: values.PngCrushEnabled</string>
-						<reference key="source" ref="139626818"/>
-						<reference key="destination" ref="854114070"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="139626818"/>
-							<reference key="NSDestination" ref="854114070"/>
-							<string key="NSLabel">editable: values.PngCrushEnabled</string>
-							<string key="NSBinding">editable</string>
-							<string key="NSKeyPath">values.PngCrushEnabled</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">531</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">contentArray: values.PngCrushChunks</string>
-						<reference key="source" ref="139626818"/>
-						<reference key="destination" ref="854114070"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="139626818"/>
-							<reference key="NSDestination" ref="854114070"/>
-							<string key="NSLabel">contentArray: values.PngCrushChunks</string>
-							<string key="NSBinding">contentArray</string>
-							<string key="NSKeyPath">values.PngCrushChunks</string>
-							<dictionary key="NSOptions">
-								<integer value="1" key="NSDeletesObjectsOnRemove"/>
-								<integer value="1" key="NSHandlesContentAsCompoundValue"/>
-								<integer value="0" key="NSRaisesForNotApplicableKeys"/>
-							</dictionary>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">556</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -2288,13 +2173,6 @@
 						<int key="objectID">300</int>
 						<reference key="object" ref="854114070"/>
 						<reference key="parent" ref="0"/>
-						<string key="objectName">Shared Defaults</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">503</int>
-						<reference key="object" ref="139626818"/>
-						<reference key="parent" ref="0"/>
-						<string key="objectName">PngCrushChunks</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">166</int>
@@ -2691,22 +2569,8 @@
 							<reference ref="172865613"/>
 							<reference ref="528963408"/>
 							<reference ref="801424669"/>
-							<reference ref="84411070"/>
 						</array>
 						<reference key="parent" ref="758690088"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">274</int>
-						<reference key="object" ref="84411070"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="949331916"/>
-						</array>
-						<reference key="parent" ref="741715305"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">862</int>
-						<reference key="object" ref="949331916"/>
-						<reference key="parent" ref="84411070"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">945</int>
@@ -3149,7 +3013,6 @@
 				<string key="269.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="271.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="272.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="274.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="275.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="280.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="288.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3165,7 +3028,6 @@
 				<string key="5.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="5.IBWindowTemplateEditedContentRect">{{312, 965}, {689, 365}}</string>
 				<integer value="1" key="5.NSWindowTemplate.visibleAtLaunch"/>
-				<string key="503.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="804.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="812.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3190,7 +3052,6 @@
 				<string key="858.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="860.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="861.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="862.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="863.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="865.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="868.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
