@@ -1527,15 +1527,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: values.OptiPng.Interlace</string>
+						<string key="label">value: values.OptiPngInterlace</string>
 						<reference key="source" ref="892500559"/>
 						<reference key="destination" ref="854114070"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="892500559"/>
 							<reference key="NSDestination" ref="854114070"/>
-							<string key="NSLabel">value: values.OptiPng.Interlace</string>
+							<string key="NSLabel">value: values.OptiPngInterlace</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">values.OptiPng.Interlace</string>
+							<string key="NSKeyPath">values.OptiPngInterlace</string>
 							<int key="NSNibBindingConnectorVersion">2</int>
 						</object>
 					</object>
