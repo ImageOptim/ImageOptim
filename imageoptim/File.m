@@ -515,10 +515,10 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
 	{
         worker_list = (worker_list_t[]){
             {@"PngCrushEnabled", [PngCrushWorker class]},
+            {@"OptiPngEnabled", [OptiPngWorker class]},
             {@"ZopfliEnabled", [ZopfliWorker class], ^(Worker *w){
                 ((ZopfliWorker*)w).alternativeStrategy = hasBeenRunBefore;
             }},
-            {@"OptiPngEnabled", [OptiPngWorker class]},
             {@"PngOutEnabled", [PngoutWorker class]},
             {@"AdvPngEnabled", [AdvCompWorker class]},
         };
