@@ -175,30 +175,23 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 
 
 -(void)loadCreditsHTML{
-	@try{
 
-		NSError *error = nil;
+    static const char header[] = "<!DOCTYPE html>\
+    <meta charset=utf-8>\
+    <style>\
+    html,body {font:11px/1.5 'Lucida Grande', sans-serif; color: #000; background: transparent; margin:0;}\
+    </style>\
+    <title>Credits</title>";
 
-		NSString *html = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"html"] encoding:NSUTF8StringEncoding error:&error];
-
-		if (error != nil ){
-			NSLog(@"Failed to open Credits.html: %@", error);
-			// NSBundle should fall back to CFBundleDevelopmentRegion i.e. en
-			// but if it doesn't then html will be nil and an exception thrown
-			// set a default? set to "ERROR"?
-		}
+    NSMutableData *html = [NSMutableData dataWithBytesNoCopy:(void*)header length:sizeof(header) freeWhenDone:NO];
+    [html appendData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"html"]]];
 
 		[credits setEditable:YES];
 		NSAttributedString *tmpStr = [[NSAttributedString alloc]
-									  initWithHTML:[html dataUsingEncoding:NSUTF8StringEncoding]
+									  initWithHTML:html
 									  documentAttributes:nil];
 		[credits insertText:tmpStr];
 		[credits setEditable:NO];
-	}
-	@catch(NSException *e)
-	{
-		NSLog(@"Exception thrown %@",e);
-	}
 }
 
 -(void)preloadStatusImages {
