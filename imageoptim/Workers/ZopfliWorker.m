@@ -10,7 +10,7 @@
     if (self = [super init])
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        iterations = [defaults integerForKey:@"ZopfliIterations"];
+        iterations = (int)[defaults integerForKey:@"ZopfliIterations"];
         strip = [[NSUserDefaults standardUserDefaults] boolForKey:@"PngOutRemoveChunks"];
     }
     return self;

@@ -32,8 +32,7 @@
             [self run];
         }
     }
-    @finally {        
-		assert([self delegate]);
+    @finally {
         [file workerHasFinished:self];
         [nextOperation setQueuePriority:NSOperationQueuePriorityVeryHigh];
     }
