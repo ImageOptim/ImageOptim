@@ -1,0 +1,54 @@
+/* tooltip */
+"%@ failed to start" = "%@ failed to start";
+
+/* undo command name */
+"Add" = "Προσθηκη";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "Oλα τα απαιτούμενα εργαλεία έχουν απενεργοποιηθει στις Ρυθμισεις ";
+
+/* tooltip, generic loading error */
+"Can't map file into memory" = "Δεν είναι δυνατή η χαρτογράφηση αρχείου στη μνήμη";
+
+/* undo command name */
+"Cut" = "Αποκοπη";
+
+/* tooltip */
+"File cannot be optimized any further" = "Το αρχείο δεν μπορεί να βελτιστοποιηθεί περαιτέρω";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "Το αρχείο δεν είναι ούτε PNG, GIF, ούτε JPEG ";
+
+/* tooltip */
+"Inspecting file" = "Επιθεώρηση αρχείου";
+
+/* kilobytes suffix */
+"KB" = "KB";
+
+/* megabytes suffix */
+"MB" = "MB";
+
+/* newly added to the queue */
+"New file" = "Νεο αρχειο";
+
+/* tooltip */
+"Optimized file could not be saved" = "Το βελτιωμενο αρχειο δεν μπορεσε να αποθηκευθει";
+
+/* tooltip */
+"Optimized successfully with %@" = "Βελτιωση επιτυχης με %@";
+
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Saved %1$@ out of %2$@. %3$@ overall (up to %4$@ per file)";
+
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Saved %1$@ out of %2$@. %3$@ per file on average (up to %4$@)";
+
+/* command name, tooltip */
+"Started %@" = "Εναρξη %@";
+
+/* tooltip */
+"Waiting to be optimized" = "Περιμένοντας για βελτιωση";
+
+/* tooltip */
+"Waiting to start more optimizations" = "Αναμονή για να ξεκινήσουν οι βελτιωσεις";
+

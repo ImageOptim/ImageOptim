@@ -1,0 +1,54 @@
+/* tooltip */
+"%@ failed to start" = "%@ failed to start";
+
+/* undo command name */
+"Add" = "Ekle";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "Gerekli tüm araçlar Tercihlerde devre dışı bırakılmıştır";
+
+/* tooltip, generic loading error */
+"Can't map file into memory" = "Dosya hafızaya yerleştirilemiyor";
+
+/* undo command name */
+"Cut" = "Kes";
+
+/* tooltip */
+"File cannot be optimized any further" = "Dosya bundan fazla optimize edilemez";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "Dosya ne PNG, GIF, ne de JPEG";
+
+/* tooltip */
+"Inspecting file" = "Dosya inceleniyor";
+
+/* kilobytes suffix */
+"KB" = "KB";
+
+/* megabytes suffix */
+"MB" = "MB";
+
+/* newly added to the queue */
+"New file" = "Yeni dosya";
+
+/* tooltip */
+"Optimized file could not be saved" = "Optimize edilmiş dosya kaydedilemedi";
+
+/* tooltip */
+"Optimized successfully with %@" = "%@ optimizasyonu başarıyla tamamlandı";
+
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "%2$@ üzerinden %1$@ tasarruf edildi. Toplamda %3$@ (dosya başına %4$@ kadar)";
+
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "%2$@ üzerinden %1$@ tasarruf edildi. Dosya başına ortalama %3$@ (%4$@ kadar)";
+
+/* command name, tooltip */
+"Started %@" = "%@ işlemi başladı";
+
+/* tooltip */
+"Waiting to be optimized" = "Optimize edilmeyi bekliyor";
+
+/* tooltip */
+"Waiting to start more optimizations" = "Daha fazla optimizasyon için bekliyor";
+

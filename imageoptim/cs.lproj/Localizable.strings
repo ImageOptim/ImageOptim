@@ -1,0 +1,54 @@
+/* tooltip */
+"%@ failed to start" = "%@ se nepodařilo spustit";
+
+/* undo command name */
+"Add" = "Přidat";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "Všechny nezbytné programy byly v Nastavení zakázány";
+
+/* tooltip, generic loading error */
+"Can't map file into memory" = "Soubor se nepodařilo nahrát do paměti";
+
+/* undo command name */
+"Cut" = "Vyjmout";
+
+/* tooltip */
+"File cannot be optimized any further" = "c se už dál nedá vylepšit";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "Soubor není PNG, GIF ani JPEG";
+
+/* tooltip */
+"Inspecting file" = "Soubor se zkoumá";
+
+/* kilobytes suffix */
+"KB" = "KB";
+
+/* megabytes suffix */
+"MB" = "MB";
+
+/* newly added to the queue */
+"New file" = "Nový soubor";
+
+/* tooltip */
+"Optimized file could not be saved" = "Vylepšený soubor se nepodařilo uložit";
+
+/* tooltip */
+"Optimized successfully with %@" = "Vylepšeno úspěšně s %@";
+
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Uloženo %1$@ z %2$@. %3$@ celkem (až %4$@ na soubor)";
+
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Uloženo %1$@ z %2$@. %3$@ obvykle na soubor (až %4$@)";
+
+/* command name, tooltip */
+"Started %@" = "Byl spuštěn %@";
+
+/* tooltip */
+"Waiting to be optimized" = "Čeká na vylepšení";
+
+/* tooltip */
+"Waiting to start more optimizations" = "Čeká na to, až bude moci být spuštěno další vylepšování";
+

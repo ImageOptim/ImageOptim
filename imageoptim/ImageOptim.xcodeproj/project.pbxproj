@@ -469,6 +469,15 @@
 		5AC9882A155F1AE100E221A0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = sv; path = sv.lproj/Credits.rtf; sourceTree = "<group>"; };
 		5AC9882B155F1AE100E221A0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sv; path = sv.lproj/Help; sourceTree = "<group>"; };
 		5AC9882C155F1AE100E221A0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5ACCB3F117A828FF00853EFE /* cs */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = cs; path = cs.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5ACCB3F417A8292500853EFE /* tr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = tr; path = tr.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5ACCB3F517A8292500853EFE /* vi */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = vi; path = vi.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5ACCB3F617A8294900853EFE /* cs */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = cs; path = cs.lproj/PrefsController.xib; sourceTree = "<group>"; };
+		5ACCB3FA17A8294900853EFE /* vi */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = vi; path = vi.lproj/PrefsController.xib; sourceTree = "<group>"; };
+		5ACCB41917A82E3100853EFE /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5ACCB41A17A82E3100853EFE /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5ACCB41C17A82E3100853EFE /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5ACCB41D17A82E3100853EFE /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5AD299B71436756D0048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = no; path = no.lproj/Credits.rtf; sourceTree = "<group>"; };
 		5AD299B9143675770048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5AD299BB1436757F0048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = no; path = no.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -871,6 +880,12 @@
 				"zh-Hant",
 				lt,
 				ko,
+				cs,
+				el,
+				sk,
+				tr,
+				vi,
+				nb,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ImageOptim */;
 			projectDirPath = "";
@@ -1210,6 +1225,7 @@
 		5A45530A1024EB1100A69944 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
+				5ACCB3F117A828FF00853EFE /* cs */,
 				5ABF610913E37B07009F6F22 /* da */,
 				5A8DFBD710C097A0009A5C8E /* Dutch */,
 				5A8B52D41559C278005AA6E3 /* en-GB */,
@@ -1227,6 +1243,8 @@
 				5AE74B5C146DECA300287FA6 /* pt-BR */,
 				5A0344371299882B002091AA /* ru */,
 				5AC98826155F1ACD00E221A0 /* sv */,
+				5ACCB3F417A8292500853EFE /* tr */,
+				5ACCB3F517A8292500853EFE /* vi */,
 				1B5210E616BFA7CA0044C869 /* zh-Hant */,
 			);
 			name = MainMenu.xib;
@@ -1235,6 +1253,7 @@
 		5A45530D1024EB3000A69944 /* PrefsController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
+				5ACCB3F617A8294900853EFE /* cs */,
 				5ABF610813E37AFC009F6F22 /* da */,
 				5A8DFBD810C097AC009A5C8E /* Dutch */,
 				5A8B52D31559C269005AA6E3 /* en-GB */,
@@ -1252,6 +1271,7 @@
 				5AE74B5E146DECAA00287FA6 /* pt-BR */,
 				5A0344381299882F002091AA /* ru */,
 				5AC98827155F1ACD00E221A0 /* sv */,
+				5ACCB3FA17A8294900853EFE /* vi */,
 				1B5210E716BFA7CA0044C869 /* zh-Hant */,
 			);
 			name = PrefsController.xib;
@@ -1284,8 +1304,10 @@
 		5A94A03A10275E11005CC9CB /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
+				5ACCB41917A82E3100853EFE /* cs */,
 				5ABF611613E37BC3009F6F22 /* da */,
 				5A8DFBEB10C09812009A5C8E /* Dutch */,
+				5ACCB41A17A82E3100853EFE /* el */,
 				5A8B52D51559C291005AA6E3 /* en-GB */,
 				5A7D24F213EDF5F100815AAA /* es */,
 				5A94A04D10275F40005CC9CB /* French */,
@@ -1300,6 +1322,8 @@
 				5AE74B57146DEC8700287FA6 /* pt-BR */,
 				5A03443A12998845002091AA /* ru */,
 				5AC9882C155F1AE100E221A0 /* sv */,
+				5ACCB41C17A82E3100853EFE /* tr */,
+				5ACCB41D17A82E3100853EFE /* vi */,
 				1B5210E516BFA7CA0044C869 /* zh-Hant */,
 			);
 			name = Localizable.strings;

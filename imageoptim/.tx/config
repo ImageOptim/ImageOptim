@@ -1,6 +1,6 @@
 [main]
 host = https://www.transifex.com
-lang_map = zh_CN:zh-Hant, en_GB:en-GB, pt_BR:pt-BR
+lang_map = zh_TW:zh-Hant, en_GB:en-GB, pt_BR:pt-BR
 
 [imageoptim.localizablestrings]
 file_filter = <lang>.lproj/Localizable.strings

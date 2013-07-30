@@ -49,7 +49,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{121, 589}, {653, 303}}</string>
 				<int key="NSWTFlags">-1334312960</int>
-				<string key="NSWindowTitle">ImageOptim Preferences</string>
+				<string key="NSWindowTitle">Tùy Biến</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<object class="NSMutableString" key="NSViewClass">
 					<characters key="NS.bytes">View</characters>
@@ -89,7 +89,7 @@
 																<object class="NSButtonCell" key="NSCell" id="959669707">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">Preserve file permissions, attributes and hardlinks</string>
+																	<string key="NSContents">Bảo toàn các quyền hạn tác động, thuộc tính và các liên kết kèm theo</string>
 																	<object class="NSFont" key="NSSupport" id="352456772">
 																		<string key="NSName">LucidaGrande</string>
 																		<double key="NSSize">13</double>
@@ -121,7 +121,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="18581533">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">Saving to network drives is faster when permissions are not preserved</string>
+																	<string key="NSContents">Lưu vào các ổ đĩa mạng sẽ nhanh hơn khi các phần quyền hạn không được lưu giữ</string>
 																	<object class="NSFont" key="NSSupport" id="26">
 																		<string key="NSName">LucidaGrande</string>
 																		<double key="NSSize">11</double>
@@ -162,7 +162,7 @@
 												<object class="NSTextFieldCell" key="NSTitleCell">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Writing files to disk</string>
+													<string key="NSContents">Viết dữ liệu tập tin lên đĩa</string>
 													<object class="NSFont" key="NSSupport" id="744891273">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">11</double>
@@ -232,7 +232,7 @@
 																<object class="NSButtonCell" key="NSCell" id="731398776">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">Strip PNG metadata (gamma, color profiles, optional chunks)</string>
+																	<string key="NSContents">Bỏ qua thông tin chi tiết về PNG (gamma, hồ sơ màu, chunk tùy chọn)</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="469954983"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -256,7 +256,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="477679095">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">Web browsers require gamma chunks to be removed</string>
+																	<string key="NSContents">Trình duyệt web cần loại bỏ các phần gamma chunk</string>
 																	<reference key="NSSupport" ref="26"/>
 																	<reference key="NSControlView" ref="1045259908"/>
 																	<reference key="NSBackgroundColor" ref="585428330"/>
@@ -274,7 +274,7 @@
 																<object class="NSButtonCell" key="NSCell" id="458069250">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">Strip JPEG metadata (EXIF, color profiles, GPS, rotation, etc.)</string>
+																	<string key="NSContents">Bỏ qua thông tin chi tiết về JPEG metadata (EXIF, hồ sơ màu, GPS, góc quay, v.v..)</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="354107699"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -297,7 +297,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="254823532">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">Not recommended if you rely on embedded copyright information</string>
+																	<string key="NSContents">Không khuyên dùng nếu bạn cần thông tin bản quyền về phần nhúng</string>
 																	<reference key="NSSupport" ref="26"/>
 																	<reference key="NSControlView" ref="1001070319"/>
 																	<reference key="NSBackgroundColor" ref="585428330"/>
@@ -320,7 +320,7 @@
 												<object class="NSTextFieldCell" key="NSTitleCell">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Metadata and color profiles</string>
+													<string key="NSContents">Thông tin chi tiết và hồ sơ màu</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSBackgroundColor" ref="265439438"/>
 													<object class="NSColor" key="NSTextColor">
@@ -424,7 +424,7 @@
 																<object class="NSButtonCell" key="NSCell" id="85078871">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">OptiPNG</string>
+																	<string key="NSContents">Tùy chỉnh PNG</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="897551295"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -448,7 +448,7 @@
 																<object class="NSButtonCell" key="NSCell" id="323708559">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">AdvPNG</string>
+																	<string key="NSContents">PNG nâng cao</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="17671457"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -573,7 +573,7 @@
 												<object class="NSTextFieldCell" key="NSTitleCell">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Enable</string>
+													<string key="NSContents">Bật</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSBackgroundColor" ref="265439438"/>
 													<object class="NSColor" key="NSTextColor">
@@ -592,7 +592,7 @@
 										<reference key="NSSuperview" ref="772667599"/>
 										<reference key="NSNextKeyView" ref="939028595"/>
 									</object>
-									<string key="NSLabel">General</string>
+									<string key="NSLabel">Tổng quan</string>
 									<reference key="NSColor" ref="585428330"/>
 									<reference key="NSTabView" ref="772667599"/>
 								</object>
@@ -641,7 +641,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="17662428">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Optimisation type</string>
+													<string key="NSContents">Loại Tùy Chỉnh</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="382989766"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -659,7 +659,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="888812765">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">272629760</int>
-													<string key="NSContents">Simple</string>
+													<string key="NSContents">Đơn giản</string>
 													<object class="NSFont" key="NSSupport" id="22">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">9</double>
@@ -681,7 +681,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="918393755">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Xtreme</string>
+													<string key="NSContents">Mạnh</string>
 													<reference key="NSSupport" ref="22"/>
 													<reference key="NSControlView" ref="378802648"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -699,7 +699,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="112111748">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">138412032</int>
-													<string key="NSContents">Intense</string>
+													<string key="NSContents">Cường độ lớn</string>
 													<reference key="NSSupport" ref="22"/>
 													<reference key="NSControlView" ref="708458888"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -717,7 +717,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="182098264">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">138412032</int>
-													<string key="NSContents">Longest match</string>
+													<string key="NSContents">Khớp với phần dài nhất</string>
 													<reference key="NSSupport" ref="22"/>
 													<reference key="NSControlView" ref="172865613"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -735,7 +735,7 @@
 												<object class="NSButtonCell" key="NSCell" id="949331916">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Try various different filters</string>
+													<string key="NSContents">Thử các phần lọc dữ liệu khác</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="84411070"/>
 													<int key="NSButtonFlags">1211912448</int>
@@ -786,7 +786,7 @@
 												<object class="NSButtonCell" key="NSCell" id="746330584">
 													<int key="NSCellFlags">-2080374784</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Interrupt if takes too long to execute</string>
+													<string key="NSContents">Hoãn lại tiến trình nếu tốn quá nhiều thời gian thi hành thao tác</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="801424669"/>
 													<int key="NSButtonFlags">1211912448</int>
@@ -823,7 +823,7 @@
 												<object class="NSButtonCell" key="NSCell" id="337448332">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">16777216</int>
-													<string key="NSContents">Make images interlaced (progressive)</string>
+													<string key="NSContents">Quét mành các hình ảnh (tiến bộ hơn)</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="892500559"/>
 													<int key="NSButtonFlags">1211912448</int>
@@ -847,7 +847,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="924028585">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Optimisation level</string>
+													<string key="NSContents">Cấp độ Tùy Chỉnh</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="578376454"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -865,7 +865,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="645880451">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">272629760</int>
-													<string key="NSContents">Interlaced files are usually larger</string>
+													<string key="NSContents">Các tập tin quét mạnh luôn lớn hơn</string>
 													<object class="NSFont" key="NSSupport">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">10</double>
@@ -1050,7 +1050,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="350569712">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Optimisation level</string>
+													<string key="NSContents">Cấp độ Tùy Chỉnh</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="534469546"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1068,7 +1068,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="678180281">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">272629760</int>
-													<string key="NSContents">Fast</string>
+													<string key="NSContents">Nhanh</string>
 													<reference key="NSSupport" ref="22"/>
 													<reference key="NSControlView" ref="662284546"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1086,7 +1086,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="241049884">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Insane</string>
+													<string key="NSContents">Phồng tôm</string>
 													<reference key="NSSupport" ref="22"/>
 													<reference key="NSControlView" ref="942231807"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1104,7 +1104,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="831361822">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">138412032</int>
-													<string key="NSContents">Normal</string>
+													<string key="NSContents">Bình thường</string>
 													<reference key="NSSupport" ref="22"/>
 													<reference key="NSControlView" ref="80251752"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1122,7 +1122,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="224011562">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">138412032</int>
-													<string key="NSContents">Extra</string>
+													<string key="NSContents">Bổ sung</string>
 													<reference key="NSSupport" ref="22"/>
 													<reference key="NSControlView" ref="922629512"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1180,7 +1180,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="930696126">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Maximum quality</string>
+													<string key="NSContents">Chất lượng tối đa</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="214791961"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1401,7 +1401,7 @@
 										<string key="NSFrame">{{10, 33}, {607, 251}}</string>
 										<reference key="NSNextKeyView" ref="214791961"/>
 									</object>
-									<string key="NSLabel">JPEGOptim</string>
+									<string key="NSLabel">Tùy chỉnh JPEG</string>
 									<reference key="NSColor" ref="585428330"/>
 									<reference key="NSTabView" ref="772667599"/>
 								</object>

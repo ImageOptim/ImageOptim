@@ -1,0 +1,54 @@
+/* tooltip */
+"%@ failed to start" = "bị lỗi khi khởi động %@";
+
+/* undo command name */
+"Add" = "Thêm vào";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "Tất cả các công cụ cần thiết đều bị vô hiệu hóa trong Tùy Biến";
+
+/* tooltip, generic loading error */
+"Can't map file into memory" = "Không thể tải tập tin vào trong bộ nhớ để xử lý";
+
+/* undo command name */
+"Cut" = "Cắt";
+
+/* tooltip */
+"File cannot be optimized any further" = "Tập tin không thể được tùy chỉnh thêm nữa";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "Tập tin phải ở dạng PNG, GIF hoặc JPEG";
+
+/* tooltip */
+"Inspecting file" = "Đang tìm hiểu về tập tin";
+
+/* kilobytes suffix */
+"KB" = "KB";
+
+/* megabytes suffix */
+"MB" = "MB";
+
+/* newly added to the queue */
+"New file" = "Tập tin mới";
+
+/* tooltip */
+"Optimized file could not be saved" = "Không thể lưu tập tin đã được tùy chỉnh hóa";
+
+/* tooltip */
+"Optimized successfully with %@" = "Đã tùy chỉnh hóa thành công với %@";
+
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Đã lưu %1$@ của tổng cộng %2$@. %3$@ toàn bộ (lên tới %4$@ với mỗi tập tin)";
+
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Đã lưu %1$@ trong tổng số %2$@. %3$@ trung bình cho mỗi tập tin (lên tới %4$@)";
+
+/* command name, tooltip */
+"Started %@" = "Đã bắt đầu %@";
+
+/* tooltip */
+"Waiting to be optimized" = "Đang đợi để được tùy chỉnh hóa";
+
+/* tooltip */
+"Waiting to start more optimizations" = "Đang đợi để bắt đầu các phần tùy chỉnh khác";
+
