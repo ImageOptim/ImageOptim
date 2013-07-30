@@ -332,6 +332,7 @@
 														<reference key="NSTextColor" ref="777625168"/>
 													</object>
 													<reference key="NSTableView" ref="995883823"/>
+													<string key="NSHeaderToolTip">Size of file after optimization</string>
 												</object>
 												<object class="NSTableColumn" id="59804572">
 													<string key="NSIdentifier">savings</string>
@@ -1425,65 +1426,6 @@
 			<object class="NSCustomObject" id="450227685">
 				<string key="NSClassName">SUUpdater</string>
 			</object>
-			<object class="NSTableColumn" id="985798113">
-				<double key="NSWidth">85</double>
-				<double key="NSMinWidth">85</double>
-				<double key="NSMaxWidth">85</double>
-				<object class="NSTableHeaderCell" key="NSHeaderCell">
-					<int key="NSCellFlags">75497536</int>
-					<int key="NSCellFlags2">67110912</int>
-					<string key="NSContents">Kích thước</string>
-					<reference key="NSSupport" ref="26"/>
-					<object class="NSColor" key="NSBackgroundColor">
-						<int key="NSColorSpace">3</int>
-						<bytes key="NSWhite">MC4zMzMzMzI5OQA</bytes>
-					</object>
-					<reference key="NSTextColor" ref="739485553"/>
-				</object>
-				<object class="NSTextFieldCell" key="NSDataCell" id="811788325">
-					<int key="NSCellFlags">337641536</int>
-					<int key="NSCellFlags2">67110912</int>
-					<reference key="NSSupport" ref="725316391"/>
-					<object class="NSNumberFormatter" key="NSFormatter" id="296097659">
-						<dictionary class="NSMutableDictionary" key="NS.attributes">
-							<boolean value="YES" key="allowsFloats"/>
-							<integer value="1040" key="formatterBehavior"/>
-							<boolean value="NO" key="lenient"/>
-							<string key="negativeInfinitySymbol">-∞</string>
-							<string key="nilSymbol"/>
-							<integer value="1" key="numberStyle"/>
-							<string key="positiveInfinitySymbol">+∞</string>
-						</dictionary>
-						<string key="NS.positiveformat">#,##0.###</string>
-						<string key="NS.negativeformat">#,##0.###</string>
-						<nil key="NS.positiveattrs"/>
-						<nil key="NS.negativeattrs"/>
-						<nil key="NS.zero"/>
-						<object class="NSAttributedString" key="NS.nil">
-							<string key="NSString"/>
-						</object>
-						<object class="NSAttributedString" key="NS.nan">
-							<string key="NSString">NaN</string>
-							<reference key="NSAttributes" ref="255051318"/>
-						</object>
-						<reference key="NS.min" ref="28846732"/>
-						<reference key="NS.max" ref="28846732"/>
-						<object class="NSDecimalNumberHandler" key="NS.rounding">
-							<int key="NS.roundingmode">3</int>
-							<bool key="NS.raise.overflow">YES</bool>
-							<bool key="NS.raise.underflow">YES</bool>
-							<bool key="NS.raise.dividebyzero">YES</bool>
-						</object>
-						<string key="NS.decimal">.</string>
-						<string type="base64-UTF8" key="NS.thousand">wqA</string>
-						<bool key="NS.hasthousands">YES</bool>
-						<bool key="NS.localized">YES</bool>
-						<bool key="NS.allowsfloats">YES</bool>
-					</object>
-					<reference key="NSBackgroundColor" ref="678811562"/>
-					<reference key="NSTextColor" ref="777625168"/>
-				</object>
-			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<array class="NSMutableArray" key="connectionRecords">
@@ -2338,7 +2280,6 @@
 							<reference ref="633482293"/>
 						</array>
 						<reference key="parent" ref="0"/>
-						<string key="objectName">Window</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">2</int>
@@ -2371,7 +2312,6 @@
 							<reference ref="738309329"/>
 						</array>
 						<reference key="parent" ref="0"/>
-						<string key="objectName">MainMenu</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">19</int>
@@ -2610,7 +2550,6 @@
 						<int key="objectID">230</int>
 						<reference key="object" ref="833277363"/>
 						<reference key="parent" ref="0"/>
-						<string key="objectName">ImageOptim</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">251</int>
@@ -2625,7 +2564,6 @@
 							<reference ref="216029037"/>
 						</array>
 						<reference key="parent" ref="0"/>
-						<string key="objectName">About</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">527</int>
@@ -2664,13 +2602,11 @@
 						<int key="objectID">562</int>
 						<reference key="object" ref="342046411"/>
 						<reference key="parent" ref="0"/>
-						<string key="objectName">Shared User Defaults Controller</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">623</int>
 						<reference key="object" ref="450227685"/>
 						<reference key="parent" ref="0"/>
-						<string key="objectName">Updater</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">636</int>
@@ -2781,7 +2717,6 @@
 							<reference ref="995883823"/>
 						</array>
 						<reference key="parent" ref="633482293"/>
-						<string key="objectName">Table Scroll View</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">642</int>
@@ -2810,7 +2745,6 @@
 							<reference ref="583680691"/>
 						</array>
 						<reference key="parent" ref="188613459"/>
-						<string key="objectName">Table</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">462</int>
@@ -2932,7 +2866,6 @@
 						<int key="objectID">712</int>
 						<reference key="object" ref="714728707"/>
 						<reference key="parent" ref="633482293"/>
-						<string key="objectName">Drop</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">724</int>
@@ -2976,27 +2909,6 @@
 						<int key="objectID">772</int>
 						<reference key="object" ref="554869756"/>
 						<reference key="parent" ref="770936495"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">792</int>
-						<reference key="object" ref="985798113"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="811788325"/>
-						</array>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">793</int>
-						<reference key="object" ref="811788325"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="296097659"/>
-						</array>
-						<reference key="parent" ref="985798113"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">794</int>
-						<reference key="object" ref="296097659"/>
-						<reference key="parent" ref="811788325"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">795</int>
@@ -3162,6 +3074,14 @@
 				<real value="1231234" key="254.IBNumberFormatterSampleNumberKey"/>
 				<string key="254.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="29.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<object class="NSMutableDictionary" key="294.IBAttributePlaceholdersKey">
+					<string key="NS.key.0">AccessibilityDescription</string>
+					<object class="IBAccessibilityAttribute" key="NS.object.0">
+						<string key="name">AccessibilityDescription</string>
+						<reference key="object" ref="646228687"/>
+						<string key="accessibilityValue">Status</string>
+					</object>
+				</object>
 				<string key="294.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="361.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="362.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3248,6 +3168,14 @@
 				<integer value="1" key="643.IBShouldRemoveOnLegacySave"/>
 				<string key="644.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="644.IBShouldRemoveOnLegacySave"/>
+				<object class="NSMutableDictionary" key="645.IBAttributePlaceholdersKey">
+					<string key="NS.key.0">AccessibilityDescription</string>
+					<object class="IBAccessibilityAttribute" key="NS.object.0">
+						<string key="name">AccessibilityDescription</string>
+						<reference key="object" ref="805991443"/>
+						<string key="accessibilityValue">version</string>
+					</object>
+				</object>
 				<string key="645.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="646.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="655.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3284,21 +3212,6 @@
 				<string key="771.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="772.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="791.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<object class="NSMutableDictionary" key="792.IBAttributePlaceholdersKey">
-					<string key="NS.key.0">AccessibilityDescription</string>
-					<object class="IBAccessibilityAttribute" key="NS.object.0">
-						<string key="name">AccessibilityDescription</string>
-						<reference key="object" ref="985798113"/>
-						<string key="accessibilityValue">Kích thước của tập tin sau khi được tùy chỉnh</string>
-					</object>
-				</object>
-				<string key="792.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<string key="793.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
-				<integer value="1" key="793.IBShouldRemoveOnLegacySave"/>
-				<integer value="1041" key="794.IBNumberFormatterBehaviorMetadataKey"/>
-				<boolean value="YES" key="794.IBNumberFormatterLocalizesFormatMetadataKey"/>
-				<real value="1231234" key="794.IBNumberFormatterSampleNumberKey"/>
-				<string key="794.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="795.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="796.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1041" key="801.IBNumberFormatterBehaviorMetadataKey"/>
@@ -3474,39 +3387,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">PrefsController</string>
 					<string key="superclassName">NSWindowController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="addGammaChunks:">id</string>
-						<string key="browseForExecutable:">id</string>
-						<string key="showHelp:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="addGammaChunks:">
-							<string key="name">addGammaChunks:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="browseForExecutable:">
-							<string key="name">browseForExecutable:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="showHelp:">
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">showHelp:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">showHelp:</string>
+						<object class="IBActionInfo" key="NS.object.0">
 							<string key="name">showHelp:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="chunksController">NSArrayController</string>
-						<string key="tasksSlider">NSSlider</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="chunksController">
-							<string key="name">chunksController</string>
-							<string key="candidateClassName">NSArrayController</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="tasksSlider">
-							<string key="name">tasksSlider</string>
-							<string key="candidateClassName">NSSlider</string>
-						</object>
-					</dictionary>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/PrefsController.h</string>
