@@ -1,18 +1,50 @@
-"File cannot be optimized any further" = "더 이상 파일을 최적화 할 수 없습니다";
-"Optimized file could not be saved" = "최적화된 파일은 저장될 수 없습니다";
-"Optimized successfully with %@" = "%@로 최적화 성공";
-"Size of optimized file is 0" = "최적화된 파일의 사이즈가 0입니다";
-"Waiting to be optimized" = "최적화하기 위해 기다리는 중";
-"Waiting to start more optimizations" = "더 최적화시키기 위해 기다리는 중";
-
-"All neccessary tools have been disabled in Preferences" = "환경설정 안에 있는 모든 필요한 도구들이 비활성화되었습니다";
-"Can't map file into memory" = "메모리에 파일을 맵핑할 수 없습니다";
-"File is neither PNG, GIF nor JPEG" = "파일 유형은 PNG, GIF, JPEG 중 하나이어야 합니다";
-"Inspecting file" = "파일을 정검 중입니다.";
-"New file" = "새 파일";
-"Started %@" = "%@로 시작했습니다";
-"Waiting in queue" = "대기 중입니다";
+/* tooltip */
 "%@ failed to start" = "%@을 시작하지 못했습니다";
+
+/* undo command name */
+"Add" = "Add";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "환경설정 안에 있는 모든 필요한 도구들이 비활성화되었습니다";
+
+/* tooltip, generic loading error */
+"Can't map file into memory" = "메모리에 파일을 맵핑할 수 없습니다";
+
+/* undo command name */
+"Cut" = "잘라내기(X)";
+
+/* tooltip */
+"File cannot be optimized any further" = "더 이상 파일을 최적화 할 수 없습니다";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "파일 유형은 PNG, GIF, JPEG 중 하나이어야 합니다";
+
+/* tooltip */
+"Inspecting file" = "파일을 정검 중입니다.";
+
+
+/* newly added to the queue */
+"New file" = "새 파일";
+"%@ failed to start" = "%@을 시작하지 못했습니다";
+
+/* tooltip */
+"Optimized file could not be saved" = "최적화된 파일은 저장될 수 없습니다";
+
+/* tooltip */
+"Optimized successfully with %@" = "%@로 최적화 성공";
+
+/* total ratio, status bar */
 "Saved %@ out of %@. %@ overall (up to %@ per file)" = "%@ 절약했습니다(전체 %@). 전체 %@ (파일 당 %@)";
+
+/* per file avg, status bar */
 "Saved %@ out of %@. %@ per file on average (up to %@)" = "%@ 절약했습니다(전체 %@). 평균 파일 당 %@ (최대 %@)";
+
+/* command name, tooltip */
+"Started %@" = "%@로 시작했습니다";
+
+/* tooltip */
+"Waiting to be optimized" = "최적화하기 위해 기다리는 중";
+
+/* tooltip */
+"Waiting to start more optimizations" = "더 최적화시키기 위해 기다리는 중";
 

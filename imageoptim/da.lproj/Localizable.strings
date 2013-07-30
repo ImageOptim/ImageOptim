@@ -1,14 +1,44 @@
-"All neccessary tools have been disabled in Preferences" = "Alle nødvendige værktøjer er blevet deaktiveret i indstillingerne";
-"Can't map file into memory" = "Kan ikke indlæse filen ind i hukommelsen";
-"File cannot be optimized any further" = "Filen kan ikke optimeres yderligere";
-"File is neither PNG, GIF nor JPEG" = "Filen er hverken af typen PNG eller JPEG";
-"Inspecting file" = "Inspicerer fil";
-"New file" = "Ny fil";
-"Optimized file could not be saved" = "Den optimerede fil kunne ikke gemmes";
-"Optimized successfully with %@" = "Optimeret korrekt med %@";
-"Size of optimized file is 0" = "Størrelsen af filen er 0";
-"Started %@" = "Started med %@";
-"Waiting in queue" = "Afventer i kø";
-"Waiting to be optimized" = "Venter på at blive optimeret";
-"Waiting to start more optimizations" = "Venter på at starte flere optimeringer";
+/* tooltip */
 "%@ failed to start" = "O %@ kunne ikke startes";
+
+/* undo command name */
+"Add" = "Tilføj";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "Alle nødvendige værktøjer er blevet deaktiveret i indstillingerne";
+
+/* tooltip, generic loading error */
+"Can't map file into memory" = "Kan ikke indlæse filen ind i hukommelsen";
+
+/* undo command name */
+"Cut" = "Klip";
+
+/* tooltip */
+"File cannot be optimized any further" = "Filen kan ikke optimeres yderligere";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "Filen er hverken af typen PNG eller JPEG";
+
+/* tooltip */
+"Inspecting file" = "Inspicerer fil";
+
+
+/* newly added to the queue */
+"New file" = "Ny fil";
+
+/* tooltip */
+"Optimized file could not be saved" = "Den optimerede fil kunne ikke gemmes";
+
+/* tooltip */
+"Optimized successfully with %@" = "Optimeret korrekt med %@";
+
+
+
+/* command name, tooltip */
+"Started %@" = "Started med %@";
+
+/* tooltip */
+"Waiting to be optimized" = "Venter på at blive optimeret";
+
+/* tooltip */
+"Waiting to start more optimizations" = "Venter på at starte flere optimeringer";

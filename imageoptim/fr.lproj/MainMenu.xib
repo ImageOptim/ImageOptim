@@ -1225,7 +1225,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{682, 258}, {295, 370}}</string>
 				<int key="NSWTFlags">-260570112</int>
-				<string key="NSWindowTitle">About ImageOptim</string>
+				<string key="NSWindowTitle">À propos d'ImageOptim</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<object class="NSMutableString" key="NSViewClass">
 					<characters key="NS.bytes">View</characters>
@@ -3239,7 +3239,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="733806295"/>
-						<string key="accessibilityValue">Status</string>
+						<string key="accessibilityValue">Statut</string>
 					</object>
 				</object>
 				<string key="642.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

@@ -1,6 +1,43 @@
+
+/* undo command name */
+"Add" = "追加";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "必須ツールすべてが環境設定で無効になっています";
+
+/* tooltip, generic loading error */
+"Can't map file into memory" = "ファイルをメモリに展開できません";
+
+/* undo command name */
+"Cut" = "カット";
+
+/* tooltip */
 "File cannot be optimized any further" = "これ以上ファイルを最適化できません";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "ファイルがPNG、GIF、JPEGのいずれの形式でもありません";
+
+/* tooltip */
+"Inspecting file" = "ファイルの検証中";
+
+/* newly added to the queue */
+"New file" = "新しいファイル";
+
+/* tooltip */
 "Optimized file could not be saved" = "最適化されたファイルを保存できませんでした";
-"Optimized successfully with %@" = "%@で正しく最適化が完了しました";
-"Size of optimized file is 0" = "最適化をするファイルの容量が0でした";
+
+/* tooltip */
+"Optimized successfully with %@" = "%@で最適化に成功しました";
+
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "%2$@ のうち %1$@ 節減。全体で %3$@ (1ファイル最大で %4$@)";
+
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "%2$@ のうち %1$@ 節減。1ファイル平均で %3$@ (最大で %4$@)";
+
+
+/* tooltip */
 "Waiting to be optimized" = "最適化中です";
+
+/* tooltip */
 "Waiting to start more optimizations" = "追加の最適化開始を待機中です";

@@ -1,14 +1,44 @@
-"All neccessary tools have been disabled in Preferences" = "Alle benötigten Programme wurden in den Einstellungen deaktiviert";
-"Can't map file into memory" = "Die Datei konnte nicht in den Speicher geladen werden";
-"File cannot be optimized any further" = "Die Datei kann nicht mehr weiter optimiert werden";
-"File is neither PNG, GIF nor JPEG" = "Der Dateityp ist weder PNG noch JPEG";
-"Inspecting file" = "Analysiere die Datei";
-"New file" = "Neue Datei";
-"Optimized file could not be saved" = "Die optimierte Datei konnte nicht gespeichert werden";
-"Optimized successfully with %@" = "Erfolgreich mit %@ optimiert";
-"Size of optimized file is 0" = "Die Größe der optimierten Datei ist 0";
-"Started %@" = "%@ wurde gestartet";
-"Waiting in queue" = "In der Warteschleife";
-"Waiting to be optimized" = "Warte auf Optimierung";
-"Waiting to start more optimizations" = "Warte darauf weitere Optimierungen starten zu können";
+/* tooltip */
 "%@ failed to start" = "%@ konnte nicht gestartet werden";
+
+/* undo command name */
+"Add" = "Hinzufügen";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "Alle benötigten Programme wurden in den Einstellungen deaktiviert";
+
+/* tooltip, generic loading error */
+"Can't map file into memory" = "Die Datei konnte nicht in den Speicher geladen werden";
+
+/* undo command name */
+"Cut" = "Ausschneiden";
+
+/* tooltip */
+"File cannot be optimized any further" = "Die Datei kann nicht mehr weiter optimiert werden";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "Der Dateityp ist weder PNG noch JPEG";
+
+/* tooltip */
+"Inspecting file" = "Analysiere die Datei";
+
+
+/* newly added to the queue */
+"New file" = "Neue Datei";
+
+/* tooltip */
+"Optimized file could not be saved" = "Die optimierte Datei konnte nicht gespeichert werden";
+
+/* tooltip */
+"Optimized successfully with %@" = "Erfolgreich mit %@ optimiert";
+
+
+
+/* command name, tooltip */
+"Started %@" = "%@ wurde gestartet";
+
+/* tooltip */
+"Waiting to be optimized" = "Warte auf Optimierung";
+
+/* tooltip */
+"Waiting to start more optimizations" = "Warte darauf weitere Optimierungen starten zu können";

@@ -1,14 +1,44 @@
-"All neccessary tools have been disabled in Preferences" = "Alle benodigde programma’s zijn uitgeschakeld via Voorkeuren";
-"Can't map file into memory" = "Het bestand kon niet in het geheugen ingelezen worden";
-"File cannot be optimized any further" = "Het bestand kan niet verder geoptimaliseerd worden";
-"File is neither PNG, GIF nor JPEG" = "Het bestand is noch PNG noch JPEG";
-"Inspecting file" = "Bezig met analyseren van bestand";
-"New file" = "Nieuw bestand";
-"Optimized file could not be saved" = "Het geoptimaliseerde bestand kon niet bewaard worden";
-"Optimized successfully with %@" = "De optimalisatie is geslaagd (%@)";
-"Size of optimized file is 0" = "De grootte van het geoptimaliseerde bestand is 0";
-"Started %@" = "%@ gestart";
-"Waiting in queue" = "In de wachtrij";
-"Waiting to be optimized" = "Klaar om geoptimaliseerd te worden";
-"Waiting to start more optimizations" = "Wachten op verdere optimalisaties";
+/* tooltip */
 "%@ failed to start" = "%@ kon niet starten";
+
+/* undo command name */
+"Add" = "Voeg toe";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "Alle benodigde programma’s zijn uitgeschakeld via Voorkeuren";
+
+/* tooltip, generic loading error */
+"Can't map file into memory" = "Het bestand kon niet in het geheugen ingelezen worden";
+
+/* undo command name */
+"Cut" = "Knip";
+
+/* tooltip */
+"File cannot be optimized any further" = "Het bestand kan niet verder geoptimaliseerd worden";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "Het bestand is noch PNG noch JPEG";
+
+/* tooltip */
+"Inspecting file" = "Bezig met analyseren van bestand";
+
+
+/* newly added to the queue */
+"New file" = "Nieuw bestand";
+
+/* tooltip */
+"Optimized file could not be saved" = "Het geoptimaliseerde bestand kon niet bewaard worden";
+
+/* tooltip */
+"Optimized successfully with %@" = "De optimalisatie is geslaagd (%@)";
+
+
+
+/* command name, tooltip */
+"Started %@" = "%@ gestart";
+
+/* tooltip */
+"Waiting to be optimized" = "Klaar om geoptimaliseerd te worden";
+
+/* tooltip */
+"Waiting to start more optimizations" = "Wachten op verdere optimalisaties";

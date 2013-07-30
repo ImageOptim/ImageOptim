@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"	"http://www.w3.org/TR/html4/strict.dtd">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
-<title>ImageOptim Preferences</title>
+<title>Valg for ImageOptim</title>
 <link rel="stylesheet" href="../../style.css">
 <meta name="AppleTitle" content="ImageOptim Preferences Help">
 <meta name="AppleIcon" content="../../crusher.icns" />
@@ -14,7 +14,7 @@
 <p>Du trenger ikke å endre noen av disse.</p>
 <h2>Generelle valg</h2>
 <dl>
-	<dt>Preserve file permissions, attributes and hardlinks</dt>
+<dt>Bevar rettigheter, attributter og harde lenker</dt>
 	<dd>
 		<p>Instead of deleting old file writing a new one with the same name, just replaces old file's content in-place. This ensures that all hardlinks, aliases, file ownership, permissions, extended file attributes will stay the same.
 		<p>It's slightly faster not to preserve permissions.
@@ -35,8 +35,9 @@
 	<dt>Enabled</dt>
 <dd><p>If checked, ImageOptim will try to optimize JPEG files.</dd>
 
-<dt>Maximum quality</dt>
-<dd><p>If set to 100%, optimization will be <strong>lossless</strong>.</p>
+<dt>Maksimal kvalitet</dt>
+<dd>
+<p>If set to 100%, optimization will be <strong>lossless</strong>.</p>
 	<p>Anything below 100% will cause <strong>lower quality</strong> of files if they appear to have been saved with higher quality setting.</p>
 
 </dl>
@@ -50,8 +51,8 @@
     <p>PNGOUT is not bundled with ImageOptim. It's a great tool, but the <a href="http://www.advsys.net/ken/utils.htm">author of PNGOUT</a> forbids redistribution of it, so <a target="_blank" href="http://www.jonof.id.au/index.php?p=pngout">you have to download PNGOUT yourself</a>.</dd>
 
 <dl>
-	<dt>Optimization type</dt>
-	<dd><p>PNGOUT is very effective, but very slow. Use lower level if you're impatient.</dd>
+<dt>Type optimalisering</dt>
+	<dd><p>PNGOUT is very effective, but very slow. Use lower level if you're impatient.</p></dd>
 
 	<dt>Interrupt if takes too long</dt>
 	<dd><p>PNGOUT may need <em>a lot</em> of time to optimize very large images. This option gracefully interrupts PNGOUT after 1 minute.</p></dd>
@@ -66,7 +67,7 @@
 <dd><p>If checked, ImageOptim will try to optimize PNG files using AdvPNG tool.</dd>
 
 <dl>
-	<dt>Optimization level</dt>
+<dt>Optimaliseringsgrad</dt>
 	<dd>AdvPNG is relatively fast, so you can use maximum level.</dd>
 </dl>
 </div>
@@ -78,12 +79,17 @@
 <dd><p>If checked, ImageOptim will try to optimize PNG files using OptiPNG tool.</dd>
 
 <dl>
-	<dt>Optimization level</dt>
-	<dd><p>Number of different setting combinations tested. It rarely makes sense to try them all.</dd>
+<dt>Optimaliseringsgrad</dt>
+	<dd><p>Number of different setting combinations tested. It rarely makes sense to try them all.</p></dd>
 
-	<dt>Make images interlaced (progressive)</dt>
-	<dd><p>Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.<p>
-		<p>This checkbox has three states: if checked, will force images to be interlaced. When mixed, it will keep file's interlace unchanged, unchecked will remove interlace from files.</dd>
+	<dt>Lagre bilder i interlacet format</dt>
+	<dd>
+<p>Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.</p>
+<p>
+		</p>
+<p>This checkbox has three states: if checked, will force images to be interlaced. When mixed, it will keep file's interlace unchanged, unchecked will remove interlace from files.</p>
+</dd>
+</dl>
 </dl>
 </div>
 <div id="gifsicle">

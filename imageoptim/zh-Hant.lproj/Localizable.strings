@@ -1,6 +1,27 @@
+
+/* undo command name */
+"Add" = "新增";
+
+/* undo command name */
+"Cut" = "剪下";
+
+/* tooltip */
 "File cannot be optimized any further" = "檔案無法進一步最佳化";
+
+/* newly added to the queue */
+"New file" = "新文件";
+
+/* tooltip */
 "Optimized file could not be saved" = "無法儲存最佳化後的檔案";
+
+/* tooltip */
 "Optimized successfully with %@" = "利用%@成功最佳化檔案";
-"Size of optimized file is 0" = "檔案最佳化後容量為0";
+
+
+
+/* tooltip */
 "Waiting to be optimized" = "檔案最佳化中";
+
+/* tooltip */
 "Waiting to start more optimizations" = "等候其他最佳化處理";
+

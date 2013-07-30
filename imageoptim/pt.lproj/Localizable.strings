@@ -1,14 +1,40 @@
-"All neccessary tools have been disabled in Preferences" = "Todas as ferramentas necessárias foram desactivadas nas Preferências";
-"Can't map file into memory" = "Não é possivel mapear o ficheiro para memória";
-"File cannot be optimized any further" = "O ficheiro não pode ser optimizado para além do estado actual";
-"File is neither PNG, GIF nor JPEG" = "O ficheiro não é PNG ou JPEG";
-"Inspecting file" = "A inspeccionar ficheiro";
-"New file" = "Novo ficheiro";
-"Optimized file could not be saved" = "Não foi possível guardar o ficheiro optimizado";
-"Optimized successfully with %@" = "Optimizado com sucesso com o %@";
-"Size of optimized file is 0" = "O tamanho do ficheiro optimizado é 0";
-"Started %@" = "Iniciado o %@";
-"Waiting in queue" = "A aguardar";
-"Waiting to be optimized" = "A aguardar para ser optimizado";
-"Waiting to start more optimizations" = "A aguardar para iniciar mais optimizações";
+/* tooltip */
 "%@ failed to start" = "O %@ falhou ao iniciar";
+
+"All neccessary tools have been disabled in Preferences" = "Todas as ferramentas necessárias foram desactivadas nas Preferências";
+
+/* tooltip, generic loading error */
+"Can't map file into memory" = "Não é possivel mapear o ficheiro para memória";
+
+/* undo command name */
+"Cut" = "Cortar";
+
+/* tooltip */
+"File cannot be optimized any further" = "O ficheiro não pode ser optimizado para além do estado actual";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "O ficheiro não é PNG ou JPEG";
+
+/* tooltip */
+"Inspecting file" = "A inspeccionar ficheiro";
+
+
+/* newly added to the queue */
+"New file" = "Novo ficheiro";
+
+/* tooltip */
+"Optimized file could not be saved" = "Não foi possível guardar o ficheiro optimizado";
+
+/* tooltip */
+"Optimized successfully with %@" = "Optimizado com sucesso com o %@";
+
+
+
+/* command name, tooltip */
+"Started %@" = "Iniciado o %@";
+
+/* tooltip */
+"Waiting to be optimized" = "A aguardar para ser optimizado";
+
+/* tooltip */
+"Waiting to start more optimizations" = "A aguardar para iniciar mais optimizações";

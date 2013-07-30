@@ -1,27 +1,45 @@
+/* tooltip */
+"%@ failed to start" = "%@ kunde inte startas";
+
+/* undo command name */
+"Add" = "Lägg till";
+
+/* tooltip */
 "All neccessary tools have been disabled in Preferences" = "Alla verktyg som behövs har stängts av i inställningarna";
 
+/* tooltip, generic loading error */
 "Can't map file into memory" = "Kan inte läsa in filen i minnet";
 
+/* undo command name */
+"Cut" = "Klipp ut";
+
+/* tooltip */
 "File cannot be optimized any further" = "Det går inte att optimera filen mer";
 
+/* tooltip */
 "File is neither PNG, GIF nor JPEG" = "Filen är varken i PNG- eller JPG-format";
 
+/* tooltip */
 "Inspecting file" = "Inspekterar fil";
 
+
+/* newly added to the queue */
 "New file" = "Ny fil";
 
+/* tooltip */
 "Optimized file could not be saved" = "Den optimerade filen kunde inte sparas";
 
+/* tooltip */
 "Optimized successfully with %@" = "Optimering med %@ lyckades";
 
-"Size of optimized file is 0" = "Den optimerade filens storlek är 0";
 
+
+/* command name, tooltip */
 "Started %@" = "%@ har startat";
 
-"Waiting in queue" = "Väntar i kö";
-
+/* tooltip */
 "Waiting to be optimized" = "Väntar på optimering";
 
-"Waiting to start more optimisations" = "Väntar på att start fler optimeringar";
+/* tooltip */
+"Waiting to start more optimizations" = "Waiting to start more optimizations";
 
-"%@ failed to start" = "%@ kunde inte startas";

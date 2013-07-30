@@ -121,7 +121,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="18581533">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">Saving to network drives is faster when permissions are not preserved</string>
+																	<string key="NSContents">パーミッションを維持しない場合はネットワークドライブへの保存が早くなります</string>
 																	<object class="NSFont" key="NSSupport" id="26">
 																		<string key="NSName">LucidaGrande</string>
 																		<double key="NSSize">11</double>
@@ -232,7 +232,7 @@
 																<object class="NSButtonCell" key="NSCell" id="731398776">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">PNG: すべての拡張情報を削除</string>
+																	<string key="NSContents">PNGのメタデータを取り除く (ガンマ値、カラープロファイル、任意データ)</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="469954983"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -274,7 +274,7 @@
 																<object class="NSButtonCell" key="NSCell" id="458069250">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">JPEG: EXIF出力情報とコメントをファイルから取り除く</string>
+																	<string key="NSContents">JPEGのメタデータを取り除く (EXIF、カラープロファイル、GPS、向きなど)</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="354107699"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -297,7 +297,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="254823532">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">Not recommended if you rely on embedded copyright information</string>
+																	<string key="NSContents">埋め込まれた著作権情報を必要とする場合は不適切です</string>
 																	<reference key="NSSupport" ref="26"/>
 																	<reference key="NSControlView" ref="1001070319"/>
 																	<reference key="NSBackgroundColor" ref="585428330"/>
@@ -320,7 +320,7 @@
 												<object class="NSTextFieldCell" key="NSTitleCell">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">メタデータ</string>
+													<string key="NSContents">メタデータとカラープロファイル</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSBackgroundColor" ref="265439438"/>
 													<object class="NSColor" key="NSTextColor">
@@ -659,7 +659,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="888812765">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">272629760</int>
-													<string key="NSContents">シンプル</string>
+													<string key="NSContents">普通</string>
 													<object class="NSFont" key="NSSupport" id="22">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">9</double>
@@ -681,7 +681,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="918393755">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">究極</string>
+													<string key="NSContents">最大</string>
 													<reference key="NSSupport" ref="22"/>
 													<reference key="NSControlView" ref="378802648"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -699,7 +699,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="112111748">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">138412032</int>
-													<string key="NSContents">激しい</string>
+													<string key="NSContents">強力</string>
 													<reference key="NSSupport" ref="22"/>
 													<reference key="NSControlView" ref="708458888"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -786,7 +786,7 @@
 												<object class="NSButtonCell" key="NSCell" id="746330584">
 													<int key="NSCellFlags">-2080374784</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">実行時間が長すぎる場合中断する</string>
+													<string key="NSContents">実行に時間がかかる場合は中止する</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="801424669"/>
 													<int key="NSButtonFlags">1211912448</int>
@@ -823,7 +823,7 @@
 												<object class="NSButtonCell" key="NSCell" id="337448332">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">16777216</int>
-													<string key="NSContents">画像をインターレース(プログレッシブ)化する</string>
+													<string key="NSContents">画像をインターレース (プログレッシブ) 形式にする</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="892500559"/>
 													<int key="NSButtonFlags">1211912448</int>
@@ -865,7 +865,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="645880451">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">272629760</int>
-													<string key="NSContents">インターレースすると容量は通常大きくなります</string>
+													<string key="NSContents">インターレース形式は一般的に容量が大きくなります</string>
 													<object class="NSFont" key="NSSupport">
 														<string key="NSName">LucidaGrande</string>
 														<double key="NSSize">10</double>
@@ -1180,7 +1180,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="930696126">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">最大品質</string>
+													<string key="NSContents">最高品質</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="214791961"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>

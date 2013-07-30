@@ -1,20 +1,48 @@
-"All neccessary tools have been disabled in Preferences" = "Niezbędne narzędzia zostały wyłączone w Preferencjach";
-"Can't map file into memory" = "Nie udało się załadować pliku";
-"File cannot be optimized any further" = "Plik już był maksymalnie zoptymalizowany";
-"File is neither PNG, GIF nor JPEG" = "Plik nie jest typu PNG ani JPEG";
-"Inspecting file" = "Sprawdzam plik";
-"New file" = "Nowo dodany";
-"Optimized file could not be saved" = "Nie udało się zapisać zoptymalizowanej wersji";
-"Optimized successfully with %@" = "Zoptymalizowano za pomocą %@";
-"Size of optimized file is 0" = "Plik po optymalizacji ma 0 batów (błąd)";
-"Started %@" = "Rozpoczęto %@";
-"Waiting in queue" = "Oczekuje w kolejce";
-"Waiting to be optimized" = "Oczekuje na optymalizację";
-"Waiting to start more optimizations" = "Oczekuje na kolejną rundę optymalizacji";
+/* tooltip */
 "%@ failed to start" = "Nie udało się uruchomić %@";
+
+/* undo command name */
 "Add" = "Dodaj";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "Niezbędne narzędzia zostały wyłączone w Preferencjach";
+
+/* tooltip, generic loading error */
+"Can't map file into memory" = "Nie udało się załadować pliku";
+
+/* undo command name */
 "Cut" = "Wytnij";
-"KB" = "KB";
-"MB" = "MB";
+
+/* tooltip */
+"File cannot be optimized any further" = "Plik już był maksymalnie zoptymalizowany";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "Plik nie jest typu PNG, GIF ani JPEG";
+
+/* tooltip */
+"Inspecting file" = "Sprawdzam plik";
+
+
+/* newly added to the queue */
+"New file" = "Nowo dodany";
+
+/* tooltip */
+"Optimized file could not be saved" = "Nie udało się zapisać zoptymalizowanej wersji";
+
+/* tooltip */
+"Optimized successfully with %@" = "Zoptymalizowano za pomocą %@";
+
+/* total ratio, status bar */
 "Saved %@ out of %@. %@ overall (up to %@ per file)" = "Oszczędzono %@ z %@. W sumie %@ (niektóre pliki do %@)";
+
+/* per file avg, status bar */
 "Saved %@ out of %@. %@ per file on average (up to %@)" = "Oszczędzono %@ z %@. Średnio %@ na plik (aż do %@)";
+
+/* command name, tooltip */
+"Started %@" = "Rozpoczęto %@";
+
+/* tooltip */
+"Waiting to be optimized" = "Oczekuje na optymalizację";
+
+/* tooltip */
+"Waiting to start more optimizations" = "Oczekuje na kolejną rundę optymalizacji";
