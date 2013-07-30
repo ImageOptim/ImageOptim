@@ -1,0 +1,28 @@
+[main]
+host = https://www.transifex.com
+lang_map = zh_CN:zh-Hant, en_GB:en-GB, pt_BR:pt-BR
+
+[imageoptim.localizablestrings]
+file_filter = <lang>.lproj/Localizable.strings
+source_lang = en_US
+
+[imageoptim.mainmenustrings]
+file_filter = <lang>.lproj/MainMenu.strings
+source_lang = en_US
+
+[imageoptim.prefsstrings]
+file_filter = <lang>.lproj/PrefsController.strings
+source_lang = en_US
+
+[imageoptim.helpindexhtml]
+file_filter = <lang>.lproj/Help/index.html
+source_lang = en_US
+
+[imageoptim.help-prefshtml]
+file_filter = <lang>.lproj/Help/prefs.html
+source_lang = en_US
+
+[imageoptim.creditshtml]
+file_filter = <lang>.lproj/Credits.html
+source_lang = en_US
+
