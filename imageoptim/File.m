@@ -276,6 +276,8 @@ enum {
                 return NO;
             }
 
+            [self removeExtendedAttr]; // clears filePath
+
             NSData *data = [NSData dataWithContentsOfFile:filePathOptimized];
             if (!data) {
                 NSLog(@"Unable to read %@", filePathOptimized);
@@ -314,6 +316,10 @@ enum {
         if (![fm moveItemAtPath:moveFromPath toPath:filePath error:&error]) {
             NSLog(@"Failed to move from %@ to %@; %@",moveFromPath, filePath, error);
             return NO;
+        }
+
+        if (!preserve) {
+            [self removeExtendedAttr]; // clears filePath
         }
 
         filePathOptimized = nil;
