@@ -256,6 +256,11 @@ enum {
         NSError *error = nil;
         NSString *moveFromPath = filePathOptimized;
 
+        if (![fm isWritableFileAtPath:[filePath stringByDeletingLastPathComponent]]) {
+            NSLog(@"The file %@ is in non-writeable directory", filePath);
+            return NO;
+        }
+
         if (preserve)
         {
             NSString *writeToPath = [[[filePath stringByDeletingPathExtension] stringByAppendingString:@"~imageoptim"]
@@ -268,6 +273,7 @@ enum {
             // move destination to temporary location that will be overwritten
             if (![fm moveItemAtPath:filePath toPath:writeToPath error:&error]) {
                 NSLog(@"Can't move to %@ %@", writeToPath, error);
+                return NO;
             }
 
             // copy original data for trashing under original file name
@@ -490,6 +496,11 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
         }
     }
 
+    NSFileManager *fm = [NSFileManager defaultManager];
+    if (![fm isWritableFileAtPath:filePath]) {
+        [self setStatus:@"err" order:9 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
+        return;
+    }
 
 	NSMutableArray *runFirst = [NSMutableArray new];
 	NSMutableArray *runLater = [NSMutableArray new];
