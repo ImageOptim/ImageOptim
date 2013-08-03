@@ -498,6 +498,11 @@
 		5AE74B5C146DECA300287FA6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/MainMenu.xib"; sourceTree = "<group>"; };
 		5AE74B5E146DECAA00287FA6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/PrefsController.xib"; sourceTree = "<group>"; };
 		5AE74B60146DECB100287FA6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pt-BR"; path = "pt-BR.lproj/Help"; sourceTree = "<group>"; };
+		5AE9754E17AD5BCC0037C2E2 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ko; path = ko.lproj/Credits.html; sourceTree = "<group>"; };
+		5AE9755C17AD5BCE0037C2E2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ja; path = ja.lproj/Credits.html; sourceTree = "<group>"; };
+		5AE9755D17AD5BD20037C2E2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hant"; path = "zh-Hant.lproj/Credits.html"; sourceTree = "<group>"; };
+		5AE9755E17AD5BE20037C2E2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ru; path = ru.lproj/Credits.html; sourceTree = "<group>"; };
+		5AE9755F17AD5BE40037C2E2 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = lt; path = lt.lproj/Credits.html; sourceTree = "<group>"; };
 		5AEF1B1D10F2BCA900E3E4F0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		5AEF1B2110F2BCB200E3E4F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AF71642174AF7C30018D3FE /* pngout */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = pngout; sourceTree = "<group>"; };
@@ -1232,14 +1237,19 @@
 				1ACFBA3D179A1351006D93B2 /* es */,
 				1ACFBA3E179A1352006D93B2 /* fr */,
 				1ACFBA49179A135B006D93B2 /* it */,
+				5AE9755C17AD5BCE0037C2E2 /* ja */,
+				5AE9754E17AD5BCC0037C2E2 /* ko */,
+				5AE9755F17AD5BE40037C2E2 /* lt */,
 				1ACFBA3C179A1350006D93B2 /* nl */,
 				5A012EFC17A89860002E794E /* no */,
 				1ACFBA39179A1314006D93B2 /* pl */,
 				1ACFBA44179A1356006D93B2 /* pt */,
 				1ACFBA45179A1357006D93B2 /* pt-BR */,
+				5AE9755E17AD5BE20037C2E2 /* ru */,
 				1ACFBA47179A1359006D93B2 /* sv */,
 				5A012ECC17A89238002E794E /* tr */,
 				5A012ECD17A89239002E794E /* vi */,
+				5AE9755D17AD5BD20037C2E2 /* zh-Hant */,
 			);
 			name = Credits.html;
 			sourceTree = "<group>";
