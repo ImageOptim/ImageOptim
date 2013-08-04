@@ -35,6 +35,7 @@ extern NSDictionary *statusImages;
 -(IBAction)quickLookAction:(id)sender;
 -(IBAction)openHomepage:(id)sender;
 -(IBAction)viewSource:(id)sender;
+-(IBAction)openDonationPage:(id)sender;
 -(IBAction)browseForFiles:(id)sender;
 
 -(int)numberOfCPUs;

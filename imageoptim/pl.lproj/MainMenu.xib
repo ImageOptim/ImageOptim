@@ -1179,6 +1179,14 @@
 									<reference key="NSOnImage" ref="855672835"/>
 									<reference key="NSMixedImage" ref="898714739"/>
 								</object>
+								<object class="NSMenuItem" id="156988055">
+									<reference key="NSMenu" ref="572557097"/>
+									<string key="NSTitle">Donate</string>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="855672835"/>
+									<reference key="NSMixedImage" ref="898714739"/>
+								</object>
 								<object class="NSMenuItem" id="904233423">
 									<reference key="NSMenu" ref="572557097"/>
 									<bool key="NSIsDisabled">YES</bool>
@@ -1607,6 +1615,14 @@
 						<reference key="destination" ref="470500581"/>
 					</object>
 					<int key="connectionID">39</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openDonationPage:</string>
+						<reference key="source" ref="335302141"/>
+						<reference key="destination" ref="156988055"/>
+					</object>
+					<int key="connectionID">822</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -2541,6 +2557,7 @@
 							<reference ref="128963598"/>
 							<reference ref="515055567"/>
 							<reference ref="904233423"/>
+							<reference ref="156988055"/>
 						</array>
 						<reference key="parent" ref="524041950"/>
 					</object>
@@ -3022,6 +3039,11 @@
 						<reference key="object" ref="399261059"/>
 						<reference key="parent" ref="956832752"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">820</int>
+						<reference key="object" ref="156988055"/>
+						<reference key="parent" ref="572557097"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -3225,13 +3247,14 @@
 				<string key="812.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="813.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="816.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="820.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">819</int>
+			<int key="maxID">822</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3268,6 +3291,7 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="browseForFiles:">id</string>
 						<string key="clearComplete:">id</string>
+						<string key="openDonationPage:">id</string>
 						<string key="openHomepage:">id</string>
 						<string key="quickLookAction:">id</string>
 						<string key="showPrefs:">id</string>
@@ -3282,6 +3306,10 @@
 						</object>
 						<object class="IBActionInfo" key="clearComplete:">
 							<string key="name">clearComplete:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="openDonationPage:">
+							<string key="name">openDonationPage:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="openHomepage:">

@@ -271,6 +271,11 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 	[self openURL:@"http://imageoptim.com/source"];
 }
 
+-(IBAction)openDonationPage:(id)sender
+{
+	[self openURL:@"http://imageoptim.com/donate.html"];
+}
+
 -(void)openURL:(NSString *)stringURL
 {
 	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:stringURL]];
