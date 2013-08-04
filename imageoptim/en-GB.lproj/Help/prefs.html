@@ -1,105 +1,81 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"	"http://www.w3.org/TR/html4/strict.dtd">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
-<title>ImageOptim Preferences</title>
-<link rel="stylesheet" href="../../style.css">
-<meta name="AppleTitle" content="ImageOptim Preferences Help">
-<meta name="AppleIcon" content="../../crusher.icns" />
-<meta name="AppleFont" content="Lucida Grande,Helvetica,Arial" />
-    <meta name="AppleSearchResultsFont" content="Lucida Grande,Geneva,Arial" />
-<meta name="description" content="ImageOptim Preferences">
-<body>
-<a name="general">general</a>
-<h1>ImageOptim Preferences</h1>
-<p><a href="index.html">« Back to index</a></p>
-<p>You shouldn't need to change any of these.</p>
-<h2>General preferences</h2>
-<dl>
-	<dt>Preserve file permissions, attributes and hardlinks</dt>
-	<dd>
-		<p>Instead of deleting old file writing a new one with the same name, just replaces old file's content in-place. This ensures that all hardlinks, aliases, file ownership, permissions, extended file attributes will stay the same.
-		<p>It's slightly faster not to preserve permissions.
-	</dd>
-	<dt>Backup original files before saving</dt>
-	<dd><p>Will write copy of a file with <samp>~</samp> appended to its name. This makes optimisation a bit slower and litters your disk with backup files.</p></dd>
-
-	<dt>Remove optional chunks</dt>
-	<dd><p>Keep it on if you optimise for web. Disable if you have special PNGs with extra metadata.</p></dd>
-    <dt>Strip EXIF markers from files</dt>
-    <dd><p>Removes image metadata, such as color profile, exposure time, GPS coordinates, camera model and name of software used to create the file. Metadata is never removed from JPEG files larger than 1.3MB.</dd>
-
-</dl>
-<div id="jpegoptim">
-<a name="jpegoptim">jpegoptim</a>
-<h2>JPEGOptim</h2>
-<dl>
-	<dt>Enabled</dt>
-<dd><p>If checked, ImageOptim will try to optimise JPEG files.</dd>
-
+<!DOCTYPE html>
+<html lang=en-GB>
+  <head>
+    <meta charset="UTF-8">
+    <title>
+      ImageOptim Preferences
+    </title>
+    <link rel="stylesheet" href="../../style.css" type="text/css">
+    <meta name="AppleTitle" content="ImageOptim Preferences Help">
+    <meta name="AppleIcon" content="../../crusher.icns">
+    <meta name="AppleFont" content="Lucida Grande,Helvetica,Arial">
+    <meta name="AppleSearchResultsFont" content="Lucida Grande,Geneva,Arial">
+    <meta name="description" content="ImageOptim Preferences">
+  </head>
+  <body>
+    <h1>ImageOptim Preferences</h1>
+    <p><a href="index.html">« Back to index</a></p>
+    <h2>General preferences</h2>
+    <dl>
+<dt>Preserve file permissions, attributes and hardlinks</dt>
+      <dd>
+        <p>Instead of deleting old file writing a new one with the same name, just replaces old file's content in-place. This ensures that all hardlinks, aliases, file ownership, permissions, extended file attributes will stay the same.</p>
+        <p>It's slightly faster not to preserve permissions.</p>
+      </dd>
+      <dt>Strip PNG metadata (gamma, color profiles, optional chunks)</dt>
+      <dd>
+        <p>PNG files can have different brightness and saturation in different browsers, because not all browsers support gamma correction and color profiles features equally. Removal of this information makes PNG color more consistent across browsers and reduces file size.</p>
+        <p data-role="strip-dpi">Other invisible information is removed as well, such as DPI and comments.</p>
+      </dd>
+      <dt>Strip JPEG metadata (EXIF, color profiles, GPS, rotation, etc.)</dt>
+      <dd>
+        <p>Removes image metadata, such as color profile, exposure time, GPS coordinates, camera model and name of software used to create the file.</p>
+        <p data-role="strip-copyright">Embedded copyright information is removed as well. Please note that generally images are protected by copyright law regardless whether they contain such invisible metadata or not.</p>
+      </dd>
+    </dl>
+<h2>Tools</h2>
+    <p data-role="slow-tools">Zopfli and PNGOUT are very good PNG compressors, but are very slow. Disable them if you need to optimise PNG files quickly (leave only AdvPNG for fastest, but still good compression).</p>
+    <p data-role="dirty-alpha-tools">Zopfli and OptiPNG will clean RGB values of transparent pixels (known as “dirty alpha”). Disable these two tools if you're optimising special files that use alpha channel for something else than transparency (e.g. heightmap in game data files).</p>
+    <div id="jpegoptim">
+      <h2>JPEGOptim</h2>
+      <dl>
 <dt>Maximum quality</dt>
-<dd><p>If set to 100%, optimisation will be <strong>lossless</strong>.</p>
-	<p>Anything below 100% will cause <strong>lower quality</strong> of files if they appear to have been saved with higher quality setting.</p>
-
-</dl>
+        <dd>
+          <p>If set to 100%, optimisation will be <strong>lossless</strong>.</p>
+          <p>Anything below 100% will cause <strong>lower quality</strong> of files if they appear to have been saved with higher quality setting.</p>
+        </dd>
+      </dl>
 </div>
-<div id="pngout">
-<a name="pngout">pngout</a>
-<h2>PNGOUT</h2>
-<dl>
-<dt>Enabled</dt>
-<dd><p>If checked, ImageOptim will try to optimise PNG files using PNGOUT.
-    <p>PNGOUT is not bundled with ImageOptim. It's a great tool, but the <a href="http://www.advsys.net/ken/utils.htm">author of PNGOUT</a> forbids redistribution of it, so <a target="_blank" href="http://www.jonof.id.au/index.php?p=pngout">you have to download PNGOUT yourself</a>.</dd>
-
-<dl>
-	<dt>Optimisation type</dt>
-	<dd><p>PNGOUT is very effective, but very slow. Use lower level if you're impatient.</dd>
-
-	<dt>Interrupt if takes too long</dt>
-	<dd><p>PNGOUT may need <em>a lot</em> of time to optimise very large images. This option gracefully interrupts PNGOUT after 1 minute.</p></dd>
-</dl>
+    <div id="pngout">
+      <h2>PNGOUT</h2>
+      <dl>
+<dt>Optimisation type</dt>
+        <dd>
+          <p>PNGOUT is very effective, but very slow. Use lower level if you're impatient.</p>
+        </dd>
+        <dt>Interrupt if takes too long</dt>
+        <dd>
+          <p>PNGOUT may need <em>a lot</em> of time to optimise very large images. This option gracefully interrupts PNGOUT after 1 minute.</p>
+        </dd>
+      </dl>
 </div>
-<div id="advpng">
-<a name="advpng">advpng</a>
-<h2>AdvPNG</h2>
-<dl>
-<dt>Enabled</dt>
-<dd><p>If checked, ImageOptim will try to optimise PNG files using AdvPNG tool.</dd>
-
-<dl>
-	<dt>Optimisation level</dt>
-	<dd>AdvPNG is relatively fast, so you can use maximum level.</dd>
-</dl>
+    <div id="optipng">
+      <h2>OptiPNG</h2>
+      <dl>
+<dt>Optimisation level</dt>
+        <dd>
+          <p>Number of different setting combinations tested. It rarely makes sense to try them all.</p>
+        </dd>
+        <dt>Make images interlaced (progressive)</dt>
+        <dd>
+          <p>Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.</p>
+          <p>This checkbox has three states: if checked, will force images to be interlaced. When mixed, it will keep file's interlace unchanged, unchecked will remove interlace from files.</p>
+        </dd>
+      </dl>
 </div>
-<div id="optipng">
-<a name="optipng">optipng</a>
-<h2>OptiPNG</h2>
-<dl>
-<dt>Enabled</dt>
-<dd><p>If checked, ImageOptim will try to optimise PNG files using OptiPNG tool.</dd>
-
-<dl>
-	<dt>Optimisation level</dt>
-	<dd><p>Number of different setting combinations tested. It rarely makes sense to try them all.</dd>
-
-	<dt>Make images interlaced (progressive)</dt>
-	<dd><p>Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.<p>
-		<p>This checkbox has three states: if checked, will force images to be interlaced. When mixed, it will keep file's interlace unchanged, unchecked will remove interlace from files.</dd>
-</dl>
-</div>
-<div id="gifsicle">
-<a name="gifsicle">gifsicle</a>
-<h2>Gifsicle</h2>
-<dl>
-<dt>Enabled</dt>
-<dd><p>If checked, ImageOptim will try to optimise GIF files using Gifsicle.
-
-<p>GIF files will be changed to interlaced or non-interlaced automatically, whichever is smaller. In-file comments will be removed.</p>
-<p>Please note that Gifsicle works best with animated GIFs and non-animated GIFs rarely can be optimised</p>
-
-<p>For best compression, you should convert GIF files to PNGs (ImageOptim does not do that automatically).</p>
-</div>
-<div id="jpegrescan">
-<a name="jpegrescan">jpegrescan</a>
-<h2>JpegRescan</h2>
-
-<p>Jpegrescan is a script based on <code>jpegtran</code>. It uses creates JPEG files with unusual number of progressive scans to achieve better compression, but such files may not be compatible with all browsers.</p>
-</div>
+    <div id="gifsicle">
+      <h2>Gifsicle</h2>
+      <p>For best compression, you should convert GIF files to PNGs (ImageOptim does not do that automatically).</p>
+    </div>
+  </body>
+</html>
