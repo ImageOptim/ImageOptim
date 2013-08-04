@@ -19,30 +19,30 @@
     <dl>
 <dt>Сохранять разрешения, аттрибуты и ссылки файла</dt>
       <dd>
-        <p>Instead of deleting old file writing a new one with the same name, just replaces old file's content in-place. This ensures that all hardlinks, aliases, file ownership, permissions, extended file attributes will stay the same.</p>
+        <p>Вместо удаления старого файла создайте другой с тем же именем, заменяющий содержание оригинала. Это, в свою очередь, обеспечит сохранение орининальных ссылок, псевдонимов, владельцев, разрешений и расширенных аттрибутов файла.</p>
         <p>Немного быстрее не сохранять разрешения.</p>
       </dd>
       <dt>Удалять дополнительные чанки</dt>
       <dd>
-        <p>PNG files can have different brightness and saturation in different browsers, because not all browsers support gamma correction and color profiles features equally. Removal of this information makes PNG color more consistent across browsers and reduces file size.</p>
-        <p data-role="strip-dpi">Other invisible information is removed as well, such as DPI and comments.</p>
+        <p>PNG-файлы могут иметь различную яркость, насыщенность в разных браузерах, поскольку не все из них осуществляют поддержку гамма-коррекции и цветовых профилей одинаково. Удаление этой информации приводит к уменьшению размера PNG-файла и сводит к минимуму различия в отображении цветов во всех браузерах.</p>
+        <p data-role="strip-dpi">Остальная скрытая информация удаляется наравне с DPI и комментариями.</p>
       </dd>
       <dt>Вырезать метки EXIF из файла</dt>
       <dd>
-        <p>Removes image metadata, such as color profile, exposure time, GPS coordinates, camera model and name of software used to create the file.</p>
-        <p data-role="strip-copyright">Embedded copyright information is removed as well. Please note that generally images are protected by copyright law regardless whether they contain such invisible metadata or not.</p>
+        <p>Удаляются мета-данные изображения, такие как цветовой профиль, экспозиция, GPS-координаты, модель камеры и названия ПО, использованного для создания файла.</p>
+        <p data-role="strip-copyright">Встроенную информацию о правообладателе стирается. Отметьте, что, как правило, изображения, охраняемые авторским правом, остаются таковыми вне зависимости от того, содержат ли они соответствующие мета-данные или нет.</p>
       </dd>
     </dl>
 <h2>Tools</h2>
-    <p data-role="slow-tools">Zopfli and PNGOUT are very good PNG compressors, but are very slow. Disable them if you need to optimize PNG files quickly (leave only AdvPNG for fastest, but still good compression).</p>
-    <p data-role="dirty-alpha-tools">Zopfli and OptiPNG will clean RGB values of transparent pixels (known as “dirty alpha”). Disable these two tools if you're optimizing special files that use alpha channel for something else than transparency (e.g. heightmap in game data files).</p>
+    <p data-role="slow-tools">Zopfli и PNGOUT хорошо сжимают PNG, однако, процесс занимает значительное время. Если требуется оптимизировать PNG-изображения быстро (оставьте включенным только AdvPNG для быстрой оптимизации, при том с почти настолько же высокой степенью сжатия).</p>
+    <p data-role="dirty-alpha-tools">Zopfli и OptiPNG очистят значения RGB-компонент прозрачных пикселей (называемых "грязным альфа-каналом"). Отключите оба инструмента при сжатии специальных файлов, использующих альфа-канал не только для задания прозрачности(например, карты высот в текстурах компьютерных игр).</p>
     <div id="jpegoptim">
       <h2>JPEGOptim</h2>
       <dl>
 <dt>Максимальное качество</dt>
         <dd>
-          <p>If set to 100%, optimization will be <strong>lossless</strong>.</p>
-          <p>Anything below 100% will cause <strong>lower quality</strong> of files if they appear to have been saved with higher quality setting.</p>
+          <p>При установке значения в 100% оптимизация будет произведена <strong>без потери качества</strong>.</p>
+          <p>Любое значение параметра меньше 100% приведет к <strong>низкому качеству</strong> файлов, в отличие от сохраненных с высокими настройками качества.</p>
         </dd>
       </dl>
 </div>
@@ -55,7 +55,7 @@
         </dd>
         <dt>Прерывать, если занимает много времени</dt>
         <dd>
-          <p>PNGOUT may need <em>a lot</em> of time to optimize very large images. This option gracefully interrupts PNGOUT after 1 minute.</p>
+          <p>PNGOUT может потребоваться <em>много</em> времени на оптимизацию больших файлов. Эта настройка прерывает выполнение PNGOUT по истечение 1 минуты.</p>
         </dd>
       </dl>
 </div>
@@ -64,18 +64,18 @@
       <dl>
 <dt>Уровень оптимизации</dt>
         <dd>
-          <p>Number of different setting combinations tested. It rarely makes sense to try them all.</p>
+          <p>Проверено множество различных комбинаций настроек. И в редких случаях имеет практический смысл включать их все.</p>
         </dd>
         <dt>Использовать чересстрочную развертку (прогрессивно)</dt>
         <dd>
-          <p>Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.</p>
-          <p>This checkbox has three states: if checked, will force images to be interlaced. When mixed, it will keep file's interlace unchanged, unchecked will remove interlace from files.</p>
+          <p>Изображения с чересстрочной разверткой выглядят лучше при частичной загрузку, однако, обычно развертка отрицательно сказывается на степени сжатия данных.</p>
+          <p>Флаг принимает 3 состояния: если отмечен, принудительно обеспечит чересстрочную развертку изображения. В промежуточном состоянии состояние файла(наличие или отсутствие развертки) сохраняется, и в неотмеченном состоянии развертка будет удалена.</p>
         </dd>
       </dl>
 </div>
     <div id="gifsicle">
       <h2>Gifsicle</h2>
-      <p>For best compression, you should convert GIF files to PNGs (ImageOptim does not do that automatically).</p>
+      <p>Для достижения высокой степени сжатия, Вы должны произвести конвертацию GIF-файлов в PNG (ImageOptim не делает это автоматически).</p>
     </div>
   </body>
 </html>

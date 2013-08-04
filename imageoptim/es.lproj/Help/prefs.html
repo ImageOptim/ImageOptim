@@ -19,23 +19,23 @@
     <dl>
 <dt>Preservar permisos de los archivos, atributos o físicos y hardlinks</dt>
       <dd>
-        <p>En lugar de borrar los archivos fuente y escribir uno nuevo con el mismo nombre, simplemente se cambia el contenido del archivo original en su lugar. Esto asegura que todos los enlaces duros (hardlinks), alias, propiedades de los archivos, permisos, atributos extendidos del archivo serán los mismos.</p>
+        <p>En lugar de borrar los archivos originales y escribir uno nuevo con el mismo nombre, simplemente cambia el contenido del archivo original en su lugar. Esto asegura que todos los enlaces duros (hardlinks), alias, propiedades de los archivos, permisos, atributos extendidos del archivo serán los mismos.</p>
         <p>Es un poco más rápido no preservar los permisos.</p>
       </dd>
       <dt>Eliminar fragmentos opcionales</dt>
       <dd>
-        <p>Manténgalo en caso de que quiera optimizar los archivos de imagen para la web. Desactivalo si tiene PNGs especiales con metadatos adicionales.</p>
+        <p>Los archivos PNG pueden tener diferente brillo y saturación en distintos navegadores, porque no todos los navegadores admiten características de perfiles de color y corrección de gamma del mismo modo. Eliminar esta información hace el color del PNG más consistente en distintos navegadores y reduce el tamaño del archivo.</p>
         <p data-role="strip-dpi">Other invisible information is removed as well, such as DPI and comments.</p>
       </dd>
       <dt>Elimina marcadores EXIF de los archivos</dt>
       <dd>
         <p>Elimina los metadatos de la imagen, como el nombre de la aplicación o del modelo de cámara que creó el archivo.</p>
-        <p data-role="strip-copyright">Embedded copyright information is removed as well. Please note that generally images are protected by copyright law regardless whether they contain such invisible metadata or not.</p>
+        <p data-role="strip-copyright">La información de copyright incrustada se elimina también. Por favor, tenga en cuenta que generalmente las imágenes están protegidas por leyes de propiedad intelectual, independientemente de que éstas contengan o no metadatos invisibles.</p>
       </dd>
     </dl>
-<h2>Tools</h2>
-    <p data-role="slow-tools">Zopfli and PNGOUT are very good PNG compressors, but are very slow. Disable them if you need to optimize PNG files quickly (leave only AdvPNG for fastest, but still good compression).</p>
-    <p data-role="dirty-alpha-tools">Zopfli and OptiPNG will clean RGB values of transparent pixels (known as “dirty alpha”). Disable these two tools if you're optimizing special files that use alpha channel for something else than transparency (e.g. heightmap in game data files).</p>
+<h2>Herramientas</h2>
+    <p data-role="slow-tools">Zopfli y PNGOUT son compresores de PNG muy buenos, pero muy lentos. Deshabilítalos si necesitas optimizar archivos PNG con rapidez (deja sólo AdvPNG para una compresión más rápida y todavía buena). </p>
+    <p data-role="dirty-alpha-tools">Zopfli y OptiPNG eliminarán valores RGB de los píxeles transparentes (conocidos como "alfa sucio"). Deshabilita estas dos herramientas si estás optimizando archivos especiales que utilizan canales alfa para algo distinto a la transparencia (ej. mapas de altura en archivos de datos de juego)</p>
     <div id="jpegoptim">
       <h2>JPEGOptim</h2>
       <dl>
@@ -66,7 +66,7 @@
         <dd>
           <p>Hemos probado numerosas combinaciones diferentes de ajustes. Rara vez tiene sentido probarlas todas.</p>
         </dd>
-        <dt>Entrelazar las imágenes (progresivo)</dt>
+        <dt>Entrelaza las imágenes (progresivo)</dt>
         <dd>
           <p>Las imágenes entrelazadas se ven mejor cuando están parcialmente cargadas, pero por lo general entrelazarlas hace que la compresión sea menos eficiente.</p>
           <p>Esta casilla tiene tres estados: si se activa, se forzará en entrelazado de las imágenes. Cuando está mezclado, mantendrá sin cambios el entrelazado del archivo, y cuando esté desactivado eliminará el entrelazado de los archivos.</p>

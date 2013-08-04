@@ -1,7 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<!DOCTYPE html><html lang=ja>
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
@@ -13,66 +10,57 @@
     <meta name="AppleSearchResultsFont" content="Lucida Grande,Geneva,Arial" />
     <meta name="description" content="How to use ImageOptim" />
 </head>
-
 <body>
-    <a name="main" id="main">main</a>
-
-    <h1>ImageOptim</h1>
+<a name="main" id="main">main</a><h1>ImageOptim</h1>
 
     <h2>使い方</h2>
 
     <ol>
-        <li>PNGファイル・JPEGファイルまたはフォルダをImageOptimウィンドウのファイル一覧テーブルビューにドラッグアンドドロップしてください。</li>
+<li>PNG ファイル、JPEG ファイル、またはフォルダを、ImageOptim ウインドウにドラッグアンドドロップしてください。</li>
 
-        <li>完了するまで待ちます。</li>
+        <li>完了するまでお待ちください。</li>
 
-        <li>役に立った! (ファイルの容量は小さくなっています)</li>
+        <li>得しましたね！ (ファイルの容量が小さくなりました)</li>
     </ol>
-
-    <p>同様にImageOptimのDockアイコンにもドラッグアンドドロップできます。</p>
+<p>同様に ImageOptim の Dock アイコンにもドラッグアンドドロップできます。</p>
 
     <p><a href="prefs.html">設定の変更方法について</a></p>
 
-    <h2>ファイル一覧のアイコン</h2>
+    <h2>ファイル一覧のアイコンについて</h2>
 
     <table>
-        <tr>
-            <th><img src="../../ok.png" alt="Green Checkmark" /></th>
+<tr>
+<th><img src="../../ok.png" alt="Green Checkmark"></th>
 
-            <td>画像は正しく最適化された。</td>
+            <td>画像の最適化に成功しました。</td>
         </tr>
+<tr>
+<th><img src="../../noopt.png" alt="Green X"></th>
 
-        <tr>
-            <th><img src="../../noopt.png" alt="Green X" /></th>
-
-            <td>処理はうまく言ったが画像はこれ以上最適化できなかった。</td>
+            <td>処理はうまくいきましたが、画像をこれ以上最適化できませんでした。</td>
         </tr>
+<tr>
+<th><img src="../../progress.png" alt="Gray star"></th>
 
-        <tr>
-            <th><img src="../../progress.png" alt="Gray star" /></th>
-
-            <td>この画像の最適化は進行中です。</td>
+            <td>このファイルの最適化を実行中です。</td>
         </tr>
+<tr>
+<th><img src="../../wait.png" alt="Gray dots"></th>
 
-        <tr>
-            <th><img src="../../wait.png" alt="Gray dots" /></th>
-
-            <td>この画像ファイルは処理待ちリストに入っており、他のファイルの処理が完了した後に最適化されます。</td>
+            <td>このファイルは、他のファイルの最適化が終わるのを待っています。</td>
         </tr>
+<tr>
+<th><img src="../../err.png" alt="Orange exclamation mark"></th>
 
-        <tr>
-            <th><img src="../../err.png" alt="Orange exclamation mark" /></th>
-
-            <td>最適化処理中にエラーが発生しました。 <code>コンソール.app</code>から立ち上げることで詳細な説明を得ることができます。</td>
+            <td>最適化中にエラーが発生しました。 <code>コンソール.app</code> から原因を確認できます。</td>
         </tr>
-    </table>
+</table>
+<h2>仕組み</h2>
 
-    <h2>動作原理</h2>
-
-    <p>ImageOptimは下記のアプリケーションのフロントエンド(GUI)です:</p>
+    <p>ImageOptim は下記のアプリケーションのフロントエンド (GUI) です:</p>
 
     <ul>
-        <li>OptiPNG</li>
+<li>OptiPNG</li>
 
         <li>PNGCrush</li>
 
@@ -82,9 +70,8 @@
 
         <li>JpegTran</li>
 
-        <li>PNGOUT（オプション）.</li>
+        <li>PNGOUT（オプション）</li>
     </ul>
-
-    <p>ImageOptimはこれらのアプリケーションを実行し、もっとも小さいファイルを自動で選択します。</p>
+<p>ImageOptim は上記のアプリケーションを実行して、もっとも容量の小さなファイルを自動で選択します。</p>
 </body>
 </html>

@@ -1,3 +1,5 @@
+/* tooltip */
+"%@ failed to start" = "%@ no se pudo iniciar";
 
 /* undo command name */
 "Add" = "Añadir";
@@ -30,7 +32,11 @@
 /* tooltip */
 "Optimized successfully with %@" = "Optimizado con éxito usando %@";
 
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Guardados %1$@ de %2$@. Total %3$@ (hasta %4$@ por archivo)";
 
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Guardados %1$@ de %2$@. %3$@ por archivo en promedio (hasta %4$@)";
 
 /* command name, tooltip */
 "Started %@" = "Iniciado %@";
