@@ -435,10 +435,23 @@
 {
     BOOL anyStarted = NO;
 	@synchronized (filesController) {
-        NSArray *array = [filesController selectedObjects];
-        if (![array count]) array = [filesController content];
+        NSArray *files = [filesController selectedObjects];
+        NSInteger selectionCount = [files count];
 
-        for(File *f in array) {
+        // UI doesn't give a way to deselect all, so here's a substitute
+        // when selecting "again" on file that doesn't need it, deselect
+        if (1 == selectionCount) {
+            File *file = [files objectAtIndex:0];
+            if (file.isBusy || !file.isOptimized) {
+                files = [files copy];
+                [filesController setSelectedObjects:@[]];
+            }
+        }
+        else if (!selectionCount) {
+            files = [filesController content];
+        }
+
+        for(File *f in files) {
             if (!f.isBusy && (!optimized || f.isOptimized)) {
                 [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
                 anyStarted = YES;
