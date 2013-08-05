@@ -12,7 +12,6 @@
 
 -(NSArray*)extensions;
 -(BOOL)isAnyQueueBusy;
--(void)setEnabled:(BOOL)y;
 -(void)updateProgressbar;
 -(NSArray*)selectedFilePaths;
 -(void)deleteObjects:(NSArray*)objects;
@@ -47,7 +46,7 @@
 	[tableView setDataSource:self];
 	[tableView registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
 
-	[self setEnabled:YES];
+    isEnabled = YES;
     }
     return self;
 }
@@ -89,17 +88,6 @@
     }
 }
 
--(void)setEnabled:(BOOL)y
-{
-	isEnabled = y;
-	[tableView setEnabled:y];
-}
-
--(BOOL)enabled
-{
-	return isEnabled;
-}
-
 -(void)setRow:(NSInteger)row
 {
 	nextInsertRow=row;
@@ -110,10 +98,9 @@
     [dirWorkerQueue cancelAllOperations];
     [fileIOQueue cancelAllOperations];
     [cpuQueue cancelAllOperations];
-    for(File *f in [filesController content])
-    {
-        [f cleanup];
-    }
+
+    NSArray *content = [filesController content];
+    [content makeObjectsPerformSelector:@selector(cleanup)];
 }
 
 - (NSDragOperation)tableView:(NSTableView *)atableView
