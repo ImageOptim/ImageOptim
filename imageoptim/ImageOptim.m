@@ -41,7 +41,7 @@ static NSString *kIMPreviewPanelContext = @"preview";
     [filesController pasteObjectsFrom:pboard];
 }
 
-NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
+static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 {
     NSString *unit;
     double size;
@@ -77,38 +77,51 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     dispatch_source_set_event_handler(statusBarUpdateQueue, ^{
         NSString *str = defaultText;
         @synchronized (filesController) {
-            if ([filesController.arrangedObjects count] > 1) {
+            long long bytesTotal=0, optimizedTotal=0;
+            double optimizedFractionTotal=0, maxOptimizedFraction=0;
+            int fileCount=0;
 
-                NSNumber *bytes = [filesController valueForKeyPath:@"arrangedObjects.@sum.byteSizeOriginal"],
-                *optimized = [filesController valueForKeyPath:@"arrangedObjects.@sum.byteSizeOptimized"];
+            NSArray *content = [filesController content];
+            for(File *f in content) {
+                const long long bytes = f.byteSizeOriginal, optimized = f.byteSizeOptimized;
+                if (bytes && (bytes != optimized || [f isDone])) {
+                    const double optimizedFraction = 1.0 - (double)optimized/(double)bytes;
+                    if (optimizedFraction > maxOptimizedFraction) {
+                        maxOptimizedFraction = optimizedFraction;
+                    }
+                    optimizedFractionTotal += optimizedFraction;
+                    bytesTotal += bytes;
+                    optimizedTotal += optimized;
+                    fileCount++;
+                }
+            }
 
-                double savedTotal = 100.0*(1.0-[optimized doubleValue]/[bytes doubleValue]);
-                if (savedTotal > 0.1) {
-                    long long bytesL = [bytes longLongValue], bytesSaved = bytesL - [optimized longLongValue];
-                    double savedAvg = [[filesController valueForKeyPath:@"arrangedObjects.@avg.percentOptimized"] doubleValue];
-
-                    NSString *fmtStr; NSNumber *avgNum;
+            if (fileCount > 1) {
+                const double savedTotal = 1.0 - (double)optimizedTotal/(double)bytesTotal;
+                const double savedAvg = optimizedFractionTotal/(double)fileCount;
+                if (savedTotal > 0.001) {
                     if (savedTotal*0.8 > savedAvg) {
                         overallAvg = YES;
                     } else if (savedAvg*0.8 > savedTotal){
                         overallAvg = NO;
                     }
 
+                    NSString *fmtStr; double avgNum;
                     if (overallAvg) {
-                        fmtStr = NSLocalizedString(@"Saved %@ out of %@. %@ overall (up to %@ per file)","total ratio");
-                        avgNum = [NSNumber numberWithDouble:savedTotal/100.0];
+                        fmtStr = NSLocalizedString(@"Saved %@ out of %@. %@ overall (up to %@ per file)","total ratio, status bar");
+                        avgNum = savedTotal;
                     } else {
-                        fmtStr = NSLocalizedString(@"Saved %@ out of %@. %@ per file on average (up to %@)","per file avg");
-                        avgNum = [NSNumber numberWithDouble:savedAvg/100.0];
+                        fmtStr = NSLocalizedString(@"Saved %@ out of %@. %@ per file on average (up to %@)","per file avg, status bar");
+                        avgNum = savedAvg;
                     }
 
-                    double max = [[filesController valueForKeyPath:@"arrangedObjects.@max.percentOptimized"] doubleValue];
+                    const long long bytesSaved = bytesTotal - optimizedTotal;
 
                     str = [NSString stringWithFormat:fmtStr,
                            formatSize(bytesSaved, formatter),
-                           formatSize(bytesL, formatter),
-                           [percFormatter stringFromNumber: avgNum],
-                           [percFormatter stringFromNumber: [NSNumber numberWithDouble:max/100.0]]];
+                           formatSize(bytesTotal, formatter),
+                           [percFormatter stringFromNumber: [NSNumber numberWithDouble:avgNum]],
+                           [percFormatter stringFromNumber: [NSNumber numberWithDouble:maxOptimizedFraction]]];
                 }
             }
         }
