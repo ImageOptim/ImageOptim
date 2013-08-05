@@ -16,10 +16,8 @@
     return self;
 }
 
--(void)run
+-(BOOL)runWithTempPath:(NSString*)temp
 {
-	NSString *temp = [self tempPath];
-
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"--lossy_transparent",@"-y",/*@"--",*/[file filePath],temp,nil];
 
     if (!strip) {
@@ -50,7 +48,7 @@
     [args insertObject:[NSString stringWithFormat:@"--timelimit=%d", timelimit] atIndex:0];
 
     if (![self taskForKey:@"Zopfli" bundleName:@"zopflipng" arguments:args]) {
-        return;
+        return NO;
     }
 
 	NSPipe *commandPipe = [NSPipe pipe];
@@ -66,12 +64,13 @@
 
     [commandHandle closeFile];
 
-    if ([self isCancelled]) return;
+	if ([task terminationStatus]) return NO;
 
     NSInteger fileSizeOptimized = [File fileByteSize:temp];
-	if (![task terminationStatus] && fileSizeOptimized > 70) {
-		[file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"Zopfli"];
+	if (fileSizeOptimized > 70) {
+		return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"Zopfli"];
 	}
+    return NO;
 }
 
 -(BOOL)makesNonOptimizingModifications {

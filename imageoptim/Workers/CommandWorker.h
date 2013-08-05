@@ -23,10 +23,9 @@
 
 -(void)launchTask;
 
--(NSString *)tempPath;
-
 -(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName;
 
 -(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args;
 
+-(BOOL)runWithTempPath:(NSString*)tempPath;
 @end

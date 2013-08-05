@@ -20,10 +20,8 @@
     return self;
 }
 
--(void)run
+-(BOOL)runWithTempPath:(NSString*)temp
 {
-	NSString *temp = [self tempPath];
-
     // eh, handling of paths starting with "-" is unsafe here. Hopefully all paths from dropped files will be absolute...
 	NSMutableArray *args = [NSMutableArray arrayWithObjects:[file filePath],nil];
 	NSString *executableName;
@@ -46,7 +44,7 @@
 
     // For jpegrescan to work both JpegTran and JpegRescan need to be enabled
     if (![self taskForKey:@"JpegTran" bundleName:executableName arguments:args]) {
-        return;
+        return NO;
     }
 
     [task setCurrentDirectoryPath:[[[NSBundle mainBundle] pathForAuxiliaryExecutable:@"jpegtran"] stringByDeletingLastPathComponent]];
@@ -64,16 +62,13 @@
 
 	[commandHandle closeFile];
 
-    if ([self isCancelled]) return;
+	if ([task terminationStatus]) return NO;
 
-	if (![task terminationStatus])
-	{
-        NSUInteger fileSizeOptimized;
-		if ((fileSizeOptimized = [File fileByteSize:temp]))
-		{
-			[file setFilePathOptimized:temp	size:fileSizeOptimized toolName:executableName];
-		}
-	}
+    NSUInteger fileSizeOptimized = [File fileByteSize:temp];
+    if (fileSizeOptimized) {
+        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:executableName];
+    }
+    return NO;
 }
 
 -(BOOL)parseLine:(NSString *)line

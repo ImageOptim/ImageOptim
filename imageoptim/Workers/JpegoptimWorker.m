@@ -26,10 +26,9 @@
     return maxquality < 100;
 }
 
--(void)run
+-(BOOL)runWithTempPath:(NSString*)temp
 {
 	NSFileManager *fm = [NSFileManager defaultManager];	
-	NSString *temp = [self tempPath];
     NSError *error = nil;
 	
 	if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error])
@@ -50,7 +49,7 @@
 	}
 		
     if (![self taskForKey:@"JpegOptim" bundleName:@"jpegoptim" arguments:args]) {
-        return;
+        return NO;
     }
 	
 	NSPipe *commandPipe = [NSPipe pipe];
@@ -68,13 +67,7 @@
 	
     [commandHandle closeFile];
 	
-    if ([self isCancelled]) return;
-
-	if (![task terminationStatus] && fileSizeOptimized)
-	{
-		[file setFilePathOptimized:temp	size:fileSizeOptimized toolName:[self className]];
-	}
-	
+    return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:[self className]];
 }
 
 -(BOOL)parseLine:(NSString *)line

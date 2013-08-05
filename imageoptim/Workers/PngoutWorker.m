@@ -22,10 +22,8 @@
     return self;
 }
 
--(void)run
+-(BOOL)runWithTempPath:(NSString*)temp
 {
-	NSString *temp = [self tempPath];
-		
     // uses stdout for file to force progress output to unbufferred stderr
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/[file filePath],@"-",nil];
 	
@@ -45,7 +43,7 @@
 	}
 	
     if (![self taskForKey:@"PngOut" bundleName:@"pngout" arguments:args]) {
-        return;
+        return NO;
     }
     
 	if (![[NSFileManager defaultManager] createFileAtPath:temp contents:[NSData data] attributes:nil])
@@ -74,12 +72,12 @@
     [commandHandle closeFile];
 	[fileOutputHandle closeFile];
 	
-    if ([self isCancelled]) return;
+	if ([task terminationStatus]) return NO;
 
-	if (![task terminationStatus] && fileSizeOptimized)
-	{
-		[file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"PNGOUT"];
+	if (fileSizeOptimized) {
+        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"PNGOUT"];
 	}
+    return NO;
 }
 
 -(BOOL)makesNonOptimizingModifications

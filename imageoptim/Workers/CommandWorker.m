@@ -65,6 +65,20 @@
     [task setEnvironment:environment];		
 }
 
+-(void)run {
+    NSString *tempPath = [self tempPath];
+    @try {
+        if ([self runWithTempPath:tempPath]) {
+            tempPath = nil;
+        }
+    }
+    @finally {
+        if (tempPath) {
+            [[NSFileManager defaultManager] removeItemAtPath:tempPath error:nil];
+        }
+    }
+}
+
 -(void)launchTask
 {
 	@try
@@ -143,5 +157,7 @@
     static int uid=0; if (uid==0) uid = getpid()<<12;
 	return [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.temp",[self className],(unsigned int)([file hash]^[self hash]),uid++]];
 }
+
+-(BOOL)runWithTempPath:(NSString*)tempPath {return NO; /*abstract*/}
 
 @end

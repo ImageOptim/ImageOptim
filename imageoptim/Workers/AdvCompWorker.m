@@ -19,21 +19,20 @@
     return self;
 }
 
--(void)run
+-(BOOL)runWithTempPath:(NSString*)temp
 {
 	NSFileManager *fm = [NSFileManager defaultManager];
-	NSString *temp = [self tempPath];
     NSError *error = nil;
 	
 	if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error])
 	{
 		NSLog(@"Can't make temp copy of %@ in %@; %@",[file filePath],temp,error);
-        return;
+        return NO;
 	}
     
     if (![self taskForKey:@"AdvPng" bundleName:@"advpng"
                 arguments:[NSArray arrayWithObjects: [NSString stringWithFormat:@"-%d",(int)(level ? level : 4)],@"-z",@"--",temp,nil]]) {
-        return;
+        return NO;
     }
     	
 	NSPipe *commandPipe = [NSPipe pipe];
@@ -51,13 +50,9 @@
     
 	[commandHandle closeFile];	
     
-    if ([self isCancelled]) return;
+	if ([task terminationStatus]) return NO;
 
-	if (![task terminationStatus] && fileSizeOptimized)
-	{
-		[file setFilePathOptimized:temp	size:fileSizeOptimized toolName:@"AdvPNG"];
-	}
-	else NSLog(@"Advpng failed");
+	return [file setFilePathOptimized:temp	size:fileSizeOptimized toolName:@"AdvPNG"];
 }
 
 -(BOOL)parseLine:(NSString *)line

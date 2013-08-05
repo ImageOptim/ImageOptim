@@ -20,10 +20,8 @@
     return self;
 }
 
--(void)run
+-(BOOL)runWithTempPath:(NSString*)temp
 {	
-	NSString *temp = [self tempPath];
-	
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],
 							@"-out",temp,@"--",[file filePath],nil];
 
@@ -33,7 +31,7 @@
 	}	
 	
 	if (![self taskForKey:@"OptiPng" bundleName:@"optipng" arguments:args]) {
-        return;
+        return NO;
     }
 	
 	NSPipe *commandPipe = [NSPipe pipe];
@@ -49,15 +47,14 @@
     [commandHandle readInBackgroundAndNotify];
 	
 	[task waitUntilExit];
-	[commandHandle closeFile];	
+	[commandHandle closeFile];
 	
-    if ([self isCancelled]) return;
+    if ([task terminationStatus]) return NO;
 
-	if (![task terminationStatus] && fileSizeOptimized)
-	{
-		[file setFilePathOptimized:temp size:fileSizeOptimized toolName:[self className]];	
+	if (fileSizeOptimized) {
+        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:[self className]];
 	}
-	//else NSLog(@"Optipng failed to optimize anything");
+    return NO;
 }
 
 -(BOOL)parseLine:(NSString *)line

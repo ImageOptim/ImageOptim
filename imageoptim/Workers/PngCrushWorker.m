@@ -15,10 +15,8 @@
     return self;
 }
 
--(void)run
+-(BOOL)runWithTempPath:(NSString*)temp
 {
-	NSString *temp = [self tempPath];
-
 	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-nofilecheck",@"-bail",@"-blacken",@"-reduce",@"-cc",@"--",[file filePath],temp,nil];
 	
     // Reusing PngOut config here
@@ -32,7 +30,7 @@
     }
 	
     if (![self taskForKey:@"PngCrush" bundleName:@"pngcrush" arguments:args]) {
-        return;
+        return NO;
     }
     
 	NSPipe *commandPipe = [NSPipe pipe];
@@ -49,18 +47,14 @@
 	
 	[commandHandle closeFile];
 	
-    if ([self isCancelled]) return;
+	if ([task terminationStatus]) return NO;
 
-	if (![task terminationStatus])
-	{
-		NSUInteger fileSizeOptimized;
-        // pngcrush sometimes writes only PNG header (70 bytes)!
-		if ((fileSizeOptimized = [File fileByteSize:temp]) && fileSizeOptimized > 70)
-		{
-			[file setFilePathOptimized:temp	size:fileSizeOptimized toolName:[self className]];			
-		}
-	}
-	else NSLog(@"pngcrush failed");
+    NSUInteger fileSizeOptimized;
+    // pngcrush sometimes writes only PNG header (70 bytes)!
+    if ((fileSizeOptimized = [File fileByteSize:temp]) && fileSizeOptimized > 70) {
+        return [file setFilePathOptimized:temp	size:fileSizeOptimized toolName:[self className]];
+    }
+    return NO;
 }
 
 //-(BOOL)parseLine:(NSString *)line

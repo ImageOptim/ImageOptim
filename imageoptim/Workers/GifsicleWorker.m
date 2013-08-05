@@ -6,10 +6,8 @@
 
 @synthesize interlace;
 
--(void)run
+-(BOOL)runWithTempPath:(NSString*)temp
 {	
-	NSString *temp = [self tempPath];
-	//
 	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-o",temp,
                             interlace ? @"--interlace" : @"--no-interlace",
                             @"-O3",
@@ -18,7 +16,7 @@
                             @"--",[file filePath],nil];
 
 	if (![self taskForKey:@"Gifsicle" bundleName:@"gifsicle" arguments:args]) {
-        return;        
+        return NO;
     }
 	
 	NSFileHandle *devnull = [NSFileHandle fileHandleWithNullDevice];
@@ -32,14 +30,10 @@
     
 	[devnull closeFile];	
 	
-    if ([self isCancelled]) return;
+	if ([task terminationStatus]) return NO;
 
     NSUInteger fileSizeOptimized = [File fileByteSize:temp];
-    NSInteger termstatus = [task terminationStatus];
-	if (!termstatus && fileSizeOptimized)
-	{
-		[file setFilePathOptimized:temp size:fileSizeOptimized toolName:interlace ? @"Gifsicle interlaced" : @"Gifsicle"];	
-	}
+    return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:interlace ? @"Gifsicle interlaced" : @"Gifsicle"];
 }
 
 @end
