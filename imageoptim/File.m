@@ -133,20 +133,22 @@ enum {
 	}
 }
 
--(void)setFilePathOptimized:(NSString *)path size:(NSUInteger)size toolName:(NSString*)toolname
+-(BOOL)setFilePathOptimized:(NSString *)tempPath size:(NSUInteger)size toolName:(NSString*)toolname
 {
     @synchronized(self) 
     {        
-        NSLog(@"File %@ optimized with %@ from %u to %u in %@",filePath?filePath:filePathOptimized,toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,path);
+        NSLog(@"File %@ optimized with %@ from %u to %u in %@",filePath?filePath:filePathOptimized,toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,tempPath);
         if (size < byteSizeOptimized)
         {
             self.bestToolName = [toolname stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
             assert(![filePathOptimized isEqualToString:path]);
             [self removeOldFilePathOptimized];
-            filePathOptimized = path;
+            filePathOptimized = tempPath;
             [self setByteSizeOptimized:size];
+            return YES;
         }
     }
+    return NO;
 }
 
 -(BOOL)removeExtendedAttr

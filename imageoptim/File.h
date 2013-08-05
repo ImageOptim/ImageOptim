@@ -43,7 +43,7 @@
 
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue;
 
--(void)setFilePathOptimized:(NSString *)f size:(NSUInteger)s toolName:(NSString*)s;
+-(BOOL)setFilePathOptimized:(NSString *)f size:(NSUInteger)s toolName:(NSString*)s;
 
 -(id)initWithFilePath:(NSString *)name;
 -(id)copyWithZone:(NSZone *)zone;
