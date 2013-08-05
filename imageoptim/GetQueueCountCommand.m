@@ -1,14 +1,13 @@
 #import "GetQueueCountCommand.h"
-#import "Utilities.h"
-
+#import "ImageOptim.h"
+#import "FilesQueue.h"
 
 @implementation GetQueueCountCommand
 
-
 - (id)performDefaultImplementation {
-	
+    ImageOptim *imageoptim = (ImageOptim *)[[NSApplication sharedApplication] delegate];
     
-	return [Utilities utilitiesSharedSingleton].queueCount;
+	return imageoptim.filesQueue.queueCount;
 }
 
 @end

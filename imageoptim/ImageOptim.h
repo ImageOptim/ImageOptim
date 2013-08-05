@@ -6,7 +6,7 @@ extern NSDictionary *statusImages;
 @class FilesQueue;
 @class PrefsController;
 
-@interface ImageOptim : NSObject <QLPreviewPanelDataSource, QLPreviewPanelDelegate>
+@interface ImageOptim : NSObject <NSApplicationDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate>
 {
 	IBOutlet NSTableView *tableView;
 	IBOutlet NSArrayController *filesController;

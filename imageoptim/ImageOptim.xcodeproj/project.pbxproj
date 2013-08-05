@@ -25,7 +25,6 @@
 /* Begin PBXBuildFile section */
 		1ACFBA171799E9CC006D93B2 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFBA191799E9CC006D93B2 /* Credits.html */; };
 		1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */; };
-		1AD5B255174F8C5A00BC75FD /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5B254174F8C5900BC75FD /* Utilities.m */; };
 		1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */; };
 		5A0A24F117492D39003264CC /* ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A24EF17492D39003264CC /* ok@2x.png */; };
 		5A0A24F617494254003264CC /* noopt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A24F217494254003264CC /* noopt@2x.png */; };
@@ -342,8 +341,6 @@
 		1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ImageOptimVerbs.sdef; sourceTree = "<group>"; };
 		1AD5B24F174F850900BC75FD /* GetQueueCountCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetQueueCountCommand.h; sourceTree = "<group>"; };
 		1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetQueueCountCommand.m; sourceTree = "<group>"; };
-		1AD5B253174F8C5900BC75FD /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
-		1AD5B254174F8C5900BC75FD /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		1B5210E316BFA7C90044C869 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "zh-Hant"; path = "zh-Hant.lproj/Help"; sourceTree = "<group>"; };
 		1B5210E516BFA7CA0044C869 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		1B5210E616BFA7CA0044C869 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/MainMenu.xib"; sourceTree = "<group>"; };
@@ -531,7 +528,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				1AD5B25A174FF51E00BC75FD /* Utils */,
 				5AE54DE50CAEF51300903DF4 /* Workers */,
 				5A34A632140EEDB900DE44D2 /* DragDropImageView.h */,
 				5A34A633140EEDB900DE44D2 /* DragDropImageView.m */,
@@ -539,6 +535,8 @@
 				5A0D2E560C922AB700FD7CDE /* File.m */,
 				5AE1C4980CA6CDDC000CF636 /* FilesQueue.h */,
 				5AE1C4990CA6CDDC000CF636 /* FilesQueue.m */,
+				1AD5B24F174F850900BC75FD /* GetQueueCountCommand.h */,
+				1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */,
 				5A0D2E5B0C922D6D00FD7CDE /* ImageOptim.h */,
 				5A0D2E5C0C922D6D00FD7CDE /* ImageOptim.m */,
 				5AACA7BA0CAFD0D2004D45CA /* MyTableView.h */,
@@ -580,17 +578,6 @@
 				5A44976911303B01006EAA56 /* ImageOptim.tar.bz2 */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		1AD5B25A174FF51E00BC75FD /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				1AD5B24F174F850900BC75FD /* GetQueueCountCommand.h */,
-				1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */,
-				1AD5B253174F8C5900BC75FD /* Utilities.h */,
-				1AD5B254174F8C5900BC75FD /* Utilities.m */,
-			);
-			name = Utils;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* ImageOptim */ = {
@@ -1149,7 +1136,6 @@
 				5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */,
 				5A8A18141416D1D700D62DB7 /* SavingsFormatter.m in Sources */,
 				5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */,
-				1AD5B255174F8C5A00BC75FD /* Utilities.m in Sources */,
 				5AACA13F0CAF241B004D45CA /* Worker.m in Sources */,
 				5A2ACD141790935C004992B7 /* ZopfliWorker.m in Sources */,
 			);

@@ -7,7 +7,6 @@
 #include <mach/mach_host.h>
 #include <mach/host_info.h>
 #import <Quartz/Quartz.h>
-#import "Utilities.h"
 
 @implementation ImageOptim
 
@@ -59,8 +58,6 @@ NSDictionary *statusImages;
     NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 
 	int maxTasks = [self numberOfCPUs];
-    // this is for AppleScript
-    [Utilities utilitiesSharedSingleton];
     
 	[defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
 	[defs setObject:[NSNumber numberWithInt:(int)ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
