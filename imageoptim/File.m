@@ -128,10 +128,7 @@ enum {
 {
 	if (filePathOptimized)
 	{
-        if ([filePathOptimized length])
-        {
             [[NSFileManager defaultManager] removeItemAtPath:filePathOptimized error:nil];
-        }
         filePathOptimized = nil;
 	}
 }
@@ -386,8 +383,10 @@ enum {
                 {
                     done = YES;
                     [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
-                    NSOperation *cleanup = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(removeOldFilePathOptimized) object:nil];
-                    [fileIOQueue addOperation:cleanup];
+                    if (filePathOptimized) {
+                        NSOperation *cleanup = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(removeOldFilePathOptimized) object:nil];
+                        [fileIOQueue addOperation:cleanup];
+                    }
                 }
             }
             else
