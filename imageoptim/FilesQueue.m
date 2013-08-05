@@ -514,7 +514,6 @@
 	{
 		[progressBar stopAnimation:nil];
 		[NSApp requestUserAttention:NSInformationalRequest];
-		[tableView setNeedsDisplay:YES];
 	}
 	else
 	{
