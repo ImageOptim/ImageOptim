@@ -151,68 +151,48 @@ enum {
     return NO;
 }
 
--(BOOL)removeExtendedAttr
+-(BOOL)removeExtendedAttrAtPath:(NSString *)path
 {
-    BOOL retVal = YES;
-    
-    // can add or remove keys as appropriate, or pass in as a param
-    NSMutableDictionary *extAttrToRemove = [NSMutableDictionary dictionaryWithDictionary:
-                                            @{
-                                             @"com.apple.FinderInfo"  : [NSNumber numberWithInt:0],
-                                             @"com.apple.ResourceFork": [NSNumber numberWithInt:0],
-                                             @"com.apple.quarantine"  : [NSNumber numberWithInt:0]
-                                            }
-                                 ];
-    // need a copy to enumerate
-    NSDictionary *extAttrToRemoveCopy = [NSDictionary dictionaryWithDictionary:extAttrToRemove];
-    
-    const char *fileSystemPath = [filePath fileSystemRepresentation];
-    
-    size_t size = 0;
-    
-    ssize_t buf;
+    NSDictionary *extAttrToRemove = @{ @"com.apple.FinderInfo"  : @1,
+                                       @"com.apple.ResourceFork": @1,
+                                       @"com.apple.quarantine"  : @1
+                                       };
+
+    const char *fileSystemPath = [path fileSystemRepresentation];
     
     // call with NULL for the char *namebuf param first
     // in this case the method returns the size of the attributes buffer
-    buf = listxattr(fileSystemPath, NULL,  size, 0x0000);
-    
-    // so now we know the size
-    size = (size_t)buf;
-    
+    ssize_t size = listxattr(fileSystemPath, NULL,  0, 0);
+
+    if (size <= 0) {
+        return YES; // no attributes to remove
+    }
+
     char nameBuf[size];
-    
-    memset(&nameBuf, 0, sizeof(nameBuf));
-    
-    // get the list of xattrs
-    buf = listxattr(fileSystemPath, nameBuf, size, 0x0000);
-    
-    // loop throough and see if they match any in our extAttrToRemove dict
-    for (int i=0; i<size; i++) {        
-        for (NSString *tmpStr in extAttrToRemoveCopy){
-            if(strcmp(&nameBuf[i], [tmpStr UTF8String])  == 0){
-                // if present set value to 1
-                [extAttrToRemove setObject:[NSNumber numberWithInt:1] forKey:tmpStr];
+    memset(nameBuf, 0, size);
+
+    size = listxattr(fileSystemPath, nameBuf, size, 0);
+    if (size <= 0) {
+        return NO; // failed to read promised attrs
+    }
+
+    int i=0;
+    while (i < size) {
+        char *utf8name = &nameBuf[i];
+        i += strlen(utf8name)+1; // attrs are 0-terminated one after another
+
+        NSString *name = [NSString stringWithUTF8String:utf8name];
+        if ([extAttrToRemove objectForKey:name]) {
+            if (removexattr(fileSystemPath, utf8name, 0) == 0){
+                NSLog(@"Removed %s from %s", utf8name, fileSystemPath);
+            } else {
+                NSLog(@"Can't remove %s from %s", utf8name, fileSystemPath);
+                return NO;
             }
         }
     }
     
-    NSLog(@"extAttrToRemove - set new atts = %@", extAttrToRemove);
-    
-    // loop through the extAttrToRemove dict
-    for(NSString *tmpAtt in extAttrToRemove){
-        // if value is 1 then remove
-        if([[extAttrToRemove objectForKey:tmpAtt] isEqualToNumber:[NSNumber numberWithInt:1]]){
-            if(removexattr(fileSystemPath, [tmpAtt UTF8String], 0x0000) == 0){
-                NSLog(@"SUCCESS - set new atts.");
-            }
-            else{
-                NSLog(@"Failed to set new atts. errno = %d", errno);
-                retVal = NO;
-            }
-        }
-    }
-    
-    return retVal;
+    return YES;
 }
 
 -(BOOL)trashFileAtPath:(NSString*)path error:(NSError**)err
@@ -281,8 +261,6 @@ enum {
                 return NO;
             }
 
-            [self removeExtendedAttr]; // clears filePath
-
             NSData *data = [NSData dataWithContentsOfFile:filePathOptimized];
             if (!data) {
                 NSLog(@"Unable to read %@", filePathOptimized);
@@ -323,9 +301,7 @@ enum {
             return NO;
         }
 
-        if (!preserve) {
-            [self removeExtendedAttr]; // clears filePath
-        }
+        [self removeExtendedAttrAtPath:filePath];
 
         filePathOptimized = nil;
 	}
