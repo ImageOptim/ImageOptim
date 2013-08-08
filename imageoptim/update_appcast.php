@@ -8,7 +8,7 @@ $niceVersion = readKey('CFBundleShortVersionString');
 if (!$niceVersion) $niceVersion = $exactVersion;
 
 $download_url = "$baseURL/$bundleName$exactVersion.tar.bz2";
-$archivepath = isset($argv[1]) ? $argv[1] : "build/Release/$bundleName.tar.bz2";
+$archivepath = isset($argv[1]) ? $argv[1] : "DerivedData/ImageOptim/Build/Products/Release/$bundleName.tar.bz2";
 $pempath = getenv("HOME")."/.ssh/dsa_priv_imageoptim.pem";
 
 $appcastpath = rawurldecode(basename(readKey('SUFeedURL')));
