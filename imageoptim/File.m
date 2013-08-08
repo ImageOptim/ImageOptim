@@ -246,7 +246,14 @@ enum {
                                     stringByAppendingPathExtension:[filePath pathExtension]];
 
             if ([fm fileExistsAtPath:writeToPath]) {
-                [self trashFileAtPath:writeToPath error:nil]; // ignore error, as copy will fail if file still exists
+                if (![self trashFileAtPath:writeToPath error:&error]) {
+                    NSLog(@"%@", error);
+                    error = nil;
+                    if (![fm removeItemAtPath:writeToPath error:&error]) {
+                        NSLog(@"%@", error);
+                        return NO;
+                    }
+                }
             }
 
             // move destination to temporary location that will be overwritten
@@ -293,7 +300,12 @@ enum {
 
         if (![self trashFileAtPath:filePath error:&error]) {
             NSLog(@"Can't trash %@ %@", filePath, error);
-            return NO;
+            NSString *backupPath = [[[filePath stringByDeletingPathExtension] stringByAppendingString:@"~bak"]
+                                     stringByAppendingPathExtension:[filePath pathExtension]];
+            if (![fm moveItemAtPath:filePath toPath:backupPath error:&error]) {
+                NSLog(@"Can't move to %@ %@", backupPath, error);
+                return NO;
+            }
         }
 
         if (![fm moveItemAtPath:moveFromPath toPath:filePath error:&error]) {
