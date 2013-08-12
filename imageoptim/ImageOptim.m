@@ -116,7 +116,7 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
         @synchronized (filesController) {
             if ([filesController.arrangedObjects count] > 1) {
 
-                NSNumber *bytes = [filesController valueForKeyPath:@"arrangedObjects.@sum.byteSize"],
+                NSNumber *bytes = [filesController valueForKeyPath:@"arrangedObjects.@sum.byteSizeOriginal"],
                 *optimized = [filesController valueForKeyPath:@"arrangedObjects.@sum.byteSizeOptimized"];
 
                 double savedTotal = 100.0*(1.0-[optimized doubleValue]/[bytes doubleValue]);

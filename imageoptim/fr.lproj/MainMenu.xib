@@ -2197,15 +2197,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: arrangedObjects.byteSize</string>
+						<string key="label">value: arrangedObjects.byteSizeOriginal</string>
 						<reference key="source" ref="583680691"/>
 						<reference key="destination" ref="130688837"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="583680691"/>
 							<reference key="NSDestination" ref="130688837"/>
-							<string key="NSLabel">value: arrangedObjects.byteSize</string>
+							<string key="NSLabel">value: arrangedObjects.byteSizeOriginal</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">arrangedObjects.byteSize</string>
+							<string key="NSKeyPath">arrangedObjects.byteSizeOriginal</string>
 							<dictionary key="NSOptions">
 								<boolean value="NO" key="NSAllowsEditingMultipleValuesSelection"/>
 								<boolean value="NO" key="NSRaisesForNotApplicableKeys"/>

@@ -25,7 +25,7 @@ enum {
     FILETYPE_GIF
 };
 
-@synthesize byteSize, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName;
+@synthesize byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName;
 
 -(id)initWithFilePath:(NSString *)name;
 {
@@ -39,16 +39,16 @@ enum {
 
 -(BOOL)isLarge {
     if (fileType == FILETYPE_PNG) {
-        return byteSize > 250*1024;
+        return byteSizeOriginal > 250*1024;
     }
-    return byteSize > 1*1024*1024;
+    return byteSizeOriginal > 1*1024*1024;
 }
 
 -(BOOL)isSmall {
     if (fileType == FILETYPE_PNG) {
-        return byteSize < 2048;
+        return byteSizeOriginal < 2048;
     }
-    return byteSize < 10*1024;
+    return byteSizeOriginal < 10*1024;
 }
 
 -(NSString *)fileName
@@ -71,28 +71,23 @@ enum {
 - (id)copyWithZone:(NSZone *)zone
 {
 	File *f = [[File allocWithZone:zone] init];
-	[f setByteSize:byteSize];
+	[f setByteSizeOriginal:byteSizeOriginal];
 	[f setByteSizeOptimized:byteSizeOptimized];
 	[f setFilePath:filePath];
 	return f;
 }
 
--(void)setByteSize:(NSUInteger)size
+-(void)setByteSizeOriginal:(NSUInteger)size
 {
-    @synchronized(self) 
-    {        
-        if (!byteSize && size > 10)
-        {
-            byteSize = size;
-            if (!byteSizeOptimized || byteSizeOptimized > byteSize) [self setByteSizeOptimized:size];		
-        }
-    }
+    byteSizeOriginal = size;
+    byteSizeOnDisk = size;
+    [self setByteSizeOptimized:size];
 }
 
 -(double)percentOptimized
 {
 	if (!byteSizeOptimized) return 0.0;
-	double p = 100.0 - 100.0* (double)byteSizeOptimized/(double)byteSize;
+	double p = 100.0 - 100.0* (double)byteSizeOptimized/(double)byteSizeOriginal;
 	if (p<0) return 0.0;
 	return p;
 }
@@ -104,7 +99,7 @@ enum {
 
 -(BOOL)isOptimized
 {
-	return byteSizeOptimized < byteSize && (!runAgainByteSize || byteSizeOptimized < runAgainByteSize);
+	return byteSizeOptimized < byteSizeOnDisk;
 }
 
 -(BOOL)isDone
@@ -313,6 +308,8 @@ enum {
             return NO;
         }
 
+        byteSizeOnDisk = byteSizeOptimized;
+
         [self removeExtendedAttrAtPath:filePath];
 	}
 	@catch(NSException *e)
@@ -355,7 +352,7 @@ enum {
        
         if (!workersActive)
         {
-            if (!byteSize || !byteSizeOptimized)
+            if (!byteSizeOriginal || !byteSizeOptimized)
             {
                 NSLog(@"worker %@ finished, but result file has 0 size",worker);
                 [self setStatus:@"err" order:8 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
@@ -461,26 +458,17 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
 
     fileType = [self fileType:fileData];
 
-    BOOL hasBeenRunBefore;
+    BOOL hasBeenRunBefore = (byteSizeOnDisk && length == byteSizeOnDisk);
     BOOL isQueueBig = [queue operationCount] > 10 && [queue operationCount] > [queue maxConcurrentOperationCount]*2;
 
     @synchronized(self)
     {
         workersActive--;
 
-        filePathOptimized = nil;
-        hasBeenRunBefore = (byteSize && byteSizeOptimized); // it's been set before, so it's now ran again
-
-        if (hasBeenRunBefore && byteSize >= byteSizeOptimized) {
-            if (byteSizeOptimized != length) { // file has changed
-                runAgainByteSize = 0;
-                byteSizeOptimized=0;
-                [self setByteSize:length];
-            } else {
-                runAgainByteSize = length;
-            }
-        } else {
-            [self setByteSize:length];
+        // if file hasn't changed since last optimization, keep previous byteSizeOriginal, etc.
+        if (!byteSizeOnDisk || length != byteSizeOnDisk) {
+            byteSizeOptimized = 0;
+            [self setByteSizeOriginal:length];
         }
     }
 
@@ -643,7 +631,7 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
 
 -(NSString *)description
 {
-	return [NSString stringWithFormat:@"%@ %ld/%ld (workers active %ld, finished %ld, total %ld)", self.filePath,(long)self.byteSize,(long)self.byteSizeOptimized, (long)workersActive, (long)workersFinished, (long)workersTotal];
+	return [NSString stringWithFormat:@"%@ %ld/%ld (workers active %ld, finished %ld, total %ld)", self.filePath,(long)self.byteSizeOriginal,(long)self.byteSizeOptimized, (long)workersActive, (long)workersFinished, (long)workersTotal];
 }
 
 +(NSInteger)fileByteSize:(NSString *)afile

@@ -73,15 +73,8 @@
 -(BOOL)parseLine:(NSString *)line
 {
 	NSInteger size;
-	if ((size = [self readNumberAfter:@" [OK] " inLine:line]))
-	{
-		//NSLog(@"File size %d",size);
-		[file setByteSize:size];
-	}
 	if ((size = [self readNumberAfter:@" --> " inLine:line]))
 	{
-		//NSLog(@"File size optimized %d",size);
-		//[file setByteSizeOptimized:size];
 		fileSizeOptimized = size;
 		return YES;
 	}

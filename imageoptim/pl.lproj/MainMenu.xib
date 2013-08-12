@@ -554,7 +554,6 @@
 							<int key="NSvFlags">1313</int>
 							<string key="NSFrame">{{416, 11}, {16, 16}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="718675695"/>
 							<int key="NSpiFlags">28938</int>
 							<double key="NSMaxValue">100</double>
@@ -564,7 +563,6 @@
 							<int key="NSvFlags">289</int>
 							<string key="NSFrame">{{440, 6}, {89, 25}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
-							<reference key="NSWindow"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="650797074">
 								<int key="NSCellFlags">67108864</int>
@@ -2199,15 +2197,15 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: arrangedObjects.byteSize</string>
+						<string key="label">value: arrangedObjects.byteSizeOriginal</string>
 						<reference key="source" ref="583680691"/>
 						<reference key="destination" ref="130688837"/>
 						<object class="NSNibBindingConnector" key="connector">
 							<reference key="NSSource" ref="583680691"/>
 							<reference key="NSDestination" ref="130688837"/>
-							<string key="NSLabel">value: arrangedObjects.byteSize</string>
+							<string key="NSLabel">value: arrangedObjects.byteSizeOriginal</string>
 							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">arrangedObjects.byteSize</string>
+							<string key="NSKeyPath">arrangedObjects.byteSizeOriginal</string>
 							<dictionary key="NSOptions">
 								<boolean value="NO" key="NSAllowsEditingMultipleValuesSelection"/>
 								<boolean value="NO" key="NSRaisesForNotApplicableKeys"/>

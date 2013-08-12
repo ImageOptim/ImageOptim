@@ -13,9 +13,13 @@
 	NSString *filePath;
 	NSString *displayName;
 	
-	NSUInteger byteSize;
-    NSUInteger runAgainByteSize; // it's a poor name for actual byteSize when optimization is ran again (and byteSize is then previous pre-optimization size)
-    NSUInteger byteSizeOptimized;	
+    /** size of file before any optimizations */
+	NSUInteger byteSizeOriginal;
+    /** expected current size of file on disk, updated before and after optimization */
+    NSUInteger byteSizeOnDisk;
+    /** current best estimate of what optimized file size will be */
+    NSUInteger byteSizeOptimized;
+
     NSString *bestToolName;
 	double percentDone;
 	
@@ -47,7 +51,7 @@
 
 -(id)initWithFilePath:(NSString *)name;
 -(id)copyWithZone:(NSZone *)zone;
--(void)setByteSize:(NSUInteger)size;
+-(void)setByteSizeOriginal:(NSUInteger)size;
 -(void)setByteSizeOptimized:(NSUInteger)size;
 -(BOOL)isOptimized;
 
@@ -61,7 +65,7 @@
 
 @property (retain) NSString *statusText, *filePath, *displayName, *bestToolName;
 @property (retain) NSImage *statusImage;
-@property (assign,nonatomic) NSUInteger byteSize, byteSizeOptimized;
+@property (assign,nonatomic) NSUInteger byteSizeOriginal, byteSizeOptimized;
 @property (assign,readonly) NSInteger statusOrder;
 
 @property (assign) double percentDone;
