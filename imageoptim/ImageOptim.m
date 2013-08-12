@@ -12,7 +12,7 @@
 
 NSDictionary *statusImages;
 
-@synthesize selectedIndexes,filesQueue;
+@synthesize selectedIndexes, filesQueue=filesController;
 
 - (void)setSelectedIndexes:(NSIndexSet *)indexSet
 {
@@ -28,14 +28,14 @@ NSDictionary *statusImages;
     NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 
 	int maxTasks = [self numberOfCPUs];
-    
+
 	[defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
 	[defs setObject:[NSNumber numberWithInt:(int)ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
 
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
 
     assert(statusImages);
-	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
+    [filesController configureWithTableView:tableView progressBar:progressBar];
 
     [NSApp setServicesProvider:self];
     NSUpdateDynamicServices();
@@ -45,7 +45,7 @@ NSDictionary *statusImages;
               userData:(NSString *)userData
                  error:(NSString **)error {
     assert(statusImages);
-    [self.filesQueue pasteObjectsFrom:pboard];
+    [filesController pasteObjectsFrom:pboard];
 }
 
 NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
@@ -191,8 +191,8 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 // invoked by Dock
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)path
 {
-    [filesQueue setRow:-1];
-    [filesQueue addPaths:[NSArray arrayWithObject:path]];
+    [filesController setRow:-1];
+    [filesController addPaths:[NSArray arrayWithObject:path]];
 	return YES;
 }
 
@@ -206,18 +206,18 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 {
     // alt-click on a button (this is used from menu too, but alternative menu item covers that anyway
     BOOL onlyOptimized = !!([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask);
-	[filesQueue startAgainOptimized:onlyOptimized];
+	[filesController startAgainOptimized:onlyOptimized];
 }
 
 - (IBAction)startAgainOptimized:(id)sender
 {
-    [filesQueue startAgainOptimized:YES];
+    [filesController startAgainOptimized:YES];
 }
 
 
 - (IBAction)clearComplete:(id)sender
 {
-	[filesQueue clearComplete];
+	[filesController clearComplete];
 }
 
 
@@ -257,14 +257,14 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     [oPanel setAllowsMultipleSelection:YES];
 	[oPanel setCanChooseDirectories:YES];
 	[oPanel setResolvesAliases:YES];
-    [oPanel setAllowedFileTypes:[filesQueue fileTypes]];
+    [oPanel setAllowedFileTypes:[filesController fileTypes]];
 
     [oPanel beginSheetModalForWindow:[tableView window] completionHandler:^(NSInteger returnCode) {
 	if (returnCode == NSOKButton) {
 		NSWindow *myWindow=[tableView window];
 		[myWindow setStyleMask:[myWindow styleMask]| NSResizableWindowMask ];
-		[filesQueue setRow:-1];
-        [filesQueue addPaths:[oPanel filenames]];
+		[filesController setRow:-1];
+        [filesController addPaths:[oPanel filenames]];
     }
     }];
 }
@@ -276,7 +276,7 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 }
 
 -(void)applicationWillTerminate:(NSNotification*)n {
-    [filesQueue cleanup];
+    [filesController cleanup];
 }
 
 -(NSString*)version {
@@ -332,11 +332,11 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 {
     SEL action = [menuItem action];
 	if (action == @selector(startAgain:)) {
-		return [filesQueue canStartAgainOptimized:NO];
+		return [filesController canStartAgainOptimized:NO];
     } else if (action == @selector(startAgainOptimized:)) {
-		return [filesQueue canStartAgainOptimized:YES];
+		return [filesController canStartAgainOptimized:YES];
     } else if (action == @selector(clearComplete:)) {
-        return [filesQueue canClearComplete];
+        return [filesController canClearComplete];
     }
 
 	return [menuItem isEnabled];

@@ -3085,6 +3085,7 @@
 				<string key="239.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="243.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="251.CustomClassName">FilesQueue</string>
 				<string key="251.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="253.CustomClassName">SavingsFormatter</string>
 				<integer value="1040" key="253.IBNumberFormatterBehaviorMetadataKey"/>
@@ -3264,7 +3265,7 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">FilesQueue</string>
-					<string key="superclassName">NSObject</string>
+					<string key="superclassName">NSArrayController</string>
 					<object class="NSMutableDictionary" key="actions">
 						<string key="NS.key.0">delete:</string>
 						<string key="NS.object.0">id</string>
@@ -3336,7 +3337,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="bestToolColumn">NSTableColumn</string>
 						<string key="credits">NSTextView</string>
-						<string key="filesController">NSArrayController</string>
+						<string key="filesController">FilesQueue</string>
 						<string key="originalSizeColumn">NSTableColumn</string>
 						<string key="progressBar">NSProgressIndicator</string>
 						<string key="savingsColumn">NSTableColumn</string>
@@ -3356,7 +3357,7 @@
 						</object>
 						<object class="IBToOneOutletInfo" key="filesController">
 							<string key="name">filesController</string>
-							<string key="candidateClassName">NSArrayController</string>
+							<string key="candidateClassName">FilesQueue</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="originalSizeColumn">
 							<string key="name">originalSizeColumn</string>

@@ -9,9 +9,8 @@ extern NSDictionary *statusImages;
 @interface ImageOptim : NSObject <NSApplicationDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate>
 {
 	IBOutlet NSTableView *tableView;
-	IBOutlet NSArrayController *filesController;
+	IBOutlet FilesQueue *filesController;
 	
-	FilesQueue *filesQueue;
 	PrefsController *prefsController;
 
 	IBOutlet NSProgressIndicator *progressBar;
@@ -42,6 +41,5 @@ extern NSDictionary *statusImages;
 -(void)loadCreditsHTML;
 
 @property (copy,nonatomic) NSIndexSet* selectedIndexes;
-
 @property (readonly) FilesQueue *filesQueue;
 @end

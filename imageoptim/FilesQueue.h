@@ -9,7 +9,7 @@
 
 @class File;
 
-@interface FilesQueue : NSObject <NSTableViewDelegate,NSTableViewDataSource> {
+@interface FilesQueue : NSArrayController <NSTableViewDelegate,NSTableViewDataSource> {
 	NSTableView *tableView;
 	NSArrayController *filesController;
 	BOOL isEnabled;
@@ -25,7 +25,8 @@
     NSLock *queueWaitingLock;
 }
 
--(id)initWithTableView:(NSTableView*)a progressBar:(NSProgressIndicator *)p andController:(NSArrayController*)b;
+-(id)configureWithTableView:(NSTableView*)a progressBar:(NSProgressIndicator *)p;
+
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation;
 -(void)addPaths:(NSArray *)paths;
 -(void)addPaths:(NSArray *)paths filesOnly:(BOOL)t;

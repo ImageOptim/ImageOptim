@@ -20,11 +20,10 @@
 
 @implementation FilesQueue
 
--(id)initWithTableView:(NSTableView*)inTableView progressBar:(NSProgressIndicator *)inBar andController:(NSArrayController*)inController
+-(id)configureWithTableView:(NSTableView*)inTableView progressBar:(NSProgressIndicator *)inBar
 {
     if (self = [super init]) {
 	progressBar = inBar;
-	filesController = inController;
 	tableView = inTableView;
 	seenPathHashes = [[NSHashTable alloc] initWithOptions:NSHashTableZeroingWeakMemory capacity:1000];
 
@@ -99,7 +98,7 @@
     [fileIOQueue cancelAllOperations];
     [cpuQueue cancelAllOperations];
 
-    NSArray *content = [filesController content];
+    NSArray *content = [self content];
     [content makeObjectsPerformSelector:@selector(cleanup)];
 }
 
@@ -111,7 +110,7 @@
 	if (!isEnabled) return NSDragOperationNone;
 
     NSDragOperation dragOp = ([info draggingSource] == tableView) ? NSDragOperationMove : NSDragOperationCopy;
-	@synchronized (filesController) {
+	@synchronized (self) {
         nextInsertRow=row;
         [atableView setDropRow:row dropOperation:NSTableViewDropAbove];
     }
@@ -161,7 +160,7 @@
 
 -(NSArray*)selectedFilePaths
 {
-	NSArray *selectedFiles=[filesController selectedObjects];
+	NSArray *selectedFiles=[self selectedObjects];
 	NSEnumerator *fileEnum=[selectedFiles objectEnumerator];
 	NSMutableArray *filePathlist=[NSMutableArray array];
 
@@ -176,7 +175,7 @@
 -(void)cutObjects
 	{
 	if ([self copyObjects]){
-		[self deleteObjects:[filesController selectedObjects]];
+		[self deleteObjects:[self selectedObjects]];
 		[[tableView undoManager] setActionName:NSLocalizedString(@"Cut",@"undo command name")];
 	}
 }
@@ -185,9 +184,9 @@
 -(IBAction)delete:(id)sender
 {
     NSArray *files = nil;
-	@synchronized (filesController) {
-        if ([filesController canRemove]) {
-            files = [filesController selectedObjects];
+	@synchronized (self) {
+        if ([self canRemove]) {
+            files = [self selectedObjects];
             [self deleteObjects:files];
         }
     }
@@ -197,21 +196,21 @@
 {
 	NSUndoManager *undo=[tableView undoManager];
 	[undo registerUndoWithTarget:self selector:@selector(deleteObjects:) object:objects];
-	[filesController addObjects:objects];
+	[super addObjects:objects];
 }
 
 -(void)deleteObjects:(NSArray*)objects
 {
 	NSUndoManager *undo=[tableView undoManager];
 	[undo registerUndoWithTarget:self selector:@selector(addObjects:) object:objects];
-	[filesController removeObjects:objects];
+	[self removeObjects:objects];
 
     [objects makeObjectsPerformSelector:@selector(cleanup)];
 }
 
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation
 {
-    NSArray *objs = [filesController arrangedObjects];
+    NSArray *objs = [self arrangedObjects];
     if (row < (signed)[objs count])
     {
         File *f = [objs objectAtIndex:row];
@@ -221,12 +220,12 @@
 }
 
 -(void)openRowInFinder:(NSInteger)row withPreview:(BOOL)preview {
-    NSArray *files = [filesController arrangedObjects];
+    NSArray *files = [self arrangedObjects];
     if (row < [files count]) {
         File *f = [files objectAtIndex:row];
 		if (preview) [[NSWorkspace sharedWorkspace] openFile:[f filePath]];
         else [[NSWorkspace sharedWorkspace] selectFile:[f filePath] inFileViewerRootedAtPath:@""];
-    }    
+    }
 }
 
 // Better in NSArrayController class
@@ -243,14 +242,14 @@
 }
 - (NSUInteger)numberOfRowsInTableView:(NSTableView *)tableview
 {
-	return [[filesController arrangedObjects] count];
+	return [[self arrangedObjects] count];
 }
 
 -(void) moveObjectsInArrangedObjectsFromIndexes:(NSIndexSet*)indexSet
 										toIndex:(NSUInteger)insertIndex
 {
 
-    NSArray		*objects = [filesController arrangedObjects];
+    NSArray		*objects = [self arrangedObjects];
 	NSUInteger	idx = [indexSet lastIndex];
 
     NSUInteger	aboveInsertIndexCount = 0;
@@ -269,8 +268,8 @@
 			insertIndex -= 1;
 		}
 		object = [objects objectAtIndex:removeIndex];
-		[filesController removeObjectAtArrangedObjectIndex:removeIndex];
-		[filesController insertObject:object atArrangedObjectIndex:insertIndex];
+		[self removeObjectAtArrangedObjectIndex:removeIndex];
+		[self insertObject:object atArrangedObjectIndex:insertIndex];
 
 		idx = [indexSet indexLessThanIndex:idx];
     }
@@ -285,14 +284,14 @@
 
 	if ([info draggingSource] == tableView){
 
-		NSIndexSet  *indexSet = [filesController selectionIndexes];//[self indexSetFromRows:paths];
+		NSIndexSet  *indexSet = [self selectionIndexes];//[self indexSetFromRows:paths];
 
 		[self moveObjectsInArrangedObjectsFromIndexes:indexSet toIndex:row];
 		NSUInteger rowsAbove = [self rowsAboveRow:row inIndexSet:indexSet];
 
 		NSRange range = NSMakeRange(row - rowsAbove, [indexSet count]);
 		indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-		[filesController setSelectionIndexes:indexSet];
+		[self setSelectionIndexes:indexSet];
 		return YES;
 
 	}else [self performSelectorInBackground:@selector(addPaths:) withObject:paths];
@@ -302,7 +301,7 @@
 	return YES;
 }
 
-/** filesControllerLock must be locked before using this
+/** selfLock must be locked before using this
 	That's a dumb linear search. Would be nice to replace NSArray with NSSet or NSHashTable.
  */
 -(File *)findFileByPath:(NSString *)path
@@ -312,7 +311,7 @@
         return nil;
     }
 
-    for(File *f in [filesController content])
+    for(File *f in [self content])
 	{
 		if ([path isEqualToString:[f filePath]])
 		{
@@ -327,12 +326,12 @@
 	[[tableView undoManager] registerUndoWithTarget:self selector:@selector(deleteObjects:) object:files];
 	[[tableView undoManager] setActionName:NSLocalizedString(@"Add",@"undo command name")];
 
-    @synchronized (filesController) {
-        if (nextInsertRow < 0 || nextInsertRow >= [[filesController arrangedObjects] count]) {
-            [filesController addObjects:files];
+    @synchronized (self) {
+        if (nextInsertRow < 0 || nextInsertRow >= [[self arrangedObjects] count]) {
+            [self addObjects:files];
         } else {
             NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(nextInsertRow, [files count])];
-            [filesController insertObjects:files atArrangedObjectIndexes:set];
+            [self insertObjects:files atArrangedObjectIndexes:set];
             nextInsertRow += [files count];
         }
     }
@@ -386,7 +385,7 @@
 }
 
 -(BOOL)canClearComplete {
-	for(File *f in [filesController arrangedObjects]) {
+	for(File *f in [self arrangedObjects]) {
         if (f.isDone) return YES;
     }
     return NO;
@@ -397,13 +396,13 @@
     NSUInteger i=0;
     NSMutableIndexSet *set = [NSMutableIndexSet new];
 
-    @synchronized (filesController) {
-        for(File *f in [filesController arrangedObjects]) {
+    @synchronized (self) {
+        for(File *f in [self arrangedObjects]) {
             if (f.isDone) [set addIndex:i];
             i++;
         }
         if ([set count]) {
-            [filesController removeObjectsAtArrangedObjectIndexes:set];
+            [self removeObjectsAtArrangedObjectIndexes:set];
         }
     }
     [self setRow:-1];
@@ -411,8 +410,8 @@
 }
 
 -(BOOL)canStartAgainOptimized:(BOOL)optimized {
-    NSArray *array = [filesController selectedObjects];
-    if (![array count]) array = [filesController content];
+    NSArray *array = [self selectedObjects];
+    if (![array count]) array = [self content];
 
     for(File *f in array) {
         if (!f.isBusy && (!optimized || f.isOptimized)) return YES;
@@ -423,8 +422,8 @@
 -(void)startAgainOptimized:(BOOL)optimized
 {
     BOOL anyStarted = NO;
-	@synchronized (filesController) {
-        NSArray *files = [filesController selectedObjects];
+	@synchronized (self) {
+        NSArray *files = [self selectedObjects];
         NSInteger selectionCount = [files count];
 
         // UI doesn't give a way to deselect all, so here's a substitute
@@ -433,11 +432,11 @@
             File *file = [files objectAtIndex:0];
             if (file.isBusy || !file.isOptimized) {
                 files = [files copy];
-                [filesController setSelectedObjects:@[]];
+                [self setSelectedObjects:@[]];
             }
         }
         else if (!selectionCount) {
-            files = [filesController content];
+            files = [self content];
         }
 
         for(File *f in files) {
