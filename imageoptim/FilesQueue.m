@@ -467,16 +467,6 @@
 	}
 }
 
--(void) quickLook
-{
-	if ([QLPreviewPanel sharedPreviewPanelExists] && [[QLPreviewPanel sharedPreviewPanel] isVisible]) {
-		[[QLPreviewPanel sharedPreviewPanel] orderOut:nil];
-	} else {
-		[[QLPreviewPanel sharedPreviewPanel] makeKeyAndOrderFront:nil];
-	}
-}
-
-
 #define PNG_ENABLED 1
 #define JPEG_ENABLED 2
 #define GIF_ENABLED 4

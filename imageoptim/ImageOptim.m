@@ -199,7 +199,7 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 
 -(IBAction)quickLookAction:(id)sender
 {
-	[filesQueue performSelector:@selector(quickLook)];
+	[tableView performSelector:@selector(quickLook)];
 }
 
 - (IBAction)startAgain:(id)sender

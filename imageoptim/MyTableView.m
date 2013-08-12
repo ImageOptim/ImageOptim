@@ -45,7 +45,7 @@
     if (![theEvent isARepeat] && [self numberOfSelectedRows]) {
         switch ([theEvent keyCode]) {
             case 49: /*space*/
-                [(FilesQueue*)[self delegate] quickLook];
+                [self quickLook];
                 return;
             case 51: /*backspace*/
             case 117: /*delete*/
@@ -154,11 +154,20 @@
 
 }
 
-
 -(void)openRowInPreview
 {
     if ([self clickedRow] < 0) return;
     [self openInFinder];
+}
+
+
+-(void) quickLook
+{
+	if ([QLPreviewPanel sharedPreviewPanelExists] && [[QLPreviewPanel sharedPreviewPanel] isVisible]) {
+		[[QLPreviewPanel sharedPreviewPanel] orderOut:nil];
+	} else {
+		[[QLPreviewPanel sharedPreviewPanel] makeKeyAndOrderFront:nil];
+	}
 }
 
 -(void)awakeFromNib
