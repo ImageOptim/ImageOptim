@@ -26,8 +26,7 @@
 -(void)main
 {
 	const NSUInteger buffer_capacity = 256;
-	NSUInteger buffer_size = 1;
-	NSUInteger buffered = 0;
+	NSUInteger buffer_size = 16;
 	NSMutableArray *buffer = [NSMutableArray arrayWithCapacity:buffer_capacity];
 	
     @try 
@@ -38,19 +37,18 @@
 			
 			if ([extensions containsObject:[newPath pathExtension]])
 			{
-				[buffer addObject:newPath]; buffered++;
-				if (buffered >= buffer_size)
-				{
+				[buffer addObject:newPath];
+				if ([buffer count] >= buffer_size) {
 					// assuming that previous buffer flushes created some work to do
 					// buffer size can be increased to lower overhead
-					buffer_size = MIN(buffer_capacity, buffer_size*2 + 4);
-					[filesQueue addFilePaths:buffer];
-					[buffer removeAllObjects]; buffered=0;
+					buffer_size = MIN(buffer_capacity, buffer_size*4);
+					[filesQueue addPaths:buffer filesOnly:YES];
+					[buffer removeAllObjects];
 				}
 			}
 		}
 		
-		if ([buffer count]) [filesQueue addFilePaths:buffer];
+		if ([buffer count]) [filesQueue addPaths:buffer filesOnly:YES];
     }
     @catch (NSException *ex) {
         NSLog(@"DIR worker failed %@",ex);

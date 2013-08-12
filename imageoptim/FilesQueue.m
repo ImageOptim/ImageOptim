@@ -304,19 +304,6 @@
 	return YES;
 }
 
--(void)addDir:(NSString *)path
-{
-    if (!isEnabled) return;
-
-    @try {
-        DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self extensions:[self extensions]];
-        [dirWorkerQueue addOperation:w];
-    }
-    @catch (NSException *e) {
-        NSLog(@"Add dir failed %@",e);
-    }
-}
-
 /** filesControllerLock must be locked before using this
 	That's a dumb linear search. Would be nice to replace NSArray with NSSet or NSHashTable.
  */
@@ -355,45 +342,49 @@
     [self updateProgressbar];
 }
 
--(void)addFilePaths:(NSArray*)paths
+-(void)addPaths:(NSArray*)paths
 {
+    [self addPaths:paths filesOnly:NO];
+}
+
+/** filesOnly indicates that paths do not contain any directories */
+-(void)addPaths:(NSArray*)paths filesOnly:(BOOL)filesOnly
+{
+    if (!isEnabled) {
+        return;
+    }
+
 	NSMutableArray *toAdd = [NSMutableArray arrayWithCapacity:[paths count]];
 
-    for(NSString *path in paths)
-    {
-        File *f = [self findFileByPath:path];
-        if (f) {
-            if (![f isBusy]) [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
+    BOOL isDir = NO;
+    NSFileManager *fm = filesOnly ? nil : [NSFileManager defaultManager];
+
+    for(NSString *path in paths) {
+        if (fm) {
+            if (![fm fileExistsAtPath:path isDirectory:&isDir]) {
+                NSLog(@"%@ doesn't exist", path);
+                continue;
+            }
         }
-        else {
-            [seenPathHashes addObject:path]; // used by findFileByPath
-            f = [[File alloc] initWithFilePath:path];
-            [toAdd addObject:f];
-            [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
+
+        if (!isDir) {
+            File *f = [self findFileByPath:path];
+            if (f) {
+                if (![f isBusy]) [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
+            }
+            else {
+                [seenPathHashes addObject:path]; // used by findFileByPath
+                f = [[File alloc] initWithFilePath:path];
+                [toAdd addObject:f];
+                [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
+            }
+        } else {
+            DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self extensions:[self extensions]];
+            [dirWorkerQueue addOperation:w];
         }
     }
 
     [self performSelectorOnMainThread:@selector(addFileObjects:) withObject:toAdd waitUntilDone:NO];
-}
-
--(void)addPath:(NSString *)path
-{
-	if (!isEnabled) {
-        return;
-    }
-
-	BOOL isDir;
-	if ([[NSFileManager defaultManager] fileExistsAtPath:path isDirectory:&isDir])
-	{
-		if (!isDir)
-		{
-			[self performSelectorOnMainThread:@selector(addFilePaths:) withObject:[NSArray arrayWithObject:path] waitUntilDone:NO];
-		}
-		else
-		{
-			[self addDir:path];
-		}
-	}
 }
 
 -(BOOL)canClearComplete {
@@ -476,16 +467,6 @@
 		[progressBar startAnimation:nil];
         [self waitInBackgroundForQueuesToFinish];
 	}
-}
-
--(void)addPaths:(NSArray *)paths
-{
-	for(NSString *path in paths)
-	{
-		[self addPath:path];
-	}
-
-    [self updateProgressbar];
 }
 
 -(void) quickLook
