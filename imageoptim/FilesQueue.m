@@ -13,10 +13,10 @@
 -(NSArray*)extensions;
 -(BOOL)isAnyQueueBusy;
 -(void)updateProgressbar;
--(NSArray*)selectedFilePaths;
 -(void)deleteObjects:(NSArray*)objects;
 @end
 
+static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 @implementation FilesQueue
 
@@ -41,9 +41,9 @@
 
     queueWaitingLock = [NSLock new];
 
-	[tableView setDelegate:self];
-	[tableView setDataSource:self];
-	[tableView registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
+	[tableView registerForDraggedTypes:@[NSFilenamesPboardType, kIMDraggedRowIndexesPboardType]];
+
+    [self setSelectsInsertedObjects:NO];
 
     isEnabled = YES;
     }
@@ -122,58 +122,35 @@
 	[self performSelectorInBackground:@selector(addPaths:) withObject:paths];
 }
 
-- (BOOL)tableView:(NSTableView *)tv
-		writeRows:(NSArray*)rows
-	 toPasteboard:(NSPasteboard*)pboard
+- (BOOL)tableView:(NSTableView *)aTableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard
 {
 	if (!isEnabled) return NO;
-	NSArray *filePathlist=[self selectedFilePaths];
-	NSArray *typesArray=[NSArray arrayWithObject:NSFilenamesPboardType];
 
-	if ([filePathlist count]>0)
-	{
-		[pboard declareTypes:typesArray owner:self];
-		if([pboard setPropertyList:filePathlist forType:NSFilenamesPboardType])
-		return YES;
+	NSArray *filePathlist = [[[self arrangedObjects] objectsAtIndexes:rowIndexes] valueForKey:@"filePath"];
 
+	if ([filePathlist count]) {
+		[pboard declareTypes:@[NSFilenamesPboardType, kIMDraggedRowIndexesPboardType] owner:self];
+		return [pboard setPropertyList:filePathlist forType:NSFilenamesPboardType] &&
+               [pboard setData:[NSKeyedArchiver archivedDataWithRootObject:rowIndexes] forType:kIMDraggedRowIndexesPboardType];
 	}
 	return NO;
 }
 
 -(BOOL)copyObjects
 {
-		if (!isEnabled) return NO;
-		NSPasteboard *pboard=[NSPasteboard generalPasteboard];
-		NSArray *filePathlist=[self selectedFilePaths];
+    if (!isEnabled) return NO;
 
-		NSArray *typesArray=[NSArray arrayWithObject:NSFilenamesPboardType];
+    NSPasteboard *pboard = [NSPasteboard generalPasteboard];
+    NSArray *filePathlist = [[self selectedObjects] valueForKey:@"filePath"];
 
-		if ([filePathlist count]>0)
-		{
-			[pboard declareTypes:typesArray owner:self];
-			if([pboard setPropertyList:filePathlist forType:NSFilenamesPboardType])
-				return YES;
-
-		}
+    if ([filePathlist count]) {
+        [pboard declareTypes:@[NSFilenamesPboardType] owner:self];
+        return [pboard setPropertyList:filePathlist forType:NSFilenamesPboardType];
+    }
 	return NO;
 }
 
--(NSArray*)selectedFilePaths
-{
-	NSArray *selectedFiles=[self selectedObjects];
-	NSEnumerator *fileEnum=[selectedFiles objectEnumerator];
-	NSMutableArray *filePathlist=[NSMutableArray array];
-
-	id afile;
-	while (afile=[fileEnum nextObject]) {
-		[filePathlist addObject:[afile valueForKey:@"filePath"]];
-	}
-	return filePathlist;
-}
-
-
--(void)cutObjects
-	{
+-(void)cutObjects {
 	if ([self copyObjects]){
 		[self deleteObjects:[self selectedObjects]];
 		[[tableView undoManager] setActionName:NSLocalizedString(@"Cut",@"undo command name")];
@@ -183,11 +160,9 @@
 
 -(IBAction)delete:(id)sender
 {
-    NSArray *files = nil;
 	@synchronized (self) {
         if ([self canRemove]) {
-            files = [self selectedObjects];
-            [self deleteObjects:files];
+            [self deleteObjects:[self selectedObjects]];
         }
     }
 }
@@ -278,23 +253,34 @@
 
 - (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation
 {
-
 	NSPasteboard *pboard = [info draggingPasteboard];
-	NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
+    NSData *indexesArchived;
 
-	if ([info draggingSource] == tableView){
+    if ([info draggingSource] == aTableView && (indexesArchived = [pboard dataForType:kIMDraggedRowIndexesPboardType])) {
+        NSIndexSet* indexSet = [NSKeyedUnarchiver unarchiveObjectWithData:indexesArchived];
 
-		NSIndexSet  *indexSet = [self selectionIndexes];//[self indexSetFromRows:paths];
+        NSIndexSet *selection = [self selectionIndexes];
+        BOOL containsSelection = [selection containsIndexes:indexSet];
 
-		[self moveObjectsInArrangedObjectsFromIndexes:indexSet toIndex:row];
-		NSUInteger rowsAbove = [self rowsAboveRow:row inIndexSet:indexSet];
+        [self moveObjectsInArrangedObjectsFromIndexes:indexSet toIndex:row];
 
-		NSRange range = NSMakeRange(row - rowsAbove, [indexSet count]);
-		indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
-		[self setSelectionIndexes:indexSet];
+        if (containsSelection) {
+            NSUInteger rowsAbove = [self rowsAboveRow:row inIndexSet:indexSet];
+
+            NSRange range = NSMakeRange(row - rowsAbove, [indexSet count]);
+            indexSet = [NSIndexSet indexSetWithIndexesInRange:range];
+            [self setSelectionIndexes:indexSet];
+        } else if (![selection count]) {
+            // non-empty selection seems to be preserved, but if there was no selection
+            // then tableview selects a row
+            [self setSelectedObjects:@[]];
+        }
+
 		return YES;
-
-	}else [self performSelectorInBackground:@selector(addPaths:) withObject:paths];
+	} else {
+        NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
+        [self performSelectorInBackground:@selector(addPaths:) withObject:paths];
+    }
 
 	[[aTableView window] makeKeyAndOrderFront:aTableView];
 
@@ -406,7 +392,6 @@
         }
     }
     [self setRow:-1];
-    [tableView setNeedsDisplay:YES];
 }
 
 -(BOOL)canStartAgainOptimized:(BOOL)optimized {
