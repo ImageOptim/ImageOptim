@@ -34,6 +34,7 @@ NSDictionary *statusImages;
 
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
 
+    assert(statusImages);
 	filesQueue = [[FilesQueue alloc] initWithTableView:tableView progressBar:progressBar andController:filesController];
 
     [NSApp setServicesProvider:self];
@@ -43,7 +44,7 @@ NSDictionary *statusImages;
 - (void)handleServices:(NSPasteboard *)pboard
               userData:(NSString *)userData
                  error:(NSString **)error {
-    NSLog(@"Service called");
+    assert(statusImages);
     [self.filesQueue pasteObjectsFrom:pboard];
 }
 
@@ -127,6 +128,7 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 }
 
 -(void)awakeFromNib {
+    [self preloadStatusImages];
 
 	RevealButtonCell* cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
 	[cell setInfoButtonAction:@selector(openInFinder)];
@@ -138,7 +140,6 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     [self loadCreditsHTML];
 
     [self initStatusbar];
-    [self preloadStatusImages];
 }
 
 

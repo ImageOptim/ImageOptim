@@ -634,7 +634,7 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
 -(void)setStatus:(NSString *)imageName order:(NSInteger)order text:(NSString *)text
 {
     void (^cb)() = ^{
-        if (statusText == text) return;
+        if (statusOrder == order && statusText == text) return;
         statusOrder = order;
         self.statusText = text;
         self.statusImage = [statusImages objectForKey:imageName];
