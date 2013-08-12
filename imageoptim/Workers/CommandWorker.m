@@ -34,6 +34,7 @@
 				inputBuffer[inputBufferPos] = '\0';
 				if ([self parseLine:[NSString stringWithUTF8String:inputBuffer]])
 				{
+                    [commandHandle readDataToEndOfFile];
 					return;				
 				}
 				inputBufferPos=0;bytesPos++;
