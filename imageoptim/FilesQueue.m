@@ -191,10 +191,6 @@
             [self deleteObjects:files];
         }
     }
-    if ([files count]) {
-        [files makeObjectsPerformSelector:@selector(cleanup)];
-    }
-    else NSBeep();
 }
 
 -(void)addObjects:(NSArray*)objects
@@ -209,6 +205,8 @@
 	NSUndoManager *undo=[tableView undoManager];
 	[undo registerUndoWithTarget:self selector:@selector(addObjects:) object:objects];
 	[filesController removeObjects:objects];
+
+    [objects makeObjectsPerformSelector:@selector(cleanup)];
 }
 
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation
