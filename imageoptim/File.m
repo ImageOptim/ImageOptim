@@ -136,7 +136,7 @@ enum {
         if (size < byteSizeOptimized)
         {
             self.bestToolName = [toolname stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
-            assert(![filePathOptimized isEqualToString:path]);
+            assert(![filePathOptimized isEqualToString:tempPath]);
             [self removeOldFilePathOptimized];
             filePathOptimized = tempPath;
             [self setByteSizeOptimized:size];
@@ -196,7 +196,24 @@ enum {
     NSURL *url = [NSURL fileURLWithPath:path];
 
     if ([fm respondsToSelector:@selector(trashItemAtURL:resultingItemURL:error:)]) { // 10.8
-        return [fm trashItemAtURL:url resultingItemURL:nil error:err];
+        if ([fm trashItemAtURL:url resultingItemURL:nil error:err]) {
+            return YES;
+        }
+        if (!err || [*err domain] != NSCocoaErrorDomain || [*err code] != 3328) {
+            return NO;
+        }
+        NSLog(@"Recovering trashing error %@", *err);
+        // error = 3328 means volume doesn't have trash
+        // to recover, copy file to temp and then trash
+        NSString *tempPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[path lastPathComponent]];
+        if ([fm moveItemAtPath:path toPath:tempPath error:err]) {
+            if ([fm trashItemAtURL:[NSURL fileURLWithPath:tempPath] resultingItemURL:nil error:err]) {
+                return YES;
+            }
+            // oops, move it back
+            [fm moveItemAtPath:tempPath toPath:path error:nil];
+        }
+        return NO;
     } else {
         OSStatus status = 0;
 
