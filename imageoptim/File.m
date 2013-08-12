@@ -128,7 +128,7 @@ enum {
 {
 	if (filePathOptimized)
 	{
-            [[NSFileManager defaultManager] removeItemAtPath:filePathOptimized error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:filePathOptimized error:nil];
         filePathOptimized = nil;
 	}
 }
@@ -314,8 +314,6 @@ enum {
         }
 
         [self removeExtendedAttrAtPath:filePath];
-
-        filePathOptimized = nil;
 	}
 	@catch(NSException *e)
 	{
@@ -339,6 +337,7 @@ enum {
 -(void)saveResultAndUpdateStatus {
     BOOL saved = [self saveResult];
     [self removeOldFilePathOptimized];
+
     if (saved) {
         done = YES;
         [self setStatus:@"ok" order:7 text:[NSString stringWithFormat:NSLocalizedString(@"Optimized successfully with %@",@"tooltip"),bestToolName]];
@@ -449,7 +448,7 @@ enum {
 typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list_t;
 
 -(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue 
-{  
+{
     [self setStatus:@"progress" order:3 text:NSLocalizedString(@"Inspecting file",@"tooltip")];        
 	
     NSData *fileData = [NSData dataWithContentsOfMappedFile:filePath];
