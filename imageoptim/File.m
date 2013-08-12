@@ -330,7 +330,7 @@ enum {
     {
 		workersActive++;
         NSString *name = [[worker className] stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
-        [self setStatus:@"progress" order:4 text:[NSString stringWithFormat:NSLocalizedString(@"Started %@",@"command name"),name]];
+        [self setStatus:@"progress" order:4 text:[NSString stringWithFormat:NSLocalizedString(@"Started %@",@"command name, tooltip"),name]];
     }
 }
 
@@ -358,7 +358,7 @@ enum {
             if (!byteSize || !byteSizeOptimized)
             {
                 NSLog(@"worker %@ finished, but result file has 0 size",worker);
-                [self setStatus:@"err" order:8 text:NSLocalizedString(@"Size of optimized file is 0",@"tooltip")];
+                [self setStatus:@"err" order:8 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
             }
             else if (workersFinished == workersTotal)
             {
@@ -434,7 +434,7 @@ enum {
         workers = [[NSMutableArray alloc] initWithCapacity:10];
     }
     
-    [self setStatus:@"wait" order:0 text:NSLocalizedString(@"Waiting in queue",@"tooltip")];
+    [self setStatus:@"wait" order:0 text:NSLocalizedString(@"Waiting to be optimized",@"tooltip")];
     
     NSOperation *actualEnqueue = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doEnqueueWorkersInCPUQueue:) object:queue];
     if (queue.operationCount < queue.maxConcurrentOperationCount) {
@@ -455,7 +455,7 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
     NSUInteger length = [fileData length];
     if (!fileData || !length)
     {
-        [self setStatus:@"err" order:8 text:NSLocalizedString(@"Can't map file into memory",@"tooltip")]; 
+        [self setStatus:@"err" order:8 text:NSLocalizedString(@"Can't map file into memory",@"tooltip, generic loading error")];
         return;
     }
 

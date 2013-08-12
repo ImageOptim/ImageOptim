@@ -177,7 +177,7 @@
 	{
 	if ([self copyObjects]){
 		[self deleteObjects:[filesController selectedObjects]];
-		[[tableView undoManager] setActionName:NSLocalizedString(@"Cut",nil)];
+		[[tableView undoManager] setActionName:NSLocalizedString(@"Cut",@"undo command name")];
 	}
 }
 
@@ -340,7 +340,7 @@
 -(void)addFileObjects:(NSArray *)files
 {
 	[[tableView undoManager] registerUndoWithTarget:self selector:@selector(deleteObjects:) object:files];
-	[[tableView undoManager] setActionName:NSLocalizedString(@"Add",nil)];
+	[[tableView undoManager] setActionName:NSLocalizedString(@"Add",@"undo command name")];
 
     @synchronized (filesController) {
         if (nextInsertRow < 0 || nextInsertRow >= [[filesController arrangedObjects] count]) {
