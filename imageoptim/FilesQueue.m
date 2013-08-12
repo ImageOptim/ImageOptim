@@ -110,15 +110,14 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 	if (!isEnabled) return NSDragOperationNone;
 
     NSDragOperation dragOp = ([info draggingSource] == tableView) ? NSDragOperationMove : NSDragOperationCopy;
-	@synchronized (self) {
-        nextInsertRow=row;
-        [atableView setDropRow:row dropOperation:NSTableViewDropAbove];
-    }
+    [atableView setDropRow:row dropOperation:NSTableViewDropAbove];
+
     return dragOp;
 }
 
 -(void)pasteObjectsFrom:(NSPasteboard *)pboard {
 	NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
+    nextInsertRow = [self selectionIndex];
 	[self performSelectorInBackground:@selector(addPaths:) withObject:paths];
 }
 
@@ -279,6 +278,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 		return YES;
 	} else {
         NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
+        nextInsertRow = row;
         [self performSelectorInBackground:@selector(addPaths:) withObject:paths];
     }
 
