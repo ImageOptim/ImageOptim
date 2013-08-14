@@ -12,16 +12,9 @@
 
 NSDictionary *statusImages;
 
-@synthesize selectedIndexes, filesQueue=filesController;
+static NSString *kIMPreviewPanelContext = @"preview";
 
-- (void)setSelectedIndexes:(NSIndexSet *)indexSet
-{
-	//Get information from ArrayController
-    if (indexSet != selectedIndexes) {
-		selectedIndexes = [indexSet copy];
-		[previewPanel reloadData];
-	}
-}
+@synthesize filesQueue=filesController;
 
 - (void)applicationWillFinishLaunching:(NSNotification *)unused {
 
@@ -118,13 +111,13 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
                 }
             }
         }
-        [statusBarLabel setStringValue:str];
-    });
+            [statusBarLabel setStringValue:str];
+        });
     dispatch_resume(statusBarUpdateQueue);
 
-    [filesController addObserver:self forKeyPath:@"arrangedObjects.@count" options:NSKeyValueObservingOptionNew context:nil];
-    [filesController addObserver:self forKeyPath:@"arrangedObjects.@avg.percentOptimized" options:NSKeyValueObservingOptionNew context:nil];
-    [filesController addObserver:self forKeyPath:@"arrangedObjects.@sum.byteSizeOptimized" options:NSKeyValueObservingOptionNew context:nil];
+    [filesController addObserver:self forKeyPath:@"arrangedObjects.@count" options:0 context:nil];
+    [filesController addObserver:self forKeyPath:@"arrangedObjects.@sum.byteSizeOptimized" options:0 context:nil];
+    [filesController addObserver:self forKeyPath:@"selectionIndexes" options:0 context:kIMPreviewPanelContext];
 }
 
 -(void)awakeFromNib {
@@ -175,8 +168,12 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    // Defer and coalesce statusbar updates
-    dispatch_source_merge_data(statusBarUpdateQueue, 1);
+    if (context == kIMPreviewPanelContext) {
+        [previewPanel reloadData];
+    } else {
+        // Defer and coalesce statusbar updates
+        dispatch_source_merge_data(statusBarUpdateQueue, 1);
+    }
 }
 
 -(int)numberOfCPUs
@@ -371,6 +368,5 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 {
 	return [[NSWorkspace sharedWorkspace] iconForFile:[(NSURL *)item path]];
 }
-
 
 @end

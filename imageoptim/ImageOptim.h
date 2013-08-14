@@ -19,7 +19,6 @@ extern NSDictionary *statusImages;
 
     IBOutlet NSTableColumn *sizeColumn, *originalSizeColumn, *savingsColumn, *bestToolColumn;
 
-    NSIndexSet* selectedIndexes;
 	QLPreviewPanel* previewPanel;
 
     dispatch_source_t statusBarUpdateQueue;
@@ -40,6 +39,5 @@ extern NSDictionary *statusImages;
 -(int)numberOfCPUs;
 -(void)loadCreditsHTML;
 
-@property (copy,nonatomic) NSIndexSet* selectedIndexes;
 @property (readonly) FilesQueue *filesQueue;
 @end

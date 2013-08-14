@@ -1221,7 +1221,6 @@
 					<string>isOptimized</string>
 					<string>percentDone</string>
 					<string>statusImage</string>
-					<string>AdvPngEnabled</string>
 				</array>
 				<string key="NSObjectClassName">File</string>
 				<bool key="NSEditable">YES</bool>
@@ -1833,22 +1832,6 @@
 						</object>
 					</object>
 					<int key="connectionID">474</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">selectionIndexes: selectedIndexes</string>
-						<reference key="source" ref="130688837"/>
-						<reference key="destination" ref="833277363"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="130688837"/>
-							<reference key="NSDestination" ref="833277363"/>
-							<string key="NSLabel">selectionIndexes: selectedIndexes</string>
-							<string key="NSBinding">selectionIndexes</string>
-							<string key="NSKeyPath">selectedIndexes</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">711</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
