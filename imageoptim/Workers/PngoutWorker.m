@@ -59,7 +59,10 @@
 	[task setStandardOutput: fileOutputHandle];	
 	[task setStandardError: commandPipe];	
 	
-    if (interruptIfTakesTooLong) [task performSelector:@selector(interrupt) withObject:nil afterDelay:60.0];// TODO: configurable timeout?
+    double timelimit = 10.0 + [file byteSizeOriginal]/1024.0;
+    if (timelimit > 60.0) timelimit = 60.0;
+
+    if (interruptIfTakesTooLong) [task performSelector:@selector(interrupt) withObject:nil afterDelay:timelimit];
 	[self launchTask];
 	
 	[self parseLinesFromHandle:commandHandle];
