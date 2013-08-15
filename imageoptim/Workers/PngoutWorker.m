@@ -75,7 +75,10 @@
     [commandHandle closeFile];
 	[fileOutputHandle closeFile];
 	
-	if ([task terminationStatus]) return NO;
+    int status = [task terminationStatus]; // status = 2 early exit
+	if (status && (status != 2 || !fileSizeOptimized)) {
+        return NO;
+    }
 
 	if (fileSizeOptimized) {
         return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"PNGOUT"];
