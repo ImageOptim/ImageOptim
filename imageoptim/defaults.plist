@@ -41,10 +41,10 @@
 	<key>RunConcurrentDirscans</key>
 	<integer>2</integer>
 	<key>RunConcurrentTasks</key>
-	<real>2</real>
+	<integer>4</integer>
 	<key>RunLowPriority</key>
 	<true/>
-	<key>BackupFiles</key>
-	<false/>
+	<key>BounceDock</key>
+	<true/>
 </dict>
 </plist>

@@ -442,7 +442,9 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 	if (![self isAnyQueueBusy])
 	{
 		[progressBar stopAnimation:nil];
-		[NSApp requestUserAttention:NSInformationalRequest];
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"BounceDock"]) {
+            [NSApp requestUserAttention:NSInformationalRequest];
+        }
 	}
 	else
 	{
