@@ -17,6 +17,7 @@ static NSString *kIMPreviewPanelContext = @"preview";
 @synthesize filesQueue=filesController;
 
 - (void)applicationWillFinishLaunching:(NSNotification *)unused {
+    [self preloadStatusImages];
 
     NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 
@@ -27,7 +28,6 @@ static NSString *kIMPreviewPanelContext = @"preview";
 
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
 
-    assert(statusImages);
     [filesController configureWithTableView:tableView progressBar:progressBar];
 
     [NSApp setServicesProvider:self];
@@ -162,13 +162,16 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 }
 
 -(void)preloadStatusImages {
-    statusImages = [NSDictionary dictionaryWithObjectsAndKeys:
-                   [NSImage imageNamed:@"err"], @"err",
-                   [NSImage imageNamed:@"wait"], @"wait",
-                   [NSImage imageNamed:@"progress"], @"progress",
-                   [NSImage imageNamed:@"noopt"], @"noopt",
-                   [NSImage imageNamed:@"ok"], @"ok",
-                   nil];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        statusImages = [NSDictionary dictionaryWithObjectsAndKeys:
+                        [NSImage imageNamed:@"err"], @"err",
+                        [NSImage imageNamed:@"wait"], @"wait",
+                        [NSImage imageNamed:@"progress"], @"progress",
+                        [NSImage imageNamed:@"noopt"], @"noopt",
+                        [NSImage imageNamed:@"ok"], @"ok",
+                        nil];
+    });
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -193,6 +196,8 @@ NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 // invoked by Dock
 - (BOOL)application:(NSApplication *)sender openFile:(NSString *)path
 {
+    [self preloadStatusImages];
+
     [filesController setRow:-1];
     [filesController addPaths:[NSArray arrayWithObject:path]];
 	return YES;
