@@ -15,6 +15,10 @@
     return self;
 }
 
+-(id)settingsIdentifier {
+    return @(strip);
+}
+
 -(BOOL)runWithTempPath:(NSString*)temp
 {
 	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-nofilecheck",@"-bail",@"-blacken",@"-reduce",@"-cc",@"--",[file filePath],temp,nil];

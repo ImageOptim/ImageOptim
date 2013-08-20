@@ -5,10 +5,15 @@
 //
 
 #import "Worker.h"
+#import "File.h"
 
 @implementation Worker
 
 @synthesize file, nextOperation;
+
+-(id)settingsIdentifier {
+    return @(0);
+}
 
 -(id)initWithFile:(File *)aFile
 {
@@ -24,12 +29,45 @@
 	return (f == file);
 }
 
+-(BOOL)canSkip {
+
+    if (![self isIdempotent]) return NO;
+
+    NSDictionary *resultsBySettings;
+    @synchronized(file) {
+        resultsBySettings = [file.workersPreviousResults objectForKey:[self className]];
+    }
+    if (!resultsBySettings) return NO;
+
+    NSNumber *previousResult = [resultsBySettings objectForKey:[self settingsIdentifier]];
+    if (!previousResult) return NO;
+
+    return file.byteSizeOptimized == [previousResult integerValue];
+}
+
+-(void)markResultForSkipping {
+    @synchronized(file) {
+        NSMutableDictionary *resultsBySettings = [file.workersPreviousResults objectForKey:[self className]];
+        if (!resultsBySettings) {
+            resultsBySettings = [NSMutableDictionary new];
+            [file.workersPreviousResults setObject:resultsBySettings forKey:[self className]];
+        }
+        [resultsBySettings setObject:@(file.byteSizeOptimized) forKey:[self settingsIdentifier]];
+    }
+}
+
 -(void)main {
 
     [file workerHasStarted:self];
+
     @try {
         if (![self isCancelled]) {
-            [self run];
+            if (![self canSkip]) {
+                [self run];
+                [self markResultForSkipping];
+            } else {
+                NSLog(@"Skipping %@, because it already optimized %@", [self className], file.fileName);
+            }
         }
     }
     @finally {
@@ -40,7 +78,10 @@
 
 -(void)run
 {
-//	NSLog(@"Run and did nothing %@",[self className]);
+}
+
+-(BOOL)isIdempotent {
+    return YES;
 }
 
 -(BOOL)makesNonOptimizingModifications

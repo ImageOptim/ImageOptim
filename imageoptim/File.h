@@ -7,8 +7,6 @@
 #import <Cocoa/Cocoa.h>
 #import "Workers/Worker.h"
 
-@class Dupe;
-
 @interface File : NSObject <NSCopying, WorkerQueueDelegate> {
 	NSString *filePath;
 	NSString *displayName;
@@ -30,6 +28,7 @@
     NSInteger statusOrder;
     
     NSMutableArray *workers;
+    NSMutableDictionary *workersPreviousResults;
     
 	NSUInteger workersActive;
 	NSUInteger workersFinished;
@@ -67,6 +66,7 @@
 @property (retain) NSImage *statusImage;
 @property (assign,nonatomic) NSUInteger byteSizeOriginal, byteSizeOptimized;
 @property (assign,readonly) NSInteger statusOrder;
+@property (retain,readonly) NSMutableDictionary *workersPreviousResults;
 
 @property (assign) double percentDone;
 

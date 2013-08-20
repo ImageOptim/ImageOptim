@@ -6,6 +6,10 @@
 
 @synthesize interlace;
 
+-(id)settingsIdentifier {
+    return @(interlace);
+}
+
 -(BOOL)runWithTempPath:(NSString*)temp
 {	
 	NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-o",temp,

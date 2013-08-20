@@ -9,6 +9,10 @@
 
 @implementation JpegoptimWorker
 
+-(id)settingsIdentifier {
+    return @(maxquality*2+strip);
+}
+
 -(id)initWithFile:(File *)aFile {
     if (self = [super initWithFile:aFile])
     {

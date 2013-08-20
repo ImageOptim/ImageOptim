@@ -20,6 +20,11 @@
     return self;
 }
 
+
+-(id)settingsIdentifier {
+    return @(optlevel*2+interlace);
+}
+
 -(BOOL)runWithTempPath:(NSString*)temp
 {	
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],

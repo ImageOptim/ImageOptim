@@ -16,6 +16,10 @@
     return self;
 }
 
+-(id)settingsIdentifier {
+    return @(iterations*4+strip*2+alternativeStrategy);
+}
+
 -(BOOL)runWithTempPath:(NSString*)temp
 {
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"--lossy_transparent",@"-y",/*@"--",*/[file filePath],temp,nil];
@@ -69,6 +73,10 @@
 	if (fileSizeOptimized > 70) {
 		return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"Zopfli"];
 	}
+    return NO;
+}
+
+-(BOOL)isIdempotent {
     return NO;
 }
 

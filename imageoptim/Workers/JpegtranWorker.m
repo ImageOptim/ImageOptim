@@ -9,6 +9,10 @@
 
 @implementation JpegtranWorker
 
+-(id)settingsIdentifier {
+    return @(jpegrescan*2+strip);
+}
+
 -(id)initWithFile:(File *)aFile {
     if (self = [super initWithFile:aFile])
     {

@@ -22,6 +22,10 @@
     return self;
 }
 
+-(id)settingsIdentifier {
+    return @(level*4+removechunks*2+interruptIfTakesTooLong);
+}
+
 -(BOOL)runWithTempPath:(NSString*)temp
 {
     // uses stdout for file to force progress output to unbufferred stderr

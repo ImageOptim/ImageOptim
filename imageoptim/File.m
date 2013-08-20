@@ -15,7 +15,6 @@
 #import "Workers/JpegtranWorker.h"
 #import "Workers/GifsicleWorker.h"
 #import <sys/xattr.h>
-//#import "Dupe.h"
 
 @implementation File
 
@@ -25,12 +24,13 @@ enum {
     FILETYPE_GIF
 };
 
-@synthesize byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName;
+@synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName;
 
 -(id)initWithFilePath:(NSString *)name;
 {
 	if (self = [self init])
-	{	
+	{
+        workersPreviousResults = [NSMutableDictionary new];
 		[self setFilePath:name];
 		[self setStatus:@"wait" order:0 text:NSLocalizedString(@"New file",@"newly added to the queue")];
 	}
@@ -400,20 +400,6 @@ enum {
     }	    
 }
 
-//-(void)checkDupe:(NSData *)data {
-//    Dupe *d = [[Dupe alloc] initWithData:data];
-//    @synchronized(self) {
-//        dupe = d;        
-//    }
-//    if ([Dupe isDupe:dupe])
-//    {
-//        [self cleanup];
-//        [self setStatus:@"noopt" text:@"File was already optimized by ImageOptim"];
-//    }
-//    
-//}
-
-
 -(int)fileType:(NSData *)data
 {
 	const unsigned char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
@@ -563,14 +549,6 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
             }
         }
     }
-
-//    NSOperation *checkDupe = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(checkDupe:) object:fileData];
-//    // largeish files are best to skip
-//    if (length > 10000) [checkDupe setQueuePriority:NSOperationQueuePriorityHigh];
-//    else if (length < 3000) [checkDupe setQueuePriority:NSOperationQueuePriorityLow];
-//    [workers addObject:checkDupe];
-//    [fileIOQueue addOperation:checkDupe];
-    
 	
 	workersTotal += [runFirst count] + [runLater count];
 

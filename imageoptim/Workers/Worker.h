@@ -35,4 +35,7 @@
 -(BOOL)makesNonOptimizingModifications;
 
 -(void)run;
+
+-(id)settingsIdentifier;
+-(BOOL)isIdempotent;
 @end

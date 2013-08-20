@@ -19,6 +19,10 @@
     return self;
 }
 
+-(id)settingsIdentifier {
+    return @(level);
+}
+
 -(BOOL)runWithTempPath:(NSString*)temp
 {
 	NSFileManager *fm = [NSFileManager defaultManager];
