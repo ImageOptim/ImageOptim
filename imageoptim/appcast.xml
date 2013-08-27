@@ -7,19 +7,15 @@
 <language>en</language>
 
 <item>
-<title>Version 1.4.3</title>
+<title>Version 1.4.4</title>
 <description><![CDATA[
     <ul>
-            <li>Fixed opening from Dock and command-line</li>
-            <li>ImageOptim won't try to optimize non-writeable files</li>
-            <li>Better cleanup of temporary files</li>
-            <li>Updated translations and added new:
-                <ul>
-                <li>Vietnamese (thanks to Biz Over and Phan Anh)</li>
-                <li>Turkish (thanks to Ali Riza Esin)</li>
-                <li>Czech (thanks to "fri")</li>
-            </ul></li>
-        </ul>
+        <li>Running optimizations again is much faster by skipping tools that are known not to improve compression when run second time</li>
+        <li>Improved backup of files on Samba network drives (10.8+ only)</li>
+        <li>Improved dragging and copy&amp;paste of files in the list</li>
+        <li>Improved time-limiting of PNGOUT and Zopfli</li>
+        <li>Ability to disable dock bounce with <code>defaults write net.pornel.imageoptim BounceDock -bool false</code></li>
+    </ul>
     <p>Previously:</p>
 <ul>
         <li><a href="http://googledevelopers.blogspot.co.uk/2013/02/compress-data-more-densely-with-zopfli.html">Zopfli</a> compressor</li>
@@ -27,13 +23,9 @@
         <li>Original images are &ldquo;backed up&rdquo; to Trash</li>
 </ul>
 ]]></description>
-<pubDate>Tue, 06 Aug 2013 20:59:58 +0100</pubDate>
-<enclosure url="http://imageoptim.com/ImageOptim1.4.3.tar.bz2" sparkle:version="1.4.3" length="1669818" type="application/bzip2" sparkle:dsaSignature="MCwCFB/n+3+Df3ujASbz7TzdvEsxwpngAhRFc1EfHxys7xfVe9287cR0muqfRQ=="/>
+<pubDate>Thu, 22 Aug 2013 16:33:37 +0100</pubDate>
+<enclosure url="http://imageoptim.com/ImageOptim1.4.4.tar.bz2" sparkle:version="1.4.4" length="1612256" type="application/bzip2" sparkle:dsaSignature="MC4CFQCbasUNjbOUroJEYf1iyfWaqdQkHwIVAJLHodsDwpzMIR9QY9uOw85sYg+E"/>
 <sparkle:minimumSystemVersion>10.8.4</sparkle:minimumSystemVersion>
-
-
-
-
 
 </item>
 </channel>
