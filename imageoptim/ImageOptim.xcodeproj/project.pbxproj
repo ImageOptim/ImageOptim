@@ -746,7 +746,7 @@
 		5AA6D23C1503E9F5006DDB3E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5AA6D24D1503E9F6006DDB3E /* finish_installation.app */,
+				5AA6D24D1503E9F6006DDB3E /* ImageOptim_autoupdate.app */,
 				5AA6D2491503E9F6006DDB3E /* Sparkle Test App.app */,
 				5AA6D24B1503E9F6006DDB3E /* Sparkle Unit Tests.octest */,
 				5AA6D2471503E9F6006DDB3E /* Sparkle.framework */,
@@ -1030,10 +1030,10 @@
 			remoteRef = 5AA6D24A1503E9F6006DDB3E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5AA6D24D1503E9F6006DDB3E /* finish_installation.app */ = {
+		5AA6D24D1503E9F6006DDB3E /* ImageOptim_autoupdate.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
-			path = finish_installation.app;
+			path = ImageOptim_autoupdate.app;
 			remoteRef = 5AA6D24C1503E9F6006DDB3E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
