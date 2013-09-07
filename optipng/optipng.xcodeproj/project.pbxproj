@@ -202,7 +202,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "optipng" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -326,6 +326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ../libpng/;
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};

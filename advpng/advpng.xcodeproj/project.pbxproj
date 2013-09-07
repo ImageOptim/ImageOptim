@@ -356,7 +356,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "advpng" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -495,6 +495,7 @@
 				GCC_WARN_ALLOW_INCOMPLETE_PROTOCOL = NO;
 				GCC_WARN_SIGN_COMPARE = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 				USER_HEADER_SEARCH_PATHS = 7z/../;
 			};
