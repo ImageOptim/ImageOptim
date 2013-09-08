@@ -37,7 +37,7 @@
     NSOperationQueue *fileIOQueue;
     
     int fileType;
-    BOOL done;
+    BOOL done, optimized;
 }
 
 -(BOOL)isBusy;

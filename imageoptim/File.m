@@ -99,7 +99,7 @@ enum {
 
 -(BOOL)isOptimized
 {
-	return byteSizeOptimized < byteSizeOnDisk;
+	return byteSizeOptimized < byteSizeOriginal && (optimized || byteSizeOptimized < byteSizeOnDisk);
 }
 
 -(BOOL)isDone
@@ -354,6 +354,7 @@ enum {
 
     if (saved) {
         done = YES;
+        optimized = YES;
         [self setStatus:@"ok" order:7 text:[NSString stringWithFormat:NSLocalizedString(@"Optimized successfully with %@",@"tooltip"),bestToolName]];
     } else {
         [self setStatus:@"err" order:9 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];				
@@ -428,6 +429,8 @@ enum {
 {
     @synchronized(self)
     {
+        done = NO;
+        optimized = NO;
         workersActive++; // isBusy must say yes!
 
         fileIOQueue = aFileIOQueue; // will be used for saving
