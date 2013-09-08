@@ -218,6 +218,7 @@
 					include/,
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -235,6 +236,7 @@
 					.,
 					include/,
 				);
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};

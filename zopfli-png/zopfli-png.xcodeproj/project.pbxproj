@@ -316,6 +316,7 @@
 					"\"$(SRCROOT)/../imageoptim/DerivedData/ImageOptim/Build/Products/Release\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -328,6 +329,7 @@
 					"\"$(SRCROOT)/../imageoptim/DerivedData/ImageOptim/Build/Products/Release\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};

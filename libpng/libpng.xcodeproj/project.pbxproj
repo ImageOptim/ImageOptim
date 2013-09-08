@@ -453,6 +453,7 @@
 				LD_DYLIB_INSTALL_NAME = "@loader_path/liblibpng.dylib";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = "";
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -469,6 +470,7 @@
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				LD_DYLIB_INSTALL_NAME = "@loader_path/liblibpng.dylib";
 				SDKROOT = "";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};

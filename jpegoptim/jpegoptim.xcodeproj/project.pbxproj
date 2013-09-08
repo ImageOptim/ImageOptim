@@ -241,6 +241,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
 				ONLY_ACTIVE_ARCH = YES;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -259,6 +260,7 @@
 				GCC_WARN_SIGN_COMPARE = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
