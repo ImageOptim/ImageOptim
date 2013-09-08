@@ -74,7 +74,7 @@
 		5A9E5B2B0CB961E000E05D28 /* JpegoptimWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E5B2A0CB961E000E05D28 /* JpegoptimWorker.m */; };
 		5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
 		5AA6D2501503EA1B006DDB3E /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA6D2471503E9F6006DDB3E /* Sparkle.framework */; };
-		5AA6D2511503EA29006DDB3E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA6D2471503E9F6006DDB3E /* Sparkle.framework */; };
+		5AA6D2511503EA29006DDB3E /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA6D2471503E9F6006DDB3E /* Sparkle.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5AACA1380CAF23FF004D45CA /* DirWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA1370CAF23FF004D45CA /* DirWorker.m */; };
 		5AACA13F0CAF241B004D45CA /* Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA13E0CAF241B004D45CA /* Worker.m */; };
 		5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA8300CAFE74E004D45CA /* Transformers.m */; };
@@ -1404,6 +1404,7 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = Info.plist;
 				PRODUCT_NAME = ImageOptim;
@@ -1430,6 +1431,7 @@
 			baseConfigurationReference = 5A27B956139B03090095FC2F /* release.xcconfig */;
 			buildSettings = {
 				APPLY_RULES_IN_COPY_FILES = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_ENABLE_OBJC_GC = required;
