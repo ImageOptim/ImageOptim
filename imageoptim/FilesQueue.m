@@ -12,7 +12,7 @@
 
 -(NSArray*)extensions;
 -(BOOL)isAnyQueueBusy;
--(void)updateProgressbar;
+-(void)updateBusyState;
 -(void)deleteObjects:(NSArray*)objects;
 @end
 
@@ -20,10 +20,11 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 @implementation FilesQueue
 
--(id)configureWithTableView:(NSTableView*)inTableView progressBar:(NSProgressIndicator *)inBar
+@synthesize isBusy;
+
+-(id)configureWithTableView:(NSTableView*)inTableView
 {
     if (self = [super init]) {
-	progressBar = inBar;
 	tableView = inTableView;
 	seenPathHashes = [[NSHashTable alloc] initWithOptions:NSHashTableZeroingWeakMemory capacity:1000];
 
@@ -71,21 +72,15 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 				[cpuQueue waitUntilAllOperationsAreFinished];
 
 			} while ([self isAnyQueueBusy]);
+            NSLog(@"wait thread loop end");
 		}
         @finally {
             [queueWaitingLock unlock];
         }
     }
-    [self performSelectorOnMainThread:@selector(updateProgressbar) withObject:nil waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(updateBusyState) withObject:nil waitUntilDone:NO];
 }
 
--(void)waitInBackgroundForQueuesToFinish {
-    if ([queueWaitingLock tryLock]) // if it's locked, there's thread waiting for finish
-    {
-        [queueWaitingLock unlock]; // can't lock/unlock across threads, so new lock will have to be made
-        [self performSelectorInBackground:@selector(waitForQueuesToFinish) withObject:nil];
-    }
-}
 
 -(void)setRow:(NSInteger)row
 {
@@ -322,7 +317,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         }
     }
 
-    [self updateProgressbar];
+    [self updateBusyState];
 }
 
 -(void)addPaths:(NSArray*)paths
@@ -434,23 +429,26 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 	if (!anyStarted) NSBeep();
 
-	[self updateProgressbar];
+	[self updateBusyState];
 }
 
--(void)updateProgressbar
+-(void)updateBusyState
 {
-	if (![self isAnyQueueBusy])
-	{
-		[progressBar stopAnimation:nil];
-        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"BounceDock"]) {
-            [NSApp requestUserAttention:NSInformationalRequest];
+    BOOL currentlyBusy = [self isAnyQueueBusy];
+
+    if (isBusy != currentlyBusy) {
+        [self willChangeValueForKey:@"isBusy"];
+        isBusy = currentlyBusy;
+        [self didChangeValueForKey:@"isBusy"];
+
+        if (isBusy) {
+            if ([queueWaitingLock tryLock]) // if it's locked, there's thread waiting for finish
+            {
+                [queueWaitingLock unlock]; // can't lock/unlock across threads, so new lock will have to be made
+                [self performSelectorInBackground:@selector(waitForQueuesToFinish) withObject:nil];
+            }
         }
-	}
-	else
-	{
-		[progressBar startAnimation:nil];
-        [self waitInBackgroundForQueuesToFinish];
-	}
+    }
 }
 
 #define PNG_ENABLED 1

@@ -12,7 +12,7 @@
 @interface FilesQueue : NSArrayController <NSTableViewDelegate,NSTableViewDataSource> {
 	NSTableView *tableView;
 	NSArrayController *filesController;
-	BOOL isEnabled;
+	BOOL isEnabled, isBusy;
 	NSInteger nextInsertRow;
 	NSOperationQueue *cpuQueue;
     NSOperationQueue *fileIOQueue;
@@ -20,12 +20,10 @@
 	
     NSHashTable *seenPathHashes;
     
-	NSProgressIndicator *progressBar;
-    
     NSLock *queueWaitingLock;
 }
 
--(id)configureWithTableView:(NSTableView*)a progressBar:(NSProgressIndicator *)p;
+-(id)configureWithTableView:(NSTableView*)a;
 
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation;
 -(void)addPaths:(NSArray *)paths;
@@ -51,5 +49,6 @@
 -(NSArray *)fileTypes;
 
 @property (readonly, nonatomic) NSNumber *queueCount;
+@property (readonly) BOOL isBusy;
 
 @end

@@ -13,6 +13,7 @@
 NSDictionary *statusImages;
 
 static NSString *kIMPreviewPanelContext = @"preview";
+static NSString *kIMQueueBusyContext = @"isBusy";
 
 @synthesize filesQueue=filesController;
 
@@ -28,7 +29,8 @@ static NSString *kIMPreviewPanelContext = @"preview";
 
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
 
-    [filesController configureWithTableView:tableView progressBar:progressBar];
+    [filesController configureWithTableView:tableView];
+    [filesController addObserver:self forKeyPath:@"isBusy" options:nil context:kIMQueueBusyContext];
 
     [NSApp setServicesProvider:self];
     NSUpdateDynamicServices();
@@ -192,9 +194,19 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     if (context == kIMPreviewPanelContext) {
         [previewPanel reloadData];
     } else {
-    // Defer and coalesce statusbar updates
-    dispatch_source_merge_data(statusBarUpdateQueue, 1);
-}
+        if (context == kIMQueueBusyContext) {
+            if (filesController.isBusy) {
+                [progressBar startAnimation:self];
+            } else {
+                [progressBar stopAnimation:self];
+                if ([[NSUserDefaults standardUserDefaults] boolForKey:@"BounceDock"]) {
+                    [NSApp requestUserAttention:NSInformationalRequest];
+                }
+            }
+        }
+        // Defer and coalesce statusbar updates
+        dispatch_source_merge_data(statusBarUpdateQueue, 1);
+    }
 }
 
 -(int)numberOfCPUs
