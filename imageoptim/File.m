@@ -640,4 +640,14 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
 	return 0;
 }
 
+#pragma mark QL
+
+-(NSURL *) previewItemURL {
+    return [NSURL fileURLWithPath:filePath];
+}
+
+-(NSString *) previewItemTitle {
+    return displayName;
+}
+
 @end

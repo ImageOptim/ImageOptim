@@ -346,7 +346,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 
 - (id <QLPreviewItem>)previewPanel:(QLPreviewPanel *)panel previewItemAtIndex:(NSInteger)index
 {
-    return [NSURL fileURLWithPath:[[[filesController selectedObjects] objectAtIndex:index]filePath] ];
+    return [[filesController selectedObjects] objectAtIndex:index];
 }
 
 // Quick Look panel delegate
@@ -396,12 +396,6 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     iconRect.origin = [[tableView window] convertBaseToScreen:iconRect.origin];
 
     return iconRect;
-}
-
-// This delegate method provides a transition image between the table view and the preview panel
-- (id)previewPanel:(QLPreviewPanel *)panel transitionImageForPreviewItem:(id <QLPreviewItem>)item contentRect:(NSRect *)contentRect
-{
-	return [[NSWorkspace sharedWorkspace] iconForFile:[(NSURL *)item path]];
 }
 
 @end

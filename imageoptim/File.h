@@ -5,9 +5,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <Quartz/Quartz.h>
 #import "Workers/Worker.h"
 
-@interface File : NSObject <NSCopying, WorkerQueueDelegate> {
+@interface File : NSObject <NSCopying, WorkerQueueDelegate, QLPreviewItem> {
 	NSString *filePath;
 	NSString *displayName;
 	
