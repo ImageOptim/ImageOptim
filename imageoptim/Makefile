@@ -1,6 +1,7 @@
 SPARKLE=$(TARGET_BUILD_DIR)/Sparkle.framework
+HELPINDEXES=$(addsuffix Help.helpindex, $(wildcard *.lproj/Help/))
 
-all: $(SPARKLE) pngout
+all: $(SPARKLE) pngout helpindexes
 
 $(SPARKLE): /tmp/sparkle.zip
 	-rm -rf $(SPARKLE)
@@ -19,3 +20,8 @@ clean:
 	-rm -rf $(SPARKLE) pngout /tmp/sparkle.zip
 
 install:
+
+helpindexes:: $(HELPINDEXES)
+
+%/Help.helpindex: %/index.html %/prefs.html
+	./makehelp.sh $(patsubst %.lproj/Help/Help.helpindex,%,$@)
