@@ -300,10 +300,8 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     }];
 }
 
-- (void)windowWillClose:(NSNotification *)aNotification
-{
-    // let the window close immediately, clean in background
-    [NSApp performSelectorOnMainThread:@selector(terminate:) withObject:self waitUntilDone:NO];
+-(BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
 }
 
 -(void)applicationWillTerminate:(NSNotification*)n {
