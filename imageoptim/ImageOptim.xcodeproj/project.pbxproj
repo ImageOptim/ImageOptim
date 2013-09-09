@@ -276,6 +276,13 @@
 			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = Sparkle;
 		};
+		5ABAE1D617DE749E00D9FFF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AA6D23B1503E9F5006DDB3E /* Sparkle.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = Sparkle;
+		};
 		5ABB9FEF0E8518DF006F51BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -795,6 +802,7 @@
 			buildToolPath = /usr/bin/make;
 			buildWorkingDirectory = "";
 			dependencies = (
+				5ABAE1D717DE749E00D9FFF4 /* PBXTargetDependency */,
 			);
 			name = downloads;
 			passBuildSettingsInEnvironment = 1;
@@ -816,18 +824,18 @@
 			buildRules = (
 			);
 			dependencies = (
-				5A2ACD23179098D9004992B7 /* PBXTargetDependency */,
 				5A453F9B16BE79B6002AFE23 /* PBXTargetDependency */,
 				5AA6D24F1503EA07006DDB3E /* PBXTargetDependency */,
-				5A8594D91460BC5B0044095A /* PBXTargetDependency */,
 				5A20CCA5112393CC0000400D /* PBXTargetDependency */,
 				5A20CC98112393AC0000400D /* PBXTargetDependency */,
 				5A6CEA83102B887C0058D07E /* PBXTargetDependency */,
 				5A984D5311238E69007622D7 /* PBXTargetDependency */,
 				5A4DC1961028284400A9DD55 /* PBXTargetDependency */,
+				5A8594D91460BC5B0044095A /* PBXTargetDependency */,
 				5A937647111CD26B005BA5B1 /* PBXTargetDependency */,
 				5A4DC1941028284400A9DD55 /* PBXTargetDependency */,
 				5A4DC1981028284400A9DD55 /* PBXTargetDependency */,
+				5A2ACD23179098D9004992B7 /* PBXTargetDependency */,
 			);
 			name = ImageOptim;
 			productInstallPath = "$(HOME)/Applications";
@@ -1203,6 +1211,11 @@
 			isa = PBXTargetDependency;
 			name = Sparkle;
 			targetProxy = 5AA6D24E1503EA07006DDB3E /* PBXContainerItemProxy */;
+		};
+		5ABAE1D717DE749E00D9FFF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Sparkle;
+			targetProxy = 5ABAE1D617DE749E00D9FFF4 /* PBXContainerItemProxy */;
 		};
 		5ABB9FF00E8518DF006F51BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -30,6 +30,13 @@
 			remoteGlobalIDString = D2AAC0630554660B00DB518D;
 			remoteInfo = jpeg;
 		};
+		5ABAE1C517DD491F00D9FFF4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E;
+			remoteInfo = jpegtran;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -124,6 +131,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5ABAE1C617DD491F00D9FFF4 /* PBXTargetDependency */,
 			);
 			name = jpegrescan;
 			productName = jpegrescan;
@@ -212,6 +220,11 @@
 			isa = PBXTargetDependency;
 			name = jpeg;
 			targetProxy = 5A62DAF1111CCE73008848D0 /* PBXContainerItemProxy */;
+		};
+		5ABAE1C617DD491F00D9FFF4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DD76FA90486AB0100D96B5E /* jpegtran */;
+			targetProxy = 5ABAE1C517DD491F00D9FFF4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
