@@ -3,14 +3,8 @@ HELPINDEXES=$(addsuffix Help.helpindex, $(wildcard *.lproj/Help/))
 
 all: $(SPARKLE) pngout helpindexes
 
-$(SPARKLE): /tmp/sparkle.zip
-	-rm -rf $(SPARKLE)
-	unzip -o /tmp/sparkle.zip 'With Garbage Collection/*' && mv 'With Garbage Collection/Sparkle.framework' $(SPARKLE)
-	-rm -rf 'With Garbage Collection'
-	-rm -rf $(SPARKLE)/Versions/A/Resources/fr_CA.lproj
-
-/tmp/sparkle.zip:
-	curl http://sparkle.andymatuschak.org/files/Sparkle%201.5b6.zip -o /tmp/sparkle.zip
+$(SPARKLE):
+	./getsparkle.sh $(SPARKLE)
 
 pngout:
 	curl http://static.jonof.id.au/dl/kenutils/pngout-20130221-darwin.tar.gz | tar xz
