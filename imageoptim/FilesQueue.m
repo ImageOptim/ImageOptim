@@ -72,7 +72,6 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 				[cpuQueue waitUntilAllOperationsAreFinished];
 
 			} while ([self isAnyQueueBusy]);
-            NSLog(@"wait thread loop end");
 		}
         @finally {
             [queueWaitingLock unlock];

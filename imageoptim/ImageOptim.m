@@ -10,6 +10,8 @@
 
 @implementation ImageOptim
 
+extern int quitWhenDone;
+
 NSDictionary *statusImages;
 
 static NSString *kIMPreviewPanelContext = @"preview";
@@ -18,6 +20,10 @@ static NSString *kIMQueueBusyContext = @"isBusy";
 @synthesize filesQueue=filesController;
 
 - (void)applicationWillFinishLaunching:(NSNotification *)unused {
+    if (quitWhenDone) {
+        [NSApp hide:self];
+    }
+
     [self preloadStatusImages];
 
     NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
@@ -68,6 +74,10 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     static NSString *defaultText; defaultText = statusBarLabel.stringValue;
     static NSNumberFormatter* formatter; formatter = [NSNumberFormatter new];
     static NSNumberFormatter* percFormatter; percFormatter = [NSNumberFormatter new];
+
+    if (quitWhenDone) {
+        defaultText = NSLocalizedString(@"ImageOptim will quit when optimizations are complete", @"status bar");
+    }
 
     [formatter setMaximumFractionDigits:1];
     [percFormatter setMaximumFractionDigits:1];
@@ -141,6 +151,10 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 }
 
 -(void)awakeFromNib {
+    if (quitWhenDone) {
+        [NSApp hide:self];
+    }
+
     [self preloadStatusImages];
 
 	RevealButtonCell* cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
@@ -199,7 +213,11 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
                 [progressBar startAnimation:self];
             } else {
                 [progressBar stopAnimation:self];
-                if ([[NSUserDefaults standardUserDefaults] boolForKey:@"BounceDock"]) {
+
+                if (quitWhenDone) {
+                    [NSApp terminate:self];
+                }
+                else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"BounceDock"]) {
                     [NSApp requestUserAttention:NSInformationalRequest];
                 }
             }
