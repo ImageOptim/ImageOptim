@@ -26,8 +26,8 @@
 -(id)configureWithTableView:(NSTableView*)a;
 
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation;
--(void)addPaths:(NSArray *)paths;
--(void)addPaths:(NSArray *)paths filesOnly:(BOOL)t;
+-(BOOL)addPaths:(NSArray *)paths;
+-(BOOL)addPaths:(NSArray *)paths filesOnly:(BOOL)t;
 
 -(void) moveObjectsInArrangedObjectsFromIndexes:(NSIndexSet*)indexSet
 										toIndex:(NSUInteger)insertIndex;

@@ -219,13 +219,12 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 }
 
 // invoked by Dock
-- (BOOL)application:(NSApplication *)sender openFile:(NSString *)path
+- (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames
 {
     [self preloadStatusImages];
 
     [filesController setRow:-1];
-    [filesController addPaths:[NSArray arrayWithObject:path]];
-	return YES;
+    [sender replyToOpenOrPrint:[filesController addPaths:filenames] ? NSApplicationDelegateReplySuccess :NSApplicationDelegateReplyFailure];
 }
 
 

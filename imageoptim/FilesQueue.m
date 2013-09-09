@@ -320,27 +320,29 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     [self updateBusyState];
 }
 
--(void)addPaths:(NSArray*)paths
+-(BOOL)addPaths:(NSArray*)paths
 {
-    [self addPaths:paths filesOnly:NO];
+    return [self addPaths:paths filesOnly:NO];
 }
 
 /** filesOnly indicates that paths do not contain any directories */
--(void)addPaths:(NSArray*)paths filesOnly:(BOOL)filesOnly
+-(BOOL)addPaths:(NSArray*)paths filesOnly:(BOOL)filesOnly
 {
     if (!isEnabled) {
-        return;
+        return NO;
     }
 
 	NSMutableArray *toAdd = [NSMutableArray arrayWithCapacity:[paths count]];
 
     BOOL isDir = NO;
+    BOOL allOK = YES;
     NSFileManager *fm = filesOnly ? nil : [NSFileManager defaultManager];
 
     for(NSString *path in paths) {
         if (fm) {
             if (![fm fileExistsAtPath:path isDirectory:&isDir]) {
                 NSLog(@"%@ doesn't exist", path);
+                allOK = NO;
                 continue;
             }
         }
@@ -363,6 +365,8 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     }
 
     [self performSelectorOnMainThread:@selector(addFileObjects:) withObject:toAdd waitUntilDone:NO];
+
+    return allOK;
 }
 
 -(BOOL)canClearComplete {
