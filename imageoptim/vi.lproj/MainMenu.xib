@@ -1282,7 +1282,7 @@
 							<array class="NSMutableArray" key="NSSubviews">
 								<object class="NSClipView" id="183240755">
 									<reference key="NSNextResponder" ref="842977522"/>
-									<int key="NSvFlags">2304</int>
+									<int key="NSvFlags">2322</int>
 									<array class="NSMutableArray" key="NSSubviews">
 										<object class="NSTextView" id="857203264">
 											<reference key="NSNextResponder" ref="183240755"/>
@@ -1309,7 +1309,7 @@
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
-												<int key="NSFlags">2053</int>
+												<int key="NSFlags">33556485</int>
 												<int key="NSTextCheckingTypes">0</int>
 												<nil key="NSMarkedAttributes"/>
 												<object class="NSColor" key="NSBackgroundColor" id="504455196">
@@ -1406,7 +1406,7 @@
 						<object class="NSTextField" id="805991443">
 							<reference key="NSNextResponder" ref="216029037"/>
 							<int key="NSvFlags">265</int>
-							<string key="NSFrame">{{183, 313}, {87, 14}}</string>
+							<string key="NSFrame">{{216, 298}, {87, 14}}</string>
 							<reference key="NSSuperview" ref="216029037"/>
 							<reference key="NSNextKeyView" ref="842977522"/>
 							<bool key="NSEnabled">YES</bool>

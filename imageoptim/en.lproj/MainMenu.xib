@@ -1296,13 +1296,14 @@
 							<array class="NSMutableArray" key="NSSubviews">
 								<object class="NSClipView" id="183240755">
 									<reference key="NSNextResponder" ref="842977522"/>
-									<int key="NSvFlags">2304</int>
+									<int key="NSvFlags">2322</int>
 									<array class="NSMutableArray" key="NSSubviews">
 										<object class="NSTextView" id="857203264">
 											<reference key="NSNextResponder" ref="183240755"/>
 											<int key="NSvFlags">2322</int>
 											<string key="NSFrameSize">{290, 280}</string>
 											<reference key="NSSuperview" ref="183240755"/>
+											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="912368459"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="458419734">
 												<object class="NSLayoutManager" key="NSLayoutManager">
@@ -1420,8 +1421,9 @@
 						<object class="NSTextField" id="805991443">
 							<reference key="NSNextResponder" ref="216029037"/>
 							<int key="NSvFlags">265</int>
-							<string key="NSFrame">{{183, 313}, {87, 14}}</string>
+							<string key="NSFrame">{{216, 298}, {87, 14}}</string>
 							<reference key="NSSuperview" ref="216029037"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="842977522"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="877771820">
