@@ -1,5 +1,5 @@
 /* tooltip */
-"%@ failed to start" = "O %@ kunne ikke startes";
+"%@ failed to start" = "%@ kunne ikke startes";
 
 /* undo command name */
 "Add" = "Tilføj";
@@ -8,7 +8,7 @@
 "All neccessary tools have been disabled in Preferences" = "Alle nødvendige værktøjer er blevet deaktiveret i indstillingerne";
 
 /* tooltip, generic loading error */
-"Can't map file into memory" = "Kan ikke indlæse filen ind i hukommelsen";
+"Can't map file into memory" = "Kan ikke indlæse filen til hukommelsen";
 
 /* undo command name */
 "Cut" = "Klip";
@@ -17,7 +17,7 @@
 "File cannot be optimized any further" = "Filen kan ikke optimeres yderligere";
 
 /* tooltip */
-"File is neither PNG, GIF nor JPEG" = "Filen er hverken af typen PNG eller JPEG";
+"File is neither PNG, GIF nor JPEG" = "Filen er hverken PNG, GIF eller JPEG";
 
 /* tooltip */
 "Inspecting file" = "Inspicerer fil";
@@ -30,12 +30,16 @@
 "Optimized file could not be saved" = "Den optimerede fil kunne ikke gemmes";
 
 /* tooltip */
-"Optimized successfully with %@" = "Optimeret korrekt med %@";
+"Optimized successfully with %@" = "Optimeret med succes med %@";
 
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Sparede %1$@ ud af %2$@. %3$@ samlet (op til %4$@ per fil)";
 
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Sparede %1$@ ud af %2$@. %3$@ per fil i gennemsnit (op til %4$@)";
 
 /* command name, tooltip */
-"Started %@" = "Started med %@";
+"Started %@" = "Startet med %@";
 
 /* tooltip */
 "Waiting to be optimized" = "Venter på at blive optimeret";
