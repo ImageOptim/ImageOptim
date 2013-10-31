@@ -140,6 +140,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 
         dispatch_async(dispatch_get_main_queue(), ^(){
             [statusBarLabel setStringValue:str];
+            [statusBarLabel setSelectable:(str != defaultText)];
         });
         usleep(100000); // 1/10th of a sec to avoid updating statusbar as fast as possible (100% cpu on the statusbar alone is ridiculous)
     });
