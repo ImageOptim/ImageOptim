@@ -70,8 +70,17 @@
 	[task waitUntilExit];
 	
     [commandHandle closeFile];
+
+    BOOL isSignificantlySmaller;
+    @synchronized(file) {
+        // require at least 5% gain when doing lossy optimization
+        isSignificantlySmaller = file.byteSizeOptimized*0.95 > fileSizeOptimized;
+    }
 	
-    return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:[self className]];
+    if (![self makesNonOptimizingModifications] || isSignificantlySmaller) {
+        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"JpegOptim"];
+    }
+    return NO;
 }
 
 -(BOOL)parseLine:(NSString *)line
