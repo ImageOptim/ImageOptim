@@ -7,6 +7,7 @@
 #import "FilesQueue.h"
 
 #import "Workers/DirWorker.h"
+#import "RevealButtonCell.h"
 
 @interface FilesQueue ()
 
@@ -182,6 +183,16 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     if (row < (signed)[objs count])
     {
         File *f = [objs objectAtIndex:row];
+
+        if ([aCell isKindOfClass:[RevealButtonCell class]]) {
+            NSRect infoButtonRect = [((RevealButtonCell*)aCell) infoButtonRectForBounds:*rect];
+
+            BOOL mouseIsInside = NSMouseInRect(mouseLocation, infoButtonRect, [aTableView isFlipped]);
+            if (mouseIsInside) {
+                return [f filePath];
+            }
+        }
+
         return [f statusText];
     }
     return nil;
