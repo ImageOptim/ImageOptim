@@ -71,6 +71,7 @@
 		5A8A18141416D1D700D62DB7 /* SavingsFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */; };
 		5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99FE83140AE80600BB2F79 /* Quartz.framework */; };
 		5A9AEC19140996D700C9E97D /* reveal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9AEC18140996D700C9E97D /* reveal.png */; };
+		5A9B031C1836E5360043BDAC /* pngquant in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A728F2C1836C0EE004D0D73 /* pngquant */; };
 		5A9E5B2B0CB961E000E05D28 /* JpegoptimWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E5B2A0CB961E000E05D28 /* JpegoptimWorker.m */; };
 		5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
 		5AA6D2501503EA1B006DDB3E /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA6D2471503E9F6006DDB3E /* Sparkle.framework */; };
@@ -192,6 +193,13 @@
 			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E;
 			remoteInfo = gifsicle;
 		};
+		5A728F2B1836C0EE004D0D73 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
+			remoteInfo = pngquant;
+		};
 		5A739C2A0EA4073700D751E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A739C260EA4073700D751E1 /* jpegtran.xcodeproj */;
@@ -240,6 +248,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E;
 			remoteInfo = advpng;
+		};
+		5A9B031A1836E5360043BDAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5A728F481836C185004D0D73;
+			remoteInfo = imagequant;
 		};
 		5AA6D2461503E9F6006DDB3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -309,6 +324,7 @@
 				5A3470AD140BC8250014F638 /* optipng in Copy Executables */,
 				5A3470AC140BC81A0014F638 /* pngcrush in Copy Executables */,
 				5AF71644174AF8910018D3FE /* pngout in Copy Executables */,
+				5A9B031C1836E5360043BDAC /* pngquant in Copy Executables */,
 				5A2ACD24179098EA004992B7 /* zopflipng in Copy Executables */,
 			);
 			name = "Copy Executables";
@@ -413,6 +429,7 @@
 		5A6E04410EA40B6A00380DE7 /* JpegtranWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JpegtranWorker.h; sourceTree = "<group>"; };
 		5A6E04420EA40B6A00380DE7 /* JpegtranWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JpegtranWorker.m; sourceTree = "<group>"; };
 		5A714AAC0CB0196A00C242C0 /* MyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTableView.m; sourceTree = "<group>"; };
+		5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pngquant.xcodeproj; path = ../pngquant/pngquant.xcodeproj; sourceTree = "<group>"; };
 		5A739C260EA4073700D751E1 /* jpegtran.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpegtran.xcodeproj; path = ../jpegtran/jpegtran.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A7A314713E436690012DCFB /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A7D24F113EDF5F100815AAA /* es */ = {isa = PBXFileReference; lastKnownFileType = folder; name = es; path = es.lproj/Help; sourceTree = "<group>"; };
@@ -616,6 +633,7 @@
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				5A9D56BC0E7F242C000F129F /* optipng.xcodeproj */,
 				5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */,
+				5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */,
 				5A27B956139B03090095FC2F /* release.xcconfig */,
 				5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */,
 			);
@@ -729,6 +747,15 @@
 			isa = PBXGroup;
 			children = (
 				5A62DB07111CCE9F008848D0 /* jpegoptim */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5A728F1A1836C0EE004D0D73 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A728F2C1836C0EE004D0D73 /* pngquant */,
+				5A9B031B1836E5360043BDAC /* libimagequant.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -922,6 +949,10 @@
 					ProjectRef = 5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */;
 				},
 				{
+					ProductGroup = 5A728F1A1836C0EE004D0D73 /* Products */;
+					ProjectRef = 5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */;
+				},
+				{
 					ProductGroup = 5AA6D23C1503E9F5006DDB3E /* Products */;
 					ProjectRef = 5AA6D23B1503E9F5006DDB3E /* Sparkle.xcodeproj */;
 				},
@@ -989,6 +1020,13 @@
 			remoteRef = 5A62DB06111CCE9F008848D0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		5A728F2C1836C0EE004D0D73 /* pngquant */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = pngquant;
+			remoteRef = 5A728F2B1836C0EE004D0D73 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		5A739C2B0EA4073700D751E1 /* jpegtran */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
@@ -1015,6 +1053,13 @@
 			fileType = "compiled.mach-o.executable";
 			path = advpng;
 			remoteRef = 5A984D4911238E51007622D7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5A9B031B1836E5360043BDAC /* libimagequant.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libimagequant.a;
+			remoteRef = 5A9B031A1836E5360043BDAC /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5AA6D2471503E9F6006DDB3E /* Sparkle.framework */ = {

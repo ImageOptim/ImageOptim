@@ -6,6 +6,7 @@
 *.zip
 .DS_Store
 .svn
+pngquant/src
 advpng/*.c
 advpng/*.cc
 advpng/*.in
@@ -47,7 +48,7 @@ gifsicle/build
 gifsicle/configure*
 gifsicle/COPYING
 gifsicle/depcomp
-gifsicle/DerivedData
+DerivedData
 gifsicle/gifsicle.spec
 gifsicle/include
 gifsicle/INSTALL
