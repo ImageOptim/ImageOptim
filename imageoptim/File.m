@@ -448,9 +448,7 @@ enum {
     [fileIOQueue addOperation:actualEnqueue];        
 }
 
-typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list_t;
-
--(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue 
+-(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue
 {
     [self setStatus:@"progress" order:3 text:NSLocalizedString(@"Inspecting file",@"tooltip")];        
 	
@@ -488,30 +486,27 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
 	NSMutableArray *runLater = [NSMutableArray new];
 
 	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-    
-    worker_list_t *worker_list;
-    int worker_list_length=0;
+
+    NSArray *worker_list = nil;
 
 	if (fileType == FILETYPE_PNG)
 	{
-        worker_list = (worker_list_t[]){
-            {@"PngCrushEnabled", [PngCrushWorker class]},
-            {@"OptiPngEnabled", [OptiPngWorker class]},
-            {@"ZopfliEnabled", [ZopfliWorker class], ^(Worker *w){
+        worker_list = @[
+            @{@"key":@"PngCrushEnabled", @"class":[PngCrushWorker class]},
+            @{@"key":@"OptiPngEnabled", @"class":[OptiPngWorker class]},
+            @{@"key":@"ZopfliEnabled", @"class":[ZopfliWorker class], @"block": ^(Worker *w){
                 ((ZopfliWorker*)w).alternativeStrategy = hasBeenRunBefore;
             }},
-            {@"PngOutEnabled", [PngoutWorker class]},
-            {@"AdvPngEnabled", [AdvCompWorker class]},
-        };
-        worker_list_length = 5;
+            @{@"key":@"PngOutEnabled", @"class":[PngoutWorker class]},
+            @{@"key":@"AdvPngEnabled", @"class":[AdvCompWorker class]},
+        ];
 	}
 	else if (fileType == FILETYPE_JPEG)
     {
-        worker_list = (worker_list_t[]){
-            {@"JpegOptimEnabled", [JpegoptimWorker class]},
-            {@"JpegTranEnabled", [JpegtranWorker class]},
-        };
-        worker_list_length = 2;
+        worker_list = @[
+            @{@"key":@"JpegOptimEnabled", @"class":[JpegoptimWorker class]},
+            @{@"key":@"JpegTranEnabled", @"class":[JpegtranWorker class]},
+        ];
     }
 	else if (fileType == FILETYPE_GIF)
     {
@@ -530,12 +525,16 @@ typedef struct {NSString *key; Class class; void (^block)(Worker*);} worker_list
         [self cleanup];
         return;
     }
-    
-    for(int i=0; i < worker_list_length; i++) {
-        if ([defs boolForKey:worker_list[i].key]) {
-            Worker *w = [worker_list[i].class alloc];
+
+    for(NSDictionary *wl in worker_list) {
+        if ([defs boolForKey:wl[@"key"]]) {
+
+            Worker *w = [wl[@"class"] alloc];
             w = [w initWithFile:self];
-            if (worker_list[i].block) worker_list[i].block(w);
+            if (wl[@"block"]) {
+                void (^block)(Worker *) = wl[@"block"];
+                block(w);
+            }
 
             // generally optimizers that have side effects should always be run first, one at a time
             // unfortunately that makes whole process single-core serial when there are very few files
