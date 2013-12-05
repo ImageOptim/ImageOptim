@@ -14,8 +14,8 @@ extern int quitWhenDone;
 
 NSDictionary *statusImages;
 
-static NSString *kIMPreviewPanelContext = @"preview";
-static NSString *kIMQueueBusyContext = @"isBusy";
+static const char *kIMPreviewPanelContext = "preview";
+static const char *kIMQueueBusyContext = "isBusy";
 
 @synthesize filesQueue=filesController;
 
@@ -36,7 +36,7 @@ static NSString *kIMQueueBusyContext = @"isBusy";
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
 
     [filesController configureWithTableView:tableView];
-    [filesController addObserver:self forKeyPath:@"isBusy" options:nil context:kIMQueueBusyContext];
+    [filesController addObserver:self forKeyPath:@"isBusy" options:nil context:(void*)kIMQueueBusyContext];
 
     [NSApp setServicesProvider:self];
     NSUpdateDynamicServices();
@@ -148,7 +148,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 
     [filesController addObserver:self forKeyPath:@"arrangedObjects.@count" options:0 context:nil];
     [filesController addObserver:self forKeyPath:@"arrangedObjects.@sum.byteSizeOptimized" options:0 context:nil];
-    [filesController addObserver:self forKeyPath:@"selectionIndexes" options:0 context:kIMPreviewPanelContext];
+    [filesController addObserver:self forKeyPath:@"selectionIndexes" options:0 context:(void*)kIMPreviewPanelContext];
 }
 
 -(void)awakeFromNib {
