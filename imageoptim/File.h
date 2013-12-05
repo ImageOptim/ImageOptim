@@ -63,7 +63,8 @@
 
 -(NSString *)fileName;
 
-@property (retain) NSString *statusText, *filePath, *displayName, *bestToolName;
+@property (retain) NSString *statusText, *displayName, *bestToolName;
+@property (retain,nonatomic) NSString *filePath;
 @property (retain) NSImage *statusImage;
 @property (assign,nonatomic) NSUInteger byteSizeOriginal, byteSizeOptimized;
 @property (assign,readonly) NSInteger statusOrder;
