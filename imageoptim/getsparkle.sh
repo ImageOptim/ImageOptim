@@ -25,12 +25,8 @@ fi
 echo Downloading Sparkle
 
 test ! -e "$SPARKLEZIP" || rm -rf "$SPARKLEZIP"
-echo curl http://sparkle.andymatuschak.org/files/Sparkle%201.5b6.zip -o "$SPARKLEZIP"
-curl http://sparkle.andymatuschak.org/files/Sparkle%201.5b6.zip -o "$SPARKLEZIP"
-unzip -o "$SPARKLEZIP" 'With Garbage Collection/*' -d "$TARGET_TEMP_DIR"
-echo mv "$TARGET_TEMP_DIR/With Garbage Collection/Sparkle.framework" "$SPARKLETMP"
-mv "$TARGET_TEMP_DIR/With Garbage Collection/Sparkle.framework" "$SPARKLETMP"
-rm -rf "$TARGET_TEMP_DIR/With Garbage Collection"
+curl http://sparkle.andymatuschak.org/files/Sparkle%201.5b6.zip -o "$SPARKLEZIP" || exit 1
+unzip -o "$SPARKLEZIP" 'Sparkle.framework/*' -d "$TARGET_TEMP_DIR/" || exit 1
 rm -rf "$SPARKLETMP/Versions/A/Resources/fr_CA.lproj"
 
 cp -R "$SPARKLETMP" "$SPARKLE"
