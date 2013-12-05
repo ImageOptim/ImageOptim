@@ -10,17 +10,15 @@ if test -e "$SPARKLE"; then
     exit 0;
 fi
 
-if test ! -d "$(basename "$SPARKLE")"; then
-	mkdir -p "$(basename "$SPARKLE")"
+if test ! -d "$(dirname "$SPARKLE")"; then
+	mkdir -p "$(dirname "$SPARKLE")" || exit 1
 fi
 
 if test -e "$SPARKLETMP"; then
-    echo COPY TMP cp -R "$SPARKLETMP" "$SPARKLE"
     cp -R "$SPARKLETMP" "$SPARKLE" && exit 0
 fi
 
 if test -e "$SPARKLEFALLBACK"; then
-    echo COPY FALLBACK cp -R "$SPARKLEFALLBACK" "$SPARKLE"
     cp -R "$SPARKLEFALLBACK" "$SPARKLE" && exit 0
 fi
 
@@ -35,5 +33,4 @@ mv "$TARGET_TEMP_DIR/With Garbage Collection/Sparkle.framework" "$SPARKLETMP"
 rm -rf "$TARGET_TEMP_DIR/With Garbage Collection"
 rm -rf "$SPARKLETMP/Versions/A/Resources/fr_CA.lproj"
 
-echo COPY LAST cp -R "$SPARKLETMP" "$SPARKLE"
 cp -R "$SPARKLETMP" "$SPARKLE"
