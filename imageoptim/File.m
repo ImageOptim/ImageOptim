@@ -34,7 +34,7 @@ enum {
 		[self setFilePath:name];
 		[self setStatus:@"wait" order:0 text:NSLocalizedString(@"New file",@"newly added to the queue")];
 	}
-	return self;	
+	return self;
 }
 
 -(BOOL)isLarge {
@@ -52,7 +52,7 @@ enum {
 }
 
 -(NSString *)fileName
-{	
+{
 	if (displayName) return displayName;
 	if (filePath) return filePath;
 	return nil;
@@ -63,8 +63,8 @@ enum {
 	if (filePath != s)
 	{
 		filePath = [s copy];
-		
-        self.displayName = [[NSFileManager defaultManager] displayNameAtPath:filePath];		
+
+        self.displayName = [[NSFileManager defaultManager] displayNameAtPath:filePath];
 	}
 }
 
@@ -109,8 +109,8 @@ enum {
 
 -(void)setByteSizeOptimized:(NSUInteger)size
 {
-    @synchronized(self) 
-    {        
+    @synchronized(self)
+    {
         if ((!byteSizeOptimized || size < byteSizeOptimized) && size > 30)
         {
             byteSizeOptimized = size;
@@ -130,8 +130,8 @@ enum {
 
 -(BOOL)setFilePathOptimized:(NSString *)tempPath size:(NSUInteger)size toolName:(NSString*)toolname
 {
-    @synchronized(self) 
-    {        
+    @synchronized(self)
+    {
         NSLog(@"File %@ optimized with %@ from %u to %u in %@",filePath?filePath:filePathOptimized,toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,tempPath);
         if (size < byteSizeOptimized)
         {
@@ -154,7 +154,7 @@ enum {
                                        };
 
     const char *fileSystemPath = [path fileSystemRepresentation];
-    
+
     // call with NULL for the char *namebuf param first
     // in this case the method returns the size of the attributes buffer
     ssize_t size = listxattr(fileSystemPath, NULL,  0, 0);
@@ -186,7 +186,7 @@ enum {
             }
         }
     }
-    
+
     return YES;
 }
 
@@ -237,13 +237,13 @@ enum {
 		NSLog(@"WTF? save without filePathOptimized? for %@", filePath);
 		return NO;
 	}
-	
+
 	@try
 	{
 		NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 		BOOL preserve = [defs boolForKey:@"PreservePermissions"];
 		NSFileManager *fm = [NSFileManager defaultManager];
-		
+
         NSError *error = nil;
         NSString *moveFromPath = filePathOptimized;
 
@@ -334,7 +334,7 @@ enum {
 		NSLog(@"Exception thrown %@ while saving %@",e, filePath);
 		return NO;
 	}
-	
+
 	return YES;
 }
 
@@ -357,17 +357,17 @@ enum {
         optimized = YES;
         [self setStatus:@"ok" order:7 text:[NSString stringWithFormat:NSLocalizedString(@"Optimized successfully with %@",@"tooltip"),bestToolName]];
     } else {
-        [self setStatus:@"err" order:9 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];				
+        [self setStatus:@"err" order:9 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
     }
 }
 
 -(void)workerHasFinished:(Worker *)worker
 {
-	@synchronized(self) 
+	@synchronized(self)
     {
         workersActive--;
         workersFinished++;
-       
+
         if (!workersActive)
         {
             if (!byteSizeOriginal || !byteSizeOptimized)
@@ -381,7 +381,7 @@ enum {
                 {
                     NSOperation *saveOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(saveResultAndUpdateStatus) object:nil];
                     [workers addObject:saveOp];
-                    [fileIOQueue addOperation:saveOp];                    
+                    [fileIOQueue addOperation:saveOp];
                 }
                 else
                 {
@@ -398,7 +398,7 @@ enum {
                 [self setStatus:@"wait" order:2 text:NSLocalizedString(@"Waiting to start more optimizations",@"tooltip")];
             }
         }
-    }	    
+    }
 }
 
 -(int)fileType:(NSData *)data
@@ -409,7 +409,7 @@ enum {
     char filedata[6];
 
     [data getBytes:filedata length:sizeof(filedata)];
-    
+
 	if (0==memcmp(filedata, pngheader, sizeof(pngheader)))
 	{
 		return FILETYPE_PNG;
@@ -436,22 +436,22 @@ enum {
         fileIOQueue = aFileIOQueue; // will be used for saving
         workers = [[NSMutableArray alloc] initWithCapacity:10];
     }
-    
+
     [self setStatus:@"wait" order:0 text:NSLocalizedString(@"Waiting to be optimized",@"tooltip")];
-    
+
     NSOperation *actualEnqueue = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doEnqueueWorkersInCPUQueue:) object:queue];
     if (queue.operationCount < queue.maxConcurrentOperationCount) {
         actualEnqueue.queuePriority = NSOperationQueuePriorityHigh;
     }
 
     [workers addObject:actualEnqueue];
-    [fileIOQueue addOperation:actualEnqueue];        
+    [fileIOQueue addOperation:actualEnqueue];
 }
 
 -(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue
 {
-    [self setStatus:@"progress" order:3 text:NSLocalizedString(@"Inspecting file",@"tooltip")];        
-	
+    [self setStatus:@"progress" order:3 text:NSLocalizedString(@"Inspecting file",@"tooltip")];
+
     NSData *fileData = [NSData dataWithContentsOfMappedFile:filePath];
     NSUInteger length = [fileData length];
     if (!fileData || !length)
@@ -515,7 +515,7 @@ enum {
             GifsicleWorker *w = [[GifsicleWorker alloc] initWithFile:self];
             w.interlace = NO;
             [runLater addObject:w];
-            
+
             w = [[GifsicleWorker alloc] initWithFile:self];
             w.interlace = YES;
             [runLater addObject:w];
@@ -551,7 +551,7 @@ enum {
             }
         }
     }
-	
+
 	workersTotal += [runFirst count] + [runLater count];
 
 	Worker *previousWorker = nil;
@@ -567,7 +567,7 @@ enum {
 		[queue addOperation:w];
 		previousWorker = w;
 	}
-	
+
 	Worker *runFirstDependency = previousWorker;
 	for(Worker *w in runLater) {
         if (runFirstDependency) {
@@ -578,11 +578,11 @@ enum {
         }
 		[queue addOperation:w];
         previousWorker = w;
-	}	
-	
+	}
+
     [workers addObjectsFromArray:runFirst];
     [workers addObjectsFromArray:runLater];
-    
+
 	if (!workersTotal) {
 		[self setStatus:@"err" order:8 text:NSLocalizedString(@"All neccessary tools have been disabled in Preferences",@"tooltip")];
         [self cleanup];
@@ -606,7 +606,7 @@ enum {
     BOOL isit;
     @synchronized(self)
     {
-        isit = workersActive || workersTotal != workersFinished;        
+        isit = workersActive || workersTotal != workersFinished;
     }
     return isit;
 }
