@@ -23,9 +23,8 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 @synthesize isBusy;
 
--(id)configureWithTableView:(NSTableView*)inTableView
+-(void)configureWithTableView:(NSTableView*)inTableView
 {
-    if (self = [super init]) {
 	tableView = inTableView;
 	seenPathHashes = [[NSHashTable alloc] initWithOptions:NSHashTableZeroingWeakMemory capacity:1000];
 
@@ -48,8 +47,6 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     [self setSelectsInsertedObjects:NO];
 
     isEnabled = YES;
-    }
-    return self;
 }
 
 -(NSNumber *)queueCount

@@ -23,7 +23,7 @@
     NSLock *queueWaitingLock;
 }
 
--(id)configureWithTableView:(NSTableView*)a;
+-(void)configureWithTableView:(NSTableView*)a;
 
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation;
 -(BOOL)addPaths:(NSArray *)paths;
