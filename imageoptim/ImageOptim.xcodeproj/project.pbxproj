@@ -12,7 +12,6 @@
 			buildConfigurationList = 5ABB9FF10E8518FE006F51BB /* Build configuration list for PBXAggregateTarget "bzip archive" */;
 			buildPhases = (
 				5ABB9FEB0E8518DA006F51BB /* Tar */,
-				5A81644C0E9ACABE00962CF2 /* Sign */,
 			);
 			dependencies = (
 				5ABB9FF00E8518DF006F51BB /* PBXTargetDependency */,
@@ -1135,23 +1134,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5A81644C0E9ACABE00962CF2 /* Sign */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(TARGET_BUILD_DIR)/ImageOptim.tar.bz2",
-			);
-			name = Sign;
-			outputPaths = (
-				"$(TARGET_BUILD_DIR)/sparkle.sig",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "ruby \"$SRCROOT/sign_update.rb\" \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" ~/.ssh/dsa_priv_imageoptim.pem > \"$TARGET_BUILD_DIR/sparkle.sig\"\nwc -c \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" >> \"$TARGET_BUILD_DIR/sparkle.sig\"\ndate '+%a, %e %b %Y %H:%M:%S %z' >> \"$TARGET_BUILD_DIR/sparkle.sig\"";
-			showEnvVarsInLog = 0;
-		};
 		5ABB9FEB0E8518DA006F51BB /* Tar */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
