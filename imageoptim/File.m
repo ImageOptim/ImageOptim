@@ -613,17 +613,10 @@ enum {
 
 -(void)setStatus:(NSString *)imageName order:(NSInteger)order text:(NSString *)text
 {
-    void (^cb)() = ^{
-        if (statusOrder == order && statusText == text) return;
-        statusOrder = order;
-        self.statusText = text;
-        self.statusImage = [statusImages objectForKey:imageName];
-    };
-    if (statusText != nil) {
-        dispatch_async(dispatch_get_main_queue(), cb);
-    } else {
-        cb();
-    }
+    if (statusOrder == order && statusText == text) return;
+    statusOrder = order;
+    self.statusText = text;
+    self.statusImage = [NSImage imageNamed:imageName];
 }
 
 -(NSString *)description

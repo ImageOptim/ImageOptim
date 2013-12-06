@@ -24,8 +24,6 @@ static const char *kIMQueueBusyContext = "isBusy";
         [NSApp hide:self];
     }
 
-    [self preloadStatusImages];
-
     NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 
 	int maxTasks = [self numberOfCPUs];
@@ -156,8 +154,6 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
         [NSApp hide:self];
     }
 
-    [self preloadStatusImages];
-
 	RevealButtonCell* cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
 	[cell setInfoButtonAction:@selector(openInFinder)];
 	[cell setTarget:tableView];
@@ -189,19 +185,6 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 									  documentAttributes:nil];
 		[credits insertText:tmpStr];
 		[credits setEditable:NO];
-}
-
--(void)preloadStatusImages {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        statusImages = [NSDictionary dictionaryWithObjectsAndKeys:
-                        [NSImage imageNamed:@"err"], @"err",
-                        [NSImage imageNamed:@"wait"], @"wait",
-                        [NSImage imageNamed:@"progress"], @"progress",
-                        [NSImage imageNamed:@"noopt"], @"noopt",
-                        [NSImage imageNamed:@"ok"], @"ok",
-                        nil];
-    });
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -240,8 +223,6 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 // invoked by Dock
 - (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames
 {
-    [self preloadStatusImages];
-
     [filesController setRow:-1];
     [sender replyToOpenOrPrint:[filesController addPaths:filenames] ? NSApplicationDelegateReplySuccess :NSApplicationDelegateReplyFailure];
 }
