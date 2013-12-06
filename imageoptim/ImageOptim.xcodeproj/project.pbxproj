@@ -221,6 +221,13 @@
 			remoteGlobalIDString = 5A8594DF1460BCA70044095A;
 			remoteInfo = jpegrescan;
 		};
+		5A86B3A51851497C009E2C00 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E;
+			remoteInfo = pngquant;
+		};
 		5A937646111CD26B005BA5B1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A8167EC0EA11F9D00962CF2 /* jpegoptim.xcodeproj */;
@@ -851,6 +858,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5A86B3A61851497C009E2C00 /* PBXTargetDependency */,
 				5A453F9B16BE79B6002AFE23 /* PBXTargetDependency */,
 				5AA6D24F1503EA07006DDB3E /* PBXTargetDependency */,
 				5A20CCA5112393CC0000400D /* PBXTargetDependency */,
@@ -1241,6 +1249,11 @@
 			isa = PBXTargetDependency;
 			name = jpegrescan;
 			targetProxy = 5A8594D81460BC5B0044095A /* PBXContainerItemProxy */;
+		};
+		5A86B3A61851497C009E2C00 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = pngquant;
+			targetProxy = 5A86B3A51851497C009E2C00 /* PBXContainerItemProxy */;
 		};
 		5A937647111CD26B005BA5B1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
