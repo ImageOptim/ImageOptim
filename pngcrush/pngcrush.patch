@@ -2,6 +2,14 @@ diff --git a/pngcrush.c b/pngcrush.c
 index 5a9db57..bc0add3 100644
 --- a/pngcrush.c
 +++ b/pngcrush.c
+@@ -1678,7 +1678,6 @@ static int overwrite = 0; /* overwrite the input file instead of creating
+                            a new output file */
+ static int nofilecheck = 0;
+ static int no_limits = 0;
+-static int new_mng = 0;
+ static png_bytep row_buf;
+ #ifdef PNGCRUSH_MULTIPLE_ROWS
+ static png_bytepp row_pointers;
 @@ -2604,7 +2604,6 @@ void pngcrush_write_png(png_structp write_pointer, png_bytep data,
  static void pngcrush_flush(png_structp png_ptr)
  {

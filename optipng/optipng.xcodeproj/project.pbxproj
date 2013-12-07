@@ -327,6 +327,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = ../libpng/;
 				ONLY_ACTIVE_ARCH = YES;
+				WARNING_CFLAGS = "-Wno-tautological-constant-out-of-range-compare";
 			};
 			name = Debug;
 		};
@@ -340,6 +341,7 @@
 					NDEBUG,
 				);
 				HEADER_SEARCH_PATHS = ../libpng/;
+				WARNING_CFLAGS = "-Wno-tautological-constant-out-of-range-compare";
 			};
 			name = Release;
 		};
