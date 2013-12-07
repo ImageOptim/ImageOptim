@@ -313,7 +313,7 @@
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = 1DEB914E08733D8E0010E9CD /* Build configuration list for PBXProject "jpeg" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -421,6 +421,7 @@
 			baseConfigurationReference = 5A27B9E6139B08640095FC2F /* debug.xcconfig */;
 			buildSettings = {
 				LD_DYLIB_INSTALL_NAME = "@loader_path/libimageoptimjpeg.dylib";
+				ONLY_ACTIVE_ARCH = YES;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -437,16 +438,20 @@
 		5A20CCB4112394F20000400D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				PRODUCT_NAME = download;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		5A20CCB5112394F20000400D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				PRODUCT_NAME = download;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};

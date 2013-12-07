@@ -243,16 +243,20 @@
 		5A20CD00112395FB0000400D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				PRODUCT_NAME = download;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		5A20CD01112395FB0000400D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				PRODUCT_NAME = download;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};

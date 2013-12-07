@@ -270,7 +270,7 @@
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "pngquant" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -401,6 +401,7 @@
 					PNG_CONFIGURE_LIBPNG,
 					USE_COCOA,
 				);
+				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
 		};
@@ -537,6 +538,7 @@
 				5A145E001836C52D00DA10F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5A728F491836C185004D0D73 /* Build configuration list for PBXNativeTarget "imagequant" */ = {
 			isa = XCConfigurationList;
