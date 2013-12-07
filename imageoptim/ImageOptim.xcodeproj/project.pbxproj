@@ -1167,7 +1167,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$BUILT_PRODUCTS_DIR/\" && /usr/bin/gnutar cjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" --numeric-owner --owner=0 --group=0 --mtime=2012-03-03 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\"\n";
+			shellScript = "PATH=$PATH:/usr/local/bin\nTAR=$(which gnutar || which gtar || which tar)\ncd \"$BUILT_PRODUCTS_DIR/\" && $TAR cjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" --numeric-owner --owner=0 --group=0 --mtime=2013-12-07 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
