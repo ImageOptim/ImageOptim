@@ -15,4 +15,4 @@ for i in ${SRC}*.html; do
     tidy --tidy-mark no --show-errors 0 -q -utf8 -asxhtml < "$i" > "$TMP/`basename "$i"`";
 done;
 
-hiutil -C -ag -m 1 -r "http://imageoptim.com/$LANG/" -v -s "$LANG" -f "$DST" "$TMP"
+hiutil -C -ag -m 1 -v -s "$LANG" -f "$DST" "$TMP"
