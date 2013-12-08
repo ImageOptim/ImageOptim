@@ -295,7 +295,12 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 		NSWindow *myWindow=[tableView window];
 		[myWindow setStyleMask:[myWindow styleMask]| NSResizableWindowMask ];
 		[filesController setRow:-1];
-        [filesController addPaths:[oPanel filenames]];
+
+        NSMutableArray *paths = [NSMutableArray arrayWithCapacity:oPanel.URLs.count];
+        for (NSURL *URL in oPanel.URLs) {
+            [paths addObject:URL.path];
+        }
+        [filesController addPaths:paths];
     }
     }];
 }
