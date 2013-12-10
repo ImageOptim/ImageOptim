@@ -48,7 +48,7 @@
 
 -(NSArray *)fileTypes;
 
-@property (readonly, nonatomic) NSNumber *queueCount;
+@property (unsafe_unretained, readonly, nonatomic) NSNumber *queueCount;
 @property (readonly) BOOL isBusy;
 
 @end

@@ -9,7 +9,7 @@ extern NSDictionary *statusImages;
 @interface ImageOptim : NSObject <NSApplicationDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate>
 {
 	IBOutlet NSTableView *tableView;
-	IBOutlet FilesQueue *filesController;
+	IBOutlet FilesQueue *__unsafe_unretained filesController;
 	
 	PrefsController *prefsController;
 
@@ -39,5 +39,5 @@ extern NSDictionary *statusImages;
 -(int)numberOfCPUs;
 -(void)loadCreditsHTML;
 
-@property (readonly) FilesQueue *filesQueue;
+@property (unsafe_unretained, readonly) FilesQueue *filesQueue;
 @end

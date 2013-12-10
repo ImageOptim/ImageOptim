@@ -63,12 +63,12 @@
 
 -(NSString *)fileName;
 
-@property (retain) NSString *statusText, *displayName, *bestToolName;
-@property (retain,nonatomic) NSString *filePath;
-@property (retain) NSImage *statusImage;
+@property (strong) NSString *statusText, *displayName, *bestToolName;
+@property (strong,nonatomic) NSString *filePath;
+@property (strong) NSImage *statusImage;
 @property (assign,nonatomic) NSUInteger byteSizeOriginal, byteSizeOptimized;
 @property (assign,readonly) NSInteger statusOrder;
-@property (retain,readonly) NSMutableDictionary *workersPreviousResults;
+@property (strong,readonly) NSMutableDictionary *workersPreviousResults;
 
 @property (assign) double percentDone;
 
