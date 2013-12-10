@@ -112,9 +112,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.4.6a1</string>
+	<string>1.5.0a1</string>
 	<key>CFBundleVersion</key>
-	<string>1.4.5.1</string>
+	<string>1.4.9.1</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
 	<key>LSArchitecturePriority</key>
@@ -132,8 +132,6 @@
 	<key>NSServices</key>
 	<array>
 		<dict>
-			<key>NSServiceDescription</key>
-			<string>Losslessly reduce image file sizes with ImageOptim</string>
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
@@ -154,6 +152,8 @@
 				<string>public.jpeg</string>
 				<string>com.compuserve.gif</string>
 			</array>
+			<key>NSServiceDescription</key>
+			<string>Losslessly reduce image file sizes with ImageOptim</string>
 		</dict>
 	</array>
 	<key>OSAScriptingDefinition</key>
