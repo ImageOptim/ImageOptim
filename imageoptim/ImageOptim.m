@@ -15,7 +15,6 @@ extern int quitWhenDone;
 NSDictionary *statusImages;
 
 static const char *kIMPreviewPanelContext = "preview";
-static const char *kIMQueueBusyContext = "isBusy";
 
 @synthesize filesQueue=filesController;
 
@@ -34,10 +33,14 @@ static const char *kIMQueueBusyContext = "isBusy";
 	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
 
     [filesController configureWithTableView:tableView];
-    [filesController addObserver:self forKeyPath:@"isBusy" options:nil context:(void*)kIMQueueBusyContext];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observeNotification:) name:kFilesQueueFinished object:filesController];
 
     [NSApp setServicesProvider:self];
     NSUpdateDynamicServices();
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kFilesQueueFinished object:filesController];
 }
 
 - (void)handleServices:(NSPasteboard *)pboard
@@ -192,22 +195,23 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     if (context == kIMPreviewPanelContext) {
         [previewPanel reloadData];
     } else {
-        if (context == kIMQueueBusyContext) {
-            if (filesController.isBusy) {
-                [progressBar startAnimation:self];
-            } else {
-                [progressBar stopAnimation:self];
-
-                if (quitWhenDone) {
-                    [NSApp terminate:self];
-                }
-                else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"BounceDock"]) {
-                    [NSApp requestUserAttention:NSInformationalRequest];
-                }
-            }
-        }
         // Defer and coalesce statusbar updates
         dispatch_source_merge_data(statusBarUpdateQueue, 1);
+    }
+}
+
+-(void)observeNotification:(NSNotification *)notif {
+    if (filesController.isBusy) {
+        [progressBar startAnimation:self];
+    } else {
+        [progressBar stopAnimation:self];
+
+        if (quitWhenDone) {
+            [NSApp terminate:self];
+        }
+        else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"BounceDock"]) {
+            [NSApp requestUserAttention:NSInformationalRequest];
+        }
     }
 }
 

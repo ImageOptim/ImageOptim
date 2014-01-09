@@ -8,6 +8,7 @@
 #import <Quartz/Quartz.h>
 
 @class File;
+extern NSString *const kFilesQueueFinished;
 
 @interface FilesQueue : NSArrayController <NSTableViewDelegate,NSTableViewDataSource> {
 	NSTableView *tableView;

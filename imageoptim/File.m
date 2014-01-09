@@ -584,6 +584,7 @@ enum {
     [workers addObjectsFromArray:runLater];
 
 	if (!workersTotal) {
+        done = YES;
 		[self setStatus:@"err" order:8 text:NSLocalizedString(@"All neccessary tools have been disabled in Preferences",@"tooltip")];
         [self cleanup];
 	} else {

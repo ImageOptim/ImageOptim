@@ -17,6 +17,7 @@
 -(void)deleteObjects:(NSArray*)objects;
 @end
 
+NSString *const kFilesQueueFinished = @"FilesQueueFinished";
 static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 @implementation FilesQueue
@@ -459,6 +460,10 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
                 [self performSelectorInBackground:@selector(waitForQueuesToFinish) withObject:nil];
             }
         }
+    }
+
+    if (!currentlyBusy) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kFilesQueueFinished object:self];
     }
 }
 
