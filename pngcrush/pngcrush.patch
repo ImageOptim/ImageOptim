@@ -2,7 +2,7 @@ diff --git a/pngcrush.c b/pngcrush.c
 index 5a9db57..bc0add3 100644
 --- a/pngcrush.c
 +++ b/pngcrush.c
-@@ -1678,7 +1678,6 @@ static int overwrite = 0; /* overwrite the input file instead of creating
+@@ -1699,7 +1699,6 @@ static int overwrite = 0; /* overwrite the input file instead of creating
                             a new output file */
  static int nofilecheck = 0;
  static int no_limits = 0;
@@ -10,7 +10,7 @@ index 5a9db57..bc0add3 100644
  static png_bytep row_buf;
  #ifdef PNGCRUSH_MULTIPLE_ROWS
  static png_bytepp row_pointers;
-@@ -2604,7 +2604,6 @@ void pngcrush_write_png(png_structp write_pointer, png_bytep data,
+@@ -2627,7 +2626,6 @@ void pngcrush_write_png(png_structp write_pointer, png_bytep data,
  static void pngcrush_flush(png_structp png_ptr)
  {
     /* Do nothing. */
@@ -27,7 +27,7 @@ index 5a9db57..bc0add3 100644
          {
            const png_byte png_DHDR[5] = {  68, 72, 68, 82, '\0' };
            const png_byte png_DEFI[5] = {  68, 69, 70, 73, '\0' };
-@@ -7282,7 +7283,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
+@@ -7357,7 +7357,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
          }
  
  #ifdef PNG_UINT_acTL
@@ -36,7 +36,7 @@ index 5a9db57..bc0add3 100644
  #else
          else if (!png_memcmp(chunk_name, png_acTL, 4))
  #endif
-@@ -7491,7 +7492,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
+@@ -7566,7 +7566,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
                  { 77, 69, 78, 68, '\0' };
              if (!png_memcmp(chunk_name, png_MEND, 4))
              {
@@ -45,7 +45,7 @@ index 5a9db57..bc0add3 100644
                  {
                      png_free(mng_ptr,bb);
                      return (0);
-@@ -7563,6 +7564,7 @@ void print_version_info(void)
+@@ -7638,6 +7638,7 @@ void print_version_info(void)
         * immediately after this sentence: */
        " |    Copyright (C) 1998-2002, 2006-2013 Glenn Randers-Pehrson\n"
        " |    Portions copyright (C) 2005       Greg Roelofs\n"
