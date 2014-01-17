@@ -31,7 +31,11 @@
 /* tooltip */
 "Optimized successfully with %@" = "Ottimizzazione avvenuta al (%@)";
 
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Risparmiato %1$@ su %2$@. %3$@ complessivamente (fino a %4$@ per file)";
 
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Risparmiato %1$@ su %2$@. %3$@ per file in media (fino a %4$@)";
 
 /* command name, tooltip */
 "Started %@" = "%@ iniziato";

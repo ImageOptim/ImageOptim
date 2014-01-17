@@ -1,5 +1,5 @@
 /* tooltip */
-"%@ failed to start" = "%@ failed to start";
+"%@ failed to start" = "%@ απετυχε η έναρξη";
 
 /* undo command name */
 "Add" = "Προσθηκη";
@@ -38,10 +38,10 @@
 "Optimized successfully with %@" = "Βελτιωση επιτυχης με %@";
 
 /* total ratio, status bar */
-"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Saved %1$@ out of %2$@. %3$@ overall (up to %4$@ per file)";
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Κερδήθηκαν %1$@ από %2$@. %3$@ συνολικά (έως %4$@ ανά αρχείο)";
 
 /* per file avg, status bar */
-"Saved %@ out of %@. %@ per file on average (up to %@)" = "Saved %1$@ out of %2$@. %3$@ per file on average (up to %4$@)";
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Κερδήθηκαν %1$@ από %2$@. %3$@ ανά αρχείο στο μέσο όρο (μέχρι %4$@)";
 
 /* command name, tooltip */
 "Started %@" = "Εναρξη %@";
