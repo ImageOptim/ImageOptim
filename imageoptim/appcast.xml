@@ -7,30 +7,19 @@
 <language>en</language>
 
 <item>
-<title>Version 1.4.5</title>
+<title>Version 1.5.0</title>
 <description><![CDATA[
     <ul>
-        <li><strong>New icon</strong> by Anna from <a href="http://icons8.com">icons8</a>/<a href="http://www.visualpharm.com/">VisualPharm</a>! <img src="http://imageoptim.com/icon-change.png" alt="Crushed guy is now a magical press" style="padding:5px"/></li>
-        <li>Running from <abbr>CLI</abbr> directly is synchronous, hides the window and automatically quits when done:
-            <pre>/Applications/ImageOptim.app/Contents/MacOS/ImageOptim ~/Desktop/image.png</pre>
-        </li>
-        <li>Arranged 25% discount at MaxCDN for ImageOptim users. <a href="http://tracking.maxcdn.com/c/69095/3982/378?u=http%3A%2F%2Fwww.maxcdn.com%2Fpricing%2F">Sign up with coupon code <code>imageoptim</code>!</a></li>
-        <li>Purchased 1-year Developer ID from Apple to avoid <a href="http://osxdaily.com/2012/07/27/app-cant-be-opened-because-it-is-from-an-unidentified-developer/">blocking of independent software</a> in Mountain Lion and Mavericks</li>
-        <li>Improved QuickLook integration</li>
-        <li>Fixed <kbd title="option-click">⌥-click</kbd> on <samp>Again</samp> button</li>
+        <li>Migrated to <abbr title="automatic resource counting">ARC</abbr> memory management</li>
+        <li>Statusbar text with optimization result can be selected and copied</li>
+        <li>Lossy jpegoptim conversion (if enabled in Preferences) will be applied only if it gives >5% filesize gain</li>
+        <li>Updated Greek and Italian translations (thanks Giorgis Zacharakis and Oscar Fanelli)</li>
     </ul>
-    <p>Previously:</p>
-<ul>
-        <li>Running optimizations again is much faster by skipping tools that are known not to improve compression when run second time</li>
-        <li>Ability to disable dock bounce with <code>defaults write net.pornel.imageoptim BounceDock -bool false</code></li>
-        <li><a href="http://googledevelopers.blogspot.co.uk/2013/02/compress-data-more-densely-with-zopfli.html">Zopfli</a> compressor</li>
-        <li><samp>ImageOptimize</samp> service in Finder's context menu</li>
-        <li>Original images are &ldquo;backed up&rdquo; to Trash (10.8+)</li>
-</ul>
 ]]></description>
-<pubDate>Sat, 21 Sep 2013 03:16:13 +0100</pubDate>
-<enclosure url="http://imageoptim.com/ImageOptim1.4.5.tar.bz2" sparkle:version="1.4.5" length="1685078" type="application/bzip2" sparkle:dsaSignature="MCwCFBLCd1WGsb3dbK9LpBKeMwrlSmipAhQ6W7j/Mbeas4gly9y8oIeAVDNCUg=="/>
-<sparkle:minimumSystemVersion>10.9.0</sparkle:minimumSystemVersion>
+<pubDate>Fri, 17 Jan 2014 21:41:38 +0000</pubDate>
+<enclosure url="http://imageoptim.com/ImageOptim1.5.0.tar.bz2" sparkle:version="1.5.0" length="1642495" type="application/bzip2" sparkle:dsaSignature="MCwCFEAbZd7Md+H6raQ2/ICA19JdRg+kAhRwDEPkN5nW1TJOc/alOu4z3SbMGQ=="/>
+<sparkle:minimumSystemVersion>10.6.4</sparkle:minimumSystemVersion>
+
 
 </item>
 </channel>
