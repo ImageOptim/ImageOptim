@@ -50,8 +50,7 @@ static const char *kIMPreviewPanelContext = "preview";
     [filesController pasteObjectsFrom:pboard];
 }
 
-static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
-{
+static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
     NSString *unit;
     double size;
 
@@ -67,8 +66,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 };
 
 
--(void)initStatusbar
-{
+-(void)initStatusbar {
     [[statusBarLabel cell] setBackgroundStyle:NSBackgroundStyleRaised];
 
     static BOOL overallAvg = NO;
@@ -119,7 +117,8 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
                         overallAvg = NO;
                     }
 
-                    NSString *fmtStr; double avgNum;
+                    NSString *fmtStr;
+                    double avgNum;
                     if (overallAvg) {
                         fmtStr = NSLocalizedString(@"Saved %@ out of %@. %@ overall (up to %@ per file)","total ratio, status bar");
                         avgNum = savedTotal;
@@ -157,7 +156,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
         [NSApp hide:self];
     }
 
-    RevealButtonCell* cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
+    RevealButtonCell *cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
     [cell setInfoButtonAction:@selector(openInFinder)];
     [cell setTarget:tableView];
 
@@ -208,15 +207,13 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 
         if (quitWhenDone) {
             [NSApp terminate:self];
-        }
-        else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"BounceDock"]) {
+        } else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"BounceDock"]) {
             [NSApp requestUserAttention:NSInformationalRequest];
         }
     }
 }
 
--(int)numberOfCPUs
-{
+-(int)numberOfCPUs {
     host_basic_info_data_t hostInfo;
     mach_msg_type_number_t infoCount;
     infoCount = HOST_BASIC_INFO_COUNT;
@@ -225,68 +222,57 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 }
 
 // invoked by Dock
-- (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames
-{
+- (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {
     [filesController setRow:-1];
     [sender replyToOpenOrPrint:[filesController addPaths:filenames] ? NSApplicationDelegateReplySuccess :NSApplicationDelegateReplyFailure];
 }
 
 
--(IBAction)quickLookAction:(id)sender
-{
+-(IBAction)quickLookAction:(id)sender {
     [tableView performSelector:@selector(quickLook)];
 }
 
-- (IBAction)startAgain:(id)sender
-{
+- (IBAction)startAgain:(id)sender {
     // alt-click on a button (this is used from menu too, but alternative menu item covers that anyway
     BOOL onlyOptimized = !!([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask);
     [filesController startAgainOptimized:onlyOptimized];
 }
 
-- (IBAction)startAgainOptimized:(id)sender
-{
+- (IBAction)startAgainOptimized:(id)sender {
     [filesController startAgainOptimized:YES];
 }
 
 
-- (IBAction)clearComplete:(id)sender
-{
+- (IBAction)clearComplete:(id)sender {
     [filesController clearComplete];
 }
 
 
-- (IBAction)showPrefs:(id)sender
-{
+- (IBAction)showPrefs:(id)sender {
     if (!prefsController) {
         prefsController = [PrefsController new];
     }
     [prefsController showWindow:self];
 }
 
--(IBAction)openHomepage:(id)sender
-{
+-(IBAction)openHomepage:(id)sender {
     [self openURL:@"http://imageoptim.com"];
 }
 
--(IBAction)viewSource:(id)sender
-{
+-(IBAction)viewSource:(id)sender {
     [self openURL:@"http://imageoptim.com/source"];
 }
 
--(IBAction)openDonationPage:(id)sender
-{
+-(IBAction)openDonationPage:(id)sender {
     [self openURL:@"http://imageoptim.com/donate.html"];
 }
 
--(void)openURL:(NSString *)stringURL
-{
+-(void)openURL:(NSString *)stringURL {
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:stringURL]];
 }
 
 
--(IBAction)browseForFiles:(id)sender
-{
+-(IBAction)browseForFiles:(id)sender {
     NSOpenPanel *oPanel = [NSOpenPanel openPanel];
 
     [oPanel setAllowsMultipleSelection:YES];
@@ -313,11 +299,11 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     return YES;
 }
 
--(void)applicationWillTerminate:(NSNotification*)n {
+-(void)applicationWillTerminate:(NSNotification *)n {
     [filesController cleanup];
 }
 
--(NSString*)version {
+-(NSString *)version {
     return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
 }
 
@@ -327,8 +313,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     return YES;
 }
 
-- (void)beginPreviewPanelControl:(QLPreviewPanel *)panel
-{
+- (void)beginPreviewPanelControl:(QLPreviewPanel *)panel {
     // This document is now responsible of the preview panel
     // It is allowed to set the delegate, data source and refresh panel.
     previewPanel = panel;
@@ -336,8 +321,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     panel.dataSource = self;
 }
 
-- (void)endPreviewPanelControl:(QLPreviewPanel *)panel
-{
+- (void)endPreviewPanelControl:(QLPreviewPanel *)panel {
     // This document loses its responsisibility on the preview panel
     // Until the next call to -beginPreviewPanelControl: it must not
     // change the panel's delegate, data source or refresh it.
@@ -345,19 +329,16 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 }
 
 // Quick Look panel data source
-- (NSInteger)numberOfPreviewItemsInPreviewPanel:(QLPreviewPanel *)panel
-{
+- (NSInteger)numberOfPreviewItemsInPreviewPanel:(QLPreviewPanel *)panel {
     return [[filesController selectedObjects] count];
 }
 
-- (id <QLPreviewItem>)previewPanel:(QLPreviewPanel *)panel previewItemAtIndex:(NSInteger)index
-{
+- (id <QLPreviewItem>)previewPanel:(QLPreviewPanel *)panel previewItemAtIndex:(NSInteger)index {
     return [[filesController selectedObjects] objectAtIndex:index];
 }
 
 // Quick Look panel delegate
-- (BOOL)previewPanel:(QLPreviewPanel *)panel handleEvent:(NSEvent *)event
-{
+- (BOOL)previewPanel:(QLPreviewPanel *)panel handleEvent:(NSEvent *)event {
     // redirect all key down events to the table view
     if ([event type] == NSKeyDown) {
         [tableView keyDown:event];
@@ -366,8 +347,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     return NO;
 }
 
-- (BOOL)validateMenuItem:(NSMenuItem*)menuItem
-{
+- (BOOL)validateMenuItem:(NSMenuItem *)menuItem {
     SEL action = [menuItem action];
     if (action == @selector(startAgain:)) {
         return [filesController canStartAgainOptimized:NO];
@@ -381,8 +361,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 }
 
 // This delegate method provides the rect on screen from which the panel will zoom.
-- (NSRect)previewPanel:(QLPreviewPanel *)panel sourceFrameOnScreenForPreviewItem:(id <QLPreviewItem>)item
-{
+- (NSRect)previewPanel:(QLPreviewPanel *)panel sourceFrameOnScreenForPreviewItem:(id <QLPreviewItem>)item {
     NSInteger index = [[filesController arrangedObjects] indexOfObject:item];
     if (index == NSNotFound) {
         return NSZeroRect;

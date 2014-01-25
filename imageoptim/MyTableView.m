@@ -90,14 +90,14 @@
     }
 }
 
--(void)setMouseEntered:(BOOL)entered fromEvent:(NSEvent*)event {
+-(void)setMouseEntered:(BOOL)entered fromEvent:(NSEvent *)event {
     // Delegate this to the appropriate cell. In order to allow the cell to maintain state, we copy it and use the copy until the mouse is moved outside of the cell.
     NSDictionary *userInfo = [event userData];
     NSNumber *row = [userInfo valueForKey:@"Row"];
     NSNumber *col = [userInfo valueForKey:@"Col"];
     if (row && col) {
         NSInteger rowVal = [row integerValue], colVal = [col integerValue];
-        RevealButtonCell *cell = (RevealButtonCell*)[self preparedCellAtColumn:colVal row:rowVal];
+        RevealButtonCell *cell = (RevealButtonCell *)[self preparedCellAtColumn:colVal row:rowVal];
         assert([cell isKindOfClass:[RevealButtonCell class]]);
 
         if (iMouseCell != cell) {
@@ -146,23 +146,20 @@
 
 
 
-- (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)isLocal
-{
+- (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)isLocal {
     if (isLocal) return NSDragOperationMove;
 
     return NSDragOperationCopy;
 
 }
 
--(void)openRowInPreview
-{
+-(void)openRowInPreview {
     if ([self clickedRow] < 0) return;
     [self openInFinder];
 }
 
 
--(void) quickLook
-{
+-(void) quickLook {
     if ([QLPreviewPanel sharedPreviewPanelExists] && [[QLPreviewPanel sharedPreviewPanel] isVisible]) {
         [[QLPreviewPanel sharedPreviewPanel] orderOut:nil];
     } else {
@@ -170,20 +167,17 @@
     }
 }
 
--(void)awakeFromNib
-{
+-(void)awakeFromNib {
     [self setDoubleAction:@selector(openRowInPreview)];
 }
 
--(void)openInPreview
-{
+-(void)openInPreview {
     FilesQueue *fc = (FilesQueue *)[self delegate];
     assert([fc isKindOfClass:[FilesQueue class]]);
     [fc openRowInFinder:[self clickedRow] withPreview:YES];
 }
 
--(void)openInFinder
-{
+-(void)openInFinder {
     FilesQueue *fc = (FilesQueue *)[self delegate];
     assert([fc isKindOfClass:[FilesQueue class]]);
     [fc openRowInFinder:[self clickedRow] withPreview:NO];

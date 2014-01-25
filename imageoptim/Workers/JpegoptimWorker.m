@@ -15,8 +15,7 @@
 }
 
 -(id)initWithFile:(File *)aFile {
-    if (self = [super initWithFile:aFile])
-    {
+    if (self = [super initWithFile:aFile]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
         // Sharing setting with jpegtran
@@ -31,13 +30,11 @@
     return maxquality < 100;
 }
 
--(BOOL)runWithTempPath:(NSString*)temp
-{
+-(BOOL)runWithTempPath:(NSString *)temp {
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;
 
-    if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error])
-    {
+    if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error]) {
         IOWarn("Can't make temp copy of %@ in %@",[file filePath],temp);
     }
 
@@ -48,8 +45,7 @@
         [args insertObject:@"--strip-all" atIndex:0];
     }
 
-    if (maxquality > 10 && maxquality < 100)
-    {
+    if (maxquality > 10 && maxquality < 100) {
         [args insertObject:[NSString stringWithFormat:@"-m%d",(int)maxquality] atIndex:0];
     }
 
@@ -84,11 +80,9 @@
     return NO;
 }
 
--(BOOL)parseLine:(NSString *)line
-{
+-(BOOL)parseLine:(NSString *)line {
     NSInteger size;
-    if ((size = [self readNumberAfter:@" --> " inLine:line]))
-    {
+    if ((size = [self readNumberAfter:@" --> " inLine:line])) {
         fileSizeOptimized = size;
         return YES;
     }

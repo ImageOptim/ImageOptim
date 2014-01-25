@@ -10,8 +10,7 @@
     return @(interlace);
 }
 
--(BOOL)runWithTempPath:(NSString*)temp
-{
+-(BOOL)runWithTempPath:(NSString *)temp {
     NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-o",temp,
                             interlace ? @"--interlace" : @"--no-interlace",
                             @"-O3",

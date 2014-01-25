@@ -7,8 +7,7 @@
 @synthesize alternativeStrategy;
 
 -(id)init {
-    if (self = [super init])
-    {
+    if (self = [super init]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         iterations = (int)[defaults integerForKey:@"ZopfliIterations"];
         strip = [[NSUserDefaults standardUserDefaults] boolForKey:@"PngOutRemoveChunks"];
@@ -20,8 +19,7 @@
     return @(iterations*4+strip*2+alternativeStrategy);
 }
 
--(BOOL)runWithTempPath:(NSString*)temp
-{
+-(BOOL)runWithTempPath:(NSString *)temp {
     NSMutableArray *args = [NSMutableArray arrayWithObjects: @"--lossy_transparent",@"-y",/*@"--",*/[file filePath],temp,nil];
 
     if (!strip) {

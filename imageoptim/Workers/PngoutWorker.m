@@ -13,8 +13,7 @@
 @implementation PngoutWorker
 
 -(id)init {
-    if (self = [super init])
-    {
+    if (self = [super init]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         level = 3-[defaults integerForKey:@"PngOutLevel"];
         removechunks = [defaults boolForKey:@"PngOutRemoveChunks"];
@@ -27,8 +26,7 @@
     return @(level*4+removechunks*2+interruptIfTakesTooLong);
 }
 
--(BOOL)runWithTempPath:(NSString*)temp
-{
+-(BOOL)runWithTempPath:(NSString *)temp {
     // uses stdout for file to force progress output to unbufferred stderr
     NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/[file filePath],@"-",nil];
 
@@ -51,8 +49,7 @@
         return NO;
     }
 
-    if (![[NSFileManager defaultManager] createFileAtPath:temp contents:[NSData data] attributes:nil])
-    {
+    if (![[NSFileManager defaultManager] createFileAtPath:temp contents:[NSData data] attributes:nil]) {
         IOWarn("Cant create %@",temp);
     }
 
@@ -91,32 +88,24 @@
     return NO;
 }
 
--(BOOL)makesNonOptimizingModifications
-{
+-(BOOL)makesNonOptimizingModifications {
     return removechunks;
 }
 
--(BOOL)parseLine:(NSString *)line
-{
+-(BOOL)parseLine:(NSString *)line {
     // run PNGOUT killing timer
     [[NSRunLoop currentRunLoop] limitDateForMode:NSDefaultRunLoopMode];
 
     NSScanner *scan = [NSScanner scannerWithString:line];
 
-    if ([line length] > 4 && [[line substringToIndex:4] isEqual:@"Out:"])
-    {
+    if ([line length] > 4 && [[line substringToIndex:4] isEqual:@"Out:"]) {
         [scan setScanLocation:4];
         int byteSize=0;
-        if ([scan scanInt:&byteSize] && byteSize)
-        {
+        if ([scan scanInt:&byteSize] && byteSize) {
             fileSizeOptimized = byteSize;
         }
-    }
-    else if ([line length] >= 3 && [line characterAtIndex:2] == '%')
-    {
-    }
-    else if ([line length] >= 4 && [[line substringToIndex:4] isEqual:@"Took"])
-    {
+    } else if ([line length] >= 3 && [line characterAtIndex:2] == '%') {
+    } else if ([line length] >= 4 && [[line substringToIndex:4] isEqual:@"Took"]) {
         return YES;
     }
     return NO;

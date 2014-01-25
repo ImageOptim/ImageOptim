@@ -13,10 +13,8 @@
 
 @synthesize path;
 
--(id)initWithPath:(NSString *)aPath filesQueue:(FilesQueue *)q extensions:(NSArray*)theExtensions
-{
-    if (self = [super init])
-    {
+-(id)initWithPath:(NSString *)aPath filesQueue:(FilesQueue *)q extensions:(NSArray *)theExtensions {
+    if (self = [super init]) {
         self.path = aPath;
         filesQueue = q;
         extensions = theExtensions;
@@ -24,20 +22,16 @@
     return self;
 }
 
--(void)main
-{
+-(void)main {
     const NSUInteger buffer_capacity = 256;
     NSUInteger buffer_size = 16;
     NSMutableArray *buffer = [NSMutableArray arrayWithCapacity:buffer_capacity];
 
-    @try
-    {
-        for (NSString *filePath in [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:path error:nil])
-        {
+    @try {
+        for (NSString *filePath in [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:path error:nil]) {
             NSString *newPath = [path stringByAppendingPathComponent:filePath];
 
-            if ([extensions containsObject:[newPath pathExtension]])
-            {
+            if ([extensions containsObject:[newPath pathExtension]]) {
                 [buffer addObject:newPath];
                 if ([buffer count] >= buffer_size) {
                     // assuming that previous buffer flushes created some work to do

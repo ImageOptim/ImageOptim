@@ -98,8 +98,7 @@
     return result;
 }
 
-- (void)drawInteriorWithFrame:(NSRect)bounds inView:(NSView *)controlView
-{
+- (void)drawInteriorWithFrame:(NSRect)bounds inView:(NSView *)controlView {
     NSRect titleRect = [self titleRectForBounds:bounds];
     NSAttributedString *title = [self attributedStringValue];
     if ([title length] > 0) {
@@ -114,8 +113,7 @@
     [image drawInRect:infoButtonRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:opacity];
 }
 
-- (NSUInteger)hitTestForEvent:(NSEvent *)event inRect:(NSRect)cellFrame ofView:(NSView *)controlView
-{
+- (NSUInteger)hitTestForEvent:(NSEvent *)event inRect:(NSRect)cellFrame ofView:(NSView *)controlView {
     NSPoint point = [controlView convertPoint:[event locationInWindow] fromView:nil];
 
     NSRect titleRect = [self titleRectForBounds:cellFrame];
@@ -191,8 +189,7 @@
     [controlView addTrackingArea:area];
 }
 
-- (void)setMouseEntered:(BOOL)y
-{
+- (void)setMouseEntered:(BOOL)y {
     iMouseHoveredInInfoButton = y;
 }
 

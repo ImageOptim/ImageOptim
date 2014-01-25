@@ -17,8 +17,7 @@
 - (id)transformedValue:(id)value;
 {
     double v = 1.0;
-    if ([value respondsToSelector: @selector(doubleValue)])
-    {
+    if ([value respondsToSelector: @selector(doubleValue)]) {
         v = MAX(1.0F,ceil([value doubleValue]));
     }
     return [NSNumber numberWithDouble:v];
@@ -35,8 +34,7 @@
 
 - (id)transformedValue:(id)value;
 {
-    if ([value respondsToSelector: @selector(boolValue)] && ![value boolValue])
-    {
+    if ([value respondsToSelector: @selector(boolValue)] && ![value boolValue]) {
         return [NSColor disabledControlTextColor];
     }
     return [NSColor textColor];

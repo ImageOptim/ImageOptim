@@ -8,8 +8,7 @@
 
 @implementation SavingsFormatter
 
-- (NSString *)stringForObjectValue:(id)anObject
-{
+- (NSString *)stringForObjectValue:(id)anObject {
     double val = [anObject doubleValue];
 
     if (val < 0) return @"";

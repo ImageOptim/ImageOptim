@@ -16,17 +16,14 @@
     return @(0);
 }
 
--(id)initWithFile:(File *)aFile
-{
-    if (self = [self init])
-    {
+-(id)initWithFile:(File *)aFile {
+    if (self = [self init]) {
         self.file = aFile;
     }
     return self;
 }
 
--(BOOL)isRelatedTo:(File *)f
-{
+-(BOOL)isRelatedTo:(File *)f {
     return (f == file);
 }
 
@@ -77,21 +74,18 @@
     }
 }
 
--(void)run
-{
+-(void)run {
 }
 
 -(BOOL)isIdempotent {
     return YES;
 }
 
--(BOOL)makesNonOptimizingModifications
-{
+-(BOOL)makesNonOptimizingModifications {
     return NO;
 }
 
--(NSString *)description
-{
+-(NSString *)description {
     return [NSString stringWithFormat:@"%@ %X ready %d, running %d, deleg %@",
             [self className],(unsigned int)[self hash],[self isReady],[self isExecuting],file];
 }

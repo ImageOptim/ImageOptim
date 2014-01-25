@@ -14,8 +14,7 @@
 }
 
 -(id)initWithFile:(File *)aFile {
-    if (self = [super initWithFile:aFile])
-    {
+    if (self = [super initWithFile:aFile]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         strip = [defaults boolForKey:@"JpegTranStripAll"];
 
@@ -24,8 +23,7 @@
     return self;
 }
 
--(BOOL)runWithTempPath:(NSString*)temp
-{
+-(BOOL)runWithTempPath:(NSString *)temp {
     // eh, handling of paths starting with "-" is unsafe here. Hopefully all paths from dropped files will be absolute...
     NSMutableArray *args = [NSMutableArray arrayWithObjects:[file filePath],nil];
     NSString *executableName;
@@ -75,11 +73,9 @@
     return NO;
 }
 
--(BOOL)parseLine:(NSString *)line
-{
+-(BOOL)parseLine:(NSString *)line {
     NSRange substr = [line rangeOfString:@"End Of Image"];
-    if (substr.length)
-    {
+    if (substr.length) {
         return YES;
     }
     return NO;

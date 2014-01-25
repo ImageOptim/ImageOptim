@@ -10,8 +10,7 @@
 @implementation OptiPngWorker
 
 -(id)init {
-    if (self = [super init])
-    {
+    if (self = [super init]) {
         NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
         optlevel = [defs integerForKey:@"OptiPngLevel"];
         interlace = [defs integerForKey:@"OptiPngInterlace"];
@@ -25,13 +24,11 @@
     return @(optlevel*2+interlace);
 }
 
--(BOOL)runWithTempPath:(NSString*)temp
-{
+-(BOOL)runWithTempPath:(NSString *)temp {
     NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],
                             @"-out",temp,@"--",[file filePath],nil];
 
-    if (interlace != -1)
-    {
+    if (interlace != -1) {
         [args insertObject:[NSString stringWithFormat:@"-i%d",(int)interlace] atIndex:0];
     }
 
@@ -62,14 +59,11 @@
     return NO;
 }
 
--(BOOL)parseLine:(NSString *)line
-{
+-(BOOL)parseLine:(NSString *)line {
     NSUInteger res;
 
-    if ([line length] > 20)
-    {
-        if ((res = [self readNumberAfter:@"Output file size = " inLine:line]))
-        {
+    if ([line length] > 20) {
+        if ((res = [self readNumberAfter:@"Output file size = " inLine:line])) {
             fileSizeOptimized = res;
             return YES;
         }

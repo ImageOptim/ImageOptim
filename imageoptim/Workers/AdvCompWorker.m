@@ -11,8 +11,7 @@
 @implementation AdvCompWorker
 
 -(id)init {
-    if (self = [super init])
-    {
+    if (self = [super init]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         level = [defaults integerForKey:@"AdvPngLevel"];
 
@@ -24,13 +23,11 @@
     return @(level);
 }
 
--(BOOL)runWithTempPath:(NSString*)temp
-{
+-(BOOL)runWithTempPath:(NSString *)temp {
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;
 
-    if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error])
-    {
+    if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error]) {
         IOWarn("Can't make temp copy of %@ in %@; %@",[file filePath],temp,error);
         return NO;
     }
@@ -60,14 +57,12 @@
     return [file setFilePathOptimized:temp  size:fileSizeOptimized toolName:@"AdvPNG"];
 }
 
--(BOOL)parseLine:(NSString *)line
-{
+-(BOOL)parseLine:(NSString *)line {
     NSScanner *scan = [NSScanner scannerWithString:line];
 
     int original,optimized;
 
-    if ([scan scanInt:&original] && [scan scanInt:&optimized])
-    {
+    if ([scan scanInt:&original] && [scan scanInt:&optimized]) {
         fileSizeOptimized = optimized;
         return YES;
     }

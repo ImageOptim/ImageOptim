@@ -25,26 +25,23 @@
     return [super isHidden] || self.alphaValue < 1.0f;
 }
 
--(NSView*)hitTest:(NSPoint)aPoint {
+-(NSView *)hitTest:(NSPoint)aPoint {
     if ([self isHidden]) return nil; // just to make sure that hacked hidden property doesn't screw it up
     return [super hitTest:aPoint];
 }
 
 //Destination Operations
-- (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
-{
+- (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender {
     highlight=YES;
     [self setNeedsDisplay:YES];
     return NSDragOperationCopy;
 }
 
-- (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)flag
-{
+- (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)flag {
     return NSDragOperationCopy;//send data as copy operation
 }
 
-- (void)draggingExited:(id <NSDraggingInfo>)sender
-{
+- (void)draggingExited:(id <NSDraggingInfo>)sender {
     highlight=NO;//remove highlight of the drop zone
     [self setNeedsDisplay: YES];
 }
@@ -54,8 +51,7 @@
     [super viewWillStartLiveResize];
 }
 
--(void)drawRect:(NSRect)rect
-{
+-(void)drawRect:(NSRect)rect {
     [[NSColor windowBackgroundColor] setFill];
     NSRectFill(rect);
 
@@ -93,20 +89,18 @@
     [r fill];
 }
 
-- (BOOL)prepareForDragOperation:(id <NSDraggingInfo>)sender
-{
+- (BOOL)prepareForDragOperation:(id <NSDraggingInfo>)sender {
     highlight=NO;//finished with the drag so remove any highlighting
     [self setNeedsDisplay: YES];
     return YES;
 }
 
-- (BOOL)performDragOperation:(id <NSDraggingInfo>)sender
-{
+- (BOOL)performDragOperation:(id <NSDraggingInfo>)sender {
     if ([sender draggingSource]!=self) {
 
         ImageOptim *app = [NSApp delegate];
         assert([app isKindOfClass:[ImageOptim class]]);
-        FilesQueue* filesqueue=app.filesQueue;
+        FilesQueue *filesqueue=app.filesQueue;
         NSArray *files = [[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType];
 
         [filesqueue performSelectorInBackground:@selector(addPaths:) withObject:files];

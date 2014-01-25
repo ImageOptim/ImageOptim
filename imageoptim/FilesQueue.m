@@ -11,10 +11,10 @@
 
 @interface FilesQueue()
 
--(NSArray*)extensions;
+-(NSArray *)extensions;
 -(BOOL)isAnyQueueBusy;
 -(void)updateBusyState;
--(void)deleteObjects:(NSArray*)objects;
+-(void)deleteObjects:(NSArray *)objects;
 @end
 
 NSString *const kFilesQueueFinished = @"FilesQueueFinished";
@@ -24,8 +24,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 @synthesize isBusy;
 
--(void)configureWithTableView:(NSTableView*)inTableView
-{
+-(void)configureWithTableView:(NSTableView *)inTableView {
     tableView = inTableView;
     seenPathHashes = [[NSHashTable alloc] initWithOptions:NSHashTableZeroingWeakMemory capacity:1000];
 
@@ -50,20 +49,17 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     isEnabled = YES;
 }
 
--(NSNumber *)queueCount
-{
+-(NSNumber *)queueCount {
     return [NSNumber numberWithInteger:cpuQueue.operationCount + dirWorkerQueue.operationCount + fileIOQueue.operationCount];
 }
 
--(BOOL)isAnyQueueBusy
-{
+-(BOOL)isAnyQueueBusy {
     return cpuQueue.operationCount > 0 || dirWorkerQueue.operationCount > 0 || fileIOQueue.operationCount > 0;
 }
 
 -(void)waitForQueuesToFinish {
 
-    if ([queueWaitingLock tryLock])
-    {
+    if ([queueWaitingLock tryLock]) {
         @try {
             do { // any queue may be re-filled while waiting for another queue, so double-check is necessary
                 [dirWorkerQueue waitUntilAllOperationsAreFinished];
@@ -80,8 +76,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 }
 
 
--(void)setRow:(NSInteger)row
-{
+-(void)setRow:(NSInteger)row {
     nextInsertRow=row;
 }
 
@@ -114,8 +109,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     [self performSelectorInBackground:@selector(addPaths:) withObject:paths];
 }
 
-- (BOOL)tableView:(NSTableView *)aTableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard
-{
+- (BOOL)tableView:(NSTableView *)aTableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
     if (!isEnabled) return NO;
 
     NSArray *filePathlist = [[[self arrangedObjects] objectsAtIndexes:rowIndexes] valueForKey:@"filePath"];
@@ -128,8 +122,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return NO;
 }
 
--(BOOL)copyObjects
-{
+-(BOOL)copyObjects {
     if (!isEnabled) return NO;
 
     NSPasteboard *pboard = [NSPasteboard generalPasteboard];
@@ -150,8 +143,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 }
 
 
--(IBAction)delete:(id)sender
-{
+-(IBAction)delete:(id)sender {
     @synchronized(self) {
         if ([self canRemove]) {
             [self deleteObjects:[self selectedObjects]];
@@ -159,15 +151,13 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     }
 }
 
--(void)addObjects:(NSArray*)objects
-{
+-(void)addObjects:(NSArray *)objects {
     NSUndoManager *undo=[tableView undoManager];
     [undo registerUndoWithTarget:self selector:@selector(deleteObjects:) object:objects];
     [super addObjects:objects];
 }
 
--(void)deleteObjects:(NSArray*)objects
-{
+-(void)deleteObjects:(NSArray *)objects {
     NSUndoManager *undo=[tableView undoManager];
     [undo registerUndoWithTarget:self selector:@selector(addObjects:) object:objects];
     [self removeObjects:objects];
@@ -175,15 +165,13 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     [objects makeObjectsPerformSelector:@selector(cleanup)];
 }
 
-- (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation
-{
+- (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation {
     NSArray *objs = [self arrangedObjects];
-    if (row < (signed)[objs count])
-    {
+    if (row < (signed)[objs count]) {
         File *f = [objs objectAtIndex:row];
 
         if ([aCell isKindOfClass:[RevealButtonCell class]]) {
-            NSRect infoButtonRect = [((RevealButtonCell*)aCell) infoButtonRectForBounds:*rect];
+            NSRect infoButtonRect = [((RevealButtonCell *)aCell) infoButtonRectForBounds:*rect];
 
             BOOL mouseIsInside = NSMouseInRect(mouseLocation, infoButtonRect, [aTableView isFlipped]);
             if (mouseIsInside) {
@@ -206,25 +194,23 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 }
 
 // Better in NSArrayController class
-- (NSUInteger)rowsAboveRow:(NSUInteger)row inIndexSet:(NSIndexSet *)indexSet
-{
+- (NSUInteger)rowsAboveRow:(NSUInteger)row inIndexSet:(NSIndexSet *)indexSet {
     NSUInteger currentIndex = [indexSet firstIndex];
     NSUInteger i = 0;
-    while (currentIndex != NSNotFound)
-    {
-		if (currentIndex < row) { i++; }
+    while (currentIndex != NSNotFound) {
+        if (currentIndex < row) {
+            i++;
+        }
         currentIndex = [indexSet indexGreaterThanIndex:currentIndex];
     }
     return i;
 }
-- (NSUInteger)numberOfRowsInTableView:(NSTableView *)tableview
-{
+- (NSUInteger)numberOfRowsInTableView:(NSTableView *)tableview {
     return [[self arrangedObjects] count];
 }
 
--(void) moveObjectsInArrangedObjectsFromIndexes:(NSIndexSet*)indexSet
-    toIndex:(NSUInteger)insertIndex
-{
+-(void) moveObjectsInArrangedObjectsFromIndexes:(NSIndexSet *)indexSet
+    toIndex:(NSUInteger)insertIndex {
 
     NSArray     *objects = [self arrangedObjects];
     NSUInteger  idx = [indexSet lastIndex];
@@ -233,14 +219,11 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     id          object;
     NSUInteger  removeIndex;
 
-    while (NSNotFound != idx)
-    {
+    while (NSNotFound != idx) {
         if (idx >= insertIndex) {
             removeIndex = idx + aboveInsertIndexCount;
             aboveInsertIndexCount += 1;
-        }
-        else
-        {
+        } else {
             removeIndex = idx;
             insertIndex -= 1;
         }
@@ -253,13 +236,12 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 }
 
 
-- (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation
-{
+- (BOOL)tableView:(NSTableView *)aTableView acceptDrop:(id <NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)operation {
     NSPasteboard *pboard = [info draggingPasteboard];
     NSData *indexesArchived;
 
     if ([info draggingSource] == aTableView && (indexesArchived = [pboard dataForType:kIMDraggedRowIndexesPboardType])) {
-        NSIndexSet* indexSet = [NSKeyedUnarchiver unarchiveObjectWithData:indexesArchived];
+        NSIndexSet *indexSet = [NSKeyedUnarchiver unarchiveObjectWithData:indexesArchived];
 
         NSIndexSet *selection = [self selectionIndexes];
         BOOL containsSelection = [selection containsIndexes:indexSet];
@@ -293,25 +275,20 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 /** selfLock must be locked before using this
     That's a dumb linear search. Would be nice to replace NSArray with NSSet or NSHashTable.
  */
--(File *)findFileByPath:(NSString *)path
-{
-    if (![seenPathHashes containsObject:path])
-    {
+-(File *)findFileByPath:(NSString *)path {
+    if (![seenPathHashes containsObject:path]) {
         return nil;
     }
 
-    for (File *f in [self content])
-    {
-        if ([path isEqualToString:[f filePath]])
-        {
+    for (File *f in [self content]) {
+        if ([path isEqualToString:[f filePath]]) {
             return f;
         }
     }
     return nil;
 }
 
--(void)addFileObjects:(NSArray *)files
-{
+-(void)addFileObjects:(NSArray *)files {
     [[tableView undoManager] registerUndoWithTarget:self selector:@selector(deleteObjects:) object:files];
     [[tableView undoManager] setActionName:NSLocalizedString(@"Add",@"undo command name")];
 
@@ -328,14 +305,12 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     [self updateBusyState];
 }
 
--(BOOL)addPaths:(NSArray*)paths
-{
+-(BOOL)addPaths:(NSArray *)paths {
     return [self addPaths:paths filesOnly:NO];
 }
 
 /** filesOnly indicates that paths do not contain any directories */
--(BOOL)addPaths:(NSArray*)paths filesOnly:(BOOL)filesOnly
-{
+-(BOOL)addPaths:(NSArray *)paths filesOnly:(BOOL)filesOnly {
     if (!isEnabled) {
         return NO;
     }
@@ -359,8 +334,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
             File *f = [self findFileByPath:path];
             if (f) {
                 if (![f isBusy]) [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
-            }
-            else {
+            } else {
                 [seenPathHashes addObject:path]; // used by findFileByPath
                 f = [[File alloc] initWithFilePath:path];
                 [toAdd addObject:f];
@@ -384,8 +358,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return NO;
 }
 
--(void)clearComplete
-{
+-(void)clearComplete {
     NSUInteger i=0;
     NSMutableIndexSet *set = [NSMutableIndexSet new];
 
@@ -411,8 +384,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return NO;
 }
 
--(void)startAgainOptimized:(BOOL)optimized
-{
+-(void)startAgainOptimized:(BOOL)optimized {
     BOOL anyStarted = NO;
     @synchronized(self) {
         NSArray *files = [self selectedObjects];
@@ -426,8 +398,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
                 files = [files copy];
                 [self setSelectedObjects:@[]];
             }
-        }
-        else if (!selectionCount) {
+        } else if (!selectionCount) {
             files = [self content];
         }
 
@@ -444,8 +415,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     [self updateBusyState];
 }
 
--(void)updateBusyState
-{
+-(void)updateBusyState {
     BOOL currentlyBusy = [self isAnyQueueBusy];
 
     if (isBusy != currentlyBusy) {
@@ -454,8 +424,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         [self didChangeValueForKey:@"isBusy"];
 
         if (isBusy) {
-            if ([queueWaitingLock tryLock]) // if it's locked, there's thread waiting for finish
-            {
+            if ([queueWaitingLock tryLock]) { // if it's locked, there's thread waiting for finish
                 [queueWaitingLock unlock]; // can't lock/unlock across threads, so new lock will have to be made
                 [self performSelectorInBackground:@selector(waitForQueuesToFinish) withObject:nil];
             }
@@ -476,18 +445,15 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 
     if ([defs boolForKey:@"PngCrushEnabled"] || [defs boolForKey:@"PngOutEnabled"] ||
-            [defs boolForKey:@"OptiPngEnabled"] || [defs boolForKey:@"AdvPngEnabled"] || [defs boolForKey:@"ZopfliEnabled"])
-    {
+            [defs boolForKey:@"OptiPngEnabled"] || [defs boolForKey:@"AdvPngEnabled"] || [defs boolForKey:@"ZopfliEnabled"]) {
         types |= PNG_ENABLED;
     }
 
-    if ([defs boolForKey:@"JpegOptimEnabled"] || [defs boolForKey:@"JpegTranEnabled"])
-    {
+    if ([defs boolForKey:@"JpegOptimEnabled"] || [defs boolForKey:@"JpegTranEnabled"]) {
         types |= JPEG_ENABLED;
     }
 
-    if ([defs boolForKey:@"GifsicleEnabled"])
-    {
+    if ([defs boolForKey:@"GifsicleEnabled"]) {
         types |= GIF_ENABLED;
     }
 
@@ -496,22 +462,21 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 }
 
 
--(NSArray*)extensions {
+-(NSArray *)extensions {
 
     int types = [self typesEnabled];
     NSMutableArray *extensions = [NSMutableArray array];
 
-    if (types & PNG_ENABLED)
-    {
-        [extensions addObject:@"png"]; [extensions addObject:@"PNG"];
+    if (types & PNG_ENABLED) {
+        [extensions addObject:@"png"];
+        [extensions addObject:@"PNG"];
     }
-    if (types & JPEG_ENABLED)
-    {
+    if (types & JPEG_ENABLED) {
         [extensions addObjectsFromArray:[NSArray arrayWithObjects:@"jpg",@"JPG",@"jpeg",@"JPEG",nil]];
     }
-    if (types & GIF_ENABLED)
-    {
-        [extensions addObject:@"gif"]; [extensions addObject:@"GIF"];
+    if (types & GIF_ENABLED) {
+        [extensions addObject:@"gif"];
+        [extensions addObject:@"GIF"];
     }
 
     return extensions;
@@ -523,16 +488,13 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
     NSMutableArray *fileTypes = [NSMutableArray array];
 
-    if (types & PNG_ENABLED)
-    {
+    if (types & PNG_ENABLED) {
         [fileTypes addObjectsFromArray:[NSArray arrayWithObjects:@"png",@"PNG",NSFileTypeForHFSTypeCode('PNGf'),@"public.png",@"image/png",nil]];
     }
-    if (types & JPEG_ENABLED)
-    {
+    if (types & JPEG_ENABLED) {
         [fileTypes addObjectsFromArray:[NSArray arrayWithObjects:@"jpg",@"jpeg",@"JPG",@"JPEG",NSFileTypeForHFSTypeCode('JPEG'),@"public.jpeg",@"image/jpeg",nil]];
     }
-    if (types & GIF_ENABLED)
-    {
+    if (types & GIF_ENABLED) {
         [fileTypes addObjectsFromArray:[NSArray arrayWithObjects:@"gif",@"GIF",NSFileTypeForHFSTypeCode('GIFf'),@"public.gif",@"image/gif",nil]];
     }
     return fileTypes;
