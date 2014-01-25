@@ -66,7 +66,7 @@
 		5A7D24ED13E5BC3100815AAA /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AACA3840CAF3DA5004D45CA /* plus.png */; };
 		5A7D24EE13E5BC3100815AAA /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 5AC63C490E9ABF0A0053B879 /* dsa_pub.pem */; };
 		5A7D24EF13E5BC3100815AAA /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AE54D800CAEE8AC00903DF4 /* defaults.plist */; };
-		5A8594E81460BCF20044095A /* jpegrescan in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A8594E71460BCF20044095A /* jpegrescan */; };
+		5A8594E81460BCF20044095A /* jpegrescan in Resources */ = {isa = PBXBuildFile; fileRef = 5A8594E71460BCF20044095A /* jpegrescan */; };
 		5A8A18141416D1D700D62DB7 /* SavingsFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */; };
 		5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99FE83140AE80600BB2F79 /* Quartz.framework */; };
 		5A9AEC19140996D700C9E97D /* reveal.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9AEC18140996D700C9E97D /* reveal.png */; };
@@ -279,7 +279,6 @@
 				5A3470AB140BC80F0014F638 /* advpng in Copy Executables */,
 				5A3470B0140BC8600014F638 /* gifsicle in Copy Executables */,
 				5A3470AE140BC8540014F638 /* jpegoptim in Copy Executables */,
-				5A8594E81460BCF20044095A /* jpegrescan in Copy Executables */,
 				5A3470AF140BC8590014F638 /* jpegtran in Copy Executables */,
 				5A3470A9140BC7D10014F638 /* libimageoptimjpeg.dylib in Copy Executables */,
 				5A3470AA140BC7DD0014F638 /* liblibpng.dylib in Copy Executables */,
@@ -435,6 +434,7 @@
 		5AA338BF1117C00300046C79 /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5AA339011117C41400046C79 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5AA339021117C41B00046C79 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = de.lproj/PrefsController.xib; sourceTree = "<group>"; };
+		5AA6D23B1503E9F5006DDB3E /* Sparkle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparkle.xcodeproj; path = ../../Sparkle/Sparkle.xcodeproj; sourceTree = "<group>"; };
 		5AA9F5F5189339A500697D8E /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
 		5AA9F7701893736100697D8E /* el */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = el; path = el.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5AA9F781189373AB00697D8E /* tr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = tr; path = tr.lproj/PrefsController.xib; sourceTree = "<group>"; };
@@ -1025,6 +1025,7 @@
 				5A7D24E513E5BC3100815AAA /* Help in Resources */,
 				5A16343E140BF97400758D99 /* ImageOptim.icns in Resources */,
 				1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */,
+				5A8594E81460BCF20044095A /* jpegrescan in Resources */,
 				5A7D24E713E5BC3100815AAA /* Localizable.strings in Resources */,
 				5A7D24E313E5BC3100815AAA /* MainMenu.xib in Resources */,
 				5A7D24EC13E5BC3100815AAA /* minus.png in Resources */,
@@ -1062,7 +1063,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PATH=$PATH:/usr/local/bin\nTAR=$(which gnutar || which gtar || which tar)\ncd \"$BUILT_PRODUCTS_DIR/\" && $TAR cjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" --numeric-owner --owner=0 --group=0 --mtime=2013-12-07 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\"\n";
+			shellScript = "codesign -f --verbose --deep -s \"Developer ID Application\" \"$BUILT_PRODUCTS_DIR/ImageOptim.app\" || exit 7\nfind \"$BUILT_PRODUCTS_DIR/ImageOptim.app\" -print0 | xargs -0 -P8 xattr -c\nspctl --assess \"$BUILT_PRODUCTS_DIR/ImageOptim.app\" || exit 13\nPATH=$PATH:/usr/local/bin\nTAR=$(which gnutar || which gtar || which tar)\ncd \"$BUILT_PRODUCTS_DIR/\" && $TAR cjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" --numeric-owner --owner=0 --group=0 --mtime=2013-12-07 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

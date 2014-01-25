@@ -26,16 +26,18 @@
 -(BOOL)runWithTempPath:(NSString *)temp {
     // eh, handling of paths starting with "-" is unsafe here. Hopefully all paths from dropped files will be absolute...
     NSMutableArray *args = [NSMutableArray arrayWithObjects:[file filePath],nil];
-    NSString *executableName;
+    NSString *executableName, *prefName;
 
     if (jpegrescan) {
         executableName = @"jpegrescan";
+        prefName = @"JpegRescan";
         if (strip) {
             [args insertObject:@"-s" atIndex:0];
         }
         [args addObject:temp];
     } else {
         executableName = @"jpegtran";
+        prefName = @"JpegTran";
         [args insertObject:@"-outfile" atIndex:0];
         [args insertObject:temp atIndex:1];
 
@@ -45,7 +47,7 @@
     }
 
     // For jpegrescan to work both JpegTran and JpegRescan need to be enabled
-    if (![self taskForKey:@"JpegTran" bundleName:executableName arguments:args]) {
+    if (![self taskForKey:prefName bundleName:executableName arguments:args]) {
         return NO;
     }
 

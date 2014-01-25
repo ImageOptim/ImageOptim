@@ -125,9 +125,17 @@
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
     NSString *path = nil;
 
-    if ((path = [[NSBundle mainBundle] pathForAuxiliaryExecutable:resourceName])
-            && [[NSFileManager defaultManager] isExecutableFileAtPath:path]) {
-        return path;
+    path = [[NSBundle mainBundle] pathForAuxiliaryExecutable:resourceName];
+    if (!path) {
+        path = [[NSBundle mainBundle] pathForResource:resourceName ofType:@""];
+    }
+
+    if (path) {
+        if ([[NSFileManager defaultManager] isExecutableFileAtPath:path]) {
+            return path;
+        } else {
+            IOWarn("File %@ for %@ is not executable", path, prefsName);
+        }
     }
 
     IOWarn("Can't find working executable for %@ - disabling",prefsName);
