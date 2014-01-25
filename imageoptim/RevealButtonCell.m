@@ -42,10 +42,10 @@
 - (NSRect)rectForInfoButtonBasedOnTitleRect:(NSRect)titleRect inBounds:(NSRect)bounds {
     NSRect buttonRect = titleRect;
 
-	//display at column right
-	buttonRect.origin.x = NSMaxX(bounds) - INFO_IMAGE_SIZE-PADDING_BETWEEN_TITLE_AND_IMAGE;
-	//display directly after text
-	//buttonRect.origin.x = NSMaxX(titleRect) + PADDING_BETWEEN_TITLE_AND_IMAGE;
+    //display at column right
+    buttonRect.origin.x = NSMaxX(bounds) - INFO_IMAGE_SIZE-PADDING_BETWEEN_TITLE_AND_IMAGE;
+    //display directly after text
+    //buttonRect.origin.x = NSMaxX(titleRect) + PADDING_BETWEEN_TITLE_AND_IMAGE;
     buttonRect.origin.y += 2.0f;
     buttonRect.size.height = INFO_IMAGE_SIZE;
     buttonRect.size.width = INFO_IMAGE_SIZE;

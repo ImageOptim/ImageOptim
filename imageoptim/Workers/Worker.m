@@ -18,16 +18,16 @@
 
 -(id)initWithFile:(File *)aFile
 {
-	if (self = [self init])
-	{
-		self.file = aFile;
-	}
-	return self;
+    if (self = [self init])
+    {
+        self.file = aFile;
+    }
+    return self;
 }
 
 -(BOOL)isRelatedTo:(File *)f
 {
-	return (f == file);
+    return (f == file);
 }
 
 -(BOOL)canSkip {
@@ -87,12 +87,12 @@
 
 -(BOOL)makesNonOptimizingModifications
 {
-	return NO;
+    return NO;
 }
 
 -(NSString *)description
 {
-	return [NSString stringWithFormat:@"%@ %X ready %d, running %d, deleg %@",
+    return [NSString stringWithFormat:@"%@ %X ready %d, running %d, deleg %@",
             [self className],(unsigned int)[self hash],[self isReady],[self isExecuting],file];
 }
 

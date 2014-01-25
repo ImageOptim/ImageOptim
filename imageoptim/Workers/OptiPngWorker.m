@@ -26,55 +26,55 @@
 }
 
 -(BOOL)runWithTempPath:(NSString*)temp
-{	
-	NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],
-							@"-out",temp,@"--",[file filePath],nil];
+{
+    NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],
+                            @"-out",temp,@"--",[file filePath],nil];
 
-	if (interlace != -1)
-	{
-		[args insertObject:[NSString stringWithFormat:@"-i%d",(int)interlace] atIndex:0];
-	}	
-	
-	if (![self taskForKey:@"OptiPng" bundleName:@"optipng" arguments:args]) {
+    if (interlace != -1)
+    {
+        [args insertObject:[NSString stringWithFormat:@"-i%d",(int)interlace] atIndex:0];
+    }
+
+    if (![self taskForKey:@"OptiPng" bundleName:@"optipng" arguments:args]) {
         return NO;
     }
-	
-	NSPipe *commandPipe = [NSPipe pipe];
-	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];		
-	
-	[task setStandardError: commandPipe];	
-	[task setStandardOutput: commandPipe];			
-	
-	[self launchTask];
-	
-	[self parseLinesFromHandle:commandHandle];
-	
+
+    NSPipe *commandPipe = [NSPipe pipe];
+    NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
+
+    [task setStandardError: commandPipe];
+    [task setStandardOutput: commandPipe];
+
+    [self launchTask];
+
+    [self parseLinesFromHandle:commandHandle];
+
     [commandHandle readInBackgroundAndNotify];
-	
-	[task waitUntilExit];
-	[commandHandle closeFile];
-	
+
+    [task waitUntilExit];
+    [commandHandle closeFile];
+
     if ([task terminationStatus]) return NO;
 
-	if (fileSizeOptimized) {
+    if (fileSizeOptimized) {
         return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:[self className]];
-	}
+    }
     return NO;
 }
 
 -(BOOL)parseLine:(NSString *)line
 {
-	NSUInteger res;
-	
-	if ([line length] > 20)
-	{
-		if ((res = [self readNumberAfter:@"Output file size = " inLine:line]))
-		{
-			fileSizeOptimized = res;
-			return YES;
-		}			
-	}
-	return NO;
+    NSUInteger res;
+
+    if ([line length] > 20)
+    {
+        if ((res = [self readNumberAfter:@"Output file size = " inLine:line]))
+        {
+            fileSizeOptimized = res;
+            return YES;
+        }
+    }
+    return NO;
 }
 
 @end

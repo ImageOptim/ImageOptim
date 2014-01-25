@@ -25,12 +25,12 @@ static const char *kIMPreviewPanelContext = "preview";
 
     NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 
-	int maxTasks = [self numberOfCPUs];
+    int maxTasks = [self numberOfCPUs];
 
-	[defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
-	[defs setObject:[NSNumber numberWithInt:(int)ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
+    [defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
+    [defs setObject:[NSNumber numberWithInt:(int)ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
 
-	[[NSUserDefaults standardUserDefaults] registerDefaults:defs];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:defs];
 
     [filesController configureWithTableView:tableView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observeNotification:) name:kFilesQueueFinished object:filesController];
@@ -44,8 +44,8 @@ static const char *kIMPreviewPanelContext = "preview";
 }
 
 - (void)handleServices:(NSPasteboard *)pboard
-              userData:(NSString *)userData
-                 error:(NSString **)error {
+    userData:(NSString *)userData
+    error:(NSString **)error {
     assert(statusImages);
     [filesController pasteObjectsFrom:pboard];
 }
@@ -86,16 +86,16 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     [percFormatter setNumberStyle: NSNumberFormatterPercentStyle];
 
     statusBarUpdateQueue = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_OR, 0, 0,
-                                                  dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0));
-    dispatch_source_set_event_handler(statusBarUpdateQueue, ^{
+                           dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0));
+    dispatch_source_set_event_handler(statusBarUpdateQueue, ^ {
         NSString *str = defaultText;
-        @synchronized (filesController) {
+        @synchronized(filesController) {
             long long bytesTotal=0, optimizedTotal=0;
             double optimizedFractionTotal=0, maxOptimizedFraction=0;
             int fileCount=0;
 
             NSArray *content = [filesController content];
-            for(File *f in content) {
+            for (File *f in content) {
                 const long long bytes = f.byteSizeOriginal, optimized = f.byteSizeOptimized;
                 if (bytes && (bytes != optimized || [f isDone])) {
                     const double optimizedFraction = 1.0 - (double)optimized/(double)bytes;
@@ -115,7 +115,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
                 if (savedTotal > 0.001) {
                     if (savedTotal*0.8 > savedAvg) {
                         overallAvg = YES;
-                    } else if (savedAvg*0.8 > savedTotal){
+                    } else if (savedAvg*0.8 > savedTotal) {
                         overallAvg = NO;
                     }
 
@@ -139,7 +139,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
             }
         }
 
-        dispatch_async(dispatch_get_main_queue(), ^(){
+        dispatch_async(dispatch_get_main_queue(), ^() {
             [statusBarLabel setStringValue:str];
             [statusBarLabel setSelectable:(str != defaultText)];
         });
@@ -157,9 +157,9 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
         [NSApp hide:self];
     }
 
-	RevealButtonCell* cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
-	[cell setInfoButtonAction:@selector(openInFinder)];
-	[cell setTarget:tableView];
+    RevealButtonCell* cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
+    [cell setInfoButtonAction:@selector(openInFinder)];
+    [cell setTarget:tableView];
 
     [credits setString:@""];
 
@@ -170,7 +170,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 }
 
 
--(void)loadCreditsHTML{
+-(void)loadCreditsHTML {
 
     static const char header[] = "<!DOCTYPE html>\
     <meta charset=utf-8>\
@@ -182,12 +182,12 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     NSMutableData *html = [NSMutableData dataWithBytesNoCopy:(void*)header length:sizeof(header) freeWhenDone:NO];
     [html appendData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"html"]]];
 
-		[credits setEditable:YES];
-		NSAttributedString *tmpStr = [[NSAttributedString alloc]
-									  initWithHTML:html
-									  documentAttributes:nil];
-		[credits insertText:tmpStr];
-		[credits setEditable:NO];
+    [credits setEditable:YES];
+    NSAttributedString *tmpStr = [[NSAttributedString alloc]
+                                  initWithHTML:html
+                                  documentAttributes:nil];
+    [credits insertText:tmpStr];
+    [credits setEditable:NO];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -217,11 +217,11 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 
 -(int)numberOfCPUs
 {
-	host_basic_info_data_t hostInfo;
-	mach_msg_type_number_t infoCount;
-	infoCount = HOST_BASIC_INFO_COUNT;
-	host_info(mach_host_self(), HOST_BASIC_INFO, (host_info_t)&hostInfo, &infoCount);
-	return MIN(32,MAX(1,(hostInfo.max_cpus)));
+    host_basic_info_data_t hostInfo;
+    mach_msg_type_number_t infoCount;
+    infoCount = HOST_BASIC_INFO_COUNT;
+    host_info(mach_host_self(), HOST_BASIC_INFO, (host_info_t)&hostInfo, &infoCount);
+    return MIN(32,MAX(1,(hostInfo.max_cpus)));
 }
 
 // invoked by Dock
@@ -234,14 +234,14 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 
 -(IBAction)quickLookAction:(id)sender
 {
-	[tableView performSelector:@selector(quickLook)];
+    [tableView performSelector:@selector(quickLook)];
 }
 
 - (IBAction)startAgain:(id)sender
 {
     // alt-click on a button (this is used from menu too, but alternative menu item covers that anyway
     BOOL onlyOptimized = !!([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask);
-	[filesController startAgainOptimized:onlyOptimized];
+    [filesController startAgainOptimized:onlyOptimized];
 }
 
 - (IBAction)startAgainOptimized:(id)sender
@@ -252,16 +252,16 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 
 - (IBAction)clearComplete:(id)sender
 {
-	[filesController clearComplete];
+    [filesController clearComplete];
 }
 
 
 - (IBAction)showPrefs:(id)sender
 {
-	if (!prefsController) {
-		prefsController = [PrefsController new];
-	}
-	[prefsController showWindow:self];
+    if (!prefsController) {
+        prefsController = [PrefsController new];
+    }
+    [prefsController showWindow:self];
 }
 
 -(IBAction)openHomepage:(id)sender
@@ -271,17 +271,17 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 
 -(IBAction)viewSource:(id)sender
 {
-	[self openURL:@"http://imageoptim.com/source"];
+    [self openURL:@"http://imageoptim.com/source"];
 }
 
 -(IBAction)openDonationPage:(id)sender
 {
-	[self openURL:@"http://imageoptim.com/donate.html"];
+    [self openURL:@"http://imageoptim.com/donate.html"];
 }
 
 -(void)openURL:(NSString *)stringURL
 {
-	[[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:stringURL]];
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:stringURL]];
 }
 
 
@@ -290,22 +290,22 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
     NSOpenPanel *oPanel = [NSOpenPanel openPanel];
 
     [oPanel setAllowsMultipleSelection:YES];
-	[oPanel setCanChooseDirectories:YES];
-	[oPanel setResolvesAliases:YES];
+    [oPanel setCanChooseDirectories:YES];
+    [oPanel setResolvesAliases:YES];
     [oPanel setAllowedFileTypes:[filesController fileTypes]];
 
     [oPanel beginSheetModalForWindow:[tableView window] completionHandler:^(NSInteger returnCode) {
-	if (returnCode == NSOKButton) {
-		NSWindow *myWindow=[tableView window];
-		[myWindow setStyleMask:[myWindow styleMask]| NSResizableWindowMask ];
-		[filesController setRow:-1];
+        if (returnCode == NSOKButton) {
+            NSWindow *myWindow=[tableView window];
+            [myWindow setStyleMask:[myWindow styleMask]| NSResizableWindowMask ];
+            [filesController setRow:-1];
 
-        NSMutableArray *paths = [NSMutableArray arrayWithCapacity:oPanel.URLs.count];
-        for (NSURL *URL in oPanel.URLs) {
-            [paths addObject:URL.path];
+            NSMutableArray *paths = [NSMutableArray arrayWithCapacity:oPanel.URLs.count];
+            for (NSURL *URL in oPanel.URLs) {
+                [paths addObject:URL.path];
+            }
+            [filesController addPaths:paths];
         }
-        [filesController addPaths:paths];
-    }
     }];
 }
 
@@ -369,15 +369,15 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter)
 - (BOOL)validateMenuItem:(NSMenuItem*)menuItem
 {
     SEL action = [menuItem action];
-	if (action == @selector(startAgain:)) {
-		return [filesController canStartAgainOptimized:NO];
+    if (action == @selector(startAgain:)) {
+        return [filesController canStartAgainOptimized:NO];
     } else if (action == @selector(startAgainOptimized:)) {
-		return [filesController canStartAgainOptimized:YES];
+        return [filesController canStartAgainOptimized:YES];
     } else if (action == @selector(clearComplete:)) {
         return [filesController canClearComplete];
     }
 
-	return [menuItem isEnabled];
+    return [menuItem isEnabled];
 }
 
 // This delegate method provides the rect on screen from which the panel will zoom.

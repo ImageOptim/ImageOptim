@@ -7,50 +7,50 @@
 
 - (IBAction)delete:(id)sender
 {
-	[(FilesQueue*)[self delegate] delete:sender];
+    [(FilesQueue*)[self delegate] delete:sender];
 }
 
 - (IBAction)copy:(id)sender
 {
-	[(FilesQueue*)[self delegate] copyObjects];
+    [(FilesQueue*)[self delegate] copyObjects];
 }
 
 - (IBAction)cut:(id)sender
 {
-	[(FilesQueue*)[self delegate] cutObjects];
+    [(FilesQueue*)[self delegate] cutObjects];
 }
 
 - (IBAction)paste:(id)sender
 {
-	[(FilesQueue*)[self delegate] pasteObjectsFrom:[NSPasteboard generalPasteboard]];
+    [(FilesQueue*)[self delegate] pasteObjectsFrom:[NSPasteboard generalPasteboard]];
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem*)menuItem
 {
-	SEL action = [menuItem action];
+    SEL action = [menuItem action];
 
-	if (action == @selector(delete:) || action == @selector(copy:) || action ==  @selector(cut:)) {
-		return [self numberOfSelectedRows] > 0;
-	} else if (action == @selector(paste:)) {
-		NSPasteboard *pboard = [NSPasteboard generalPasteboard];
-		NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
-		return [paths count]>0;
-	} else if (action == @selector(selectAll:)) {
-		return [self numberOfRows]>0;
-	}
-	return [menuItem isEnabled];
+    if (action == @selector(delete:) || action == @selector(copy:) || action ==  @selector(cut:)) {
+        return [self numberOfSelectedRows] > 0;
+    } else if (action == @selector(paste:)) {
+        NSPasteboard *pboard = [NSPasteboard generalPasteboard];
+        NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
+        return [paths count]>0;
+    } else if (action == @selector(selectAll:)) {
+        return [self numberOfRows]>0;
+    }
+    return [menuItem isEnabled];
 }
 
 - (void)keyDown:(NSEvent *)theEvent {
     if (![theEvent isARepeat] && [self numberOfSelectedRows]) {
         switch ([theEvent keyCode]) {
-            case 49: /*space*/
-                [self quickLook];
-                return;
-            case 51: /*backspace*/
-            case 117: /*delete*/
-                [(FilesQueue*)[self delegate] delete:self];
-                return;
+        case 49: /*space*/
+            [self quickLook];
+            return;
+        case 51: /*backspace*/
+        case 117: /*delete*/
+            [(FilesQueue*)[self delegate] delete:self];
+            return;
         }
     }
 
@@ -74,7 +74,7 @@
 
     NSPoint mouseLocation = [self convertPoint:[[self window] convertScreenToBase:[NSEvent mouseLocation]] fromView:nil];
 
-    for (NSInteger row = visibleRows.location; row < visibleRows.location + visibleRows.length; row++ ) {
+    for (NSInteger row = visibleRows.location; row < visibleRows.location + visibleRows.length; row++) {
         // If it is a "full width" cell, we don't have to go through the rows
         for (NSInteger col = [visibleColIndexes firstIndex]; col != NSNotFound; col = [visibleColIndexes indexGreaterThanIndex:col]) {
             NSCell *cell = [self preparedCellAtColumn:col row:row];
@@ -84,7 +84,7 @@
                                           [NSNumber numberWithInteger:col], @"Col",
                                           [NSNumber numberWithInteger:row], @"Row", nil];
                 [imagecell addTrackingAreasForView:self inRect:[self frameOfCellAtColumn:col row:row]
-                                      withUserInfo:userInfo mouseLocation:mouseLocation];
+                 withUserInfo:userInfo mouseLocation:mouseLocation];
             }
         }
     }
@@ -148,9 +148,9 @@
 
 - (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)isLocal
 {
-	if (isLocal) return NSDragOperationMove;
+    if (isLocal) return NSDragOperationMove;
 
-	return NSDragOperationCopy;
+    return NSDragOperationCopy;
 
 }
 
@@ -163,11 +163,11 @@
 
 -(void) quickLook
 {
-	if ([QLPreviewPanel sharedPreviewPanelExists] && [[QLPreviewPanel sharedPreviewPanel] isVisible]) {
-		[[QLPreviewPanel sharedPreviewPanel] orderOut:nil];
-	} else {
-		[[QLPreviewPanel sharedPreviewPanel] makeKeyAndOrderFront:nil];
-	}
+    if ([QLPreviewPanel sharedPreviewPanelExists] && [[QLPreviewPanel sharedPreviewPanel] isVisible]) {
+        [[QLPreviewPanel sharedPreviewPanel] orderOut:nil];
+    } else {
+        [[QLPreviewPanel sharedPreviewPanel] makeKeyAndOrderFront:nil];
+    }
 }
 
 -(void)awakeFromNib

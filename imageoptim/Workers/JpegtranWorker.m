@@ -27,16 +27,16 @@
 -(BOOL)runWithTempPath:(NSString*)temp
 {
     // eh, handling of paths starting with "-" is unsafe here. Hopefully all paths from dropped files will be absolute...
-	NSMutableArray *args = [NSMutableArray arrayWithObjects:[file filePath],nil];
-	NSString *executableName;
+    NSMutableArray *args = [NSMutableArray arrayWithObjects:[file filePath],nil];
+    NSString *executableName;
 
-	if (jpegrescan) {
+    if (jpegrescan) {
         executableName = @"jpegrescan";
         if (strip) {
             [args insertObject:@"-s" atIndex:0];
         }
         [args addObject:temp];
- 	} else {
+    } else {
         executableName = @"jpegtran";
         [args insertObject:@"-outfile" atIndex:0];
         [args insertObject:temp atIndex:1];
@@ -44,7 +44,7 @@
         [args insertObject:@"-optimize" atIndex:0];
         [args insertObject:@"-copy" atIndex:0];
         [args insertObject:strip ? @"none" : @"all" atIndex:1];
- 	}
+    }
 
     // For jpegrescan to work both JpegTran and JpegRescan need to be enabled
     if (![self taskForKey:@"JpegTran" bundleName:executableName arguments:args]) {
@@ -53,20 +53,20 @@
 
     [task setCurrentDirectoryPath:[[[NSBundle mainBundle] pathForAuxiliaryExecutable:@"jpegtran"] stringByDeletingLastPathComponent]];
 
-	NSPipe *commandPipe = [NSPipe pipe];
-	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
+    NSPipe *commandPipe = [NSPipe pipe];
+    NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
 
-	[task setStandardOutput: commandPipe];
-	[task setStandardError: commandPipe];
+    [task setStandardOutput: commandPipe];
+    [task setStandardError: commandPipe];
 
-	[self launchTask];
+    [self launchTask];
 
-	[commandHandle readToEndOfFileInBackgroundAndNotify];
-	[task waitUntilExit];
+    [commandHandle readToEndOfFileInBackgroundAndNotify];
+    [task waitUntilExit];
 
-	[commandHandle closeFile];
+    [commandHandle closeFile];
 
-	if ([task terminationStatus]) return NO;
+    if ([task terminationStatus]) return NO;
 
     NSUInteger fileSizeOptimized = [File fileByteSize:temp];
     if (fileSizeOptimized) {
@@ -82,7 +82,7 @@
     {
         return YES;
     }
-	return NO;
+    return NO;
 }
 
 

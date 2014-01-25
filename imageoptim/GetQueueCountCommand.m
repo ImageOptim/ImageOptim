@@ -6,8 +6,8 @@
 
 - (id)performDefaultImplementation {
     ImageOptim *imageoptim = (ImageOptim *)[[NSApplication sharedApplication] delegate];
-    
-	return imageoptim.filesQueue.queueCount;
+
+    return imageoptim.filesQueue.queueCount;
 }
 
 @end

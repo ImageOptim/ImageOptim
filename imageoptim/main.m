@@ -11,7 +11,7 @@ int hideLogs = 0;
 static int isLaunchedWithCliArguments(int argc, char *argv[]) {
     // Unfortunately NSApplicationLaunchIsDefaultLaunchKey doesn't cover bare CLI launch
     if (argc < 2) return 0;
-    for(int i=0; i < argc; i++) {
+    for (int i=0; i < argc; i++) {
         if ('-' == argv[i][0]) { // Normal OS X launch sets -psn
             return 0;
         }
@@ -23,5 +23,5 @@ int main(int argc, char *argv[])
 {
     quitWhenDone = hideLogs = isLaunchedWithCliArguments(argc, argv);
 
-    return NSApplicationMain(argc,  (const char **) argv);
+    return NSApplicationMain(argc, (const char **) argv);
 }

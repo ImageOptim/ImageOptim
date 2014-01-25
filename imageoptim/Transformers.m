@@ -16,12 +16,12 @@
 
 - (id)transformedValue:(id)value;
 {
-	double v = 1.0;
-	if ([value respondsToSelector: @selector(doubleValue)]) 
-	{
-		v = MAX(1.0F,ceil([value doubleValue]));
+    double v = 1.0;
+    if ([value respondsToSelector: @selector(doubleValue)])
+    {
+        v = MAX(1.0F,ceil([value doubleValue]));
     }
-	return [NSNumber numberWithDouble:v];
+    return [NSNumber numberWithDouble:v];
 }
 @end
 
@@ -35,10 +35,10 @@
 
 - (id)transformedValue:(id)value;
 {
-	if ([value respondsToSelector: @selector(boolValue)] && ![value boolValue]) 
-	{
-		return [NSColor disabledControlTextColor];
+    if ([value respondsToSelector: @selector(boolValue)] && ![value boolValue])
+    {
+        return [NSColor disabledControlTextColor];
     }
-	return [NSColor textColor];
+    return [NSColor textColor];
 }
 @end

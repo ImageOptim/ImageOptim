@@ -1,7 +1,7 @@
 /*
-	File:		DragDropImageView.m
+    File:       DragDropImageView.m
 
-	Contains:	A sample to demonstrate Drag and Drop with Images in Cocoa
+    Contains:   A sample to demonstrate Drag and Drop with Images in Cocoa
 */
 
 #import "DragDropImageView.h"
@@ -97,19 +97,19 @@
 {
     highlight=NO;//finished with the drag so remove any highlighting
     [self setNeedsDisplay: YES];
-	return YES;
+    return YES;
 }
 
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)sender
 {
-    if ([sender draggingSource]!=self){
+    if ([sender draggingSource]!=self) {
 
         ImageOptim *app = [NSApp delegate];
         assert([app isKindOfClass:[ImageOptim class]]);
-		FilesQueue* filesqueue=app.filesQueue;
-		NSArray *files = [[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType];
+        FilesQueue* filesqueue=app.filesQueue;
+        NSArray *files = [[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType];
 
-		[filesqueue performSelectorInBackground:@selector(addPaths:) withObject:files];
+        [filesqueue performSelectorInBackground:@selector(addPaths:) withObject:files];
     }
     return YES;
 }

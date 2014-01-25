@@ -29,13 +29,13 @@ enum {
 
 -(id)initWithFilePath:(NSString *)name;
 {
-	if (self = [self init])
-	{
+    if (self = [self init])
+    {
         workersPreviousResults = [NSMutableDictionary new];
-		[self setFilePath:name];
-		[self setStatus:@"wait" order:0 text:NSLocalizedString(@"New file",@"newly added to the queue")];
-	}
-	return self;
+        [self setFilePath:name];
+        [self setStatus:@"wait" order:0 text:NSLocalizedString(@"New file",@"newly added to the queue")];
+    }
+    return self;
 }
 
 -(BOOL)isLarge {
@@ -54,28 +54,28 @@ enum {
 
 -(NSString *)fileName
 {
-	if (displayName) return displayName;
-	if (filePath) return filePath;
-	return nil;
+    if (displayName) return displayName;
+    if (filePath) return filePath;
+    return nil;
 }
 
 -(void)setFilePath:(NSString *)s
 {
-	if (filePath != s)
-	{
-		filePath = [s copy];
+    if (filePath != s)
+    {
+        filePath = [s copy];
 
         self.displayName = [[NSFileManager defaultManager] displayNameAtPath:filePath];
-	}
+    }
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
-	File *f = [[File allocWithZone:zone] init];
-	[f setByteSizeOriginal:byteSizeOriginal];
-	[f setByteSizeOptimized:byteSizeOptimized];
-	[f setFilePath:filePath];
-	return f;
+    File *f = [[File allocWithZone:zone] init];
+    [f setByteSizeOriginal:byteSizeOriginal];
+    [f setByteSizeOptimized:byteSizeOptimized];
+    [f setFilePath:filePath];
+    return f;
 }
 
 -(void)setByteSizeOriginal:(NSUInteger)size
@@ -87,25 +87,25 @@ enum {
 
 -(double)percentOptimized
 {
-	if (!byteSizeOptimized) return 0.0;
-	double p = 100.0 - 100.0* (double)byteSizeOptimized/(double)byteSizeOriginal;
-	if (p<0) return 0.0;
-	return p;
+    if (!byteSizeOptimized) return 0.0;
+    double p = 100.0 - 100.0* (double)byteSizeOptimized/(double)byteSizeOriginal;
+    if (p<0) return 0.0;
+    return p;
 }
 
 -(void)setPercentOptimized:(double)unused
 {
-	// just for KVO
+    // just for KVO
 }
 
 -(BOOL)isOptimized
 {
-	return byteSizeOptimized < byteSizeOriginal && (optimized || byteSizeOptimized < byteSizeOnDisk);
+    return byteSizeOptimized < byteSizeOriginal && (optimized || byteSizeOptimized < byteSizeOnDisk);
 }
 
 -(BOOL)isDone
 {
-	return done;
+    return done;
 }
 
 -(void)setByteSizeOptimized:(NSUInteger)size
@@ -122,11 +122,11 @@ enum {
 
 -(void)removeOldFilePathOptimized
 {
-	if (filePathOptimized)
-	{
+    if (filePathOptimized)
+    {
         [[NSFileManager defaultManager] removeItemAtPath:filePathOptimized error:nil];
         filePathOptimized = nil;
-	}
+    }
 }
 
 -(BOOL)setFilePathOptimized:(NSString *)tempPath size:(NSUInteger)size toolName:(NSString*)toolname
@@ -152,7 +152,7 @@ enum {
     NSDictionary *extAttrToRemove = @{ @"com.apple.FinderInfo"  : @1,
                                        @"com.apple.ResourceFork": @1,
                                        @"com.apple.quarantine"  : @1
-                                       };
+                                      };
 
     const char *fileSystemPath = [path fileSystemRepresentation];
 
@@ -179,7 +179,7 @@ enum {
 
         NSString *name = [NSString stringWithUTF8String:utf8name];
         if ([extAttrToRemove objectForKey:name]) {
-            if (removexattr(fileSystemPath, utf8name, 0) == 0){
+            if (removexattr(fileSystemPath, utf8name, 0) == 0) {
                 IODebug("Removed %s from %s", utf8name, fileSystemPath);
             } else {
                 IOWarn("Can't remove %s from %s", utf8name, fileSystemPath);
@@ -233,17 +233,17 @@ enum {
 
 -(BOOL)saveResult
 {
-	if (!filePathOptimized)
-	{
-		IOWarn("WTF? save without filePathOptimized? for %@", filePath);
-		return NO;
-	}
+    if (!filePathOptimized)
+    {
+        IOWarn("WTF? save without filePathOptimized? for %@", filePath);
+        return NO;
+    }
 
-	@try
-	{
-		NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-		BOOL preserve = [defs boolForKey:@"PreservePermissions"];
-		NSFileManager *fm = [NSFileManager defaultManager];
+    @try
+    {
+        NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+        BOOL preserve = [defs boolForKey:@"PreservePermissions"];
+        NSFileManager *fm = [NSFileManager defaultManager];
 
         NSError *error = nil;
         NSString *moveFromPath = filePathOptimized;
@@ -256,7 +256,7 @@ enum {
         if (preserve)
         {
             NSString *writeToPath = [[[filePath stringByDeletingPathExtension] stringByAppendingString:@"~imageoptim"]
-                                    stringByAppendingPathExtension:[filePath pathExtension]];
+                                     stringByAppendingPathExtension:[filePath pathExtension]];
 
             if ([fm fileExistsAtPath:writeToPath]) {
                 if (![self trashFileAtPath:writeToPath error:&error]) {
@@ -298,7 +298,7 @@ enum {
             }
 
             // overwrite old file that is under temporary name (so only content is replaced, not file metadata)
-			NSFileHandle *writehandle = [NSFileHandle fileHandleForWritingAtPath:writeToPath];
+            NSFileHandle *writehandle = [NSFileHandle fileHandleForWritingAtPath:writeToPath];
             if (!writehandle) {
                 IOWarn("Unable to open %@ for writing. Check file permissions.", filePath);
                 return NO;
@@ -314,7 +314,7 @@ enum {
         if (![self trashFileAtPath:filePath error:&error]) {
             IOWarn("Can't trash %@ %@", filePath, error);
             NSString *backupPath = [[[filePath stringByDeletingPathExtension] stringByAppendingString:@"~bak"]
-                                     stringByAppendingPathExtension:[filePath pathExtension]];
+                                    stringByAppendingPathExtension:[filePath pathExtension]];
             if (![fm moveItemAtPath:filePath toPath:backupPath error:&error]) {
                 IOWarn("Can't move to %@ %@", backupPath, error);
                 return NO;
@@ -329,21 +329,21 @@ enum {
         byteSizeOnDisk = byteSizeOptimized;
 
         [self removeExtendedAttrAtPath:filePath];
-	}
-	@catch(NSException *e)
-	{
-		IOWarn("Exception thrown %@ while saving %@",e, filePath);
-		return NO;
-	}
+    }
+    @catch (NSException *e)
+    {
+        IOWarn("Exception thrown %@ while saving %@",e, filePath);
+        return NO;
+    }
 
-	return YES;
+    return YES;
 }
 
 -(void)workerHasStarted:(Worker *)worker
 {
-	@synchronized(self)
+    @synchronized(self)
     {
-		workersActive++;
+        workersActive++;
         NSString *name = [[worker className] stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
         [self setStatus:@"progress" order:4 text:[NSString stringWithFormat:NSLocalizedString(@"Started %@",@"command name, tooltip"),name]];
     }
@@ -364,7 +364,7 @@ enum {
 
 -(void)workerHasFinished:(Worker *)worker
 {
-	@synchronized(self)
+    @synchronized(self)
     {
         workersActive--;
         workersFinished++;
@@ -404,17 +404,17 @@ enum {
 
 -(int)fileType:(NSData *)data
 {
-	const unsigned char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
+    const unsigned char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
     const unsigned char jpegheader[] = {0xff,0xd8,0xff};
     const unsigned char gifheader[] = {0x47,0x49,0x46,0x38};
     char filedata[6];
 
     [data getBytes:filedata length:sizeof(filedata)];
 
-	if (0==memcmp(filedata, pngheader, sizeof(pngheader)))
-	{
-		return FILETYPE_PNG;
-	}
+    if (0==memcmp(filedata, pngheader, sizeof(pngheader)))
+    {
+        return FILETYPE_PNG;
+    }
     else if (0==memcmp(filedata, jpegheader, sizeof(jpegheader)))
     {
         return FILETYPE_JPEG;
@@ -423,7 +423,7 @@ enum {
     {
         return FILETYPE_GIF;
     }
-	return 0;
+    return 0;
 }
 
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)aFileIOQueue
@@ -483,33 +483,33 @@ enum {
         return;
     }
 
-	NSMutableArray *runFirst = [NSMutableArray new];
-	NSMutableArray *runLater = [NSMutableArray new];
+    NSMutableArray *runFirst = [NSMutableArray new];
+    NSMutableArray *runLater = [NSMutableArray new];
 
-	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 
     NSArray *worker_list = nil;
 
-	if (fileType == FILETYPE_PNG)
-	{
-        worker_list = @[
-            @{@"key":@"PngCrushEnabled", @"class":[PngCrushWorker class]},
-            @{@"key":@"OptiPngEnabled", @"class":[OptiPngWorker class]},
-            @{@"key":@"ZopfliEnabled", @"class":[ZopfliWorker class], @"block": ^(Worker *w){
-                ((ZopfliWorker*)w).alternativeStrategy = hasBeenRunBefore;
-            }},
-            @{@"key":@"PngOutEnabled", @"class":[PngoutWorker class]},
-            @{@"key":@"AdvPngEnabled", @"class":[AdvCompWorker class]},
-        ];
-	}
-	else if (fileType == FILETYPE_JPEG)
+    if (fileType == FILETYPE_PNG)
     {
         worker_list = @[
-            @{@"key":@"JpegOptimEnabled", @"class":[JpegoptimWorker class]},
-            @{@"key":@"JpegTranEnabled", @"class":[JpegtranWorker class]},
-        ];
+                          @ {@"key":@"PngCrushEnabled", @"class":[PngCrushWorker class]},
+                          @ {@"key":@"OptiPngEnabled", @"class":[OptiPngWorker class]},
+        @ {@"key":@"ZopfliEnabled", @"class":[ZopfliWorker class], @"block": ^(Worker *w) {
+            ((ZopfliWorker*)w).alternativeStrategy = hasBeenRunBefore;
+            }},
+        @ {@"key":@"PngOutEnabled", @"class":[PngoutWorker class]},
+        @ {@"key":@"AdvPngEnabled", @"class":[AdvCompWorker class]},
+                      ];
     }
-	else if (fileType == FILETYPE_GIF)
+    else if (fileType == FILETYPE_JPEG)
+    {
+        worker_list = @[
+                          @ {@"key":@"JpegOptimEnabled", @"class":[JpegoptimWorker class]},
+                          @ {@"key":@"JpegTranEnabled", @"class":[JpegtranWorker class]},
+                      ];
+    }
+    else if (fileType == FILETYPE_GIF)
     {
         if ([defs boolForKey:@"GifsicleEnabled"])
         {
@@ -527,7 +527,7 @@ enum {
         return;
     }
 
-    for(NSDictionary *wl in worker_list) {
+    for (NSDictionary *wl in worker_list) {
         if ([defs boolForKey:wl[@"key"]]) {
 
             Worker *w = [wl[@"class"] alloc];
@@ -553,10 +553,10 @@ enum {
         }
     }
 
-	workersTotal += [runFirst count] + [runLater count];
+    workersTotal += [runFirst count] + [runLater count];
 
-	Worker *previousWorker = nil;
-	for(Worker *w in runFirst) {
+    Worker *previousWorker = nil;
+    for (Worker *w in runFirst) {
         if (previousWorker) {
             [w addDependency:previousWorker];
             previousWorker.nextOperation = w;
@@ -565,30 +565,30 @@ enum {
         } else if (![self isLarge]) {
             [w setQueuePriority: NSOperationQueuePriorityLow];
         }
-		[queue addOperation:w];
-		previousWorker = w;
-	}
+        [queue addOperation:w];
+        previousWorker = w;
+    }
 
-	Worker *runFirstDependency = previousWorker;
-	for(Worker *w in runLater) {
+    Worker *runFirstDependency = previousWorker;
+    for (Worker *w in runLater) {
         if (runFirstDependency) {
             [w addDependency:runFirstDependency];
         }
         if (previousWorker) {
             previousWorker.nextOperation = w;
         }
-		[queue addOperation:w];
+        [queue addOperation:w];
         previousWorker = w;
-	}
+    }
 
     [workers addObjectsFromArray:runFirst];
     [workers addObjectsFromArray:runLater];
 
-	if (!workersTotal) {
+    if (!workersTotal) {
         done = YES;
-		[self setStatus:@"err" order:8 text:NSLocalizedString(@"All neccessary tools have been disabled in Preferences",@"tooltip")];
+        [self setStatus:@"err" order:8 text:NSLocalizedString(@"All neccessary tools have been disabled in Preferences",@"tooltip")];
         [self cleanup];
-	} else {
+    } else {
         [self setStatus:@"wait" order:1 text:NSLocalizedString(@"Waiting to be optimized",@"tooltip")];
     }
 }
@@ -628,10 +628,10 @@ enum {
 
 +(NSInteger)fileByteSize:(NSString *)afile
 {
-	NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:afile error:nil];
-	if (attr) return [[attr objectForKey:NSFileSize] integerValue];
+    NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:afile error:nil];
+    if (attr) return [[attr objectForKey:NSFileSize] integerValue];
     IOWarn("Could not stat %@",afile);
-	return 0;
+    return 0;
 }
 
 #pragma mark QL

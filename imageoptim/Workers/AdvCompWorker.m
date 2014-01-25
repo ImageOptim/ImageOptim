@@ -13,7 +13,7 @@
 -(id)init {
     if (self = [super init])
     {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];	
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         level = [defaults integerForKey:@"AdvPngLevel"];
 
     }
@@ -26,52 +26,52 @@
 
 -(BOOL)runWithTempPath:(NSString*)temp
 {
-	NSFileManager *fm = [NSFileManager defaultManager];
+    NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;
-	
-	if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error])
-	{
-		IOWarn("Can't make temp copy of %@ in %@; %@",[file filePath],temp,error);
-        return NO;
-	}
-    
-    if (![self taskForKey:@"AdvPng" bundleName:@"advpng"
-                arguments:[NSArray arrayWithObjects: [NSString stringWithFormat:@"-%d",(int)(level ? level : 4)],@"-z",@"--",temp,nil]]) {
+
+    if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error])
+    {
+        IOWarn("Can't make temp copy of %@ in %@; %@",[file filePath],temp,error);
         return NO;
     }
-    	
-	NSPipe *commandPipe = [NSPipe pipe];
-	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];		
-	
-	[task setStandardOutput: commandPipe];	
-	[task setStandardError: commandPipe];	
-	
-	[self launchTask];
-	
-	[self parseLinesFromHandle:commandHandle];
-	
-	[commandHandle readInBackgroundAndNotify];
-	[task waitUntilExit];
-    
-	[commandHandle closeFile];	
-    
-	if ([task terminationStatus]) return NO;
 
-	return [file setFilePathOptimized:temp	size:fileSizeOptimized toolName:@"AdvPNG"];
+    if (![self taskForKey:@"AdvPng" bundleName:@"advpng"
+            arguments:[NSArray arrayWithObjects: [NSString stringWithFormat:@"-%d",(int)(level ? level : 4)],@"-z",@"--",temp,nil]]) {
+        return NO;
+    }
+
+    NSPipe *commandPipe = [NSPipe pipe];
+    NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
+
+    [task setStandardOutput: commandPipe];
+    [task setStandardError: commandPipe];
+
+    [self launchTask];
+
+    [self parseLinesFromHandle:commandHandle];
+
+    [commandHandle readInBackgroundAndNotify];
+    [task waitUntilExit];
+
+    [commandHandle closeFile];
+
+    if ([task terminationStatus]) return NO;
+
+    return [file setFilePathOptimized:temp  size:fileSizeOptimized toolName:@"AdvPNG"];
 }
 
 -(BOOL)parseLine:(NSString *)line
 {
-	NSScanner *scan = [NSScanner scannerWithString:line];
-	
-	int original,optimized;
-	
-	if ([scan scanInt:&original] && [scan scanInt:&optimized])
-	{		
-		fileSizeOptimized = optimized;
-		return YES;
-	}
-	return NO;
+    NSScanner *scan = [NSScanner scannerWithString:line];
+
+    int original,optimized;
+
+    if ([scan scanInt:&original] && [scan scanInt:&optimized])
+    {
+        fileSizeOptimized = optimized;
+        return YES;
+    }
+    return NO;
 }
 
 @end

@@ -22,7 +22,7 @@
 
 -(BOOL)runWithTempPath:(NSString*)temp
 {
-	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"--lossy_transparent",@"-y",/*@"--",*/[file filePath],temp,nil];
+    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"--lossy_transparent",@"-y",/*@"--",*/[file filePath],temp,nil];
 
     if (!strip) {
         // FIXME: that's crappy. Should list actual chunks in file :/
@@ -44,9 +44,9 @@
         [args insertObject:@"--splitting=2" atIndex:0]; // by default splitting=1, so make second run use different split
     }
 
-	if (actualIterations) {
-		[args insertObject:[NSString stringWithFormat:@"--iterations=%d", actualIterations] atIndex:0];
-	}
+    if (actualIterations) {
+        [args insertObject:[NSString stringWithFormat:@"--iterations=%d", actualIterations] atIndex:0];
+    }
 
     [args insertObject:[NSString stringWithFormat:@"--timelimit=%lu", timelimit] atIndex:0];
 
@@ -54,25 +54,25 @@
         return NO;
     }
 
-	NSPipe *commandPipe = [NSPipe pipe];
-	NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
+    NSPipe *commandPipe = [NSPipe pipe];
+    NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
 
-	[task setStandardOutput: commandPipe];
-	[task setStandardError: commandPipe];
+    [task setStandardOutput: commandPipe];
+    [task setStandardError: commandPipe];
 
     [self launchTask];
 
     [commandHandle readInBackgroundAndNotify];
-	[task waitUntilExit];
+    [task waitUntilExit];
 
     [commandHandle closeFile];
 
-	if ([task terminationStatus]) return NO;
+    if ([task terminationStatus]) return NO;
 
     NSInteger fileSizeOptimized = [File fileByteSize:temp];
-	if (fileSizeOptimized > 70) {
-		return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"Zopfli"];
-	}
+    if (fileSizeOptimized > 70) {
+        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"Zopfli"];
+    }
     return NO;
 }
 
