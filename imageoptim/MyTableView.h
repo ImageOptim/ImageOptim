@@ -10,5 +10,7 @@
     RevealButtonCell *iMouseCell;
 }
 - (IBAction)delete:(id)sender;
+- (IBAction)copyAsDataURI:(id)sender;
+
 -(void)openInFinder;
 @end

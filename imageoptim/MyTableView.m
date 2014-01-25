@@ -1,6 +1,8 @@
 #import "MyTableView.h"
 #import "FilesQueue.h"
 #import "RevealButtonCell.h"
+#import "File.h"
+#import "log.h"
 
 @implementation MyTableView
 
@@ -35,6 +37,42 @@
     }
 }
 
+-(NSArray*)filesForDataURI {
+    FilesQueue *f = (FilesQueue*)[self delegate];
+
+    NSArray *selectedFiles = [f selectedObjects];
+    NSMutableArray *files = [NSMutableArray arrayWithCapacity:[selectedFiles count]];
+    NSUInteger totalSize = 0;
+    for(File *file in selectedFiles) {
+        if (![file isDone] || !file.byteSizeOptimized) continue;
+        if (file.byteSizeOptimized > 100000) continue;
+        totalSize += file.byteSizeOptimized;
+        if (totalSize > 1000000) break;
+        [files addObject:file];
+    }
+    return files;
+}
+
+- (IBAction)copyAsDataURI:(id)sender {
+    NSMutableArray *urls = [NSMutableArray new];
+    for(File *file in [self filesForDataURI]) {
+        NSData *data = [NSData dataWithContentsOfFile:file.filePath];
+
+        NSString *type = file.fileType == FILETYPE_PNG ? @"png" : (file.fileType == FILETYPE_JPEG ? @"jpeg" : (file.fileType == FILETYPE_GIF ? @"gif" : nil));
+        if (!type) continue;
+
+        NSString *url = [[NSString stringWithFormat:@"data:image/%@;base64,", type]
+                         stringByAppendingString:[data base64Encoding]];
+
+        [urls addObject:url];
+    }
+
+    NSPasteboard *pboard = [NSPasteboard generalPasteboard];
+
+    [pboard declareTypes:@[NSStringPboardType] owner:nil];
+    [pboard setString:[urls componentsJoinedByString:@"\n"] forType:NSStringPboardType];
+}
+
 - (IBAction)cut:(id)sender
 {
     [self copy:sender];
@@ -58,6 +96,9 @@
 
     if (action == @selector(delete:) || action == @selector(copy:) || action ==  @selector(cut:)) {
         return [self numberOfSelectedRows] > 0;
+    } else if (action == @selector(copyAsDataURI:)) {
+        NSData *data = [NSData data];
+        return [data respondsToSelector:@selector(base64Encoding)] && [self numberOfSelectedRows] > 0 && [[self filesForDataURI] count] > 0;
     } else if (action == @selector(paste:)) {
         NSPasteboard *pboard = [NSPasteboard generalPasteboard];
         NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
