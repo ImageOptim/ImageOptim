@@ -7,18 +7,23 @@
 <language>en</language>
 
 <item>
-<title>Version 1.5.0</title>
+<title>Version 1.5.1a1</title>
 <description><![CDATA[
     <ul>
+        <li>Workaround for Code Signing problems (*shakes fist at Apple*)</li>
+        <li>Less noisy output when run from command line</li>
+        <li>Updated translations for Russian, Czech, Danish, Greek, Italian, Japanese, Norwegian, Polish, Portugese, Turkish, Vietnamese and Chinese.</li>
+
         <li>Migrated to <abbr title="automatic resource counting">ARC</abbr> memory management</li>
         <li>Statusbar text with optimization result can be selected and copied</li>
         <li>Lossy jpegoptim conversion (if enabled in Preferences) will be applied only if it gives >5% filesize gain</li>
         <li>Updated Greek and Italian translations (thanks Giorgis Zacharakis and Oscar Fanelli)</li>
     </ul>
 ]]></description>
-<pubDate>Fri, 17 Jan 2014 21:41:38 +0000</pubDate>
-<enclosure url="http://imageoptim.com/ImageOptim1.5.0.tar.bz2" sparkle:version="1.5.0" length="1642495" type="application/bzip2" sparkle:dsaSignature="MCwCFEAbZd7Md+H6raQ2/ICA19JdRg+kAhRwDEPkN5nW1TJOc/alOu4z3SbMGQ=="/>
-<sparkle:minimumSystemVersion>10.6.4</sparkle:minimumSystemVersion>
+<pubDate>Sat, 25 Jan 2014 04:30:04 +0000</pubDate>
+<enclosure url="http://imageoptim.com/ImageOptim1.5.1a1.tar.bz2" sparkle:version="1.5.0.1" length="1756461" type="application/bzip2" sparkle:dsaSignature="MCwCFDxnaxwoOo1pp3PgdixiEYvHy379AhR+sjCByPTb3Kzy5u4wNKzXagcczQ=="/>
+<sparkle:minimumSystemVersion>10.6.8</sparkle:minimumSystemVersion>
+
 
 
 </item>

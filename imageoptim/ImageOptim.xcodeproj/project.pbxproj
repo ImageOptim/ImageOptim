@@ -333,7 +333,6 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		5A012EBD17A89234002E794E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = cs; path = cs.lproj/Credits.html; sourceTree = "<group>"; };
-		5A012ECB17A89237002E794E /* el */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = el; path = el.lproj/Credits.html; sourceTree = "<group>"; };
 		5A012ECC17A89238002E794E /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = tr; path = tr.lproj/Credits.html; sourceTree = "<group>"; };
 		5A012ECD17A89239002E794E /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = vi; path = vi.lproj/Credits.html; sourceTree = "<group>"; };
 		5A012EFC17A89860002E794E /* no */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = no; path = no.lproj/Credits.html; sourceTree = "<group>"; };
@@ -437,6 +436,15 @@
 		5AA339011117C41400046C79 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5AA339021117C41B00046C79 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = de.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5AA9F5F5189339A500697D8E /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
+		5AA9F7701893736100697D8E /* el */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = el; path = el.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		5AA9F781189373AB00697D8E /* tr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = tr; path = tr.lproj/PrefsController.xib; sourceTree = "<group>"; };
+		5AA9F7821893743B00697D8E /* cs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = cs; path = cs.lproj/Help; sourceTree = "<group>"; };
+		5AA9F7831893744800697D8E /* el */ = {isa = PBXFileReference; lastKnownFileType = folder; name = el; path = el.lproj/Help; sourceTree = "<group>"; };
+		5AA9F7841893746300697D8E /* it */ = {isa = PBXFileReference; lastKnownFileType = folder; name = it; path = it.lproj/Help; sourceTree = "<group>"; };
+		5AA9F7851893746E00697D8E /* tr */ = {isa = PBXFileReference; lastKnownFileType = folder; name = tr; path = tr.lproj/Help; sourceTree = "<group>"; };
+		5AA9F7861893747900697D8E /* vi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = vi; path = vi.lproj/Help; sourceTree = "<group>"; };
+		5AA9F799189374A000697D8E /* pl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pl; path = pl.lproj/Help; sourceTree = "<group>"; };
+		5AA9F7A9189374BF00697D8E /* el */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = el; path = el.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5AACA1360CAF23FF004D45CA /* DirWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirWorker.h; sourceTree = "<group>"; };
 		5AACA1370CAF23FF004D45CA /* DirWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirWorker.m; sourceTree = "<group>"; };
 		5AACA13D0CAF241B004D45CA /* Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Worker.h; sourceTree = "<group>"; };
@@ -480,11 +488,7 @@
 		5AE74B5C146DECA300287FA6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/MainMenu.xib"; sourceTree = "<group>"; };
 		5AE74B5E146DECAA00287FA6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "pt-BR"; path = "pt-BR.lproj/PrefsController.xib"; sourceTree = "<group>"; };
 		5AE74B60146DECB100287FA6 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "pt-BR"; path = "pt-BR.lproj/Help"; sourceTree = "<group>"; };
-		5AE9754E17AD5BCC0037C2E2 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ko; path = ko.lproj/Credits.html; sourceTree = "<group>"; };
-		5AE9755C17AD5BCE0037C2E2 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ja; path = ja.lproj/Credits.html; sourceTree = "<group>"; };
-		5AE9755D17AD5BD20037C2E2 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hant"; path = "zh-Hant.lproj/Credits.html"; sourceTree = "<group>"; };
 		5AE9755E17AD5BE20037C2E2 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ru; path = ru.lproj/Credits.html; sourceTree = "<group>"; };
-		5AE9755F17AD5BE40037C2E2 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = lt; path = lt.lproj/Credits.html; sourceTree = "<group>"; };
 		5AEF1B1D10F2BCA900E3E4F0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		5AEF1B2110F2BCB200E3E4F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AF71642174AF7C30018D3FE /* pngout */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = pngout; sourceTree = "<group>"; };
@@ -1170,14 +1174,10 @@
 				5A012EBD17A89234002E794E /* cs */,
 				1ACFBA3A179A1348006D93B2 /* da */,
 				1ACFBA3F179A1352006D93B2 /* de */,
-				5A012ECB17A89237002E794E /* el */,
 				1ACFBA181799E9CC006D93B2 /* en */,
 				1ACFBA3D179A1351006D93B2 /* es */,
 				1ACFBA3E179A1352006D93B2 /* fr */,
 				1ACFBA49179A135B006D93B2 /* it */,
-				5AE9755C17AD5BCE0037C2E2 /* ja */,
-				5AE9754E17AD5BCC0037C2E2 /* ko */,
-				5AE9755F17AD5BE40037C2E2 /* lt */,
 				1ACFBA3C179A1350006D93B2 /* nl */,
 				5A012EFC17A89860002E794E /* no */,
 				1ACFBA39179A1314006D93B2 /* pl */,
@@ -1187,7 +1187,6 @@
 				1ACFBA47179A1359006D93B2 /* sv */,
 				5A012ECC17A89238002E794E /* tr */,
 				5A012ECD17A89239002E794E /* vi */,
-				5AE9755D17AD5BD20037C2E2 /* zh-Hant */,
 			);
 			name = Credits.html;
 			sourceTree = "<group>";
@@ -1198,6 +1197,7 @@
 				5ACCB3F117A828FF00853EFE /* cs */,
 				5ABF610913E37B07009F6F22 /* da */,
 				5A8DFBD710C097A0009A5C8E /* Dutch */,
+				5AA9F7701893736100697D8E /* el */,
 				5A8B52D41559C278005AA6E3 /* en-GB */,
 				5A45530B1024EB1100A69944 /* English */,
 				5A7D24F313EDF5F100815AAA /* es */,
@@ -1226,6 +1226,7 @@
 				5ACCB3F617A8294900853EFE /* cs */,
 				5ABF610813E37AFC009F6F22 /* da */,
 				5A8DFBD810C097AC009A5C8E /* Dutch */,
+				5AA9F7A9189374BF00697D8E /* el */,
 				5A8B52D31559C269005AA6E3 /* en-GB */,
 				5A45530E1024EB3000A69944 /* English */,
 				5A7D24F413EDF5F100815AAA /* es */,
@@ -1241,6 +1242,7 @@
 				5AE74B5E146DECAA00287FA6 /* pt-BR */,
 				5A0344381299882F002091AA /* ru */,
 				5AC98827155F1ACD00E221A0 /* sv */,
+				5AA9F781189373AB00697D8E /* tr */,
 				5ACCB3FA17A8294900853EFE /* vi */,
 				1B5210E716BFA7CA0044C869 /* zh-Hant */,
 			);
@@ -1278,21 +1280,27 @@
 		5A95FEBE0CB8041A00737B79 /* Help */ = {
 			isa = PBXVariantGroup;
 			children = (
+				5AA9F7821893743B00697D8E /* cs */,
 				5ABF611313E37B86009F6F22 /* da */,
 				5A8DFBD910C097B9009A5C8E /* Dutch */,
+				5AA9F7831893744800697D8E /* el */,
 				5A8B52D61559C29D005AA6E3 /* en-GB */,
 				5A95FEBF0CB8041A00737B79 /* English */,
 				5A7D24F113EDF5F100815AAA /* es */,
 				5A94A02610275AFD005CC9CB /* fr */,
 				5AA338A31117BF5500046C79 /* German */,
+				5AA9F7841893746300697D8E /* it */,
 				5A9ED38015F2213F005B8CA5 /* ja */,
 				F8C4ABCD1755C91B004FC041 /* ko */,
 				1A9AF7C317565DCE002ED2A5 /* lt */,
 				5AD299C2143675BB0048C725 /* no */,
+				5AA9F799189374A000697D8E /* pl */,
 				5A034423129985D5002091AA /* pt */,
 				5AE74B60146DECB100287FA6 /* pt-BR */,
 				5A03443B1299884F002091AA /* ru */,
 				5AC9882B155F1AE100E221A0 /* sv */,
+				5AA9F7851893746E00697D8E /* tr */,
+				5AA9F7861893747900697D8E /* vi */,
 				1B5210E316BFA7C90044C869 /* zh-Hant */,
 			);
 			name = Help;
