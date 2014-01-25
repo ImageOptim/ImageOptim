@@ -30,13 +30,13 @@
 "Optimized file could not be saved" = "Оптимизированный файл не может быть сохранен";
 
 /* tooltip */
-"Optimized successfully with %@" = "Оптимизированно успешно с %@";
+"Optimized successfully with %@" = "Успешно оптимизированно используя %@";
 
 /* total ratio, status bar */
-"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Спасено %@ из %@. %@ всего (до %@ на файл)";
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Сэкономлено %1$@ из  %2$@. %3$@ всего (до %4$@ на файл)";
 
 /* per file avg, status bar */
-"Saved %@ out of %@. %@ per file on average (up to %@)" = "Спасено %@ из %@. %@ в среднем на файл (до %@)";
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Сэкономлено %1$@ из %2$@. %3$@ в среднем на файл (до %4$@)";
 
 /* command name, tooltip */
 "Started %@" = "Начато %@";
@@ -45,4 +45,4 @@
 "Waiting to be optimized" = "Ожидание оптимизици";
 
 /* tooltip */
-"Waiting to start more optimizations" = "В ожидании начала оптимизации";
+"Waiting to start more optimizations" = "Ожидание начала дальнейших оптимизаций";
