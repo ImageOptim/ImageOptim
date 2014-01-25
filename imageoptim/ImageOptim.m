@@ -47,7 +47,9 @@ static const char *kIMPreviewPanelContext = "preview";
     userData:(NSString *)userData
     error:(NSString **)error {
     assert(statusImages);
-    [filesController pasteObjectsFrom:pboard];
+
+    NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
+    [filesController performSelectorInBackground:@selector(addPaths:) withObject:paths];
 }
 
 static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {

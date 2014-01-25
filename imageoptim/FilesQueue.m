@@ -14,7 +14,6 @@
 -(NSArray *)extensions;
 -(BOOL)isAnyQueueBusy;
 -(void)updateBusyState;
--(void)deleteObjects:(NSArray *)objects;
 @end
 
 NSString *const kFilesQueueFinished = @"FilesQueueFinished";
@@ -103,12 +102,6 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return dragOp;
 }
 
--(void)pasteObjectsFrom:(NSPasteboard *)pboard {
-    NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
-    nextInsertRow = [self selectionIndex];
-    [self performSelectorInBackground:@selector(addPaths:) withObject:paths];
-}
-
 - (BOOL)tableView:(NSTableView *)aTableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
     if (!isEnabled) return NO;
 
@@ -122,46 +115,8 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return NO;
 }
 
--(BOOL)copyObjects {
-    if (!isEnabled) return NO;
-
-    NSPasteboard *pboard = [NSPasteboard generalPasteboard];
-    NSArray *filePathlist = [[self selectedObjects] valueForKey:@"filePath"];
-
-    if ([filePathlist count]) {
-        [pboard declareTypes:@[NSFilenamesPboardType] owner:self];
-        return [pboard setPropertyList:filePathlist forType:NSFilenamesPboardType];
-    }
-    return NO;
-}
-
--(void)cutObjects {
-    if ([self copyObjects]) {
-        [self deleteObjects:[self selectedObjects]];
-        [[tableView undoManager] setActionName:NSLocalizedString(@"Cut",@"undo command name")];
-    }
-}
-
-
--(IBAction)delete:(id)sender {
-    @synchronized(self) {
-        if ([self canRemove]) {
-            [self deleteObjects:[self selectedObjects]];
-        }
-    }
-}
-
--(void)addObjects:(NSArray *)objects {
-    NSUndoManager *undo=[tableView undoManager];
-    [undo registerUndoWithTarget:self selector:@selector(deleteObjects:) object:objects];
-    [super addObjects:objects];
-}
-
--(void)deleteObjects:(NSArray *)objects {
-    NSUndoManager *undo=[tableView undoManager];
-    [undo registerUndoWithTarget:self selector:@selector(addObjects:) object:objects];
-    [self removeObjects:objects];
-
+-(void)removeObjects:(NSArray *)objects {
+    [super removeObjects:objects];
     [objects makeObjectsPerformSelector:@selector(cleanup)];
 }
 
@@ -303,6 +258,11 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     }
 
     [self updateBusyState];
+}
+
+-(void)addPathsBelowSelection:(NSArray *)paths {
+    nextInsertRow = [self selectionIndex];
+    [self performSelectorInBackground:@selector(addPaths:) withObject:paths];
 }
 
 -(BOOL)addPaths:(NSArray *)paths {

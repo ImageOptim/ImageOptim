@@ -4,25 +4,52 @@
 
 @implementation MyTableView
 
+-(void)removeObjects:(NSArray *)objects {
+    FilesQueue *f = (FilesQueue*)[self delegate];
 
-- (IBAction)delete:(id)sender
-{
-    [(FilesQueue*)[self delegate] delete:sender];
+    [[self undoManager] registerUndoWithTarget:self selector:@selector(addObjects:) object:objects];
+    [f removeObjects:objects];
 }
 
-- (IBAction)copy:(id)sender
-{
-    [(FilesQueue*)[self delegate] copyObjects];
+-(void)addObjects:(NSArray *)objects {
+    FilesQueue *f = (FilesQueue*)[self delegate];
+
+    [[self undoManager] registerUndoWithTarget:self selector:@selector(removeObjects:) object:objects];
+    [f addObjects:objects];
+}
+
+- (IBAction)delete:(id)sender {
+    FilesQueue *f = (FilesQueue*)[self delegate];
+    [self removeObjects:[f selectedObjects]];
+}
+
+- (IBAction)copy:(id)sender {
+    FilesQueue *f = (FilesQueue*)[self delegate];
+
+    NSArray *filePathlist = [[f selectedObjects] valueForKey:@"filePath"];
+    if ([filePathlist count]) {
+        NSPasteboard *pboard = [NSPasteboard generalPasteboard];
+
+        [pboard declareTypes:@[NSFilenamesPboardType] owner:self];
+        [pboard setPropertyList:filePathlist forType:NSFilenamesPboardType];
+    }
 }
 
 - (IBAction)cut:(id)sender
 {
-    [(FilesQueue*)[self delegate] cutObjects];
+    [self copy:sender];
+    [self delete:sender];
+    [[self undoManager] setActionName:NSLocalizedString(@"Cut",@"undo command name")];
 }
 
 - (IBAction)paste:(id)sender
 {
-    [(FilesQueue*)[self delegate] pasteObjectsFrom:[NSPasteboard generalPasteboard]];
+    NSPasteboard *pboard = [NSPasteboard generalPasteboard];
+
+    NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
+
+    FilesQueue *f = (FilesQueue*)[self delegate];
+    [f addPathsBelowSelection:paths];
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem*)menuItem
@@ -49,7 +76,7 @@
             return;
         case 51: /*backspace*/
         case 117: /*delete*/
-            [(FilesQueue*)[self delegate] delete:self];
+            [self delete:self];
             return;
         }
     }

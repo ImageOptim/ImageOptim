@@ -27,6 +27,7 @@ extern NSString *const kFilesQueueFinished;
 -(void)configureWithTableView:(NSTableView*)a;
 
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation;
+-(void)addPathsBelowSelection:(NSArray *)paths;
 -(BOOL)addPaths:(NSArray *)paths;
 -(BOOL)addPaths:(NSArray *)paths filesOnly:(BOOL)t;
 
@@ -39,10 +40,6 @@ extern NSString *const kFilesQueueFinished;
 -(BOOL)canStartAgainOptimized:(BOOL)optimized;
 -(void)clearComplete;
 -(BOOL)canClearComplete;
--(IBAction)delete:(id)sender;
--(BOOL)copyObjects;
--(void)cutObjects;
--(void)pasteObjectsFrom:(NSPasteboard *)pb;
 -(void)cleanup;
 -(void)setRow:(NSInteger)row;
 -(void)openRowInFinder:(NSInteger)row withPreview:(BOOL)preview;
