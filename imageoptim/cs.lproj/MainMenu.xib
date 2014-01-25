@@ -2,9 +2,9 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">13C39</string>
+		<string key="IBDocument.SystemVersion">13C44</string>
 		<string key="IBDocument.InterfaceBuilderVersion">4514</string>
-		<string key="IBDocument.AppKitVersion">1265.14</string>
+		<string key="IBDocument.AppKitVersion">1265.16</string>
 		<string key="IBDocument.HIToolboxVersion">697.40</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -484,7 +484,7 @@
 								</object>
 								<object class="NSClipView" id="532173874">
 									<reference key="NSNextResponder" ref="188613459"/>
-									<int key="NSvFlags">2304</int>
+									<int key="NSvFlags">2338</int>
 									<array class="NSMutableArray" key="NSSubviews">
 										<reference ref="733806295"/>
 									</array>
@@ -872,6 +872,15 @@
 									<string key="NSTitle">Vyjmout</string>
 									<string key="NSKeyEquiv">x</string>
 									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="855672835"/>
+									<reference key="NSMixedImage" ref="898714739"/>
+								</object>
+								<object class="NSMenuItem" id="270538027">
+									<reference key="NSMenu" ref="777814834"/>
+									<string key="NSTitle">Kopírovat Data URI</string>
+									<string key="NSKeyEquiv">c</string>
+									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
 									<reference key="NSMixedImage" ref="898714739"/>
@@ -1632,6 +1641,14 @@
 						<reference key="destination" ref="156988055"/>
 					</object>
 					<string key="id">822</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">copyAsDataURI:</string>
+						<reference key="source" ref="335302141"/>
+						<reference key="destination" ref="270538027"/>
+					</object>
+					<string key="id">wqM-oj-7UX</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -2466,6 +2483,7 @@
 							<reference ref="511265743"/>
 							<reference ref="885379171"/>
 							<reference ref="434786511"/>
+							<reference ref="270538027"/>
 						</array>
 						<reference key="parent" ref="117073295"/>
 					</object>
@@ -3053,6 +3071,11 @@
 						<reference key="object" ref="838171494"/>
 						<reference key="parent" ref="238366736"/>
 					</object>
+					<object class="IBObjectRecord">
+						<string key="id">NlY-Bc-7tu</string>
+						<reference key="object" ref="270538027"/>
+						<reference key="parent" ref="777814834"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -3259,6 +3282,7 @@
 				<string key="816.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="820.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="NlY-Bc-7tu.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
@@ -3278,17 +3302,6 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">FilesQueue</string>
 					<string key="superclassName">NSArrayController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">delete:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">delete:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">delete:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/FilesQueue.h</string>
@@ -3408,17 +3421,35 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">MyTableView</string>
 					<string key="superclassName">NSTableView</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">delete:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">delete:</string>
-						<object class="IBActionInfo" key="NS.object.0">
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="copy:">id</string>
+						<string key="copyAsDataURI:">id</string>
+						<string key="cut:">id</string>
+						<string key="delete:">id</string>
+						<string key="paste:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="copy:">
+							<string key="name">copy:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="copyAsDataURI:">
+							<string key="name">copyAsDataURI:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="cut:">
+							<string key="name">cut:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="delete:">
 							<string key="name">delete:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-					</object>
+						<object class="IBActionInfo" key="paste:">
+							<string key="name">paste:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/MyTableView.h</string>
