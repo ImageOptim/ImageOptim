@@ -122,7 +122,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="18581533">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">Saving to network drives is faster when permissions are not preserved</string>
+																	<string key="NSContents">At gemme til netværksdrev er hurtigere når tilladelser ikke bevares</string>
 																	<object class="NSFont" key="NSSupport" id="26">
 																		<string key="NSName">.LucidaGrandeUI</string>
 																		<double key="NSSize">11</double>
@@ -230,7 +230,7 @@
 																<object class="NSButtonCell" key="NSCell" id="731398776">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">PNG: Fjern alle ekstra/valgfri chunks</string>
+																	<string key="NSContents">Fjern PNG metadata (gamma, farveprofiler, valgfri komponenter)</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="469954983"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -273,7 +273,7 @@
 																<object class="NSButtonCell" key="NSCell" id="458069250">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">JPEG: Fjern EXIF mærker og kommentarer fra filer</string>
+																	<string key="NSContents">Fjern JPEG metadata (EXIF, farveprofiler, GPS, rotation, etc.)</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="354107699"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -297,7 +297,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="254823532">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">Not recommended if you rely on embedded copyright information</string>
+																	<string key="NSContents">Ikke anbefalet hvis du afhænger af integreret copyright information</string>
 																	<reference key="NSSupport" ref="26"/>
 																	<reference key="NSControlView" ref="1001070319"/>
 																	<reference key="NSBackgroundColor" ref="585428330"/>
@@ -321,7 +321,7 @@
 												<object class="NSTextFieldCell" key="NSTitleCell">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Metadata</string>
+													<string key="NSContents">Metadata og farveprofiler</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSBackgroundColor" ref="265439438"/>
 													<object class="NSColor" key="NSTextColor">
@@ -847,7 +847,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="645880451">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">272629760</int>
-													<string key="NSContents">Interlaced files are usually larger</string>
+													<string key="NSContents">Interlaced filer er normalt større</string>
 													<object class="NSFont" key="NSSupport">
 														<string key="NSName">.LucidaGrandeUI</string>
 														<double key="NSSize">10</double>
@@ -1076,7 +1076,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="241049884">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Voldsom</string>
+													<string key="NSContents">Sindssyg</string>
 													<reference key="NSSupport" ref="22"/>
 													<reference key="NSControlView" ref="942231807"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -1172,7 +1172,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="930696126">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">71303168</int>
-													<string key="NSContents">Maximal kvalitet</string>
+													<string key="NSContents">Maksimal kvalitet</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="214791961"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>

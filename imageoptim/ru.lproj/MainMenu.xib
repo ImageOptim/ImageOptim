@@ -333,7 +333,7 @@
 														<reference key="NSTextColor" ref="777625168"/>
 													</object>
 													<reference key="NSTableView" ref="995883823"/>
-													<string key="NSHeaderToolTip">Size of file after optimization</string>
+													<string key="NSHeaderToolTip">Размер файла после оптимизации</string>
 												</object>
 												<object class="NSTableColumn" id="59804572">
 													<string key="NSIdentifier">savings</string>
@@ -407,7 +407,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">2048</int>
-														<string key="NSContents">Лудший инструмент</string>
+														<string key="NSContents">Лучший инструмент</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="651036953"/>
 														<reference key="NSTextColor" ref="739485553"/>
@@ -578,7 +578,7 @@
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">NSRefreshTemplate</string>
 								</object>
-								<string key="NSAlternateContents">Запустить оптимизацию еще раз</string>
+								<string key="NSAlternateContents">Запустить оптимизации еще раз</string>
 								<string key="NSKeyEquivalent">r</string>
 							</object>
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -1144,7 +1144,7 @@
 											</object>
 											<object class="NSMenuItem" id="428428762">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">Лудший инструмент</string>
+												<string key="NSTitle">Лучший инструмент</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="855672835"/>
@@ -1181,7 +1181,7 @@
 								</object>
 								<object class="NSMenuItem" id="128963598">
 									<reference key="NSMenu" ref="572557097"/>
-									<string key="NSTitle">Страница ImageOptim</string>
+									<string key="NSTitle">Веб-страница ImageOptim</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -3114,7 +3114,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="646228687"/>
-						<string key="accessibilityValue">Status</string>
+						<string key="accessibilityValue">Статус</string>
 					</object>
 				</object>
 				<string key="294.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3208,7 +3208,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="805991443"/>
-						<string key="accessibilityValue">version</string>
+						<string key="accessibilityValue">версия</string>
 					</object>
 				</object>
 				<string key="645.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3230,7 +3230,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="714728707"/>
-						<string key="accessibilityValue">Перетяните сюда файлы</string>
+						<string key="accessibilityValue">Перетяните картинки сюда</string>
 					</object>
 				</object>
 				<string key="712.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

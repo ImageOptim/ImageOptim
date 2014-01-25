@@ -333,7 +333,7 @@
 														<reference key="NSTextColor" ref="777625168"/>
 													</object>
 													<reference key="NSTableView" ref="995883823"/>
-													<string key="NSHeaderToolTip">Size of file after optimization</string>
+													<string key="NSHeaderToolTip">Velikost souboru po vylepšení</string>
 												</object>
 												<object class="NSTableColumn" id="59804572">
 													<string key="NSIdentifier">savings</string>
@@ -3114,7 +3114,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="646228687"/>
-						<string key="accessibilityValue">Status</string>
+						<string key="accessibilityValue">Stav</string>
 					</object>
 				</object>
 				<string key="294.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3208,7 +3208,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="805991443"/>
-						<string key="accessibilityValue">version</string>
+						<string key="accessibilityValue">verze</string>
 					</object>
 				</object>
 				<string key="645.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

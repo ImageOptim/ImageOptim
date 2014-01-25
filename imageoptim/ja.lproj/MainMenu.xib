@@ -216,7 +216,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">67110912</int>
-														<string key="NSContents">元容量</string>
+														<string key="NSContents">元のサイズ</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="651036953"/>
 														<reference key="NSTextColor" ref="739485553"/>
@@ -283,7 +283,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">67110912</int>
-														<string key="NSContents">容量</string>
+														<string key="NSContents">サイズ</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="162739633"/>
 														<reference key="NSTextColor" ref="739485553"/>
@@ -333,7 +333,7 @@
 														<reference key="NSTextColor" ref="777625168"/>
 													</object>
 													<reference key="NSTableView" ref="995883823"/>
-													<string key="NSHeaderToolTip">Size of file after optimization</string>
+													<string key="NSHeaderToolTip">最適化後のサイズ</string>
 												</object>
 												<object class="NSTableColumn" id="59804572">
 													<string key="NSIdentifier">savings</string>
@@ -519,7 +519,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="326808065">
 								<int key="NSCellFlags">67108928</int>
 								<int key="NSCellFlags2">306321472</int>
-								<string key="NSContents">上に画像ファイルをドラッグ＆ドロップしてください</string>
+								<string key="NSContents">上の領域に画像ファイルをドラッグ＆ドロップしてください</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="646228687"/>
 								<reference key="NSTextColor" ref="777625168"/>
@@ -775,7 +775,7 @@
 								</object>
 								<object class="NSMenuItem" id="342358740">
 									<reference key="NSMenu" ref="810587040"/>
-									<string key="NSTitle">再度最適化をする</string>
+									<string key="NSTitle">再度最適化する</string>
 									<string key="NSKeyEquiv">r</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1118,7 +1118,7 @@
 										<array class="NSMutableArray" key="NSMenuItems">
 											<object class="NSMenuItem" id="185434306">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">元容量</string>
+												<string key="NSTitle">元のサイズ</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="855672835"/>
@@ -3092,7 +3092,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="237316198"/>
-						<string key="accessibilityValue">最適化後の容量</string>
+						<string key="accessibilityValue">最適化後のサイズ</string>
 					</object>
 				</object>
 				<string key="239.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3114,7 +3114,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="646228687"/>
-						<string key="accessibilityValue">Status</string>
+						<string key="accessibilityValue">ステータス</string>
 					</object>
 				</object>
 				<string key="294.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3208,7 +3208,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="805991443"/>
-						<string key="accessibilityValue">version</string>
+						<string key="accessibilityValue">バージョン</string>
 					</object>
 				</object>
 				<string key="645.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

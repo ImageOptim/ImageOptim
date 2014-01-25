@@ -333,7 +333,7 @@
 														<reference key="NSTextColor" ref="777625168"/>
 													</object>
 													<reference key="NSTableView" ref="995883823"/>
-													<string key="NSHeaderToolTip">Size of file after optimization</string>
+													<string key="NSHeaderToolTip">Kích thước của tập tin sau khi tùy chỉnh</string>
 												</object>
 												<object class="NSTableColumn" id="59804572">
 													<string key="NSIdentifier">savings</string>
@@ -966,7 +966,7 @@
 								</object>
 								<object class="NSMenuItem" id="362613240">
 									<reference key="NSMenu" ref="956832752"/>
-									<string key="NSTitle">Tùy chỉnh PNG</string>
+									<string key="NSTitle">OptiPNG</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -974,7 +974,7 @@
 								</object>
 								<object class="NSMenuItem" id="643361958">
 									<reference key="NSMenu" ref="956832752"/>
-									<string key="NSTitle">PNG nâng cao</string>
+									<string key="NSTitle">AdvPNG</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -1000,7 +1000,7 @@
 								</object>
 								<object class="NSMenuItem" id="86268337">
 									<reference key="NSMenu" ref="956832752"/>
-									<string key="NSTitle">Tùy chỉnh JPEG</string>
+									<string key="NSTitle">JPEGOptim</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -3114,7 +3114,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="646228687"/>
-						<string key="accessibilityValue">Status</string>
+						<string key="accessibilityValue">Trạng thái</string>
 					</object>
 				</object>
 				<string key="294.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3208,7 +3208,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="805991443"/>
-						<string key="accessibilityValue">version</string>
+						<string key="accessibilityValue">phiên bản</string>
 					</object>
 				</object>
 				<string key="645.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

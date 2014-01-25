@@ -216,7 +216,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">67110912</int>
-														<string key="NSContents">Størrelse (original)</string>
+														<string key="NSContents">Original størrelse</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="651036953"/>
 														<reference key="NSTextColor" ref="739485553"/>
@@ -333,7 +333,7 @@
 														<reference key="NSTextColor" ref="777625168"/>
 													</object>
 													<reference key="NSTableView" ref="995883823"/>
-													<string key="NSHeaderToolTip">Size of file after optimization</string>
+													<string key="NSHeaderToolTip">Størrelse på fil efter optimering</string>
 												</object>
 												<object class="NSTableColumn" id="59804572">
 													<string key="NSIdentifier">savings</string>
@@ -407,7 +407,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">2048</int>
-														<string key="NSContents">Best tool</string>
+														<string key="NSContents">Bedste værktøj</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="651036953"/>
 														<reference key="NSTextColor" ref="739485553"/>
@@ -740,7 +740,7 @@
 								</object>
 								<object class="NSMenuItem" id="290352162">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Slut ImageOptim</string>
+									<string key="NSTitle">Luk ImageOptim</string>
 									<string key="NSKeyEquiv">q</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -753,7 +753,7 @@
 					</object>
 					<object class="NSMenuItem" id="118427520">
 						<reference key="NSMenu" ref="717955284"/>
-						<string key="NSTitle">Arkiv</string>
+						<string key="NSTitle">Filer</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -762,7 +762,7 @@
 						<string key="NSAction">submenuAction:</string>
 						<reference key="NSTarget" ref="810587040"/>
 						<object class="NSMenu" key="NSSubmenu" id="810587040">
-							<string key="NSTitle">Arkiv</string>
+							<string key="NSTitle">Filer</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="920522896">
 									<reference key="NSMenu" ref="810587040"/>
@@ -786,7 +786,7 @@
 									<reference key="NSMenu" ref="810587040"/>
 									<bool key="NSIsHidden">YES</bool>
 									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Optimize Optimized</string>
+									<string key="NSTitle">Optimer optimerede</string>
 									<string key="NSKeyEquiv">r</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -887,7 +887,7 @@
 								</object>
 								<object class="NSMenuItem" id="147728722">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Indsæt</string>
+									<string key="NSTitle">Sæt ind</string>
 									<string key="NSKeyEquiv">v</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -907,7 +907,7 @@
 									<reference key="NSMenu" ref="777814834"/>
 									<bool key="NSIsHidden">YES</bool>
 									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Delete Completed</string>
+									<string key="NSTitle">Slet færdigtbehandlede</string>
 									<string type="base64-UTF8" key="NSKeyEquiv">CA</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -938,7 +938,7 @@
 					</object>
 					<object class="NSMenuItem" id="738309329">
 						<reference key="NSMenu" ref="717955284"/>
-						<string key="NSTitle">Tools</string>
+						<string key="NSTitle">Værktøjer</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="855672835"/>
@@ -946,7 +946,7 @@
 						<string key="NSAction">submenuAction:</string>
 						<reference key="NSTarget" ref="956832752"/>
 						<object class="NSMenu" key="NSSubmenu" id="956832752">
-							<string key="NSTitle">Tools</string>
+							<string key="NSTitle">Værktøjer</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="536859034">
 									<reference key="NSMenu" ref="956832752"/>
@@ -1087,7 +1087,7 @@
 								</object>
 								<object class="NSMenuItem" id="470500581">
 									<reference key="NSMenu" ref="564456469"/>
-									<string key="NSTitle">Bring All to Front</string>
+									<string key="NSTitle">Bring alle frem</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1106,7 +1106,7 @@
 								</object>
 								<object class="NSMenuItem" id="825109488">
 									<reference key="NSMenu" ref="564456469"/>
-									<string key="NSTitle">Show Columns</string>
+									<string key="NSTitle">Vis kolonner</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -1118,7 +1118,7 @@
 										<array class="NSMutableArray" key="NSMenuItems">
 											<object class="NSMenuItem" id="185434306">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">Størrelse (original)</string>
+												<string key="NSTitle">Original størrelse</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="855672835"/>
@@ -1126,7 +1126,7 @@
 											</object>
 											<object class="NSMenuItem" id="726135706">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">Størrelse</string>
+												<string key="NSTitle">Optimeret størrelse</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<int key="NSState">1</int>
@@ -1144,7 +1144,7 @@
 											</object>
 											<object class="NSMenuItem" id="428428762">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">Best tool</string>
+												<string key="NSTitle">Bedste værktøj</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="855672835"/>
@@ -1181,7 +1181,7 @@
 								</object>
 								<object class="NSMenuItem" id="128963598">
 									<reference key="NSMenu" ref="572557097"/>
-									<string key="NSTitle">ImageOptim Website</string>
+									<string key="NSTitle">ImageOptim hjemmeside</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -1207,7 +1207,7 @@
 								</object>
 								<object class="NSMenuItem" id="515055567">
 									<reference key="NSMenu" ref="572557097"/>
-									<string key="NSTitle">View Source</string>
+									<string key="NSTitle">Vis kildekode</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -3137,7 +3137,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="866301361"/>
-						<string key="accessibilityValue">Add new files or directories</string>
+						<string key="accessibilityValue">Tilføj nye filer eller foldere</string>
 					</object>
 				</object>
 				<string key="423.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3150,7 +3150,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="238366736"/>
-						<string key="accessibilityValue">Optimization status</string>
+						<string key="accessibilityValue">Optimeringsstatus</string>
 					</object>
 				</object>
 				<string key="462.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3230,7 +3230,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="714728707"/>
-						<string key="accessibilityValue">Drop images here</string>
+						<string key="accessibilityValue">Slip billeder her</string>
 					</object>
 				</object>
 				<string key="712.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

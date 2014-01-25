@@ -48,7 +48,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{247, 1024}, {663, 303}}</string>
 				<int key="NSWTFlags">-1334312960</int>
-				<string key="NSWindowTitle">ImageOptim Preferences</string>
+				<string key="NSWindowTitle">Προτιμήσεις ImageOptim</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<object class="NSMutableString" key="NSViewClass">
 					<characters key="NS.bytes">View</characters>
@@ -89,7 +89,7 @@
 																<object class="NSButtonCell" key="NSCell" id="959669707">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">Preserve file permissions, attributes and hardlinks</string>
+																	<string key="NSContents">Διατήρηση δικαιωμάτων αρχείων, ιδιοτήτων και hard συνδέσμων.</string>
 																	<object class="NSFont" key="NSSupport" id="352456772">
 																		<string key="NSName">.LucidaGrandeUI</string>
 																		<double key="NSSize">13</double>
@@ -164,7 +164,7 @@
 												<object class="NSTextFieldCell" key="NSTitleCell">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Writing files to disk</string>
+													<string key="NSContents">Εγγραφή αρχείων στο δίσκο</string>
 													<reference key="NSSupport" ref="26"/>
 													<object class="NSColor" key="NSBackgroundColor" id="265439438">
 														<int key="NSColorSpace">6</int>
@@ -593,7 +593,7 @@
 										<reference key="NSSuperview" ref="772667599"/>
 										<reference key="NSNextKeyView" ref="939028595"/>
 									</object>
-									<string key="NSLabel">General</string>
+									<string key="NSLabel">Γενικές</string>
 									<reference key="NSColor" ref="585428330"/>
 									<reference key="NSTabView" ref="772667599"/>
 								</object>

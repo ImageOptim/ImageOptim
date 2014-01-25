@@ -425,7 +425,7 @@
 																<object class="NSButtonCell" key="NSCell" id="85078871">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">Tùy chỉnh PNG</string>
+																	<string key="NSContents">OptiPNG</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="897551295"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -449,7 +449,7 @@
 																<object class="NSButtonCell" key="NSCell" id="323708559">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">PNG nâng cao</string>
+																	<string key="NSContents">AdvPNG</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="17671457"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -1397,7 +1397,7 @@
 										<string key="NSFrame">{{10, 33}, {607, 241}}</string>
 										<reference key="NSNextKeyView" ref="214791961"/>
 									</object>
-									<string key="NSLabel">Tùy chỉnh JPEG</string>
+									<string key="NSLabel">JPEGOptim</string>
 									<reference key="NSColor" ref="585428330"/>
 									<reference key="NSTabView" ref="772667599"/>
 								</object>

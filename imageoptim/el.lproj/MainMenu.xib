@@ -159,7 +159,7 @@
 														<bool key="NSAscending">YES</bool>
 														<string key="NSSelector">compare:</string>
 													</object>
-													<string key="NSHeaderToolTip">Optimization status</string>
+													<string key="NSHeaderToolTip">Κατάσταση βελτιστοποίησης</string>
 												</object>
 												<object class="NSTableColumn" id="56751955">
 													<string key="NSIdentifier">filename</string>
@@ -169,7 +169,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">2048</int>
-														<string key="NSContents">File</string>
+														<string key="NSContents">Αρχείο</string>
 														<reference key="NSSupport" ref="26"/>
 														<object class="NSColor" key="NSBackgroundColor" id="162739633">
 															<int key="NSColorSpace">3</int>
@@ -216,7 +216,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">67110912</int>
-														<string key="NSContents">Original Size</string>
+														<string key="NSContents">Αρχικό μέγεθος</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="651036953"/>
 														<reference key="NSTextColor" ref="739485553"/>
@@ -283,7 +283,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">67110912</int>
-														<string key="NSContents">Size</string>
+														<string key="NSContents">Μέγεθος</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="162739633"/>
 														<reference key="NSTextColor" ref="739485553"/>
@@ -333,7 +333,7 @@
 														<reference key="NSTextColor" ref="777625168"/>
 													</object>
 													<reference key="NSTableView" ref="995883823"/>
-													<string key="NSHeaderToolTip">Size of file after optimization</string>
+													<string key="NSHeaderToolTip">Μέγεθος μετά την βελτιστοποίηση</string>
 												</object>
 												<object class="NSTableColumn" id="59804572">
 													<string key="NSIdentifier">savings</string>
@@ -343,7 +343,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">67110912</int>
-														<string key="NSContents">Savings</string>
+														<string key="NSContents">Κέρδη</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="651036953"/>
 														<reference key="NSTextColor" ref="739485553"/>
@@ -407,7 +407,7 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75497536</int>
 														<int key="NSCellFlags2">2048</int>
-														<string key="NSContents">Best tool</string>
+														<string key="NSContents">Βέλτιστο εργαλείο</string>
 														<reference key="NSSupport" ref="26"/>
 														<reference key="NSBackgroundColor" ref="651036953"/>
 														<reference key="NSTextColor" ref="739485553"/>
@@ -519,7 +519,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="326808065">
 								<int key="NSCellFlags">67108928</int>
 								<int key="NSCellFlags2">306321472</int>
-								<string key="NSContents">Drag and drop image files onto the area above</string>
+								<string key="NSContents">Σύρετε και αφήστε εικόνες στην περιοχή επάνω</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="646228687"/>
 								<reference key="NSTextColor" ref="777625168"/>
@@ -537,7 +537,7 @@
 							<object class="NSButtonCell" key="NSCell" id="16446775">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Προσθηκη</string>
+								<string key="NSContents">Προσθήκη</string>
 								<reference key="NSSupport" ref="725316391"/>
 								<reference key="NSControlView" ref="866301361"/>
 								<int key="NSButtonFlags">-2030813184</int>
@@ -569,7 +569,7 @@
 							<object class="NSButtonCell" key="NSCell" id="650797074">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Again</string>
+								<string key="NSContents">Ξανά</string>
 								<reference key="NSSupport" ref="725316391"/>
 								<reference key="NSControlView" ref="718675695"/>
 								<int key="NSButtonFlags">-2034483200</int>
@@ -578,7 +578,7 @@
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">NSRefreshTemplate</string>
 								</object>
-								<string key="NSAlternateContents">Run optimizations again</string>
+								<string key="NSAlternateContents">Εκτέλεση βελτιστοποίησης ξανά</string>
 								<string key="NSKeyEquivalent">r</string>
 							</object>
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -605,7 +605,7 @@
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSMenu" id="717955284">
-				<string key="NSTitle">MainMenu</string>
+				<string key="NSTitle">Κυρίως μενού</string>
 				<array class="NSMutableArray" key="NSMenuItems">
 					<object class="NSMenuItem" id="193076470">
 						<reference key="NSMenu" ref="717955284"/>
@@ -628,7 +628,7 @@
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="195931994">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">About ImageOptim</string>
+									<string key="NSTitle">Περί ImageOptim</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -636,7 +636,7 @@
 								</object>
 								<object class="NSMenuItem" id="540149195">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Check for Updates…</string>
+									<string key="NSTitle">Έλεγχος για ενημερώσεις...</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -655,7 +655,7 @@
 								</object>
 								<object class="NSMenuItem" id="280919078">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Preferences…</string>
+									<string key="NSTitle">Προτιμίσεις...</string>
 									<string key="NSKeyEquiv">,</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -675,7 +675,7 @@
 								</object>
 								<object class="NSMenuItem" id="1038949416">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Services</string>
+									<string key="NSTitle">Υπηρεσίες</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -684,7 +684,7 @@
 									<string key="NSAction">submenuAction:</string>
 									<reference key="NSTarget" ref="926507347"/>
 									<object class="NSMenu" key="NSSubmenu" id="926507347">
-										<string key="NSTitle">Services</string>
+										<string key="NSTitle">Υπηρεσίες</string>
 										<array class="NSMutableArray" key="NSMenuItems"/>
 										<string key="NSName">_NSServicesMenu</string>
 									</object>
@@ -702,7 +702,7 @@
 								</object>
 								<object class="NSMenuItem" id="794919055">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Hide ImageOptim</string>
+									<string key="NSTitle">Απόκρυψη </string>
 									<string key="NSKeyEquiv">h</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -711,7 +711,7 @@
 								</object>
 								<object class="NSMenuItem" id="115432454">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Hide Others</string>
+									<string key="NSTitle">Απόκρυψη άλλων</string>
 									<string key="NSKeyEquiv">h</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -720,7 +720,7 @@
 								</object>
 								<object class="NSMenuItem" id="1008306447">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Show All</string>
+									<string key="NSTitle">Εμφάνιση όλων</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -740,7 +740,7 @@
 								</object>
 								<object class="NSMenuItem" id="290352162">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Quit ImageOptim</string>
+									<string key="NSTitle">Έξοδος </string>
 									<string key="NSKeyEquiv">q</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -753,7 +753,7 @@
 					</object>
 					<object class="NSMenuItem" id="118427520">
 						<reference key="NSMenu" ref="717955284"/>
-						<string key="NSTitle">File</string>
+						<string key="NSTitle">Αρχείο</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -762,11 +762,11 @@
 						<string key="NSAction">submenuAction:</string>
 						<reference key="NSTarget" ref="810587040"/>
 						<object class="NSMenu" key="NSSubmenu" id="810587040">
-							<string key="NSTitle">File</string>
+							<string key="NSTitle">Αρχείο</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="920522896">
 									<reference key="NSMenu" ref="810587040"/>
-									<string key="NSTitle">Add Files…</string>
+									<string key="NSTitle">Προσθήκη αρχείων...</string>
 									<string key="NSKeyEquiv">o</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -775,7 +775,7 @@
 								</object>
 								<object class="NSMenuItem" id="342358740">
 									<reference key="NSMenu" ref="810587040"/>
-									<string key="NSTitle">Optimize Again</string>
+									<string key="NSTitle">Βελτιστοποίηση ξανά</string>
 									<string key="NSKeyEquiv">r</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -786,7 +786,7 @@
 									<reference key="NSMenu" ref="810587040"/>
 									<bool key="NSIsHidden">YES</bool>
 									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Optimize Optimized</string>
+									<string key="NSTitle">Βελτιστοποιήθηκε</string>
 									<string key="NSKeyEquiv">r</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -815,7 +815,7 @@
 								</object>
 								<object class="NSMenuItem" id="695734933">
 									<reference key="NSMenu" ref="810587040"/>
-									<string key="NSTitle">Close</string>
+									<string key="NSTitle">Κλείσιμο</string>
 									<string key="NSKeyEquiv">w</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -827,7 +827,7 @@
 					</object>
 					<object class="NSMenuItem" id="117073295">
 						<reference key="NSMenu" ref="717955284"/>
-						<string key="NSTitle">Edit</string>
+						<string key="NSTitle">Επεξεργασία</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -836,11 +836,11 @@
 						<string key="NSAction">submenuAction:</string>
 						<reference key="NSTarget" ref="777814834"/>
 						<object class="NSMenu" key="NSSubmenu" id="777814834">
-							<string key="NSTitle">Edit</string>
+							<string key="NSTitle">Επεξεργασία</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="472478634">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Undo</string>
+									<string key="NSTitle">Αναίρεση</string>
 									<string key="NSKeyEquiv">z</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -849,7 +849,7 @@
 								</object>
 								<object class="NSMenuItem" id="323992007">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Redo</string>
+									<string key="NSTitle">Ακύρωση αναίρεσης</string>
 									<string key="NSKeyEquiv">Z</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -869,7 +869,7 @@
 								</object>
 								<object class="NSMenuItem" id="703244935">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Αποκοπη</string>
+									<string key="NSTitle">Αποκοπή</string>
 									<string key="NSKeyEquiv">x</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -878,7 +878,7 @@
 								</object>
 								<object class="NSMenuItem" id="330968477">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Copy</string>
+									<string key="NSTitle">Αντιγραφή</string>
 									<string key="NSKeyEquiv">c</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -887,7 +887,7 @@
 								</object>
 								<object class="NSMenuItem" id="147728722">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Paste</string>
+									<string key="NSTitle">Επικόλληση</string>
 									<string key="NSKeyEquiv">v</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -896,7 +896,7 @@
 								</object>
 								<object class="NSMenuItem" id="511265743">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Delete</string>
+									<string key="NSTitle">Διαγραφή</string>
 									<string type="base64-UTF8" key="NSKeyEquiv">CA</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -907,7 +907,7 @@
 									<reference key="NSMenu" ref="777814834"/>
 									<bool key="NSIsHidden">YES</bool>
 									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Delete Completed</string>
+									<string key="NSTitle">Ολοκλήρωση διαγραφής</string>
 									<string type="base64-UTF8" key="NSKeyEquiv">CA</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -926,7 +926,7 @@
 								</object>
 								<object class="NSMenuItem" id="540020044">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Select All</string>
+									<string key="NSTitle">Επιλογή όλων</string>
 									<string key="NSKeyEquiv">a</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -938,7 +938,7 @@
 					</object>
 					<object class="NSMenuItem" id="738309329">
 						<reference key="NSMenu" ref="717955284"/>
-						<string key="NSTitle">Tools</string>
+						<string key="NSTitle">Εργαλεία</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="855672835"/>
@@ -946,7 +946,7 @@
 						<string key="NSAction">submenuAction:</string>
 						<reference key="NSTarget" ref="956832752"/>
 						<object class="NSMenu" key="NSSubmenu" id="956832752">
-							<string key="NSTitle">Tools</string>
+							<string key="NSTitle">Εργαλεία</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="536859034">
 									<reference key="NSMenu" ref="956832752"/>
@@ -1045,7 +1045,7 @@
 					</object>
 					<object class="NSMenuItem" id="719690710">
 						<reference key="NSMenu" ref="717955284"/>
-						<string key="NSTitle">Window</string>
+						<string key="NSTitle">Παράθυρο</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -1054,11 +1054,11 @@
 						<string key="NSAction">submenuAction:</string>
 						<reference key="NSTarget" ref="564456469"/>
 						<object class="NSMenu" key="NSSubmenu" id="564456469">
-							<string key="NSTitle">Window</string>
+							<string key="NSTitle">Παράθυρο</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="146427746">
 									<reference key="NSMenu" ref="564456469"/>
-									<string key="NSTitle">Minimize</string>
+									<string key="NSTitle">Ελαχιστοποίηση</string>
 									<string key="NSKeyEquiv">m</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1067,7 +1067,7 @@
 								</object>
 								<object class="NSMenuItem" id="393845620">
 									<reference key="NSMenu" ref="564456469"/>
-									<string key="NSTitle">Zoom</string>
+									<string key="NSTitle">Μεγέθυνση</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1087,7 +1087,7 @@
 								</object>
 								<object class="NSMenuItem" id="470500581">
 									<reference key="NSMenu" ref="564456469"/>
-									<string key="NSTitle">Bring All to Front</string>
+									<string key="NSTitle">Όλα σε πρώτο πλάνο</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1106,7 +1106,7 @@
 								</object>
 								<object class="NSMenuItem" id="825109488">
 									<reference key="NSMenu" ref="564456469"/>
-									<string key="NSTitle">Show Columns</string>
+									<string key="NSTitle">Εμφάνιση στηλών</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -1118,7 +1118,7 @@
 										<array class="NSMutableArray" key="NSMenuItems">
 											<object class="NSMenuItem" id="185434306">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">Original Size</string>
+												<string key="NSTitle">Αρχικό μέγεθος</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="855672835"/>
@@ -1126,7 +1126,7 @@
 											</object>
 											<object class="NSMenuItem" id="726135706">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">Optimized Size</string>
+												<string key="NSTitle">Βελτιστοποιημένο μέγεθος</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<int key="NSState">1</int>
@@ -1135,7 +1135,7 @@
 											</object>
 											<object class="NSMenuItem" id="1050342206">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">Savings</string>
+												<string key="NSTitle">Κέρδη</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<int key="NSState">1</int>
@@ -1144,7 +1144,7 @@
 											</object>
 											<object class="NSMenuItem" id="428428762">
 												<reference key="NSMenu" ref="508032773"/>
-												<string key="NSTitle">Best tool</string>
+												<string key="NSTitle">Βέλτιστο εργαλείο</string>
 												<string key="NSKeyEquiv"/>
 												<int key="NSMnemonicLoc">2147483647</int>
 												<reference key="NSOnImage" ref="855672835"/>
@@ -1159,7 +1159,7 @@
 					</object>
 					<object class="NSMenuItem" id="524041950">
 						<reference key="NSMenu" ref="717955284"/>
-						<string key="NSTitle">Help</string>
+						<string key="NSTitle">Βοήθεια</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -1168,11 +1168,11 @@
 						<string key="NSAction">submenuAction:</string>
 						<reference key="NSTarget" ref="572557097"/>
 						<object class="NSMenu" key="NSSubmenu" id="572557097">
-							<string key="NSTitle">Help</string>
+							<string key="NSTitle">Βοήθεια</string>
 							<array class="NSMutableArray" key="NSMenuItems">
 								<object class="NSMenuItem" id="913954220">
 									<reference key="NSMenu" ref="572557097"/>
-									<string key="NSTitle">ImageOptim Help</string>
+									<string key="NSTitle">Βοήθεια ImageOptim</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1181,7 +1181,7 @@
 								</object>
 								<object class="NSMenuItem" id="128963598">
 									<reference key="NSMenu" ref="572557097"/>
-									<string key="NSTitle">ImageOptim Website</string>
+									<string key="NSTitle">Ιστοτόπος </string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -1207,7 +1207,7 @@
 								</object>
 								<object class="NSMenuItem" id="515055567">
 									<reference key="NSMenu" ref="572557097"/>
-									<string key="NSTitle">View Source</string>
+									<string key="NSTitle">Εμφάνιση προέλευσης</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -1243,7 +1243,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{173, 981}, {312, 440}}</string>
 				<int key="NSWTFlags">-1334311936</int>
-				<string key="NSWindowTitle">About ImageOptim</string>
+				<string key="NSWindowTitle">Περί ImageOptim</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<object class="NSMutableString" key="NSViewClass">
 					<characters key="NS.bytes">View</characters>
@@ -1422,7 +1422,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="877771820">
 								<int key="NSCellFlags">70254657</int>
 								<int key="NSCellFlags2">4363264</int>
-								<string key="NSContents">version</string>
+								<string key="NSContents">Έκδοση</string>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="805991443"/>
 								<reference key="NSTextColor" ref="777625168"/>
@@ -3080,7 +3080,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="188613459"/>
-						<string key="accessibilityValue">List of files to optimize</string>
+						<string key="accessibilityValue">Λίστα αρχείω προς βελτιστοποίηση</string>
 					</object>
 				</object>
 				<string key="236.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3092,7 +3092,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="237316198"/>
-						<string key="accessibilityValue">Size of file after optimization</string>
+						<string key="accessibilityValue">Μέγεθος μετά την βελτιστοποίηση</string>
 					</object>
 				</object>
 				<string key="239.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3114,7 +3114,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="646228687"/>
-						<string key="accessibilityValue">Status</string>
+						<string key="accessibilityValue">Κατάσταση</string>
 					</object>
 				</object>
 				<string key="294.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3137,7 +3137,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="866301361"/>
-						<string key="accessibilityValue">Add new files or directories</string>
+						<string key="accessibilityValue">Προσθήκη νέων αρχείων ή φακέλων</string>
 					</object>
 				</object>
 				<string key="423.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3150,7 +3150,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="238366736"/>
-						<string key="accessibilityValue">Optimization status</string>
+						<string key="accessibilityValue">Κατάσταση βελτιστοποίησης</string>
 					</object>
 				</object>
 				<string key="462.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3194,7 +3194,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="733806295"/>
-						<string key="accessibilityValue">Status</string>
+						<string key="accessibilityValue">Κατάσταση</string>
 					</object>
 				</object>
 				<string key="642.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3208,7 +3208,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="805991443"/>
-						<string key="accessibilityValue">version</string>
+						<string key="accessibilityValue">Έκδοση</string>
 					</object>
 				</object>
 				<string key="645.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3230,7 +3230,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="714728707"/>
-						<string key="accessibilityValue">Drop images here</string>
+						<string key="accessibilityValue">Σύρετε και αφήστε εικόνες εδώ</string>
 					</object>
 				</object>
 				<string key="712.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

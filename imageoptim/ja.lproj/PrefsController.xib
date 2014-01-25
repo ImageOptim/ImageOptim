@@ -122,7 +122,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="18581533">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">パーミッションを維持しない場合はネットワークドライブへの保存が早くなります</string>
+																	<string key="NSContents">維持しない場合、ネットワークドライブへの保存が早くなります</string>
 																	<object class="NSFont" key="NSSupport" id="26">
 																		<string key="NSName">.LucidaGrandeUI</string>
 																		<double key="NSSize">11</double>
@@ -230,7 +230,7 @@
 																<object class="NSButtonCell" key="NSCell" id="731398776">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">PNGのメタデータを取り除く (ガンマ値、カラープロファイル、任意データ)</string>
+																	<string key="NSContents">PNGのメタデータを取り除く (ガンマ値、カラープロファイルなど)</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="469954983"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -254,7 +254,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="477679095">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">多くのウェブブラウザはガンマ情報に対応していません</string>
+																	<string key="NSContents">一部のウェブブラウザはガンマ値に対応していません</string>
 																	<reference key="NSSupport" ref="26"/>
 																	<reference key="NSControlView" ref="1045259908"/>
 																	<reference key="NSBackgroundColor" ref="585428330"/>
@@ -273,7 +273,7 @@
 																<object class="NSButtonCell" key="NSCell" id="458069250">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">JPEGのメタデータを取り除く (EXIF、カラープロファイル、GPS、向きなど)</string>
+																	<string key="NSContents">JPEGのメタデータを取り除く (EXIF、カラープロファイル、GPSなど)</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="354107699"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -297,7 +297,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="254823532">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">埋め込まれた著作権情報を必要とする場合は不適切です</string>
+																	<string key="NSContents">埋め込まれた著作権情報を必要とする場合はおすすめしません</string>
 																	<reference key="NSSupport" ref="26"/>
 																	<reference key="NSControlView" ref="1001070319"/>
 																	<reference key="NSBackgroundColor" ref="585428330"/>
@@ -847,7 +847,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="645880451">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">272629760</int>
-													<string key="NSContents">インターレース形式は一般的に容量が大きくなります</string>
+													<string key="NSContents">インターレース形式は一般的にサイズが大きくなります</string>
 													<object class="NSFont" key="NSSupport">
 														<string key="NSName">.LucidaGrandeUI</string>
 														<double key="NSSize">10</double>

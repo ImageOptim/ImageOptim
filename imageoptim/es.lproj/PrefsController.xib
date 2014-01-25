@@ -89,7 +89,7 @@
 																<object class="NSButtonCell" key="NSCell" id="959669707">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">Preservar permisos de archivos, atributos y hardlinks</string>
+																	<string key="NSContents">Conservar permisos de archivos, atributos y hardlinks</string>
 																	<object class="NSFont" key="NSSupport" id="352456772">
 																		<string key="NSName">.LucidaGrandeUI</string>
 																		<double key="NSSize">13</double>
@@ -122,7 +122,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="18581533">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">Saving to network drives is faster when permissions are not preserved</string>
+																	<string key="NSContents">Guardar en unidades de red es más rápido cuando los permisos no se conservan</string>
 																	<object class="NSFont" key="NSSupport" id="26">
 																		<string key="NSName">.LucidaGrandeUI</string>
 																		<double key="NSSize">11</double>
@@ -297,7 +297,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="254823532">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">Not recommended if you rely on embedded copyright information</string>
+																	<string key="NSContents">No recomendado si necesita mantener incrustrada información de copyright</string>
 																	<reference key="NSSupport" ref="26"/>
 																	<reference key="NSControlView" ref="1001070319"/>
 																	<reference key="NSBackgroundColor" ref="585428330"/>

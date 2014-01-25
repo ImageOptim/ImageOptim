@@ -89,7 +89,7 @@
 																<object class="NSButtonCell" key="NSCell" id="959669707">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">Сохранять права файлов, атрибуты и ссылки</string>
+																	<string key="NSContents">Сохранять разрешения, аттрибуты и ссылки</string>
 																	<object class="NSFont" key="NSSupport" id="352456772">
 																		<string key="NSName">.LucidaGrandeUI</string>
 																		<double key="NSSize">13</double>
@@ -122,7 +122,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="18581533">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">Saving to network drives is faster when permissions are not preserved</string>
+																	<string key="NSContents">Сохранение на сетевые диски происходит быстрее, если не сохранять разрешения файлов</string>
 																	<object class="NSFont" key="NSSupport" id="26">
 																		<string key="NSName">.LucidaGrandeUI</string>
 																		<double key="NSSize">11</double>
@@ -230,7 +230,7 @@
 																<object class="NSButtonCell" key="NSCell" id="731398776">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">PNG: Удалять все дополнительные чанки</string>
+																	<string key="NSContents">Удалить метаданные PNG (гамму, цветовые профили и др.)</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="469954983"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -273,7 +273,7 @@
 																<object class="NSButtonCell" key="NSCell" id="458069250">
 																	<int key="NSCellFlags">-2080374784</int>
 																	<int key="NSCellFlags2">0</int>
-																	<string key="NSContents">JPEG: Вырезать метки EXIF и комментарии из файлов</string>
+																	<string key="NSContents">Удалить метаданные JPEG (EXIF, профили цвета, GPS и др.)</string>
 																	<reference key="NSSupport" ref="352456772"/>
 																	<reference key="NSControlView" ref="354107699"/>
 																	<int key="NSButtonFlags">1211912448</int>
@@ -297,7 +297,7 @@
 																<object class="NSTextFieldCell" key="NSCell" id="254823532">
 																	<int key="NSCellFlags">67108864</int>
 																	<int key="NSCellFlags2">4194304</int>
-																	<string key="NSContents">Not recommended if you rely on embedded copyright information</string>
+																	<string key="NSContents">Не рекомендуется, если вы полагаетесь на встроенную информацию о правообладателе</string>
 																	<reference key="NSSupport" ref="26"/>
 																	<reference key="NSControlView" ref="1001070319"/>
 																	<reference key="NSBackgroundColor" ref="585428330"/>
@@ -321,7 +321,7 @@
 												<object class="NSTextFieldCell" key="NSTitleCell">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Metadata</string>
+													<string key="NSContents">Метаданные и цветовые профили</string>
 													<reference key="NSSupport" ref="26"/>
 													<reference key="NSBackgroundColor" ref="265439438"/>
 													<object class="NSColor" key="NSTextColor">
@@ -722,7 +722,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="182098264">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">138412032</int>
-													<string key="NSContents">Длительное соответствие</string>
+													<string key="NSContents">Наибольшее совпадение</string>
 													<reference key="NSSupport" ref="22"/>
 													<reference key="NSControlView" ref="172865613"/>
 													<reference key="NSBackgroundColor" ref="585428330"/>
@@ -767,7 +767,7 @@
 												<object class="NSButtonCell" key="NSCell" id="746330584">
 													<int key="NSCellFlags">-2080374784</int>
 													<int key="NSCellFlags2">0</int>
-													<string key="NSContents">Прерывать, если оптимизация занимает много времени</string>
+													<string key="NSContents">Прервать, если занимает много времени</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="801424669"/>
 													<int key="NSButtonFlags">1211912448</int>
@@ -804,7 +804,7 @@
 												<object class="NSButtonCell" key="NSCell" id="337448332">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">16777216</int>
-													<string key="NSContents">Использовать чересстрочную развертку (прогрессивно)</string>
+													<string key="NSContents">Сделать изображения черезстрочными (прогрессивными)</string>
 													<reference key="NSSupport" ref="352456772"/>
 													<reference key="NSControlView" ref="892500559"/>
 													<int key="NSButtonFlags">1211912448</int>
@@ -847,7 +847,7 @@
 												<object class="NSTextFieldCell" key="NSCell" id="645880451">
 													<int key="NSCellFlags">67108864</int>
 													<int key="NSCellFlags2">272629760</int>
-													<string key="NSContents">Прогрессивные изображения обычно больше</string>
+													<string key="NSContents">Черезстрочные изображения обычно больше</string>
 													<object class="NSFont" key="NSSupport">
 														<string key="NSName">.LucidaGrandeUI</string>
 														<double key="NSSize">10</double>

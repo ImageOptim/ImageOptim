@@ -159,7 +159,7 @@
 														<bool key="NSAscending">YES</bool>
 														<string key="NSSelector">compare:</string>
 													</object>
-													<string key="NSHeaderToolTip">最適化ステータス</string>
+													<string key="NSHeaderToolTip">Optimization status</string>
 												</object>
 												<object class="NSTableColumn" id="56751955">
 													<string key="NSIdentifier">filename</string>
@@ -605,7 +605,7 @@
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSMenu" id="717955284">
-				<string key="NSTitle">メインメニュー</string>
+				<string key="NSTitle">MainMenu</string>
 				<array class="NSMutableArray" key="NSMenuItems">
 					<object class="NSMenuItem" id="193076470">
 						<reference key="NSMenu" ref="717955284"/>
@@ -1114,7 +1114,7 @@
 									<string key="NSAction">submenuAction:</string>
 									<reference key="NSTarget" ref="508032773"/>
 									<object class="NSMenu" key="NSSubmenu" id="508032773">
-										<string key="NSTitle">顯示欄位</string>
+										<string key="NSTitle"/>
 										<array class="NSMutableArray" key="NSMenuItems">
 											<object class="NSMenuItem" id="185434306">
 												<reference key="NSMenu" ref="508032773"/>
@@ -3080,7 +3080,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="188613459"/>
-						<string key="accessibilityValue">最適化するファイルリスト</string>
+						<string key="accessibilityValue">List of files to optimize</string>
 					</object>
 				</object>
 				<string key="236.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3092,7 +3092,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="237316198"/>
-						<string key="accessibilityValue">最適化後の容量</string>
+						<string key="accessibilityValue">Size of file after optimization</string>
 					</object>
 				</object>
 				<string key="239.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3137,7 +3137,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="866301361"/>
-						<string key="accessibilityValue">新しいファイルまたはフォルダを追加</string>
+						<string key="accessibilityValue">Add new files or directories</string>
 					</object>
 				</object>
 				<string key="423.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3150,7 +3150,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="238366736"/>
-						<string key="accessibilityValue">最適化ステータス</string>
+						<string key="accessibilityValue">Optimization status</string>
 					</object>
 				</object>
 				<string key="462.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3194,7 +3194,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="733806295"/>
-						<string key="accessibilityValue">ステータス</string>
+						<string key="accessibilityValue">Status</string>
 					</object>
 				</object>
 				<string key="642.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3230,7 +3230,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="714728707"/>
-						<string key="accessibilityValue">ここに画像をドロップしてください</string>
+						<string key="accessibilityValue">Drop images here</string>
 					</object>
 				</object>
 				<string key="712.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
