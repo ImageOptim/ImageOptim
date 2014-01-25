@@ -2,13 +2,13 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">12F37</string>
-		<string key="IBDocument.InterfaceBuilderVersion">4510</string>
-		<string key="IBDocument.AppKitVersion">1187.39</string>
-		<string key="IBDocument.HIToolboxVersion">626.00</string>
+		<string key="IBDocument.SystemVersion">13C39</string>
+		<string key="IBDocument.InterfaceBuilderVersion">4514</string>
+		<string key="IBDocument.AppKitVersion">1265.14</string>
+		<string key="IBDocument.HIToolboxVersion">697.40</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">4510</string>
+			<string key="NS.object.0">4514</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSArrayController</string>
@@ -109,7 +109,7 @@
 														<int key="NSCellFlags2">134219776</int>
 														<string key="NSContents"/>
 														<object class="NSFont" key="NSSupport" id="26">
-															<string key="NSName">LucidaGrande</string>
+															<string key="NSName">.LucidaGrandeUI</string>
 															<double key="NSSize">11</double>
 															<int key="NSfFlags">3100</int>
 														</object>
@@ -144,7 +144,7 @@
 															</object>
 														</object>
 														<object class="NSFont" key="NSSupport" id="725316391">
-															<string key="NSName">LucidaGrande</string>
+															<string key="NSName">.LucidaGrandeUI</string>
 															<double key="NSSize">13</double>
 															<int key="NSfFlags">1044</int>
 														</object>
@@ -525,6 +525,7 @@
 								<reference key="NSTextColor" ref="777625168"/>
 							</object>
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+							<int key="NSTextFieldAlignmentRectInsetsVersion">1</int>
 						</object>
 						<object class="NSButton" id="866301361">
 							<reference key="NSNextResponder" ref="633482293"/>
@@ -621,6 +622,7 @@
 							<string key="NSResourceName">NSMenuMixedState</string>
 						</object>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="278414166"/>
 						<object class="NSMenu" key="NSSubmenu" id="278414166">
 							<string key="NSTitle">ImageOptim</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -680,6 +682,7 @@
 									<reference key="NSOnImage" ref="855672835"/>
 									<reference key="NSMixedImage" ref="898714739"/>
 									<string key="NSAction">submenuAction:</string>
+									<reference key="NSTarget" ref="926507347"/>
 									<object class="NSMenu" key="NSSubmenu" id="926507347">
 										<string key="NSTitle">Tjänster</string>
 										<array class="NSMutableArray" key="NSMenuItems"/>
@@ -757,6 +760,7 @@
 						<reference key="NSOnImage" ref="855672835"/>
 						<reference key="NSMixedImage" ref="898714739"/>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="810587040"/>
 						<object class="NSMenu" key="NSSubmenu" id="810587040">
 							<string key="NSTitle">Arkiv</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -830,6 +834,7 @@
 						<reference key="NSOnImage" ref="855672835"/>
 						<reference key="NSMixedImage" ref="898714739"/>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="777814834"/>
 						<object class="NSMenu" key="NSSubmenu" id="777814834">
 							<string key="NSTitle">Redigera</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -939,6 +944,7 @@
 						<reference key="NSOnImage" ref="855672835"/>
 						<reference key="NSMixedImage" ref="898714739"/>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="956832752"/>
 						<object class="NSMenu" key="NSSubmenu" id="956832752">
 							<string key="NSTitle">Verktyg</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -1046,6 +1052,7 @@
 						<reference key="NSOnImage" ref="855672835"/>
 						<reference key="NSMixedImage" ref="898714739"/>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="564456469"/>
 						<object class="NSMenu" key="NSSubmenu" id="564456469">
 							<string key="NSTitle">Fönster</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -1105,6 +1112,7 @@
 									<reference key="NSOnImage" ref="855672835"/>
 									<reference key="NSMixedImage" ref="898714739"/>
 									<string key="NSAction">submenuAction:</string>
+									<reference key="NSTarget" ref="508032773"/>
 									<object class="NSMenu" key="NSSubmenu" id="508032773">
 										<string key="NSTitle"/>
 										<array class="NSMutableArray" key="NSMenuItems">
@@ -1158,6 +1166,7 @@
 						<reference key="NSOnImage" ref="855672835"/>
 						<reference key="NSMixedImage" ref="898714739"/>
 						<string key="NSAction">submenuAction:</string>
+						<reference key="NSTarget" ref="572557097"/>
 						<object class="NSMenu" key="NSSubmenu" id="572557097">
 							<string key="NSTitle">Hjälp</string>
 							<array class="NSMutableArray" key="NSMenuItems">
@@ -1309,7 +1318,7 @@
 												<int key="NSTCFlags">1</int>
 											</object>
 											<object class="NSTextViewSharedData" key="NSSharedData">
-												<int key="NSFlags">33556485</int>
+												<int key="NSFlags">50464773</int>
 												<int key="NSTextCheckingTypes">0</int>
 												<nil key="NSMarkedAttributes"/>
 												<object class="NSColor" key="NSBackgroundColor" id="504455196">
@@ -1419,6 +1428,7 @@
 								<reference key="NSTextColor" ref="777625168"/>
 							</object>
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+							<int key="NSTextFieldAlignmentRectInsetsVersion">1</int>
 						</object>
 					</array>
 					<string key="NSFrameSize">{312, 440}</string>
