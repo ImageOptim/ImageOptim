@@ -6,6 +6,7 @@
 
 #import "Worker.h"
 #import "File.h"
+#import "log.h"
 
 @implementation Worker
 
@@ -66,7 +67,7 @@
                 [self run];
                 [self markResultForSkipping];
             } else {
-                NSLog(@"Skipping %@, because it already optimized %@", [self className], file.fileName);
+                IODebug("Skipping %@, because it already optimized %@", [self className], file.fileName);
             }
         }
     }

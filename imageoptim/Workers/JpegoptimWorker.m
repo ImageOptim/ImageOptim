@@ -6,6 +6,7 @@
 
 #import "JpegoptimWorker.h"
 #import "../File.h"
+#import "../log.h"
 
 @implementation JpegoptimWorker
 
@@ -37,7 +38,7 @@
 	
 	if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error])
 	{
-		NSLog(@"Can't make temp copy of %@ in %@",[file filePath],temp);
+        IOWarn("Can't make temp copy of %@ in %@",[file filePath],temp);
 	}
 
 	NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-q",@"--",temp,nil];

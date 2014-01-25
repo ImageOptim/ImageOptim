@@ -8,6 +8,7 @@
 
 #import "PngoutWorker.h"
 #import "../File.h"
+#import "../log.h"
 
 @implementation PngoutWorker
 
@@ -51,8 +52,8 @@
     }
     
 	if (![[NSFileManager defaultManager] createFileAtPath:temp contents:[NSData data] attributes:nil])
-	{	
-		NSLog(@"Cant create %@",temp);
+	{
+		IOWarn("Cant create %@",temp);
 	}
 		
 	NSFileHandle *fileOutputHandle = [NSFileHandle fileHandleForWritingAtPath:temp];
@@ -113,11 +114,9 @@
 	}
 	else if ([line length] >= 3 && [line characterAtIndex:2] == '%')
 	{	
-//		NSLog(@"%@",line);
 	}
 	else if ([line length] >= 4 && [[line substringToIndex:4] isEqual:@"Took"])
 	{
-//		NSLog(@"Tookline %@",line);
 		return YES;
 	}	
 	return NO;

@@ -6,6 +6,7 @@
 
 #import "DirWorker.h"
 #import "../FilesQueue.h"
+#import "../log.h"
 
 @implementation DirWorker
 
@@ -51,7 +52,7 @@
 		if ([buffer count]) [filesQueue addPaths:buffer filesOnly:YES];
     }
     @catch (NSException *ex) {
-        NSLog(@"DIR worker failed %@",ex);
+        IOWarn("DIR worker failed %@",ex);
     }
 }
 

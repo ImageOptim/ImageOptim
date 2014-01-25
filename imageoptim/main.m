@@ -3,6 +3,7 @@
 //
 
 int quitWhenDone = 0;
+int hideLogs = 0;
 
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
@@ -20,7 +21,7 @@ static int isLaunchedWithCliArguments(int argc, char *argv[]) {
 
 int main(int argc, char *argv[])
 {
-    quitWhenDone = isLaunchedWithCliArguments(argc, argv);
+    quitWhenDone = hideLogs = isLaunchedWithCliArguments(argc, argv);
 
     return NSApplicationMain(argc,  (const char **) argv);
 }

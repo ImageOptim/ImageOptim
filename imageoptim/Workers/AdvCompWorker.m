@@ -6,6 +6,7 @@
 
 #import "AdvCompWorker.h"
 #import "../File.h"
+#import "../log.h"
 
 @implementation AdvCompWorker
 
@@ -30,7 +31,7 @@
 	
 	if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error])
 	{
-		NSLog(@"Can't make temp copy of %@ in %@; %@",[file filePath],temp,error);
+		IOWarn("Can't make temp copy of %@ in %@; %@",[file filePath],temp,error);
         return NO;
 	}
     

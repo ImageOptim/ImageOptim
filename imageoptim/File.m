@@ -15,6 +15,7 @@
 #import "Workers/JpegtranWorker.h"
 #import "Workers/GifsicleWorker.h"
 #import <sys/xattr.h>
+#import "log.h"
 
 @implementation File
 
@@ -132,7 +133,7 @@ enum {
 {
     @synchronized(self)
     {
-        NSLog(@"File %@ optimized with %@ from %u to %u in %@",filePath?filePath:filePathOptimized,toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,tempPath);
+        IODebug("File %@ optimized with %@ from %u to %u in %@",filePath?filePath:filePathOptimized,toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,tempPath);
         if (size < byteSizeOptimized)
         {
             self.bestToolName = [toolname stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
@@ -179,9 +180,9 @@ enum {
         NSString *name = [NSString stringWithUTF8String:utf8name];
         if ([extAttrToRemove objectForKey:name]) {
             if (removexattr(fileSystemPath, utf8name, 0) == 0){
-                NSLog(@"Removed %s from %s", utf8name, fileSystemPath);
+                IODebug("Removed %s from %s", utf8name, fileSystemPath);
             } else {
-                NSLog(@"Can't remove %s from %s", utf8name, fileSystemPath);
+                IOWarn("Can't remove %s from %s", utf8name, fileSystemPath);
                 return NO;
             }
         }
@@ -202,7 +203,7 @@ enum {
         if (!err || [*err domain] != NSCocoaErrorDomain || [*err code] != 3328) {
             return NO;
         }
-        NSLog(@"Recovering trashing error %@", *err);
+        IOWarn("Recovering trashing error %@", *err);
         // error = 3328 means volume doesn't have trash
         // to recover, copy file to temp and then trash
         NSString *tempPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[path lastPathComponent]];
@@ -234,7 +235,7 @@ enum {
 {
 	if (!filePathOptimized)
 	{
-		NSLog(@"WTF? save without filePathOptimized? for %@", filePath);
+		IOWarn("WTF? save without filePathOptimized? for %@", filePath);
 		return NO;
 	}
 
@@ -248,7 +249,7 @@ enum {
         NSString *moveFromPath = filePathOptimized;
 
         if (![fm isWritableFileAtPath:[filePath stringByDeletingLastPathComponent]]) {
-            NSLog(@"The file %@ is in non-writeable directory", filePath);
+            IOWarn("The file %@ is in non-writeable directory", filePath);
             return NO;
         }
 
@@ -259,10 +260,10 @@ enum {
 
             if ([fm fileExistsAtPath:writeToPath]) {
                 if (![self trashFileAtPath:writeToPath error:&error]) {
-                    NSLog(@"%@", error);
+                    IOWarn("%@", error);
                     error = nil;
                     if (![fm removeItemAtPath:writeToPath error:&error]) {
-                        NSLog(@"%@", error);
+                        IOWarn("%@", error);
                         return NO;
                     }
                 }
@@ -270,36 +271,36 @@ enum {
 
             // move destination to temporary location that will be overwritten
             if (![fm moveItemAtPath:filePath toPath:writeToPath error:&error]) {
-                NSLog(@"Can't move to %@ %@", writeToPath, error);
+                IOWarn("Can't move to %@ %@", writeToPath, error);
                 return NO;
             }
 
             // copy original data for trashing under original file name
             if (![fm copyItemAtPath:writeToPath toPath:filePath error:&error]) {
-                NSLog(@"Can't write to %@ %@", filePath, error);
+                IOWarn("Can't write to %@ %@", filePath, error);
                 return NO;
             }
 
             NSData *data = [NSData dataWithContentsOfFile:filePathOptimized];
             if (!data) {
-                NSLog(@"Unable to read %@", filePathOptimized);
+                IOWarn("Unable to read %@", filePathOptimized);
                 return NO;
             }
 
             if ([data length] != byteSizeOptimized) {
-                NSLog(@"Temp file size %u does not match expected %u in %@ for %@",(unsigned int)[data length],(unsigned int)byteSizeOptimized,filePathOptimized,filePath);
+                IOWarn("Temp file size %u does not match expected %u in %@ for %@",(unsigned int)[data length],(unsigned int)byteSizeOptimized,filePathOptimized,filePath);
                 return NO;
             }
 
             if ([data length] < 30) {
-                NSLog(@"File %@ is suspiciously small, could be truncated", filePathOptimized);
+                IOWarn("File %@ is suspiciously small, could be truncated", filePathOptimized);
                 return NO;
             }
 
             // overwrite old file that is under temporary name (so only content is replaced, not file metadata)
 			NSFileHandle *writehandle = [NSFileHandle fileHandleForWritingAtPath:writeToPath];
             if (!writehandle) {
-                NSLog(@"Unable to open %@ for writing. Check file permissions.", filePath);
+                IOWarn("Unable to open %@ for writing. Check file permissions.", filePath);
                 return NO;
             }
 
@@ -311,17 +312,17 @@ enum {
         }
 
         if (![self trashFileAtPath:filePath error:&error]) {
-            NSLog(@"Can't trash %@ %@", filePath, error);
+            IOWarn("Can't trash %@ %@", filePath, error);
             NSString *backupPath = [[[filePath stringByDeletingPathExtension] stringByAppendingString:@"~bak"]
                                      stringByAppendingPathExtension:[filePath pathExtension]];
             if (![fm moveItemAtPath:filePath toPath:backupPath error:&error]) {
-                NSLog(@"Can't move to %@ %@", backupPath, error);
+                IOWarn("Can't move to %@ %@", backupPath, error);
                 return NO;
             }
         }
 
         if (![fm moveItemAtPath:moveFromPath toPath:filePath error:&error]) {
-            NSLog(@"Failed to move from %@ to %@; %@",moveFromPath, filePath, error);
+            IOWarn("Failed to move from %@ to %@; %@",moveFromPath, filePath, error);
             return NO;
         }
 
@@ -331,7 +332,7 @@ enum {
 	}
 	@catch(NSException *e)
 	{
-		NSLog(@"Exception thrown %@ while saving %@",e, filePath);
+		IOWarn("Exception thrown %@ while saving %@",e, filePath);
 		return NO;
 	}
 
@@ -372,7 +373,7 @@ enum {
         {
             if (!byteSizeOriginal || !byteSizeOptimized)
             {
-                NSLog(@"worker %@ finished, but result file has 0 size",worker);
+                IODebug("worker %@ finished, but result file has 0 size",worker);
                 [self setStatus:@"err" order:8 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
             }
             else if (workersFinished == workersTotal)
@@ -629,7 +630,7 @@ enum {
 {
 	NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:afile error:nil];
 	if (attr) return [[attr objectForKey:NSFileSize] integerValue];
-    NSLog(@"Could not stat %@",afile);
+    IOWarn("Could not stat %@",afile);
 	return 0;
 }
 

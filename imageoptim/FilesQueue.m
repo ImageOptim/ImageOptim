@@ -5,7 +5,7 @@
 //
 #import "File.h"
 #import "FilesQueue.h"
-
+#import "log.h"
 #import "Workers/DirWorker.h"
 #import "RevealButtonCell.h"
 
@@ -349,7 +349,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     for(NSString *path in paths) {
         if (fm) {
             if (![fm fileExistsAtPath:path isDirectory:&isDir]) {
-                NSLog(@"%@ doesn't exist", path);
+                IOWarn("%@ doesn't exist", path);
                 allOK = NO;
                 continue;
             }
