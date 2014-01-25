@@ -19,13 +19,7 @@
 
 @implementation File
 
-enum {
-    FILETYPE_PNG=1,
-    FILETYPE_JPEG,
-    FILETYPE_GIF
-};
-
-@synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName;
+@synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName, fileType;
 
 -(id)initWithFilePath:(NSString *)name;
 {

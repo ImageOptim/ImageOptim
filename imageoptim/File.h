@@ -8,6 +8,12 @@
 #import <Quartz/Quartz.h>
 #import "Workers/Worker.h"
 
+enum IOFileType {
+    FILETYPE_PNG=1,
+    FILETYPE_JPEG,
+    FILETYPE_GIF
+};
+
 @interface File : NSObject <NSCopying, WorkerQueueDelegate, QLPreviewItem> {
 	NSString *filePath;
 	NSString *displayName;
@@ -37,7 +43,7 @@
     
     NSOperationQueue *fileIOQueue;
     
-    int fileType;
+    enum IOFileType fileType;
     BOOL done, optimized;
 }
 
@@ -69,6 +75,7 @@
 @property (assign,nonatomic) NSUInteger byteSizeOriginal, byteSizeOptimized;
 @property (assign,readonly) NSInteger statusOrder;
 @property (strong,readonly) NSMutableDictionary *workersPreviousResults;
+@property (assign) enum IOFileType fileType;
 
 @property (assign) double percentDone;
 
