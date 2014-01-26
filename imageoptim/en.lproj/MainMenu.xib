@@ -82,7 +82,7 @@
 											<string key="NSFrameSize">{549, 242}</string>
 											<reference key="NSSuperview" ref="180760454"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="496677504"/>
+											<reference key="NSNextKeyView" ref="356058265"/>
 											<bool key="NSEnabled">YES</bool>
 											<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 											<bool key="NSControlAllowsExpansionToolTips">YES</bool>
@@ -505,7 +505,7 @@
 							<string key="NSFrame">{{0, 39}, {549, 259}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="180760454"/>
+							<reference key="NSNextKeyView" ref="496677504"/>
 							<int key="NSsFlags">133648</int>
 							<reference key="NSVScroller" ref="356058265"/>
 							<reference key="NSHScroller" ref="496677504"/>
@@ -576,6 +576,7 @@
 							<string key="NSFrame">{{470, 6}, {71, 25}}</string>
 							<reference key="NSSuperview" ref="633482293"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="650797074">
 								<int key="NSCellFlags">67108864</int>
@@ -890,20 +891,20 @@
 									<reference key="NSOnImage" ref="855672835"/>
 									<reference key="NSMixedImage" ref="898714739"/>
 								</object>
-								<object class="NSMenuItem" id="270538027">
-									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Copy as Data URI</string>
-									<string key="NSKeyEquiv">c</string>
-									<int key="NSKeyEquivModMask">1572864</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="855672835"/>
-									<reference key="NSMixedImage" ref="898714739"/>
-								</object>
 								<object class="NSMenuItem" id="330968477">
 									<reference key="NSMenu" ref="777814834"/>
 									<string key="NSTitle">Copy</string>
 									<string key="NSKeyEquiv">c</string>
 									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="855672835"/>
+									<reference key="NSMixedImage" ref="898714739"/>
+								</object>
+								<object class="NSMenuItem" id="270538027">
+									<reference key="NSMenu" ref="777814834"/>
+									<string key="NSTitle">Copy as Data URL</string>
+									<string key="NSKeyEquiv">c</string>
+									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
 									<reference key="NSMixedImage" ref="898714739"/>
@@ -1323,7 +1324,7 @@
 											<string key="NSFrameSize">{290, 280}</string>
 											<reference key="NSSuperview" ref="183240755"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="912368459"/>
+											<reference key="NSNextKeyView"/>
 											<object class="NSTextContainer" key="NSTextContainer" id="458419734">
 												<object class="NSLayoutManager" key="NSLayoutManager">
 													<object class="NSTextStorage" key="NSTextStorage">
@@ -1431,7 +1432,7 @@
 							<string key="NSFrame">{{11, 0}, {301, 280}}</string>
 							<reference key="NSSuperview" ref="216029037"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="183240755"/>
+							<reference key="NSNextKeyView" ref="912368459"/>
 							<int key="NSsFlags">133632</int>
 							<reference key="NSVScroller" ref="912368459"/>
 							<reference key="NSHScroller" ref="573940884"/>

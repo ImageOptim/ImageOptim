@@ -876,20 +876,20 @@
 									<reference key="NSOnImage" ref="855672835"/>
 									<reference key="NSMixedImage" ref="898714739"/>
 								</object>
-								<object class="NSMenuItem" id="270538027">
-									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Copiar Data URI</string>
-									<string key="NSKeyEquiv">c</string>
-									<int key="NSKeyEquivModMask">1572864</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="855672835"/>
-									<reference key="NSMixedImage" ref="898714739"/>
-								</object>
 								<object class="NSMenuItem" id="330968477">
 									<reference key="NSMenu" ref="777814834"/>
 									<string key="NSTitle">Copiar</string>
 									<string key="NSKeyEquiv">c</string>
 									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="855672835"/>
+									<reference key="NSMixedImage" ref="898714739"/>
+								</object>
+								<object class="NSMenuItem" id="270538027">
+									<reference key="NSMenu" ref="777814834"/>
+									<string key="NSTitle">Copiar Data URL</string>
+									<string key="NSKeyEquiv">c</string>
+									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
 									<reference key="NSMixedImage" ref="898714739"/>
