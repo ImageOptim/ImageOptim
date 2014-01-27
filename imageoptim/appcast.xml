@@ -7,7 +7,7 @@
 <language>en</language>
 
 <item>
-<title>Version 1.5.1a2</title>
+<title>Version 1.5.1</title>
 <description><![CDATA[
     <ul>
         <li>Copy as Data URL (copies small image files as data:image/… URLs for inlining in CSS/HTML)</li>
@@ -21,9 +21,10 @@
         <li>Updated Greek and Italian translations (thanks Giorgis Zacharakis and Oscar Fanelli)</li>
     </ul>
 ]]></description>
-<pubDate>Sat, 25 Jan 2014 22:14:11 +0000</pubDate>
-<enclosure url="http://imageoptim.com/ImageOptim1.5.1a2.tar.bz2" sparkle:version="1.5.0.2" length="1751018" type="application/bzip2" sparkle:dsaSignature="MCwCFH4gUQ/oAF+DQbXsKKyKihIKlY+GAhRZstEUS6MF1JV5zx5Pkgl9eGuNGw=="/>
+<pubDate>Mon, 27 Jan 2014 00:20:40 +0000</pubDate>
+<enclosure url="http://imageoptim.com/ImageOptim1.5.1.tar.bz2" sparkle:version="1.5.1" length="1679620" type="application/bzip2" sparkle:dsaSignature="MC0CFGrrhPr0gSPP9UhPEOE8Ktq7SfSFAhUAlrPodZFCtEsh3v4HnmzxOk68xlM="/>
 <sparkle:minimumSystemVersion>10.6.8</sparkle:minimumSystemVersion>
+
 
 
 
