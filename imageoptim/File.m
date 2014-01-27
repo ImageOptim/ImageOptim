@@ -404,7 +404,7 @@
     NSData *fileData = [NSData dataWithContentsOfMappedFile:filePath];
     NSUInteger length = [fileData length];
     if (!fileData || !length) {
-        [self setStatus:@"err" order:8 text:NSLocalizedString(@"Can't map file into memory",@"tooltip, generic loading error")];
+        [self setStatus:@"err" order:8 text:NSLocalizedString(@"Can't open the file",@"tooltip, generic loading error")];
         return;
     }
 
