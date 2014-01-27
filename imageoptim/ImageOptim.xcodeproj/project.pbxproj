@@ -1063,7 +1063,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "codesign -f --verbose --deep -s \"Developer ID Application\" \"$BUILT_PRODUCTS_DIR/ImageOptim.app\" || exit 7\nfind \"$BUILT_PRODUCTS_DIR/ImageOptim.app\" -print0 | xargs -0 -P8 xattr -c\nspctl --assess \"$BUILT_PRODUCTS_DIR/ImageOptim.app\" || exit 13\nPATH=$PATH:/usr/local/bin\nTAR=$(which gnutar || which gtar || which tar)\ncd \"$BUILT_PRODUCTS_DIR/\" && $TAR cjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" --numeric-owner --owner=0 --group=0 --mtime=2013-12-07 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\"\n";
+			shellScript = "set -e\ncodesign -f --verbose --deep -s \"Developer ID Application\" \"$BUILT_PRODUCTS_DIR/ImageOptim.app\" || exit 7\nfind \"$BUILT_PRODUCTS_DIR/ImageOptim.app\" -print0 | xargs -0 -P8 xattr -c\nPATH=$PATH:/usr/local/bin\nTAR=$(which gnutar || which gtar || which tar)\ncd \"$BUILT_PRODUCTS_DIR/\" && $TAR cjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" --numeric-owner --owner=0 --group=0 --mtime=2014-01-27 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\"\nrm -rf ImageOptim.app\ntar xjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\"\nspctl --assess \"ImageOptim.app\" || exit 13\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
