@@ -10,6 +10,8 @@
 	<true/>
 	<key>JpegOptimMaxQuality</key>
 	<integer>100</integer>
+	<key>PngMinQuality</key>
+	<integer>100</integer>
 	<key>JpegTranStripAll</key>
 	<true/>
 	<key>JpegTranEnabled</key>
