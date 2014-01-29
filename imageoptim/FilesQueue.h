@@ -12,7 +12,6 @@ extern NSString *const kFilesQueueFinished;
 
 @interface FilesQueue : NSArrayController <NSTableViewDelegate,NSTableViewDataSource> {
 	NSTableView *tableView;
-	NSArrayController *filesController;
 	BOOL isEnabled, isBusy;
 	NSInteger nextInsertRow;
 	NSOperationQueue *cpuQueue;

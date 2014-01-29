@@ -5,7 +5,7 @@
 //
 
 #import "File.h"
-#import "ImageOptim.h"
+#import "ImageOptimController.h"
 #import "Workers/AdvCompWorker.h"
 #import "Workers/PngoutWorker.h"
 #import "Workers/OptiPngWorker.h"

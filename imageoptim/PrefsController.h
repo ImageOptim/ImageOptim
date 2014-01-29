@@ -5,7 +5,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-@class ImageOptim;
+@class ImageOptimController;
 
 @interface PrefsController : NSWindowController {
 }

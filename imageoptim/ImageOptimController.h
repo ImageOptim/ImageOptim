@@ -6,11 +6,11 @@ extern NSDictionary *statusImages;
 @class FilesQueue;
 @class PrefsController;
 
-@interface ImageOptim : NSObject <NSApplicationDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate>
+@interface ImageOptimController : NSObject <NSApplicationDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate>
 {
 	IBOutlet NSTableView *tableView;
 	IBOutlet FilesQueue *__unsafe_unretained filesController;
-	
+
 	PrefsController *prefsController;
 
 	IBOutlet NSProgressIndicator *progressBar;

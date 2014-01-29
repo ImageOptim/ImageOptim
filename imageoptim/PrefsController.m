@@ -5,7 +5,7 @@
 //
 
 #import "PrefsController.h"
-#import "ImageOptim.h"
+#import "ImageOptimController.h"
 #import "Transformers.h"
 
 @implementation PrefsController

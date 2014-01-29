@@ -5,7 +5,7 @@
 */
 
 #import "DragDropImageView.h"
-#import "ImageOptim.h"
+#import "ImageOptimController.h"
 #import "FilesQueue.h"
 
 
@@ -98,8 +98,8 @@
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)sender {
     if ([sender draggingSource]!=self) {
 
-        ImageOptim *app = [NSApp delegate];
-        assert([app isKindOfClass:[ImageOptim class]]);
+        ImageOptimController *app = [NSApp delegate];
+        assert([app isKindOfClass:[ImageOptimController class]]);
         FilesQueue *filesqueue=app.filesQueue;
         NSArray *files = [[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType];
 

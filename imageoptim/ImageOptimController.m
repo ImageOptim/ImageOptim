@@ -1,4 +1,4 @@
-#import "ImageOptim.h"
+#import "ImageOptimController.h"
 #import "FilesQueue.h"
 #import "RevealButtonCell.h"
 #import "File.h"
@@ -8,7 +8,7 @@
 #include <mach/host_info.h>
 #import <Quartz/Quartz.h>
 
-@implementation ImageOptim
+@implementation ImageOptimController
 
 extern int quitWhenDone;
 
