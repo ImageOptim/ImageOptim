@@ -62,15 +62,17 @@
         if (![self isCancelled]) {
             if (![self canSkip]) {
                 [self run];
-                [self markResultForSkipping];
+                if (![self isCancelled]) [self markResultForSkipping];
             } else {
                 IODebug("Skipping %@, because it already optimized %@", [self className], file.fileName);
             }
         }
     }
     @finally {
+        if (![self isCancelled]) {
+            [nextOperation setQueuePriority:NSOperationQueuePriorityVeryHigh];
+        }
         [file workerHasFinished:self];
-        [nextOperation setQueuePriority:NSOperationQueuePriorityVeryHigh];
     }
 }
 

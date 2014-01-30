@@ -63,7 +63,7 @@
 -(void)run {
     NSString *tempPath = [self tempPath];
     @try {
-        if ([self runWithTempPath:tempPath]) {
+        if ([self runWithTempPath:tempPath] && ![self isCancelled]) {
             tempPath = nil;
         }
     }
