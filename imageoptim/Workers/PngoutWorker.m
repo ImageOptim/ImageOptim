@@ -51,6 +51,7 @@
 
     if (![[NSFileManager defaultManager] createFileAtPath:temp contents:[NSData data] attributes:nil]) {
         IOWarn("Cant create %@",temp);
+        return NO;
     }
 
     NSFileHandle *fileOutputHandle = [NSFileHandle fileHandleForWritingAtPath:temp];
