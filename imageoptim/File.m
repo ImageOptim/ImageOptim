@@ -402,7 +402,7 @@
 
     NSOperation *actualEnqueue = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doEnqueueWorkersInCPUQueue:) object:queue];
     if (queue.operationCount < queue.maxConcurrentOperationCount) {
-        actualEnqueue.queuePriority = NSOperationQueuePriorityHigh;
+        actualEnqueue.queuePriority = NSOperationQueuePriorityVeryHigh;
     }
 
     [workers addObject:actualEnqueue];
@@ -422,7 +422,6 @@
     fileType = [self fileType:fileData];
 
     BOOL hasBeenRunBefore = (byteSizeOnDisk && length == byteSizeOnDisk);
-    BOOL isQueueBig = [queue operationCount] > 10 && [queue operationCount] > [queue maxConcurrentOperationCount]*2;
 
     @synchronized(self) {
         workersActive--;
@@ -479,6 +478,8 @@
         return;
     }
 
+    BOOL isQueueUnderUtilized = [queue operationCount] <= [queue maxConcurrentOperationCount];
+
     for (NSDictionary *wl in worker_list) {
         if ([defs boolForKey:wl[@"key"]]) {
 
@@ -493,10 +494,10 @@
             // unfortunately that makes whole process single-core serial when there are very few files
             // so for small queues rely on nextOperation to give some order when possible
             if ([w makesNonOptimizingModifications]) {
-                if (isQueueBig || [self isSmall]) {
+                if (!isQueueUnderUtilized || [self isSmall]) {
                     [runFirst addObject:w];
                 } else {
-                    [w setQueuePriority:NSOperationQueuePriorityHigh];
+                    [w setQueuePriority:[runLater count] ? NSOperationQueuePriorityHigh : NSOperationQueuePriorityVeryHigh];
                     [runLater addObject:w];
                 }
             } else {
