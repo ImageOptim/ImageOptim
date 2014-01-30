@@ -126,7 +126,7 @@
 }
 
 
--(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSMutableArray *)args {
+-(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args {
     NSString *executable = [self executablePathForKey:key bundleName:resourceName];
     if (!executable) {
         IOWarn("Cannot launch %@",resourceName);

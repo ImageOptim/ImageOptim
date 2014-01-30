@@ -103,6 +103,7 @@
 		5AC64F071AF3FDEE0032AA7F /* ExtensionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC64F061AF3FDEE0032AA7F /* ExtensionController.m */; };
 		5AC64F091AF3FDEE0032AA7F /* ExtensionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC64F081AF3FDEE0032AA7F /* ExtensionController.xib */; };
 		5AC64F0C1AF3FDEE0032AA7F /* ImageOptimize.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5AC64EFE1AF3FDEE0032AA7F /* ImageOptimize.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5AE04E2E1B5301E100669E85 /* PngquantWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9F4371899D063006C64C8 /* PngquantWorker.m */; };
 		5AF8536C1B49F21C00CF76F5 /* FadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8536B1B49F21C00CF76F5 /* FadeView.m */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
@@ -559,6 +560,8 @@
 		5AA338BF1117C00300046C79 /* German */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = German; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5AA339011117C41400046C79 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5AA339021117C41B00046C79 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = de.lproj/PrefsController.xib; sourceTree = "<group>"; };
+		5AA9F4361899D063006C64C8 /* PngquantWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PngquantWorker.h; sourceTree = "<group>"; };
+		5AA9F4371899D063006C64C8 /* PngquantWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PngquantWorker.m; sourceTree = "<group>"; };
 		5AA9F5F5189339A500697D8E /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
 		5AA9F7701893736100697D8E /* el */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = el; path = el.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5AA9F781189373AB00697D8E /* tr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = tr; path = tr.lproj/PrefsController.xib; sourceTree = "<group>"; };
@@ -988,6 +991,8 @@
 				5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */,
 				5AE54DED0CAEF56100903DF4 /* PngoutWorker.h */,
 				5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */,
+				5AA9F4361899D063006C64C8 /* PngquantWorker.h */,
+				5AA9F4371899D063006C64C8 /* PngquantWorker.m */,
 				5AB81F931AE1BE1300719AB7 /* Save.h */,
 				5AB81F941AE1BE1300719AB7 /* Save.m */,
 				5AACA13D0CAF241B004D45CA /* Worker.h */,
@@ -1500,6 +1505,7 @@
 				5ABE157E1AE5073E00861C6B /* OptiPngWorker.m in Sources */,
 				5ABE157F1AE5073E00861C6B /* PngCrushWorker.m in Sources */,
 				5ABE15801AE5073E00861C6B /* PngoutWorker.m in Sources */,
+				5AE04E2E1B5301E100669E85 /* PngquantWorker.m in Sources */,
 				5ABE15771AE5073100861C6B /* ResultsDb.m in Sources */,
 				5ABE15811AE5073E00861C6B /* Save.m in Sources */,
 				5AC4CC801AF568E90003AEA2 /* SavingsFormatter.m in Sources */,

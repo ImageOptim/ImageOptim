@@ -28,7 +28,7 @@
 // gets the path of the executable
 -(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName;
 
--(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSMutableArray *)args;
+-(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args;
 
 -(BOOL)runWithTempPath:(NSURL*)tempPath;
 -(NSString *)pathForExecutableName:(NSString *)resourceName;

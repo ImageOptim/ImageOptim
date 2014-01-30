@@ -8,6 +8,7 @@
 #import "ImageOptimController.h"
 #import "Workers/Save.h"
 #import "Workers/AdvCompWorker.h"
+#import "Workers/PngquantWorker.h"
 #import "Workers/PngoutWorker.h"
 #import "Workers/OptiPngWorker.h"
 #import "Workers/PngCrushWorker.h"
@@ -502,6 +503,11 @@
     NSMutableArray *worker_list = [NSMutableArray new];
 
     if (fileType == FILETYPE_PNG) {
+        NSInteger pngQuality = [defs integerForKey:@"PngMinQuality"];
+        if (pngQuality < 100 && pngQuality > 30) {
+            Worker *w = [[PngquantWorker alloc] initWithFile:self minQuality:pngQuality];
+            [runFirst addObject:w];
+        }
         if ([defs boolForKey:@"PngCrushEnabled"]) [worker_list addObject:[[PngCrushWorker alloc] initWithDefaults:defs file:self]];
         if ([defs boolForKey:@"OptiPngEnabled"]) [worker_list addObject:[[OptiPngWorker alloc] initWithDefaults:defs file:self]];
         if ([defs boolForKey:@"PngOutEnabled"]) [worker_list addObject:[[PngoutWorker alloc] initWithDefaults:defs file:self]];

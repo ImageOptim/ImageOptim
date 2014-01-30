@@ -28,6 +28,8 @@
 	<true/>
 	<key>PngOutInterruptIfTakesTooLong</key>
 	<true/>
+	<key>PngMinQuality</key>
+	<integer>100</integer>
 	<key>ZopfliEnabled</key>
 	<true/>
 	<key>ZopfliIterations</key>
