@@ -16,7 +16,7 @@
                             @"-O3",
                             @"--careful",/* needed for Safari/Preview decoding bug */
                             @"--no-comments",@"--no-names",@"--same-delay",@"--same-loopcount",@"--no-warnings",
-                            @"--",[file filePath],nil];
+                            @"--",file.filePathOptimized,nil];
 
     if (![self taskForKey:@"Gifsicle" bundleName:@"gifsicle" arguments:args]) {
         return NO;

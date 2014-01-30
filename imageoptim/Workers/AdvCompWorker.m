@@ -27,8 +27,8 @@
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;
 
-    if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error]) {
-        IOWarn("Can't make temp copy of %@ in %@; %@",[file filePath],temp,error);
+    if (![fm copyItemAtPath:file.filePathOptimized toPath:temp error:&error]) {
+        IOWarn("Can't make temp copy of %@ in %@; %@",file.filePathOptimized,temp,error);
         return NO;
     }
 

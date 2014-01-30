@@ -28,7 +28,7 @@
 
 -(BOOL)runWithTempPath:(NSString *)temp {
     // uses stdout for file to force progress output to unbufferred stderr
-    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/[file filePath],@"-",nil];
+    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/file.filePathOptimized,@"-",nil];
 
     [args insertObject:@"-r" atIndex:0];
 

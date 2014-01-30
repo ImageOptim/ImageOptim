@@ -26,7 +26,7 @@
 
 -(BOOL)runWithTempPath:(NSString *)temp {
     NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],
-                            @"-out",temp,@"--",[file filePath],nil];
+                            @"-out",temp,@"--",file.filePathOptimized,nil];
 
     if (interlace != -1) {
         [args insertObject:[NSString stringWithFormat:@"-i%d",(int)interlace] atIndex:0];

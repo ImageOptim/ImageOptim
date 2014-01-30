@@ -25,7 +25,7 @@
 
 -(BOOL)runWithTempPath:(NSString *)temp {
     // eh, handling of paths starting with "-" is unsafe here. Hopefully all paths from dropped files will be absolute...
-    NSMutableArray *args = [NSMutableArray arrayWithObjects:[file filePath],nil];
+    NSMutableArray *args = [NSMutableArray arrayWithObjects:file.filePathOptimized,nil];
     NSString *executableName, *prefName;
 
     if (jpegrescan) {

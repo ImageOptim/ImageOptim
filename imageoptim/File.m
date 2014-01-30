@@ -54,15 +54,20 @@
 -(void)setFilePath:(NSString *)s {
     if (filePath != s) {
         filePath = [s copy];
+        filePathOptimized = nil;
 
         self.displayName = [[NSFileManager defaultManager] displayNameAtPath:filePath];
     }
 }
 
+-(NSString*)filePathOptimized {
+    if (filePathOptimized) return filePathOptimized;
+    return filePath;
+}
+
 - (id)copyWithZone:(NSZone *)zone {
     File *f = [[File allocWithZone:zone] init];
     [f setByteSizeOriginal:byteSizeOriginal];
-    [f setByteSizeOptimized:byteSizeOptimized];
     [f setFilePath:filePath];
     return f;
 }

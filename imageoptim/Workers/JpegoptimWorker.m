@@ -34,8 +34,8 @@
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;
 
-    if (![fm copyItemAtPath:[file filePath] toPath:temp error:&error]) {
-        IOWarn("Can't make temp copy of %@ in %@",[file filePath],temp);
+    if (![fm copyItemAtPath:file.filePathOptimized toPath:temp error:&error]) {
+        IOWarn("Can't make temp copy of %@ in %@",file.filePathOptimized,temp);
     }
 
     NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-q",@"--",temp,nil];

@@ -71,6 +71,7 @@ enum IOFileType {
 
 @property (strong) NSString *statusText, *displayName, *bestToolName;
 @property (strong,nonatomic) NSString *filePath;
+@property (strong,readonly) NSString *filePathOptimized;
 @property (strong) NSImage *statusImage;
 @property (assign,nonatomic) NSUInteger byteSizeOriginal, byteSizeOptimized;
 @property (assign,readonly) NSInteger statusOrder;
