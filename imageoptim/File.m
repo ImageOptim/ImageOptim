@@ -25,6 +25,7 @@
 {
     if (self = [self init]) {
         workersPreviousResults = [NSMutableDictionary new];
+        filePathsOptimizedInUse = [NSMutableSet new];
         [self setFilePath:name];
         [self setStatus:@"wait" order:0 text:NSLocalizedString(@"New file",@"newly added to the queue")];
     }
@@ -54,14 +55,18 @@
 -(void)setFilePath:(NSString *)s {
     if (filePath != s) {
         filePath = [s copy];
-        filePathOptimized = nil;
+        [self removeOldFilePathOptimized];
 
         self.displayName = [[NSFileManager defaultManager] displayNameAtPath:filePath];
     }
 }
 
 -(NSString*)filePathOptimized {
-    if (filePathOptimized) return filePathOptimized;
+    NSString *path = filePathOptimized;
+    if (path) {
+        [filePathsOptimizedInUse addObject:path];
+        return path;
+    }
     return filePath;
 }
 
@@ -107,15 +112,18 @@
 }
 
 -(void)removeOldFilePathOptimized {
-    if (filePathOptimized) {
-        [[NSFileManager defaultManager] removeItemAtPath:filePathOptimized error:nil];
+    NSString *path = filePathOptimized;
+    if (path) {
         filePathOptimized = nil;
+        if (![filePathsOptimizedInUse containsObject:path]) {
+            [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+        }
     }
 }
 
 -(BOOL)setFilePathOptimized:(NSString *)tempPath size:(NSUInteger)size toolName:(NSString *)toolname {
+    IODebug("File %@ optimized with %@ from %u to %u in %@",filePath?filePath:filePathOptimized,toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,tempPath);
     @synchronized(self) {
-        IODebug("File %@ optimized with %@ from %u to %u in %@",filePath?filePath:filePathOptimized,toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,tempPath);
         if (size < byteSizeOptimized) {
             self.bestToolName = [toolname stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
             assert(![filePathOptimized isEqualToString:tempPath]);
@@ -325,7 +333,7 @@
 
 -(void)saveResultAndUpdateStatus {
     BOOL saved = [self saveResult];
-    [self removeOldFilePathOptimized];
+    [self cleanup];
 
     if (saved) {
         done = YES;
@@ -353,10 +361,7 @@
                 } else {
                     done = YES;
                     [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
-                    if (filePathOptimized) {
-                        NSOperation *cleanup = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(removeOldFilePathOptimized) object:nil];
-                        [fileIOQueue addOperation:cleanup];
-                    }
+                    [self cleanup];
                 }
             } else {
                 [self setStatus:@"wait" order:2 text:NSLocalizedString(@"Waiting to start more optimizations",@"tooltip")];
@@ -545,6 +550,11 @@
         [workers makeObjectsPerformSelector:@selector(cancel)];
         [workers removeAllObjects];
         [self removeOldFilePathOptimized];
+        NSFileManager *fm = [NSFileManager defaultManager];
+        for(NSString *path in filePathsOptimizedInUse) {
+            [fm removeItemAtPath:path error:nil];
+        }
+        [filePathsOptimizedInUse removeAllObjects];
     }
 }
 

@@ -28,7 +28,8 @@ enum IOFileType {
     NSString *bestToolName;
 	double percentDone;
 	
-	NSString *filePathOptimized;	
+	NSString *filePathOptimized;
+    NSMutableSet *filePathsOptimizedInUse;
 		
 	NSImage *statusImage;
     NSString *statusText;
