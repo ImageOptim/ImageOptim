@@ -7,28 +7,37 @@
 <language>en</language>
 
 <item>
+    <title>Version 1.5.4a4</title>
+    <description><![CDATA[
+        <ul>
+        <li>Integrated pngquant (enabled in the new <samp>Quality</samp> section of preferences)</li>
+        <li>Dropping support for Mac OS X 10.6-10.7 (Show Leopard and the older Lion) in preparation for a new <abbr>UI</abbr> that these systems cannot handle (autolayout + base i18n). If you don't have latest Mac OS X, <a href="macappstores://itunes.apple.com/us/app/os-x-mavericks/id675248567?mt=12">please install the free system upgrade Apple</a>.</li>
+        </ul>
+    ]]></description>
+    <pubDate>Tue, 11 Feb 2014 02:08:55 +0000</pubDate>
+    <enclosure url="http://imageoptim.com/ImageOptim1.5.4a4.tar.bz2" sparkle:version="1.5.4a4" length="1544474" type="application/bzip2" sparkle:dsaSignature="MCwCFEWf5z1Om8OxivBfrKheyw5+nArIAhQgi/9zGdU7QHBz0qiVHw6wfzuH1g=="/>
+    <sparkle:minimumSystemVersion>10.7.5</sparkle:minimumSystemVersion>
+</item>
+
+<item>
 <title>Version 1.5.3</title>
 <description><![CDATA[
-<ul>
-<li>Fixed compatibility with older Mac OS X</li>
-<li>Fixed PNGOUT integration</li>
-</ul>
-<p>Recently:</p>
-<ul>
-<li>Better compression on the first try due to improved management of temporary files and optimization parallelizm</li>
-<li><a href="https://github.com/pornel/Sparkle">Updated autoupdater</a></li>
-<li>Improved <samp>Reveal in Finder</samp></li>
-<li>Fixed handling of relative paths when launched from CLI</li>
-<li>Switched to newer <abbr>API</abbr>s for path &amp; file handling and simplified code for handling parallel queues</li>
-<li>Copy as Data URL (copies small image files as data:image/… URLs for inlining in CSS/HTML)</li>
-</ul>
+    <ul>
+      <li>Integrated pngquant (enabled in the new <samp>Quality</samp> section of preferences)</li>
+      <li>Dropping support for Mac OS X 10.6-10.7 (Show Leopard and the older Lion) in preparation for a new <abbr>UI</abbr> that these systems cannot handle (autolayout + base i18n). If you don't have latest Mac OS X, <a href="macappstores://itunes.apple.com/us/app/os-x-mavericks/id675248567?mt=12">please install the free system upgrade Apple</a>.</li>
+    </ul>
+    <p>Previously:</p>
+    <ul>
+    <li>Tweaked parallelism vs efficiency tradeoff (there should be less need to press Again button)</li>
+    <li>Switched to <a href="https://github.com/pornel/Sparkle">the new Sparkle</a> version</li>
+    <li>Improved <samp>Reveal in Finder</samp></li>
+    <li>Fixed handling of relative paths when launched from CLI</li>
+    <li>Switched to newer <abbr>API</abbr>s for path &amp; file handling and simplified code for handling parallel queues</li>
+    </ul>
 ]]></description>
 <pubDate>Mon, 10 Feb 2014 22:31:41 +0000</pubDate>
 <enclosure url="http://imageoptim.com/ImageOptim1.5.3.tar.bz2" sparkle:version="1.5.3" length="1765616" type="application/bzip2" sparkle:dsaSignature="MCwCFDpkK48hejeK5cZevEHQLgjZiXnNAhRXnKxJYBxMwRh+N6q8bKDINwGWlw=="/>
 <sparkle:minimumSystemVersion>10.6.8</sparkle:minimumSystemVersion>
-
-
-
 </item>
 </channel>
 </rss>
