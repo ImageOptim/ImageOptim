@@ -70,6 +70,7 @@
 		5A9B031C1836E5360043BDAC /* pngquant in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A728F2C1836C0EE004D0D73 /* pngquant */; };
 		5A9E5B2B0CB961E000E05D28 /* JpegoptimWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E5B2A0CB961E000E05D28 /* JpegoptimWorker.m */; };
 		5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
+		5AA9F4381899D063006C64C8 /* PngquantWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9F4371899D063006C64C8 /* PngquantWorker.m */; };
 		5AACA1380CAF23FF004D45CA /* DirWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA1370CAF23FF004D45CA /* DirWorker.m */; };
 		5AACA13F0CAF241B004D45CA /* Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA13E0CAF241B004D45CA /* Worker.m */; };
 		5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA8300CAFE74E004D45CA /* Transformers.m */; };
@@ -429,6 +430,8 @@
 		5AA339011117C41400046C79 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5AA339021117C41B00046C79 /* German */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = German; path = de.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5AA6D23B1503E9F5006DDB3E /* Sparkle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparkle.xcodeproj; path = ../../Sparkle/Sparkle.xcodeproj; sourceTree = "<group>"; };
+		5AA9F4361899D063006C64C8 /* PngquantWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PngquantWorker.h; sourceTree = "<group>"; };
+		5AA9F4371899D063006C64C8 /* PngquantWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PngquantWorker.m; sourceTree = "<group>"; };
 		5AA9F5F5189339A500697D8E /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
 		5AA9F7701893736100697D8E /* el */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = el; path = el.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5AA9F781189373AB00697D8E /* tr */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = tr; path = tr.lproj/PrefsController.xib; sourceTree = "<group>"; };
@@ -749,6 +752,8 @@
 				5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */,
 				5AE54DED0CAEF56100903DF4 /* PngoutWorker.h */,
 				5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */,
+				5AA9F4361899D063006C64C8 /* PngquantWorker.h */,
+				5AA9F4371899D063006C64C8 /* PngquantWorker.m */,
 				5AACA13D0CAF241B004D45CA /* Worker.h */,
 				5AACA13E0CAF241B004D45CA /* Worker.m */,
 				5A2ACD121790935C004992B7 /* ZopfliWorker.h */,
@@ -1089,6 +1094,7 @@
 				5A5C29430CB04A0F00FAF446 /* OptiPngWorker.m in Sources */,
 				5A44F4B40CB1868100BD2884 /* PngCrushWorker.m in Sources */,
 				5AE54DEF0CAEF56100903DF4 /* PngoutWorker.m in Sources */,
+				5AA9F4381899D063006C64C8 /* PngquantWorker.m in Sources */,
 				5A6242080CA86DC7005942A3 /* PrefsController.m in Sources */,
 				5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */,
 				5A8A18141416D1D700D62DB7 /* SavingsFormatter.m in Sources */,
