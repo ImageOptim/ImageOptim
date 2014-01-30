@@ -589,7 +589,7 @@
 #pragma mark QL
 
 -(NSURL *) previewItemURL {
-    return [NSURL fileURLWithPath:filePath];
+    return [NSURL fileURLWithPath:self.filePathOptimized];
 }
 
 -(NSString *) previewItemTitle {
