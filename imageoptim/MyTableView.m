@@ -221,12 +221,6 @@
 
 }
 
--(void)openRowInPreview {
-    if ([self clickedRow] < 0) return;
-    [self openInFinder];
-}
-
-
 -(void) quickLook {
     if ([QLPreviewPanel sharedPreviewPanelExists] && [[QLPreviewPanel sharedPreviewPanel] isVisible]) {
         [[QLPreviewPanel sharedPreviewPanel] orderOut:nil];
@@ -236,18 +230,12 @@
 }
 
 -(void)awakeFromNib {
-    [self setDoubleAction:@selector(openRowInPreview)];
-}
-
--(void)openInPreview {
-    FilesQueue *fc = (FilesQueue *)[self delegate];
-    assert([fc isKindOfClass:[FilesQueue class]]);
-    [fc openRowInFinder:[self clickedRow] withPreview:YES];
+    [self setDoubleAction:@selector(openInFinder)];
 }
 
 -(void)openInFinder {
     FilesQueue *fc = (FilesQueue *)[self delegate];
     assert([fc isKindOfClass:[FilesQueue class]]);
-    [fc openRowInFinder:[self clickedRow] withPreview:NO];
+    [fc openRowInFinder:[self clickedRow]];
 }
 @end

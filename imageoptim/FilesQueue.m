@@ -139,12 +139,11 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return nil;
 }
 
--(void)openRowInFinder:(NSInteger)row withPreview:(BOOL)preview {
+-(void)openRowInFinder:(NSInteger)row {
     NSArray *files = [self arrangedObjects];
     if (row < [files count]) {
         File *f = [files objectAtIndex:row];
-        if (preview) [[NSWorkspace sharedWorkspace] openFile:[f filePath]];
-        else [[NSWorkspace sharedWorkspace] selectFile:[f filePath] inFileViewerRootedAtPath:@""];
+        [[NSWorkspace sharedWorkspace] selectFile:[f filePath] inFileViewerRootedAtPath:@""];
     }
 }
 
