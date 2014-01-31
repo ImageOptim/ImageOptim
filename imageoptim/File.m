@@ -286,6 +286,7 @@
             IOWarn("Can't trash %@ %@", filePath, error);
             NSString *backupPath = [[[filePath stringByDeletingPathExtension] stringByAppendingString:@"~bak"]
                                     stringByAppendingPathExtension:[filePath pathExtension]];
+            [fm removeItemAtPath:backupPath error:nil];
             if (![fm moveItemAtPath:filePath toPath:backupPath error:&error]) {
                 IOWarn("Can't move to %@ %@", backupPath, error);
                 return NO;
