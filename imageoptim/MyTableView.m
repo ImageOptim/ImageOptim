@@ -32,7 +32,7 @@
     NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[selected count]];
     NSMutableArray *fileNames = [NSMutableArray arrayWithCapacity:[selected count]];
     for(File *file in selected) {
-        NSString *path = file.filePath;
+        NSString *path = file.filePath.path;
         [filePaths addObject:path];
         [fileNames addObject:[path.lastPathComponent stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     };
@@ -64,7 +64,7 @@
 - (IBAction)copyAsDataURI:(id)sender {
     NSMutableArray *urls = [NSMutableArray new];
     for(File *file in [self filesForDataURI]) {
-        NSData *data = [NSData dataWithContentsOfFile:file.filePath];
+        NSData *data = [NSData dataWithContentsOfURL:file.filePath];
 
         NSString *type = file.fileType == FILETYPE_PNG ? @"png" : (file.fileType == FILETYPE_JPEG ? @"jpeg" : (file.fileType == FILETYPE_GIF ? @"gif" : nil));
         if (!type) continue;
@@ -93,9 +93,13 @@
     NSPasteboard *pboard = [NSPasteboard generalPasteboard];
 
     NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
+    NSMutableArray *urls = [NSMutableArray arrayWithCapacity:[paths count]];
+    for(NSString *path in paths) {
+        [urls addObject:[NSURL fileURLWithPath:path]];
+    }
 
     FilesQueue *f = (FilesQueue*)[self delegate];
-    [f addPathsBelowSelection:paths];
+    [f addURLsBelowSelection:urls];
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem*)menuItem

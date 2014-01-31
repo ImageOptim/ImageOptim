@@ -24,9 +24,9 @@
     return @(optlevel*2+interlace);
 }
 
--(BOOL)runWithTempPath:(NSString *)temp {
+-(BOOL)runWithTempPath:(NSURL *)temp {
     NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],
-                            @"-out",temp,@"--",file.filePathOptimized,nil];
+                            @"-out",temp.path,@"--",file.filePathOptimized.path,nil];
 
     if (interlace != -1) {
         [args insertObject:[NSString stringWithFormat:@"-i%d",(int)interlace] atIndex:0];

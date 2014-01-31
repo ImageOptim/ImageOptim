@@ -19,8 +19,8 @@
     return @(strip);
 }
 
--(BOOL)runWithTempPath:(NSString *)temp {
-    NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-nofilecheck",@"-bail",@"-blacken",@"-reduce",@"-cc",@"--",file.filePathOptimized,temp,nil];
+-(BOOL)runWithTempPath:(NSURL *)temp {
+    NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-nofilecheck",@"-bail",@"-blacken",@"-reduce",@"-cc",@"--",file.filePathOptimized.path,temp.path,nil];
 
     // Reusing PngOut config here
     if (strip) {

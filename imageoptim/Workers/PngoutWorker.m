@@ -26,9 +26,9 @@
     return @(level*4+removechunks*2+interruptIfTakesTooLong);
 }
 
--(BOOL)runWithTempPath:(NSString *)temp {
+-(BOOL)runWithTempPath:(NSURL *)temp {
     // uses stdout for file to force progress output to unbufferred stderr
-    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/file.filePathOptimized,@"-",nil];
+    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/file.filePathOptimized.path,@"-",nil];
 
     [args insertObject:@"-r" atIndex:0];
 
@@ -49,12 +49,7 @@
         return NO;
     }
 
-    if (![[NSFileManager defaultManager] createFileAtPath:temp contents:[NSData data] attributes:nil]) {
-        IOWarn("Cant create %@",temp);
-        return NO;
-    }
-
-    NSFileHandle *fileOutputHandle = [NSFileHandle fileHandleForWritingAtPath:temp];
+    NSFileHandle *fileOutputHandle = [NSFileHandle fileHandleForWritingToURL:temp error:nil];
 
     NSPipe *commandPipe = [NSPipe pipe];
     NSFileHandle *commandHandle = [commandPipe fileHandleForReading];

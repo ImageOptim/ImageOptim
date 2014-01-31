@@ -61,7 +61,7 @@
 }
 
 -(void)run {
-    NSString *tempPath = [self tempPath];
+    NSURL *tempPath = [self tempPath];
     @try {
         if ([self runWithTempPath:tempPath] && ![self isCancelled]) {
             tempPath = nil;
@@ -69,7 +69,7 @@
     }
     @finally {
         if (tempPath) {
-            [[NSFileManager defaultManager] removeItemAtPath:tempPath error:nil];
+            [[NSFileManager defaultManager] removeItemAtURL:tempPath error:nil];
         }
     }
 }
@@ -147,13 +147,14 @@
     return nil;
 }
 
--(NSString *)tempPath {
+-(NSURL *)tempPath {
     static int uid=0;
     if (uid==0) uid = getpid()<<12;
-    return [NSTemporaryDirectory() stringByAppendingPathComponent: [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.temp",[self className],(unsigned int)([file hash]^[self hash]),uid++]];
+    NSString *filename = [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.temp",[self className],(unsigned int)([file hash]^[self hash]),uid++];
+    return [NSURL fileURLWithPath: [NSTemporaryDirectory() stringByAppendingPathComponent: filename]];
 }
 
--(BOOL)runWithTempPath:(NSString *)tempPath {
+-(BOOL)runWithTempPath:(NSURL *)tempPath {
     return NO; /*abstract*/
 }
 

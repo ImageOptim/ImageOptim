@@ -10,11 +10,11 @@
 
 @interface DirWorker : NSOperation {
 	FilesQueue *filesQueue;
-	NSString *path;
+	NSURL *path;
     NSArray *extensions;
 }
 
--(id)initWithPath:(NSString *)path filesQueue:(FilesQueue *)q extensions:(NSArray*)e;
+-(id)initWithPath:(NSURL *)path filesQueue:(FilesQueue *)q extensions:(NSArray*)e;
 
-@property (copy) NSString *path;
+@property (copy) NSURL *path;
 @end

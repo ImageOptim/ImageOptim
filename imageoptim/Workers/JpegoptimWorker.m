@@ -30,15 +30,15 @@
     return maxquality < 100;
 }
 
--(BOOL)runWithTempPath:(NSString *)temp {
+-(BOOL)runWithTempPath:(NSURL *)temp {
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;
 
-    if (![fm copyItemAtPath:file.filePathOptimized toPath:temp error:&error]) {
+    if (![fm copyItemAtURL:file.filePathOptimized toURL:temp error:&error]) {
         IOWarn("Can't make temp copy of %@ in %@",file.filePathOptimized,temp);
     }
 
-    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-q",@"--",temp,nil];
+    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-q",@"--",temp.path,nil];
 
 
     if (strip) {

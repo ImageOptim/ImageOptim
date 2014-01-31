@@ -23,9 +23,9 @@
     return self;
 }
 
--(BOOL)runWithTempPath:(NSString *)temp {
+-(BOOL)runWithTempPath:(NSURL *)temp {
     // eh, handling of paths starting with "-" is unsafe here. Hopefully all paths from dropped files will be absolute...
-    NSMutableArray *args = [NSMutableArray arrayWithObjects:file.filePathOptimized,nil];
+    NSMutableArray *args = [NSMutableArray arrayWithObject:file.filePathOptimized.path];
     NSString *executableName, *prefName;
 
     if (jpegrescan) {
@@ -34,12 +34,12 @@
         if (strip) {
             [args insertObject:@"-s" atIndex:0];
         }
-        [args addObject:temp];
+        [args addObject:temp.path];
     } else {
         executableName = @"jpegtran";
         prefName = @"JpegTran";
         [args insertObject:@"-outfile" atIndex:0];
-        [args insertObject:temp atIndex:1];
+        [args insertObject:temp.path atIndex:1];
 
         [args insertObject:@"-optimize" atIndex:0];
         [args insertObject:@"-copy" atIndex:0];

@@ -23,17 +23,17 @@
     return @(level);
 }
 
--(BOOL)runWithTempPath:(NSString *)temp {
+-(BOOL)runWithTempPath:(NSURL *)temp {
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;
 
-    if (![fm copyItemAtPath:file.filePathOptimized toPath:temp error:&error]) {
+    if (![fm copyItemAtURL:file.filePathOptimized toURL:temp error:&error]) {
         IOWarn("Can't make temp copy of %@ in %@; %@",file.filePathOptimized,temp,error);
         return NO;
     }
 
     if (![self taskForKey:@"AdvPng" bundleName:@"advpng"
-            arguments:[NSArray arrayWithObjects: [NSString stringWithFormat:@"-%d",(int)(level ? level : 4)],@"-z",@"--",temp,nil]]) {
+            arguments:@[[NSString stringWithFormat:@"-%d",(int)(level ? level : 4)],@"-z",@"--",temp.path]]) {
         return NO;
     }
 

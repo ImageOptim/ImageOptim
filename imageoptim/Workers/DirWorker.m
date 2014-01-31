@@ -13,7 +13,7 @@
 
 @synthesize path;
 
--(id)initWithPath:(NSString *)aPath filesQueue:(FilesQueue *)q extensions:(NSArray *)theExtensions {
+-(id)initWithPath:(NSURL *)aPath filesQueue:(FilesQueue *)q extensions:(NSArray *)theExtensions {
     if (self = [super init]) {
         self.path = aPath;
         filesQueue = q;
@@ -28,22 +28,23 @@
     NSMutableArray *buffer = [NSMutableArray arrayWithCapacity:buffer_capacity];
 
     @try {
-        for (NSString *filePath in [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:path error:nil]) {
-            NSString *newPath = [path stringByAppendingPathComponent:filePath];
-
+        for (NSURL *newPath in [[NSFileManager defaultManager] enumeratorAtURL:path
+                                                        includingPropertiesForKeys:@[]
+                                                                           options:0
+                                                                      errorHandler:nil]) {
             if ([extensions containsObject:[newPath pathExtension]]) {
                 [buffer addObject:newPath];
                 if ([buffer count] >= buffer_size) {
                     // assuming that previous buffer flushes created some work to do
                     // buffer size can be increased to lower overhead
                     buffer_size = MIN(buffer_capacity, buffer_size*4);
-                    [filesQueue addPaths:buffer filesOnly:YES];
+                    [filesQueue addURLs:buffer filesOnly:YES];
                     [buffer removeAllObjects];
                 }
             }
         }
 
-        if ([buffer count]) [filesQueue addPaths:buffer filesOnly:YES];
+        if ([buffer count]) [filesQueue addURLs:buffer filesOnly:YES];
     }
     @catch (NSException *ex) {
         IOWarn("DIR worker failed %@",ex);

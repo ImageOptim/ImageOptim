@@ -105,7 +105,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 - (BOOL)tableView:(NSTableView *)aTableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
     if (!isEnabled) return NO;
 
-    NSArray *filePathlist = [[[self arrangedObjects] objectsAtIndexes:rowIndexes] valueForKey:@"filePath"];
+    NSArray *filePathlist = [[[self arrangedObjects] objectsAtIndexes:rowIndexes] valueForKeyPath:@"filePath.path"];
 
     if ([filePathlist count]) {
         [pboard declareTypes:@[NSFilenamesPboardType, kIMDraggedRowIndexesPboardType] owner:self];
@@ -130,7 +130,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
             BOOL mouseIsInside = NSMouseInRect(mouseLocation, infoButtonRect, [aTableView isFlipped]);
             if (mouseIsInside) {
-                return [f filePath];
+                return f.filePath.path;
             }
         }
 
@@ -143,7 +143,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     NSArray *files = [self arrangedObjects];
     if (row < [files count]) {
         File *f = [files objectAtIndex:row];
-        [[NSWorkspace sharedWorkspace] selectFile:[f filePath] inFileViewerRootedAtPath:@""];
+        [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[[f filePath]]];
     }
 }
 
@@ -229,13 +229,14 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 /** selfLock must be locked before using this
     That's a dumb linear search. Would be nice to replace NSArray with NSSet or NSHashTable.
  */
--(File *)findFileByPath:(NSString *)path {
+-(File *)findFileByPath:(NSURL *)path {
     if (![seenPathHashes containsObject:path]) {
         return nil;
     }
 
+    NSString *pathString = path.path;
     for (File *f in [self content]) {
-        if ([path isEqualToString:[f filePath]]) {
+        if ([pathString isEqualToString:f.filePath.path]) {
             return f;
         }
     }
@@ -259,17 +260,26 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     [self updateBusyState];
 }
 
--(void)addPathsBelowSelection:(NSArray *)paths {
+-(void)addURLsBelowSelection:(NSArray *)paths {
     nextInsertRow = [self selectionIndex];
-    [self performSelectorInBackground:@selector(addPaths:) withObject:paths];
+    [self performSelectorInBackground:@selector(addURLs:) withObject:paths];
 }
 
--(BOOL)addPaths:(NSArray *)paths {
-    return [self addPaths:paths filesOnly:NO];
+-(BOOL)addPaths:(NSArray*)paths {
+    NSMutableArray *urls = [NSMutableArray arrayWithCapacity:[paths count]];
+    for(NSString *path in paths) {
+        [urls addObject:[NSURL fileURLWithPath:path]];
+    }
+
+    return [self addURLs:urls filesOnly:NO];
+}
+
+-(BOOL)addURLs:(NSArray *)paths {
+    return [self addURLs:paths filesOnly:NO];
 }
 
 /** filesOnly indicates that paths do not contain any directories */
--(BOOL)addPaths:(NSArray *)paths filesOnly:(BOOL)filesOnly {
+-(BOOL)addURLs:(NSArray *)paths filesOnly:(BOOL)filesOnly {
     if (!isEnabled) {
         return NO;
     }
@@ -280,10 +290,10 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     BOOL allOK = YES;
     NSFileManager *fm = filesOnly ? nil : [NSFileManager defaultManager];
 
-    for (NSString *path in paths) {
+    for (NSURL *path in paths) {
         if (fm) {
-            if (![fm fileExistsAtPath:path isDirectory:&isDir]) {
-                IOWarn("%@ doesn't exist", path);
+            if (![fm fileExistsAtPath:path.path isDirectory:&isDir]) {
+                IOWarn("%@ doesn't exist", path.path);
                 allOK = NO;
                 continue;
             }

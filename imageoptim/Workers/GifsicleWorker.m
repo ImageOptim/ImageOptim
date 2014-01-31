@@ -10,13 +10,13 @@
     return @(interlace);
 }
 
--(BOOL)runWithTempPath:(NSString *)temp {
-    NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-o",temp,
+-(BOOL)runWithTempPath:(NSURL *)temp {
+    NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-o",temp.path,
                             interlace ? @"--interlace" : @"--no-interlace",
                             @"-O3",
                             @"--careful",/* needed for Safari/Preview decoding bug */
                             @"--no-comments",@"--no-names",@"--same-delay",@"--same-loopcount",@"--no-warnings",
-                            @"--",file.filePathOptimized,nil];
+                            @"--",file.filePathOptimized.path,nil];
 
     if (![self taskForKey:@"Gifsicle" bundleName:@"gifsicle" arguments:args]) {
         return NO;

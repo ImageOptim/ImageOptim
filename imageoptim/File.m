@@ -40,7 +40,7 @@
 
 @synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName, fileType;
 
--(id)initWithFilePath:(NSString *)name;
+-(id)initWithFilePath:(NSURL *)name;
 {
     if (self = [self init]) {
         workersPreviousResults = [NSMutableDictionary new];
@@ -68,21 +68,21 @@
 
 -(NSString *)fileName {
     if (displayName) return displayName;
-    if (filePath) return filePath;
+    if (filePath) return [filePath lastPathComponent];
     return nil;
 }
 
--(void)setFilePath:(NSString *)s {
+-(void)setFilePath:(NSURL *)s {
     if (filePath != s) {
         filePath = [s copy];
         [self removeOldFilePathOptimized];
 
-        self.displayName = [[NSFileManager defaultManager] displayNameAtPath:filePath];
+        self.displayName = [[NSFileManager defaultManager] displayNameAtPath:filePath.path];
     }
 }
 
--(NSString*)filePathOptimized {
-    NSString *path = filePathOptimized;
+-(NSURL*)filePathOptimized {
+    NSURL *path = filePathOptimized;
     if (path) {
         [filePathsOptimizedInUse addObject:path];
         return path;
@@ -129,11 +129,11 @@
 }
 
 -(void)removeOldFilePathOptimized {
-    NSString *path = filePathOptimized;
+    NSURL *path = filePathOptimized;
     if (path) {
         filePathOptimized = nil;
         if (![filePathsOptimizedInUse containsObject:path]) {
-            [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+            [[NSFileManager defaultManager] removeItemAtURL:path error:nil];
         }
     }
 }
@@ -159,11 +159,11 @@
     }
 }
 
--(BOOL)setFilePathOptimized:(NSString *)tempPath size:(NSUInteger)size toolName:(NSString *)toolname {
+-(BOOL)setFilePathOptimized:(NSURL *)tempPath size:(NSUInteger)size toolName:(NSString *)toolname {
     IODebug("File %@ optimized with %@ from %u to %u in %@",filePath?filePath:filePathOptimized,toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,tempPath);
     @synchronized(self) {
-        if (size < byteSizeOptimized) {
-            assert(![filePathOptimized isEqualToString:tempPath]);
+        if (size && size < byteSizeOptimized) {
+            assert(![filePathOptimized.path isEqualToString:tempPath.path]);
             [self removeOldFilePathOptimized];
             filePathOptimized = tempPath;
             NSUInteger oldSize = byteSizeOptimized;
@@ -176,7 +176,7 @@
     return NO;
 }
 
--(BOOL)removeExtendedAttrAtPath:(NSString *)path
+-(BOOL)removeExtendedAttrAtURL:(NSURL *)path
 {
     NSDictionary *extAttrToRemove = @{ @"com.apple.FinderInfo"  : @1,
                                        @"com.apple.ResourceFork": @1,
@@ -220,22 +220,21 @@
     return YES;
 }
 
--(BOOL)trashFileAtPath:(NSString *)path resultingItemURL:(NSURL**)returning error:(NSError **)err {
+-(BOOL)trashFileAtURL:(NSURL *)path resultingItemURL:(NSURL**)returning error:(NSError **)err {
     NSFileManager *fm = [NSFileManager defaultManager];
-    NSURL *url = [NSURL fileURLWithPath:path];
 
     if ([fm respondsToSelector:@selector(trashItemAtURL:resultingItemURL:error:)]) { // 10.8
-        if ([fm trashItemAtURL:url resultingItemURL:returning error:err]) {
+        if ([fm trashItemAtURL:path resultingItemURL:returning error:err]) {
             return YES;
         }
         IOWarn("Recovering trashing error %@", *err); // may fail on network drives
     }
 
-    NSString *trashedPath = [[NSHomeDirectory() stringByAppendingPathComponent:@".Trash"] stringByAppendingPathComponent:[path lastPathComponent]];
-    [fm removeItemAtPath:trashedPath error:nil];
+    NSURL *trashedPath = [[[NSURL fileURLWithPath:NSHomeDirectory() isDirectory:YES] URLByAppendingPathComponent:@".Trash"] URLByAppendingPathComponent:[path lastPathComponent]];
+    [fm removeItemAtURL:trashedPath error:nil];
 
-    if ([fm moveItemAtPath:path toPath:trashedPath error:err]) {
-        if (returning) *returning = [NSURL fileURLWithPath:trashedPath];
+    if ([fm moveItemAtURL:path toURL:trashedPath error:err]) {
+        if (returning) *returning = trashedPath;
         return YES;
     }
 
@@ -268,42 +267,44 @@
         NSFileManager *fm = [NSFileManager defaultManager];
 
         NSError *error = nil;
-        NSString *moveFromPath = filePathOptimized;
+        NSURL *moveFromPath = filePathOptimized;
+        NSURL *enclosingDir = [filePath URLByDeletingLastPathComponent];
 
-        if (![fm isWritableFileAtPath:[filePath stringByDeletingLastPathComponent]]) {
-            IOWarn("The file %@ is in non-writeable directory", filePath);
+        if (![fm isWritableFileAtPath:enclosingDir.path]) {
+            IOWarn("The file %@ is in non-writeable directory %@", filePath, enclosingDir);
             return NO;
         }
 
         if (preserve) {
-            NSString *writeToFilename = [[NSString stringWithFormat:@".%@~imageoptim", [[filePath lastPathComponent] stringByDeletingPathExtension]]
-                                         stringByAppendingPathExtension:[filePath pathExtension]];
-            NSString *writeToPath = [[filePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:writeToFilename];
+            NSString *writeToFilename = [[NSString stringWithFormat:@".%@~imageoptim", [filePath.lastPathComponent stringByDeletingPathExtension]] stringByAppendingPathExtension:filePath.pathExtension];
+            NSURL *writeToURL = [enclosingDir URLByAppendingPathComponent:writeToFilename];
+            NSString *writeToPath = writeToURL.path;
 
             if ([fm fileExistsAtPath:writeToPath]) {
-                if (![self trashFileAtPath:writeToPath resultingItemURL:nil error:&error]) {
+                if (![self trashFileAtURL:writeToURL resultingItemURL:nil error:&error]) {
                     IOWarn("%@", error);
                     error = nil;
-                    if (![fm removeItemAtPath:writeToPath error:&error]) {
+                    if (![fm removeItemAtURL:writeToURL error:&error]) {
                         IOWarn("%@", error);
                         return NO;
                     }
                 }
             }
 
+
             // move destination to temporary location that will be overwritten
-            if (![fm moveItemAtPath:filePath toPath:writeToPath error:&error]) {
+            if (![fm moveItemAtURL:filePath toURL:writeToURL error:&error]) {
                 IOWarn("Can't move to %@ %@", writeToPath, error);
                 return NO;
             }
 
             // copy original data for trashing under original file name
-            if (![fm copyItemAtPath:writeToPath toPath:filePath error:&error]) {
+            if (![fm copyItemAtURL:writeToURL toURL:filePath error:&error]) {
                 IOWarn("Can't write to %@ %@", filePath, error);
                 return NO;
             }
 
-            NSData *data = [NSData dataWithContentsOfFile:filePathOptimized];
+            NSData *data = [NSData dataWithContentsOfURL:filePathOptimized];
             if (!data) {
                 IOWarn("Unable to read %@", filePathOptimized);
                 return NO;
@@ -320,7 +321,7 @@
             }
 
             // overwrite old file that is under temporary name (so only content is replaced, not file metadata)
-            NSFileHandle *writehandle = [NSFileHandle fileHandleForWritingAtPath:writeToPath];
+            NSFileHandle *writehandle = [NSFileHandle fileHandleForWritingToURL:writeToURL error:nil];
             if (!writehandle) {
                 IOWarn("Unable to open %@ for writing. Check file permissions.", filePath);
                 return NO;
@@ -330,28 +331,28 @@
             [writehandle truncateFileAtOffset:[data length]];
             [writehandle closeFile];
 
-            moveFromPath = writeToPath;
+            moveFromPath = writeToURL;
         }
 
-        if (![self trashFileAtPath:filePath resultingItemURL:nil error:&error]) {
+        if (![self trashFileAtURL:filePath resultingItemURL:nil error:&error]) {
             IOWarn("Can't trash %@ %@", filePath, error);
-            NSString *backupPath = [[[filePath stringByDeletingPathExtension] stringByAppendingString:@"~bak"]
-                                    stringByAppendingPathExtension:[filePath pathExtension]];
-            [fm removeItemAtPath:backupPath error:nil];
-            if (![fm moveItemAtPath:filePath toPath:backupPath error:&error]) {
+            NSURL *backupPath = [NSURL fileURLWithPath:[[[filePath lastPathComponent] stringByAppendingString:@"~bak"] stringByAppendingPathExtension:[filePath pathExtension]]];
+
+            [fm removeItemAtURL:backupPath error:nil];
+            if (![fm moveItemAtURL:filePath toURL:backupPath error:&error]) {
                 IOWarn("Can't move to %@ %@", backupPath, error);
                 return NO;
             }
         }
 
-        if (![fm moveItemAtPath:moveFromPath toPath:filePath error:&error]) {
+        if (![fm moveItemAtURL:moveFromPath toURL:filePath error:&error]) {
             IOWarn("Failed to move from %@ to %@; %@",moveFromPath, filePath, error);
             return NO;
         }
 
         byteSizeOnDisk = byteSizeOptimized;
 
-        [self removeExtendedAttrAtPath:filePath];
+        [self removeExtendedAttrAtURL:filePath];
     }
     @catch (NSException *e) {
         IOWarn("Exception thrown %@ while saving %@",e, filePath);
@@ -450,9 +451,11 @@
 -(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue {
     [self setStatus:@"progress" order:3 text:NSLocalizedString(@"Inspecting file",@"tooltip")];
 
-    NSData *fileData = [NSData dataWithContentsOfMappedFile:filePath];
+    NSError *err = nil;
+    NSData *fileData = [NSData dataWithContentsOfURL:filePath options:NSDataReadingMappedIfSafe error:&err];
     NSUInteger length = [fileData length];
     if (!fileData || !length) {
+        IOWarn(@"Can't open the file %@ %@", filePath, err);
         [self setStatus:@"err" order:8 text:NSLocalizedString(@"Can't open the file",@"tooltip, generic loading error")];
         return;
     }
@@ -472,7 +475,7 @@
     }
 
     NSFileManager *fm = [NSFileManager defaultManager];
-    if (![fm isWritableFileAtPath:filePath]) {
+    if (![fm isWritableFileAtPath:filePath.path]) {
         [self setStatus:@"err" order:9 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
         return;
     }
@@ -617,8 +620,8 @@
             (long)workersFinished, (long)workersTotal];
 }
 
-+(NSInteger)fileByteSize:(NSString *)afile {
-    NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:afile error:nil];
++(NSInteger)fileByteSize:(NSURL *)afile {
+    NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:afile.path error:nil];
     if (attr) return [[attr objectForKey:NSFileSize] integerValue];
     IOWarn("Could not stat %@",afile);
     return 0;
@@ -627,7 +630,7 @@
 #pragma mark QL
 
 -(NSURL *) previewItemURL {
-    return [NSURL fileURLWithPath:self.filePathOptimized];
+    return self.filePathOptimized;
 }
 
 -(NSString *) previewItemTitle {

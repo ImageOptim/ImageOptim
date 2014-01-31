@@ -15,7 +15,7 @@ enum IOFileType {
 };
 
 @interface File : NSObject <NSCopying, WorkerQueueDelegate, QLPreviewItem> {
-	NSString *filePath;
+	NSURL *filePath;
 	NSString *displayName;
 	
     /** size of file before any optimizations */
@@ -29,8 +29,8 @@ enum IOFileType {
     NSMutableDictionary *bestTools;
 	double percentDone;
 	
-	NSString *filePathOptimized;
     NSMutableSet *filePathsOptimizedInUse;
+	NSURL *filePathOptimized;
 		
 	NSImage *statusImage;
     NSString *statusText;
@@ -55,9 +55,9 @@ enum IOFileType {
 
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue;
 
--(BOOL)setFilePathOptimized:(NSString *)f size:(NSUInteger)s toolName:(NSString*)s;
+-(BOOL)setFilePathOptimized:(NSURL *)f size:(NSUInteger)s toolName:(NSString*)s;
 
--(id)initWithFilePath:(NSString *)name;
+-(id)initWithFilePath:(NSURL *)name;
 -(id)copyWithZone:(NSZone *)zone;
 -(void)setByteSizeOriginal:(NSUInteger)size;
 -(void)setByteSizeOptimized:(NSUInteger)size;
@@ -67,13 +67,13 @@ enum IOFileType {
 -(BOOL)isLarge;
 -(BOOL)isSmall;
 
--(void)setFilePath:(NSString *)s;
+-(void)setFilePath:(NSURL *)s;
 
 -(NSString *)fileName;
 
 @property (strong) NSString *statusText, *displayName, *bestToolName;
-@property (strong,nonatomic) NSString *filePath;
-@property (strong,readonly) NSString *filePathOptimized;
+@property (strong,nonatomic) NSURL *filePath;
+@property (strong,readonly) NSURL *filePathOptimized;
 @property (strong) NSImage *statusImage;
 @property (assign,nonatomic) NSUInteger byteSizeOriginal, byteSizeOptimized;
 @property (assign,readonly) NSInteger statusOrder;
@@ -85,7 +85,7 @@ enum IOFileType {
 -(void)setStatus:(NSString *)name order:(NSInteger)order text:(NSString*)text;
 -(void)cleanup;
 
-+(NSInteger)fileByteSize:(NSString *)afile;
++(NSInteger)fileByteSize:(NSURL *)afile;
 
 
 -(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue;

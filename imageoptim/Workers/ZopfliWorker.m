@@ -19,8 +19,8 @@
     return @(iterations*4+strip*2+alternativeStrategy);
 }
 
--(BOOL)runWithTempPath:(NSString *)temp {
-    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"--lossy_transparent",@"-y",/*@"--",*/file.filePathOptimized,temp,nil];
+-(BOOL)runWithTempPath:(NSURL *)temp {
+    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"--lossy_transparent",@"-y",/*@"--",*/file.filePathOptimized.path,temp.path,nil];
 
     if (!strip) {
         // FIXME: that's crappy. Should list actual chunks in file :/

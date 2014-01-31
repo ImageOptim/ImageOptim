@@ -224,9 +224,9 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
 }
 
 // invoked by Dock
-- (void)application:(NSApplication *)sender openFiles:(NSArray *)filenames {
+- (void)application:(NSApplication *)sender openFiles:(NSArray *)paths {
     [filesController setRow:-1];
-    [sender replyToOpenOrPrint:[filesController addPaths:filenames] ? NSApplicationDelegateReplySuccess :NSApplicationDelegateReplyFailure];
+    [sender replyToOpenOrPrint:[filesController addPaths:paths] ? NSApplicationDelegateReplySuccess :NSApplicationDelegateReplyFailure];
 }
 
 
@@ -287,12 +287,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
             NSWindow *myWindow=[tableView window];
             [myWindow setStyleMask:[myWindow styleMask]| NSResizableWindowMask ];
             [filesController setRow:-1];
-
-            NSMutableArray *paths = [NSMutableArray arrayWithCapacity:oPanel.URLs.count];
-            for (NSURL *URL in oPanel.URLs) {
-                [paths addObject:URL.path];
-            }
-            [filesController addPaths:paths];
+            [filesController addURLs:oPanel.URLs];
         }
     }];
 }
