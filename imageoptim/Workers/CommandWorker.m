@@ -45,7 +45,7 @@
 {
     task = [NSTask new];
 
-    IODebug("Launching %@ with %@",path,arguments);
+    IODebug("Launching %@ %@",path,[arguments componentsJoinedByString:@" "]);
 
     [task setLaunchPath: path];
     [task setArguments: arguments];
