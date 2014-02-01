@@ -28,7 +28,7 @@
 
 - (NSImage *)infoButtonImage {
     static NSImage *image;
-    if (!image) image = [NSImage imageNamed:@"reveal"];
+    if (!image) image = [NSImage imageNamed:@"NSRevealFreestandingTemplate"];
     return image;
 }
 
@@ -109,7 +109,7 @@
     NSImage *image = [self infoButtonImage];
     [image setFlipped:[controlView isFlipped]];
 
-    float opacity = iMouseHoveredInInfoButton ? 1.0f : ([self isHighlighted] ? 0.8f : 0.45f);
+    float opacity = iMouseHoveredInInfoButton ? 1.0f : ([self isHighlighted] ? 0.5f : 0.3f);
     [image drawInRect:infoButtonRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:opacity];
 }
 
