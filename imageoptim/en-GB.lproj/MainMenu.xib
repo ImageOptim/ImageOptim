@@ -1888,6 +1888,22 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">animate: isBusy</string>
+						<reference key="source" ref="218087580"/>
+						<reference key="destination" ref="130688837"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="218087580"/>
+							<reference key="NSDestination" ref="130688837"/>
+							<string key="NSLabel">animate: isBusy</string>
+							<string key="NSBinding">animate</string>
+							<string key="NSKeyPath">isBusy</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<string key="id">3oN-QV-rc9</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">enabled: canAdd</string>
 						<reference key="source" ref="920522896"/>
 						<reference key="destination" ref="130688837"/>
@@ -3362,6 +3378,7 @@
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="bestToolColumn">NSTableColumn</string>
 						<string key="credits">NSTextView</string>
+						<string key="filesController">FilesQueue</string>
 						<string key="originalSizeColumn">NSTableColumn</string>
 						<string key="progressBar">NSProgressIndicator</string>
 						<string key="savingsColumn">NSTableColumn</string>
@@ -3378,6 +3395,10 @@
 						<object class="IBToOneOutletInfo" key="credits">
 							<string key="name">credits</string>
 							<string key="candidateClassName">NSTextView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="filesController">
+							<string key="name">filesController</string>
+							<string key="candidateClassName">FilesQueue</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="originalSizeColumn">
 							<string key="name">originalSizeColumn</string>
