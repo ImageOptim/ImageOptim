@@ -104,7 +104,11 @@
 }
 
 -(void)cancel {
-    [task terminate];
+    @try {
+        [task terminate];
+    } @catch(NSException *e) {
+        /* ignore */
+    }
     [super cancel];
 }
 
