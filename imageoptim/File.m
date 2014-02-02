@@ -239,8 +239,9 @@
         }
 
         if (preserve) {
-            NSString *writeToPath = [[[filePath stringByDeletingPathExtension] stringByAppendingString:@"~imageoptim"]
-                                     stringByAppendingPathExtension:[filePath pathExtension]];
+            NSString *writeToFilename = [[NSString stringWithFormat:@".%@~imageoptim", [[filePath lastPathComponent] stringByDeletingPathExtension]]
+                                         stringByAppendingPathExtension:[filePath pathExtension]];
+            NSString *writeToPath = [[filePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:writeToFilename];
 
             if ([fm fileExistsAtPath:writeToPath]) {
                 if (![self trashFileAtPath:writeToPath error:&error]) {
