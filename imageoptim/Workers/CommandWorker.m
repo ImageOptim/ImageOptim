@@ -78,10 +78,8 @@
     @try {
         [task launch];
 
-        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"RunLowPriority"]) {
-            int pid = [task processIdentifier];
-            if (pid > 1) setpriority(PRIO_PROCESS, pid, PRIO_MAX/2); // PRIO_MAX is minimum priority. POSIX is intuitive.
-        }
+        int pid = [task processIdentifier];
+        if (pid > 1) setpriority(PRIO_PROCESS, pid, PRIO_MAX/2); // PRIO_MAX is minimum priority. POSIX is intuitive.
     }
     @catch (NSException *e) {
         IOWarn("Failed to launch %@ - %@",[self className],e);
