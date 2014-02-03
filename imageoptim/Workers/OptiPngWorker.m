@@ -54,7 +54,7 @@
     if ([task terminationStatus]) return NO;
 
     if (fileSizeOptimized) {
-        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:[self className]];
+        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"OptiPNG"];
     }
     return NO;
 }

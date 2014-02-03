@@ -17,6 +17,25 @@
 #import <sys/xattr.h>
 #import "log.h"
 
+@interface ToolStats : NSObject {
+    @public
+    NSString *name;
+    NSUInteger fileSize;
+    double ratio;
+}
+@end
+
+@implementation ToolStats
+- (instancetype)initWithName:(NSString*)aName oldSize:(NSUInteger)oldSize newSize:(NSUInteger)size {
+    if ((self = [super init])) {
+        name = aName;
+        fileSize = size;
+        ratio = (double)oldSize/(double)size;
+    }
+    return self;
+}
+@end
+
 @implementation File
 
 @synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName, fileType;
@@ -25,6 +44,7 @@
 {
     if (self = [self init]) {
         workersPreviousResults = [NSMutableDictionary new];
+        bestTools = [NSMutableDictionary new];
         filePathsOptimizedInUse = [NSMutableSet new];
         [self setFilePath:name];
         [self setStatus:@"wait" order:0 text:NSLocalizedString(@"New file",@"newly added to the queue")];
@@ -118,15 +138,38 @@
     }
 }
 
+-(void)updateBestToolName:(ToolStats*)newTool {
+    bestTools[newTool->name] = newTool;
+
+    NSString *smallestFileToolName = nil; NSUInteger smallestFile = byteSizeOriginal;
+    NSString *bestRatioToolName = nil; float bestRatio = 0;
+    for (NSString *name in bestTools) {
+        ToolStats *t = bestTools[name];
+        if (t->ratio > bestRatio) {bestRatioToolName = name; bestRatio = t->ratio;}
+        if (t->fileSize < smallestFile) {smallestFileToolName = name; smallestFile = t->fileSize;}
+    }
+    NSString *newBestToolName;
+    if (smallestFileToolName && bestRatioToolName && ![bestRatioToolName isEqualToString:smallestFileToolName]) {
+        newBestToolName = [NSString stringWithFormat:NSLocalizedString(@"%@+%@","toolname+toolname in Best Tool column"), bestRatioToolName, smallestFileToolName];
+    } else {
+        newBestToolName = smallestFileToolName ? smallestFileToolName : bestRatioToolName;
+    }
+    if (![newBestToolName isEqualToString:self.bestToolName]) {
+        self.bestToolName = newBestToolName;
+    }
+}
+
 -(BOOL)setFilePathOptimized:(NSString *)tempPath size:(NSUInteger)size toolName:(NSString *)toolname {
     IODebug("File %@ optimized with %@ from %u to %u in %@",filePath?filePath:filePathOptimized,toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,tempPath);
     @synchronized(self) {
         if (size < byteSizeOptimized) {
-            self.bestToolName = [toolname stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
             assert(![filePathOptimized isEqualToString:tempPath]);
             [self removeOldFilePathOptimized];
             filePathOptimized = tempPath;
+            NSUInteger oldSize = byteSizeOptimized;
             [self setByteSizeOptimized:size];
+
+            [self performSelectorOnMainThread:@selector(updateBestToolName:) withObject:[[ToolStats alloc] initWithName:toolname oldSize:oldSize newSize:size] waitUntilDone:NO];
             return YES;
         }
     }

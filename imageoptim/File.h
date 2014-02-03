@@ -26,6 +26,7 @@ enum IOFileType {
     NSUInteger byteSizeOptimized;
 
     NSString *bestToolName;
+    NSMutableDictionary *bestTools;
 	double percentDone;
 	
 	NSString *filePathOptimized;
