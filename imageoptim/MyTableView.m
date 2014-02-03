@@ -28,12 +28,20 @@
 - (IBAction)copy:(id)sender {
     FilesQueue *f = (FilesQueue*)[self delegate];
 
-    NSArray *filePathlist = [[f selectedObjects] valueForKey:@"filePath"];
-    if ([filePathlist count]) {
+    NSArray *selected = [f selectedObjects];
+    NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[selected count]];
+    NSMutableArray *fileNames = [NSMutableArray arrayWithCapacity:[selected count]];
+    for(File *file in selected) {
+        NSString *path = file.filePath;
+        [filePaths addObject:path];
+        [fileNames addObject:[path.lastPathComponent stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    };
+    if ([filePaths count]) {
         NSPasteboard *pboard = [NSPasteboard generalPasteboard];
 
-        [pboard declareTypes:@[NSFilenamesPboardType] owner:self];
-        [pboard setPropertyList:filePathlist forType:NSFilenamesPboardType];
+        [pboard declareTypes:@[NSFilenamesPboardType, NSStringPboardType] owner:self];
+        [pboard setPropertyList:filePaths forType:NSFilenamesPboardType];
+        [pboard setString:[fileNames componentsJoinedByString:@"\n"] forType:NSStringPboardType];
     }
 }
 
