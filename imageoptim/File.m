@@ -90,10 +90,6 @@
     return p;
 }
 
--(void)setPercentOptimized:(double)unused {
-    // just for KVO
-}
-
 -(BOOL)isOptimized {
     return byteSizeOptimized < byteSizeOriginal && (optimized || byteSizeOptimized < byteSizeOnDisk);
 }
@@ -105,8 +101,9 @@
 -(void)setByteSizeOptimized:(NSUInteger)size {
     @synchronized(self) {
         if ((!byteSizeOptimized || size < byteSizeOptimized) && size > 30) {
+            [self willChangeValueForKey:@"percentOptimized"];
             byteSizeOptimized = size;
-            [self setPercentOptimized:0.0]; //just for KVO
+            [self didChangeValueForKey:@"percentOptimized"];
         }
     }
 }
