@@ -12,5 +12,5 @@
 - (IBAction)delete:(id)sender;
 - (IBAction)copyAsDataURI:(id)sender;
 
--(void)openInFinder;
+-(IBAction)openInFinder:(id)sender;
 @end

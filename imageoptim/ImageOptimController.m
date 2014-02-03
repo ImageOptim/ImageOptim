@@ -159,7 +159,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
     }
 
     RevealButtonCell *cell=[[tableView tableColumnWithIdentifier:@"filename"]dataCell];
-    [cell setInfoButtonAction:@selector(openInFinder)];
+    [cell setInfoButtonAction:@selector(openInFinder:)];
     [cell setTarget:tableView];
 
     [credits setString:@""];

@@ -242,12 +242,22 @@
 }
 
 -(void)awakeFromNib {
-    [self setDoubleAction:@selector(openInFinder)];
+    [self setDoubleAction:@selector(openInFinder:)];
 }
 
--(void)openInFinder {
+-(NSArray *)clickedRowSelection {
     FilesQueue *fc = (FilesQueue *)[self delegate];
     assert([fc isKindOfClass:[FilesQueue class]]);
-    [fc openRowInFinder:[self clickedRow]];
+
+    NSInteger row = [self clickedRow];
+    if (row < 0 || ([self isRowSelected:row] && [self numberOfSelectedRows] > 1)) {
+        return [fc selectedObjects];
+    } else {
+        return @[[[fc arrangedObjects] objectAtIndex:row]];
+    }
+}
+
+-(void)openInFinder:(id)sender {
+    [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:[[self clickedRowSelection] valueForKey:@"filePath"]];
 }
 @end

@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
 		<string key="IBDocument.SystemVersion">13C44</string>
-		<string key="IBDocument.InterfaceBuilderVersion">5023</string>
+		<string key="IBDocument.InterfaceBuilderVersion">5037.3</string>
 		<string key="IBDocument.AppKitVersion">1265.16</string>
 		<string key="IBDocument.HIToolboxVersion">697.40</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">5023</string>
+			<string key="NS.object.0">5037.3</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>NSArrayController</string>
@@ -1476,6 +1476,19 @@
 			<object class="NSCustomObject" id="450227685">
 				<string key="NSClassName">SUUpdater</string>
 			</object>
+			<object class="NSMenu" id="337756870">
+				<string key="NSTitle"/>
+				<array class="NSMutableArray" key="NSMenuItems">
+					<object class="NSMenuItem" id="962015865">
+						<reference key="NSMenu" ref="337756870"/>
+						<string key="NSTitle">Reveal in Finder</string>
+						<string key="NSKeyEquiv"/>
+						<int key="NSMnemonicLoc">2147483647</int>
+						<reference key="NSOnImage" ref="855672835"/>
+						<reference key="NSMixedImage" ref="898714739"/>
+					</object>
+				</array>
+			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<bool key="usesAutoincrementingIDs">NO</bool>
@@ -1673,6 +1686,14 @@
 					<string key="id">wqM-oj-7UX</string>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openInFinder:</string>
+						<reference key="source" ref="335302141"/>
+						<reference key="destination" ref="962015865"/>
+					</object>
+					<string key="id">xE9-vV-I28</string>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="576848067"/>
@@ -1823,6 +1844,14 @@
 						<reference key="destination" ref="130688837"/>
 					</object>
 					<string key="id">824</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">menu</string>
+						<reference key="source" ref="995883823"/>
+						<reference key="destination" ref="337756870"/>
+					</object>
+					<string key="id">t6F-hh-e2j</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -3114,6 +3143,19 @@
 						<reference key="object" ref="270538027"/>
 						<reference key="parent" ref="777814834"/>
 					</object>
+					<object class="IBObjectRecord">
+						<string key="id">aEm-KO-6Fg</string>
+						<reference key="object" ref="337756870"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="962015865"/>
+						</array>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<string key="id">ddH-3k-EuT</string>
+						<reference key="object" ref="962015865"/>
+						<reference key="parent" ref="337756870"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -3321,6 +3363,8 @@
 				<string key="820.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="NlY-Bc-7tu.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="aEm-KO-6Fg.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="ddH-3k-EuT.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
@@ -3464,6 +3508,7 @@
 						<string key="copyAsDataURI:">id</string>
 						<string key="cut:">id</string>
 						<string key="delete:">id</string>
+						<string key="openInFinder:">id</string>
 						<string key="paste:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
@@ -3481,6 +3526,10 @@
 						</object>
 						<object class="IBActionInfo" key="delete:">
 							<string key="name">delete:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="openInFinder:">
+							<string key="name">openInFinder:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="paste:">

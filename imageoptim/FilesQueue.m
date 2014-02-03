@@ -139,14 +139,6 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return nil;
 }
 
--(void)openRowInFinder:(NSInteger)row {
-    NSArray *files = [self arrangedObjects];
-    if (row < [files count]) {
-        File *f = [files objectAtIndex:row];
-        [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[[f filePath]]];
-    }
-}
-
 // Better in NSArrayController class
 - (NSUInteger)rowsAboveRow:(NSUInteger)row inIndexSet:(NSIndexSet *)indexSet {
     NSUInteger currentIndex = [indexSet firstIndex];

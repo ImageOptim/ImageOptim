@@ -42,7 +42,6 @@ extern NSString *const kFilesQueueFinished;
 -(BOOL)canClearComplete;
 -(void)cleanup;
 -(void)setRow:(NSInteger)row;
--(void)openRowInFinder:(NSInteger)row;
 
 -(NSArray *)fileTypes;
 
