@@ -1045,7 +1045,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$BUILT_PRODUCTS_DIR/\"\nrm -rf verify\nmkdir verify\ntar xjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" -C verify\nspctl --verbose=4 --assess --type execute \"verify/ImageOptim.app\" || exit 13\n";
+			shellScript = "cd \"$BUILT_PRODUCTS_DIR/\"\nrm -rf verify\nmkdir verify\ntar xjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" -C verify\nspctl --verbose=4 --assess --type execute \"verify/ImageOptim.app\" || exit 13\nspctl --verbose=4 --assess --type execute \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/ImageOptim_Autoupdate.app\" || exit 12\ncodesign -v -v \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework\" || exit 11\n";
 			showEnvVarsInLog = 0;
 		};
 		5ABB9FEB0E8518DA006F51BB /* Tar */ = {
@@ -1063,7 +1063,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\ncd \"$BUILT_PRODUCTS_DIR/\"\ncodesign -f --verbose -s \"Developer ID Application\" --deep \"ImageOptim.app\" || exit 7\ncodesign -f --verbose -s \"Developer ID Application\" \"ImageOptim.app/Contents/Frameworks/Sparkle.framework/Versions/A\" || exit 6\nfind \"ImageOptim.app\" -print0 | xargs -0 -P8 xattr -c\nspctl --verbose=4 --assess --type execute \"ImageOptim.app\" || exit 14\nPATH=$PATH:/usr/local/bin\nTAR=$(which gnutar || which gtar || which tar)\n$TAR cjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" --numeric-owner --owner=0 --group=0 --mtime=2014-01-27 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\"\n";
+			shellScript = "set -e\ncd \"$BUILT_PRODUCTS_DIR/\"\ncodesign -f --verbose -s \"Developer ID Application\" --deep \"ImageOptim.app\" || exit 7\ncodesign -f --verbose -s \"Developer ID Application\" \"ImageOptim.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources\"/ImageOptim_Autoupdate.app || exit 6\ncodesign -f --verbose -s \"Developer ID Application\" \"ImageOptim.app/Contents/Frameworks/Sparkle.framework/Versions/A\" || exit 6\nfind \"ImageOptim.app\" -print0 | xargs -0 -P8 xattr -c\nspctl --verbose=4 --assess --type execute \"ImageOptim.app\" || exit 14\nPATH=$PATH:/usr/local/bin\nTAR=$(which gnutar || which gtar || which tar)\n$TAR cjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" --numeric-owner --owner=0 --group=0 --mtime=2014-01-27 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
