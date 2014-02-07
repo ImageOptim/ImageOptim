@@ -47,7 +47,7 @@ enum IOFileType {
     uint32_t inputFileHash[4];
     
     enum IOFileType fileType;
-    BOOL done, failed, optimized, stopping;
+    BOOL done, failed, optimized, stopping, lossyConverted;
 }
 
 -(BOOL)isBusy;

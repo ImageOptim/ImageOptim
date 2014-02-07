@@ -102,6 +102,7 @@
 -(void)resetToOriginalByteSize:(NSUInteger)size {
     [bestTools removeAllObjects];
     self.bestToolName = nil;
+    lossyConverted = NO;
     byteSizeOptimized = 0;
     byteSizeOriginal = size;
     byteSizeOnDisk = size;
@@ -504,9 +505,10 @@
 
     if (fileType == FILETYPE_PNG) {
         NSInteger pngQuality = [defs integerForKey:@"PngMinQuality"];
-        if (pngQuality < 100 && pngQuality > 30) {
+        if (!lossyConverted && pngQuality < 100 && pngQuality > 30) {
             Worker *w = [[PngquantWorker alloc] initWithFile:self minQuality:pngQuality];
             [runFirst addObject:w];
+            lossyConverted = YES;
         }
         if ([defs boolForKey:@"PngCrushEnabled"]) [worker_list addObject:[[PngCrushWorker alloc] initWithDefaults:defs file:self]];
         if ([defs boolForKey:@"OptiPngEnabled"]) [worker_list addObject:[[OptiPngWorker alloc] initWithDefaults:defs file:self]];
