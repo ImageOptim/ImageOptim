@@ -72,8 +72,6 @@
 
     if (interruptIfTakesTooLong) [NSObject cancelPreviousPerformRequestsWithTarget:task selector:@selector(interrupt) object:nil];
 
-    [commandHandle readInBackgroundAndNotify];
-
     [task waitUntilExit];
     [commandHandle closeFile];
     [fileOutputHandle closeFile];
