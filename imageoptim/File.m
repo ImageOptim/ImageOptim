@@ -256,11 +256,7 @@
 }
 
 -(BOOL)saveResult {
-    if (!filePathOptimized) {
-        IOWarn("WTF? save without filePathOptimized? for %@", filePath);
-        return NO;
-    }
-
+    assert(filePathOptimized);
     @try {
         NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
         BOOL preserve = [defs boolForKey:@"PreservePermissions"];
@@ -362,51 +358,21 @@
     return YES;
 }
 
--(void)workerHasStarted:(Worker *)worker {
-    @synchronized(self) {
-        workersActive++;
-        NSString *name = [[worker className] stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
-        [self setStatus:@"progress" order:4 text:[NSString stringWithFormat:NSLocalizedString(@"Started %@",@"command name, tooltip"),name]];
-    }
-}
-
 -(void)saveResultAndUpdateStatus {
-    BOOL saved = [self saveResult];
-    [self cleanup];
-
-    if (saved) {
-        done = YES;
-        optimized = YES;
-        [self setStatus:@"ok" order:7 text:[NSString stringWithFormat:NSLocalizedString(@"Optimized successfully with %@",@"tooltip"),bestToolName]];
-    } else {
-        [self setStatus:@"err" order:9 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
-    }
-}
-
--(void)workerHasFinished:(Worker *)worker {
-    @synchronized(self) {
-        workersActive--;
-        workersFinished++;
-
-        if (!workersActive) {
-            if (!byteSizeOriginal || !byteSizeOptimized) {
-                IODebug("worker %@ finished, but result file has 0 size",worker);
-                [self setStatus:@"err" order:8 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
-            } else if (workersFinished == workersTotal) {
-                if ([self isOptimized]) {
-                    NSOperation *saveOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(saveResultAndUpdateStatus) object:nil];
-                    [workers addObject:saveOp];
-                    [fileIOQueue addOperation:saveOp];
-                } else {
-                    done = YES;
-                    [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
-                    [self cleanup];
-                }
-            } else {
-                [self setStatus:@"wait" order:2 text:NSLocalizedString(@"Waiting to start more optimizations",@"tooltip")];
-            }
+    assert([self isBusy]);
+    done = YES;
+    if ([self isOptimized] && filePathOptimized && byteSizeOriginal && byteSizeOptimized) {
+        BOOL saved = [self saveResult];
+        if (saved) {
+            optimized = YES;
+            [self setStatus:@"ok" order:7 text:[NSString stringWithFormat:NSLocalizedString(@"Optimized successfully with %@",@"tooltip"),bestToolName]];
+        } else {
+            [self setStatus:@"err" order:9 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
         }
+    } else {
+        [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
     }
+    [self cleanup];
 }
 
 -(int)fileType:(NSData *)data {
@@ -428,24 +394,22 @@
 }
 
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)aFileIOQueue {
+    [self setStatus:@"wait" order:0 text:NSLocalizedString(@"Waiting to be optimized",@"tooltip")];
+
     @synchronized(self) {
         done = NO;
         optimized = NO;
-        workersActive++; // isBusy must say yes!
-
         fileIOQueue = aFileIOQueue; // will be used for saving
         workers = [[NSMutableArray alloc] initWithCapacity:10];
+
+        NSOperation *actualEnqueue = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doEnqueueWorkersInCPUQueue:) object:queue];
+        if (queue.operationCount < queue.maxConcurrentOperationCount) {
+            actualEnqueue.queuePriority = NSOperationQueuePriorityVeryHigh;
+        }
+
+        [workers addObject:actualEnqueue];
+        [fileIOQueue addOperation:actualEnqueue];
     }
-
-    [self setStatus:@"wait" order:0 text:NSLocalizedString(@"Waiting to be optimized",@"tooltip")];
-
-    NSOperation *actualEnqueue = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doEnqueueWorkersInCPUQueue:) object:queue];
-    if (queue.operationCount < queue.maxConcurrentOperationCount) {
-        actualEnqueue.queuePriority = NSOperationQueuePriorityVeryHigh;
-    }
-
-    [workers addObject:actualEnqueue];
-    [fileIOQueue addOperation:actualEnqueue];
 }
 
 -(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue {
@@ -465,8 +429,6 @@
     BOOL hasBeenRunBefore = (byteSizeOnDisk && length == byteSizeOnDisk);
 
     @synchronized(self) {
-        workersActive--;
-
         // if file hasn't changed since last optimization, keep previous byteSizeOriginal, etc.
         if (!byteSizeOnDisk || length != byteSizeOnDisk) {
             byteSizeOptimized = 0;
@@ -547,7 +509,7 @@
         }
     }
 
-    workersTotal += [runFirst count] + [runLater count];
+    NSOperation *saveOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(saveResultAndUpdateStatus) object:nil];
 
     Worker *previousWorker = nil;
     for (Worker *w in runFirst) {
@@ -559,6 +521,7 @@
         } else if (![self isLarge]) {
             [w setQueuePriority: NSOperationQueuePriorityLow];
         }
+        [saveOp addDependency:w];
         [queue addOperation:w];
         previousWorker = w;
     }
@@ -571,6 +534,7 @@
         if (previousWorker) {
             previousWorker.nextOperation = w;
         }
+        [saveOp addDependency:w];
         [queue addOperation:w];
         previousWorker = w;
     }
@@ -578,12 +542,14 @@
     [workers addObjectsFromArray:runFirst];
     [workers addObjectsFromArray:runLater];
 
-    if (!workersTotal) {
+    if (![workers count]) {
         done = YES;
         [self setStatus:@"err" order:8 text:NSLocalizedString(@"All neccessary tools have been disabled in Preferences",@"tooltip")];
         [self cleanup];
     } else {
         [self setStatus:@"wait" order:1 text:NSLocalizedString(@"Waiting to be optimized",@"tooltip")];
+        [workers addObject:saveOp];
+        [fileIOQueue addOperation:saveOp];
     }
 }
 
@@ -603,7 +569,7 @@
 -(BOOL)isBusy {
     BOOL isit;
     @synchronized(self) {
-        isit = workersActive || workersTotal != workersFinished;
+        isit = [workers count] > 0;
     }
     return isit;
 }
@@ -616,8 +582,7 @@
 }
 
 -(NSString *)description {
-    return [NSString stringWithFormat:@"%@ %ld/%ld (workers active %ld, finished %ld, total %ld)", self.filePath,(long)self.byteSizeOriginal,(long)self.byteSizeOptimized, (long)workersActive,
-            (long)workersFinished, (long)workersTotal];
+    return [NSString stringWithFormat:@"%@ %ld/%ld (workers %ld)", self.filePath,(long)self.byteSizeOriginal,(long)self.byteSizeOptimized, [workers count]];
 }
 
 +(NSInteger)fileByteSize:(NSURL *)afile {

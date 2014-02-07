@@ -10,12 +10,6 @@
 @class Worker;
 @class File;
 
-@protocol WorkerQueueDelegate
--(void)workerHasFinished:(Worker *)w;
--(void)workerHasStarted:(Worker *)w;
-@end
-
-
 @interface Worker : NSOperation {
     NSOperation *nextOperation;
     File *file;

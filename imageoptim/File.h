@@ -14,7 +14,7 @@ enum IOFileType {
     FILETYPE_GIF
 };
 
-@interface File : NSObject <NSCopying, WorkerQueueDelegate, QLPreviewItem> {
+@interface File : NSObject <NSCopying, QLPreviewItem> {
 	NSURL *filePath;
 	NSString *displayName;
 	
@@ -38,11 +38,7 @@ enum IOFileType {
     
     NSMutableArray *workers;
     NSMutableDictionary *workersPreviousResults;
-    
-	NSUInteger workersActive;
-	NSUInteger workersFinished;
-	NSUInteger workersTotal;
-    
+
     NSOperationQueue *fileIOQueue;
     
     enum IOFileType fileType;
