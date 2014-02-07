@@ -421,6 +421,9 @@
         // if file hasn't changed since last optimization, keep previous byteSizeOriginal, etc.
         if (!byteSizeOnDisk || length != byteSizeOnDisk) {
             byteSizeOptimized = 0;
+            lossyConverted = NO;
+            [bestTools removeAllObjects];
+            bestToolName = nil;
             [self setByteSizeOriginal:length];
         }
     }
@@ -440,9 +443,10 @@
 
     if (fileType == FILETYPE_PNG) {
         NSInteger pngQuality = [defs integerForKey:@"PngMinQuality"];
-        if (pngQuality < 100 && pngQuality > 30) {
+        if (!lossyConverted && pngQuality < 100 && pngQuality > 30) {
             Worker *w = [[PngquantWorker alloc] initWithFile:self minQuality:pngQuality];
             [runFirst addObject:w];
+            lossyConverted = YES;
         }
 
         worker_list = @[

@@ -42,7 +42,7 @@ enum IOFileType {
     NSOperationQueue *fileIOQueue;
     
     enum IOFileType fileType;
-    BOOL done, optimized;
+    BOOL done, optimized, lossyConverted;
 }
 
 -(BOOL)isBusy;
