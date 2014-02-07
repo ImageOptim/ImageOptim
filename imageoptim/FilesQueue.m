@@ -278,7 +278,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return [self addURLs:paths filesOnly:NO];
 }
 
-/** filesOnly indicates that paths do not contain any directories */
+/** filesOnly indicates that paths do not contain any directories or symlinks */
 -(BOOL)addURLs:(NSArray *)paths filesOnly:(BOOL)filesOnly {
     if (!isEnabled) {
         return NO;
@@ -286,12 +286,18 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
     NSMutableArray *toAdd = [NSMutableArray arrayWithCapacity:[paths count]];
 
-    BOOL isDir = NO;
     BOOL allOK = YES;
     NSFileManager *fm = filesOnly ? nil : [NSFileManager defaultManager];
 
-    for (NSURL *path in paths) {
-        if (fm) {
+    for (NSURL *relpath in paths) {
+        NSURL *path;
+        BOOL isDir = NO;
+
+        if (!fm) {
+            path = relpath;
+        } else {
+            path = [relpath URLByResolvingSymlinksInPath];
+
             if (![fm fileExistsAtPath:path.path isDirectory:&isDir]) {
                 IOWarn("%@ doesn't exist", path.path);
                 allOK = NO;
