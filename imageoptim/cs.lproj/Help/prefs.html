@@ -14,10 +14,10 @@
     <p><a href="index.html">« Zpět na rejstřík</a></p>
     <h2>Obecná nastavení</h2>
     <dl>
-<dt>Preserve file permissions, attributes and hardlinks</dt>
+<dt>Zachovat práva k souborům, vlastnosti a tvrdé odkazy</dt>
       <dd>
         <p>Instead of deleting old file writing a new one with the same name, just replaces old file's content in-place. This ensures that all hardlinks, aliases, file ownership, permissions, extended file attributes will stay the same.</p>
-        <p>It's slightly faster not to preserve permissions.</p>
+        <p>Je lehce rychlejší nezachovávat oprávnění.</p>
       </dd>
       <dt>Strip PNG metadata (gamma, color profiles, optional chunks)</dt>
       <dd>
@@ -38,8 +38,8 @@
       <dl>
 <dt>Největší kvalita</dt>
         <dd>
-          <p>If set to 100%, optimization will be <strong>lossless</strong>.</p>
-          <p>Anything below 100% will cause <strong>lower quality</strong> of files if they appear to have been saved with higher quality setting.</p>
+          <p>Pokud nastaveno na 100%, vylepšování bude <strong>bezztrátové</strong>.</p>
+          <p>Cokoli pod 100% povede k <strong>nižší kvalitě</strong> souborů, pokud je to tak, že byly uloženy s nastavením vyšší kvality.</p>
         </dd>
       </dl>
 </div>
@@ -48,7 +48,7 @@
       <dl>
 <dt>Typ vyladění</dt>
         <dd>
-          <p>PNGOUT is very effective, but very slow. Use lower level if you're impatient.</p>
+          <p>PNGOUT je velice účinný, ale také velmi pomalý. Pokud nevládnete trpělivostí, použijte nižší kvalitu.</p>
         </dd>
         <dt>Přerušit, pokud to trvá příliš dlouho</dt>
         <dd>
@@ -61,9 +61,9 @@
       <dl>
 <dt>Úroveň vylepšování</dt>
         <dd>
-          <p>Number of different setting combinations tested. It rarely makes sense to try them all.</p>
+          <p>Počet vyzkoušených kombinací odlišných nastavení. Zřídkakdy dává smysl je vyzkoušet všechny.</p>
         </dd>
-        <dt>Make images interlaced (progressive)</dt>
+        <dt>Udělat obrázky prokládané (progresivní)</dt>
         <dd>
           <p>Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.</p>
           <p>This checkbox has three states: if checked, will force images to be interlaced. When mixed, it will keep file's interlace unchanged, unchecked will remove interlace from files.</p>
