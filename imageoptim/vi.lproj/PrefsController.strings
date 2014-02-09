@@ -1,0 +1,135 @@
+
+/* Class = "NSWindow"; title = "Tùy Biến"; ObjectID = "5"; */
+"5.title" = "Tùy Biến";
+
+/* Class = "NSTabViewItem"; label = "Tổng quan"; ObjectID = "167"; */
+"167.label" = "Tổng quan";
+
+/* Class = "NSTabViewItem"; label = "AdvPNG"; ObjectID = "168"; */
+"168.label" = "AdvPNG";
+
+/* Class = "NSTabViewItem"; label = "OptiPNG"; ObjectID = "171"; */
+"171.label" = "OptiPNG";
+
+/* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
+"175.label" = "PNGOUT";
+
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
+
+/* Class = "NSBox"; title = "Viết dữ liệu tập tin lên đĩa"; ObjectID = "280"; */
+"280.title" = "Viết dữ liệu tập tin lên đĩa";
+
+/* Class = "NSButtonCell"; title = "Bảo toàn các quyền hạn tác động, thuộc tính và các liên kết kèm theo"; ObjectID = "804"; */
+"804.title" = "Bảo toàn các quyền hạn tác động, thuộc tính và các liên kết kèm theo";
+
+/* Class = "NSTextFieldCell"; title = "Cấp độ Tùy Chỉnh"; ObjectID = "818"; */
+"818.title" = "Cấp độ Tùy Chỉnh";
+
+/* Class = "NSTextFieldCell"; title = "Nhanh"; ObjectID = "819"; */
+"819.title" = "Nhanh";
+
+/* Class = "NSTextFieldCell"; title = "Phồng tôm"; ObjectID = "820"; */
+"820.title" = "Phồng tôm";
+
+/* Class = "NSTextFieldCell"; title = "Bình thường"; ObjectID = "821"; */
+"821.title" = "Bình thường";
+
+/* Class = "NSTextFieldCell"; title = "Bổ sung"; ObjectID = "822"; */
+"822.title" = "Bổ sung";
+
+/* Class = "NSButtonCell"; title = "Quét mành các hình ảnh (tiến bộ hơn)"; ObjectID = "828"; */
+"828.title" = "Quét mành các hình ảnh (tiến bộ hơn)";
+
+/* Class = "NSTextFieldCell"; title = "Cấp độ Tùy Chỉnh"; ObjectID = "829"; */
+"829.title" = "Cấp độ Tùy Chỉnh";
+
+/* Class = "NSTextFieldCell"; title = "Các tập tin quét mạnh luôn lớn hơn"; ObjectID = "831"; */
+"831.title" = "Các tập tin quét mạnh luôn lớn hơn";
+
+/* Class = "NSTextFieldCell"; title = "24 trials"; ObjectID = "833"; */
+"833.title" = "24 trials";
+
+/* Class = "NSTextFieldCell"; title = "240 trials"; ObjectID = "834"; */
+"834.title" = "240 trials";
+
+/* Class = "NSButtonCell"; title = "Bỏ qua thông tin chi tiết về PNG (gamma, hồ sơ màu, chunk tùy chọn)"; ObjectID = "854"; */
+"854.title" = "Bỏ qua thông tin chi tiết về PNG (gamma, hồ sơ màu, chunk tùy chọn)";
+
+/* Class = "NSTextFieldCell"; title = "Loại Tùy Chỉnh"; ObjectID = "856"; */
+"856.title" = "Loại Tùy Chỉnh";
+
+/* Class = "NSTextFieldCell"; title = "Đơn giản"; ObjectID = "857"; */
+"857.title" = "Đơn giản";
+
+/* Class = "NSTextFieldCell"; title = "Mạnh"; ObjectID = "858"; */
+"858.title" = "Mạnh";
+
+/* Class = "NSTextFieldCell"; title = "Cường độ lớn"; ObjectID = "860"; */
+"860.title" = "Cường độ lớn";
+
+/* Class = "NSTextFieldCell"; title = "Khớp với phần dài nhất"; ObjectID = "861"; */
+"861.title" = "Khớp với phần dài nhất";
+
+/* Class = "NSTextFieldCell"; title = "Trình duyệt web cần loại bỏ các phần gamma chunk"; ObjectID = "865"; */
+"865.title" = "Trình duyệt web cần loại bỏ các phần gamma chunk";
+
+/* Class = "NSTextFieldCell"; title = "Chất lượng tối đa"; ObjectID = "868"; */
+"868.title" = "Chất lượng tối đa";
+
+/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
+"872.title" = "-100%";
+
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
+"876.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
+
+/* Class = "NSButtonCell"; title = "Bỏ qua thông tin chi tiết về JPEG metadata (EXIF, hồ sơ màu, GPS, góc quay, v.v..)"; ObjectID = "911"; */
+"911.title" = "Bỏ qua thông tin chi tiết về JPEG metadata (EXIF, hồ sơ màu, GPS, góc quay, v.v..)";
+
+/* Class = "NSButtonCell"; title = "Hoãn lại tiến trình nếu tốn quá nhiều thời gian thi hành thao tác"; ObjectID = "946"; */
+"946.title" = "Hoãn lại tiến trình nếu tốn quá nhiều thời gian thi hành thao tác";
+
+/* Class = "NSBox"; title = "Thông tin chi tiết và hồ sơ màu"; ObjectID = "1043"; */
+"1043.title" = "Thông tin chi tiết và hồ sơ màu";
+
+/* Class = "NSButtonCell"; title = "Jpegtran"; ObjectID = "1092"; */
+"1092.title" = "Jpegtran";
+
+/* Class = "NSButtonCell"; title = "JPEGOptim"; ObjectID = "1093"; */
+"1093.title" = "JPEGOptim";
+
+/* Class = "NSButtonCell"; title = "AdvPNG"; ObjectID = "1094"; */
+"1094.title" = "AdvPNG";
+
+/* Class = "NSButtonCell"; title = "OptiPNG"; ObjectID = "1095"; */
+"1095.title" = "OptiPNG";
+
+/* Class = "NSButtonCell"; title = "PNGCrush"; ObjectID = "1096"; */
+"1096.title" = "PNGCrush";
+
+/* Class = "NSButtonCell"; title = "PNGOUT"; ObjectID = "1097"; */
+"1097.title" = "PNGOUT";
+
+/* Class = "NSButtonCell"; title = "Gifsicle"; ObjectID = "1098"; */
+"1098.title" = "Gifsicle";
+
+/* Class = "NSBox"; title = "Bật"; ObjectID = "1107"; */
+"1107.title" = "Bật";
+
+/* Class = "NSButtonCell"; title = "Jpegrescan"; ObjectID = "1111"; */
+"1111.title" = "Jpegrescan";
+
+/* Class = "NSButtonCell"; title = "Zopfli"; ObjectID = "1118"; */
+"1118.title" = "Zopfli";
+
+/* Class = "NSTextFieldCell"; title = "Lưu vào các ổ đĩa mạng sẽ nhanh hơn khi các phần quyền hạn không được lưu giữ"; ObjectID = "1122"; */
+"1122.title" = "Lưu vào các ổ đĩa mạng sẽ nhanh hơn khi các phần quyền hạn không được lưu giữ";
+
+/* Class = "NSTextFieldCell"; title = "Không khuyên dùng nếu bạn cần thông tin bản quyền về phần nhúng"; ObjectID = "1124"; */
+"1124.title" = "Không khuyên dùng nếu bạn cần thông tin bản quyền về phần nhúng";

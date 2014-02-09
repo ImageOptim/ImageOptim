@@ -1,0 +1,135 @@
+
+/* Class = "NSWindow"; title = "ImageOptim Voorkeuren"; ObjectID = "5"; */
+"5.title" = "ImageOptim Voorkeuren";
+
+/* Class = "NSTabViewItem"; label = "Algemeen"; ObjectID = "167"; */
+"167.label" = "Algemeen";
+
+/* Class = "NSTabViewItem"; label = "AdvPNG"; ObjectID = "168"; */
+"168.label" = "AdvPNG";
+
+/* Class = "NSTabViewItem"; label = "OptiPNG"; ObjectID = "171"; */
+"171.label" = "OptiPNG";
+
+/* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
+"175.label" = "PNGOUT";
+
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
+
+/* Class = "NSBox"; title = "Bezig met het wegschrijven van de bestanden"; ObjectID = "280"; */
+"280.title" = "Bezig met het wegschrijven van de bestanden";
+
+/* Class = "NSButtonCell"; title = "Behoud bestandspermissies, -attributen en hardlinks"; ObjectID = "804"; */
+"804.title" = "Behoud bestandspermissies, -attributen en hardlinks";
+
+/* Class = "NSTextFieldCell"; title = "Optimalisatie-niveau"; ObjectID = "818"; */
+"818.title" = "Optimalisatie-niveau";
+
+/* Class = "NSTextFieldCell"; title = "Snel"; ObjectID = "819"; */
+"819.title" = "Snel";
+
+/* Class = "NSTextFieldCell"; title = "Hyper"; ObjectID = "820"; */
+"820.title" = "Hyper";
+
+/* Class = "NSTextFieldCell"; title = "Normaal"; ObjectID = "821"; */
+"821.title" = "Normaal";
+
+/* Class = "NSTextFieldCell"; title = "Extra"; ObjectID = "822"; */
+"822.title" = "Extra";
+
+/* Class = "NSButtonCell"; title = "Pas interlacing (progressief) toe"; ObjectID = "828"; */
+"828.title" = "Pas interlacing (progressief) toe";
+
+/* Class = "NSTextFieldCell"; title = "Optimalisatie-niveau"; ObjectID = "829"; */
+"829.title" = "Optimalisatie-niveau";
+
+/* Class = "NSTextFieldCell"; title = "Bestanden met interlacing zijn meestal groter"; ObjectID = "831"; */
+"831.title" = "Bestanden met interlacing zijn meestal groter";
+
+/* Class = "NSTextFieldCell"; title = "24 trials"; ObjectID = "833"; */
+"833.title" = "24 trials";
+
+/* Class = "NSTextFieldCell"; title = "240 trials"; ObjectID = "834"; */
+"834.title" = "240 trials";
+
+/* Class = "NSButtonCell"; title = "Verwijder PNG-metadata (gamma, kleurprofielen, optionele chunks)"; ObjectID = "854"; */
+"854.title" = "Verwijder PNG-metadata (gamma, kleurprofielen, optionele chunks)";
+
+/* Class = "NSTextFieldCell"; title = "Optimalisatie-type"; ObjectID = "856"; */
+"856.title" = "Optimalisatie-type";
+
+/* Class = "NSTextFieldCell"; title = "Simpel"; ObjectID = "857"; */
+"857.title" = "Simpel";
+
+/* Class = "NSTextFieldCell"; title = "Extreem"; ObjectID = "858"; */
+"858.title" = "Extreem";
+
+/* Class = "NSTextFieldCell"; title = "Intensief"; ObjectID = "860"; */
+"860.title" = "Intensief";
+
+/* Class = "NSTextFieldCell"; title = "Langste overeenkomst"; ObjectID = "861"; */
+"861.title" = "Langste overeenkomst";
+
+/* Class = "NSTextFieldCell"; title = "Webbrowsers vereisen dat gamma verwijderd wordt"; ObjectID = "865"; */
+"865.title" = "Webbrowsers vereisen dat gamma verwijderd wordt";
+
+/* Class = "NSTextFieldCell"; title = "Beste kwaliteit"; ObjectID = "868"; */
+"868.title" = "Beste kwaliteit";
+
+/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
+"872.title" = "-100%";
+
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
+"876.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
+
+/* Class = "NSButtonCell"; title = "Verwijder JPEG-metadata (EXIF, kleurprofielen, GPS, rotatie, etc.)"; ObjectID = "911"; */
+"911.title" = "Verwijder JPEG-metadata (EXIF, kleurprofielen, GPS, rotatie, etc.)";
+
+/* Class = "NSButtonCell"; title = "Onderbreek wanneer de uitvoering te lang duurt"; ObjectID = "946"; */
+"946.title" = "Onderbreek wanneer de uitvoering te lang duurt";
+
+/* Class = "NSBox"; title = "Metadata en kleurenprofielen"; ObjectID = "1043"; */
+"1043.title" = "Metadata en kleurenprofielen";
+
+/* Class = "NSButtonCell"; title = "Jpegtran"; ObjectID = "1092"; */
+"1092.title" = "Jpegtran";
+
+/* Class = "NSButtonCell"; title = "JPEGOptim"; ObjectID = "1093"; */
+"1093.title" = "JPEGOptim";
+
+/* Class = "NSButtonCell"; title = "AdvPNG"; ObjectID = "1094"; */
+"1094.title" = "AdvPNG";
+
+/* Class = "NSButtonCell"; title = "OptiPNG"; ObjectID = "1095"; */
+"1095.title" = "OptiPNG";
+
+/* Class = "NSButtonCell"; title = "PNGCrush"; ObjectID = "1096"; */
+"1096.title" = "PNGCrush";
+
+/* Class = "NSButtonCell"; title = "PNGOUT"; ObjectID = "1097"; */
+"1097.title" = "PNGOUT";
+
+/* Class = "NSButtonCell"; title = "Gifsicle"; ObjectID = "1098"; */
+"1098.title" = "Gifsicle";
+
+/* Class = "NSBox"; title = "Ingeschakeld"; ObjectID = "1107"; */
+"1107.title" = "Ingeschakeld";
+
+/* Class = "NSButtonCell"; title = "Jpegrescan"; ObjectID = "1111"; */
+"1111.title" = "Jpegrescan";
+
+/* Class = "NSButtonCell"; title = "Zopfli"; ObjectID = "1118"; */
+"1118.title" = "Zopfli";
+
+/* Class = "NSTextFieldCell"; title = "Bewaren naar netwerkschijven gaat sneller wanneer de permissies niet behouden worden"; ObjectID = "1122"; */
+"1122.title" = "Bewaren naar netwerkschijven gaat sneller wanneer de permissies niet behouden worden";
+
+/* Class = "NSTextFieldCell"; title = "Niet aan te raden indien je ingesloten copyright-informatie wil behouden"; ObjectID = "1124"; */
+"1124.title" = "Niet aan te raden indien je ingesloten copyright-informatie wil behouden";

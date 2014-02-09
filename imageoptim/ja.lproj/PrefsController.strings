@@ -1,0 +1,135 @@
+
+/* Class = "NSWindow"; title = "ImageOptim 環境設定"; ObjectID = "5"; */
+"5.title" = "ImageOptim 環境設定";
+
+/* Class = "NSTabViewItem"; label = "一般"; ObjectID = "167"; */
+"167.label" = "一般";
+
+/* Class = "NSTabViewItem"; label = "AdvPNG"; ObjectID = "168"; */
+"168.label" = "AdvPNG";
+
+/* Class = "NSTabViewItem"; label = "OptiPNG"; ObjectID = "171"; */
+"171.label" = "OptiPNG";
+
+/* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
+"175.label" = "PNGOUT";
+
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
+
+/* Class = "NSBox"; title = "ファイルのディスク書き込み"; ObjectID = "280"; */
+"280.title" = "ファイルのディスク書き込み";
+
+/* Class = "NSButtonCell"; title = "ファイルのパーミッション、属性、ハードリンクを維持する"; ObjectID = "804"; */
+"804.title" = "ファイルのパーミッション、属性、ハードリンクを維持する";
+
+/* Class = "NSTextFieldCell"; title = "最適化レベル"; ObjectID = "818"; */
+"818.title" = "最適化レベル";
+
+/* Class = "NSTextFieldCell"; title = "高速"; ObjectID = "819"; */
+"819.title" = "高速";
+
+/* Class = "NSTextFieldCell"; title = "狂的"; ObjectID = "820"; */
+"820.title" = "狂的";
+
+/* Class = "NSTextFieldCell"; title = "普通"; ObjectID = "821"; */
+"821.title" = "普通";
+
+/* Class = "NSTextFieldCell"; title = "必要以上"; ObjectID = "822"; */
+"822.title" = "必要以上";
+
+/* Class = "NSButtonCell"; title = "画像をインターレース (プログレッシブ) 形式にする"; ObjectID = "828"; */
+"828.title" = "画像をインターレース (プログレッシブ) 形式にする";
+
+/* Class = "NSTextFieldCell"; title = "最適化レベル"; ObjectID = "829"; */
+"829.title" = "最適化レベル";
+
+/* Class = "NSTextFieldCell"; title = "インターレース形式は一般的にサイズが大きくなります"; ObjectID = "831"; */
+"831.title" = "インターレース形式は一般的にサイズが大きくなります";
+
+/* Class = "NSTextFieldCell"; title = "24 回試行"; ObjectID = "833"; */
+"833.title" = "24 回試行";
+
+/* Class = "NSTextFieldCell"; title = "240 回試行"; ObjectID = "834"; */
+"834.title" = "240 回試行";
+
+/* Class = "NSButtonCell"; title = "PNGのメタデータを取り除く (ガンマ値、カラープロファイルなど)"; ObjectID = "854"; */
+"854.title" = "PNGのメタデータを取り除く (ガンマ値、カラープロファイルなど)";
+
+/* Class = "NSTextFieldCell"; title = "最適化タイプ"; ObjectID = "856"; */
+"856.title" = "最適化タイプ";
+
+/* Class = "NSTextFieldCell"; title = "普通"; ObjectID = "857"; */
+"857.title" = "普通";
+
+/* Class = "NSTextFieldCell"; title = "最大"; ObjectID = "858"; */
+"858.title" = "最大";
+
+/* Class = "NSTextFieldCell"; title = "強力"; ObjectID = "860"; */
+"860.title" = "強力";
+
+/* Class = "NSTextFieldCell"; title = "最長一致"; ObjectID = "861"; */
+"861.title" = "最長一致";
+
+/* Class = "NSTextFieldCell"; title = "一部のウェブブラウザはガンマ値に対応していません"; ObjectID = "865"; */
+"865.title" = "一部のウェブブラウザはガンマ値に対応していません";
+
+/* Class = "NSTextFieldCell"; title = "最高品質"; ObjectID = "868"; */
+"868.title" = "最高品質";
+
+/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
+"872.title" = "-100%";
+
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
+"876.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
+
+/* Class = "NSButtonCell"; title = "JPEGのメタデータを取り除く (EXIF、カラープロファイル、GPSなど)"; ObjectID = "911"; */
+"911.title" = "JPEGのメタデータを取り除く (EXIF、カラープロファイル、GPSなど)";
+
+/* Class = "NSButtonCell"; title = "実行に時間がかかる場合は中止する"; ObjectID = "946"; */
+"946.title" = "実行に時間がかかる場合は中止する";
+
+/* Class = "NSBox"; title = "メタデータとカラープロファイル"; ObjectID = "1043"; */
+"1043.title" = "メタデータとカラープロファイル";
+
+/* Class = "NSButtonCell"; title = "Jpegtran"; ObjectID = "1092"; */
+"1092.title" = "Jpegtran";
+
+/* Class = "NSButtonCell"; title = "JPEGOptim"; ObjectID = "1093"; */
+"1093.title" = "JPEGOptim";
+
+/* Class = "NSButtonCell"; title = "AdvPNG"; ObjectID = "1094"; */
+"1094.title" = "AdvPNG";
+
+/* Class = "NSButtonCell"; title = "OptiPNG"; ObjectID = "1095"; */
+"1095.title" = "OptiPNG";
+
+/* Class = "NSButtonCell"; title = "PNGCrush"; ObjectID = "1096"; */
+"1096.title" = "PNGCrush";
+
+/* Class = "NSButtonCell"; title = "PNGOUT"; ObjectID = "1097"; */
+"1097.title" = "PNGOUT";
+
+/* Class = "NSButtonCell"; title = "Gifsicle"; ObjectID = "1098"; */
+"1098.title" = "Gifsicle";
+
+/* Class = "NSBox"; title = "有効"; ObjectID = "1107"; */
+"1107.title" = "有効";
+
+/* Class = "NSButtonCell"; title = "Jpegrescan"; ObjectID = "1111"; */
+"1111.title" = "Jpegrescan";
+
+/* Class = "NSButtonCell"; title = "Zopfli"; ObjectID = "1118"; */
+"1118.title" = "Zopfli";
+
+/* Class = "NSTextFieldCell"; title = "維持しない場合、ネットワークドライブへの保存が早くなります"; ObjectID = "1122"; */
+"1122.title" = "維持しない場合、ネットワークドライブへの保存が早くなります";
+
+/* Class = "NSTextFieldCell"; title = "埋め込まれた著作権情報を必要とする場合はおすすめしません"; ObjectID = "1124"; */
+"1124.title" = "埋め込まれた著作権情報を必要とする場合はおすすめしません";

@@ -1,0 +1,135 @@
+
+/* Class = "NSWindow"; title = "ImageOptim indstillinger"; ObjectID = "5"; */
+"5.title" = "ImageOptim indstillinger";
+
+/* Class = "NSTabViewItem"; label = "Generelt"; ObjectID = "167"; */
+"167.label" = "Generelt";
+
+/* Class = "NSTabViewItem"; label = "AdvPNG"; ObjectID = "168"; */
+"168.label" = "AdvPNG";
+
+/* Class = "NSTabViewItem"; label = "OptiPNG"; ObjectID = "171"; */
+"171.label" = "OptiPNG";
+
+/* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
+"175.label" = "PNGOUT";
+
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
+
+/* Class = "NSBox"; title = "Skriver filer til disken"; ObjectID = "280"; */
+"280.title" = "Skriver filer til disken";
+
+/* Class = "NSButtonCell"; title = "Bevar filrettigheder, egenskaber og hardlinks"; ObjectID = "804"; */
+"804.title" = "Bevar filrettigheder, egenskaber og hardlinks";
+
+/* Class = "NSTextFieldCell"; title = "Optimeringsniveau"; ObjectID = "818"; */
+"818.title" = "Optimeringsniveau";
+
+/* Class = "NSTextFieldCell"; title = "Hurtig"; ObjectID = "819"; */
+"819.title" = "Hurtig";
+
+/* Class = "NSTextFieldCell"; title = "Sindssyg"; ObjectID = "820"; */
+"820.title" = "Sindssyg";
+
+/* Class = "NSTextFieldCell"; title = "Normal"; ObjectID = "821"; */
+"821.title" = "Normal";
+
+/* Class = "NSTextFieldCell"; title = "Ekstra"; ObjectID = "822"; */
+"822.title" = "Ekstra";
+
+/* Class = "NSButtonCell"; title = "Gør billeder interlaced (progressiv)"; ObjectID = "828"; */
+"828.title" = "Gør billeder interlaced (progressiv)";
+
+/* Class = "NSTextFieldCell"; title = "Optimeringsniveau"; ObjectID = "829"; */
+"829.title" = "Optimeringsniveau";
+
+/* Class = "NSTextFieldCell"; title = "Interlaced filer er normalt større"; ObjectID = "831"; */
+"831.title" = "Interlaced filer er normalt større";
+
+/* Class = "NSTextFieldCell"; title = "24 forsøg"; ObjectID = "833"; */
+"833.title" = "24 forsøg";
+
+/* Class = "NSTextFieldCell"; title = "240 forsøg"; ObjectID = "834"; */
+"834.title" = "240 forsøg";
+
+/* Class = "NSButtonCell"; title = "Fjern PNG metadata (gamma, farveprofiler, valgfri komponenter)"; ObjectID = "854"; */
+"854.title" = "Fjern PNG metadata (gamma, farveprofiler, valgfri komponenter)";
+
+/* Class = "NSTextFieldCell"; title = "Optimeringstype"; ObjectID = "856"; */
+"856.title" = "Optimeringstype";
+
+/* Class = "NSTextFieldCell"; title = "Simpel"; ObjectID = "857"; */
+"857.title" = "Simpel";
+
+/* Class = "NSTextFieldCell"; title = "Ekstrem"; ObjectID = "858"; */
+"858.title" = "Ekstrem";
+
+/* Class = "NSTextFieldCell"; title = "Intens"; ObjectID = "860"; */
+"860.title" = "Intens";
+
+/* Class = "NSTextFieldCell"; title = "Længste match"; ObjectID = "861"; */
+"861.title" = "Længste match";
+
+/* Class = "NSTextFieldCell"; title = "Internet browsere kræver fjernelse af gamma"; ObjectID = "865"; */
+"865.title" = "Internet browsere kræver fjernelse af gamma";
+
+/* Class = "NSTextFieldCell"; title = "Maksimal kvalitet"; ObjectID = "868"; */
+"868.title" = "Maksimal kvalitet";
+
+/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
+"872.title" = "-100%";
+
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
+"876.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
+
+/* Class = "NSButtonCell"; title = "Fjern JPEG metadata (EXIF, farveprofiler, GPS, rotation, etc.)"; ObjectID = "911"; */
+"911.title" = "Fjern JPEG metadata (EXIF, farveprofiler, GPS, rotation, etc.)";
+
+/* Class = "NSButtonCell"; title = "Afbryd hvis eksekvering trækker i langdrag"; ObjectID = "946"; */
+"946.title" = "Afbryd hvis eksekvering trækker i langdrag";
+
+/* Class = "NSBox"; title = "Metadata og farveprofiler"; ObjectID = "1043"; */
+"1043.title" = "Metadata og farveprofiler";
+
+/* Class = "NSButtonCell"; title = "Jpegtran"; ObjectID = "1092"; */
+"1092.title" = "Jpegtran";
+
+/* Class = "NSButtonCell"; title = "JPEGOptim"; ObjectID = "1093"; */
+"1093.title" = "JPEGOptim";
+
+/* Class = "NSButtonCell"; title = "AdvPNG"; ObjectID = "1094"; */
+"1094.title" = "AdvPNG";
+
+/* Class = "NSButtonCell"; title = "OptiPNG"; ObjectID = "1095"; */
+"1095.title" = "OptiPNG";
+
+/* Class = "NSButtonCell"; title = "PNGCrush"; ObjectID = "1096"; */
+"1096.title" = "PNGCrush";
+
+/* Class = "NSButtonCell"; title = "PNGOUT"; ObjectID = "1097"; */
+"1097.title" = "PNGOUT";
+
+/* Class = "NSButtonCell"; title = "Gifsicle"; ObjectID = "1098"; */
+"1098.title" = "Gifsicle";
+
+/* Class = "NSBox"; title = "Slået til"; ObjectID = "1107"; */
+"1107.title" = "Slået til";
+
+/* Class = "NSButtonCell"; title = "Jpegrescan"; ObjectID = "1111"; */
+"1111.title" = "Jpegrescan";
+
+/* Class = "NSButtonCell"; title = "Zopfli"; ObjectID = "1118"; */
+"1118.title" = "Zopfli";
+
+/* Class = "NSTextFieldCell"; title = "At gemme til netværksdrev er hurtigere når tilladelser ikke bevares"; ObjectID = "1122"; */
+"1122.title" = "At gemme til netværksdrev er hurtigere når tilladelser ikke bevares";
+
+/* Class = "NSTextFieldCell"; title = "Ikke anbefalet hvis du afhænger af integreret copyright information"; ObjectID = "1124"; */
+"1124.title" = "Ikke anbefalet hvis du afhænger af integreret copyright information";

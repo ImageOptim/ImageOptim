@@ -1,0 +1,135 @@
+
+/* Class = "NSWindow"; title = "ImageOptim Tercihleri"; ObjectID = "5"; */
+"5.title" = "ImageOptim Tercihleri";
+
+/* Class = "NSTabViewItem"; label = "Genel"; ObjectID = "167"; */
+"167.label" = "Genel";
+
+/* Class = "NSTabViewItem"; label = "AdvPNG"; ObjectID = "168"; */
+"168.label" = "AdvPNG";
+
+/* Class = "NSTabViewItem"; label = "OptiPNG"; ObjectID = "171"; */
+"171.label" = "OptiPNG";
+
+/* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
+"175.label" = "PNGOUT";
+
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
+
+/* Class = "NSBox"; title = "Dosya kayıt tercihi"; ObjectID = "280"; */
+"280.title" = "Dosya kayıt tercihi";
+
+/* Class = "NSButtonCell"; title = "Dosya izinlerini, özelliklerini ve sabit bağlantıları koru"; ObjectID = "804"; */
+"804.title" = "Dosya izinlerini, özelliklerini ve sabit bağlantıları koru";
+
+/* Class = "NSTextFieldCell"; title = "Optimizasyon seviyesi"; ObjectID = "818"; */
+"818.title" = "Optimizasyon seviyesi";
+
+/* Class = "NSTextFieldCell"; title = "Hızlı"; ObjectID = "819"; */
+"819.title" = "Hızlı";
+
+/* Class = "NSTextFieldCell"; title = "Çılgın"; ObjectID = "820"; */
+"820.title" = "Çılgın";
+
+/* Class = "NSTextFieldCell"; title = "Normal"; ObjectID = "821"; */
+"821.title" = "Normal";
+
+/* Class = "NSTextFieldCell"; title = "Ekstra"; ObjectID = "822"; */
+"822.title" = "Ekstra";
+
+/* Class = "NSButtonCell"; title = "Resimleri interlaced (aşamalı yükleme) yap"; ObjectID = "828"; */
+"828.title" = "Resimleri interlaced (aşamalı yükleme) yap";
+
+/* Class = "NSTextFieldCell"; title = "Optimizasyon düzeyi"; ObjectID = "829"; */
+"829.title" = "Optimizasyon düzeyi";
+
+/* Class = "NSTextFieldCell"; title = "Interlaced dosyalar genelde daha büyük olur"; ObjectID = "831"; */
+"831.title" = "Interlaced dosyalar genelde daha büyük olur";
+
+/* Class = "NSTextFieldCell"; title = "24 sınama"; ObjectID = "833"; */
+"833.title" = "24 sınama";
+
+/* Class = "NSTextFieldCell"; title = "240 sınama"; ObjectID = "834"; */
+"834.title" = "240 sınama";
+
+/* Class = "NSButtonCell"; title = "Strip PNG metadata (gamma, color profiles, optional chunks)"; ObjectID = "854"; */
+"854.title" = "Strip PNG metadata (gamma, color profiles, optional chunks)";
+
+/* Class = "NSTextFieldCell"; title = "Optimizasyon türü"; ObjectID = "856"; */
+"856.title" = "Optimizasyon türü";
+
+/* Class = "NSTextFieldCell"; title = "Basit"; ObjectID = "857"; */
+"857.title" = "Basit";
+
+/* Class = "NSTextFieldCell"; title = "Abartılı"; ObjectID = "858"; */
+"858.title" = "Abartılı";
+
+/* Class = "NSTextFieldCell"; title = "Aşırı"; ObjectID = "860"; */
+"860.title" = "Aşırı";
+
+/* Class = "NSTextFieldCell"; title = "Bitmek bilmeyen"; ObjectID = "861"; */
+"861.title" = "Bitmek bilmeyen";
+
+/* Class = "NSTextFieldCell"; title = "Web tarayıcıları gamma fazlalıklarının kaldırılmasını gerektirir"; ObjectID = "865"; */
+"865.title" = "Web tarayıcıları gamma fazlalıklarının kaldırılmasını gerektirir";
+
+/* Class = "NSTextFieldCell"; title = "Maksimum kalite"; ObjectID = "868"; */
+"868.title" = "Maksimum kalite";
+
+/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
+"872.title" = "-100%";
+
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
+"876.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
+
+/* Class = "NSButtonCell"; title = "Strip JPEG metadata (EXIF, color profiles, GPS, rotation, etc.)"; ObjectID = "911"; */
+"911.title" = "Strip JPEG metadata (EXIF, color profiles, GPS, rotation, etc.)";
+
+/* Class = "NSButtonCell"; title = "Tamamlanması çok uzun sürerse işlemi kes"; ObjectID = "946"; */
+"946.title" = "Tamamlanması çok uzun sürerse işlemi kes";
+
+/* Class = "NSBox"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+"1043.title" = "Metadata and color profiles";
+
+/* Class = "NSButtonCell"; title = "Jpegtran"; ObjectID = "1092"; */
+"1092.title" = "Jpegtran";
+
+/* Class = "NSButtonCell"; title = "JPEGOptim"; ObjectID = "1093"; */
+"1093.title" = "JPEGOptim";
+
+/* Class = "NSButtonCell"; title = "AdvPNG"; ObjectID = "1094"; */
+"1094.title" = "AdvPNG";
+
+/* Class = "NSButtonCell"; title = "OptiPNG"; ObjectID = "1095"; */
+"1095.title" = "OptiPNG";
+
+/* Class = "NSButtonCell"; title = "PNGCrush"; ObjectID = "1096"; */
+"1096.title" = "PNGCrush";
+
+/* Class = "NSButtonCell"; title = "PNGOUT"; ObjectID = "1097"; */
+"1097.title" = "PNGOUT";
+
+/* Class = "NSButtonCell"; title = "Gifsicle"; ObjectID = "1098"; */
+"1098.title" = "Gifsicle";
+
+/* Class = "NSBox"; title = "Açık"; ObjectID = "1107"; */
+"1107.title" = "Açık";
+
+/* Class = "NSButtonCell"; title = "Jpegrescan"; ObjectID = "1111"; */
+"1111.title" = "Jpegrescan";
+
+/* Class = "NSButtonCell"; title = "Zopfli"; ObjectID = "1118"; */
+"1118.title" = "Zopfli";
+
+/* Class = "NSTextFieldCell"; title = "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+"1122.title" = "Saving to network drives is faster when permissions are not preserved";
+
+/* Class = "NSTextFieldCell"; title = "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+"1124.title" = "Not recommended if you rely on embedded copyright information";

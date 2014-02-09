@@ -1,0 +1,135 @@
+
+/* Class = "NSWindow"; title = "ImageOptim 偏好設定"; ObjectID = "5"; */
+"5.title" = "ImageOptim 偏好設定";
+
+/* Class = "NSTabViewItem"; label = "一般"; ObjectID = "167"; */
+"167.label" = "一般";
+
+/* Class = "NSTabViewItem"; label = "AdvPNG"; ObjectID = "168"; */
+"168.label" = "AdvPNG";
+
+/* Class = "NSTabViewItem"; label = "OptiPNG"; ObjectID = "171"; */
+"171.label" = "OptiPNG";
+
+/* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
+"175.label" = "PNGOUT";
+
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
+
+/* Class = "NSBox"; title = "檔案寫入"; ObjectID = "280"; */
+"280.title" = "檔案寫入";
+
+/* Class = "NSButtonCell"; title = "保留檔案權限、屬性及永久連結"; ObjectID = "804"; */
+"804.title" = "保留檔案權限、屬性及永久連結";
+
+/* Class = "NSTextFieldCell"; title = "最佳化程度"; ObjectID = "818"; */
+"818.title" = "最佳化程度";
+
+/* Class = "NSTextFieldCell"; title = "快速"; ObjectID = "819"; */
+"819.title" = "快速";
+
+/* Class = "NSTextFieldCell"; title = "瘋狂"; ObjectID = "820"; */
+"820.title" = "瘋狂";
+
+/* Class = "NSTextFieldCell"; title = "普通"; ObjectID = "821"; */
+"821.title" = "普通";
+
+/* Class = "NSTextFieldCell"; title = "超額"; ObjectID = "822"; */
+"822.title" = "超額";
+
+/* Class = "NSButtonCell"; title = "交錯化圖片"; ObjectID = "828"; */
+"828.title" = "交錯化圖片";
+
+/* Class = "NSTextFieldCell"; title = "最佳化程度"; ObjectID = "829"; */
+"829.title" = "最佳化程度";
+
+/* Class = "NSTextFieldCell"; title = "交錯化圖片通常會令檔案容量增大"; ObjectID = "831"; */
+"831.title" = "交錯化圖片通常會令檔案容量增大";
+
+/* Class = "NSTextFieldCell"; title = "24 次嘗試"; ObjectID = "833"; */
+"833.title" = "24 次嘗試";
+
+/* Class = "NSTextFieldCell"; title = "240 次嘗試"; ObjectID = "834"; */
+"834.title" = "240 次嘗試";
+
+/* Class = "NSButtonCell"; title = "PNG: 清除所有輔助資料塊"; ObjectID = "854"; */
+"854.title" = "PNG: 清除所有輔助資料塊";
+
+/* Class = "NSTextFieldCell"; title = "最佳化類型"; ObjectID = "856"; */
+"856.title" = "最佳化類型";
+
+/* Class = "NSTextFieldCell"; title = "簡易"; ObjectID = "857"; */
+"857.title" = "簡易";
+
+/* Class = "NSTextFieldCell"; title = "極端"; ObjectID = "858"; */
+"858.title" = "極端";
+
+/* Class = "NSTextFieldCell"; title = "重度"; ObjectID = "860"; */
+"860.title" = "重度";
+
+/* Class = "NSTextFieldCell"; title = "最長匹配"; ObjectID = "861"; */
+"861.title" = "最長匹配";
+
+/* Class = "NSTextFieldCell"; title = "多數瀏覽器無法處理Gamma校準訊息"; ObjectID = "865"; */
+"865.title" = "多數瀏覽器無法處理Gamma校準訊息";
+
+/* Class = "NSTextFieldCell"; title = "最佳品質"; ObjectID = "868"; */
+"868.title" = "最佳品質";
+
+/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
+"872.title" = "-100%";
+
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
+"876.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
+
+/* Class = "NSButtonCell"; title = "JPEG: 移除EXIF訊息及註解"; ObjectID = "911"; */
+"911.title" = "JPEG: 移除EXIF訊息及註解";
+
+/* Class = "NSButtonCell"; title = "當處理時間過長時中斷處理"; ObjectID = "946"; */
+"946.title" = "當處理時間過長時中斷處理";
+
+/* Class = "NSBox"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+"1043.title" = "Metadata and color profiles";
+
+/* Class = "NSButtonCell"; title = "Jpegtran"; ObjectID = "1092"; */
+"1092.title" = "Jpegtran";
+
+/* Class = "NSButtonCell"; title = "JPEGOptim"; ObjectID = "1093"; */
+"1093.title" = "JPEGOptim";
+
+/* Class = "NSButtonCell"; title = "AdvPNG"; ObjectID = "1094"; */
+"1094.title" = "AdvPNG";
+
+/* Class = "NSButtonCell"; title = "OptiPNG"; ObjectID = "1095"; */
+"1095.title" = "OptiPNG";
+
+/* Class = "NSButtonCell"; title = "PNGCrush"; ObjectID = "1096"; */
+"1096.title" = "PNGCrush";
+
+/* Class = "NSButtonCell"; title = "PNGOUT"; ObjectID = "1097"; */
+"1097.title" = "PNGOUT";
+
+/* Class = "NSButtonCell"; title = "Gifsicle"; ObjectID = "1098"; */
+"1098.title" = "Gifsicle";
+
+/* Class = "NSBox"; title = "啟用"; ObjectID = "1107"; */
+"1107.title" = "啟用";
+
+/* Class = "NSButtonCell"; title = "Jpegrescan"; ObjectID = "1111"; */
+"1111.title" = "Jpegrescan";
+
+/* Class = "NSButtonCell"; title = "Zopfli"; ObjectID = "1118"; */
+"1118.title" = "Zopfli";
+
+/* Class = "NSTextFieldCell"; title = "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+"1122.title" = "Saving to network drives is faster when permissions are not preserved";
+
+/* Class = "NSTextFieldCell"; title = "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+"1124.title" = "Not recommended if you rely on embedded copyright information";

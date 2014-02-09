@@ -14,8 +14,8 @@
 /* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
 "175.label" = "PNGOUT";
 
-/* Class = "NSTabViewItem"; label = "Quality"; ObjectID = "177"; */
-"177.label" = "Quality";
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
 
 /* Class = "NSBox"; title = "Writing files to disk"; ObjectID = "280"; */
 "280.title" = "Writing files to disk";
@@ -74,20 +74,20 @@
 /* Class = "NSTextFieldCell"; title = "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
 "865.title" = "Web browsers require gamma chunks to be removed";
 
-/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
-"868.title" = "JPEG quality";
+/* Class = "NSTextFieldCell"; title = "Maximum quality"; ObjectID = "868"; */
+"868.title" = "Maximum quality";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
 "872.title" = "-100%";
 
-/* Class = "NSTextFieldCell"; title = "70%"; ObjectID = "875"; */
-"875.title" = "70%";
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
 
 /* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
 "876.title" = "100%";
 
-/* Class = "NSTextFieldCell"; title = "85%"; ObjectID = "877"; */
-"877.title" = "85%";
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
 
 /* Class = "NSButtonCell"; title = "Strip JPEG metadata (EXIF, color profiles, GPS, rotation, etc.)"; ObjectID = "911"; */
 "911.title" = "Strip JPEG metadata (EXIF, color profiles, GPS, rotation, etc.)";
@@ -133,21 +133,3 @@
 
 /* Class = "NSTextFieldCell"; title = "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
 "1124.title" = "Not recommended if you rely on embedded copyright information";
-
-/* Class = "NSTextFieldCell"; title = "Ensure you have backup of images before lowering their quality"; ObjectID = "45N-lN-4fK"; */
-"45N-lN-4fK.title" = "Ensure you have backup of images before lowering their quality";
-
-/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "Qlv-4X-VkF"; */
-"Qlv-4X-VkF.title" = "-100%";
-
-/* Class = "NSTextFieldCell"; title = "70%"; ObjectID = "Ubh-lt-KUJ"; */
-"Ubh-lt-KUJ.title" = "70%";
-
-/* Class = "NSTextFieldCell"; title = "85%"; ObjectID = "hoC-ON-aee"; */
-"hoC-ON-aee.title" = "85%";
-
-/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
-"kE2-GK-JIe.title" = "PNG quality";
-
-/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "td6-7E-iN8"; */
-"td6-7E-iN8.title" = "100%";

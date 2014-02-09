@@ -1,0 +1,84 @@
+
+/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+"5.title" = "ImageOptim Preferences";
+
+/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+"167.label" = "General";
+
+/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "Writing files to disk";
+
+/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "Preserve file permissions, attributes and hardlinks";
+
+/* "Optimization level"; ObjectID = "818"; */
+"818.title" = "Optimization level";
+
+/* "Fast"; ObjectID = "819"; */
+"819.title" = "Fast";
+
+/* "Insane"; ObjectID = "820"; */
+"820.title" = "Insane";
+
+/* "Normal"; ObjectID = "821"; */
+"821.title" = "Normal";
+
+/* "Extra"; ObjectID = "822"; */
+"822.title" = "Extra";
+
+/* button "Make images interlaced (progressive)"; ObjectID = "828"; */
+"828.title" = "Make images interlaced (progressive)";
+
+/* "Optimization level"; ObjectID = "829"; */
+"829.title" = "Optimization level";
+
+/* "Interlaced files are usually larger"; ObjectID = "831"; */
+"831.title" = "Interlaced files are usually larger";
+
+/* "24 trials"; ObjectID = "833"; */
+"833.title" = "24 trials";
+
+/* "240 trials"; ObjectID = "834"; */
+"834.title" = "240 trials";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"854.title" = "PNG: 清除所有輔助資料塊";
+
+/* "Optimization type"; ObjectID = "856"; */
+"856.title" = "Optimization type";
+
+/* "Simple"; ObjectID = "857"; */
+"857.title" = "Simple";
+
+/* "Xtreme"; ObjectID = "858"; */
+"858.title" = "Xtreme";
+
+/* "Intense"; ObjectID = "860"; */
+"860.title" = "Intense";
+
+/* "Longest match"; ObjectID = "861"; */
+"861.title" = "Longest match";
+
+/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+"865.title" = "Web browsers require gamma chunks to be removed";
+
+/* "Maximum quality"; ObjectID = "868"; */
+"868.title" = "Maximum quality";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"911.title" = "JPEG: 移除EXIF訊息及註解";
+
+/* button "Interrupt if takes too long to execute"; ObjectID = "946"; */
+"946.title" = "Interrupt if takes too long to execute";
+
+/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+"1043.title" = "Metadata and color profiles";
+
+/* Header above list of tools to enable */
+"1107.title" = "Enable";
+
+/* "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+"1122.title" = "Saving to network drives is faster when permissions are not preserved";
+
+/* "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+"1124.title" = "Not recommended if you rely on embedded copyright information";

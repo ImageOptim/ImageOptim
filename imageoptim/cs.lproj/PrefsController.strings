@@ -1,0 +1,135 @@
+
+/* Class = "NSWindow"; title = "Nastavení ImageOptim"; ObjectID = "5"; */
+"5.title" = "Nastavení ImageOptim";
+
+/* Class = "NSTabViewItem"; label = "Obecné"; ObjectID = "167"; */
+"167.label" = "Obecné";
+
+/* Class = "NSTabViewItem"; label = "AdvPNG"; ObjectID = "168"; */
+"168.label" = "AdvPNG";
+
+/* Class = "NSTabViewItem"; label = "OptiPNG"; ObjectID = "171"; */
+"171.label" = "OptiPNG";
+
+/* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
+"175.label" = "PNGOUT";
+
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
+
+/* Class = "NSBox"; title = "Zápis souborů na disk"; ObjectID = "280"; */
+"280.title" = "Zápis souborů na disk";
+
+/* Class = "NSButtonCell"; title = "Zachovat práva k souborům, vlastnosti a tvrdé odkazy"; ObjectID = "804"; */
+"804.title" = "Zachovat práva k souborům, vlastnosti a tvrdé odkazy";
+
+/* Class = "NSTextFieldCell"; title = "Úroveň vylepšování"; ObjectID = "818"; */
+"818.title" = "Úroveň vylepšování";
+
+/* Class = "NSTextFieldCell"; title = "Rychlé"; ObjectID = "819"; */
+"819.title" = "Rychlé";
+
+/* Class = "NSTextFieldCell"; title = "Šílené"; ObjectID = "820"; */
+"820.title" = "Šílené";
+
+/* Class = "NSTextFieldCell"; title = "Normální"; ObjectID = "821"; */
+"821.title" = "Normální";
+
+/* Class = "NSTextFieldCell"; title = "Extra"; ObjectID = "822"; */
+"822.title" = "Extra";
+
+/* Class = "NSButtonCell"; title = "Udělat obrázky prokládané (progresivní)"; ObjectID = "828"; */
+"828.title" = "Udělat obrázky prokládané (progresivní)";
+
+/* Class = "NSTextFieldCell"; title = "Úroveň vylepšování"; ObjectID = "829"; */
+"829.title" = "Úroveň vylepšování";
+
+/* Class = "NSTextFieldCell"; title = "Prokládané soubory jsou obvykle větší"; ObjectID = "831"; */
+"831.title" = "Prokládané soubory jsou obvykle větší";
+
+/* Class = "NSTextFieldCell"; title = "24 pokusů"; ObjectID = "833"; */
+"833.title" = "24 pokusů";
+
+/* Class = "NSTextFieldCell"; title = "240 pokusů"; ObjectID = "834"; */
+"834.title" = "240 pokusů";
+
+/* Class = "NSButtonCell"; title = "Zbavit  PNG popisných dat (gama, barevné profily, nepovinné kusy)"; ObjectID = "854"; */
+"854.title" = "Zbavit  PNG popisných dat (gama, barevné profily, nepovinné kusy)";
+
+/* Class = "NSTextFieldCell"; title = "Typ vylepšování"; ObjectID = "856"; */
+"856.title" = "Typ vylepšování";
+
+/* Class = "NSTextFieldCell"; title = "Jednoduché"; ObjectID = "857"; */
+"857.title" = "Jednoduché";
+
+/* Class = "NSTextFieldCell"; title = "Úplné"; ObjectID = "858"; */
+"858.title" = "Úplné";
+
+/* Class = "NSTextFieldCell"; title = "Silné"; ObjectID = "860"; */
+"860.title" = "Silné";
+
+/* Class = "NSTextFieldCell"; title = "Nejdelší shoda"; ObjectID = "861"; */
+"861.title" = "Nejdelší shoda";
+
+/* Class = "NSTextFieldCell"; title = "Prohlížeče stránek požadují, aby byly kousky gama odstraněny"; ObjectID = "865"; */
+"865.title" = "Prohlížeče stránek požadují, aby byly kousky gama odstraněny";
+
+/* Class = "NSTextFieldCell"; title = "Největší jakost"; ObjectID = "868"; */
+"868.title" = "Největší jakost";
+
+/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
+"872.title" = "-100%";
+
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
+"876.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
+
+/* Class = "NSButtonCell"; title = "Zbavit  JPEG popisných dat (EXIF, barevné profily, GPS, otočení atd.)"; ObjectID = "911"; */
+"911.title" = "Zbavit  JPEG popisných dat (EXIF, barevné profily, GPS, otočení atd.)";
+
+/* Class = "NSButtonCell"; title = "Přerušit při příliš dlouhém vylepšování"; ObjectID = "946"; */
+"946.title" = "Přerušit při příliš dlouhém vylepšování";
+
+/* Class = "NSBox"; title = "Popisná data a barevné profily"; ObjectID = "1043"; */
+"1043.title" = "Popisná data a barevné profily";
+
+/* Class = "NSButtonCell"; title = "Jpegtran"; ObjectID = "1092"; */
+"1092.title" = "Jpegtran";
+
+/* Class = "NSButtonCell"; title = "JPEGOptim"; ObjectID = "1093"; */
+"1093.title" = "JPEGOptim";
+
+/* Class = "NSButtonCell"; title = "AdvPNG"; ObjectID = "1094"; */
+"1094.title" = "AdvPNG";
+
+/* Class = "NSButtonCell"; title = "OptiPNG"; ObjectID = "1095"; */
+"1095.title" = "OptiPNG";
+
+/* Class = "NSButtonCell"; title = "PNGCrush"; ObjectID = "1096"; */
+"1096.title" = "PNGCrush";
+
+/* Class = "NSButtonCell"; title = "PNGOUT"; ObjectID = "1097"; */
+"1097.title" = "PNGOUT";
+
+/* Class = "NSButtonCell"; title = "Gifsicle"; ObjectID = "1098"; */
+"1098.title" = "Gifsicle";
+
+/* Class = "NSBox"; title = "Povolit"; ObjectID = "1107"; */
+"1107.title" = "Povolit";
+
+/* Class = "NSButtonCell"; title = "Jpegrescan"; ObjectID = "1111"; */
+"1111.title" = "Jpegrescan";
+
+/* Class = "NSButtonCell"; title = "Zopfli"; ObjectID = "1118"; */
+"1118.title" = "Zopfli";
+
+/* Class = "NSTextFieldCell"; title = "Ukládání na síťových discích je rychlejší, když nejsou zachována práva"; ObjectID = "1122"; */
+"1122.title" = "Ukládání na síťových discích je rychlejší, když nejsou zachována práva";
+
+/* Class = "NSTextFieldCell"; title = "Nedoporučuje se, pokud spoléháte na vložené informace o auorském právu"; ObjectID = "1124"; */
+"1124.title" = "Nedoporučuje se, pokud spoléháte na vložené informace o auorském právu";

@@ -1,0 +1,135 @@
+
+/* Class = "NSWindow"; title = "ImageOptim nustatymai"; ObjectID = "5"; */
+"5.title" = "ImageOptim nustatymai";
+
+/* Class = "NSTabViewItem"; label = "Bendri"; ObjectID = "167"; */
+"167.label" = "Bendri";
+
+/* Class = "NSTabViewItem"; label = "AdvPNG"; ObjectID = "168"; */
+"168.label" = "AdvPNG";
+
+/* Class = "NSTabViewItem"; label = "OptiPNG"; ObjectID = "171"; */
+"171.label" = "OptiPNG";
+
+/* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
+"175.label" = "PNGOUT";
+
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
+
+/* Class = "NSBox"; title = "Rašyti failus į diską"; ObjectID = "280"; */
+"280.title" = "Rašyti failus į diską";
+
+/* Class = "NSButtonCell"; title = "Išsaugoti failų teisęs, parametrus ir nuorodas"; ObjectID = "804"; */
+"804.title" = "Išsaugoti failų teisęs, parametrus ir nuorodas";
+
+/* Class = "NSTextFieldCell"; title = "Optimizavimo lygis"; ObjectID = "818"; */
+"818.title" = "Optimizavimo lygis";
+
+/* Class = "NSTextFieldCell"; title = "Greitai"; ObjectID = "819"; */
+"819.title" = "Greitai";
+
+/* Class = "NSTextFieldCell"; title = "Beprotiškai"; ObjectID = "820"; */
+"820.title" = "Beprotiškai";
+
+/* Class = "NSTextFieldCell"; title = "Normaliai "; ObjectID = "821"; */
+"821.title" = "Normaliai ";
+
+/* Class = "NSTextFieldCell"; title = "Papildomai"; ObjectID = "822"; */
+"822.title" = "Papildomai";
+
+/* Class = "NSButtonCell"; title = "Padaryti paveikslėlius supintais (progressive interlace)"; ObjectID = "828"; */
+"828.title" = "Padaryti paveikslėlius supintais (progressive interlace)";
+
+/* Class = "NSTextFieldCell"; title = "Optimizacijos lygis"; ObjectID = "829"; */
+"829.title" = "Optimizacijos lygis";
+
+/* Class = "NSTextFieldCell"; title = "Supinti (interlace) failai dažniausiai yra didesni"; ObjectID = "831"; */
+"831.title" = "Supinti (interlace) failai dažniausiai yra didesni";
+
+/* Class = "NSTextFieldCell"; title = "24 bandymai"; ObjectID = "833"; */
+"833.title" = "24 bandymai";
+
+/* Class = "NSTextFieldCell"; title = "240 bandymai"; ObjectID = "834"; */
+"834.title" = "240 bandymai";
+
+/* Class = "NSButtonCell"; title = "PNG: Pašalinti visas galimas santraukas"; ObjectID = "854"; */
+"854.title" = "PNG: Pašalinti visas galimas santraukas";
+
+/* Class = "NSTextFieldCell"; title = "Optimizacijos tipas"; ObjectID = "856"; */
+"856.title" = "Optimizacijos tipas";
+
+/* Class = "NSTextFieldCell"; title = "Paprasta"; ObjectID = "857"; */
+"857.title" = "Paprasta";
+
+/* Class = "NSTextFieldCell"; title = "Ekstremali"; ObjectID = "858"; */
+"858.title" = "Ekstremali";
+
+/* Class = "NSTextFieldCell"; title = "Intensyvus"; ObjectID = "860"; */
+"860.title" = "Intensyvus";
+
+/* Class = "NSTextFieldCell"; title = "Ilgiausias sutapimas"; ObjectID = "861"; */
+"861.title" = "Ilgiausias sutapimas";
+
+/* Class = "NSTextFieldCell"; title = "Naršyklės reikalauja gamma santrumpų pašalinimo."; ObjectID = "865"; */
+"865.title" = "Naršyklės reikalauja gamma santrumpų pašalinimo.";
+
+/* Class = "NSTextFieldCell"; title = "Aukščiausia kokybė"; ObjectID = "868"; */
+"868.title" = "Aukščiausia kokybė";
+
+/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
+"872.title" = "-100%";
+
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
+"876.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
+
+/* Class = "NSButtonCell"; title = "JPEG: Išvalyti EXIF žymes ir komentarus iš failų"; ObjectID = "911"; */
+"911.title" = "JPEG: Išvalyti EXIF žymes ir komentarus iš failų";
+
+/* Class = "NSButtonCell"; title = "Nutraukti jeigu vykdymas užtrunka per ilgai"; ObjectID = "946"; */
+"946.title" = "Nutraukti jeigu vykdymas užtrunka per ilgai";
+
+/* Class = "NSBox"; title = "Metadata"; ObjectID = "1043"; */
+"1043.title" = "Metadata";
+
+/* Class = "NSButtonCell"; title = "Jpegtran"; ObjectID = "1092"; */
+"1092.title" = "Jpegtran";
+
+/* Class = "NSButtonCell"; title = "JPEGOptim"; ObjectID = "1093"; */
+"1093.title" = "JPEGOptim";
+
+/* Class = "NSButtonCell"; title = "AdvPNG"; ObjectID = "1094"; */
+"1094.title" = "AdvPNG";
+
+/* Class = "NSButtonCell"; title = "OptiPNG"; ObjectID = "1095"; */
+"1095.title" = "OptiPNG";
+
+/* Class = "NSButtonCell"; title = "PNGCrush"; ObjectID = "1096"; */
+"1096.title" = "PNGCrush";
+
+/* Class = "NSButtonCell"; title = "PNGOUT"; ObjectID = "1097"; */
+"1097.title" = "PNGOUT";
+
+/* Class = "NSButtonCell"; title = "Gifsicle"; ObjectID = "1098"; */
+"1098.title" = "Gifsicle";
+
+/* Class = "NSBox"; title = "Enable"; ObjectID = "1107"; */
+"1107.title" = "Enable";
+
+/* Class = "NSButtonCell"; title = "Jpegrescan"; ObjectID = "1111"; */
+"1111.title" = "Jpegrescan";
+
+/* Class = "NSButtonCell"; title = "Zopfli"; ObjectID = "1118"; */
+"1118.title" = "Zopfli";
+
+/* Class = "NSTextFieldCell"; title = "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+"1122.title" = "Saving to network drives is faster when permissions are not preserved";
+
+/* Class = "NSTextFieldCell"; title = "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+"1124.title" = "Not recommended if you rely on embedded copyright information";

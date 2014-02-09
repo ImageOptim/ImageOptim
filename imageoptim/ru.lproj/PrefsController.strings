@@ -1,0 +1,135 @@
+
+/* Class = "NSWindow"; title = "Настройки ImageOptim"; ObjectID = "5"; */
+"5.title" = "Настройки ImageOptim";
+
+/* Class = "NSTabViewItem"; label = "Основные"; ObjectID = "167"; */
+"167.label" = "Основные";
+
+/* Class = "NSTabViewItem"; label = "AdvPNG"; ObjectID = "168"; */
+"168.label" = "AdvPNG";
+
+/* Class = "NSTabViewItem"; label = "OptiPNG"; ObjectID = "171"; */
+"171.label" = "OptiPNG";
+
+/* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
+"175.label" = "PNGOUT";
+
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
+
+/* Class = "NSBox"; title = "Запись файлов на диск"; ObjectID = "280"; */
+"280.title" = "Запись файлов на диск";
+
+/* Class = "NSButtonCell"; title = "Сохранять разрешения, аттрибуты и ссылки"; ObjectID = "804"; */
+"804.title" = "Сохранять разрешения, аттрибуты и ссылки";
+
+/* Class = "NSTextFieldCell"; title = "Уровень оптимизации"; ObjectID = "818"; */
+"818.title" = "Уровень оптимизации";
+
+/* Class = "NSTextFieldCell"; title = "Быстрый"; ObjectID = "819"; */
+"819.title" = "Быстрый";
+
+/* Class = "NSTextFieldCell"; title = "Безумный"; ObjectID = "820"; */
+"820.title" = "Безумный";
+
+/* Class = "NSTextFieldCell"; title = "Нормальный"; ObjectID = "821"; */
+"821.title" = "Нормальный";
+
+/* Class = "NSTextFieldCell"; title = "Экстра"; ObjectID = "822"; */
+"822.title" = "Экстра";
+
+/* Class = "NSButtonCell"; title = "Сделать изображения черезстрочными (прогрессивными)"; ObjectID = "828"; */
+"828.title" = "Сделать изображения черезстрочными (прогрессивными)";
+
+/* Class = "NSTextFieldCell"; title = "Уровень оптимизации"; ObjectID = "829"; */
+"829.title" = "Уровень оптимизации";
+
+/* Class = "NSTextFieldCell"; title = "Черезстрочные изображения обычно больше"; ObjectID = "831"; */
+"831.title" = "Черезстрочные изображения обычно больше";
+
+/* Class = "NSTextFieldCell"; title = "24 пробы"; ObjectID = "833"; */
+"833.title" = "24 пробы";
+
+/* Class = "NSTextFieldCell"; title = "240 проб"; ObjectID = "834"; */
+"834.title" = "240 проб";
+
+/* Class = "NSButtonCell"; title = "Удалить метаданные PNG (гамму, цветовые профили и др.)"; ObjectID = "854"; */
+"854.title" = "Удалить метаданные PNG (гамму, цветовые профили и др.)";
+
+/* Class = "NSTextFieldCell"; title = "Тип оптимизации"; ObjectID = "856"; */
+"856.title" = "Тип оптимизации";
+
+/* Class = "NSTextFieldCell"; title = "Простой"; ObjectID = "857"; */
+"857.title" = "Простой";
+
+/* Class = "NSTextFieldCell"; title = "Безумный"; ObjectID = "858"; */
+"858.title" = "Безумный";
+
+/* Class = "NSTextFieldCell"; title = "Интенсивный"; ObjectID = "860"; */
+"860.title" = "Интенсивный";
+
+/* Class = "NSTextFieldCell"; title = "Наибольшее совпадение"; ObjectID = "861"; */
+"861.title" = "Наибольшее совпадение";
+
+/* Class = "NSTextFieldCell"; title = "Веб-браузеры требуют удаление чанков гаммы"; ObjectID = "865"; */
+"865.title" = "Веб-браузеры требуют удаление чанков гаммы";
+
+/* Class = "NSTextFieldCell"; title = "Максимальное качество"; ObjectID = "868"; */
+"868.title" = "Максимальное качество";
+
+/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
+"872.title" = "-100%";
+
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
+"876.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
+
+/* Class = "NSButtonCell"; title = "Удалить метаданные JPEG (EXIF, профили цвета, GPS и др.)"; ObjectID = "911"; */
+"911.title" = "Удалить метаданные JPEG (EXIF, профили цвета, GPS и др.)";
+
+/* Class = "NSButtonCell"; title = "Прервать, если занимает много времени"; ObjectID = "946"; */
+"946.title" = "Прервать, если занимает много времени";
+
+/* Class = "NSBox"; title = "Метаданные и цветовые профили"; ObjectID = "1043"; */
+"1043.title" = "Метаданные и цветовые профили";
+
+/* Class = "NSButtonCell"; title = "Jpegtran"; ObjectID = "1092"; */
+"1092.title" = "Jpegtran";
+
+/* Class = "NSButtonCell"; title = "JPEGOptim"; ObjectID = "1093"; */
+"1093.title" = "JPEGOptim";
+
+/* Class = "NSButtonCell"; title = "AdvPNG"; ObjectID = "1094"; */
+"1094.title" = "AdvPNG";
+
+/* Class = "NSButtonCell"; title = "OptiPNG"; ObjectID = "1095"; */
+"1095.title" = "OptiPNG";
+
+/* Class = "NSButtonCell"; title = "PNGCrush"; ObjectID = "1096"; */
+"1096.title" = "PNGCrush";
+
+/* Class = "NSButtonCell"; title = "PNGOUT"; ObjectID = "1097"; */
+"1097.title" = "PNGOUT";
+
+/* Class = "NSButtonCell"; title = "Gifsicle"; ObjectID = "1098"; */
+"1098.title" = "Gifsicle";
+
+/* Class = "NSBox"; title = "Включить"; ObjectID = "1107"; */
+"1107.title" = "Включить";
+
+/* Class = "NSButtonCell"; title = "Jpegrescan"; ObjectID = "1111"; */
+"1111.title" = "Jpegrescan";
+
+/* Class = "NSButtonCell"; title = "Zopfli"; ObjectID = "1118"; */
+"1118.title" = "Zopfli";
+
+/* Class = "NSTextFieldCell"; title = "Сохранение на сетевые диски происходит быстрее, если не сохранять разрешения файлов"; ObjectID = "1122"; */
+"1122.title" = "Сохранение на сетевые диски происходит быстрее, если не сохранять разрешения файлов";
+
+/* Class = "NSTextFieldCell"; title = "Не рекомендуется, если вы полагаетесь на встроенную информацию о правообладателе"; ObjectID = "1124"; */
+"1124.title" = "Не рекомендуется, если вы полагаетесь на встроенную информацию о правообладателе";

@@ -1,0 +1,135 @@
+
+/* Class = "NSWindow"; title = "Preferencje ImageOptim"; ObjectID = "5"; */
+"5.title" = "Preferencje ImageOptim";
+
+/* Class = "NSTabViewItem"; label = "Ogólne"; ObjectID = "167"; */
+"167.label" = "Ogólne";
+
+/* Class = "NSTabViewItem"; label = "AdvPNG"; ObjectID = "168"; */
+"168.label" = "AdvPNG";
+
+/* Class = "NSTabViewItem"; label = "OptiPNG"; ObjectID = "171"; */
+"171.label" = "OptiPNG";
+
+/* Class = "NSTabViewItem"; label = "PNGOUT"; ObjectID = "175"; */
+"175.label" = "PNGOUT";
+
+/* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
+"177.label" = "JPEGOptim";
+
+/* Class = "NSBox"; title = "Zapisywanie na dysk"; ObjectID = "280"; */
+"280.title" = "Zapisywanie na dysk";
+
+/* Class = "NSButtonCell"; title = "Zachowaj uprawnienia plików, atrybuty i linki"; ObjectID = "804"; */
+"804.title" = "Zachowaj uprawnienia plików, atrybuty i linki";
+
+/* Class = "NSTextFieldCell"; title = "Typ optymalizacji"; ObjectID = "818"; */
+"818.title" = "Typ optymalizacji";
+
+/* Class = "NSTextFieldCell"; title = "Szybki"; ObjectID = "819"; */
+"819.title" = "Szybki";
+
+/* Class = "NSTextFieldCell"; title = "Szalony"; ObjectID = "820"; */
+"820.title" = "Szalony";
+
+/* Class = "NSTextFieldCell"; title = "Normalny"; ObjectID = "821"; */
+"821.title" = "Normalny";
+
+/* Class = "NSTextFieldCell"; title = "Ekstra"; ObjectID = "822"; */
+"822.title" = "Ekstra";
+
+/* Class = "NSButtonCell"; title = "Stwórz grafiki z przeplotem (progresywne)"; ObjectID = "828"; */
+"828.title" = "Stwórz grafiki z przeplotem (progresywne)";
+
+/* Class = "NSTextFieldCell"; title = "Typ optymalizacji"; ObjectID = "829"; */
+"829.title" = "Typ optymalizacji";
+
+/* Class = "NSTextFieldCell"; title = "Pliki z przeplotem są większe"; ObjectID = "831"; */
+"831.title" = "Pliki z przeplotem są większe";
+
+/* Class = "NSTextFieldCell"; title = "24 próby"; ObjectID = "833"; */
+"833.title" = "24 próby";
+
+/* Class = "NSTextFieldCell"; title = "240 prób"; ObjectID = "834"; */
+"834.title" = "240 prób";
+
+/* Class = "NSButtonCell"; title = "Usuń wszystkie opcjonalne dane z PNG (np. profil kolorów)"; ObjectID = "854"; */
+"854.title" = "Usuń wszystkie opcjonalne dane z PNG (np. profil kolorów)";
+
+/* Class = "NSTextFieldCell"; title = "Typ optymalizacji"; ObjectID = "856"; */
+"856.title" = "Typ optymalizacji";
+
+/* Class = "NSTextFieldCell"; title = "Prosty"; ObjectID = "857"; */
+"857.title" = "Prosty";
+
+/* Class = "NSTextFieldCell"; title = "Xtremalny"; ObjectID = "858"; */
+"858.title" = "Xtremalny";
+
+/* Class = "NSTextFieldCell"; title = "Itensywny"; ObjectID = "860"; */
+"860.title" = "Itensywny";
+
+/* Class = "NSTextFieldCell"; title = "Długi ciąg"; ObjectID = "861"; */
+"861.title" = "Długi ciąg";
+
+/* Class = "NSTextFieldCell"; title = "Przeglądarki wymagają usunięcia gammy"; ObjectID = "865"; */
+"865.title" = "Przeglądarki wymagają usunięcia gammy";
+
+/* Class = "NSTextFieldCell"; title = "Maksymalna jakość"; ObjectID = "868"; */
+"868.title" = "Maksymalna jakość";
+
+/* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
+"872.title" = "-100%";
+
+/* Class = "NSTextFieldCell"; title = "80%"; ObjectID = "875"; */
+"875.title" = "80%";
+
+/* Class = "NSTextFieldCell"; title = "100%"; ObjectID = "876"; */
+"876.title" = "100%";
+
+/* Class = "NSTextFieldCell"; title = "90%"; ObjectID = "877"; */
+"877.title" = "90%";
+
+/* Class = "NSButtonCell"; title = "Usuń znaczniki EXIF z plików JPEG (np. GPS, profil kolorów)"; ObjectID = "911"; */
+"911.title" = "Usuń znaczniki EXIF z plików JPEG (np. GPS, profil kolorów)";
+
+/* Class = "NSButtonCell"; title = "Przerwij, jeśli pracuje zbyt długo"; ObjectID = "946"; */
+"946.title" = "Przerwij, jeśli pracuje zbyt długo";
+
+/* Class = "NSBox"; title = "Metadata"; ObjectID = "1043"; */
+"1043.title" = "Metadata";
+
+/* Class = "NSButtonCell"; title = "Jpegtran"; ObjectID = "1092"; */
+"1092.title" = "Jpegtran";
+
+/* Class = "NSButtonCell"; title = "JPEGOptim"; ObjectID = "1093"; */
+"1093.title" = "JPEGOptim";
+
+/* Class = "NSButtonCell"; title = "AdvPNG"; ObjectID = "1094"; */
+"1094.title" = "AdvPNG";
+
+/* Class = "NSButtonCell"; title = "OptiPNG"; ObjectID = "1095"; */
+"1095.title" = "OptiPNG";
+
+/* Class = "NSButtonCell"; title = "PNGCrush"; ObjectID = "1096"; */
+"1096.title" = "PNGCrush";
+
+/* Class = "NSButtonCell"; title = "PNGOUT"; ObjectID = "1097"; */
+"1097.title" = "PNGOUT";
+
+/* Class = "NSButtonCell"; title = "Gifsicle"; ObjectID = "1098"; */
+"1098.title" = "Gifsicle";
+
+/* Class = "NSBox"; title = "Używaj"; ObjectID = "1107"; */
+"1107.title" = "Używaj";
+
+/* Class = "NSButtonCell"; title = "Jpegrescan"; ObjectID = "1111"; */
+"1111.title" = "Jpegrescan";
+
+/* Class = "NSButtonCell"; title = "Zopfli"; ObjectID = "1118"; */
+"1118.title" = "Zopfli";
+
+/* Class = "NSTextFieldCell"; title = "Spowalnia zapis na dyskach sieciowych"; ObjectID = "1122"; */
+"1122.title" = "Spowalnia zapis na dyskach sieciowych";
+
+/* Class = "NSTextFieldCell"; title = "Wyłącz, żeby nie usuwać osadzonych informacji o autorze"; ObjectID = "1124"; */
+"1124.title" = "Wyłącz, żeby nie usuwać osadzonych informacji o autorze";
