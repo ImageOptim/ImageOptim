@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Preferencje ImageOptim</title>
+<link rel="stylesheet" href="../../style.css" type="text/css">
+<meta name="AppleTitle" content="ImageOptim Preferences Help">
+<meta name="AppleIcon" content="../../crusher.icns">
+<meta name="AppleFont" content="Lucida Grande,Helvetica,Arial">
+<meta name="AppleSearchResultsFont" content="Lucida Grande,Geneva,Arial">
+<meta name="description" content="ImageOptim Preferences">
+</head>
+<body>
+    <h1>Preferencje ImageOptim</h1>
+    <p><a href="index.html"> «Powrót do indeksu</a></p>
+    <h2>Generalne preferencje</h2>
+    <dl>
+<dt>Zachować uprawnienia do plików, atrybuty i hardlinks</dt>
+      <dd>
+        <p>Zamiast usuwania starych plików zapisz nowy o tej samej nazwie, po prostu zastąp stary zawartość pliku. Gwarantuje to, że wszystkie hardlinki, pseudonimy, plik własności, uprawnienia i rozszerzone atrybuty plików pozostaną takie same.</p>
+        <p>To jest szybciej ale nie po to, aby zachować uprawnienia.</p>
+      </dd>
+      <dt>pas metadata PNG (gamma, profile kolorów, opcjonalne chunki)</dt>
+      <dd>
+        <p>Pliki PNG mogą mieć różną jasność i nasycenie w różnych przeglądarkach, ponieważ nie wszystkie przeglądarki obsługują korekty gamma i zmianę kolorów. Usuwanie informacji sprawia, że kolor bardziej spójny w przeglądarkach i zmniejszy rozmiar pliku.</p>
+        <p data-role="strip-dpi">Inne niewidzialne informacje są także usuwane jak DPI i komentarze.</p>
+      </dd>
+      <dt>Pas metadata JPEG (EXIF, kolor profili, GPS, obracanie, itd.)</dt>
+      <dd>
+        <p>Usuwa metadane obrazu, takie jak profil kolorów, czas ekspozycji, współrzędne GPS, model aparatu i nazwę oprogramowania używanego do utworzenia pliku.</p>
+        <p data-role="strip-copyright">Osadzone informacje o prawach autorskich są również usunięte. Należy pamiętać, że zazwyczaj obrazy są chronione przez prawo autorskie, niezależnie od tego, czy zawierają one takie ukryte metadane czy też nie.</p>
+      </dd>
+    </dl>
+<h2>Narzędzia</h2>
+    <p data-role="slow-tools">Zopfli i PNGOUT są bardzo dobrymi kompresorami PNG, ale bardzo powolnymi. Wyłącz je, jeśli chcesz szybko zoptymalizować pliki PNG (zostaw tylko AdvPNG, jest najszybszy, ale dobrze kompresuje).</p>
+    <p data-role="dirty-alpha-tools">Zopfli i OptiPNG wyczyści wartości RGB i przezroczyste piksele (znany jako "brudne alfa"). Te dwa narzędzia należy wyłączyć, jeśli chcesz optymalizacji specjalnych plików, które za pomocą kanału alfa tworzą coś innego (np. mapa wysokości w plikach danych gry).</p>
+    <div id="jpegoptim">
+      <h2>JPEGOptim</h2>
+      <dl>
+<dt>Maksymalna jakość</dt>
+        <dd>
+          <p>Jeśli ustawiona na 100%, optymalizacja będzie <strong>bezstratna</strong>.</p>
+          <p>Wszystko poniżej 100% spowoduje <strong>niższą jakość</strong> plików, jeśli wydaje się, że zostały zapisane z wyższą jakość wydruku.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="pngout">
+      <h2>PNGOUT</h2>
+      <dl>
+<dt>Typ optymalizacji</dt>
+        <dd>
+          <p>PNGOUT jest bardzo skuteczne, ale bardzo wolne. Użyj niższego poziomu jeśli nie chcesz czekać.</p>
+        </dd>
+        <dt>Przerwij, jeśli trwa zbyt długo</dt>
+        <dd>
+          <p>PNGOUT może potrzebować <em>dużo</em> czasu, aby zoptymalizować bardzo duże obrazy. Ta opcja przerywa PNGOUT po 1 minucie.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="optipng">
+      <h2>OptiPNG</h2>
+      <dl>
+<dt>Poziom optymalizacji</dt>
+        <dd>
+          <p>Liczba różnych testowanych kombinacji ustawień. Rzadko jest sens, by wypróbować je wszystkie.</p>
+        </dd>
+        <dt>Zrobić zdjęcia z przeplotem (progresywny)</dt>
+        <dd>
+          <p>Z przeplotem zdjęcia wyglądają lepiej, gdy są częściowo załadowane, ale zazwyczaj  przeplot sprawia że kompresja jest mniej wydajna.</p>
+          <p>Zaznaczenie tego pola wyboru ma trzy stany: Jeśli jest zaznaczone, zmusza obrazy, aby były z przeplotem. Po zmieszaniu, będzie na bieżąco przeplatać pliki które pozostaną bez zmian, niepowstrzymany usunie przeplot z plików.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="gifsicle">
+      <h2>GIFsicle</h2>
+      <p>Dla lepszej kompresji, należy przekonwertować pliki GIF do PNG (ImageOptim nie robi tego automatycznie).</p>
+    </div>
+  </body>
+</html>
