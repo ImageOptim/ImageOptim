@@ -1,0 +1,78 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Preferenze ImageOptim</title>
+<link rel="stylesheet" href="../../style.css" type="text/css">
+<meta name="AppleTitle" content="ImageOptim Preferences Help">
+<meta name="AppleIcon" content="../../crusher.icns">
+<meta name="AppleFont" content="Lucida Grande,Helvetica,Arial">
+<meta name="AppleSearchResultsFont" content="Lucida Grande,Geneva,Arial">
+<meta name="description" content="ImageOptim Preferences">
+</head>
+<body>
+    <h1>Preferenze ImageOptim</h1>
+    <p><a href="index.html">« Torna alla index</a></p>
+    <h2>Preferenze generali</h2>
+    <dl>
+<dt>Conserva i permessi, attributi e hardlinks dei file</dt>
+      <dd>
+        <p>Invece di eliminare il vecchio file scrivendone uno nuovo con lo stesso nome, sostituisci solo il contenuto del vecchio file. In questo modo tutti i collegamenti fisici, alias, permessi e attributi estesi del file rimarranno gli stessi.</p>
+        <p>E' leggermente più veloce non conservare i permessi.</p>
+      </dd>
+      <dt>Elimina i metadata PNG (gamma, profili di colore, chunks opzionali)</dt>
+      <dd>
+        <p>I file PNG possono avere diversa luminosità e saturazione in diversi browser, perché non tutti i browser supportano la correzione gamma e profili di colore ugualmente. La rimozione di queste informazioni rende il colore del PNG più coerente tra i vari browser e riduce la dimensione del file.</p>
+        <p data-role="strip-dpi">Altre informazioni invisibili sono rimosse, come DPI e commenti.</p>
+      </dd>
+      <dt>Elimina i metadata JPEG (EXIF, profili di colore, GPS, rotazione, etc.)</dt>
+      <dd>
+        <p>Rimuove i metadata dell'immagine, come il profilo di colore, tempo di esposizione, le coordinate GPS, modello di fotocamera e il nome del software utilizzato per creare il file.</p>
+        <p data-role="strip-copyright">Informazioni sul copyright incorporato viene rimosso. Si prega di notare che in generale le immagini sono protette da copyright, indipendentemente se essi contengono tali metadati visibili o meno.</p>
+      </dd>
+    </dl>
+<h2>Strumenti</h2>
+    <p data-role="slow-tools">Zopfli and PNGOUT sono degli ottimi compressori PNG, ma sono molto lenti. Disabilitali se hai necessità di ottimizzare i file PNG rapidamente (lascia solo AdvPNG per una rapida, ma comunque ottima compressione).</p>
+    <p data-role="dirty-alpha-tools">Zopfli e OptiPNG puliscono i valori RGB, dei pixel trasparenti (conosciuti come "alpha sporchi"). Disabilita questi due strumenti se stai ottimizzando i file speciali che utilizzano il canale alfa per qualcosa che non sia la trasparenza (ad esempio heightmap nel file di dati di gioco).</p>
+    <div id="jpegoptim">
+      <h2>JPEGOptim</h2>
+      <dl>
+<dt>Qualità massima</dt>
+        <dd>
+          <p>Se impostato al 100%, l'ottimizzazione sarà <strong>senza perdita di qualità</strong> (lossless).</p>
+          <p>Qualsiasi cosa sotto il 100% causerà una <strong>perdità di qualità</strong> dei files che saranno salvati con un livello di qualità più alto.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="pngout">
+      <h2>PNGOUT</h2>
+      <dl>
+<dt>Tipo di ottimizzazione</dt>
+        <dd>
+          <p>PNGOUT è molto efficace, ma anche molto lento. Utilizza un livello basso se hai poca pazienza.</p>
+        </dd>
+        <dt>Interrompi se richiede troppo tempo</dt>
+        <dd>
+          <p>PNGOUT potrebbe richiedere <em>molto</em> tempo per ottimizzare immagini molto grandi. Questa opzione interrompe senza danni PNGOUT dopo un minuto. </p>
+        </dd>
+      </dl>
+</div>
+    <div id="optipng">
+      <h2>OptiPNG</h2>
+      <dl>
+<dt>Livello di ottimizzazione</dt>
+        <dd>
+          <p>Numero di diverse impostazioni di combinazioni testate. Raramente ha senso provarle tutte.</p>
+        </dd>
+        <dt>Rende le immagini interlacciate (progressivo)</dt>
+        <dd>
+          <p>Le immagini interlacciate hanno un aspetto migliore quando sono caricate in parte, ma di solito l'interalacciamento rende la compressione meno efficiente.</p>
+          <p>Questa casella di controllo ha tre stati: se selezionata, costringerà le immagini ad essere interlacciate. In caso di mix, manterrà l'interalacciamento del file invariato, non spuntato rimuoverà l'interalacciamento dal file.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="gifsicle">
+      <h2>Gifsicle</h2>
+      <p>Per una migliore compressione, è necessario convertire i file GIF in PNG (ImageOptim non lo fa automaticamente).</p>
+    </div>
+  </body>
+</html>
