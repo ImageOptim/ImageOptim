@@ -1,0 +1,240 @@
+
+/* Class = "NSMenuItem"; title = "すべてを手前に移動"; ObjectID = "5"; */
+"5.title" = "すべてを手前に移動";
+
+/* Class = "NSMenuItem"; title = "ウインドウ"; ObjectID = "19"; */
+"19.title" = "ウインドウ";
+
+/* Class = "NSWindow"; title = "ImageOptim"; ObjectID = "21"; */
+"21.title" = "ImageOptim";
+
+/* Class = "NSMenuItem"; title = "しまう"; ObjectID = "23"; */
+"23.title" = "しまう";
+
+/* Class = "NSMenu"; title = "ウインドウ"; ObjectID = "24"; */
+"24.title" = "ウインドウ";
+
+/* Class = "NSMenu"; title = "メインメニュー"; ObjectID = "29"; */
+"29.title" = "メインメニュー";
+
+/* Class = "NSMenuItem"; title = "ImageOptim"; ObjectID = "56"; */
+"56.title" = "ImageOptim";
+
+/* Class = "NSMenu"; title = "ImageOptim"; ObjectID = "57"; */
+"57.title" = "ImageOptim";
+
+/* Class = "NSMenu"; title = "サービス"; ObjectID = "130"; */
+"130.title" = "サービス";
+
+/* Class = "NSMenuItem"; title = "サービス"; ObjectID = "131"; */
+"131.title" = "サービス";
+
+/* Class = "NSMenuItem"; title = "ImageOptim を隠す"; ObjectID = "134"; */
+"134.title" = "ImageOptim を隠す";
+
+/* Class = "NSMenuItem"; title = "ImageOptim を終了"; ObjectID = "136"; */
+"136.title" = "ImageOptim を終了";
+
+/* Class = "NSMenuItem"; title = "ほかを隠す"; ObjectID = "145"; */
+"145.title" = "ほかを隠す";
+
+/* Class = "NSMenuItem"; title = "すべてを表示"; ObjectID = "150"; */
+"150.title" = "すべてを表示";
+
+/* Class = "NSMenuItem"; title = "拡大／縮小"; ObjectID = "197"; */
+"197.title" = "拡大／縮小";
+
+/* Class = "NSScrollView"; ibExternalAccessibilityDescription = "最適化するファイルリスト"; ObjectID = "236"; */
+"236.ibExternalAccessibilityDescription" = "最適化するファイルリスト";
+
+/* Class = "NSTableColumn"; headerCell.title = "ファイル"; ObjectID = "238"; */
+"238.headerCell.title" = "ファイル";
+
+/* Class = "NSTableColumn"; headerCell.title = "サイズ"; ObjectID = "239"; */
+"239.headerCell.title" = "サイズ";
+
+/* Class = "NSTableColumn"; headerToolTip = "最適化後のサイズ"; ObjectID = "239"; */
+"239.headerToolTip" = "最適化後のサイズ";
+
+/* Class = "NSTableColumn"; ibExternalAccessibilityDescription = "最適化後のサイズ"; ObjectID = "239"; */
+"239.ibExternalAccessibilityDescription" = "最適化後のサイズ";
+
+/* Class = "NSTableColumn"; headerCell.title = "節減率"; ObjectID = "243"; */
+"243.headerCell.title" = "節減率";
+
+/* Class = "NSTextField"; ibExternalAccessibilityDescription = "ステータス"; ObjectID = "294"; */
+"294.ibExternalAccessibilityDescription" = "ステータス";
+
+/* Class = "NSMenuItem"; title = "ImageOptim について"; ObjectID = "361"; */
+"361.title" = "ImageOptim について";
+
+/* Class = "NSMenuItem"; title = "環境設定…"; ObjectID = "363"; */
+"363.title" = "環境設定…";
+
+/* Class = "NSMenuItem"; title = "編集"; ObjectID = "375"; */
+"375.title" = "編集";
+
+/* Class = "NSMenu"; title = "編集"; ObjectID = "376"; */
+"376.title" = "編集";
+
+/* Class = "NSMenuItem"; title = "すべてを選択"; ObjectID = "377"; */
+"377.title" = "すべてを選択";
+
+/* Class = "NSMenuItem"; title = "取り消す"; ObjectID = "378"; */
+"378.title" = "取り消す";
+
+/* Class = "NSMenuItem"; title = "やり直す"; ObjectID = "384"; */
+"384.title" = "やり直す";
+
+/* Class = "NSMenuItem"; title = "カット"; ObjectID = "398"; */
+"398.title" = "カット";
+
+/* Class = "NSMenuItem"; title = "コピー"; ObjectID = "399"; */
+"399.title" = "コピー";
+
+/* Class = "NSMenuItem"; title = "ペースト"; ObjectID = "400"; */
+"400.title" = "ペースト";
+
+/* Class = "NSMenuItem"; title = "削除"; ObjectID = "402"; */
+"402.title" = "削除";
+
+/* Class = "NSButton"; ibExternalAccessibilityDescription = "新しいファイルまたはフォルダを追加"; ObjectID = "423"; */
+"423.ibExternalAccessibilityDescription" = "新しいファイルまたはフォルダを追加";
+
+/* Class = "NSMenuItem"; title = "ファイル"; ObjectID = "429"; */
+"429.title" = "ファイル";
+
+/* Class = "NSMenu"; title = "ファイル"; ObjectID = "430"; */
+"430.title" = "ファイル";
+
+/* Class = "NSMenuItem"; title = "ファイルを追加 …"; ObjectID = "437"; */
+"437.title" = "ファイルを追加 …";
+
+/* Class = "NSTableColumn"; headerToolTip = "最適化ステータス"; ObjectID = "462"; */
+"462.headerToolTip" = "最適化ステータス";
+
+/* Class = "NSTableColumn"; ibExternalAccessibilityDescription = "最適化ステータス"; ObjectID = "462"; */
+"462.ibExternalAccessibilityDescription" = "最適化ステータス";
+
+/* Class = "NSMenuItem"; title = "閉じる"; ObjectID = "498"; */
+"498.title" = "閉じる";
+
+/* Class = "NSMenuItem"; title = "ヘルプ"; ObjectID = "504"; */
+"504.title" = "ヘルプ";
+
+/* Class = "NSMenu"; title = "ヘルプ"; ObjectID = "505"; */
+"505.title" = "ヘルプ";
+
+/* Class = "NSMenuItem"; title = "ImageOptim ヘルプ"; ObjectID = "506"; */
+"506.title" = "ImageOptim ヘルプ";
+
+/* Class = "NSPanel"; title = "ImageOptim について"; ObjectID = "526"; */
+"526.title" = "ImageOptim について";
+
+/* Class = "NSMenuItem"; title = "再度最適化する"; ObjectID = "593"; */
+"593.title" = "再度最適化する";
+
+/* Class = "NSMenuItem"; title = "アップデートを確認 …"; ObjectID = "624"; */
+"624.title" = "アップデートを確認 …";
+
+/* Class = "NSTextFieldCell"; title = "上の領域に画像ファイルをドラッグ＆ドロップしてください"; ObjectID = "632"; */
+"632.title" = "上の領域に画像ファイルをドラッグ＆ドロップしてください";
+
+/* Class = "NSButtonCell"; title = "追加"; ObjectID = "633"; */
+"633.title" = "追加";
+
+/* Class = "NSButtonCell"; alternateTitle = "再度最適化を実行する"; ObjectID = "635"; */
+"635.alternateTitle" = "再度最適化を実行する";
+
+/* Class = "NSButtonCell"; title = "再実行"; ObjectID = "635"; */
+"635.title" = "再実行";
+
+/* Class = "NSTableHeaderView"; ibExternalAccessibilityDescription = "ステータス"; ObjectID = "642"; */
+"642.ibExternalAccessibilityDescription" = "ステータス";
+
+/* Class = "NSTextField"; ibExternalAccessibilityDescription = "バージョン"; ObjectID = "645"; */
+"645.ibExternalAccessibilityDescription" = "バージョン";
+
+/* Class = "NSTextFieldCell"; title = "バージョン"; ObjectID = "646"; */
+"646.title" = "バージョン";
+
+/* Class = "NSMenuItem"; title = "ツール"; ObjectID = "655"; */
+"655.title" = "ツール";
+
+/* Class = "NSMenu"; title = "ツール"; ObjectID = "656"; */
+"656.title" = "ツール";
+
+/* Class = "NSMenuItem"; title = "Zopfli"; ObjectID = "658"; */
+"658.title" = "Zopfli";
+
+/* Class = "NSMenuItem"; title = "OptiPNG"; ObjectID = "659"; */
+"659.title" = "OptiPNG";
+
+/* Class = "NSMenuItem"; title = "PNGCrush"; ObjectID = "660"; */
+"660.title" = "PNGCrush";
+
+/* Class = "NSMenuItem"; title = "AdvPNG"; ObjectID = "661"; */
+"661.title" = "AdvPNG";
+
+/* Class = "NSMenuItem"; title = "Jpegtran"; ObjectID = "663"; */
+"663.title" = "Jpegtran";
+
+/* Class = "NSMenuItem"; title = "JPEGOptim"; ObjectID = "664"; */
+"664.title" = "JPEGOptim";
+
+/* Class = "NSMenuItem"; title = "Gifsicle"; ObjectID = "666"; */
+"666.title" = "Gifsicle";
+
+/* Class = "NSMenuItem"; title = "クイックルック"; ObjectID = "708"; */
+"708.title" = "クイックルック";
+
+/* Class = "DragDropImageView"; ibExternalAccessibilityDescription = "ここに画像をドロップしてください"; ObjectID = "712"; */
+"712.ibExternalAccessibilityDescription" = "ここに画像をドロップしてください";
+
+/* Class = "NSMenuItem"; title = "削除完了"; ObjectID = "721"; */
+"721.title" = "削除完了";
+
+/* Class = "NSMenuItem"; title = "最適化完了"; ObjectID = "725"; */
+"725.title" = "最適化完了";
+
+/* Class = "NSMenuItem"; title = "ImageOptim ウェブサイト"; ObjectID = "733"; */
+"733.title" = "ImageOptim ウェブサイト";
+
+/* Class = "NSMenuItem"; title = "ソースコードを見る"; ObjectID = "735"; */
+"735.title" = "ソースコードを見る";
+
+/* Class = "NSMenuItem"; title = "最適化後サイズ"; ObjectID = "740"; */
+"740.title" = "最適化後サイズ";
+
+/* Class = "NSMenuItem"; title = "節減率"; ObjectID = "741"; */
+"741.title" = "節減率";
+
+/* Class = "NSMenuItem"; title = "ベストツール"; ObjectID = "747"; */
+"747.title" = "ベストツール";
+
+/* Class = "NSTableColumn"; headerCell.title = "ベストツール"; ObjectID = "771"; */
+"771.headerCell.title" = "ベストツール";
+
+/* Class = "NSMenuItem"; title = "元のサイズ"; ObjectID = "791"; */
+"791.title" = "元のサイズ";
+
+/* Class = "NSTableColumn"; headerCell.title = "元のサイズ"; ObjectID = "795"; */
+"795.headerCell.title" = "元のサイズ";
+
+/* Class = "NSMenuItem"; title = "カラムを表示"; ObjectID = "809"; */
+"809.title" = "カラムを表示";
+
+/* Class = "NSMenuItem"; title = "PNGOUT"; ObjectID = "813"; */
+"813.title" = "PNGOUT";
+
+/* Class = "NSMenuItem"; title = "Jpegrescan"; ObjectID = "816"; */
+"816.title" = "Jpegrescan";
+
+/* Class = "NSMenuItem"; title = "Donate"; ObjectID = "820"; */
+"820.title" = "Donate";
+
+/* Class = "NSMenuItem"; title = "コピー Data URL"; ObjectID = "NlY-Bc-7tu"; */
+"NlY-Bc-7tu.title" = "コピー Data URL";
+
+/* Class = "NSMenuItem"; title = "Reveal in Finder"; ObjectID = "ddH-3k-EuT"; */
+"ddH-3k-EuT.title" = "Reveal in Finder";

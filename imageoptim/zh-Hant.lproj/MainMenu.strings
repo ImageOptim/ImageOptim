@@ -1,0 +1,240 @@
+
+/* Class = "NSMenuItem"; title = "全部移至最上層"; ObjectID = "5"; */
+"5.title" = "全部移至最上層";
+
+/* Class = "NSMenuItem"; title = "視窗"; ObjectID = "19"; */
+"19.title" = "視窗";
+
+/* Class = "NSWindow"; title = "ImageOptim"; ObjectID = "21"; */
+"21.title" = "ImageOptim";
+
+/* Class = "NSMenuItem"; title = "最小化"; ObjectID = "23"; */
+"23.title" = "最小化";
+
+/* Class = "NSMenu"; title = "視窗"; ObjectID = "24"; */
+"24.title" = "視窗";
+
+/* Class = "NSMenu"; title = "MainMenu"; ObjectID = "29"; */
+"29.title" = "MainMenu";
+
+/* Class = "NSMenuItem"; title = "ImageOptim"; ObjectID = "56"; */
+"56.title" = "ImageOptim";
+
+/* Class = "NSMenu"; title = "ImageOptim"; ObjectID = "57"; */
+"57.title" = "ImageOptim";
+
+/* Class = "NSMenu"; title = "服務"; ObjectID = "130"; */
+"130.title" = "服務";
+
+/* Class = "NSMenuItem"; title = "服務"; ObjectID = "131"; */
+"131.title" = "服務";
+
+/* Class = "NSMenuItem"; title = "隱藏 ImageOptim"; ObjectID = "134"; */
+"134.title" = "隱藏 ImageOptim";
+
+/* Class = "NSMenuItem"; title = "離開 ImageOptim"; ObjectID = "136"; */
+"136.title" = "離開 ImageOptim";
+
+/* Class = "NSMenuItem"; title = "隱藏其他"; ObjectID = "145"; */
+"145.title" = "隱藏其他";
+
+/* Class = "NSMenuItem"; title = "全部顯示"; ObjectID = "150"; */
+"150.title" = "全部顯示";
+
+/* Class = "NSMenuItem"; title = "縮放"; ObjectID = "197"; */
+"197.title" = "縮放";
+
+/* Class = "NSScrollView"; ibExternalAccessibilityDescription = "List of files to optimize"; ObjectID = "236"; */
+"236.ibExternalAccessibilityDescription" = "List of files to optimize";
+
+/* Class = "NSTableColumn"; headerCell.title = "檔案"; ObjectID = "238"; */
+"238.headerCell.title" = "檔案";
+
+/* Class = "NSTableColumn"; headerCell.title = "容量"; ObjectID = "239"; */
+"239.headerCell.title" = "容量";
+
+/* Class = "NSTableColumn"; headerToolTip = "Size of file after optimization"; ObjectID = "239"; */
+"239.headerToolTip" = "Size of file after optimization";
+
+/* Class = "NSTableColumn"; ibExternalAccessibilityDescription = "Size of file after optimization"; ObjectID = "239"; */
+"239.ibExternalAccessibilityDescription" = "Size of file after optimization";
+
+/* Class = "NSTableColumn"; headerCell.title = "節約率"; ObjectID = "243"; */
+"243.headerCell.title" = "節約率";
+
+/* Class = "NSTextField"; ibExternalAccessibilityDescription = "Status"; ObjectID = "294"; */
+"294.ibExternalAccessibilityDescription" = "Status";
+
+/* Class = "NSMenuItem"; title = "關於 ImageOptim"; ObjectID = "361"; */
+"361.title" = "關於 ImageOptim";
+
+/* Class = "NSMenuItem"; title = "偏好設定…"; ObjectID = "363"; */
+"363.title" = "偏好設定…";
+
+/* Class = "NSMenuItem"; title = "編輯"; ObjectID = "375"; */
+"375.title" = "編輯";
+
+/* Class = "NSMenu"; title = "編輯"; ObjectID = "376"; */
+"376.title" = "編輯";
+
+/* Class = "NSMenuItem"; title = "全選"; ObjectID = "377"; */
+"377.title" = "全選";
+
+/* Class = "NSMenuItem"; title = "還原"; ObjectID = "378"; */
+"378.title" = "還原";
+
+/* Class = "NSMenuItem"; title = "重做"; ObjectID = "384"; */
+"384.title" = "重做";
+
+/* Class = "NSMenuItem"; title = "剪下"; ObjectID = "398"; */
+"398.title" = "剪下";
+
+/* Class = "NSMenuItem"; title = "複製"; ObjectID = "399"; */
+"399.title" = "複製";
+
+/* Class = "NSMenuItem"; title = "貼上"; ObjectID = "400"; */
+"400.title" = "貼上";
+
+/* Class = "NSMenuItem"; title = "刪除"; ObjectID = "402"; */
+"402.title" = "刪除";
+
+/* Class = "NSButton"; ibExternalAccessibilityDescription = "Add new files or directories"; ObjectID = "423"; */
+"423.ibExternalAccessibilityDescription" = "Add new files or directories";
+
+/* Class = "NSMenuItem"; title = "檔案"; ObjectID = "429"; */
+"429.title" = "檔案";
+
+/* Class = "NSMenu"; title = "檔案"; ObjectID = "430"; */
+"430.title" = "檔案";
+
+/* Class = "NSMenuItem"; title = "新增檔案…"; ObjectID = "437"; */
+"437.title" = "新增檔案…";
+
+/* Class = "NSTableColumn"; headerToolTip = "Optimization status"; ObjectID = "462"; */
+"462.headerToolTip" = "Optimization status";
+
+/* Class = "NSTableColumn"; ibExternalAccessibilityDescription = "Optimization status"; ObjectID = "462"; */
+"462.ibExternalAccessibilityDescription" = "Optimization status";
+
+/* Class = "NSMenuItem"; title = "關閉視窗"; ObjectID = "498"; */
+"498.title" = "關閉視窗";
+
+/* Class = "NSMenuItem"; title = "輔助說明"; ObjectID = "504"; */
+"504.title" = "輔助說明";
+
+/* Class = "NSMenu"; title = "輔助說明"; ObjectID = "505"; */
+"505.title" = "輔助說明";
+
+/* Class = "NSMenuItem"; title = "ImageOptim 輔助說明"; ObjectID = "506"; */
+"506.title" = "ImageOptim 輔助說明";
+
+/* Class = "NSPanel"; title = "關於 ImageOptim"; ObjectID = "526"; */
+"526.title" = "關於 ImageOptim";
+
+/* Class = "NSMenuItem"; title = "再度最佳化處理"; ObjectID = "593"; */
+"593.title" = "再度最佳化處理";
+
+/* Class = "NSMenuItem"; title = "檢查更新…"; ObjectID = "624"; */
+"624.title" = "檢查更新…";
+
+/* Class = "NSTextFieldCell"; title = "請拖放圖片檔案至上方區域"; ObjectID = "632"; */
+"632.title" = "請拖放圖片檔案至上方區域";
+
+/* Class = "NSButtonCell"; title = "新增"; ObjectID = "633"; */
+"633.title" = "新增";
+
+/* Class = "NSButtonCell"; alternateTitle = "再度進行最佳化處理"; ObjectID = "635"; */
+"635.alternateTitle" = "再度進行最佳化處理";
+
+/* Class = "NSButtonCell"; title = "再處理"; ObjectID = "635"; */
+"635.title" = "再處理";
+
+/* Class = "NSTableHeaderView"; ibExternalAccessibilityDescription = "Status"; ObjectID = "642"; */
+"642.ibExternalAccessibilityDescription" = "Status";
+
+/* Class = "NSTextField"; ibExternalAccessibilityDescription = "version"; ObjectID = "645"; */
+"645.ibExternalAccessibilityDescription" = "version";
+
+/* Class = "NSTextFieldCell"; title = "版本"; ObjectID = "646"; */
+"646.title" = "版本";
+
+/* Class = "NSMenuItem"; title = "工具"; ObjectID = "655"; */
+"655.title" = "工具";
+
+/* Class = "NSMenu"; title = "工具"; ObjectID = "656"; */
+"656.title" = "工具";
+
+/* Class = "NSMenuItem"; title = "Zopfli"; ObjectID = "658"; */
+"658.title" = "Zopfli";
+
+/* Class = "NSMenuItem"; title = "OptiPNG"; ObjectID = "659"; */
+"659.title" = "OptiPNG";
+
+/* Class = "NSMenuItem"; title = "PNGCrush"; ObjectID = "660"; */
+"660.title" = "PNGCrush";
+
+/* Class = "NSMenuItem"; title = "AdvPNG"; ObjectID = "661"; */
+"661.title" = "AdvPNG";
+
+/* Class = "NSMenuItem"; title = "Jpegtran"; ObjectID = "663"; */
+"663.title" = "Jpegtran";
+
+/* Class = "NSMenuItem"; title = "JPEGOptim"; ObjectID = "664"; */
+"664.title" = "JPEGOptim";
+
+/* Class = "NSMenuItem"; title = "Gifsicle"; ObjectID = "666"; */
+"666.title" = "Gifsicle";
+
+/* Class = "NSMenuItem"; title = "預覽"; ObjectID = "708"; */
+"708.title" = "預覽";
+
+/* Class = "DragDropImageView"; ibExternalAccessibilityDescription = "Drop images here"; ObjectID = "712"; */
+"712.ibExternalAccessibilityDescription" = "Drop images here";
+
+/* Class = "NSMenuItem"; title = "刪除已完成"; ObjectID = "721"; */
+"721.title" = "刪除已完成";
+
+/* Class = "NSMenuItem"; title = "最佳化已完成"; ObjectID = "725"; */
+"725.title" = "最佳化已完成";
+
+/* Class = "NSMenuItem"; title = "ImageOptim 網站"; ObjectID = "733"; */
+"733.title" = "ImageOptim 網站";
+
+/* Class = "NSMenuItem"; title = "檢視原始碼"; ObjectID = "735"; */
+"735.title" = "檢視原始碼";
+
+/* Class = "NSMenuItem"; title = "最佳化後容量"; ObjectID = "740"; */
+"740.title" = "最佳化後容量";
+
+/* Class = "NSMenuItem"; title = "節約率"; ObjectID = "741"; */
+"741.title" = "節約率";
+
+/* Class = "NSMenuItem"; title = "最佳工具"; ObjectID = "747"; */
+"747.title" = "最佳工具";
+
+/* Class = "NSTableColumn"; headerCell.title = "最佳工具"; ObjectID = "771"; */
+"771.headerCell.title" = "最佳工具";
+
+/* Class = "NSMenuItem"; title = "原始容量"; ObjectID = "791"; */
+"791.title" = "原始容量";
+
+/* Class = "NSTableColumn"; headerCell.title = "原始容量"; ObjectID = "795"; */
+"795.headerCell.title" = "原始容量";
+
+/* Class = "NSMenuItem"; title = "顯示欄位"; ObjectID = "809"; */
+"809.title" = "顯示欄位";
+
+/* Class = "NSMenuItem"; title = "PNGOUT"; ObjectID = "813"; */
+"813.title" = "PNGOUT";
+
+/* Class = "NSMenuItem"; title = "Jpegrescan"; ObjectID = "816"; */
+"816.title" = "Jpegrescan";
+
+/* Class = "NSMenuItem"; title = "Donate"; ObjectID = "820"; */
+"820.title" = "Donate";
+
+/* Class = "NSMenuItem"; title = "複製 Data URL"; ObjectID = "NlY-Bc-7tu"; */
+"NlY-Bc-7tu.title" = "複製 Data URL";
+
+/* Class = "NSMenuItem"; title = "Reveal in Finder"; ObjectID = "ddH-3k-EuT"; */
+"ddH-3k-EuT.title" = "Reveal in Finder";

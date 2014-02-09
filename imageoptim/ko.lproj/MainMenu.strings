@@ -1,0 +1,243 @@
+
+/* Class = "NSMenuItem"; title = "앞으로 모두 가져오기"; ObjectID = "5"; */
+"5.title" = "앞으로 모두 가져오기";
+
+/* Class = "NSMenuItem"; title = "창"; ObjectID = "19"; */
+"19.title" = "창";
+
+/* Class = "NSWindow"; title = "ImageOptim"; ObjectID = "21"; */
+"21.title" = "ImageOptim";
+
+/* Class = "NSMenuItem"; title = "창 닫기(M)"; ObjectID = "23"; */
+"23.title" = "창 닫기(M)";
+
+/* Class = "NSMenu"; title = "창"; ObjectID = "24"; */
+"24.title" = "창";
+
+/* Class = "NSMenu"; title = "MainMenu"; ObjectID = "29"; */
+"29.title" = "MainMenu";
+
+/* Class = "NSMenuItem"; title = "ImageOptim"; ObjectID = "56"; */
+"56.title" = "ImageOptim";
+
+/* Class = "NSMenu"; title = "ImageOptim"; ObjectID = "57"; */
+"57.title" = "ImageOptim";
+
+/* Class = "NSMenu"; title = "서비스"; ObjectID = "130"; */
+"130.title" = "서비스";
+
+/* Class = "NSMenuItem"; title = "서비스"; ObjectID = "131"; */
+"131.title" = "서비스";
+
+/* Class = "NSMenuItem"; title = "ImageOptim 숨기기"; ObjectID = "134"; */
+"134.title" = "ImageOptim 숨기기";
+
+/* Class = "NSMenuItem"; title = "ImageOptim 종료"; ObjectID = "136"; */
+"136.title" = "ImageOptim 종료";
+
+/* Class = "NSMenuItem"; title = "기타 숨기기"; ObjectID = "145"; */
+"145.title" = "기타 숨기기";
+
+/* Class = "NSMenuItem"; title = "모두 보기"; ObjectID = "150"; */
+"150.title" = "모두 보기";
+
+/* Class = "NSMenuItem"; title = "확대"; ObjectID = "197"; */
+"197.title" = "확대";
+
+/* Class = "NSScrollView"; ibExternalAccessibilityDescription = "List of files to optimize"; ObjectID = "236"; */
+"236.ibExternalAccessibilityDescription" = "List of files to optimize";
+
+/* Class = "NSTableColumn"; headerCell.title = "파일"; ObjectID = "238"; */
+"238.headerCell.title" = "파일";
+
+/* Class = "NSTableColumn"; headerCell.title = "크기"; ObjectID = "239"; */
+"239.headerCell.title" = "크기";
+
+/* Class = "NSTableColumn"; headerToolTip = "Size of file after optimization"; ObjectID = "239"; */
+"239.headerToolTip" = "Size of file after optimization";
+
+/* Class = "NSTableColumn"; ibExternalAccessibilityDescription = "Size of file after optimization"; ObjectID = "239"; */
+"239.ibExternalAccessibilityDescription" = "Size of file after optimization";
+
+/* Class = "NSTableColumn"; headerCell.title = "압축률"; ObjectID = "243"; */
+"243.headerCell.title" = "압축률";
+
+/* Class = "NSTextField"; ibExternalAccessibilityDescription = "Status"; ObjectID = "294"; */
+"294.ibExternalAccessibilityDescription" = "Status";
+
+/* Class = "NSMenuItem"; title = "ImageOptim에 대한 정보"; ObjectID = "361"; */
+"361.title" = "ImageOptim에 대한 정보";
+
+/* Class = "NSMenuItem"; title = "환경 설정..."; ObjectID = "363"; */
+"363.title" = "환경 설정...";
+
+/* Class = "NSMenuItem"; title = "편집"; ObjectID = "375"; */
+"375.title" = "편집";
+
+/* Class = "NSMenu"; title = "편집"; ObjectID = "376"; */
+"376.title" = "편집";
+
+/* Class = "NSMenuItem"; title = "모두 선택하기(A)..."; ObjectID = "377"; */
+"377.title" = "모두 선택하기(A)...";
+
+/* Class = "NSMenuItem"; title = "실행 취소(Z)"; ObjectID = "378"; */
+"378.title" = "실행 취소(Z)";
+
+/* Class = "NSMenuItem"; title = "다시 실행"; ObjectID = "384"; */
+"384.title" = "다시 실행";
+
+/* Class = "NSMenuItem"; title = "잘라내기(X)"; ObjectID = "398"; */
+"398.title" = "잘라내기(X)";
+
+/* Class = "NSMenuItem"; title = "복사(C)"; ObjectID = "399"; */
+"399.title" = "복사(C)";
+
+/* Class = "NSMenuItem"; title = "붙여넣기(V)"; ObjectID = "400"; */
+"400.title" = "붙여넣기(V)";
+
+/* Class = "NSMenuItem"; title = "삭제"; ObjectID = "402"; */
+"402.title" = "삭제";
+
+/* Class = "NSButton"; ibExternalAccessibilityDescription = "Add new files or directories"; ObjectID = "423"; */
+"423.ibExternalAccessibilityDescription" = "Add new files or directories";
+
+/* Class = "NSMenuItem"; title = "파일"; ObjectID = "429"; */
+"429.title" = "파일";
+
+/* Class = "NSMenu"; title = "파일"; ObjectID = "430"; */
+"430.title" = "파일";
+
+/* Class = "NSMenuItem"; title = "파일 추가(O)..."; ObjectID = "437"; */
+"437.title" = "파일 추가(O)...";
+
+/* Class = "NSTableColumn"; headerToolTip = "Optimization status"; ObjectID = "462"; */
+"462.headerToolTip" = "Optimization status";
+
+/* Class = "NSTableColumn"; ibExternalAccessibilityDescription = "Optimization status"; ObjectID = "462"; */
+"462.ibExternalAccessibilityDescription" = "Optimization status";
+
+/* Class = "NSMenuItem"; title = "닫기(W)"; ObjectID = "498"; */
+"498.title" = "닫기(W)";
+
+/* Class = "NSMenuItem"; title = "도움말"; ObjectID = "504"; */
+"504.title" = "도움말";
+
+/* Class = "NSMenu"; title = "도움말"; ObjectID = "505"; */
+"505.title" = "도움말";
+
+/* Class = "NSMenuItem"; title = "ImageOptim 도움말"; ObjectID = "506"; */
+"506.title" = "ImageOptim 도움말";
+
+/* Class = "NSPanel"; title = "ImageOptim에 대한 정보"; ObjectID = "526"; */
+"526.title" = "ImageOptim에 대한 정보";
+
+/* Class = "NSMenuItem"; title = "다시 최적화하기"; ObjectID = "593"; */
+"593.title" = "다시 최적화하기";
+
+/* Class = "NSMenuItem"; title = "업데이트 확인"; ObjectID = "624"; */
+"624.title" = "업데이트 확인";
+
+/* Class = "NSTextFieldCell"; title = "위 영역 위에 이미지 파일들을 끌어다 놓으세요"; ObjectID = "632"; */
+"632.title" = "위 영역 위에 이미지 파일들을 끌어다 놓으세요";
+
+/* Class = "NSButtonCell"; title = "Add"; ObjectID = "633"; */
+"633.title" = "Add";
+
+/* Class = "NSButtonCell"; alternateTitle = "Run optimizations again"; ObjectID = "635"; */
+"635.alternateTitle" = "Run optimizations again";
+
+/* Class = "NSButtonCell"; title = "다시"; ObjectID = "635"; */
+"635.title" = "다시";
+
+/* Class = "NSTableHeaderView"; ibExternalAccessibilityDescription = "Status"; ObjectID = "642"; */
+"642.ibExternalAccessibilityDescription" = "Status";
+
+/* Class = "NSTextField"; ibExternalAccessibilityDescription = "version"; ObjectID = "645"; */
+"645.ibExternalAccessibilityDescription" = "version";
+
+/* Class = "NSTextFieldCell"; title = "버전"; ObjectID = "646"; */
+"646.title" = "버전";
+
+/* Class = "NSMenuItem"; title = "도구"; ObjectID = "655"; */
+"655.title" = "도구";
+
+/* Class = "NSMenu"; title = "도구"; ObjectID = "656"; */
+"656.title" = "도구";
+
+/* Class = "NSMenuItem"; title = "Zopfli"; ObjectID = "658"; */
+"658.title" = "Zopfli";
+
+/* Class = "NSMenuItem"; title = "OptiPNG"; ObjectID = "659"; */
+"659.title" = "OptiPNG";
+
+/* Class = "NSMenuItem"; title = "PNGCrush"; ObjectID = "660"; */
+"660.title" = "PNGCrush";
+
+/* Class = "NSMenuItem"; title = "AdvPNG"; ObjectID = "661"; */
+"661.title" = "AdvPNG";
+
+/* Class = "NSMenuItem"; title = "Jpegtran"; ObjectID = "663"; */
+"663.title" = "Jpegtran";
+
+/* Class = "NSMenuItem"; title = "JPEGOptim"; ObjectID = "664"; */
+"664.title" = "JPEGOptim";
+
+/* Class = "NSMenuItem"; title = "Gifsicle"; ObjectID = "666"; */
+"666.title" = "Gifsicle";
+
+/* Class = "NSMenuItem"; title = "훑어보기"; ObjectID = "708"; */
+"708.title" = "훑어보기";
+
+/* Class = "DragDropImageView"; ibExternalAccessibilityDescription = "Drop images here"; ObjectID = "712"; */
+"712.ibExternalAccessibilityDescription" = "Drop images here";
+
+/* Class = "NSMenuItem"; title = "삭제 완료"; ObjectID = "721"; */
+"721.title" = "삭제 완료";
+
+/* Class = "NSMenuItem"; title = "최적화 완료"; ObjectID = "725"; */
+"725.title" = "최적화 완료";
+
+/* Class = "NSMenuItem"; title = "ImageOptim 웹사이트"; ObjectID = "733"; */
+"733.title" = "ImageOptim 웹사이트";
+
+/* Class = "NSMenuItem"; title = "View Source"; ObjectID = "735"; */
+"735.title" = "View Source";
+
+/* Class = "NSMenu"; title = "컬럼 보기"; ObjectID = "739"; */
+"739.title" = "컬럼 보기";
+
+/* Class = "NSMenuItem"; title = "최적화된 크기"; ObjectID = "740"; */
+"740.title" = "최적화된 크기";
+
+/* Class = "NSMenuItem"; title = "압축률"; ObjectID = "741"; */
+"741.title" = "압축률";
+
+/* Class = "NSMenuItem"; title = "최고의 도구"; ObjectID = "747"; */
+"747.title" = "최고의 도구";
+
+/* Class = "NSTableColumn"; headerCell.title = "최고의 도구"; ObjectID = "771"; */
+"771.headerCell.title" = "최고의 도구";
+
+/* Class = "NSMenuItem"; title = "원본 크기"; ObjectID = "791"; */
+"791.title" = "원본 크기";
+
+/* Class = "NSTableColumn"; headerCell.title = "원본 크기"; ObjectID = "795"; */
+"795.headerCell.title" = "원본 크기";
+
+/* Class = "NSMenuItem"; title = "컬럼 보기"; ObjectID = "809"; */
+"809.title" = "컬럼 보기";
+
+/* Class = "NSMenuItem"; title = "PNGOUT"; ObjectID = "813"; */
+"813.title" = "PNGOUT";
+
+/* Class = "NSMenuItem"; title = "Jpegrescan"; ObjectID = "816"; */
+"816.title" = "Jpegrescan";
+
+/* Class = "NSMenuItem"; title = "Donate"; ObjectID = "820"; */
+"820.title" = "Donate";
+
+/* Class = "NSMenuItem"; title = "복사(C) Data URL"; ObjectID = "NlY-Bc-7tu"; */
+"NlY-Bc-7tu.title" = "복사(C) Data URL";
+
+/* Class = "NSMenuItem"; title = "Reveal in Finder"; ObjectID = "ddH-3k-EuT"; */
+"ddH-3k-EuT.title" = "Reveal in Finder";
