@@ -183,7 +183,7 @@
                                        @"com.apple.quarantine"  : @1
                                       };
 
-    const char *fileSystemPath = [path fileSystemRepresentation];
+    const char *fileSystemPath = [path.path fileSystemRepresentation];
 
     // call with NULL for the char *namebuf param first
     // in this case the method returns the size of the attributes buffer
@@ -241,7 +241,7 @@
     IOWarn("Recovering trashing error %@", *err);
 
     FSRef ref;
-    if (0 != FSPathMakeRefWithOptions((const UInt8 *)[path fileSystemRepresentation],
+    if (0 != FSPathMakeRefWithOptions((const UInt8 *)[path.path fileSystemRepresentation],
                                       kFSPathMakeRefDoNotFollowLeafSymlink,
                                       &ref, NULL)) {
         return NO;
