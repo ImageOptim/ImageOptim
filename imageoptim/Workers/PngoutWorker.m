@@ -49,7 +49,14 @@
         return NO;
     }
 
-    NSFileHandle *fileOutputHandle = [NSFileHandle fileHandleForWritingToURL:temp error:nil];
+    NSError *err = nil;
+    [[NSData new] writeToURL:temp atomically:NO];
+    NSFileHandle *fileOutputHandle = [NSFileHandle fileHandleForWritingToURL:temp error:&err];
+
+    if (!fileOutputHandle) {
+        IOWarn("Can't create %@ %@",temp.path, err);
+        return NO;
+    }
 
     NSPipe *commandPipe = [NSPipe pipe];
     NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
