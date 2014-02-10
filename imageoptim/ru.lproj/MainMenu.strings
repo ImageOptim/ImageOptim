@@ -1,0 +1,240 @@
+
+/* Class = "NSMenuItem"; title = "Все окна - на передний план"; ObjectID = "5"; */
+"5.title" = "Все окна - на передний план";
+
+/* Class = "NSMenuItem"; title = "Окно"; ObjectID = "19"; */
+"19.title" = "Окно";
+
+/* Class = "NSWindow"; title = "ImageOptim"; ObjectID = "21"; */
+"21.title" = "ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Свернуть"; ObjectID = "23"; */
+"23.title" = "Свернуть";
+
+/* Class = "NSMenu"; title = "Окно"; ObjectID = "24"; */
+"24.title" = "Окно";
+
+/* Class = "NSMenu"; title = "ОсновноеМеню"; ObjectID = "29"; */
+"29.title" = "ОсновноеМеню";
+
+/* Class = "NSMenuItem"; title = "ImageOptim"; ObjectID = "56"; */
+"56.title" = "ImageOptim";
+
+/* Class = "NSMenu"; title = "ImageOptim"; ObjectID = "57"; */
+"57.title" = "ImageOptim";
+
+/* Class = "NSMenu"; title = "Службы"; ObjectID = "130"; */
+"130.title" = "Службы";
+
+/* Class = "NSMenuItem"; title = "Службы"; ObjectID = "131"; */
+"131.title" = "Службы";
+
+/* Class = "NSMenuItem"; title = "Скрыть ImageOptim"; ObjectID = "134"; */
+"134.title" = "Скрыть ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Завершить ImageOptim"; ObjectID = "136"; */
+"136.title" = "Завершить ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Скрыть другие"; ObjectID = "145"; */
+"145.title" = "Скрыть другие";
+
+/* Class = "NSMenuItem"; title = "Показать все"; ObjectID = "150"; */
+"150.title" = "Показать все";
+
+/* Class = "NSMenuItem"; title = "Изменить масштаб"; ObjectID = "197"; */
+"197.title" = "Изменить масштаб";
+
+/* Class = "NSScrollView"; ibExternalAccessibilityDescription = "Список файлов для оптимизации"; ObjectID = "236"; */
+"236.ibExternalAccessibilityDescription" = "Список файлов для оптимизации";
+
+/* Class = "NSTableColumn"; headerCell.title = "Имя файла"; ObjectID = "238"; */
+"238.headerCell.title" = "Имя файла";
+
+/* Class = "NSTableColumn"; headerCell.title = "Размер"; ObjectID = "239"; */
+"239.headerCell.title" = "Размер";
+
+/* Class = "NSTableColumn"; headerToolTip = "Размер файла после оптимизации"; ObjectID = "239"; */
+"239.headerToolTip" = "Размер файла после оптимизации";
+
+/* Class = "NSTableColumn"; ibExternalAccessibilityDescription = "Размер файла после оптимизации"; ObjectID = "239"; */
+"239.ibExternalAccessibilityDescription" = "Размер файла после оптимизации";
+
+/* Class = "NSTableColumn"; headerCell.title = "Экономия"; ObjectID = "243"; */
+"243.headerCell.title" = "Экономия";
+
+/* Class = "NSTextField"; ibExternalAccessibilityDescription = "Статус"; ObjectID = "294"; */
+"294.ibExternalAccessibilityDescription" = "Статус";
+
+/* Class = "NSMenuItem"; title = "О программе ImageOptim"; ObjectID = "361"; */
+"361.title" = "О программе ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Настройки…"; ObjectID = "363"; */
+"363.title" = "Настройки…";
+
+/* Class = "NSMenuItem"; title = "Правка"; ObjectID = "375"; */
+"375.title" = "Правка";
+
+/* Class = "NSMenu"; title = "Правка"; ObjectID = "376"; */
+"376.title" = "Правка";
+
+/* Class = "NSMenuItem"; title = "Выбрать все"; ObjectID = "377"; */
+"377.title" = "Выбрать все";
+
+/* Class = "NSMenuItem"; title = "Отменить"; ObjectID = "378"; */
+"378.title" = "Отменить";
+
+/* Class = "NSMenuItem"; title = "Повтор"; ObjectID = "384"; */
+"384.title" = "Повтор";
+
+/* Class = "NSMenuItem"; title = "Вырезать"; ObjectID = "398"; */
+"398.title" = "Вырезать";
+
+/* Class = "NSMenuItem"; title = "Копировать"; ObjectID = "399"; */
+"399.title" = "Копировать";
+
+/* Class = "NSMenuItem"; title = "Вставить"; ObjectID = "400"; */
+"400.title" = "Вставить";
+
+/* Class = "NSMenuItem"; title = "Удалить"; ObjectID = "402"; */
+"402.title" = "Удалить";
+
+/* Class = "NSButton"; ibExternalAccessibilityDescription = "Добавить новые файлы или папки"; ObjectID = "423"; */
+"423.ibExternalAccessibilityDescription" = "Добавить новые файлы или папки";
+
+/* Class = "NSMenuItem"; title = "Файл"; ObjectID = "429"; */
+"429.title" = "Файл";
+
+/* Class = "NSMenu"; title = "Файл"; ObjectID = "430"; */
+"430.title" = "Файл";
+
+/* Class = "NSMenuItem"; title = "Добавить файлы…"; ObjectID = "437"; */
+"437.title" = "Добавить файлы…";
+
+/* Class = "NSTableColumn"; headerToolTip = "Состояние оптимизации"; ObjectID = "462"; */
+"462.headerToolTip" = "Состояние оптимизации";
+
+/* Class = "NSTableColumn"; ibExternalAccessibilityDescription = "Состояние оптимизации"; ObjectID = "462"; */
+"462.ibExternalAccessibilityDescription" = "Состояние оптимизации";
+
+/* Class = "NSMenuItem"; title = "Закрыть"; ObjectID = "498"; */
+"498.title" = "Закрыть";
+
+/* Class = "NSMenuItem"; title = "Справка"; ObjectID = "504"; */
+"504.title" = "Справка";
+
+/* Class = "NSMenu"; title = "Справка"; ObjectID = "505"; */
+"505.title" = "Справка";
+
+/* Class = "NSMenuItem"; title = "Справка ImageOptim"; ObjectID = "506"; */
+"506.title" = "Справка ImageOptim";
+
+/* Class = "NSPanel"; title = "О программе ImageOptim"; ObjectID = "526"; */
+"526.title" = "О программе ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Оптимизировать еще раз"; ObjectID = "593"; */
+"593.title" = "Оптимизировать еще раз";
+
+/* Class = "NSMenuItem"; title = "Проверить на наличие обновлений…"; ObjectID = "624"; */
+"624.title" = "Проверить на наличие обновлений…";
+
+/* Class = "NSTextFieldCell"; title = "Перетяните файлы изображений в область выше"; ObjectID = "632"; */
+"632.title" = "Перетяните файлы изображений в область выше";
+
+/* Class = "NSButtonCell"; title = "Добавить"; ObjectID = "633"; */
+"633.title" = "Добавить";
+
+/* Class = "NSButtonCell"; alternateTitle = "Запустить оптимизации еще раз"; ObjectID = "635"; */
+"635.alternateTitle" = "Запустить оптимизации еще раз";
+
+/* Class = "NSButtonCell"; title = "Повторить"; ObjectID = "635"; */
+"635.title" = "Повторить";
+
+/* Class = "NSTableHeaderView"; ibExternalAccessibilityDescription = "Статус"; ObjectID = "642"; */
+"642.ibExternalAccessibilityDescription" = "Статус";
+
+/* Class = "NSTextField"; ibExternalAccessibilityDescription = "версия"; ObjectID = "645"; */
+"645.ibExternalAccessibilityDescription" = "версия";
+
+/* Class = "NSTextFieldCell"; title = "версия"; ObjectID = "646"; */
+"646.title" = "версия";
+
+/* Class = "NSMenuItem"; title = "Инструменты"; ObjectID = "655"; */
+"655.title" = "Инструменты";
+
+/* Class = "NSMenu"; title = "Инструменты"; ObjectID = "656"; */
+"656.title" = "Инструменты";
+
+/* Class = "NSMenuItem"; title = "Zopfli"; ObjectID = "658"; */
+"658.title" = "Zopfli";
+
+/* Class = "NSMenuItem"; title = "OptiPNG"; ObjectID = "659"; */
+"659.title" = "OptiPNG";
+
+/* Class = "NSMenuItem"; title = "PNGCrush"; ObjectID = "660"; */
+"660.title" = "PNGCrush";
+
+/* Class = "NSMenuItem"; title = "AdvPNG"; ObjectID = "661"; */
+"661.title" = "AdvPNG";
+
+/* Class = "NSMenuItem"; title = "Jpegtran"; ObjectID = "663"; */
+"663.title" = "Jpegtran";
+
+/* Class = "NSMenuItem"; title = "JPEGOptim"; ObjectID = "664"; */
+"664.title" = "JPEGOptim";
+
+/* Class = "NSMenuItem"; title = "Gifsicle"; ObjectID = "666"; */
+"666.title" = "Gifsicle";
+
+/* Class = "NSMenuItem"; title = "Быстрый просмотр"; ObjectID = "708"; */
+"708.title" = "Быстрый просмотр";
+
+/* Class = "DragDropImageView"; ibExternalAccessibilityDescription = "Перетяните картинки сюда"; ObjectID = "712"; */
+"712.ibExternalAccessibilityDescription" = "Перетяните картинки сюда";
+
+/* Class = "NSMenuItem"; title = "Удаление завершено"; ObjectID = "721"; */
+"721.title" = "Удаление завершено";
+
+/* Class = "NSMenuItem"; title = "Оптимизировать оптимизированные"; ObjectID = "725"; */
+"725.title" = "Оптимизировать оптимизированные";
+
+/* Class = "NSMenuItem"; title = "Веб-страница ImageOptim"; ObjectID = "733"; */
+"733.title" = "Веб-страница ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Смотреть исходники"; ObjectID = "735"; */
+"735.title" = "Смотреть исходники";
+
+/* Class = "NSMenuItem"; title = "Оптимизированный размер"; ObjectID = "740"; */
+"740.title" = "Оптимизированный размер";
+
+/* Class = "NSMenuItem"; title = "Экономия"; ObjectID = "741"; */
+"741.title" = "Экономия";
+
+/* Class = "NSMenuItem"; title = "Лучший инструмент"; ObjectID = "747"; */
+"747.title" = "Лучший инструмент";
+
+/* Class = "NSTableColumn"; headerCell.title = "Лучший инструмент"; ObjectID = "771"; */
+"771.headerCell.title" = "Лучший инструмент";
+
+/* Class = "NSMenuItem"; title = "Размер оригинала"; ObjectID = "791"; */
+"791.title" = "Размер оригинала";
+
+/* Class = "NSTableColumn"; headerCell.title = "Размер оригинала"; ObjectID = "795"; */
+"795.headerCell.title" = "Размер оригинала";
+
+/* Class = "NSMenuItem"; title = "Показать столбцы"; ObjectID = "809"; */
+"809.title" = "Показать столбцы";
+
+/* Class = "NSMenuItem"; title = "PNGOUT"; ObjectID = "813"; */
+"813.title" = "PNGOUT";
+
+/* Class = "NSMenuItem"; title = "Jpegrescan"; ObjectID = "816"; */
+"816.title" = "Jpegrescan";
+
+/* Class = "NSMenuItem"; title = "Donate"; ObjectID = "820"; */
+"820.title" = "Donate";
+
+/* Class = "NSMenuItem"; title = "Копировать Data URL"; ObjectID = "NlY-Bc-7tu"; */
+"NlY-Bc-7tu.title" = "Копировать Data URL";
+
+/* Class = "NSMenuItem"; title = "Reveal in Finder"; ObjectID = "ddH-3k-EuT"; */
+"ddH-3k-EuT.title" = "Reveal in Finder";

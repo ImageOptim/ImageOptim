@@ -1,0 +1,240 @@
+
+/* Class = "NSMenuItem"; title = "Porta in primo piano"; ObjectID = "5"; */
+"5.title" = "Porta in primo piano";
+
+/* Class = "NSMenuItem"; title = "Finestra"; ObjectID = "19"; */
+"19.title" = "Finestra";
+
+/* Class = "NSWindow"; title = "ImageOptim"; ObjectID = "21"; */
+"21.title" = "ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Contrai"; ObjectID = "23"; */
+"23.title" = "Contrai";
+
+/* Class = "NSMenu"; title = "Finestra"; ObjectID = "24"; */
+"24.title" = "Finestra";
+
+/* Class = "NSMenu"; title = "MainMenu"; ObjectID = "29"; */
+"29.title" = "MainMenu";
+
+/* Class = "NSMenuItem"; title = "ImageOptim"; ObjectID = "56"; */
+"56.title" = "ImageOptim";
+
+/* Class = "NSMenu"; title = "ImageOptim"; ObjectID = "57"; */
+"57.title" = "ImageOptim";
+
+/* Class = "NSMenu"; title = "Servizi"; ObjectID = "130"; */
+"130.title" = "Servizi";
+
+/* Class = "NSMenuItem"; title = "Servizi"; ObjectID = "131"; */
+"131.title" = "Servizi";
+
+/* Class = "NSMenuItem"; title = "Nascondi ImageOptim"; ObjectID = "134"; */
+"134.title" = "Nascondi ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Esci da ImageOptim"; ObjectID = "136"; */
+"136.title" = "Esci da ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Nascondi altre"; ObjectID = "145"; */
+"145.title" = "Nascondi altre";
+
+/* Class = "NSMenuItem"; title = "Mostra tutte"; ObjectID = "150"; */
+"150.title" = "Mostra tutte";
+
+/* Class = "NSMenuItem"; title = "Ridimensiona"; ObjectID = "197"; */
+"197.title" = "Ridimensiona";
+
+/* Class = "NSScrollView"; ibExternalAccessibilityDescription = "Lista dei file da ottimizzare"; ObjectID = "236"; */
+"236.ibExternalAccessibilityDescription" = "Lista dei file da ottimizzare";
+
+/* Class = "NSTableColumn"; headerCell.title = "File"; ObjectID = "238"; */
+"238.headerCell.title" = "File";
+
+/* Class = "NSTableColumn"; headerCell.title = "Size"; ObjectID = "239"; */
+"239.headerCell.title" = "Size";
+
+/* Class = "NSTableColumn"; headerToolTip = "Dimensione del file dopo l'ottimizzazione"; ObjectID = "239"; */
+"239.headerToolTip" = "Dimensione del file dopo l'ottimizzazione";
+
+/* Class = "NSTableColumn"; ibExternalAccessibilityDescription = "Size of file after optimization"; ObjectID = "239"; */
+"239.ibExternalAccessibilityDescription" = "Size of file after optimization";
+
+/* Class = "NSTableColumn"; headerCell.title = "Savings"; ObjectID = "243"; */
+"243.headerCell.title" = "Savings";
+
+/* Class = "NSTextField"; ibExternalAccessibilityDescription = "Stato"; ObjectID = "294"; */
+"294.ibExternalAccessibilityDescription" = "Stato";
+
+/* Class = "NSMenuItem"; title = "Informazioni su ImageOptim"; ObjectID = "361"; */
+"361.title" = "Informazioni su ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Preferenze…"; ObjectID = "363"; */
+"363.title" = "Preferenze…";
+
+/* Class = "NSMenuItem"; title = "Modifica"; ObjectID = "375"; */
+"375.title" = "Modifica";
+
+/* Class = "NSMenu"; title = "Modifica"; ObjectID = "376"; */
+"376.title" = "Modifica";
+
+/* Class = "NSMenuItem"; title = "Seleziona tutto"; ObjectID = "377"; */
+"377.title" = "Seleziona tutto";
+
+/* Class = "NSMenuItem"; title = "Annulla"; ObjectID = "378"; */
+"378.title" = "Annulla";
+
+/* Class = "NSMenuItem"; title = "Ripristina"; ObjectID = "384"; */
+"384.title" = "Ripristina";
+
+/* Class = "NSMenuItem"; title = "Taglia"; ObjectID = "398"; */
+"398.title" = "Taglia";
+
+/* Class = "NSMenuItem"; title = "Copia"; ObjectID = "399"; */
+"399.title" = "Copia";
+
+/* Class = "NSMenuItem"; title = "Incolla"; ObjectID = "400"; */
+"400.title" = "Incolla";
+
+/* Class = "NSMenuItem"; title = "Cancella"; ObjectID = "402"; */
+"402.title" = "Cancella";
+
+/* Class = "NSButton"; ibExternalAccessibilityDescription = "Aggiungi nuovi file o cartelle"; ObjectID = "423"; */
+"423.ibExternalAccessibilityDescription" = "Aggiungi nuovi file o cartelle";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "429"; */
+"429.title" = "File";
+
+/* Class = "NSMenu"; title = "File"; ObjectID = "430"; */
+"430.title" = "File";
+
+/* Class = "NSMenuItem"; title = "Aggiungi Files…"; ObjectID = "437"; */
+"437.title" = "Aggiungi Files…";
+
+/* Class = "NSTableColumn"; headerToolTip = "Stato dell'ottimizzazione"; ObjectID = "462"; */
+"462.headerToolTip" = "Stato dell'ottimizzazione";
+
+/* Class = "NSTableColumn"; ibExternalAccessibilityDescription = "Optimization status"; ObjectID = "462"; */
+"462.ibExternalAccessibilityDescription" = "Optimization status";
+
+/* Class = "NSMenuItem"; title = "Chiudi"; ObjectID = "498"; */
+"498.title" = "Chiudi";
+
+/* Class = "NSMenuItem"; title = "Aiuto"; ObjectID = "504"; */
+"504.title" = "Aiuto";
+
+/* Class = "NSMenu"; title = "Aiuto"; ObjectID = "505"; */
+"505.title" = "Aiuto";
+
+/* Class = "NSMenuItem"; title = "Aiuto di ImageOptim"; ObjectID = "506"; */
+"506.title" = "Aiuto di ImageOptim";
+
+/* Class = "NSPanel"; title = "Informazioni di ImageOptim"; ObjectID = "526"; */
+"526.title" = "Informazioni di ImageOptim";
+
+/* Class = "NSMenuItem"; title = "Ottimizza ancora"; ObjectID = "593"; */
+"593.title" = "Ottimizza ancora";
+
+/* Class = "NSMenuItem"; title = "Controlla gli aggiornamenti…"; ObjectID = "624"; */
+"624.title" = "Controlla gli aggiornamenti…";
+
+/* Class = "NSTextFieldCell"; title = "Clicca e trascina le immagini nella casella superiore"; ObjectID = "632"; */
+"632.title" = "Clicca e trascina le immagini nella casella superiore";
+
+/* Class = "NSButtonCell"; title = "Aggiungi"; ObjectID = "633"; */
+"633.title" = "Aggiungi";
+
+/* Class = "NSButtonCell"; alternateTitle = "Ottimizza nuovamente"; ObjectID = "635"; */
+"635.alternateTitle" = "Ottimizza nuovamente";
+
+/* Class = "NSButtonCell"; title = "Ancora"; ObjectID = "635"; */
+"635.title" = "Ancora";
+
+/* Class = "NSTableHeaderView"; ibExternalAccessibilityDescription = "Status"; ObjectID = "642"; */
+"642.ibExternalAccessibilityDescription" = "Status";
+
+/* Class = "NSTextField"; ibExternalAccessibilityDescription = "versione"; ObjectID = "645"; */
+"645.ibExternalAccessibilityDescription" = "versione";
+
+/* Class = "NSTextFieldCell"; title = "version"; ObjectID = "646"; */
+"646.title" = "version";
+
+/* Class = "NSMenuItem"; title = "Utilità"; ObjectID = "655"; */
+"655.title" = "Utilità";
+
+/* Class = "NSMenu"; title = "Utilità"; ObjectID = "656"; */
+"656.title" = "Utilità";
+
+/* Class = "NSMenuItem"; title = "Zopfli"; ObjectID = "658"; */
+"658.title" = "Zopfli";
+
+/* Class = "NSMenuItem"; title = "OptiPNG"; ObjectID = "659"; */
+"659.title" = "OptiPNG";
+
+/* Class = "NSMenuItem"; title = "PNGCrush"; ObjectID = "660"; */
+"660.title" = "PNGCrush";
+
+/* Class = "NSMenuItem"; title = "AdvPNG"; ObjectID = "661"; */
+"661.title" = "AdvPNG";
+
+/* Class = "NSMenuItem"; title = "Jpegtran"; ObjectID = "663"; */
+"663.title" = "Jpegtran";
+
+/* Class = "NSMenuItem"; title = "JPEGOptim"; ObjectID = "664"; */
+"664.title" = "JPEGOptim";
+
+/* Class = "NSMenuItem"; title = "Gifsicle"; ObjectID = "666"; */
+"666.title" = "Gifsicle";
+
+/* Class = "NSMenuItem"; title = "Quick Look"; ObjectID = "708"; */
+"708.title" = "Quick Look";
+
+/* Class = "DragDropImageView"; ibExternalAccessibilityDescription = "Drop images here"; ObjectID = "712"; */
+"712.ibExternalAccessibilityDescription" = "Drop images here";
+
+/* Class = "NSMenuItem"; title = "Delete Completed"; ObjectID = "721"; */
+"721.title" = "Delete Completed";
+
+/* Class = "NSMenuItem"; title = "Optimize Optimized"; ObjectID = "725"; */
+"725.title" = "Optimize Optimized";
+
+/* Class = "NSMenuItem"; title = "ImageOptim Website"; ObjectID = "733"; */
+"733.title" = "ImageOptim Website";
+
+/* Class = "NSMenuItem"; title = "View Source"; ObjectID = "735"; */
+"735.title" = "View Source";
+
+/* Class = "NSMenuItem"; title = "Optimized Size"; ObjectID = "740"; */
+"740.title" = "Optimized Size";
+
+/* Class = "NSMenuItem"; title = "Savings"; ObjectID = "741"; */
+"741.title" = "Savings";
+
+/* Class = "NSMenuItem"; title = "Utilità"; ObjectID = "747"; */
+"747.title" = "Utilità";
+
+/* Class = "NSTableColumn"; headerCell.title = "Utilità"; ObjectID = "771"; */
+"771.headerCell.title" = "Utilità";
+
+/* Class = "NSMenuItem"; title = "Size (original)"; ObjectID = "791"; */
+"791.title" = "Size (original)";
+
+/* Class = "NSTableColumn"; headerCell.title = "Size (original)"; ObjectID = "795"; */
+"795.headerCell.title" = "Size (original)";
+
+/* Class = "NSMenuItem"; title = "Show Columns"; ObjectID = "809"; */
+"809.title" = "Show Columns";
+
+/* Class = "NSMenuItem"; title = "PNGOUT"; ObjectID = "813"; */
+"813.title" = "PNGOUT";
+
+/* Class = "NSMenuItem"; title = "Jpegrescan"; ObjectID = "816"; */
+"816.title" = "Jpegrescan";
+
+/* Class = "NSMenuItem"; title = "Donate"; ObjectID = "820"; */
+"820.title" = "Donate";
+
+/* Class = "NSMenuItem"; title = "Copia Data URL"; ObjectID = "NlY-Bc-7tu"; */
+"NlY-Bc-7tu.title" = "Copia Data URL";
+
+/* Class = "NSMenuItem"; title = "Reveal in Finder"; ObjectID = "ddH-3k-EuT"; */
+"ddH-3k-EuT.title" = "Reveal in Finder";
