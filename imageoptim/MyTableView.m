@@ -250,7 +250,9 @@
     assert([fc isKindOfClass:[FilesQueue class]]);
 
     NSInteger row = [self clickedRow];
-    if (row < 0 || ([self isRowSelected:row] && [self numberOfSelectedRows] > 1)) {
+    if (row < 0) {
+        return nil;
+    } else if ([self isRowSelected:row] && [self numberOfSelectedRows] > 1) {
         return [fc selectedObjects];
     } else {
         return @[[[fc arrangedObjects] objectAtIndex:row]];
@@ -258,6 +260,8 @@
 }
 
 -(void)openInFinder:(id)sender {
-    [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:[[self clickedRowSelection] valueForKey:@"filePath"]];
+    NSArray *files = [self clickedRowSelection];
+    if (!files) return; // double-click on header
+    [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:[files valueForKey:@"filePath"]];
 }
 @end
