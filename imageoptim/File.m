@@ -547,7 +547,7 @@
         [self setStatus:@"err" order:8 text:NSLocalizedString(@"All neccessary tools have been disabled in Preferences",@"tooltip")];
         [self cleanup];
     } else {
-        [self setStatus:@"wait" order:1 text:NSLocalizedString(@"Waiting to be optimized",@"tooltip")];
+        [self updateStatusOfWorker:nil running:NO];
         [workers addObject:saveOp];
         [fileIOQueue addOperation:saveOp];
     }
@@ -572,6 +572,33 @@
         isit = [workers count] > 0;
     }
     return isit;
+}
+
+-(void)updateStatusOfWorker:(Worker *)currentWorker running:(BOOL)started {
+    NSOperation *running = nil;
+
+    @synchronized(self) {
+        if (currentWorker && started) {
+            running = currentWorker;
+        } else {
+            // technically I should pause all queues before that loop, but I'm going to allow some false "wait" icons instead
+            for(NSOperation *op in workers) {
+                // worker sets started:NO when it's ending, but isExecuting still shows true for it
+                // Worker class is limited to user-visible workers (there are other for enqueuing, saving, etc.)
+                if (op != currentWorker && [op isExecuting] && [op isKindOfClass:[Worker class]]) {
+                    running = op;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (running) {
+        NSString *name = [[running className] stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
+        [self setStatus:@"progress" order:4 text:[NSString stringWithFormat:NSLocalizedString(@"Started %@",@"command name, tooltip"), name]];
+    } else {
+        [self setStatus:@"wait" order:1 text:NSLocalizedString(@"Waiting to be optimized",@"tooltip")];
+    }
 }
 
 -(void)setStatus:(NSString *)imageName order:(NSInteger)order text:(NSString *)text {

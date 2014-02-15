@@ -55,9 +55,7 @@
 }
 
 -(void)main {
-
-    NSString *name = [[self className] stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
-    [file setStatus:@"progress" order:4 text:[NSString stringWithFormat:NSLocalizedString(@"Started %@",@"command name, tooltip"),name]];
+    [file updateStatusOfWorker:self running:YES];
 
     @try {
         if (![self isCancelled]) {
@@ -73,7 +71,7 @@
         if (![self isCancelled]) {
             [nextOperation setQueuePriority:NSOperationQueuePriorityVeryHigh];
         }
-        [file setStatus:@"wait" order:2 text:NSLocalizedString(@"Waiting to start more optimizations",@"tooltip")];
+        [file updateStatusOfWorker:self running:NO];
     }
 }
 

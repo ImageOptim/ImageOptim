@@ -58,7 +58,7 @@ enum IOFileType {
 -(void)setByteSizeOriginal:(NSUInteger)size;
 -(void)setByteSizeOptimized:(NSUInteger)size;
 -(BOOL)isOptimized;
-
+-(void)updateStatusOfWorker:(Worker *)currentWorker running:(BOOL)started;
 
 -(BOOL)isLarge;
 -(BOOL)isSmall;
