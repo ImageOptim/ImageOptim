@@ -35,7 +35,7 @@
     NSError *error = nil;
 
     if (![fm copyItemAtURL:file.filePathOptimized toURL:temp error:&error]) {
-        IOWarn("Can't make temp copy of %@ in %@",file.filePathOptimized,temp);
+        IOWarn("Can't make temp copy of %@ in %@", file.filePathOptimized.path, temp.path);
     }
 
     NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-q",@"--",temp.path,nil];

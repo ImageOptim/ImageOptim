@@ -160,7 +160,7 @@
 }
 
 -(BOOL)setFilePathOptimized:(NSURL *)tempPath size:(NSUInteger)size toolName:(NSString *)toolname {
-    IODebug("File %@ optimized with %@ from %u to %u in %@",filePath?filePath:filePathOptimized,toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,tempPath);
+    IODebug("File %@ optimized with %@ from %u to %u in %@",[filePath?filePath:filePathOptimized path],toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,tempPath);
     @synchronized(self) {
         if (size && size < byteSizeOptimized) {
             assert(![filePathOptimized.path isEqualToString:tempPath.path]);
@@ -267,7 +267,7 @@
         NSURL *enclosingDir = [filePath URLByDeletingLastPathComponent];
 
         if (![fm isWritableFileAtPath:enclosingDir.path]) {
-            IOWarn("The file %@ is in non-writeable directory %@", filePath, enclosingDir);
+            IOWarn("The file %@ is in non-writeable directory %@", filePath.path, enclosingDir.path);
             return NO;
         }
 
@@ -296,30 +296,30 @@
 
             // copy original data for trashing under original file name
             if (![fm copyItemAtURL:writeToURL toURL:filePath error:&error]) {
-                IOWarn("Can't write to %@ %@", filePath, error);
+                IOWarn("Can't write to %@ %@", filePath.path, error);
                 return NO;
             }
 
             NSData *data = [NSData dataWithContentsOfURL:filePathOptimized];
             if (!data) {
-                IOWarn("Unable to read %@", filePathOptimized);
+                IOWarn("Unable to read %@", filePathOptimized.path);
                 return NO;
             }
 
             if ([data length] != byteSizeOptimized) {
-                IOWarn("Temp file size %u does not match expected %u in %@ for %@",(unsigned int)[data length],(unsigned int)byteSizeOptimized,filePathOptimized,filePath);
+                IOWarn("Temp file size %u does not match expected %u in %@ for %@",(unsigned int)[data length],(unsigned int)byteSizeOptimized,filePathOptimized.path,filePath.path);
                 return NO;
             }
 
             if ([data length] < 30) {
-                IOWarn("File %@ is suspiciously small, could be truncated", filePathOptimized);
+                IOWarn("File %@ is suspiciously small, could be truncated", filePathOptimized.path);
                 return NO;
             }
 
             // overwrite old file that is under temporary name (so only content is replaced, not file metadata)
             NSFileHandle *writehandle = [NSFileHandle fileHandleForWritingToURL:writeToURL error:nil];
             if (!writehandle) {
-                IOWarn("Unable to open %@ for writing. Check file permissions.", filePath);
+                IOWarn("Unable to open %@ for writing. Check file permissions.", filePath.path);
                 return NO;
             }
 
@@ -331,7 +331,7 @@
         }
 
         if (![self trashFileAtURL:filePath resultingItemURL:nil error:&error]) {
-            IOWarn("Can't trash %@ %@", filePath, error);
+            IOWarn("Can't trash %@ %@", filePath.path, error);
             NSURL *backupPath = [NSURL fileURLWithPath:[[[filePath lastPathComponent] stringByAppendingString:@"~bak"] stringByAppendingPathExtension:[filePath pathExtension]]];
 
             [fm removeItemAtURL:backupPath error:nil];
@@ -342,7 +342,7 @@
         }
 
         if (![fm moveItemAtURL:moveFromPath toURL:filePath error:&error]) {
-            IOWarn("Failed to move from %@ to %@; %@",moveFromPath, filePath, error);
+            IOWarn("Failed to move from %@ to %@; %@", moveFromPath.path, filePath.path, error);
             return NO;
         }
 
@@ -351,7 +351,7 @@
         [self removeExtendedAttrAtURL:filePath];
     }
     @catch (NSException *e) {
-        IOWarn("Exception thrown %@ while saving %@",e, filePath);
+        IOWarn("Exception thrown %@ while saving %@", e, filePath.path);
         return NO;
     }
 
@@ -419,7 +419,7 @@
     NSData *fileData = [NSData dataWithContentsOfURL:filePath options:NSDataReadingMappedIfSafe error:&err];
     NSUInteger length = [fileData length];
     if (!fileData || !length) {
-        IOWarn(@"Can't open the file %@ %@", filePath, err);
+        IOWarn(@"Can't open the file %@ %@", filePath.path, err);
         [self setStatus:@"err" order:8 text:NSLocalizedString(@"Can't open the file",@"tooltip, generic loading error")];
         return;
     }
@@ -588,7 +588,7 @@
 +(NSInteger)fileByteSize:(NSURL *)afile {
     NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:afile.path error:nil];
     if (attr) return [[attr objectForKey:NSFileSize] integerValue];
-    IOWarn("Could not stat %@",afile);
+    IOWarn("Could not stat %@",afile.path);
     return 0;
 }
 
