@@ -47,7 +47,7 @@
         bestTools = [NSMutableDictionary new];
         filePathsOptimizedInUse = [NSMutableSet new];
         [self setFilePath:name];
-        [self setStatus:@"wait" order:0 text:NSLocalizedString(@"New file",@"newly added to the queue")];
+        [self setStatus:@"wait" order:0 text:NSLocalizedString(@"Waiting to be optimized",@"tooltip")];
     }
     return self;
 }
@@ -394,7 +394,6 @@
 }
 
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)aFileIOQueue {
-    [self setStatus:@"wait" order:0 text:NSLocalizedString(@"Waiting to be optimized",@"tooltip")];
 
     @synchronized(self) {
         done = NO;
@@ -602,10 +601,16 @@
 }
 
 -(void)setStatus:(NSString *)imageName order:(NSInteger)order text:(NSString *)text {
-    if (statusOrder == order && statusText == text) return;
-    statusOrder = order;
-    self.statusText = text;
-    self.statusImage = [NSImage imageNamed:imageName];
+    void (^setter)() = ^(void){
+        statusOrder = order;
+        self.statusText = text;
+        self.statusImage = [NSImage imageNamed:imageName];
+    };
+    if (order) {
+        dispatch_async(dispatch_get_main_queue(), setter);
+    } else {
+        setter(); // order=0 is from constructor, can be done synchronously
+    }
 }
 
 -(NSString *)description {
