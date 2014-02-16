@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5037.3" systemVersion="13C44" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5037.3" systemVersion="13C59" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1060" defaultVersion="1060" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5037.3"/>
@@ -309,7 +309,7 @@
                                                     <slider verticalHuggingPriority="750" id="188">
                                                         <rect key="frame" x="1" y="21" width="378" height="25"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                        <sliderCell key="cell" continuous="YES" alignment="left" minValue="70" maxValue="100" doubleValue="85" tickMarkPosition="below" numberOfTickMarks="21" allowsTickMarkValuesOnly="YES" sliderType="linear" id="874">
+                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="60" maxValue="100" doubleValue="100" tickMarkPosition="below" numberOfTickMarks="21" allowsTickMarkValuesOnly="YES" sliderType="linear" id="874">
                                                             <font key="font" size="12" name="Helvetica"/>
                                                         </sliderCell>
                                                         <connections>
@@ -320,7 +320,7 @@
                                                     <textField verticalHuggingPriority="750" id="230">
                                                         <rect key="frame" x="0.0" y="2" width="49" height="11"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="70%" id="875">
+                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="60%" id="875">
                                                             <font key="font" metaFont="miniSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -352,7 +352,7 @@
                                                     <textField verticalHuggingPriority="750" id="242">
                                                         <rect key="frame" x="156" y="2" width="67" height="11"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="85%" id="877">
+                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="80%" id="877">
                                                             <font key="font" metaFont="miniSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -396,15 +396,15 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
+                                                <binding destination="300" name="textColor" keyPath="values.JpegOptimEnabled" id="dk1-zG-kSC">
+                                                    <dictionary key="options">
+                                                        <string key="NSValueTransformerName">DisabledColor</string>
+                                                    </dictionary>
+                                                </binding>
                                                 <binding destination="300" name="value" keyPath="values.PngMinQuality" id="eIN-JZ-NiJ">
                                                     <dictionary key="options">
                                                         <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
                                                         <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                                                    </dictionary>
-                                                </binding>
-                                                <binding destination="300" name="textColor" keyPath="values.JpegOptimEnabled" id="dk1-zG-kSC">
-                                                    <dictionary key="options">
-                                                        <string key="NSValueTransformerName">DisabledColor</string>
                                                     </dictionary>
                                                 </binding>
                                             </connections>
@@ -419,7 +419,7 @@
                                                     <slider verticalHuggingPriority="750" id="etZ-HC-jX4">
                                                         <rect key="frame" x="1" y="21" width="378" height="25"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                        <sliderCell key="cell" continuous="YES" alignment="left" minValue="70" maxValue="100" doubleValue="85" tickMarkPosition="below" numberOfTickMarks="21" allowsTickMarkValuesOnly="YES" sliderType="linear" id="0s0-dw-e8O">
+                                                        <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="60" maxValue="100" doubleValue="100" tickMarkPosition="below" numberOfTickMarks="21" allowsTickMarkValuesOnly="YES" sliderType="linear" id="0s0-dw-e8O">
                                                             <font key="font" size="12" name="Helvetica"/>
                                                         </sliderCell>
                                                         <connections>
@@ -434,7 +434,7 @@
                                                     <textField verticalHuggingPriority="750" id="Kib-kQ-AW2">
                                                         <rect key="frame" x="0.0" y="2" width="49" height="11"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="70%" id="Ubh-lt-KUJ">
+                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="60%" id="Ubh-lt-KUJ">
                                                             <font key="font" metaFont="miniSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -466,7 +466,7 @@
                                                     <textField verticalHuggingPriority="750" id="BPa-8a-bQW">
                                                         <rect key="frame" x="156" y="2" width="67" height="11"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="85%" id="hoC-ON-aee">
+                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="80%" id="hoC-ON-aee">
                                                             <font key="font" metaFont="miniSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
