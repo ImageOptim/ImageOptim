@@ -15,7 +15,7 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-"177.label" = "JPEGOptim";
+
 
 /* Class = "NSBox"; title = "Bezig met het wegschrijven van de bestanden"; ObjectID = "280"; */
 "280.title" = "Bezig met het wegschrijven van de bestanden";
@@ -75,7 +75,10 @@
 "865.title" = "Webbrowsers vereisen dat gamma verwijderd wordt";
 
 /* Class = "NSTextFieldCell"; title = "Beste kwaliteit"; ObjectID = "868"; */
-"868.title" = "Beste kwaliteit";
+"kE2-GK-JIe.title" = "PNG: kwaliteit";
+"868.title" = "JPEG: kwaliteit";
+/* Tab title: Quality */
+"177.label" = "Kwaliteit";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
 "872.title" = "-100%";

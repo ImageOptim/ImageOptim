@@ -15,7 +15,7 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-"177.label" = "JPEGOptim";
+
 
 /* Class = "NSBox"; title = "Speichern der Dateien"; ObjectID = "280"; */
 "280.title" = "Speichern der Dateien";
@@ -76,6 +76,8 @@
 
 /* Class = "NSTextFieldCell"; title = "Maximale Qualität"; ObjectID = "868"; */
 "868.title" = "Maximale Qualität";
+/* Tab title: Quality */
+"177.label" = "Qualität";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
 "872.title" = "-100%";

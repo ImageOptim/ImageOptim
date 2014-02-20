@@ -15,7 +15,7 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-"177.label" = "JPEGOptim";
+
 
 /* Class = "NSBox"; title = "Al guardar archivos al disco"; ObjectID = "280"; */
 "280.title" = "Al guardar archivos al disco";
@@ -75,7 +75,10 @@
 "865.title" = "Los navegadores web requieren la eliminación de fragmentos gamma";
 
 /* Class = "NSTextFieldCell"; title = "Calidad máxima"; ObjectID = "868"; */
-"868.title" = "Calidad máxima";
+"kE2-GK-JIe.title" = "PNG: calidad";
+"868.title" = "JPEG: calidad";
+/* Tab title: Quality */
+"177.label" = "Calidad";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
 "872.title" = "-100%";

@@ -15,7 +15,7 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-"177.label" = "JPEGOptim";
+
 
 /* Class = "NSBox"; title = "Dosya kayıt tercihi"; ObjectID = "280"; */
 "280.title" = "Dosya kayıt tercihi";
@@ -75,7 +75,10 @@
 "865.title" = "Web tarayıcıları gamma fazlalıklarının kaldırılmasını gerektirir";
 
 /* Class = "NSTextFieldCell"; title = "Maksimum kalite"; ObjectID = "868"; */
-"868.title" = "Maksimum kalite";
+"kE2-GK-JIe.title" = "PNG: kalite";
+"868.title" = "JPEG: kalite";
+/* Tab title: Quality */
+"177.label" = "Kalite";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
 "872.title" = "-100%";

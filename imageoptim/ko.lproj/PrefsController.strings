@@ -15,7 +15,7 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-"177.label" = "JPEGOptim";
+
 
 /* Class = "NSBox"; title = "디스크에 파일 쓰기"; ObjectID = "280"; */
 "280.title" = "디스크에 파일 쓰기";
@@ -75,7 +75,8 @@
 "865.title" = "많은 웹 브라우저에서는 감마 정보를 포함하지 않습니다.";
 
 /* Class = "NSTextFieldCell"; title = "최대 품질"; ObjectID = "868"; */
-"868.title" = "최대 품질";
+"kE2-GK-JIe.title" = "PNG: 품질";
+"868.title" = "JPEG: 품질";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
 "872.title" = "-100%";

@@ -15,7 +15,7 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-"177.label" = "JPEGOptim";
+
 
 /* Class = "NSBox"; title = "Sauvegarde des fichiers"; ObjectID = "280"; */
 "280.title" = "Sauvegarde des fichiers";
@@ -75,7 +75,10 @@
 "865.title" = "La correction gamma est incompatible avec certains navigateurs Web ";
 
 /* Class = "NSTextFieldCell"; title = "Qualité maximale "; ObjectID = "868"; */
-"868.title" = "Qualité maximale ";
+"kE2-GK-JIe.title" = "PNG: qualité";
+"868.title" = "JPEG: qualité";
+/* Tab title: Quality */
+"177.label" = "Qualité";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
 "872.title" = "-100%";

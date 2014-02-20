@@ -15,7 +15,7 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-"177.label" = "JPEGOptim";
+
 
 /* Class = "NSBox"; title = "Alternativer for filhåndtering"; ObjectID = "280"; */
 "280.title" = "Alternativer for filhåndtering";
@@ -75,7 +75,10 @@
 "865.title" = "Nettlesere fungerer bedre uten gamma-del";
 
 /* Class = "NSTextFieldCell"; title = "Maksimal kvalitet"; ObjectID = "868"; */
-"868.title" = "Maksimal kvalitet";
+"kE2-GK-JIe.title" = "PNG kvalitet";
+"868.title" = "JPEG kvalitet";
+/* Tab title: Quality */
+"177.label" = "Kvalitet";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
 "872.title" = "-100%";

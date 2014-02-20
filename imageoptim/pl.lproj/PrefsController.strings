@@ -15,7 +15,7 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-"177.label" = "JPEGOptim";
+
 
 /* Class = "NSBox"; title = "Zapisywanie na dysk"; ObjectID = "280"; */
 "280.title" = "Zapisywanie na dysk";
@@ -75,7 +75,10 @@
 "865.title" = "Przeglądarki wymagają usunięcia gammy";
 
 /* Class = "NSTextFieldCell"; title = "Maksymalna jakość"; ObjectID = "868"; */
-"868.title" = "Maksymalna jakość";
+"kE2-GK-JIe.title" = "Jakość PNG";
+"868.title" = "Jakość JPEG";
+/* Tab title: Quality */
+"177.label" = "Jakość";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
 "872.title" = "-100%";

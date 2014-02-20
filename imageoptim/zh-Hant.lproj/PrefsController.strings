@@ -15,7 +15,7 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-"177.label" = "JPEGOptim";
+
 
 /* Class = "NSBox"; title = "檔案寫入"; ObjectID = "280"; */
 "280.title" = "檔案寫入";
@@ -75,7 +75,8 @@
 "865.title" = "多數瀏覽器無法處理Gamma校準訊息";
 
 /* Class = "NSTextFieldCell"; title = "最佳品質"; ObjectID = "868"; */
-"868.title" = "最佳品質";
+"kE2-GK-JIe.title" = "PNG: 品質";
+"868.title" = "JPEG: 品質";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
 "872.title" = "-100%";

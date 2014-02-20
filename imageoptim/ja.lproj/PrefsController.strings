@@ -15,7 +15,7 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-"177.label" = "JPEGOptim";
+
 
 /* Class = "NSBox"; title = "ファイルのディスク書き込み"; ObjectID = "280"; */
 "280.title" = "ファイルのディスク書き込み";
@@ -75,7 +75,8 @@
 "865.title" = "一部のウェブブラウザはガンマ値に対応していません";
 
 /* Class = "NSTextFieldCell"; title = "最高品質"; ObjectID = "868"; */
-"868.title" = "最高品質";
+"kE2-GK-JIe.title" = "PNGの品質";
+"868.title" = "JPEGの品質";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
 "872.title" = "-100%";

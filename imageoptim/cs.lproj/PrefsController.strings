@@ -15,7 +15,7 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-"177.label" = "JPEGOptim";
+
 
 /* Class = "NSBox"; title = "Zápis souborů na disk"; ObjectID = "280"; */
 "280.title" = "Zápis souborů na disk";
@@ -75,7 +75,10 @@
 "865.title" = "Prohlížeče stránek požadují, aby byly kousky gama odstraněny";
 
 /* Class = "NSTextFieldCell"; title = "Největší jakost"; ObjectID = "868"; */
-"868.title" = "Největší jakost";
+"kE2-GK-JIe.title" = "PNG: největší jakost";
+"868.title" = "JPEG: největší jakost";
+/* Tab title: Quality */
+"177.label" = "Jakost";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
 "872.title" = "-100%";

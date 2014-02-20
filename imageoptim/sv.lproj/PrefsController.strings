@@ -15,7 +15,7 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-"177.label" = "JPEGOptim";
+
 
 /* Class = "NSBox"; title = "Vid sparande"; ObjectID = "280"; */
 "280.title" = "Vid sparande";
@@ -75,7 +75,10 @@
 "865.title" = "Webbläsare kräver att gammastycken tas bort";
 
 /* Class = "NSTextFieldCell"; title = "Maxkvalitet"; ObjectID = "868"; */
-"868.title" = "Maxkvalitet";
+"kE2-GK-JIe.title" = "PNG: Maxkvalitet";
+"868.title" = "JPEG: Maxkvalitet";
+/* Tab title: Quality */
+"177.label" = "Kvalitet";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
 "872.title" = "-100%";
