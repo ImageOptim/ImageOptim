@@ -1,4 +1,3 @@
-
 VERSION=1.7.70
 
 .PHONY: all
@@ -14,6 +13,3 @@ clean:
 	-rm *.c *.h 2>/dev/null
 
 install:
-
-
-
