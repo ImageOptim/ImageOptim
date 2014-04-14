@@ -1,9 +1,6 @@
 /* tooltip */
 "%@ failed to start" = "%@을 시작하지 못했습니다";
 
-/* undo command name */
-"Add" = "Add";
-
 /* tooltip */
 "All neccessary tools have been disabled in Preferences" = "환경설정 안에 있는 모든 필요한 도구들이 비활성화되었습니다";
 
@@ -22,10 +19,8 @@
 /* tooltip */
 "Inspecting file" = "파일을 정검 중입니다.";
 
-
 /* newly added to the queue */
 "New file" = "새 파일";
-"%@ failed to start" = "%@을 시작하지 못했습니다";
 
 /* tooltip */
 "Optimized file could not be saved" = "최적화된 파일은 저장될 수 없습니다";

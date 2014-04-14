@@ -22,7 +22,6 @@
 /* tooltip */
 "Inspecting file" = "Bezig met analyseren van bestand";
 
-
 /* newly added to the queue */
 "New file" = "Nieuw bestand";
 
@@ -32,8 +31,6 @@
 /* tooltip */
 "Optimized successfully with %@" = "De optimalisatie is geslaagd (%@)";
 
-
-
 /* command name, tooltip */
 "Started %@" = "%@ gestart";
 
@@ -42,3 +39,4 @@
 
 /* tooltip */
 "Waiting to start more optimizations" = "Wachten op verdere optimalisaties";
+
