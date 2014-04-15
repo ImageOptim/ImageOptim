@@ -7,68 +7,68 @@
 <meta name="AppleFont" content="Lucida Grande,Helvetica,Arial">
 <body>
     <h1>Προτιμήσεις ImageOptim</h1>
-    <p><a href="index.html">« Back to index</a></p>
-    <h2>General preferences</h2>
+    <p><a href="index.html">« Επιστροφή στην κεντρική</a></p>
+    <h2>Γενικές προτιμήσεις</h2>
     <dl>
-<dt>Διατήρηση δικαιωμάτων αρχείων, ιδιοτήτων και hard συνδέσμων.</dt>
+<dt>Διατήρηση δικαιωμάτων αρχείων, χαρακτηριστικών και hardlinks</dt>
       <dd>
-        <p>Instead of deleting old file writing a new one with the same name, just replaces old file's content in-place. This ensures that all hardlinks, aliases, file ownership, permissions, extended file attributes will stay the same.</p>
-        <p>It's slightly faster not to preserve permissions.</p>
+        <p>Αντί να διαγράψετε το παλιό αρχείο δημιουργώντας ένα καινούργιο με το ίδιο όνομα, απλά αντικαθιστά το παλιό αρχείο επιτόπου. Αυτό εξασφαλίζει ότι όλα τα hardlinks, συντομεύσεις, δικαιώματα και χαρακτηριστικά του αρχείου θα παραμείνουν ίδια.</p>
+        <p>Είναι ελαφρώς πιο γρήγορο χωρίς την διατήρηση δικαιωμάτων.</p>
       </dd>
-      <dt>Strip PNG metadata (gamma, color profiles, optional chunks)</dt>
+      <dt>Strip PNG μεταδεδομένων (gamma, color profiles, optional chunks)</dt>
       <dd>
-        <p>PNG files can have different brightness and saturation in different browsers, because not all browsers support gamma correction and color profiles features equally. Removal of this information makes PNG color more consistent across browsers and reduces file size.</p>
-        <p data-role="strip-dpi">Other invisible information is removed as well, such as DPI and comments.</p>
+        <p>Τα PNG αρχεία μπορεί να έχουν διαφορετική φωτεινότητα και κορεσμό σε διαφορετικούς φυλλομετρητές, επειδή δεν τα υποστηρίζουν το ίδιο. Η αφαίρεση αυτών των πληροφοριών καθιστά το αρχείο "πιο όμοιο" σε όλους τους φυλλομετρητές και μειώνει το μέγεθος του.</p>
+        <p data-role="strip-dpi">Άλλες αόρατες πληροφορίες αφαιρούνται, όπως DPI και σχόλια.</p>
       </dd>
-      <dt>Strip JPEG metadata (EXIF, color profiles, GPS, rotation, etc.)</dt>
+      <dt>Strip JPEG μεταδεδομένων (EXIF, color profiles, GPS, rotation, κλπ.)</dt>
       <dd>
-        <p>Removes image metadata, such as color profile, exposure time, GPS coordinates, camera model and name of software used to create the file.</p>
-        <p data-role="strip-copyright">Embedded copyright information is removed as well. Please note that generally images are protected by copyright law regardless whether they contain such invisible metadata or not.</p>
+        <p>Αφαιρεί τα μεταδεδομένα της εικόνας, όπως το προφίλ χρωμάτων, χρόνο έκθεσης, συντεταγμένες GPS, μοντέλο κάμερας και το όνομα του λογισμικού που χρησιμοποιείται για τη δημιουργία του αρχείου.</p>
+        <p data-role="strip-copyright">Ενσωματωμένες πληροφορίες πνευματικών δικαιωμάτων αφαιρούνται. Παρακαλείστε να σημειώσετε ότι γενικά εικόνες προστατεύονται από νόμο περί πνευματικών δικαιωμάτων ανεξάρτητα είτε περιέχουν τέτοια αόρατο μεταδεδομένων ή όχι.</p>
       </dd>
     </dl>
 <h2>Εργαλεία</h2>
-    <p data-role="slow-tools">Zopfli and PNGOUT are very good PNG compressors, but are very slow. Disable them if you need to optimize PNG files quickly (leave only AdvPNG for fastest, but still good compression).</p>
-    <p data-role="dirty-alpha-tools">Zopfli and OptiPNG will clean RGB values of transparent pixels (known as “dirty alpha”). Disable these two tools if you're optimizing special files that use alpha channel for something else than transparency (e.g. heightmap in game data files).</p>
+    <p data-role="slow-tools">Τα Zopfli και PNGOUT είναι πολύ καλοί PNG συμπιεστές, αλλά και πολύ αργοί. Απενεργοποιήστε τους αν χρειάζεται να βελτιστοποιήσετε PNG αρχεία γρήγορα (αφήστε μόνο το AdvPNG για ταχύτερη και συγχρόνως καλή συμπίεση).</p>
+    <p data-role="dirty-alpha-tools">Τα Zopfli και OptiPNG θα καθαρίσουν τις RGB τιμές διάφανων pixel (γνωστά ως «dirty alpha»). Απενεργοποιήσετε αυτά τα δύο εργαλεία, εάν βελτιστοποιείται αρχεία που χρησιμοποιούν άλφα κανάλι για κάτι άλλο εκτός από διαφάνεια.</p>
     <div id="jpegoptim">
       <h2>JPEGOptim</h2>
       <dl>
-<dt>Maximum quality</dt>
+<dt>Μέγιστη ποιότητα</dt>
         <dd>
-          <p>If set to 100%, optimization will be <strong>lossless</strong>.</p>
-          <p>Anything below 100% will cause <strong>lower quality</strong> of files if they appear to have been saved with higher quality setting.</p>
+          <p>Εάν οριστεί σε 100%, η βελτιστοποίηση θα είναι <strong>χωρίς απώλειες</strong>.</p>
+          <p>Οτιδήποτε κάτω από το 100% θα προκαλέσει <strong>χαμηλότερη ποιότητα</strong> αρχείων αν φαίνεται να έχουν σωθεί με υψηλότερη ρύθμιση ποιότητας.</p>
         </dd>
       </dl>
 </div>
     <div id="pngout">
       <h2>PNGOUT</h2>
       <dl>
-<dt>Optimization type</dt>
+<dt>Τύπος βελτιστοποίησης</dt>
         <dd>
-          <p>PNGOUT is very effective, but very slow. Use lower level if you're impatient.</p>
+          <p>Το PNGOUT είναι πολύ αποτελεσματικό, αλλά πολύ αργό. Χρησιμοποιήστε το χαμηλότερο επίπεδο, εάν είστε ανυπόμονοι.</p>
         </dd>
-        <dt>Interrupt if takes too long</dt>
+        <dt>Διακοπή εάν παίρνει πάρα πολύ ώρα</dt>
         <dd>
-          <p>PNGOUT may need <em>a lot</em> of time to optimize very large images. This option gracefully interrupts PNGOUT after 1 minute.</p>
+          <p>Το PNGOUT μπορεί να χρειαστεί <em>πολύ</em> χρόνο για να βελτιστοποιήσει τις πολύ μεγάλες εικόνες. Αυτή η επιλογή διακόπτει το PNGOUT μετά από 1 λεπτό.</p>
         </dd>
       </dl>
 </div>
     <div id="optipng">
       <h2>OptiPNG</h2>
       <dl>
-<dt>Optimization level</dt>
+<dt>Επίπεδο βελτιστοποίησης</dt>
         <dd>
-          <p>Number of different setting combinations tested. It rarely makes sense to try them all.</p>
+          <p>Αριθμός διαφορετικών συνδυασμών έχουν δοκιμαστεί. Σπάνια έχει νόημα να τα δοκιμάσουμε όλα.</p>
         </dd>
-        <dt>Make images interlaced (progressive)</dt>
+        <dt>Κάνει εικόνες interlaced (progressive)</dt>
         <dd>
-          <p>Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.</p>
-          <p>This checkbox has three states: if checked, will force images to be interlaced. When mixed, it will keep file's interlace unchanged, unchecked will remove interlace from files.</p>
+          <p>Οι interlaced εικόνες φαίνονται καλύτερα όταν είναι φορτωμένες εν μέρει, αλλά συνήθως η συμπίεση είναι λιγότερο αποτελεσματική.</p>
+          <p>Αυτό το πλαίσιο ελέγχου έχει τρεις καταστάσεις: Επιλεγμένο (1 κλικ), εξαναγκάζει τις εικόνες σε interlaced. Επιλεγμένο (2 κλικ), θα κρατήσει το interlace αρχείο αμετάβλητο. Αποεπιλεγμένο θα κατάργησει το interlace από τα αρχεία.</p>
         </dd>
       </dl>
 </div>
     <div id="gifsicle">
       <h2>Gifsicle</h2>
-      <p>For best compression, you should convert GIF files to PNGs (ImageOptim does not do that automatically).</p>
+      <p>Για την καλύτερη συμπίεση, θα πρέπει να μετατρέψει τα αρχεία GIF σε PNGs (Το ImageOptim δεν το κάνει αυτό αυτόματα).</p>
     </div>
   </body>
 </html>

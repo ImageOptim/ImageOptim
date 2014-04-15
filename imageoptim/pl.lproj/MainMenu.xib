@@ -887,7 +887,7 @@
 								</object>
 								<object class="NSMenuItem" id="270538027">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Kopiuj Data URL</string>
+									<string key="NSTitle">Kopiuj jako Data URL</string>
 									<string key="NSKeyEquiv">c</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1198,7 +1198,7 @@
 								</object>
 								<object class="NSMenuItem" id="156988055">
 									<reference key="NSMenu" ref="572557097"/>
-									<string key="NSTitle">Donate</string>
+									<string key="NSTitle">Wesprzyj</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>

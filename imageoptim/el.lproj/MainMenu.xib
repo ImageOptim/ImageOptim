@@ -655,7 +655,7 @@
 								</object>
 								<object class="NSMenuItem" id="280919078">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Προτιμίσεις...</string>
+									<string key="NSTitle">Προτιμήσεις...</string>
 									<string key="NSKeyEquiv">,</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -887,7 +887,7 @@
 								</object>
 								<object class="NSMenuItem" id="270538027">
 									<reference key="NSMenu" ref="777814834"/>
-									<string key="NSTitle">Αντιγραφή Data URL</string>
+									<string key="NSTitle">Αντιγραφή ως δεδομένα URL</string>
 									<string key="NSKeyEquiv">c</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -1096,7 +1096,7 @@
 								</object>
 								<object class="NSMenuItem" id="470500581">
 									<reference key="NSMenu" ref="564456469"/>
-									<string key="NSTitle">Όλα σε πρώτο πλάνο</string>
+									<string key="NSTitle">Μεταφορά όλων σε πρώτο πλάνο</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -3161,7 +3161,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="188613459"/>
-						<string key="accessibilityValue">Λίστα αρχείω προς βελτιστοποίηση</string>
+						<string key="accessibilityValue">Λίστα αρχείων προς βελτιστοποίηση</string>
 					</object>
 				</object>
 				<string key="236.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

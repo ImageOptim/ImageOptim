@@ -636,7 +636,7 @@
 								</object>
 								<object class="NSMenuItem" id="540149195">
 									<reference key="NSMenu" ref="278414166"/>
-									<string key="NSTitle">Procurar actualizações</string>
+									<string key="NSTitle">Procurar actualizações…</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="855672835"/>
@@ -3231,7 +3231,7 @@
 					<object class="IBAccessibilityAttribute" key="NS.object.0">
 						<string key="name">AccessibilityDescription</string>
 						<reference key="object" ref="238366736"/>
-						<string key="accessibilityValue">Optimization status</string>
+						<string key="accessibilityValue">Estado da optimização</string>
 					</object>
 				</object>
 				<string key="462.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>

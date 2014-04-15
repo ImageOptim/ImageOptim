@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13C44" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D33" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1060" identifier="macosx"/>
         <development version="5000" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PrefsController">
@@ -13,7 +13,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <window title="Προτιμήσεις ImageOptim" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" wantsToBeColor="NO" frameAutosaveName="Prefs" animationBehavior="default" id="5" userLabel="Window">
+        <window title="Προτιμήσεις ImageOptim" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" frameAutosaveName="Prefs" animationBehavior="default" id="5" userLabel="Window">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="247" y="1024" width="663" height="303"/>
@@ -55,7 +55,7 @@
                                                     <textField verticalHuggingPriority="750" id="1121">
                                                         <rect key="frame" x="35" y="13" width="395" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Saving to network drives is faster when permissions are not preserved" id="1122">
+                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Η αποθήκευση σε δικτυακούς δίσκους είναι γρηγορότερη όταν δεν διατηρούνται τα δικαιώματα" id="1122">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -77,7 +77,7 @@
                                                 <action selector="showHelp:" target="-2" id="689"/>
                                             </connections>
                                         </button>
-                                        <box autoresizesSubviews="NO" title="Metadata and color profiles" borderType="line" id="1043">
+                                        <box autoresizesSubviews="NO" title="Μετα-δεδομένα και χρώματικα προφίλ" borderType="line" id="1043">
                                             <rect key="frame" x="159" y="116" width="448" height="125"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <view key="contentView">
@@ -98,7 +98,7 @@
                                                     <textField verticalHuggingPriority="750" id="496">
                                                         <rect key="frame" x="36" y="63" width="395" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Web browsers require gamma chunks to be removed" id="865">
+                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Οι φυλλομετρητές στο Web απαιτούν αφαίρεση των gamma chunks" id="865">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -118,7 +118,7 @@
                                                     <textField verticalHuggingPriority="750" id="1123">
                                                         <rect key="frame" x="36" y="14" width="395" height="14"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Not recommended if you rely on embedded copyright information" id="1124">
+                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Δεν συνιστάται εάν χρειάζεστε τις ενσωματωμένες πληροφορίες πνευματικών δικαιωμάτων" id="1124">
                                                             <font key="font" metaFont="smallSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -129,7 +129,7 @@
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </box>
-                                        <box autoresizesSubviews="NO" title="Enable" borderType="line" id="1107">
+                                        <box autoresizesSubviews="NO" title="Ενεργοποίηση" borderType="line" id="1107">
                                             <rect key="frame" x="10" y="9" width="140" height="232"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView">
@@ -270,7 +270,7 @@
                                         <textField verticalHuggingPriority="750" id="265">
                                             <rect key="frame" x="2" y="156" width="140" height="47"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Optimization type" id="856">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Τύπος βελτιστοποίησης" id="856">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -279,7 +279,7 @@
                                         <textField verticalHuggingPriority="750" id="266">
                                             <rect key="frame" x="144" y="156" width="64" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Simple" id="857">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Απλή" id="857">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -297,7 +297,7 @@
                                         <textField verticalHuggingPriority="750" id="271">
                                             <rect key="frame" x="252" y="156" width="89" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Intense" id="860">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Έντονη" id="860">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -306,7 +306,7 @@
                                         <textField verticalHuggingPriority="750" id="272">
                                             <rect key="frame" x="191" y="142" width="70" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Longest match" id="861">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Καλύτερο ταίριασμα" id="861">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -326,7 +326,7 @@
                                         <button id="945">
                                             <rect key="frame" x="145" y="120" width="910" height="18"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Interrupt if takes too long to execute" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="946">
+                                            <buttonCell key="cell" type="check" title="Διακοπή αν χρειάζεται πολύ χρόνο για να εκτελέστει" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="946">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -355,7 +355,7 @@
                                         <button id="226">
                                             <rect key="frame" x="145" y="120" width="900" height="18"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Make images interlaced (progressive)" bezelStyle="regularSquare" imagePosition="left" alignment="left" allowsMixedState="YES" inset="2" id="828">
+                                            <buttonCell key="cell" type="check" title="Κάνει εικόνες interlaced (progressive)" bezelStyle="regularSquare" imagePosition="left" alignment="left" allowsMixedState="YES" inset="2" id="828">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -367,7 +367,7 @@
                                         <textField verticalHuggingPriority="750" id="228">
                                             <rect key="frame" x="2" y="152" width="140" height="51"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Optimization level" id="829">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Επίπεδο βελτιστοποίησης" id="829">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -376,7 +376,7 @@
                                         <textField verticalHuggingPriority="750" id="275">
                                             <rect key="frame" x="164" y="101" width="470" height="13"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Interlaced files are usually larger" id="831">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Τα Interlaced αρχεία είναι συνήθως μεγαλύτερα" id="831">
                                                 <font key="font" metaFont="label"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -410,7 +410,7 @@
                                                     <textField verticalHuggingPriority="750" id="229">
                                                         <rect key="frame" x="1" y="4" width="106" height="11"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="24 trials" id="833">
+                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="24 δοκιμές" id="833">
                                                             <font key="font" metaFont="miniSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -426,7 +426,7 @@
                                                     <textField verticalHuggingPriority="750" id="241">
                                                         <rect key="frame" x="134" y="4" width="100" height="11"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="240 trials" id="834">
+                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="240 δοκιμές" id="834">
                                                             <font key="font" metaFont="miniSystem"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -478,7 +478,7 @@
                                         <textField verticalHuggingPriority="750" id="250">
                                             <rect key="frame" x="2" y="156" width="140" height="47"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Optimization level" id="818">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Επίπεδο βελτιστοποίησης" id="818">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -487,7 +487,7 @@
                                         <textField verticalHuggingPriority="750" id="251">
                                             <rect key="frame" x="144" y="156" width="79" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Fast" id="819">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Γρήγορη" id="819">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -503,7 +503,7 @@
                                         <textField verticalHuggingPriority="750" id="252">
                                             <rect key="frame" x="301" y="156" width="76" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Insane" id="820">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Τρελά!" id="820">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -519,7 +519,7 @@
                                         <textField verticalHuggingPriority="750" id="255">
                                             <rect key="frame" x="189" y="156" width="75" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Normal" id="821">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Κανονική" id="821">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -535,7 +535,7 @@
                                         <textField verticalHuggingPriority="750" id="256">
                                             <rect key="frame" x="263" y="156" width="66" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Extra" id="822">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Έξτρα" id="822">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -570,7 +570,7 @@
                                         <textField verticalHuggingPriority="750" id="189">
                                             <rect key="frame" x="2" y="186" width="140" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Maximum quality" id="868">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Μέγιστη ποιότητα" id="868">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
