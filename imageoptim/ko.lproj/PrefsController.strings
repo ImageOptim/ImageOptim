@@ -1,4 +1,3 @@
-
 /* Class = "NSWindow"; title = "ImageOptim Preferences"; ObjectID = "5"; */
 "5.title" = "ImageOptim Preferences";
 
@@ -15,9 +14,6 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-
-
-/* Class = "NSBox"; title = "디스크에 파일 쓰기"; ObjectID = "280"; */
 "280.title" = "디스크에 파일 쓰기";
 
 /* Class = "NSButtonCell"; title = "파일 권한, 속성, 폴더 위치 유지하기"; ObjectID = "804"; */
@@ -76,6 +72,7 @@
 
 /* Class = "NSTextFieldCell"; title = "최대 품질"; ObjectID = "868"; */
 "kE2-GK-JIe.title" = "PNG: 품질";
+
 "868.title" = "JPEG: 품질";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
@@ -134,3 +131,4 @@
 
 /* Class = "NSTextFieldCell"; title = "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
 "1124.title" = "Not recommended if you rely on embedded copyright information";
+

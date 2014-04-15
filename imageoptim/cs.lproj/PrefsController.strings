@@ -1,4 +1,3 @@
-
 /* Class = "NSWindow"; title = "Nastavení ImageOptim"; ObjectID = "5"; */
 "5.title" = "Nastavení ImageOptim";
 
@@ -15,9 +14,6 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-
-
-/* Class = "NSBox"; title = "Zápis souborů na disk"; ObjectID = "280"; */
 "280.title" = "Zápis souborů na disk";
 
 /* Class = "NSButtonCell"; title = "Zachovat práva k souborům, vlastnosti a tvrdé odkazy"; ObjectID = "804"; */
@@ -76,7 +72,9 @@
 
 /* Class = "NSTextFieldCell"; title = "Největší jakost"; ObjectID = "868"; */
 "kE2-GK-JIe.title" = "PNG: největší jakost";
+
 "868.title" = "JPEG: největší jakost";
+
 /* Tab title: Quality */
 "177.label" = "Jakost";
 
@@ -136,3 +134,4 @@
 
 /* Class = "NSTextFieldCell"; title = "Nedoporučuje se, pokud spoléháte na vložené informace o auorském právu"; ObjectID = "1124"; */
 "1124.title" = "Nedoporučuje se, pokud spoléháte na vložené informace o auorském právu";
+

@@ -1,4 +1,3 @@
-
 /* Class = "NSWindow"; title = "ImageOptim nustatymai"; ObjectID = "5"; */
 "5.title" = "ImageOptim nustatymai";
 
@@ -15,9 +14,6 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-
-
-/* Class = "NSBox"; title = "Rašyti failus į diską"; ObjectID = "280"; */
 "280.title" = "Rašyti failus į diską";
 
 /* Class = "NSButtonCell"; title = "Išsaugoti failų teisęs, parametrus ir nuorodas"; ObjectID = "804"; */
@@ -76,6 +72,7 @@
 
 /* Class = "NSTextFieldCell"; title = "Aukščiausia kokybė"; ObjectID = "868"; */
 "kE2-GK-JIe.title" = "PNG: Aukščiausia kokybė";
+
 "868.title" = "JPEG: Aukščiausia kokybė";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
@@ -134,3 +131,4 @@
 
 /* Class = "NSTextFieldCell"; title = "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
 "1124.title" = "Not recommended if you rely on embedded copyright information";
+

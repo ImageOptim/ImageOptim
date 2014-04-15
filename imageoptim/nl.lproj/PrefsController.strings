@@ -1,4 +1,3 @@
-
 /* Class = "NSWindow"; title = "ImageOptim Voorkeuren"; ObjectID = "5"; */
 "5.title" = "ImageOptim Voorkeuren";
 
@@ -15,9 +14,6 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-
-
-/* Class = "NSBox"; title = "Bezig met het wegschrijven van de bestanden"; ObjectID = "280"; */
 "280.title" = "Bezig met het wegschrijven van de bestanden";
 
 /* Class = "NSButtonCell"; title = "Behoud bestandspermissies, -attributen en hardlinks"; ObjectID = "804"; */
@@ -76,7 +72,9 @@
 
 /* Class = "NSTextFieldCell"; title = "Beste kwaliteit"; ObjectID = "868"; */
 "kE2-GK-JIe.title" = "PNG: kwaliteit";
+
 "868.title" = "JPEG: kwaliteit";
+
 /* Tab title: Quality */
 "177.label" = "Kwaliteit";
 
@@ -136,3 +134,4 @@
 
 /* Class = "NSTextFieldCell"; title = "Niet aan te raden indien je ingesloten copyright-informatie wil behouden"; ObjectID = "1124"; */
 "1124.title" = "Niet aan te raden indien je ingesloten copyright-informatie wil behouden";
+

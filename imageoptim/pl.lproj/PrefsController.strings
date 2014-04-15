@@ -1,4 +1,3 @@
-
 /* Class = "NSWindow"; title = "Preferencje ImageOptim"; ObjectID = "5"; */
 "5.title" = "Preferencje ImageOptim";
 
@@ -15,9 +14,6 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-
-
-/* Class = "NSBox"; title = "Zapisywanie na dysk"; ObjectID = "280"; */
 "280.title" = "Zapisywanie na dysk";
 
 /* Class = "NSButtonCell"; title = "Zachowaj uprawnienia plików, atrybuty i linki"; ObjectID = "804"; */
@@ -76,7 +72,9 @@
 
 /* Class = "NSTextFieldCell"; title = "Maksymalna jakość"; ObjectID = "868"; */
 "kE2-GK-JIe.title" = "Jakość PNG";
+
 "868.title" = "Jakość JPEG";
+
 /* Tab title: Quality */
 "177.label" = "Jakość";
 
@@ -136,3 +134,4 @@
 
 /* Class = "NSTextFieldCell"; title = "Wyłącz, żeby nie usuwać osadzonych informacji o autorze"; ObjectID = "1124"; */
 "1124.title" = "Wyłącz, żeby nie usuwać osadzonych informacji o autorze";
+

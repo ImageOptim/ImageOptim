@@ -1,6 +1,5 @@
-
 /* Class = "NSMenuItem"; title = "Όλα σε πρώτο πλάνο"; ObjectID = "5"; */
-"5.title" = "Όλα σε πρώτο πλάνο";
+"5.title" = "Μεταφορά όλων σε πρώτο πλάνο";
 
 /* Class = "NSMenuItem"; title = "Παράθυρο"; ObjectID = "19"; */
 "19.title" = "Παράθυρο";
@@ -45,7 +44,7 @@
 "197.title" = "Μεγέθυνση";
 
 /* Class = "NSScrollView"; ibExternalAccessibilityDescription = "Λίστα αρχείω προς βελτιστοποίηση"; ObjectID = "236"; */
-"236.ibExternalAccessibilityDescription" = "Λίστα αρχείω προς βελτιστοποίηση";
+"236.ibExternalAccessibilityDescription" = "Λίστα αρχείων προς βελτιστοποίηση";
 
 /* Class = "NSTableColumn"; headerCell.title = "Αρχείο"; ObjectID = "238"; */
 "238.headerCell.title" = "Αρχείο";
@@ -69,7 +68,7 @@
 "361.title" = "Περί ImageOptim";
 
 /* Class = "NSMenuItem"; title = "Προτιμίσεις..."; ObjectID = "363"; */
-"363.title" = "Προτιμίσεις...";
+"363.title" = "Προτιμήσεις...";
 
 /* Class = "NSMenuItem"; title = "Επεξεργασία"; ObjectID = "375"; */
 "375.title" = "Επεξεργασία";
@@ -234,7 +233,8 @@
 "820.title" = "Donate";
 
 /* Class = "NSMenuItem"; title = "Αντιγραφή Data URL"; ObjectID = "NlY-Bc-7tu"; */
-"NlY-Bc-7tu.title" = "Αντιγραφή Data URL";
+"NlY-Bc-7tu.title" = "Αντιγραφή ως δεδομένα URL";
 
 /* Class = "NSMenuItem"; title = "Reveal in Finder"; ObjectID = "ddH-3k-EuT"; */
 "ddH-3k-EuT.title" = "Reveal in Finder";
+

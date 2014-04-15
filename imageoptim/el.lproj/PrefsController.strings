@@ -1,4 +1,3 @@
-
 /* Class = "NSWindow"; title = "Προτιμήσεις ImageOptim"; ObjectID = "5"; */
 "5.title" = "Προτιμήσεις ImageOptim";
 
@@ -15,66 +14,63 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-
-
-/* Class = "NSBox"; title = "Εγγραφή αρχείων στο δίσκο"; ObjectID = "280"; */
 "280.title" = "Εγγραφή αρχείων στο δίσκο";
 
 /* Class = "NSButtonCell"; title = "Διατήρηση δικαιωμάτων αρχείων, ιδιοτήτων και hard συνδέσμων."; ObjectID = "804"; */
 "804.title" = "Διατήρηση δικαιωμάτων αρχείων, ιδιοτήτων και hard συνδέσμων.";
 
-/* Class = "NSTextFieldCell"; title = "Επίπεδο βελτιστοποίησης"; ObjectID = "818"; */
+/* Class = "NSTextFieldCell"; title = "Optimization level"; ObjectID = "818"; */
 "818.title" = "Επίπεδο βελτιστοποίησης";
 
-/* Class = "NSTextFieldCell"; title = "Γρήγορη"; ObjectID = "819"; */
+/* Class = "NSTextFieldCell"; title = "Fast"; ObjectID = "819"; */
 "819.title" = "Γρήγορη";
 
-/* Class = "NSTextFieldCell"; title = "Τρελά!"; ObjectID = "820"; */
+/* Class = "NSTextFieldCell"; title = "Insane"; ObjectID = "820"; */
 "820.title" = "Τρελά!";
 
-/* Class = "NSTextFieldCell"; title = "Κανονική"; ObjectID = "821"; */
+/* Class = "NSTextFieldCell"; title = "Normal"; ObjectID = "821"; */
 "821.title" = "Κανονική";
 
-/* Class = "NSTextFieldCell"; title = "Έξτρα"; ObjectID = "822"; */
+/* Class = "NSTextFieldCell"; title = "Extra"; ObjectID = "822"; */
 "822.title" = "Έξτρα";
 
-/* Class = "NSButtonCell"; title = "Κάνει εικόνες interlaced (progressive)"; ObjectID = "828"; */
+/* Class = "NSButtonCell"; title = "Make images interlaced (progressive)"; ObjectID = "828"; */
 "828.title" = "Κάνει εικόνες interlaced (progressive)";
 
-/* Class = "NSTextFieldCell"; title = "Επίπεδο βελτιστοποίησης"; ObjectID = "829"; */
+/* Class = "NSTextFieldCell"; title = "Optimization level"; ObjectID = "829"; */
 "829.title" = "Επίπεδο βελτιστοποίησης";
 
-/* Class = "NSTextFieldCell"; title = "Τα Interlaced αρχεία είναι συνήθως μεγαλύτερα"; ObjectID = "831"; */
+/* Class = "NSTextFieldCell"; title = "Interlaced files are usually larger"; ObjectID = "831"; */
 "831.title" = "Τα Interlaced αρχεία είναι συνήθως μεγαλύτερα";
 
-/* Class = "NSTextFieldCell"; title = "24 δοκιμές"; ObjectID = "833"; */
+/* Class = "NSTextFieldCell"; title = "24 trials"; ObjectID = "833"; */
 "833.title" = "24 δοκιμές";
 
-/* Class = "NSTextFieldCell"; title = "240 δοκιμές"; ObjectID = "834"; */
+/* Class = "NSTextFieldCell"; title = "240 trials"; ObjectID = "834"; */
 "834.title" = "240 δοκιμές";
 
 /* Class = "NSButtonCell"; title = "Strip PNG metadata (gamma, color profiles, optional chunks)"; ObjectID = "854"; */
 "854.title" = "Strip PNG metadata (gamma, color profiles, optional chunks)";
 
-/* Class = "NSTextFieldCell"; title = "Τύπος βελτιστοποίησης"; ObjectID = "856"; */
+/* Class = "NSTextFieldCell"; title = "Optimization type"; ObjectID = "856"; */
 "856.title" = "Τύπος βελτιστοποίησης";
 
-/* Class = "NSTextFieldCell"; title = "Απλή"; ObjectID = "857"; */
+/* Class = "NSTextFieldCell"; title = "Simple"; ObjectID = "857"; */
 "857.title" = "Απλή";
 
 /* Class = "NSTextFieldCell"; title = "Xtreme"; ObjectID = "858"; */
 "858.title" = "Xtreme";
 
-/* Class = "NSTextFieldCell"; title = "Έντονη"; ObjectID = "860"; */
+/* Class = "NSTextFieldCell"; title = "Intense"; ObjectID = "860"; */
 "860.title" = "Έντονη";
 
-/* Class = "NSTextFieldCell"; title = "Καλύτερο ταίριασμα"; ObjectID = "861"; */
+/* Class = "NSTextFieldCell"; title = "Longest match"; ObjectID = "861"; */
 "861.title" = "Καλύτερο ταίριασμα";
 
-/* Class = "NSTextFieldCell"; title = "Οι φυλλομετρητές στο Web απαιτούν αφαίρεση των gamma chunks"; ObjectID = "865"; */
+/* Class = "NSTextFieldCell"; title = "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
 "865.title" = "Οι φυλλομετρητές στο Web απαιτούν αφαίρεση των gamma chunks";
 
-/* Class = "NSTextFieldCell"; title = "Μέγιστη ποιότητα"; ObjectID = "868"; */
+/* Class = "NSTextFieldCell"; title = "Maximum quality"; ObjectID = "868"; */
 "868.title" = "Μέγιστη ποιότητα";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
@@ -92,10 +88,10 @@
 /* Class = "NSButtonCell"; title = "Strip JPEG metadata (EXIF, color profiles, GPS, rotation, etc.)"; ObjectID = "911"; */
 "911.title" = "Strip JPEG metadata (EXIF, color profiles, GPS, rotation, etc.)";
 
-/* Class = "NSButtonCell"; title = "Διακοπή αν χρειάζεται πολύ χρόνο για να εκτελέστει"; ObjectID = "946"; */
+/* Class = "NSButtonCell"; title = "Interrupt if takes too long to execute"; ObjectID = "946"; */
 "946.title" = "Διακοπή αν χρειάζεται πολύ χρόνο για να εκτελέστει";
 
-/* Class = "NSBox"; title = "Μετα-δεδομένα και χρώματικα προφίλ"; ObjectID = "1043"; */
+/* Class = "NSBox"; title = "Metadata and color profiles"; ObjectID = "1043"; */
 "1043.title" = "Μετα-δεδομένα και χρώματικα προφίλ";
 
 /* Class = "NSButtonCell"; title = "Jpegtran"; ObjectID = "1092"; */
@@ -119,7 +115,7 @@
 /* Class = "NSButtonCell"; title = "Gifsicle"; ObjectID = "1098"; */
 "1098.title" = "Gifsicle";
 
-/* Class = "NSBox"; title = "Ενεργοποίηση"; ObjectID = "1107"; */
+/* Class = "NSBox"; title = "Enable"; ObjectID = "1107"; */
 "1107.title" = "Ενεργοποίηση";
 
 /* Class = "NSButtonCell"; title = "Jpegrescan"; ObjectID = "1111"; */
@@ -128,8 +124,9 @@
 /* Class = "NSButtonCell"; title = "Zopfli"; ObjectID = "1118"; */
 "1118.title" = "Zopfli";
 
-/* Class = "NSTextFieldCell"; title = "Η αποθήκευση σε δικτυακούς δίσκους είναι γρηγορότερη όταν δεν διατηρούνται τα δικαιώματα"; ObjectID = "1122"; */
+/* Class = "NSTextFieldCell"; title = "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
 "1122.title" = "Η αποθήκευση σε δικτυακούς δίσκους είναι γρηγορότερη όταν δεν διατηρούνται τα δικαιώματα";
 
-/* Class = "NSTextFieldCell"; title = "Δεν συνιστάται εάν χρειάζεστε τις ενσωματωμένες πληροφορίες πνευματικών δικαιωμάτων"; ObjectID = "1124"; */
+/* Class = "NSTextFieldCell"; title = "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
 "1124.title" = "Δεν συνιστάται εάν χρειάζεστε τις ενσωματωμένες πληροφορίες πνευματικών δικαιωμάτων";
+

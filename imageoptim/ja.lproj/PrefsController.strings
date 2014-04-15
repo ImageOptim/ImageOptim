@@ -1,4 +1,3 @@
-
 /* Class = "NSWindow"; title = "ImageOptim 環境設定"; ObjectID = "5"; */
 "5.title" = "ImageOptim 環境設定";
 
@@ -15,9 +14,6 @@
 "175.label" = "PNGOUT";
 
 /* Class = "NSTabViewItem"; label = "JPEGOptim"; ObjectID = "177"; */
-
-
-/* Class = "NSBox"; title = "ファイルのディスク書き込み"; ObjectID = "280"; */
 "280.title" = "ファイルのディスク書き込み";
 
 /* Class = "NSButtonCell"; title = "ファイルのパーミッション、属性、ハードリンクを維持する"; ObjectID = "804"; */
@@ -76,6 +72,7 @@
 
 /* Class = "NSTextFieldCell"; title = "最高品質"; ObjectID = "868"; */
 "kE2-GK-JIe.title" = "PNGの品質";
+
 "868.title" = "JPEGの品質";
 
 /* Class = "NSTextFieldCell"; title = "-100%"; ObjectID = "872"; */
@@ -134,3 +131,4 @@
 
 /* Class = "NSTextFieldCell"; title = "埋め込まれた著作権情報を必要とする場合はおすすめしません"; ObjectID = "1124"; */
 "1124.title" = "埋め込まれた著作権情報を必要とする場合はおすすめしません";
+
