@@ -6,8 +6,8 @@
 
 @synthesize interlace;
 
--(id)settingsIdentifier {
-    return @(interlace);
+-(NSInteger)settingsIdentifier {
+    return interlace;
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {

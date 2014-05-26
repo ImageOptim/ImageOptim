@@ -19,8 +19,8 @@
     return self;
 }
 
--(id)settingsIdentifier {
-    return @(level);
+-(NSInteger)settingsIdentifier {
+    return level;
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {

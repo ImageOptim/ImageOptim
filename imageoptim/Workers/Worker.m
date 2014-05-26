@@ -12,8 +12,8 @@
 
 @synthesize file, nextOperation;
 
--(id)settingsIdentifier {
-    return @(0);
+-(NSInteger)settingsIdentifier {
+    return 0;
 }
 
 -(id)initWithFile:(File *)aFile {
@@ -37,7 +37,7 @@
     }
     if (!resultsBySettings) return NO;
 
-    NSNumber *previousResult = [resultsBySettings objectForKey:[self settingsIdentifier]];
+    NSNumber *previousResult = [resultsBySettings objectForKey:@([self settingsIdentifier])];
     if (!previousResult) return NO;
 
     return file.byteSizeOptimized == [previousResult integerValue];
@@ -50,7 +50,7 @@
             resultsBySettings = [NSMutableDictionary new];
             [file.workersPreviousResults setObject:resultsBySettings forKey:[self className]];
         }
-        [resultsBySettings setObject:@(file.byteSizeOptimized) forKey:[self settingsIdentifier]];
+        [resultsBySettings setObject:@(file.byteSizeOptimized) forKey:@([self settingsIdentifier])];
     }
 }
 

@@ -30,6 +30,6 @@
 
 -(void)run;
 
--(id)settingsIdentifier;
+-(NSInteger)settingsIdentifier;
 -(BOOL)isIdempotent;
 @end

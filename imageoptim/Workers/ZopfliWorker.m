@@ -15,8 +15,8 @@
     return self;
 }
 
--(id)settingsIdentifier {
-    return @(iterations*4+strip*2+alternativeStrategy);
+-(NSInteger)settingsIdentifier {
+    return iterations*4 + strip*2 + alternativeStrategy;
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {

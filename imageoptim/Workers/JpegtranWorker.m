@@ -9,7 +9,7 @@
 
 @implementation JpegtranWorker
 
--(id)settingsIdentifier {
+-(NSInteger)settingsIdentifier {
     return @(jpegrescan*2+strip);
 }
 

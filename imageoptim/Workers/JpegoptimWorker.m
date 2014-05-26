@@ -10,8 +10,8 @@
 
 @implementation JpegoptimWorker
 
--(id)settingsIdentifier {
-    return @(maxquality*2+strip);
+-(NSInteger)settingsIdentifier {
+    return maxquality*2 + strip;
 }
 
 -(id)initWithFile:(File *)aFile {

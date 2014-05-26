@@ -20,8 +20,8 @@
 }
 
 
--(id)settingsIdentifier {
-    return @(optlevel*2+interlace);
+-(NSInteger)settingsIdentifier {
+    return optlevel*2 + interlace;
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {
