@@ -66,10 +66,10 @@
     for(File *file in [self filesForDataURI]) {
         NSData *data = [NSData dataWithContentsOfURL:file.filePath];
 
-        NSString *type = file.fileType == FILETYPE_PNG ? @"png" : (file.fileType == FILETYPE_JPEG ? @"jpeg" : (file.fileType == FILETYPE_GIF ? @"gif" : nil));
+        NSString *type = [file mimeType];
         if (!type) continue;
 
-        NSString *url = [[NSString stringWithFormat:@"data:image/%@;base64,", type]
+        NSString *url = [[NSString stringWithFormat:@"data:%@;base64,", type]
                          stringByAppendingString:[data base64Encoding]];
 
         [urls addObject:url];

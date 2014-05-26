@@ -38,7 +38,7 @@
 
 @implementation File
 
-@synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName, fileType;
+@synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName;
 
 -(id)initWithFilePath:(NSURL *)aPath;
 {
@@ -362,6 +362,10 @@
         [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
     }
     [self cleanup];
+}
+
+-(NSString*)mimeType {
+    return fileType == FILETYPE_PNG ? @"image/png" : (fileType == FILETYPE_JPEG ? @"image/jpeg" : (fileType == FILETYPE_GIF ? @"image/gif" : nil));
 }
 
 -(int)fileType:(NSData *)data {

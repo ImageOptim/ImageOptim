@@ -66,6 +66,7 @@ enum IOFileType {
 -(void)setFilePath:(NSURL *)s;
 
 -(NSString *)fileName;
+-(NSString *)mimeType;
 
 @property (strong) NSString *statusText, *displayName, *bestToolName;
 @property (strong,nonatomic) NSURL *filePath;
@@ -74,7 +75,6 @@ enum IOFileType {
 @property (assign,nonatomic) NSUInteger byteSizeOriginal, byteSizeOptimized;
 @property (assign,readonly) NSInteger statusOrder;
 @property (strong,readonly) NSMutableDictionary *workersPreviousResults;
-@property (assign) enum IOFileType fileType;
 
 @property (assign) double percentDone;
 
