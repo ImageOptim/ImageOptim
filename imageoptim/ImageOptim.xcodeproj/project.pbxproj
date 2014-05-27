@@ -26,6 +26,7 @@
 		1ACFBA171799E9CC006D93B2 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFBA191799E9CC006D93B2 /* Credits.html */; };
 		1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */; };
 		1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */; };
+		5A08FDB01933D635001DA24B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A08FDAF1933D635001DA24B /* libsqlite3.dylib */; };
 		5A0A24F117492D39003264CC /* ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A24EF17492D39003264CC /* ok@2x.png */; };
 		5A0A24F617494254003264CC /* noopt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A24F217494254003264CC /* noopt@2x.png */; };
 		5A0A24F817494254003264CC /* progress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A24F417494254003264CC /* progress@2x.png */; };
@@ -339,6 +340,7 @@
 		5A0344381299882F002091AA /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5A03443A12998845002091AA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A03443B1299884F002091AA /* ru */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ru; path = ru.lproj/Help; sourceTree = "<group>"; };
+		5A08FDAF1933D635001DA24B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5A09013F0ED8D6AA00F3965B /* appcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 		5A0A24EF17492D39003264CC /* ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ok@2x.png"; sourceTree = "<group>"; };
 		5A0A24F217494254003264CC /* noopt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noopt@2x.png"; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				5A08FDB01933D635001DA24B /* libsqlite3.dylib in Frameworks */,
 				5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,6 +635,7 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 				5AEF1B1D10F2BCA900E3E4F0 /* AppKit.framework */,
 				5AEF1B2110F2BCB200E3E4F0 /* Foundation.framework */,
+				5A08FDAF1933D635001DA24B /* libsqlite3.dylib */,
 				5A99FE83140AE80600BB2F79 /* Quartz.framework */,
 			);
 			name = Frameworks;
