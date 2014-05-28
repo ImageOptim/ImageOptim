@@ -40,13 +40,14 @@
 
 @synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName;
 
--(id)initWithFilePath:(NSURL *)aPath;
+-(id)initWithFilePath:(NSURL *)aPath resultsDatabase:(ResultsDb*)aDb
 {
     if (self = [self init]) {
         workersPreviousResults = [NSMutableDictionary new];
         bestTools = [NSMutableDictionary new];
         filePathsOptimizedInUse = [NSMutableSet new];
         filePath = aPath;
+        db = aDb;
         self.displayName = [[NSFileManager defaultManager] displayNameAtPath:filePath.path];
         [self setStatus:@"wait" order:0 text:NSLocalizedString(@"Waiting to be optimized",@"tooltip")];
     }
@@ -82,7 +83,7 @@
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-    return [[File allocWithZone:zone] initWithFilePath:filePath];
+    return [[File allocWithZone:zone] initWithFilePath:filePath resultsDatabase:db];
 }
 
 -(void)resetToOriginalByteSize:(NSUInteger)size {

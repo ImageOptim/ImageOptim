@@ -7,7 +7,7 @@
 #import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
 
-@class File;
+@class File, ResultsDb;
 extern NSString *const kFilesQueueFinished;
 
 @interface FilesQueue : NSArrayController <NSTableViewDelegate,NSTableViewDataSource> {
@@ -16,9 +16,10 @@ extern NSString *const kFilesQueueFinished;
 	NSInteger nextInsertRow;
 	NSOperationQueue *cpuQueue;
     NSOperationQueue *fileIOQueue;
-	NSOperationQueue *dirWorkerQueue;	
+	NSOperationQueue *dirWorkerQueue;
 	
     NSHashTable *seenPathHashes;
+    ResultsDb *db;
     
     NSLock *queueWaitingLock;
 }

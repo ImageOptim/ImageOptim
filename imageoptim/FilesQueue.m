@@ -8,6 +8,7 @@
 #import "log.h"
 #import "Workers/DirWorker.h"
 #import "RevealButtonCell.h"
+#import "ResultsDb.h"
 
 @interface FilesQueue()
 
@@ -26,6 +27,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 -(void)configureWithTableView:(NSTableView *)inTableView {
     tableView = inTableView;
     seenPathHashes = [[NSHashTable alloc] initWithOptions:NSHashTableZeroingWeakMemory capacity:1000];
+    db = [ResultsDb new];
 
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 
@@ -303,7 +305,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
                 if (![f isBusy]) [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
             } else {
                 [seenPathHashes addObject:path]; // used by findFileByPath
-                f = [[File alloc] initWithFilePath:path];
+                f = [[File alloc] initWithFilePath:path resultsDatabase:db];
                 [toAdd addObject:f];
                 [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
             }

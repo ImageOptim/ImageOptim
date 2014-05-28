@@ -8,6 +8,8 @@
 #import <Quartz/Quartz.h>
 #import "Workers/Worker.h"
 
+@class ResultsDb;
+
 enum IOFileType {
     FILETYPE_PNG=1,
     FILETYPE_JPEG,
@@ -40,6 +42,7 @@ enum IOFileType {
     NSMutableDictionary *workersPreviousResults;
 
     NSOperationQueue *fileIOQueue;
+    ResultsDb *db;
     
     enum IOFileType fileType;
     BOOL done, optimized;
@@ -56,7 +59,7 @@ enum IOFileType {
 
 -(BOOL)setFilePathOptimized:(NSURL *)f size:(NSUInteger)s toolName:(NSString*)s;
 
--(id)initWithFilePath:(NSURL *)name;
+-(id)initWithFilePath:(NSURL *)aPath resultsDatabase:(ResultsDb*)aDb;
 -(id)copyWithZone:(NSZone *)zone;
 -(void)resetToOriginalByteSize:(NSUInteger)size;
 -(void)setByteSizeOptimized:(NSUInteger)size;

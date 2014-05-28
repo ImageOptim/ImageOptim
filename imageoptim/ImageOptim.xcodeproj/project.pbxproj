@@ -27,6 +27,7 @@
 		1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */; };
 		1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */; };
 		5A08FDB01933D635001DA24B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A08FDAF1933D635001DA24B /* libsqlite3.dylib */; };
+		5A08FE921936982E001DA24B /* ResultsDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08FE911936982E001DA24B /* ResultsDb.m */; };
 		5A0A24F117492D39003264CC /* ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A24EF17492D39003264CC /* ok@2x.png */; };
 		5A0A24F617494254003264CC /* noopt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A24F217494254003264CC /* noopt@2x.png */; };
 		5A0A24F817494254003264CC /* progress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A24F417494254003264CC /* progress@2x.png */; };
@@ -341,6 +342,8 @@
 		5A03443A12998845002091AA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A03443B1299884F002091AA /* ru */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ru; path = ru.lproj/Help; sourceTree = "<group>"; };
 		5A08FDAF1933D635001DA24B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		5A08FE901936982E001DA24B /* ResultsDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsDb.h; sourceTree = "<group>"; };
+		5A08FE911936982E001DA24B /* ResultsDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsDb.m; sourceTree = "<group>"; };
 		5A09013F0ED8D6AA00F3965B /* appcast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = appcast.xml; sourceTree = "<group>"; };
 		5A0A24EF17492D39003264CC /* ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ok@2x.png"; sourceTree = "<group>"; };
 		5A0A24F217494254003264CC /* noopt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "noopt@2x.png"; sourceTree = "<group>"; };
@@ -526,6 +529,8 @@
 				5A714AAC0CB0196A00C242C0 /* MyTableView.m */,
 				5A6242060CA86DC7005942A3 /* PrefsController.h */,
 				5A6242070CA86DC7005942A3 /* PrefsController.m */,
+				5A08FE901936982E001DA24B /* ResultsDb.h */,
+				5A08FE911936982E001DA24B /* ResultsDb.m */,
 				5A391882140A9B19001B4FD7 /* RevealButtonCell.h */,
 				5A391880140A9B10001B4FD7 /* RevealButtonCell.m */,
 				5A8A18121416D1D700D62DB7 /* SavingsFormatter.h */,
@@ -1094,6 +1099,7 @@
 				5A44F4B40CB1868100BD2884 /* PngCrushWorker.m in Sources */,
 				5AE54DEF0CAEF56100903DF4 /* PngoutWorker.m in Sources */,
 				5A6242080CA86DC7005942A3 /* PrefsController.m in Sources */,
+				5A08FE921936982E001DA24B /* ResultsDb.m in Sources */,
 				5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */,
 				5A8A18141416D1D700D62DB7 /* SavingsFormatter.m in Sources */,
 				5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */,
