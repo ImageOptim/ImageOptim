@@ -97,13 +97,8 @@
 
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)sender {
     if ([sender draggingSource]!=self) {
-
-        ImageOptimController *app = [NSApp delegate];
-        assert([app isKindOfClass:[ImageOptimController class]]);
-        FilesQueue *filesqueue=app.filesQueue;
         NSArray *files = [[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType];
-
-        [filesqueue performSelectorInBackground:@selector(addPaths:) withObject:files];
+        [filesQueue performSelectorInBackground:@selector(addPaths:) withObject:files];
     }
     return YES;
 }

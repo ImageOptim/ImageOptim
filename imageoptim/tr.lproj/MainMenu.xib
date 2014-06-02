@@ -2,7 +2,7 @@
 <archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="8.00">
 	<data>
 		<int key="IBDocument.SystemTarget">1060</int>
-		<string key="IBDocument.SystemVersion">13D33</string>
+		<string key="IBDocument.SystemVersion">13E9</string>
 		<string key="IBDocument.InterfaceBuilderVersion">5056</string>
 		<string key="IBDocument.AppKitVersion">1265.20</string>
 		<string key="IBDocument.HIToolboxVersion">698.00</string>
@@ -2164,6 +2164,14 @@
 					<string key="id">720</string>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">filesQueue</string>
+						<reference key="source" ref="714728707"/>
+						<reference key="destination" ref="130688837"/>
+					</object>
+					<string key="id">aqi-nA-YrU</string>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: sizeColumn.hidden</string>
 						<reference key="source" ref="726135706"/>
@@ -3354,6 +3362,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">DragDropImageView</string>
 					<string key="superclassName">NSView</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">filesQueue</string>
+						<string key="NS.object.0">FilesQueue</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">filesQueue</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">filesQueue</string>
+							<string key="candidateClassName">FilesQueue</string>
+						</object>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/DragDropImageView.h</string>
