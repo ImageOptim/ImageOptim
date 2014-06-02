@@ -107,13 +107,12 @@
 
     NSRect infoButtonRect = [self infoButtonRectForBounds:bounds];
     NSImage *image = [self infoButtonImage];
-    [image setFlipped:[controlView isFlipped]];
 
     float opacity = iMouseHoveredInInfoButton ? 1.0f : ([self isHighlighted] ? 0.5f : 0.3f);
     [image drawInRect:infoButtonRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:opacity];
 }
 
-- (NSUInteger)hitTestForEvent:(NSEvent *)event inRect:(NSRect)cellFrame ofView:(NSView *)controlView {
+- (NSCellHitResult)hitTestForEvent:(NSEvent *)event inRect:(NSRect)cellFrame ofView:(NSView *)controlView {
     NSPoint point = [controlView convertPoint:[event locationInWindow] fromView:nil];
 
     NSRect titleRect = [self titleRectForBounds:cellFrame];
