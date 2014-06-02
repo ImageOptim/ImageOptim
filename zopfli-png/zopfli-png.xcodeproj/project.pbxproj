@@ -199,7 +199,7 @@
 		5A1EBE6217908D9D00361F08 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
 			};
 			buildConfigurationList = 5A1EBE6517908D9D00361F08 /* Build configuration list for PBXProject "zopfli-png" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -328,7 +328,6 @@
 		5A2ACD7C1790B421004992B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -336,7 +335,6 @@
 		5A2ACD7D1790B421004992B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				SDKROOT = macosx;
 			};
 			name = Release;
