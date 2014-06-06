@@ -86,8 +86,8 @@
 }
 
 -(void)resetToOriginalByteSize:(NSUInteger)size {
-    bestToolName = nil;
     [bestTools removeAllObjects];
+    self.bestToolName = nil;
     byteSizeOptimized = 0;
     byteSizeOriginal = size;
     byteSizeOnDisk = size;
@@ -246,6 +246,38 @@
     return YES;
 }
 
+-(BOOL)canRevert {
+    return revertPath && done;
+}
+
+-(BOOL)revert {
+    if (![self canRevert]) {
+        return NO;
+    }
+    [self cleanup];
+
+    if (byteSizeOriginal != [File fileByteSize:revertPath]) {
+        IOWarn(@"Revert path '%@' has wrong size, %ld expected", revertPath, (long)byteSizeOriginal);
+        return NO;
+    }
+
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSError *err = nil;
+    NSURL *newFilePath = nil;
+    if (![fm replaceItemAtURL:filePath withItemAtURL:revertPath backupItemName:nil options:0 resultingItemURL:&newFilePath error:&err]) {
+        IOWarn(@"Can't revert: %@ due to %@", revertPath, err);
+        return NO;
+    }
+
+    revertPath = nil;
+    if (newFilePath) {
+        filePath = [newFilePath copy];
+    }
+    [self resetToOriginalByteSize:byteSizeOriginal];
+    [self setStatus:@"noopt" order:6 text:NSLocalizedString(@"Reverted to original",@"tooltip")];
+    return YES;
+}
+
 -(BOOL)saveResult {
     assert(filePathOptimized);
     @try {
@@ -268,7 +300,8 @@
             NSString *writeToPath = writeToURL.path;
 
             if ([fm fileExistsAtPath:writeToPath]) {
-                if (![self trashFileAtURL:writeToURL resultingItemURL:nil error:&error]) {
+                if ([self trashFileAtURL:writeToURL resultingItemURL:nil error:&error]) {
+                } else {
                     IOWarn("%@", error);
                     error = nil;
                     if (![fm removeItemAtURL:writeToURL error:&error]) {
@@ -321,12 +354,17 @@
             moveFromPath = writeToURL;
         }
 
-        if (![self trashFileAtURL:filePath resultingItemURL:nil error:&error]) {
+        NSURL *revertPathTmp;
+        if ([self trashFileAtURL:filePath resultingItemURL:&revertPathTmp error:&error]) {
+            revertPath = revertPathTmp;
+        } else {
             IOWarn("Can't trash %@ %@", filePath.path, error);
             NSURL *backupPath = [NSURL fileURLWithPath:[[[filePath lastPathComponent] stringByAppendingString:@"~bak"] stringByAppendingPathExtension:[filePath pathExtension]]];
 
             [fm removeItemAtURL:backupPath error:nil];
-            if (![fm moveItemAtURL:filePath toURL:backupPath error:&error]) {
+            if ([fm moveItemAtURL:filePath toURL:backupPath error:&error]) {
+                revertPath = backupPath;
+            } else {
                 IOWarn("Can't move to %@ %@", backupPath, error);
                 return NO;
             }

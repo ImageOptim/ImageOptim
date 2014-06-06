@@ -15,7 +15,7 @@ enum IOFileType {
 };
 
 @interface File : NSObject <NSCopying, QLPreviewItem> {
-	NSURL *filePath;
+	NSURL *filePath, *revertPath;
 	NSString *displayName;
 	
     /** size of file before any optimizations */
