@@ -55,7 +55,7 @@ enum IOFileType {
 
 -(id)initWithFilePath:(NSURL *)name;
 -(id)copyWithZone:(NSZone *)zone;
--(void)setByteSizeOriginal:(NSUInteger)size;
+-(void)resetToOriginalByteSize:(NSUInteger)size;
 -(void)setByteSizeOptimized:(NSUInteger)size;
 -(BOOL)isOptimized;
 -(void)updateStatusOfWorker:(Worker *)currentWorker running:(BOOL)started;

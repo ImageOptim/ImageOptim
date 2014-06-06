@@ -86,7 +86,10 @@
     return [[File allocWithZone:zone] initWithFilePath:filePath];
 }
 
--(void)setByteSizeOriginal:(NSUInteger)size {
+-(void)resetToOriginalByteSize:(NSUInteger)size {
+    bestToolName = nil;
+    [bestTools removeAllObjects];
+    byteSizeOptimized = 0;
     byteSizeOriginal = size;
     byteSizeOnDisk = size;
     [self setByteSizeOptimized:size];
@@ -423,8 +426,7 @@
     @synchronized(self) {
         // if file hasn't changed since last optimization, keep previous byteSizeOriginal, etc.
         if (!byteSizeOnDisk || length != byteSizeOnDisk) {
-            byteSizeOptimized = 0;
-            [self setByteSizeOriginal:length];
+            [self resetToOriginalByteSize:length];
         }
     }
 
