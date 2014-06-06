@@ -79,7 +79,6 @@
 		5A8166260EA117B100962CF2 /* compress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = compress.h; sourceTree = SOURCE_ROOT; };
 		5A8166270EA117B100962CF2 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = SOURCE_ROOT; };
 		5A8166280EA117B100962CF2 /* data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = data.h; sourceTree = SOURCE_ROOT; };
-		5A8166290EA117B100962CF2 /* file.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = file.h; sourceTree = SOURCE_ROOT; };
 		5A81662A0EA117B100962CF2 /* pngex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pngex.h; sourceTree = SOURCE_ROOT; };
 		5A81662B0EA117B100962CF2 /* portable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = portable.h; sourceTree = SOURCE_ROOT; };
 		5A81662C0EA117B100962CF2 /* siglock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = siglock.h; sourceTree = SOURCE_ROOT; };
@@ -198,7 +197,6 @@
 				5A8166310EA117B100962CF2 /* data.cc */,
 				5A8166280EA117B100962CF2 /* data.h */,
 				5A81662F0EA117B100962CF2 /* file.cc */,
-				5A8166290EA117B100962CF2 /* file.h */,
 				5A8166320EA117B100962CF2 /* getopt.c */,
 				5A8166330EA117B100962CF2 /* pngex.cc */,
 				5A81662A0EA117B100962CF2 /* pngex.h */,
@@ -425,7 +423,6 @@
 				5A81669F0EA117BB00962CF2 /* LiteralCoder.cc in Sources */,
 				5A8166A00EA117BB00962CF2 /* LSBFDecoder.cc in Sources */,
 				5A8166A10EA117BB00962CF2 /* LSBFEncoder.cc in Sources */,
-				DB716F751853E13D00AA7771 /* snstring.c in Sources */,
 				5A8166A20EA117BB00962CF2 /* LZMA.cc in Sources */,
 				5A8166A30EA117BB00962CF2 /* LZMADecoder.cc in Sources */,
 				5A8166A40EA117BB00962CF2 /* LZMAEncoder.cc in Sources */,
@@ -435,6 +432,7 @@
 				5A8166360EA117B100962CF2 /* repng.cc in Sources */,
 				5A8166370EA117B100962CF2 /* siglock.cc in Sources */,
 				5A81663E0EA117B100962CF2 /* snprintf.c in Sources */,
+				DB716F751853E13D00AA7771 /* snstring.c in Sources */,
 				5A8166A60EA117BB00962CF2 /* WindowIn.cc in Sources */,
 				5A8166A70EA117BB00962CF2 /* WindowOut.cc in Sources */,
 			);
