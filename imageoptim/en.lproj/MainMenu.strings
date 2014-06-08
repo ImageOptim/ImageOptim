@@ -190,12 +190,16 @@
 
 /* Menu Item "Hide Others" */
 "145.title" = "Hide Others";
+/* Class = "NSMenuItem"; title = "Revert to Original"; ObjectID = "FLl-C9-GLI"; */
+"FLl-C9-GLI.title" = "Revert to Original";
 
 /* Menu Item "Show All" */
 "150.title" = "Show All";
 
 /* Menu Item "Zoom" */
 "197.title" = "Zoom";
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "ddH-3k-EuT"; */
+"ddH-3k-EuT.title" = "Show in Finder";
 
-/* Class = "NSMenuItem"; title = "Reveal in Finder"; ObjectID = "ddH-3k-EuT"; */
-"ddH-3k-EuT.title" = "Reveal in Finder";
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "p0m-mn-Gep"; */
+"p0m-mn-Gep.title" = "Show in Finder";

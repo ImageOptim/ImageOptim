@@ -773,6 +773,17 @@
 									<reference key="NSOnImage" ref="855672835"/>
 									<reference key="NSMixedImage" ref="898714739"/>
 								</object>
+								<object class="NSMenuItem" id="639089882">
+									<reference key="NSMenu" ref="810587040"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<bool key="NSIsSeparator">YES</bool>
+									<string key="NSTitle"/>
+									<string key="NSKeyEquiv"/>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="855672835"/>
+									<reference key="NSMixedImage" ref="898714739"/>
+								</object>
 								<object class="NSMenuItem" id="342358740">
 									<reference key="NSMenu" ref="810587040"/>
 									<string key="NSTitle">再度最佳化處理</string>
@@ -802,7 +813,23 @@
 									<reference key="NSOnImage" ref="855672835"/>
 									<reference key="NSMixedImage" ref="898714739"/>
 								</object>
-								<object class="NSMenuItem" id="639089882">
+								<object class="NSMenuItem" id="639436105">
+									<reference key="NSMenu" ref="810587040"/>
+									<string key="NSTitle">Revert to Original</string>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="855672835"/>
+									<reference key="NSMixedImage" ref="898714739"/>
+								</object>
+								<object class="NSMenuItem" id="581093192">
+									<reference key="NSMenu" ref="810587040"/>
+									<string key="NSTitle">Show in Finder</string>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="855672835"/>
+									<reference key="NSMixedImage" ref="898714739"/>
+								</object>
+								<object class="NSMenuItem" id="764276006">
 									<reference key="NSMenu" ref="810587040"/>
 									<bool key="NSIsDisabled">YES</bool>
 									<bool key="NSIsSeparator">YES</bool>
@@ -1670,6 +1697,22 @@
 						<reference key="destination" ref="962015865"/>
 					</object>
 					<string key="id">xE9-vV-I28</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">revert:</string>
+						<reference key="source" ref="335302141"/>
+						<reference key="destination" ref="639436105"/>
+					</object>
+					<string key="id">K2n-RB-ZYr</string>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">openInFinder:</string>
+						<reference key="source" ref="335302141"/>
+						<reference key="destination" ref="581093192"/>
+					</object>
+					<string key="id">GoN-HG-2GR</string>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -2594,10 +2637,13 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="920522896"/>
 							<reference ref="695734933"/>
-							<reference ref="639089882"/>
 							<reference ref="342358740"/>
 							<reference ref="900222994"/>
 							<reference ref="424164903"/>
+							<reference ref="764276006"/>
+							<reference ref="639436105"/>
+							<reference ref="639089882"/>
+							<reference ref="581093192"/>
 						</array>
 						<reference key="parent" ref="118427520"/>
 					</object>
@@ -3142,6 +3188,21 @@
 						<reference key="object" ref="962015865"/>
 						<reference key="parent" ref="337756870"/>
 					</object>
+					<object class="IBObjectRecord">
+						<string key="id">DRY-W3-Uh6</string>
+						<reference key="object" ref="764276006"/>
+						<reference key="parent" ref="810587040"/>
+					</object>
+					<object class="IBObjectRecord">
+						<string key="id">FLl-C9-GLI</string>
+						<reference key="object" ref="639436105"/>
+						<reference key="parent" ref="810587040"/>
+					</object>
+					<object class="IBObjectRecord">
+						<string key="id">p0m-mn-Gep</string>
+						<reference key="object" ref="581093192"/>
+						<reference key="parent" ref="810587040"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -3348,9 +3409,12 @@
 				<string key="816.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="820.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="92.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="DRY-W3-Uh6.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="FLl-C9-GLI.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="NlY-Bc-7tu.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="aEm-KO-6Fg.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="ddH-3k-EuT.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="p0m-mn-Gep.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
