@@ -318,6 +318,24 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return allOK;
 }
 
+-(void)revert {
+    BOOL beep = NO;
+    NSArray *array = [self selectedObjects];
+    for (File *f in array) {
+        if (![f revert]) beep = YES;
+    }
+    if (beep) NSBeep();
+}
+
+-(BOOL)canRevert {
+    NSArray *array = [self selectedObjects];
+    for (File *f in array) {
+        if ([f canRevert]) return YES;
+    }
+    return NO;
+}
+
+
 -(BOOL)canClearComplete {
     for (File *f in [self arrangedObjects]) {
         if (f.isDone) return YES;

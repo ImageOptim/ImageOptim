@@ -49,6 +49,9 @@ enum IOFileType {
 -(BOOL)isOptimized;
 -(BOOL)isDone;
 
+-(BOOL)revert;
+-(BOOL)canRevert;
+
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue;
 
 -(BOOL)setFilePathOptimized:(NSURL *)f size:(NSUInteger)s toolName:(NSString*)s;

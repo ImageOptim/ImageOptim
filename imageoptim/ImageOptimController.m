@@ -234,6 +234,10 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
     [tableView performSelector:@selector(quickLook)];
 }
 
+-(IBAction)revert:(id)sender {
+    [filesController revert];
+}
+
 - (IBAction)startAgain:(id)sender {
     // alt-click on a button (this is used from menu too, but alternative menu item covers that anyway
     BOOL onlyOptimized = !!([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask);
@@ -352,6 +356,8 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
         return [filesController canStartAgainOptimized:YES];
     } else if (action == @selector(clearComplete:)) {
         return [filesController canClearComplete];
+    } else if (action == @selector(revert:)) {
+        return [filesController canRevert];
     }
 
     return [menuItem isEnabled];

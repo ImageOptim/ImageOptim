@@ -40,6 +40,8 @@ extern NSString *const kFilesQueueFinished;
 -(BOOL)canStartAgainOptimized:(BOOL)optimized;
 -(void)clearComplete;
 -(BOOL)canClearComplete;
+-(void)revert;
+-(BOOL)canRevert;
 -(void)cleanup;
 -(void)setRow:(NSInteger)row;
 
