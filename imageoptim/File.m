@@ -69,8 +69,7 @@
 
 -(NSString *)fileName {
     if (displayName) return displayName;
-    if (filePath) return [filePath lastPathComponent];
-    return nil;
+    return [filePath lastPathComponent];
 }
 
 -(NSURL*)filePathOptimized {
