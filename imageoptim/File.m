@@ -612,9 +612,12 @@
 }
 
 +(NSInteger)fileByteSize:(NSURL *)afile {
-    NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:afile.path error:nil];
-    if (attr) return [[attr objectForKey:NSFileSize] integerValue];
-    IOWarn("Could not stat %@",afile.path);
+    NSNumber *value = nil;
+    NSError *err = nil;
+    if ([afile getResourceValue:&value forKey:NSURLFileSizeKey error:&err] && value) {
+        return [value integerValue];
+    }
+    IOWarn("Could not stat %@: %@", afile.path, err);
     return 0;
 }
 
