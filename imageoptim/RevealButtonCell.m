@@ -109,7 +109,7 @@
     NSImage *image = [self infoButtonImage];
 
     float opacity = iMouseHoveredInInfoButton ? 1.0f : ([self isHighlighted] ? 0.5f : 0.3f);
-    [image drawInRect:infoButtonRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:opacity];
+    [image drawInRect:infoButtonRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:opacity respectFlipped:YES hints:nil];
 }
 
 - (NSUInteger)hitTestForEvent:(NSEvent *)event inRect:(NSRect)cellFrame ofView:(NSView *)controlView {
