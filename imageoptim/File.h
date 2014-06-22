@@ -43,6 +43,8 @@ enum IOFileType {
 
     NSOperationQueue *fileIOQueue;
     ResultsDb *db;
+    uint32_t settingsHash[4];
+    uint32_t inputFileHash[4];
     
     enum IOFileType fileType;
     BOOL done, optimized;

@@ -16,6 +16,7 @@
 #import "Workers/GifsicleWorker.h"
 #import <sys/xattr.h>
 #import "log.h"
+#include <CommonCrypto/CommonDigest.h>
 
 @interface ToolStats : NSObject {
     @public
@@ -445,6 +446,17 @@
     }
 }
 
+-(void)setSettingsHash:(NSArray*)allWorkers {
+    CC_MD5_CTX md5ctx = {};
+    CC_MD5_Init(&md5ctx);
+    CC_MD5_Update(&md5ctx, "1", 1); // to update when programs change
+    for (Worker *w in allWorkers) {
+        NSInteger tmp = [w settingsIdentifier];
+        CC_MD5_Update(&md5ctx, &tmp, sizeof(tmp));
+    }
+    CC_MD5_Final((unsigned char *)settingsHash, &md5ctx);
+}
+
 -(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue {
     [self setStatus:@"progress" order:3 text:NSLocalizedString(@"Inspecting file",@"tooltip")];
 
@@ -540,6 +552,17 @@
             }
         }
     }
+
+    // Create a hash that includes all optimization settings to invalidate file caches on settings changes
+    [self setSettingsHash:[runFirst arrayByAddingObjectsFromArray:runLater]];
+
+    // Can't check only file size, because then hash won't be available on save! if ([db hasResultWithFileSize:byteSizeOnDisk]) {
+
+    CC_MD5_CTX md5ctx = {}, *md5ctxp = &md5ctx;
+    CC_MD5_Init(md5ctxp);
+    CC_MD5_Update(md5ctxp, settingsHash, 16);
+    CC_MD5_Update(md5ctxp, [fileData bytes], (CC_LONG)[fileData length]);
+    CC_MD5_Final((unsigned char*)inputFileHash, md5ctxp);
 
     NSOperation *saveOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(saveResultAndUpdateStatus) object:nil];
 
