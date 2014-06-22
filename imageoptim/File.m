@@ -16,6 +16,7 @@
 #import "Workers/GifsicleWorker.h"
 #import <sys/xattr.h>
 #import "log.h"
+#include "ResultsDb.h"
 #include <CommonCrypto/CommonDigest.h>
 
 @interface ToolStats : NSObject {
@@ -402,6 +403,7 @@
         }
     } else {
         [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
+        [db setUnoptimizableFileHash:inputFileHash size:byteSizeOnDisk];
     }
     [self cleanup];
 }
@@ -563,6 +565,13 @@
     CC_MD5_Update(md5ctxp, settingsHash, 16);
     CC_MD5_Update(md5ctxp, [fileData bytes], (CC_LONG)[fileData length]);
     CC_MD5_Final((unsigned char*)inputFileHash, md5ctxp);
+    if ([db getResultWithHash:inputFileHash]) { // FIXME: check for lossy
+        done = YES;
+        NSLog(@"Skipping %@, because it has been optimized before", filePath.path);
+        [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
+        [self cleanup];
+        return;
+    }
 
     NSOperation *saveOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(saveResultAndUpdateStatus) object:nil];
 
