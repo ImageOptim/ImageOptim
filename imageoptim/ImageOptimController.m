@@ -30,6 +30,14 @@ static const char *kIMPreviewPanelContext = "preview";
     [defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
     [defs setObject:[NSNumber numberWithInt:(int)ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
 
+    // Use lighter defaults on slower machines
+    if (maxTasks <= 2) {
+        defs[@"PngCrushEnabled"] = @(NO);
+        if (maxTasks <= 4) {
+            defs[@"PngOutEnabled"] = @(NO);
+        }
+    }
+
     [[NSUserDefaults standardUserDefaults] registerDefaults:defs];
 
     [filesController configureWithTableView:tableView];
