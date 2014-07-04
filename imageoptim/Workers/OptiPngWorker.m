@@ -9,7 +9,7 @@
 
 @implementation OptiPngWorker
 
--(id)init {
+-(instancetype)init {
     if (self = [super init]) {
         NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
         optlevel = [defs integerForKey:@"OptiPngLevel"];

@@ -12,8 +12,8 @@
 
 @interface FilesQueue()
 
--(NSArray *)extensions;
 -(BOOL)isAnyQueueBusy;
+@property (readonly, copy) NSArray *extensions;
 -(void)updateBusyState;
 @end
 
@@ -51,7 +51,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 }
 
 -(NSNumber *)queueCount {
-    return [NSNumber numberWithInteger:cpuQueue.operationCount + dirWorkerQueue.operationCount + fileIOQueue.operationCount];
+    return @(cpuQueue.operationCount + dirWorkerQueue.operationCount + fileIOQueue.operationCount);
 }
 
 -(BOOL)isAnyQueueBusy {
@@ -125,7 +125,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation {
     NSArray *objs = [self arrangedObjects];
     if (row < (signed)[objs count]) {
-        File *f = [objs objectAtIndex:row];
+        File *f = objs[row];
 
         if ([aCell isKindOfClass:[RevealButtonCell class]]) {
             NSRect infoButtonRect = [((RevealButtonCell *)aCell) infoButtonRectForBounds:*rect];
@@ -175,7 +175,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
             removeIndex = idx;
             insertIndex -= 1;
         }
-        object = [objects objectAtIndex:removeIndex];
+        object = objects[removeIndex];
         [self removeObjectAtArrangedObjectIndex:removeIndex];
         [self insertObject:object atArrangedObjectIndex:insertIndex];
 
@@ -380,7 +380,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         // UI doesn't give a way to deselect all, so here's a substitute
         // when selecting "again" on file that doesn't need it, deselect
         if (1 == selectionCount) {
-            File *file = [files objectAtIndex:0];
+            File *file = files[0];
             if (file.isBusy || !file.isOptimized) {
                 files = [files copy];
                 [self setSelectedObjects:@[]];
@@ -459,7 +459,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         [extensions addObject:@"PNG"];
     }
     if (types & JPEG_ENABLED) {
-        [extensions addObjectsFromArray:[NSArray arrayWithObjects:@"jpg",@"JPG",@"jpeg",@"JPEG",nil]];
+        [extensions addObjectsFromArray:@[@"jpg",@"JPG",@"jpeg",@"JPEG"]];
     }
     if (types & GIF_ENABLED) {
         [extensions addObject:@"gif"];
@@ -476,13 +476,13 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     NSMutableArray *fileTypes = [NSMutableArray array];
 
     if (types & PNG_ENABLED) {
-        [fileTypes addObjectsFromArray:[NSArray arrayWithObjects:@"png",@"PNG",NSFileTypeForHFSTypeCode('PNGf'),@"public.png",@"image/png",nil]];
+        [fileTypes addObjectsFromArray:@[@"png",@"PNG",NSFileTypeForHFSTypeCode('PNGf'),@"public.png",@"image/png"]];
     }
     if (types & JPEG_ENABLED) {
-        [fileTypes addObjectsFromArray:[NSArray arrayWithObjects:@"jpg",@"jpeg",@"JPG",@"JPEG",NSFileTypeForHFSTypeCode('JPEG'),@"public.jpeg",@"image/jpeg",nil]];
+        [fileTypes addObjectsFromArray:@[@"jpg",@"jpeg",@"JPG",@"JPEG",NSFileTypeForHFSTypeCode('JPEG'),@"public.jpeg",@"image/jpeg"]];
     }
     if (types & GIF_ENABLED) {
-        [fileTypes addObjectsFromArray:[NSArray arrayWithObjects:@"gif",@"GIF",NSFileTypeForHFSTypeCode('GIFf'),@"public.gif",@"image/gif",nil]];
+        [fileTypes addObjectsFromArray:@[@"gif",@"GIF",NSFileTypeForHFSTypeCode('GIFf'),@"public.gif",@"image/gif"]];
     }
     return fileTypes;
 }

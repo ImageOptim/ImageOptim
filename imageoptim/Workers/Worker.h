@@ -22,14 +22,14 @@
 @property (atomic,strong) NSOperation *nextOperation;
 @property (atomic, strong) File *file;
 
--(id)initWithFile:(File *)aFile;
+-(instancetype)initWithFile:(File *)aFile;
 
 -(BOOL)isRelatedTo:(File *)f;
 
--(BOOL)makesNonOptimizingModifications;
+@property (readonly) BOOL makesNonOptimizingModifications;
 
 -(void)run;
 
--(NSInteger)settingsIdentifier;
--(BOOL)isIdempotent;
+@property (readonly) NSInteger settingsIdentifier;
+@property (getter=isIdempotent, readonly) BOOL idempotent;
 @end

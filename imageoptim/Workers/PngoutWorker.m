@@ -12,7 +12,7 @@
 
 @implementation PngoutWorker
 
--(id)init {
+-(instancetype)init {
     if (self = [super init]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         level = 3-[defaults integerForKey:@"PngOutLevel"];

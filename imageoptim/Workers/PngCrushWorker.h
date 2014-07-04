@@ -12,6 +12,6 @@
     BOOL strip;
 }
 
--(BOOL)makesNonOptimizingModifications;
+@property (readonly) BOOL makesNonOptimizingModifications;
 
 @end

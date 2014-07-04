@@ -13,7 +13,7 @@
     return @(jpegrescan*2+strip);
 }
 
--(id)initWithFile:(File *)aFile {
+-(instancetype)initWithFile:(File *)aFile {
     if (self = [super initWithFile:aFile]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         strip = [defaults boolForKey:@"JpegTranStripAll"];

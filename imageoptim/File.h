@@ -55,13 +55,13 @@ enum IOFileType {
 -(BOOL)isDone;
 
 -(BOOL)revert;
--(BOOL)canRevert;
+@property (readonly) BOOL canRevert;
 
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue;
 
 -(BOOL)setFilePathOptimized:(NSURL *)f size:(NSUInteger)s toolName:(NSString*)s;
 
--(id)initWithFilePath:(NSURL *)aPath resultsDatabase:(ResultsDb*)aDb;
+-(instancetype)initWithFilePath:(NSURL *)aPath resultsDatabase:(ResultsDb*)aDb;
 -(id)copyWithZone:(NSZone *)zone;
 -(void)resetToOriginalByteSize:(NSUInteger)size;
 -(void)setByteSizeOptimized:(NSUInteger)size;
@@ -73,8 +73,8 @@ enum IOFileType {
 
 -(void)setFilePath:(NSURL *)s;
 
--(NSString *)fileName;
--(NSString *)mimeType;
+@property (readonly, copy) NSString *fileName;
+@property (readonly, copy) NSString *mimeType;
 
 @property (strong) NSString *statusText, *displayName, *bestToolName;
 @property (strong,nonatomic) NSURL *filePath;

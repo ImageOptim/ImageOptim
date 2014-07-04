@@ -10,7 +10,7 @@
 
 @implementation PrefsController
 
--(id)init {
+-(instancetype)init {
     if ((self = [super initWithWindowNibName:@"PrefsController"])) {
         CeilFormatter *cf = [CeilFormatter new];
         [NSValueTransformer setValueTransformer:cf forName:@"CeilFormatter"];

@@ -42,7 +42,7 @@
 
 @synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName;
 
--(id)initWithFilePath:(NSURL *)aPath resultsDatabase:(ResultsDb*)aDb
+-(instancetype)initWithFilePath:(NSURL *)aPath resultsDatabase:(ResultsDb*)aDb
 {
     if (self = [self init]) {
         workersPreviousResults = [NSMutableDictionary new];
@@ -200,8 +200,8 @@
         char *utf8name = &nameBuf[i];
         i += strlen(utf8name)+1; // attrs are 0-terminated one after another
 
-        NSString *name = [NSString stringWithUTF8String:utf8name];
-        if ([extAttrToRemove objectForKey:name]) {
+        NSString *name = @(utf8name);
+        if (extAttrToRemove[name]) {
             if (removexattr(fileSystemPath, utf8name, 0) == 0) {
                 IODebug("Removed %s from %s", utf8name, fileSystemPath);
             } else {

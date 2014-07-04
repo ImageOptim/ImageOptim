@@ -27,8 +27,8 @@ static const char *kIMPreviewPanelContext = "preview";
 
     int maxTasks = [self numberOfCPUs];
 
-    [defs setObject:[NSNumber numberWithInt:maxTasks] forKey:@"RunConcurrentTasks"];
-    [defs setObject:[NSNumber numberWithInt:(int)ceil((double)maxTasks/3.9)] forKey:@"RunConcurrentDirscans"];
+    defs[@"RunConcurrentTasks"] = @(maxTasks);
+    defs[@"RunConcurrentDirscans"] = @((int)ceil((double)maxTasks/3.9));
 
     // Use lighter defaults on slower machines
     if (maxTasks <= 2) {
@@ -72,7 +72,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
         unit = NSLocalizedString(@"KB", "kilobytes suffix");
     }
 
-    return [[formatter stringFromNumber:[NSNumber numberWithDouble:size]] stringByAppendingString:unit];
+    return [[formatter stringFromNumber:@(size)] stringByAppendingString:unit];
 };
 
 
@@ -142,8 +142,8 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
                     str = [NSString stringWithFormat:fmtStr,
                            formatSize(bytesSaved, formatter),
                            formatSize(bytesTotal, formatter),
-                           [percFormatter stringFromNumber: [NSNumber numberWithDouble:avgNum]],
-                           [percFormatter stringFromNumber: [NSNumber numberWithDouble:maxOptimizedFraction]]];
+                           [percFormatter stringFromNumber: @(avgNum)],
+                           [percFormatter stringFromNumber: @(maxOptimizedFraction)]];
                 }
             }
         }
@@ -313,7 +313,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
 }
 
 -(NSString *)version {
-    return [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    return [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"];
 }
 
 // Quick Look panel support
@@ -343,7 +343,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
 }
 
 - (id <QLPreviewItem>)previewPanel:(QLPreviewPanel *)panel previewItemAtIndex:(NSInteger)index {
-    return [[filesController selectedObjects] objectAtIndex:index];
+    return [filesController selectedObjects][index];
 }
 
 // Quick Look panel delegate

@@ -12,7 +12,7 @@
 @implementation DragDropImageView
 
 - (void)awakeFromNib {
-    [self registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
+    [self registerForDraggedTypes:@[NSFilenamesPboardType]];
     [self setAlphaValue:1.0];
 }
 

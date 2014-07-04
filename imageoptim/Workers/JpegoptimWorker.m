@@ -14,7 +14,7 @@
     return maxquality*2 + strip;
 }
 
--(id)initWithFile:(File *)aFile {
+-(instancetype)initWithFile:(File *)aFile {
     if (self = [super initWithFile:aFile]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 

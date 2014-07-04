@@ -15,6 +15,6 @@
 }
 
 
--(BOOL)makesNonOptimizingModifications;
+@property (readonly) BOOL makesNonOptimizingModifications;
 
 @end

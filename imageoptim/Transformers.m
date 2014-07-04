@@ -20,7 +20,7 @@
     if ([value respondsToSelector: @selector(doubleValue)]) {
         v = MAX(1.0F,ceil([value doubleValue]));
     }
-    return [NSNumber numberWithDouble:v];
+    return @(v);
 }
 @end
 

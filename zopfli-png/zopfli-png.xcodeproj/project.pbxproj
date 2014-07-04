@@ -328,6 +328,7 @@
 		5A2ACD7C1790B421004992B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -335,6 +336,7 @@
 		5A2ACD7D1790B421004992B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				SDKROOT = macosx;
 			};
 			name = Release;

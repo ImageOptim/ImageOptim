@@ -6,7 +6,7 @@
 
 @synthesize alternativeStrategy;
 
--(id)init {
+-(instancetype)init {
     if (self = [super init]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         iterations = (int)[defaults integerForKey:@"ZopfliIterations"];

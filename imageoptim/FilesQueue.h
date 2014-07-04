@@ -40,13 +40,13 @@ extern NSString *const kFilesQueueFinished;
 -(void)startAgainOptimized:(BOOL)optimized;
 -(BOOL)canStartAgainOptimized:(BOOL)optimized;
 -(void)clearComplete;
--(BOOL)canClearComplete;
+@property (readonly) BOOL canClearComplete;
 -(void)revert;
--(BOOL)canRevert;
+@property (readonly) BOOL canRevert;
 -(void)cleanup;
 -(void)setRow:(NSInteger)row;
 
--(NSArray *)fileTypes;
+@property (readonly, copy) NSArray *fileTypes;
 
 @property (unsafe_unretained, readonly, nonatomic) NSNumber *queueCount;
 @property (readonly) BOOL isBusy;

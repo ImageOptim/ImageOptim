@@ -14,7 +14,7 @@
     NSArray *extensions;
 }
 
--(id)initWithPath:(NSURL *)path filesQueue:(FilesQueue *)q extensions:(NSArray*)e;
+-(instancetype)initWithPath:(NSURL *)path filesQueue:(FilesQueue *)q extensions:(NSArray*)e;
 
 @property (copy) NSURL *path;
 @end

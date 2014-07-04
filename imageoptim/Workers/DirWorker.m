@@ -13,7 +13,7 @@
 
 @synthesize path;
 
--(id)initWithPath:(NSURL *)aPath filesQueue:(FilesQueue *)q extensions:(NSArray *)theExtensions {
+-(instancetype)initWithPath:(NSURL *)aPath filesQueue:(FilesQueue *)q extensions:(NSArray *)theExtensions {
     if (self = [super init]) {
         self.path = aPath;
         filesQueue = q;

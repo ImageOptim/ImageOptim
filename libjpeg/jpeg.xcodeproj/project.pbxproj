@@ -438,6 +438,7 @@
 		5A20CCB4112394F20000400D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				PRODUCT_NAME = download;
 				SDKROOT = macosx;
@@ -447,6 +448,7 @@
 		5A20CCB5112394F20000400D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				PRODUCT_NAME = download;
 				SDKROOT = macosx;

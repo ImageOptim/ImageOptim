@@ -36,7 +36,7 @@ extern NSDictionary *statusImages;
 -(IBAction)openDonationPage:(id)sender;
 -(IBAction)browseForFiles:(id)sender;
 
--(int)numberOfCPUs;
+@property (readonly) int numberOfCPUs;
 -(void)loadCreditsHTML;
 
 @property (unsafe_unretained, readonly) FilesQueue *filesQueue;

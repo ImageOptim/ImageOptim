@@ -16,7 +16,7 @@
     return 0;
 }
 
--(id)initWithFile:(File *)aFile {
+-(instancetype)initWithFile:(File *)aFile {
     if (self = [self init]) {
         self.file = aFile;
     }
@@ -33,11 +33,11 @@
 
     NSDictionary *resultsBySettings;
     @synchronized(file) {
-        resultsBySettings = [file.workersPreviousResults objectForKey:[self className]];
+        resultsBySettings = (file.workersPreviousResults)[[self className]];
     }
     if (!resultsBySettings) return NO;
 
-    NSNumber *previousResult = [resultsBySettings objectForKey:@([self settingsIdentifier])];
+    NSNumber *previousResult = resultsBySettings[@([self settingsIdentifier])];
     if (!previousResult) return NO;
 
     return file.byteSizeOptimized == [previousResult integerValue];
@@ -45,12 +45,12 @@
 
 -(void)markResultForSkipping {
     @synchronized(file) {
-        NSMutableDictionary *resultsBySettings = [file.workersPreviousResults objectForKey:[self className]];
+        NSMutableDictionary *resultsBySettings = (file.workersPreviousResults)[[self className]];
         if (!resultsBySettings) {
             resultsBySettings = [NSMutableDictionary new];
-            [file.workersPreviousResults setObject:resultsBySettings forKey:[self className]];
+            (file.workersPreviousResults)[[self className]] = resultsBySettings;
         }
-        [resultsBySettings setObject:@(file.byteSizeOptimized) forKey:@([self settingsIdentifier])];
+        resultsBySettings[@([self settingsIdentifier])] = @(file.byteSizeOptimized);
     }
 }
 

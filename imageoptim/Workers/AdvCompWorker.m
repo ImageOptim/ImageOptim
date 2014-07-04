@@ -10,7 +10,7 @@
 
 @implementation AdvCompWorker
 
--(id)init {
+-(instancetype)init {
     if (self = [super init]) {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         level = [defaults integerForKey:@"AdvPngLevel"];

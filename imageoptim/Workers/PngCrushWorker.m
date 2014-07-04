@@ -8,7 +8,7 @@
 
 
 @implementation PngCrushWorker
-- (id)init {
+- (instancetype)init {
     if ((self = [super init])) {
         strip = [[NSUserDefaults standardUserDefaults] boolForKey:@"PngOutRemoveChunks"];
     }

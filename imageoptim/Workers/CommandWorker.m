@@ -28,7 +28,7 @@
         while (bytesPos < bytesLength) {
             if (tempBytes[bytesPos] == '\n' || tempBytes[bytesPos] == '\r' || inputBufferPos == sizeof(inputBuffer)-1) {
                 inputBuffer[inputBufferPos] = '\0';
-                if ([self parseLine:[NSString stringWithUTF8String:inputBuffer]]) {
+                if ([self parseLine:@(inputBuffer)]) {
                     [commandHandle readDataToEndOfFile];
                     return;
                 }
@@ -55,7 +55,7 @@
     environment =[NSMutableDictionary dictionaryWithDictionary: [[NSProcessInfo processInfo] environment]];
 
     // set up for unbuffered I/O
-    [environment setObject:@"YES" forKey:@"NSUnbufferedIO"];
+    environment[@"NSUnbufferedIO"] = @"YES";
 
     [task setEnvironment:environment];
 }

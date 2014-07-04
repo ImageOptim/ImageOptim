@@ -143,7 +143,7 @@
 
     for (NSTrackingArea *area in [self trackingAreas]) {
         // We have to uniquely identify our own tracking areas
-        if (([area owner] == self) && ([[area userInfo] objectForKey:@"Row"] != nil)) {
+        if (([area owner] == self) && ([area userInfo][@"Row"] != nil)) {
             [self removeTrackingArea:area];
         }
     }
@@ -160,9 +160,8 @@
             NSCell *cell = [self preparedCellAtColumn:col row:row];
             if ([cell isKindOfClass:[RevealButtonCell class]]) {
                 RevealButtonCell *imagecell = (id)cell;
-                NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
-                                          [NSNumber numberWithInteger:col], @"Col",
-                                          [NSNumber numberWithInteger:row], @"Row", nil];
+                NSDictionary *userInfo = @{@"Col": @(col),
+                                          @"Row": @(row)};
                 [imagecell addTrackingAreasForView:self inRect:[self frameOfCellAtColumn:col row:row]
                  withUserInfo:userInfo mouseLocation:mouseLocation];
             }
@@ -255,7 +254,7 @@
     } else if ([self isRowSelected:row] && [self numberOfSelectedRows] > 1) {
         return [fc selectedObjects];
     } else {
-        return @[[[fc arrangedObjects] objectAtIndex:row]];
+        return @[[fc arrangedObjects][row]];
     }
 }
 
