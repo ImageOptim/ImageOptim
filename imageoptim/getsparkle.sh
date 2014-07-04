@@ -4,7 +4,7 @@ SPARKLE=$1
 TARGET_TEMP_DIR=${TARGET_TEMP_DIR:-/tmp/}
 SPARKLETMP=$TARGET_TEMP_DIR/Sparkle.framework
 SPARKLEFALLBACK=${SRCROOT:-/tmp/none/}/Sparkle.framework
-SPARKLEZIP=$TARGET_TEMP_DIR/sparkle.zip
+SPARKLEZIP=$TARGET_TEMP_DIR/sparkle.tar.bz2
 
 if test -e "$SPARKLE"; then
     exit 0;
@@ -25,8 +25,7 @@ fi
 echo Downloading Sparkle
 
 test ! -e "$SPARKLEZIP" || rm -rf "$SPARKLEZIP"
-curl http://sparkle.andymatuschak.org/files/Sparkle%201.5b6.zip -o "$SPARKLEZIP" || exit 1
-unzip -o "$SPARKLEZIP" 'Sparkle.framework/*' -d "$TARGET_TEMP_DIR/" || exit 1
-rm -rf "$SPARKLETMP/Versions/A/Resources/fr_CA.lproj"
+curl https://github.com/sparkle-project/Sparkle/releases/download/1.7.0/Sparkle-1.7.0.tar.bz2 -o "$SPARKLEZIP" || exit 1
+tar xjvf "$SPARKLEZIP" --strip-components 1 --include '*/Sparkle.framework' -C "$TARGET_TEMP_DIR/" || exit 1
 
 cp -R "$SPARKLETMP" "$SPARKLE"

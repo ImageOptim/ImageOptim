@@ -11,7 +11,7 @@ pngout:
 	mv pngout-20130221-darwin/pngout pngout
 
 clean:
-	-rm -rf $(SPARKLE) pngout /tmp/sparkle.zip
+	-rm -rf $(SPARKLE) pngout /tmp/sparkle.zip /tmp/sparkle.tar.bz2
 
 install:
 
