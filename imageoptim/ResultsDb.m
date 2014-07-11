@@ -16,7 +16,7 @@ typedef BOOL (^rowcallback)(int numColumns, char **values, char **columnNames);
         NSURL *cachesPath = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
         cachesPath = [cachesPath URLByAppendingPathComponent:@"ImageOptimResults.db"];
         IODebug(@"Results cache is in %@", cachesPath.path);
-        if (SQLITE_OK != sqlite3_open([cachesPath fileSystemRepresentation], &db)) {
+        if (SQLITE_OK != sqlite3_open([cachesPath.path fileSystemRepresentation], &db)) {
             IOWarn(@"Failed to open db: %s", sqlite3_errmsg(db));
             sqlite3_close(db);
             db = NULL;
