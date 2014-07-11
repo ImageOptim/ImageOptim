@@ -13,9 +13,10 @@
     <li>Added cache of already-optimized files. In some cases ImageOptim will be able to quickly skip files it knows it can't optimize any further</li>
 </ul>
 ]]></description>
-<pubDate>Fri, 11 Jul 2014 01:24:06 +0100</pubDate>
-<enclosure url="https://imageoptim.com/ImageOptim1.5.4.tar.bz2" sparkle:version="1.5.4" length="1511750" type="application/bzip2" sparkle:dsaSignature="MCwCFCRmJlcoHpq/Aky3ry6T79+E8dmxAhQk1SL0uFLOldUF88iQAfbMEgxCgQ=="/>
-<sparkle:minimumSystemVersion>10.8.5</sparkle:minimumSystemVersion>
+<pubDate>Sat, 12 Jul 2014 00:46:44 +0100</pubDate>
+<enclosure url="https://imageoptim.com/ImageOptim1.5.4.tar.bz2" sparkle:version="1.5.4.1" length="1511591" type="application/bzip2" sparkle:dsaSignature="MCwCFGn8CiKEr45QX0QCk7fWfGdw2CUZAhQ6nk6vYxHxUZ5wRyxPbfUny1vBxQ=="/>
+<sparkle:minimumSystemVersion>10.6.8</sparkle:minimumSystemVersion>
+
 
 
 
