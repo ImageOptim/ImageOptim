@@ -2,30 +2,21 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
 <channel>
 <title>ImageOptim</title>
-<link>http://imageoptim.com/appcast.xml</link>
+<link>https://imageoptim.com/appcast.xml</link>
 <description>ImageOptim updates</description>
 <language>en</language>
-
 <item>
-<title>Version 1.5.3</title>
+<title>Version 1.5.4</title>
 <description><![CDATA[
 <ul>
-<li>Fixed compatibility with older Mac OS X</li>
-<li>Fixed PNGOUT integration</li>
-</ul>
-<p>Recently:</p>
-<ul>
-<li>Better compression on the first try due to improved management of temporary files and optimization parallelizm</li>
-<li><a href="https://github.com/pornel/Sparkle">Updated autoupdater</a></li>
-<li>Improved <samp>Reveal in Finder</samp></li>
-<li>Fixed handling of relative paths when launched from CLI</li>
-<li>Switched to newer <abbr>API</abbr>s for path &amp; file handling and simplified code for handling parallel queues</li>
-<li>Copy as Data URL (copies small image files as data:image/… URLs for inlining in CSS/HTML)</li>
+    <li>Added <samp>Revert to Original</samp> option (restores unoptimized file)</li>
+    <li>Added cache of already-optimized files. In some cases ImageOptim will be able to quickly skip files it knows it can't optimize any further</li>
 </ul>
 ]]></description>
-<pubDate>Mon, 10 Feb 2014 22:31:41 +0000</pubDate>
-<enclosure url="http://imageoptim.com/ImageOptim1.5.3.tar.bz2" sparkle:version="1.5.3" length="1765616" type="application/bzip2" sparkle:dsaSignature="MCwCFDpkK48hejeK5cZevEHQLgjZiXnNAhRXnKxJYBxMwRh+N6q8bKDINwGWlw=="/>
-<sparkle:minimumSystemVersion>10.6.8</sparkle:minimumSystemVersion>
+<pubDate>Fri, 11 Jul 2014 01:24:06 +0100</pubDate>
+<enclosure url="https://imageoptim.com/ImageOptim1.5.4.tar.bz2" sparkle:version="1.5.4" length="1511750" type="application/bzip2" sparkle:dsaSignature="MCwCFCRmJlcoHpq/Aky3ry6T79+E8dmxAhQk1SL0uFLOldUF88iQAfbMEgxCgQ=="/>
+<sparkle:minimumSystemVersion>10.8.5</sparkle:minimumSystemVersion>
+
 
 
 
