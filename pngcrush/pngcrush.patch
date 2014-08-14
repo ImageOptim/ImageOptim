@@ -1,5 +1,5 @@
 diff --git a/pngcrush.c b/pngcrush.c
-index 5a9db57..bc0add3 100644
+index ea688b9..1cbdaed 100644
 --- a/pngcrush.c
 +++ b/pngcrush.c
 @@ -1699,7 +1699,6 @@ static int overwrite = 0; /* overwrite the input file instead of creating
@@ -18,6 +18,22 @@ index 5a9db57..bc0add3 100644
  }
  
  
+@@ -2656,6 +2655,7 @@ void pngcrush_examine_pixels_fn(png_structp png_ptr, png_row_infop
+       if ((row_info->color_type == 2 || row_info->color_type == 6) &&
+           make_gray == 1) /* RGB */
+       {
++        make_gray = 2;
+         if (row_info->bit_depth == 8)
+           {
+             int incr=3;
+@@ -2741,6 +2741,7 @@ void pngcrush_examine_pixels_fn(png_structp png_ptr, png_row_infop
+                make_opaque == 1))
+       {
+         i=(int) row_info->rowbytes-1;
++        make_gray = 2;
+
+         if (row_info->bit_depth == 8)
+           {
 @@ -7190,7 +7191,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
          png_reset_crc(png_ptr);
          png_crc_read(png_ptr, chunk_name, 4);

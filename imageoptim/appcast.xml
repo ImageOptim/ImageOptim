@@ -6,6 +6,16 @@
 <description>ImageOptim updates</description>
 <language>en</language>
 <item>
+<title>Version 1.5.4-yosemite</title>
+<description><![CDATA[
+<p>A special beta version only for OS X Yosemite (now with gratuitous translucency!)</p>
+]]></description>
+<pubDate>Wed, 13 Aug 2014 23:30:35 +0000</pubDate>
+<enclosure url="https://imageoptim.com/ImageOptim1.5.4-yosemite.tar.bz2" sparkle:version="1.5.4.2" length="1591674" type="application/bzip2" sparkle:dsaSignature="MCwCFCdjtB9rJx3k49aViVW5Uzol83kKAhRd+IWXYEzdTnNGBgVCiG63polMWQ=="/>
+<sparkle:minimumSystemVersion>10.10</sparkle:minimumSystemVersion>
+
+</item>
+<item>
 <title>Version 1.5.4</title>
 <description><![CDATA[
 <ul>
@@ -16,11 +26,6 @@
 <pubDate>Sat, 12 Jul 2014 00:46:44 +0100</pubDate>
 <enclosure url="https://imageoptim.com/ImageOptim1.5.4.tar.bz2" sparkle:version="1.5.4.1" length="1511591" type="application/bzip2" sparkle:dsaSignature="MCwCFGn8CiKEr45QX0QCk7fWfGdw2CUZAhQ6nk6vYxHxUZ5wRyxPbfUny1vBxQ=="/>
 <sparkle:minimumSystemVersion>10.6.8</sparkle:minimumSystemVersion>
-
-
-
-
-
 </item>
 </channel>
 </rss>

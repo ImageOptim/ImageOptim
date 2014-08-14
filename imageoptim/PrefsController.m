@@ -21,6 +21,11 @@
     return self;
 }
 
+- (void)windowDidLoad {
+    [super windowDidLoad];
+    self.window.titleVisibility = NSWindowTitleHidden;
+}
+
 -(IBAction)showHelp:(id)sender {
     NSInteger tag = [sender tag];
 

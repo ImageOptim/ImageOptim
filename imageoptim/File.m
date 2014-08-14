@@ -232,21 +232,8 @@
         return YES;
     }
 
-    IOWarn("Recovering trashing error %@", *err);
-
-    FSRef ref;
-    if (0 != FSPathMakeRefWithOptions((const UInt8 *)[path.path fileSystemRepresentation],
-                                      kFSPathMakeRefDoNotFollowLeafSymlink,
-                                      &ref, NULL)) {
-        return NO;
-    }
-
-    if (0 != FSMoveObjectToTrashSync(&ref, NULL, kFSFileOperationDefaultOptions)) {
-        return NO;
-    }
-
     if (returning) *returning = nil;
-    return YES;
+    return NO;
 }
 
 -(BOOL)canRevert {

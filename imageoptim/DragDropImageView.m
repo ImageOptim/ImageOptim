@@ -13,20 +13,24 @@
 
 - (void)awakeFromNib {
     [self registerForDraggedTypes:@[NSFilenamesPboardType]];
-    [self setAlphaValue:1.0];
+//    [self setAlphaValue:1.0];
 }
-
--(void)setHidden:(BOOL)flag {
-    if (!flag) [super setHidden:NO];
-    [self.animator setAlphaValue:flag?0:1];
+//
+- (BOOL)allowsVibrancy {
+    return YES;
 }
-
--(BOOL)isHidden {
-    return [super isHidden] || self.alphaValue < 1.0f;
-}
+//
+//-(void)setHidden:(BOOL)flag {
+//    if (!flag) [super setHidden:NO];
+//    [self.animator setAlphaValue:flag?0:1];
+//}
+//
+//-(BOOL)isHidden {
+//    return [super isHidden] || self.alphaValue < 1.0f;
+//}
 
 -(NSView *)hitTest:(NSPoint)aPoint {
-    if ([self isHidden]) return nil; // just to make sure that hacked hidden property doesn't screw it up
+    if ([self.superview isHidden]) return nil; // just to make sure that hacked hidden property doesn't screw it up
     return [super hitTest:aPoint];
 }
 
@@ -52,8 +56,8 @@
 }
 
 -(void)drawRect:(NSRect)rect {
-    [[NSColor windowBackgroundColor] setFill];
-    NSRectFill(rect);
+    //[[NSColor windowBackgroundColor] setFill];
+    //NSRectFill(rect);
 
     NSColor *gray = [NSColor colorWithDeviceWhite:0 alpha:highlight ? 1.0/4.0 : 1.0/8.0];
     [gray set];

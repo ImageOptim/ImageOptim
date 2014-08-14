@@ -104,6 +104,12 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return dragOp;
 }
 
+- (CGFloat)tableView:(NSTableView *)tableView
+         heightOfRow:(NSInteger)row {
+    
+    return 18;
+}
+
 - (BOOL)tableView:(NSTableView *)aTableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
     if (!isEnabled) return NO;
 

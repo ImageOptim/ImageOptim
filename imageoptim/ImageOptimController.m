@@ -176,8 +176,12 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
     [self loadCreditsHTML];
 
     [self initStatusbar];
+        window.titleVisibility = NSWindowTitleHidden;
 }
 
+-(void)windowDidLoad {
+    window.titleVisibility = NSWindowTitleHidden;
+}
 
 -(void)loadCreditsHTML {
 
@@ -260,7 +264,6 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
 - (IBAction)clearComplete:(id)sender {
     [filesController clearComplete];
 }
-
 
 - (IBAction)showPrefs:(id)sender {
     if (!prefsController) {

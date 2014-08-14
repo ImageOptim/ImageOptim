@@ -42,7 +42,7 @@ typedef BOOL (^rowcallback)(int numColumns, char **values, char **columnNames);
             sqlite3_close(dbtmp);
         });
     }
-    dispatch_release(sqlitequeue);
+    //dispatch_release(sqlitequeue);
 }
 
 -(void)setUnoptimizableFileHash:(uint32_t[static 4])hash size:(NSUInteger)byteSizeOnDisk {

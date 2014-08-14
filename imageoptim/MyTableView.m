@@ -232,6 +232,7 @@
 
 }
 
+
 -(void) quickLook {
     if ([QLPreviewPanel sharedPreviewPanelExists] && [[QLPreviewPanel sharedPreviewPanel] isVisible]) {
         [[QLPreviewPanel sharedPreviewPanel] orderOut:nil];

@@ -23,6 +23,8 @@ extern NSDictionary *statusImages;
 
     dispatch_source_t statusBarUpdateQueue;
     IBOutlet NSNumberFormatter *savingsFormatter;
+    
+    IBOutlet NSWindow *window;
 }
 
 - (IBAction)showPrefs:(id)sender;
