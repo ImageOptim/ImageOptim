@@ -26,6 +26,7 @@
 		1ACFBA171799E9CC006D93B2 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFBA191799E9CC006D93B2 /* Credits.html */; };
 		1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */; };
 		1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */; };
+		1D2448F119968ADC00110941 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D2448F019968ADC00110941 /* Images.xcassets */; };
 		5A08FDB01933D635001DA24B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A08FDAF1933D635001DA24B /* libsqlite3.dylib */; };
 		5A08FE921936982E001DA24B /* ResultsDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08FE911936982E001DA24B /* ResultsDb.m */; };
 		5A0A24F117492D39003264CC /* ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A24EF17492D39003264CC /* ok@2x.png */; };
@@ -35,7 +36,6 @@
 		5A0A24FD17495224003264CC /* err@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A24FC17495224003264CC /* err@2x.png */; };
 		5A0D2E570C922AB700FD7CDE /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E560C922AB700FD7CDE /* File.m */; };
 		5A0D2E5D0C922D6D00FD7CDE /* ImageOptimController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E5C0C922D6D00FD7CDE /* ImageOptimController.m */; };
-		5A16343E140BF97400758D99 /* ImageOptim.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */; };
 		5A1D3E8C14366933004EE809 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D3E8B14366933004EE809 /* style.css */; };
 		5A2ACD141790935C004992B7 /* ZopfliWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD131790935C004992B7 /* ZopfliWorker.m */; };
 		5A2ACD24179098EA004992B7 /* zopflipng in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A1EBED317908F8200361F08 /* zopflipng */; };
@@ -329,6 +329,7 @@
 		1B5210E516BFA7CA0044C869 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		1B5210E616BFA7CA0044C869 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/MainMenu.xib"; sourceTree = "<group>"; };
 		1B5210E716BFA7CA0044C869 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/PrefsController.xib"; sourceTree = "<group>"; };
+		1D2448F019968ADC00110941 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ImageOptim/Images.xcassets; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5A012EBD17A89234002E794E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = cs; path = cs.lproj/Credits.html; sourceTree = "<group>"; };
 		5A012ECC17A89238002E794E /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = tr; path = tr.lproj/Credits.html; sourceTree = "<group>"; };
@@ -451,7 +452,6 @@
 		5AACA13D0CAF241B004D45CA /* Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Worker.h; sourceTree = "<group>"; };
 		5AACA13E0CAF241B004D45CA /* Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Worker.m; sourceTree = "<group>"; };
 		5AACA7BA0CAFD0D2004D45CA /* MyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableView.h; sourceTree = "<group>"; };
-		5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ImageOptim.icns; sourceTree = "<group>"; };
 		5AACA82F0CAFE74E004D45CA /* Transformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformers.h; sourceTree = "<group>"; };
 		5AACA8300CAFE74E004D45CA /* Transformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transformers.m; sourceTree = "<group>"; };
 		5ABF610813E37AFC009F6F22 /* da */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = da; path = da.lproj/PrefsController.xib; sourceTree = "<group>"; };
@@ -594,6 +594,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1D2448F019968ADC00110941 /* Images.xcassets */,
 				5A95FEBE0CB8041A00737B79 /* Help */,
 				5AF71642174AF7C30018D3FE /* pngout */,
 				1ACFBA191799E9CC006D93B2 /* Credits.html */,
@@ -601,7 +602,6 @@
 				5AC63C490E9ABF0A0053B879 /* dsa_pub.pem */,
 				5A9EE4490CB59CDC00F08CC5 /* err.png */,
 				5A0A24FC17495224003264CC /* err@2x.png */,
-				5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				5A94A03A10275E11005CC9CB /* Localizable.strings */,
 				5A45530A1024EB1100A69944 /* MainMenu.xib */,
@@ -1006,7 +1006,6 @@
 				5A7D24E613E5BC3100815AAA /* err.png in Resources */,
 				5A0A24FD17495224003264CC /* err@2x.png in Resources */,
 				5A7D24E513E5BC3100815AAA /* Help in Resources */,
-				5A16343E140BF97400758D99 /* ImageOptim.icns in Resources */,
 				1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */,
 				5A8594E81460BCF20044095A /* jpegrescan in Resources */,
 				5A7D24E713E5BC3100815AAA /* Localizable.strings in Resources */,
@@ -1015,6 +1014,7 @@
 				5A0A24F617494254003264CC /* noopt@2x.png in Resources */,
 				5A7D24E913E5BC3100815AAA /* ok.png in Resources */,
 				5A0A24F117492D39003264CC /* ok@2x.png in Resources */,
+				1D2448F119968ADC00110941 /* Images.xcassets in Resources */,
 				5A7D24E213E5BC3100815AAA /* PrefsController.xib in Resources */,
 				5A7D24EA13E5BC3100815AAA /* progress.png in Resources */,
 				5A0A24F817494254003264CC /* progress@2x.png in Resources */,
@@ -1339,6 +1339,7 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1355,6 +1356,7 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
