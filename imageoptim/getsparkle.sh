@@ -25,7 +25,7 @@ fi
 echo Downloading Sparkle
 
 test ! -e "$SPARKLEZIP" || rm -rf "$SPARKLEZIP"
-curl https://github.com/sparkle-project/Sparkle/releases/download/1.7.0/Sparkle-1.7.0.tar.bz2 -o "$SPARKLEZIP" || exit 1
+curl -L https://github.com/sparkle-project/Sparkle/releases/download/1.7.0/Sparkle-1.7.0.tar.bz2 -o "$SPARKLEZIP" || exit 1
 tar xjvf "$SPARKLEZIP" --strip-components 1 --include '*/Sparkle.framework' -C "$TARGET_TEMP_DIR/" || exit 1
 
 cp -R "$SPARKLETMP" "$SPARKLE"
