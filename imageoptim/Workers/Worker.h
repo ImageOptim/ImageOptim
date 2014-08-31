@@ -19,7 +19,7 @@
 // nextOperation will make given operation high priority after this one finishes,
 // which can be used to cause domino effect and process operations in order for each file
 // as long as there are more queued operations than processing threads.
-@property (atomic,strong) NSOperation *nextOperation;
+@property (atomic, strong) NSOperation *nextOperation;
 @property (atomic, strong) File *file;
 
 -(instancetype)initWithFile:(File *)aFile;

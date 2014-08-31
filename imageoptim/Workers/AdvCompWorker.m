@@ -31,9 +31,12 @@
         IOWarn("Can't make temp copy of %@ in %@; %@",file.filePathOptimized.path,temp.path,error);
         return NO;
     }
-
-    if (![self taskForKey:@"AdvPng" bundleName:@"advpng"
-            arguments:@[[NSString stringWithFormat:@"-%d",(int)(level ? level : 4)],@"-z",@"--",temp.path]]) {
+  
+    NSMutableArray* args = [NSMutableArray arrayWithObjects:
+                            [NSString stringWithFormat:@"-%d",(int)(level ? level : 4)],
+                            @"-z", @"--", temp.path, nil];
+  
+    if (![self sandBoxedTaskForKey:@"AdvPng" bundleName:@"advpng" arguments:args]) {
         return NO;
     }
 
