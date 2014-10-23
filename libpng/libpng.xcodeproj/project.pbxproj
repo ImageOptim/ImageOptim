@@ -305,7 +305,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0610;
 			};
 			buildConfigurationList = 1DEB914E08733D8E0010E9CD /* Build configuration list for PBXProject "libpng" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -475,7 +475,6 @@
 		5A984A4F11237C80007622D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				PRODUCT_NAME = download;
 				SDKROOT = macosx;
@@ -485,7 +484,6 @@
 		5A984A5011237C80007622D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				PRODUCT_NAME = download;
 				SDKROOT = macosx;
@@ -495,7 +493,6 @@
 		5A984A6011237CC3007622D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_DYNAMIC_NO_PIC = NO;
 				PRODUCT_NAME = "download-zlib";
 				SDKROOT = macosx;
@@ -505,7 +502,6 @@
 		5A984A6111237CC3007622D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				PRODUCT_NAME = "download-zlib";
 				SDKROOT = macosx;
