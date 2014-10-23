@@ -76,12 +76,14 @@
 }
 
 -(NSURL*)filePathOptimized {
-    NSURL *path = filePathOptimized;
-    if (path) {
-        [filePathsOptimizedInUse addObject:path];
-        return path;
+    @synchronized(self) {
+        NSURL *path = filePathOptimized;
+        if (path) {
+            [filePathsOptimizedInUse addObject:path];
+            return path;
+        }
+        return filePath;
     }
-    return filePath;
 }
 
 - (id)copyWithZone:(NSZone *)zone {
