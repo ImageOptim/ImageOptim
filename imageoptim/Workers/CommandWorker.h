@@ -16,16 +16,20 @@
 -(BOOL)parseLine:(NSString *)line;
 -(void)parseLinesFromHandle:(NSFileHandle *)commandHandle;
 
+// initialises field task with path and arguments
 -(void)taskWithPath:(NSString*)path arguments:(NSArray *)arguments;
-
 
 -(long)readNumberAfter:(NSString *)str inLine:(NSString *)line;
 
 -(void)launchTask;
 
+// gets the path of the executable
 -(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName;
 
--(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args;
+-(NSString *)sandBoxDefinitionForBinary:(NSString *) executablePath;
+
+// initialises field task with a sandboxed executable.
+-(BOOL)sandBoxedTaskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSMutableArray *)args;
 
 -(BOOL)runWithTempPath:(NSURL*)tempPath;
 @end

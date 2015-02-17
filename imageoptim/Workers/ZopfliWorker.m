@@ -48,7 +48,7 @@
 
     [args insertObject:[NSString stringWithFormat:@"--timelimit=%lu", timelimit] atIndex:0];
 
-    if (![self taskForKey:@"Zopfli" bundleName:@"zopflipng" arguments:args]) {
+    if (![self sandBoxedTaskForKey:@"Zopfli" bundleName:@"zopflipng" arguments:args]) {
         return NO;
     }
 
