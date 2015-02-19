@@ -4,3 +4,6 @@
 
 To get started, open `imageoptim/ImageOptim.xcodeproj`. It will automatically download and build all subprojects when run.
 
+## Sponsored by
+
+[PSW GROUP](https://www.psw-group.de/)
