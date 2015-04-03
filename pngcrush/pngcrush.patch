@@ -1,17 +1,49 @@
 diff --git a/pngcrush.c b/pngcrush.c
-index dcc532c..98946e0 100644
+index 21b6e3b..08e882e 100644
 --- a/pngcrush.c
 +++ b/pngcrush.c
-@@ -1802,7 +1802,6 @@ static int overwrite = 0; /* overwrite the input file instead of creating
-                            a new output file */
+@@ -2255,7 +2255,6 @@ static int overwrite = 0; /* 1: overwrite the input file instead of
+                                 creating a new output file */
  static int nofilecheck = 0;
  static int no_limits = 0;
 -static int new_mng = 0;
  static png_bytep row_buf;
  #ifdef PNGCRUSH_MULTIPLE_ROWS
  static png_bytepp row_pointers;
-@@ -7507,7 +7506,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
-               printf("Reading %c%c%c%c chunk.\n",
+@@ -2805,7 +2804,6 @@ void pngcrush_pause(void)
+         char keystroke;
+         fprintf(STDERR, "Press [ENTER] key to continue.\n");
+         keystroke = (char) getc(stdin);
+-        keystroke = keystroke;  /* stifle compiler warning */
+     }
+ }
+ 
+@@ -3194,7 +3192,6 @@ void pngcrush_write_png(png_structp write_pointer, png_bytep data,
+ static void pngcrush_flush(png_structp png_ptr)
+ {
+    /* Do nothing. */
+-   PNGCRUSH_UNUSED(png_ptr)
+ }
+ 
+ 
+@@ -3247,6 +3244,7 @@ void pngcrush_examine_pixels_fn(png_structp png_ptr, png_row_infop
+       if ((row_info->color_type == 2 || row_info->color_type == 6) &&
+           make_gray == 1) /* RGB */
+       {
++        make_gray = 2;
+         if (row_info->bit_depth == 8)
+           {
+             int incr=3;
+@@ -3332,6 +3330,7 @@ void pngcrush_examine_pixels_fn(png_structp png_ptr, png_row_infop
+                make_opaque == 1))
+       {
+         i = (int) row_info->rowbytes-1;
++        make_gray = 2;
+ 
+         if (row_info->bit_depth == 8)
+           {
+@@ -8281,7 +8280,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
+               printf("   Reading %c%c%c%c chunk.\n",
                    chunk_name[0],chunk_name[1],chunk_name[2],chunk_name[3]);
  
 -        if (new_mng)
@@ -19,7 +51,7 @@ index dcc532c..98946e0 100644
          {
            const png_byte png_DHDR[5] = {  68, 72, 68, 82, '\0' };
            const png_byte png_DEFI[5] = {  68, 69, 70, 73, '\0' };
-@@ -7817,7 +7816,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
+@@ -8591,7 +8590,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
                  { 77, 69, 78, 68, '\0' };
              if (!png_memcmp(chunk_name, png_MEND, 4))
              {
@@ -28,10 +60,10 @@ index dcc532c..98946e0 100644
                  {
                      png_free(mng_ptr,bb);
                      return (0);
-@@ -7889,6 +7888,7 @@ void print_version_info(void)
+@@ -8669,6 +8668,7 @@ void print_version_info(void)
         * immediately after this sentence: */
-       " |    Copyright (C) 1998-2002, 2006-2015 Glenn Randers-Pehrson\n"
-       " |    Portions copyright (C) 2005       Greg Roelofs\n"
+       " |    Copyright (C) 1998-2002, 2006-2016 Glenn Randers-Pehrson\n"
+       " |    Portions Copyright (C) 2005 Greg Roelofs\n"
 +      " | Modified version for ImageOptim.\n"
        " | This is a free, open-source program.  Permission is irrevocably\n"
        " | granted to everyone to use this version of pngcrush without\n"
