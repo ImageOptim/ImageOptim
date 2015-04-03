@@ -1,15 +1,21 @@
 VERSION=1.7.85
+ARCHIVE=/tmp/pngcrush-$(VERSION).tar.gz
 
 .PHONY: all
 
-all: pngcrush.c
+all: patched
 
-pngcrush.c: pngcrush.patch
-	curl -L http://downloads.sourceforge.net/project/pmt/pngcrush/$(VERSION)/pngcrush-$(VERSION).tar.gz | tar xz --strip-components=1 --exclude=Makefile
+$(ARCHIVE):
+	curl -L -o $(ARCHIVE) http://downloads.sourceforge.net/project/pmt/pngcrush/$(VERSION)/pngcrush-$(VERSION).tar.gz
+
+pngcrush.c: pngcrush.patch $(ARCHIVE)
+	tar xzf $(ARCHIVE) --strip-components=1 --exclude=Makefile
 	-rm png.h pngconf.h 2>/dev/null
-	patch -p1 < pngcrush.patch
+
+patched: pngcrush.c
+	patch -p1 < pngcrush.patch && touch patched
 
 clean:
-	-rm *.c *.h 2>/dev/null
+	-rm *.c *.h $(ARCHIVE) patched
 
 install:
