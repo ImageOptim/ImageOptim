@@ -1,8 +1,8 @@
 diff --git a/pngcrush.c b/pngcrush.c
-index 5a9db57..bc0add3 100644
+index dcc532c..98946e0 100644
 --- a/pngcrush.c
 +++ b/pngcrush.c
-@@ -1699,7 +1699,6 @@ static int overwrite = 0; /* overwrite the input file instead of creating
+@@ -1802,7 +1802,6 @@ static int overwrite = 0; /* overwrite the input file instead of creating
                             a new output file */
  static int nofilecheck = 0;
  static int no_limits = 0;
@@ -10,33 +10,16 @@ index 5a9db57..bc0add3 100644
  static png_bytep row_buf;
  #ifdef PNGCRUSH_MULTIPLE_ROWS
  static png_bytepp row_pointers;
-@@ -2627,7 +2626,6 @@ void pngcrush_write_png(png_structp write_pointer, png_bytep data,
- static void pngcrush_flush(png_structp png_ptr)
- {
-    /* Do nothing. */
--   PNGCRUSH_UNUSED(png_ptr)
- }
- 
- 
-@@ -7190,7 +7191,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
-         png_reset_crc(png_ptr);
-         png_crc_read(png_ptr, chunk_name, 4);
+@@ -7507,7 +7506,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
+               printf("Reading %c%c%c%c chunk.\n",
+                   chunk_name[0],chunk_name[1],chunk_name[2],chunk_name[3]);
  
 -        if (new_mng)
 +        if (0)
          {
            const png_byte png_DHDR[5] = {  68, 72, 68, 82, '\0' };
            const png_byte png_DEFI[5] = {  68, 69, 70, 73, '\0' };
-@@ -7357,7 +7357,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
-         }
- 
- #ifdef PNG_UINT_acTL
--        else if (png_get_uint_32(chunk_name) == PNG_UINT_acTL)
-+         if (png_get_uint_32(chunk_name) == PNG_UINT_acTL)
- #else
-         else if (!png_memcmp(chunk_name, png_acTL, 4))
- #endif
-@@ -7566,7 +7566,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
+@@ -7817,7 +7816,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
                  { 77, 69, 78, 68, '\0' };
              if (!png_memcmp(chunk_name, png_MEND, 4))
              {
@@ -45,9 +28,9 @@ index 5a9db57..bc0add3 100644
                  {
                      png_free(mng_ptr,bb);
                      return (0);
-@@ -7638,6 +7638,7 @@ void print_version_info(void)
+@@ -7889,6 +7888,7 @@ void print_version_info(void)
         * immediately after this sentence: */
-       " |    Copyright (C) 1998-2002, 2006-2013 Glenn Randers-Pehrson\n"
+       " |    Copyright (C) 1998-2002, 2006-2015 Glenn Randers-Pehrson\n"
        " |    Portions copyright (C) 2005       Greg Roelofs\n"
 +      " | Modified version for ImageOptim.\n"
        " | This is a free, open-source program.  Permission is irrevocably\n"
