@@ -36,6 +36,7 @@
 		5A0D2E570C922AB700FD7CDE /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E560C922AB700FD7CDE /* File.m */; };
 		5A0D2E5D0C922D6D00FD7CDE /* ImageOptimController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E5C0C922D6D00FD7CDE /* ImageOptimController.m */; };
 		5A16343E140BF97400758D99 /* ImageOptim.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */; };
+		5A2E55881A7C386900985295 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E55861A7C386900985295 /* InfoPlist.strings */; };
 		5A1D3E8C14366933004EE809 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D3E8B14366933004EE809 /* style.css */; };
 		5A2ACD141790935C004992B7 /* ZopfliWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD131790935C004992B7 /* ZopfliWorker.m */; };
 		5A2ACD24179098EA004992B7 /* zopflipng in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A1EBED317908F8200361F08 /* zopflipng */; };
@@ -363,6 +364,7 @@
 		5A27B9C2139B079A0095FC2F /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
 		5A2ACD121790935C004992B7 /* ZopfliWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZopfliWorker.h; sourceTree = "<group>"; };
 		5A2ACD131790935C004992B7 /* ZopfliWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZopfliWorker.m; sourceTree = "<group>"; };
+		5A2E55871A7C386900985295 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A2F276419662DB200A57188 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A34A632140EEDB900DE44D2 /* DragDropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragDropImageView.h; sourceTree = "<group>"; };
 		5A34A633140EEDB900DE44D2 /* DragDropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropImageView.m; sourceTree = "<group>"; };
@@ -603,6 +605,7 @@
 				5A0A24FC17495224003264CC /* err@2x.png */,
 				5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */,
 				8D1107310486CEB800E47090 /* Info.plist */,
+				5A2E55861A7C386900985295 /* InfoPlist.strings */,
 				5A94A03A10275E11005CC9CB /* Localizable.strings */,
 				5A45530A1024EB1100A69944 /* MainMenu.xib */,
 				5A9EE44A0CB59CDC00F08CC5 /* noopt.png */,
@@ -1009,6 +1012,7 @@
 				5A16343E140BF97400758D99 /* ImageOptim.icns in Resources */,
 				1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */,
 				5A8594E81460BCF20044095A /* jpegrescan in Resources */,
+				5A2E55881A7C386900985295 /* InfoPlist.strings in Resources */,
 				5A7D24E713E5BC3100815AAA /* Localizable.strings in Resources */,
 				5A7D24E313E5BC3100815AAA /* MainMenu.xib in Resources */,
 				5A7D24E813E5BC3100815AAA /* noopt.png in Resources */,
@@ -1187,6 +1191,14 @@
 				5A012ECD17A89239002E794E /* vi */,
 			);
 			name = Credits.html;
+			sourceTree = "<group>";
+		};
+		5A2E55861A7C386900985295 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A2E55871A7C386900985295 /* ja */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		5A45530A1024EB1100A69944 /* MainMenu.xib */ = {

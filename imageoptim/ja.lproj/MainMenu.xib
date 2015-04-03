@@ -12,7 +12,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="ImageOptim" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" showsToolbarButton="NO" frameAutosaveName="MainWindow" animationBehavior="default" id="21">
+        <window title="イメージオプティム" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" showsToolbarButton="NO" frameAutosaveName="MainWindow" animationBehavior="default" id="21">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="759" y="745" width="549" height="297"/>
@@ -270,10 +270,10 @@
         </window>
         <menu title="メインメニュー" systemMenu="main" id="29">
             <items>
-                <menuItem title="ImageOptim" id="56">
-                    <menu key="submenu" title="ImageOptim" systemMenu="apple" id="57">
+                <menuItem title="イメージオプティム" id="56">
+                    <menu key="submenu" title="イメージオプティム" systemMenu="apple" id="57">
                         <items>
-                            <menuItem title="ImageOptim について" id="361">
+                            <menuItem title="イメージオプティムについて" id="361">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="makeKeyAndOrderFront:" target="526" id="531"/>
@@ -302,7 +302,7 @@
                             <menuItem isSeparatorItem="YES" id="144">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="ImageOptim を隠す" keyEquivalent="h" id="134">
+                            <menuItem title="イメージオプティムを隠す" keyEquivalent="h" id="134">
                                 <connections>
                                     <action selector="hide:" target="-2" id="152"/>
                                 </connections>
@@ -321,7 +321,7 @@
                             <menuItem isSeparatorItem="YES" id="149">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="ImageOptim を終了" keyEquivalent="q" id="136">
+                            <menuItem title="イメージオプティムを終了" keyEquivalent="q" id="136">
                                 <connections>
                                     <action selector="terminate:" target="-2" id="139"/>
                                 </connections>
@@ -590,12 +590,12 @@ CA
                 <menuItem title="ヘルプ" id="504">
                     <menu key="submenu" title="ヘルプ" id="505">
                         <items>
-                            <menuItem title="ImageOptim ヘルプ" id="506">
+                            <menuItem title="イメージオプティム ヘルプ" id="506">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="507"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="ImageOptim ウェブサイト" id="733">
+                            <menuItem title="イメージオプティム ウェブサイト" id="733">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="openHomepage:" target="-1" id="737"/>
@@ -643,7 +643,7 @@ CA
                 <string>statusImage</string>
             </declaredKeys>
         </arrayController>
-        <window title="ImageOptim について" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="526" customClass="NSPanel">
+        <window title="イメージオプティムについて" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="526" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="173" y="981" width="312" height="440"/>
