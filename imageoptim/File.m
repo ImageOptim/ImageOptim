@@ -176,8 +176,9 @@
 {
     NSDictionary *extAttrToRemove = @{ @"com.apple.FinderInfo"  : @1,
                                        @"com.apple.ResourceFork": @1,
-                                       @"com.apple.quarantine"  : @1
-                                      };
+                                       @"com.apple.quarantine"  : @1,
+                                       @"com.apple.metadata:kMDItemWhereFroms": @1,
+                                    };
 
     const char *fileSystemPath = [path.path fileSystemRepresentation];
 
