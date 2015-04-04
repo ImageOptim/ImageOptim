@@ -42,7 +42,7 @@
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
-                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" image="633E768F-1945-421E-829D-237C6D5F0E1C" id="463">
+                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" id="463">
                                                 <font key="font" metaFont="system"/>
                                             </imageCell>
                                             <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="statusOrder"/>
@@ -762,17 +762,6 @@ CA
         </menu>
     </objects>
     <resources>
-        <image name="633E768F-1945-421E-829D-237C6D5F0E1C" width="17" height="17">
-            <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGISJYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoKYHCBES
-GB5VJG51bGzUCQoLDA0ODxBWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NXTlNDb2xvcoACgAUSIMAA
-AIADWHsxNywgMTd90xMUChUWF1dOU1doaXRlXE5TQ29sb3JTcGFjZUQwIDAAEAOABNIZGhscWiRjbGFz
-c25hbWVYJGNsYXNzZXNXTlNDb2xvcqIbHVhOU09iamVjdNIZGh8gV05TSW1hZ2WiHx1fEA9OU0tleWVk
-QXJjaGl2ZXLRIyRUcm9vdIABAAgAEQAaACMALQAyADcAPgBEAE0AVABbAGgAcAByAHQAeQB7AIQAiwCT
-AKAApQCnAKkArgC5AMIAygDNANYA2wDjAOYA+AD7AQAAAAAAAAACAQAAAAAAAAAlAAAAAAAAAAAAAAAA
-AAABAg
-</mutableData>
-        </image>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSApplicationIcon" width="128" height="128"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
