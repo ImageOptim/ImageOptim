@@ -201,8 +201,8 @@
                         </tableHeaderView>
                         <accessibility description="List of files to optimize"/>
                     </scrollView>
-                    <textField horizontalHuggingPriority="100" verticalHuggingPriority="750" horizontalCompressionResistancePriority="550" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="294" userLabel="Status">
-                        <rect key="frame" x="43" y="12" width="378" height="14"/>
+                    <textField horizontalHuggingPriority="100" verticalHuggingPriority="750" horizontalCompressionResistancePriority="550" translatesAutoresizingMaskIntoConstraints="NO" id="294" userLabel="Status">
+                        <rect key="frame" x="43" y="12" width="379" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="onm-4h-DUk"/>
                         </constraints>
@@ -229,14 +229,14 @@
                             <outlet property="nextKeyView" destination="237" id="456"/>
                         </connections>
                     </button>
-                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="428" userLabel="Progress">
-                        <rect key="frame" x="426" y="11" width="16" height="16"/>
+                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="428" userLabel="Progress">
+                        <rect key="frame" x="427" y="11" width="16" height="16"/>
                         <connections>
                             <binding destination="251" name="animate" keyPath="isBusy" id="3oN-QV-rc9"/>
                         </connections>
                     </progressIndicator>
-                    <button horizontalHuggingPriority="300" verticalHuggingPriority="750" horizontalCompressionResistancePriority="850" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="586" userLabel="Again">
-                        <rect key="frame" x="450" y="6" width="91" height="25"/>
+                    <button horizontalHuggingPriority="300" verticalHuggingPriority="750" horizontalCompressionResistancePriority="850" translatesAutoresizingMaskIntoConstraints="NO" id="586" userLabel="Again">
+                        <rect key="frame" x="451" y="6" width="90" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="400" constant="90" id="6P8-XL-e9E"/>
                             <constraint firstAttribute="height" constant="22" id="f8J-J5-eqa"/>
@@ -683,13 +683,17 @@ CA
                 <rect key="frame" x="0.0" y="0.0" width="312" height="440"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView focusRingType="none" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="528">
+                    <imageView focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="528">
                         <rect key="frame" x="90" y="297" width="128" height="128"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="128" id="Qml-M5-3KZ"/>
+                            <constraint firstAttribute="width" constant="128" id="eYE-Qo-4I0"/>
+                        </constraints>
                         <imageCell key="cell" refusesFirstResponder="YES" focusRingType="none" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="636"/>
                     </imageView>
-                    <scrollView focusRingType="none" fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="529">
+                    <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="529">
                         <rect key="frame" x="11" y="0.0" width="301" height="280"/>
-                        <clipView key="contentView" misplaced="YES" drawsBackground="NO" copiesOnScroll="NO" id="Sjo-P6-Skp">
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Sjo-P6-Skp">
                             <rect key="frame" x="0.0" y="0.0" width="301" height="280"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -715,7 +719,7 @@ CA
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="645">
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="645">
                         <rect key="frame" x="216" y="298" width="87" height="14"/>
                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" title="version" id="646">
                             <font key="font" metaFont="smallSystem"/>
@@ -731,6 +735,17 @@ CA
                         </connections>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="529" firstAttribute="top" secondItem="528" secondAttribute="bottom" constant="17" id="1Qg-KG-01J"/>
+                    <constraint firstAttribute="trailing" secondItem="645" secondAttribute="trailing" constant="11" id="APB-Vj-6Ga"/>
+                    <constraint firstItem="645" firstAttribute="leading" secondItem="528" secondAttribute="trailing" id="PKF-2L-HUI"/>
+                    <constraint firstAttribute="trailing" secondItem="529" secondAttribute="trailing" id="PuF-I8-yng"/>
+                    <constraint firstItem="528" firstAttribute="top" secondItem="527" secondAttribute="top" constant="15" id="cTA-RX-uW8"/>
+                    <constraint firstAttribute="bottom" secondItem="529" secondAttribute="bottom" id="hzo-7m-XIO"/>
+                    <constraint firstItem="528" firstAttribute="bottom" secondItem="645" secondAttribute="bottom" constant="1" id="iEz-Ev-jT3"/>
+                    <constraint firstItem="529" firstAttribute="leading" secondItem="527" secondAttribute="leading" constant="11" id="lJJ-Ok-QtE"/>
+                    <constraint firstAttribute="centerX" secondItem="528" secondAttribute="centerX" constant="2" id="ppM-RP-tJr"/>
+                </constraints>
             </view>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="562"/>
