@@ -1,17 +1,16 @@
-SPARKLE=$(TARGET_BUILD_DIR)/Sparkle.framework
 HELPINDEXES=$(addsuffix Help.helpindex, $(wildcard *.lproj/Help/))
 
-all: $(SPARKLE) pngout helpindexes
+all: ../Sparkle pngout helpindexes
 
-$(SPARKLE):
-	./getsparkle.sh $(SPARKLE)
+../Sparkle:
+	git clone --depth=1 https://github.com/sparkle-project/Sparkle.git $@
 
 pngout:
 	curl http://static.jonof.id.au/dl/kenutils/pngout-20150319-darwin.tar.gz | tar xz
 	mv pngout-20150319-darwin/pngout pngout
 
 clean:
-	-rm -rf $(SPARKLE) pngout /tmp/sparkle.zip /tmp/sparkle.tar.bz2
+	-rm -rf pngout
 
 install:
 
