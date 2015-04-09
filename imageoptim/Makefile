@@ -7,8 +7,8 @@ $(SPARKLE):
 	./getsparkle.sh $(SPARKLE)
 
 pngout:
-	curl http://static.jonof.id.au/dl/kenutils/pngout-20130221-darwin.tar.gz | tar xz
-	mv pngout-20130221-darwin/pngout pngout
+	curl http://static.jonof.id.au/dl/kenutils/pngout-20150319-darwin.tar.gz | tar xz
+	mv pngout-20150319-darwin/pngout pngout
 
 clean:
 	-rm -rf $(SPARKLE) pngout /tmp/sparkle.zip /tmp/sparkle.tar.bz2
