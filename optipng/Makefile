@@ -10,6 +10,7 @@ patched: src/optipng.c
 	touch patched
 
 src/optipng.c: /tmp/$(OPTIPNG_FILENAME)
+	-rm -f patched
 	tar xzf /tmp/$(OPTIPNG_FILENAME) --strip-components=1 optipng-$(VERSION)/src optipng-$(VERSION)/lib/pngxtern
 
 /tmp/$(OPTIPNG_FILENAME):
@@ -19,4 +20,4 @@ clean:
 	- rm -rf ./patched ./src/ ./lib/
 
 install:
-	
+
