@@ -6,6 +6,7 @@
 
 #import "File.h"
 #import "ImageOptimController.h"
+#import "Workers/Save.h"
 #import "Workers/AdvCompWorker.h"
 #import "Workers/PngoutWorker.h"
 #import "Workers/OptiPngWorker.h"
@@ -240,7 +241,7 @@
 }
 
 -(BOOL)canRevert {
-    return revertPath && done;
+    return revertPath && done && !stopping;
 }
 
 -(BOOL)revert {
@@ -380,6 +381,10 @@
     return YES;
 }
 
+-(void)setNooptStatus {
+    [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
+}
+
 -(void)saveResultAndUpdateStatus {
     assert([self isBusy]);
     done = YES;
@@ -392,8 +397,10 @@
             [self setStatus:@"err" order:9 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
         }
     } else {
-        [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
-        [db setUnoptimizableFileHash:inputFileHash size:byteSizeOnDisk];
+        [self setNooptStatus];
+        if (!stopping) {
+            [db setUnoptimizableFileHash:inputFileHash size:byteSizeOnDisk];
+        }
     }
     [self cleanup];
 }
@@ -424,6 +431,7 @@
 
     @synchronized(self) {
         done = NO;
+        stopping = NO;
         optimized = NO;
         fileIOQueue = aFileIOQueue; // will be used for saving
         workers = [[NSMutableArray alloc] initWithCapacity:10];
@@ -558,12 +566,12 @@
     if ([db getResultWithHash:inputFileHash]) { // FIXME: check for lossy
         done = YES;
         NSLog(@"Skipping %@, because it has been optimized before", filePath.path);
-        [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
+        [self setNooptStatus];
         [self cleanup];
         return;
     }
 
-    NSOperation *saveOp = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(saveResultAndUpdateStatus) object:nil];
+    NSOperation *saveOp = [[Save alloc] initWithTarget:self selector:@selector(saveResultAndUpdateStatus) object:nil];
 
     Worker *previousWorker = nil;
     for (Worker *w in runFirst) {
@@ -609,6 +617,7 @@
 
 -(void)cleanup {
     @synchronized(self) {
+        stopping = NO;
         [workers makeObjectsPerformSelector:@selector(cancel)];
         [workers removeAllObjects];
         [self removeOldFilePathOptimized];
@@ -628,8 +637,25 @@
     return isit;
 }
 
+-(BOOL)stop {
+    if (![self isStoppable]) {
+        return NO;
+    }
+    @synchronized(self) {
+        if (!done) {
+            stopping = YES;
+            for(Worker *w in workers) {
+                if (![w isKindOfClass:[Save class]]) {
+                    [w cancel];
+                }
+            }
+        }
+    }
+    return YES;
+}
+
 -(BOOL)isStoppable {
-    return ![self isDone] && [self isBusy];
+    return stopping || (![self isDone] && [self isBusy]);
 }
 
 -(void)updateStatusOfWorker:(Worker *)currentWorker running:(BOOL)started {

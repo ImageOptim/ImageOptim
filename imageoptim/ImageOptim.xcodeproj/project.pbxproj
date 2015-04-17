@@ -80,6 +80,7 @@
 		5AACA1380CAF23FF004D45CA /* DirWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA1370CAF23FF004D45CA /* DirWorker.m */; };
 		5AACA13F0CAF241B004D45CA /* Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA13E0CAF241B004D45CA /* Worker.m */; };
 		5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA8300CAFE74E004D45CA /* Transformers.m */; };
+		5AB81F951AE1BE1300719AB7 /* Save.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB81F941AE1BE1300719AB7 /* Save.m */; };
 		5AE1C49A0CA6CDDC000CF636 /* FilesQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C4990CA6CDDC000CF636 /* FilesQueue.m */; };
 		5AE54DEF0CAEF56100903DF4 /* PngoutWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */; };
 		5AE54E210CAF16D800903DF4 /* AdvCompWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE54E200CAF16D800903DF4 /* AdvCompWorker.m */; };
@@ -498,6 +499,8 @@
 		5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ImageOptim.icns; sourceTree = "<group>"; };
 		5AACA82F0CAFE74E004D45CA /* Transformers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Transformers.h; sourceTree = "<group>"; };
 		5AACA8300CAFE74E004D45CA /* Transformers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Transformers.m; sourceTree = "<group>"; };
+		5AB81F931AE1BE1300719AB7 /* Save.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Save.h; sourceTree = "<group>"; };
+		5AB81F941AE1BE1300719AB7 /* Save.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Save.m; sourceTree = "<group>"; };
 		5ABF610813E37AFC009F6F22 /* da */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = da; path = da.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5ABF610913E37B07009F6F22 /* da */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = da; path = da.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5ABF611313E37B86009F6F22 /* da */ = {isa = PBXFileReference; lastKnownFileType = folder; name = da; path = da.lproj/Help; sourceTree = "<group>"; };
@@ -806,6 +809,8 @@
 				5AACA13E0CAF241B004D45CA /* Worker.m */,
 				5A2ACD121790935C004992B7 /* ZopfliWorker.h */,
 				5A2ACD131790935C004992B7 /* ZopfliWorker.m */,
+				5AB81F931AE1BE1300719AB7 /* Save.h */,
+				5AB81F941AE1BE1300719AB7 /* Save.m */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -1167,6 +1172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AB81F951AE1BE1300719AB7 /* Save.m in Sources */,
 				5AE54E210CAF16D800903DF4 /* AdvCompWorker.m in Sources */,
 				5A44F5840CB2ECEB00BD2884 /* CommandWorker.m in Sources */,
 				5AACA1380CAF23FF004D45CA /* DirWorker.m in Sources */,

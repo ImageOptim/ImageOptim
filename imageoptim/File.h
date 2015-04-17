@@ -47,7 +47,7 @@ enum IOFileType {
     uint32_t inputFileHash[4];
     
     enum IOFileType fileType;
-    BOOL done, optimized;
+    BOOL done, optimized, stopping;
 }
 
 -(BOOL)isBusy;
@@ -55,6 +55,7 @@ enum IOFileType {
 -(BOOL)isOptimized;
 -(BOOL)isDone;
 
+-(BOOL)stop;
 -(BOOL)revert;
 @property (readonly) BOOL canRevert;
 
