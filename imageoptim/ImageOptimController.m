@@ -148,6 +148,8 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
             }
         }
 
+        [filesController updateStoppableState];
+
         dispatch_async(dispatch_get_main_queue(), ^() {
             [statusBarLabel setStringValue:str];
             [statusBarLabel setSelectable:(str != defaultText)];
@@ -203,6 +205,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
 {
     if (context == kIMPreviewPanelContext) {
         [previewPanel reloadData];
+        [filesController updateStoppableState];
     } else {
         // Defer and coalesce statusbar updates
         dispatch_source_merge_data(statusBarUpdateQueue, 1);

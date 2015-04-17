@@ -51,6 +51,7 @@ enum IOFileType {
 }
 
 -(BOOL)isBusy;
+-(BOOL)isStoppable;
 -(BOOL)isOptimized;
 -(BOOL)isDone;
 

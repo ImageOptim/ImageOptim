@@ -12,7 +12,7 @@ extern NSString *const kFilesQueueFinished;
 
 @interface FilesQueue : NSArrayController <NSTableViewDelegate,NSTableViewDataSource> {
 	NSTableView *tableView;
-	BOOL isEnabled, isBusy;
+	BOOL isEnabled, isBusy, isStoppable;
 	NSInteger nextInsertRow;
 	NSOperationQueue *cpuQueue;
     NSOperationQueue *fileIOQueue;
@@ -46,9 +46,11 @@ extern NSString *const kFilesQueueFinished;
 -(void)cleanup;
 -(void)setRow:(NSInteger)row;
 
+-(void)updateStoppableState;
+
 @property (readonly, copy) NSArray *fileTypes;
 
 @property (unsafe_unretained, readonly, nonatomic) NSNumber *queueCount;
-@property (readonly) BOOL isBusy;
+@property (readonly) BOOL isBusy, isStoppable;
 
 @end

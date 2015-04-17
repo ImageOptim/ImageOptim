@@ -13,7 +13,6 @@ extern NSDictionary *statusImages;
 
 	PrefsController *prefsController;
 
-	IBOutlet NSProgressIndicator *progressBar;
     IBOutlet NSTextField *statusBarLabel;
     IBOutlet NSTextView *credits;
 

@@ -628,6 +628,10 @@
     return isit;
 }
 
+-(BOOL)isStoppable {
+    return ![self isDone] && [self isBusy];
+}
+
 -(void)updateStatusOfWorker:(Worker *)currentWorker running:(BOOL)started {
     NSOperation *running = nil;
 

@@ -14,6 +14,7 @@
 
 -(BOOL)isAnyQueueBusy;
 @property (readonly, copy) NSArray *extensions;
+@property (assign) BOOL isStoppable;
 -(void)updateBusyState;
 @end
 
@@ -22,7 +23,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 @implementation FilesQueue
 
-@synthesize isBusy;
+@synthesize isBusy, isStoppable;
 
 -(void)configureWithTableView:(NSTableView *)inTableView {
     tableView = inTableView;
@@ -410,6 +411,8 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         isBusy = currentlyBusy;
         [self didChangeValueForKey:@"isBusy"];
 
+        [self updateStoppableState];
+
         if (isBusy) {
             if ([queueWaitingLock tryLock]) { // if it's locked, there's thread waiting for finish
                 [queueWaitingLock unlock]; // can't lock/unlock across threads, so new lock will have to be made
@@ -421,6 +424,19 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     if (!currentlyBusy) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kFilesQueueFinished object:self];
     }
+}
+
+-(void)updateStoppableState {
+    if (isBusy) {
+        NSArray *array = [self selectedObjects];
+        for(File *f in array) {
+            if ([f isStoppable]) {
+                self.isStoppable = YES;
+                return;
+            }
+        }
+    }
+    self.isStoppable = NO;
 }
 
 #define PNG_ENABLED 1
