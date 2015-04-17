@@ -210,11 +210,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
 }
 
 -(void)observeNotification:(NSNotification *)notif {
-    if (filesController.isBusy) {
-        [progressBar startAnimation:self];
-    } else {
-        [progressBar stopAnimation:self];
-
+    if (!filesController.isBusy) {
         if (quitWhenDone) {
             [NSApp terminate:self];
         } else if ([[NSUserDefaults standardUserDefaults] boolForKey:@"BounceDock"]) {
