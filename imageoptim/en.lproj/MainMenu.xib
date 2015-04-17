@@ -247,8 +247,6 @@
                         <buttonCell key="cell" type="roundTextured" title="Again" alternateTitle="Run optimizations again" bezelStyle="texturedRounded" image="NSRefreshTemplate" imagePosition="left" alignment="center" borderStyle="border" inset="2" id="635">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
-                            <string key="keyEquivalent">r</string>
-                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                         </buttonCell>
                         <connections>
                             <action selector="startAgain:" target="230" id="592"/>
