@@ -25,6 +25,7 @@ extern NSDictionary *statusImages;
 }
 
 - (IBAction)showPrefs:(id)sender;
+- (IBAction)stop:(id)sender;
 - (IBAction)startAgain:(id)sender;
 - (IBAction)startAgainOptimized:(id)sender;
 - (IBAction)clearComplete:(id)sender;

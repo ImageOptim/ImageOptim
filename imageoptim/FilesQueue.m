@@ -321,6 +321,13 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return allOK;
 }
 
+-(void)stopSelected {
+    for(File *f in self.selectedObjects) {
+        [f stop];
+    }
+    [self updateStoppableState];
+}
+
 -(void)revert {
     BOOL beep = NO;
     NSArray *array = [self selectedObjects];

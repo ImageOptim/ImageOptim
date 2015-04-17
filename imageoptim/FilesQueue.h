@@ -46,6 +46,7 @@ extern NSString *const kFilesQueueFinished;
 -(void)cleanup;
 -(void)setRow:(NSInteger)row;
 
+-(void)stopSelected;
 -(void)updateStoppableState;
 
 @property (readonly, copy) NSArray *fileTypes;

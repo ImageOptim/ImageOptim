@@ -245,6 +245,10 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
     [filesController revert];
 }
 
+-(IBAction)stop:(id)sender {
+    [filesController stopSelected];
+}
+
 - (IBAction)startAgain:(id)sender {
     // alt-click on a button (this is used from menu too, but alternative menu item covers that anyway
     BOOL onlyOptimized = !!([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask);
