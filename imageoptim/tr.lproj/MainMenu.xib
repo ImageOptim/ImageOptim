@@ -247,8 +247,7 @@
                         <buttonCell key="cell" type="roundTextured" title="Tekrar" alternateTitle="Optimizasyonları yinele" bezelStyle="texturedRounded" image="NSRefreshTemplate" imagePosition="left" alignment="center" borderStyle="border" inset="2" id="635">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
-                            <string key="keyEquivalent">r</string>
-                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            <string key="keyEquivalent"></string>
                         </buttonCell>
                         <connections>
                             <action selector="startAgain:" target="230" id="592"/>
@@ -370,9 +369,6 @@
                                     <binding destination="251" name="enabled" keyPath="canAdd" id="447"/>
                                 </connections>
                             </menuItem>
-                            <menuItem isSeparatorItem="YES" id="499">
-                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                            </menuItem>
                             <menuItem title="Tekrar Optimize Et" keyEquivalent="r" id="593">
                                 <connections>
                                     <action selector="startAgain:" target="230" id="594"/>
@@ -384,9 +380,12 @@
                                     <action selector="startAgainOptimized:" target="-1" id="727"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Quick Look" keyEquivalent="y" id="708">
+                            <menuItem isSeparatorItem="YES" id="499">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Kapat" keyEquivalent="w" id="498">
                                 <connections>
-                                    <action selector="quickLookAction:" target="-1" id="709"/>
+                                    <action selector="performClose:" target="-1" id="500"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Revert to Original" id="FLl-C9-GLI">
@@ -395,18 +394,18 @@
                                     <action selector="revert:" target="-1" id="K2n-RB-ZYr"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="cW7-Mv-yh0">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Quick Look" keyEquivalent="y" id="708">
+                                <connections>
+                                    <action selector="quickLookAction:" target="-1" id="709"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Show in Finder" id="p0m-mn-Gep">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="openInFinder:" target="-1" id="GoN-HG-2GR"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem isSeparatorItem="YES" id="DRY-W3-Uh6">
-                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                            </menuItem>
-                            <menuItem title="Kapat" keyEquivalent="w" id="498">
-                                <connections>
-                                    <action selector="performClose:" target="-1" id="500"/>
                                 </connections>
                             </menuItem>
                         </items>
