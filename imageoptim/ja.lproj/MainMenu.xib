@@ -388,7 +388,12 @@
                                     <action selector="performClose:" target="-1" id="500"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Revert to Original" id="FLl-C9-GLI">
+                            <menuItem title="止まる" keyEquivalent="s" id="HUo-GO-MIU">
+                                <connections>
+                                    <action selector="stop:" target="-1" id="4bR-Hl-BM3"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="オリジナルに戻す" id="FLl-C9-GLI">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="revert:" target="-1" id="K2n-RB-ZYr"/>
@@ -402,7 +407,7 @@
                                     <action selector="quickLookAction:" target="-1" id="709"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Show in Finder" id="p0m-mn-Gep">
+                            <menuItem title="Finderに表示" id="p0m-mn-Gep">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="openInFinder:" target="-1" id="GoN-HG-2GR"/>

@@ -190,14 +190,19 @@
 
 /* Menu Item "Hide Others" */
 "145.title" = "Hide Others";
+
 /* Class = "NSMenuItem"; title = "Revert to Original"; ObjectID = "FLl-C9-GLI"; */
 "FLl-C9-GLI.title" = "Revert to Original";
 
 /* Menu Item "Show All" */
 "150.title" = "Show All";
 
+/* Class = "NSMenuItem"; title = "Stop"; ObjectID = "HUo-GO-MIU"; */
+"HUo-GO-MIU.title" = "Stop";
+
 /* Menu Item "Zoom" */
 "197.title" = "Zoom";
+
 /* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "ddH-3k-EuT"; */
 "ddH-3k-EuT.title" = "Show in Finder";
 

@@ -388,6 +388,11 @@
                                     <action selector="performClose:" target="-1" id="500"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Stop" keyEquivalent="s" id="HUo-GO-MIU">
+                                <connections>
+                                    <action selector="stop:" target="-1" id="4bR-Hl-BM3"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Revert to Original" id="FLl-C9-GLI">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
