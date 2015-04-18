@@ -369,6 +369,8 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
         return [filesController canClearComplete];
     } else if (action == @selector(revert:)) {
         return [filesController canRevert];
+    } else if (action == @selector(stop:)) {
+        return [filesController isStoppable];
     }
 
     return [menuItem isEnabled];
