@@ -40,7 +40,7 @@
 
 @implementation File
 
-@synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImage, percentDone, bestToolName;
+@synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImageName, percentDone, bestToolName;
 
 -(instancetype)initWithFilePath:(NSURL *)aPath resultsDatabase:(ResultsDb*)aDb
 {
@@ -659,7 +659,7 @@
     void (^setter)() = ^(void){
         statusOrder = order;
         self.statusText = text;
-        self.statusImage = [NSImage imageNamed:imageName];
+        self.statusImageName = imageName;
     };
     if (order) {
         dispatch_async(dispatch_get_main_queue(), setter);

@@ -36,3 +36,27 @@
     return [NSColor textColor];
 }
 @end
+
+
+static NSMutableDictionary *imageCache;
+
+@implementation IOStatusImage
+
++ (Class)transformedValueClass {
+    return [NSImage class];
+}
+
+- (id)transformedValue:(id)value {
+    if (!value) {
+        value = @"err";
+    }
+    if (!imageCache) {
+        imageCache = [NSMutableDictionary new];
+    }
+    NSImage *img = imageCache[value];
+    if (!img) {
+        imageCache[value] = img = [NSImage imageNamed:value];
+    }
+    return img;
+}
+@end

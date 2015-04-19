@@ -34,7 +34,7 @@ enum IOFileType {
     NSMutableSet *filePathsOptimizedInUse;
 	NSURL *filePathOptimized;
 		
-	NSImage *statusImage;
+	NSString *statusImageName;
     NSString *statusText;
     NSInteger statusOrder;
     
@@ -79,7 +79,7 @@ enum IOFileType {
 @property (strong) NSString *statusText, *displayName, *bestToolName;
 @property (strong,nonatomic) NSURL *filePath;
 @property (strong,readonly) NSURL *filePathOptimized;
-@property (strong) NSImage *statusImage;
+@property (strong) NSString *statusImageName;
 @property (assign,nonatomic) NSUInteger byteSizeOriginal, byteSizeOptimized;
 @property (assign,readonly) NSInteger statusOrder;
 @property (strong,readonly) NSMutableDictionary *workersPreviousResults;

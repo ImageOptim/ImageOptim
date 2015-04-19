@@ -48,9 +48,12 @@
                                             <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="statusOrder"/>
                                             <accessibility description="Optimization status"/>
                                             <connections>
-                                                <binding destination="251" name="value" keyPath="arrangedObjects.statusImage" id="479">
+                                                <binding destination="251" name="value" keyPath="arrangedObjects.statusImageName" id="hqv-Pz-7X2">
                                                     <dictionary key="options">
-                                                        <integer key="NSRaisesForNotApplicableKeys" value="0"/>
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                        <string key="NSValueTransformerName">IOStatusImage</string>
                                                     </dictionary>
                                                 </binding>
                                             </connections>

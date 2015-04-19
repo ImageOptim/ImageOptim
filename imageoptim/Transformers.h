@@ -13,5 +13,8 @@
 
 @interface DisabledColor : NSValueTransformer {
 }
+@end
 
+@interface IOStatusImage : NSValueTransformer {
+}
 @end
