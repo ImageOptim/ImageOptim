@@ -3,8 +3,8 @@
 //
 
 int quitWhenDone = 0;
-int hideLogs = 0;
 
+#import "log.h"
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 
