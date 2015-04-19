@@ -38,16 +38,16 @@
 		5A16343E140BF97400758D99 /* ImageOptim.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */; };
 		5A1D3E8C14366933004EE809 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D3E8B14366933004EE809 /* style.css */; };
 		5A2ACD141790935C004992B7 /* ZopfliWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD131790935C004992B7 /* ZopfliWorker.m */; };
-		5A2ACD24179098EA004992B7 /* zopflipng in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A1EBED317908F8200361F08 /* zopflipng */; };
+		5A2ACD24179098EA004992B7 /* zopflipng in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A1EBED317908F8200361F08 /* zopflipng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5A2E55881A7C386900985295 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E55861A7C386900985295 /* InfoPlist.strings */; };
-		5A3470A9140BC7D10014F638 /* libimageoptimjpeg.dylib in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */; };
-		5A3470AA140BC7DD0014F638 /* liblibpng.dylib in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A20CC951123939C0000400D /* liblibpng.dylib */; };
-		5A3470AB140BC80F0014F638 /* advpng in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A984D4A11238E51007622D7 /* advpng */; };
-		5A3470AC140BC81A0014F638 /* pngcrush in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A1943450FF97F86007C3324 /* pngcrush */; };
-		5A3470AD140BC8250014F638 /* optipng in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A1943680FF980B3007C3324 /* optipng */; };
-		5A3470AE140BC8540014F638 /* jpegoptim in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A62DB07111CCE9F008848D0 /* jpegoptim */; };
-		5A3470AF140BC8590014F638 /* jpegtran in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A739C2B0EA4073700D751E1 /* jpegtran */; };
-		5A3470B0140BC8600014F638 /* gifsicle in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A4DC20D1028ADB200A9DD55 /* gifsicle */; };
+		5A3470A9140BC7D10014F638 /* libimageoptimjpeg.dylib in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5A3470AA140BC7DD0014F638 /* liblibpng.dylib in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A20CC951123939C0000400D /* liblibpng.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5A3470AB140BC80F0014F638 /* advpng in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A984D4A11238E51007622D7 /* advpng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5A3470AC140BC81A0014F638 /* pngcrush in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A1943450FF97F86007C3324 /* pngcrush */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5A3470AD140BC8250014F638 /* optipng in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A1943680FF980B3007C3324 /* optipng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5A3470AE140BC8540014F638 /* jpegoptim in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A62DB07111CCE9F008848D0 /* jpegoptim */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5A3470AF140BC8590014F638 /* jpegtran in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A739C2B0EA4073700D751E1 /* jpegtran */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5A3470B0140BC8600014F638 /* gifsicle in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A4DC20D1028ADB200A9DD55 /* gifsicle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5A34A634140EEDB900DE44D2 /* DragDropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A34A633140EEDB900DE44D2 /* DragDropImageView.m */; };
 		5A44F4B40CB1868100BD2884 /* PngCrushWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */; };
 		5A44F5840CB2ECEB00BD2884 /* CommandWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */; };
@@ -74,7 +74,7 @@
 		5A8594E81460BCF20044095A /* jpegrescan in Resources */ = {isa = PBXBuildFile; fileRef = 5A8594E71460BCF20044095A /* jpegrescan */; };
 		5A8A18141416D1D700D62DB7 /* SavingsFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */; };
 		5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99FE83140AE80600BB2F79 /* Quartz.framework */; };
-		5A9B031C1836E5360043BDAC /* pngquant in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A728F2C1836C0EE004D0D73 /* pngquant */; };
+		5A9B031C1836E5360043BDAC /* pngquant in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5A728F2C1836C0EE004D0D73 /* pngquant */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5A9E5B2B0CB961E000E05D28 /* JpegoptimWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E5B2A0CB961E000E05D28 /* JpegoptimWorker.m */; };
 		5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
 		5AACA1380CAF23FF004D45CA /* DirWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA1370CAF23FF004D45CA /* DirWorker.m */; };
@@ -84,7 +84,7 @@
 		5AE1C49A0CA6CDDC000CF636 /* FilesQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C4990CA6CDDC000CF636 /* FilesQueue.m */; };
 		5AE54DEF0CAEF56100903DF4 /* PngoutWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */; };
 		5AE54E210CAF16D800903DF4 /* AdvCompWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE54E200CAF16D800903DF4 /* AdvCompWorker.m */; };
-		5AF71644174AF8910018D3FE /* pngout in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5AF71642174AF7C30018D3FE /* pngout */; };
+		5AF71644174AF8910018D3FE /* pngout in Copy Executables */ = {isa = PBXBuildFile; fileRef = 5AF71642174AF7C30018D3FE /* pngout */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
 
