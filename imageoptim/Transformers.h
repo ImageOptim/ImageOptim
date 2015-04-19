@@ -8,13 +8,10 @@
 
 
 @interface CeilFormatter : NSValueTransformer {
-
 }
-
 @end
 
 @interface DisabledColor : NSValueTransformer {
-	
 }
 
 @end
