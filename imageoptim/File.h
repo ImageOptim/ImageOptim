@@ -67,7 +67,6 @@ enum IOFileType {
 -(id)copyWithZone:(NSZone *)zone;
 -(void)resetToOriginalByteSize:(NSUInteger)size;
 -(void)setByteSizeOptimized:(NSUInteger)size;
--(BOOL)isOptimized;
 -(void)updateStatusOfWorker:(Worker *)currentWorker running:(BOOL)started;
 
 -(BOOL)isLarge;

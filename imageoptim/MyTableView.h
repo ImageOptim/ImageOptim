@@ -11,6 +11,6 @@
 }
 - (IBAction)delete:(id)sender;
 - (IBAction)copyAsDataURI:(id)sender;
-
--(IBAction)openInFinder:(id)sender;
+- (IBAction)openInFinder:(id)sender;
+- (void)quickLook;
 @end

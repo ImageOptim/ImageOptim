@@ -4,6 +4,7 @@
 #import "File.h"
 #import "Workers/Worker.h"
 #import "PrefsController.h"
+#import "MyTableView.h"
 #include <mach/mach_host.h>
 #include <mach/host_info.h>
 #import <Quartz/Quartz.h>
@@ -298,7 +299,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
     [oPanel setAllowedFileTypes:[filesController fileTypes]];
 
     [oPanel beginSheetModalForWindow:[tableView window] completionHandler:^(NSInteger returnCode) {
-        if (returnCode == NSOKButton) {
+        if (returnCode == NSModalResponseOK) {
             NSWindow *myWindow=[tableView window];
             [myWindow setStyleMask:[myWindow styleMask]| NSResizableWindowMask ];
             [filesController setRow:-1];

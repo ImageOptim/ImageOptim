@@ -239,7 +239,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 }
 
 -(void)addFileObjects:(NSArray *)files {
-    [[tableView undoManager] registerUndoWithTarget:self selector:@selector(deleteObjects:) object:files];
+    [[tableView undoManager] registerUndoWithTarget:self selector:@selector(removeObjects:) object:files];
     [[tableView undoManager] setActionName:NSLocalizedString(@"Add",@"undo command name")];
 
     @synchronized(self) {

@@ -10,7 +10,7 @@
 @implementation JpegtranWorker
 
 -(NSInteger)settingsIdentifier {
-    return @(jpegrescan*2+strip);
+    return jpegrescan*2+strip;
 }
 
 -(instancetype)initWithFile:(File *)aFile {
