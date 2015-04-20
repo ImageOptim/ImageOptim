@@ -32,7 +32,7 @@
         [args insertObject:@"-brute" atIndex:0];
     }
 
-    if (![self sandBoxedTaskForKey:@"PngCrush" bundleName:@"pngcrush" arguments:args]) {
+    if (![self taskForKey:@"PngCrush" bundleName:@"pngcrush" arguments:args]) {
         return NO;
     }
 

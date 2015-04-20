@@ -49,7 +49,7 @@
         [args insertObject:[NSString stringWithFormat:@"-m%d",(int)maxquality] atIndex:0];
     }
 
-    if (![self sandBoxedTaskForKey:@"JpegOptim" bundleName:@"jpegoptim" arguments:args]) {
+    if (![self taskForKey:@"JpegOptim" bundleName:@"jpegoptim" arguments:args]) {
         return NO;
     }
 

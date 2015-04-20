@@ -32,7 +32,7 @@
         [args insertObject:[NSString stringWithFormat:@"-i%d",(int)interlace] atIndex:0];
     }
 
-    if (![self sandBoxedTaskForKey:@"OptiPng" bundleName:@"optipng" arguments:args]) {
+    if (![self taskForKey:@"OptiPng" bundleName:@"optipng" arguments:args]) {
         return NO;
     }
 

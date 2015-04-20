@@ -47,7 +47,7 @@
     }
 
     // For jpegrescan to work both JpegTran and JpegRescan need to be enabled
-    if (![self sandBoxedTaskForKey:prefName bundleName:executableName arguments:args]) {
+    if (![self taskForKey:prefName bundleName:executableName arguments:args]) {
         return NO;
     }
 

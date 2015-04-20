@@ -36,7 +36,7 @@
                             [NSString stringWithFormat:@"-%d",(int)(level ? level : 4)],
                             @"-z", @"--", temp.path, nil];
   
-    if (![self sandBoxedTaskForKey:@"AdvPng" bundleName:@"advpng" arguments:args]) {
+    if (![self taskForKey:@"AdvPng" bundleName:@"advpng" arguments:args]) {
         return NO;
     }
 

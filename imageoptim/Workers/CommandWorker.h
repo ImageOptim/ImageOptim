@@ -24,13 +24,10 @@
 -(void)launchTask;
 
 // gets the path of the executable
--(NSString *)pathForExecutableName:(NSString *)resourceName;
 -(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName;
 
--(NSString *)sandBoxDefinitionForBinary:(NSString *) executablePath;
-
-// initialises field task with a sandboxed executable.
--(BOOL)sandBoxedTaskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSMutableArray *)args;
+-(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSMutableArray *)args;
 
 -(BOOL)runWithTempPath:(NSURL*)tempPath;
+-(NSString *)pathForExecutableName:(NSString *)resourceName;
 @end

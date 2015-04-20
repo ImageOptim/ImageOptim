@@ -18,7 +18,7 @@
                             @"--no-comments",@"--no-names",@"--same-delay",@"--same-loopcount",@"--no-warnings",
                             @"--",file.filePathOptimized.path,nil];
 
-    if (![self sandBoxedTaskForKey:@"Gifsicle" bundleName:@"gifsicle" arguments:args]) {
+    if (![self taskForKey:@"Gifsicle" bundleName:@"gifsicle" arguments:args]) {
         return NO;
     }
 

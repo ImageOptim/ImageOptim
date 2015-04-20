@@ -45,7 +45,7 @@
         [args insertObject:@"-k1" atIndex:0];
     }
 
-    if (![self sandBoxedTaskForKey:@"PngOut" bundleName:@"pngout" arguments:args]) {
+    if (![self taskForKey:@"PngOut" bundleName:@"pngout" arguments:args]) {
         return NO;
     }
 

@@ -111,46 +111,14 @@
 }
 
 
--(NSString *)sandBoxDefinitionForBinary:(NSString *) executablePath {
-    NSString *tempRoot = NSTemporaryDirectory();
-    // Sandbox wants directories without trailing slashes.
-    NSString *tempDir = [tempRoot substringToIndex: [tempRoot length] - 1];
-    NSString *bundleRoot = [[NSBundle mainBundle] bundlePath];
-  
-    return [NSString stringWithFormat:
-            @"(version 1) (deny default) "
-            "(allow file-read*) (allow sysctl-read) "
-            "(allow process-fork) "
-            "(allow process-exec (literal \"%@\")) "  // main binary
-            "(allow process-exec (subpath \"%@\")) "  // other binaries in the bundle
-            "(allow process-exec (regex #\"/usr/bin/perl.*\")) "  // jpegrescan
-            "(allow file-write* (subpath \"%@\")) "
-            "(allow file-write* (subpath \"/private%@\")) "
-            "(allow mach-lookup (global-name \"com.apple.system.notification_center\")) "
-            "(allow ipc-posix-shm-read-data (ipc-posix-name \"apple.shm.notification_center\")) "
-            "(allow mach-lookup (global-name \"com.apple.system.opendirectoryd.libinfo\")) "
-            "(allow file-write* (literal \"/dev/dtracehelper\")) "
-            "(allow file-ioctl (literal \"/dev/dtracehelper\")) ",
-            // "(trace \"/tmp/%@.sb\")",  // Uncomment to get traces
-            executablePath,
-            bundleRoot,
-            tempDir, tempDir
-            // [executablePath lastPathComponent]
-            ];
-}
-
-
--(BOOL)sandBoxedTaskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSMutableArray *)args {
+-(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSMutableArray *)args {
     NSString *executable = [self executablePathForKey:key bundleName:resourceName];
     if (!executable) {
         IOWarn("Cannot launch %@ in Sandbox",resourceName);
         [file setStatus:@"err" order:8 text:[NSString stringWithFormat:NSLocalizedString(@"%@ failed to start",@"tooltip"),key]];
         return NO;
     }
-    [args insertObject: @"-p" atIndex:0];
-    [args insertObject: [self sandBoxDefinitionForBinary: executable] atIndex:1];
-    [args insertObject: executable atIndex:2];
-    [self taskWithPath: @"/usr/bin/sandbox-exec" arguments: args];
+    [self taskWithPath:executable arguments:args];
     return YES;
 }
 
