@@ -2,23 +2,28 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
 <channel>
 <title>ImageOptim</title>
-<link>https://imageoptim.com/appcast.xml</link>
+<link>https://imageoptim.com/appcast-test.xml</link>
 <description>ImageOptim updates</description>
 <language>en</language>
 <item>
-<title>Version 1.5.4</title>
+<title>Version 1.5.6</title>
 <description><![CDATA[
 <ul>
-    <li>Added <samp>Revert to Original</samp> option (restores unoptimized file)</li>
-    <li>Added cache of already-optimized files. In some cases ImageOptim will be able to quickly skip files it knows it can't optimize any further</li>
+    <li>Improved drag'n'drop of files outside ImageOptim window</li>
+    <li>Removed partial sandbox support that could cause problems on some systems</li>
+</ul>
+<p>Recently:</p>
+<ul>
+    <li>Option to <samp>Stop</samp> optimizations earlier (keeping progress made so far)</li>
+    <li>Removal of "Where from" OS X metadata</li>
+    <li>Lighter/faster default config on slow machines</li>
+    <li>Updated pngcrush</li>
+    <li>Autolayout used for the main window</li>
 </ul>
 ]]></description>
-<pubDate>Sat, 12 Jul 2014 00:46:44 +0100</pubDate>
-<enclosure url="https://imageoptim.com/ImageOptim1.5.4.tar.bz2" sparkle:version="1.5.4.1" length="1511591" type="application/bzip2" sparkle:dsaSignature="MCwCFGn8CiKEr45QX0QCk7fWfGdw2CUZAhQ6nk6vYxHxUZ5wRyxPbfUny1vBxQ=="/>
-<sparkle:minimumSystemVersion>10.6.8</sparkle:minimumSystemVersion>
-
-
-
+<pubDate>Mon, 04 May 2015 22:10:22 +0000</pubDate>
+<enclosure url="https://imageoptim.com/ImageOptim1.5.6.tar.bz2" sparkle:version="1.5.6" length="1563037" type="application/bzip2" sparkle:dsaSignature="MCwCFChGMafge/kMCqBeh9T3w82KeDFiAhQhumWJRb2cqkRw87smz4tmy6RSBw=="/>
+<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
 
 
 </item>
