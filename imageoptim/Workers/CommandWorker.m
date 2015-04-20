@@ -154,28 +154,33 @@
     return YES;
 }
 
--(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName {
-    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-    NSString *path = nil;
+-(NSString *)pathForExecutableName:(NSString *)resourceName {
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
 
-    path = [[NSBundle mainBundle] pathForAuxiliaryExecutable:resourceName];
+    NSString *path = [bundle pathForAuxiliaryExecutable:resourceName];
     if (!path) {
-        path = [[NSBundle mainBundle] pathForResource:resourceName ofType:@""];
+        path = [bundle pathForResource:resourceName ofType:@""];
     }
 
     if (path) {
-        if ([[NSFileManager defaultManager] isExecutableFileAtPath:path]) {
-            return path;
-        } else {
-            IOWarn("File %@ for %@ is not executable", path, prefsName);
+        if (![[NSFileManager defaultManager] isExecutableFileAtPath:path]) {
+            IOWarn("File %@ for %@ is not executable", path, resourceName);
+            return nil;
         }
     }
+    return path;
+}
 
-    IOWarn("Can't find working executable for %@ - disabling",prefsName);
-    NSBeep();
-    [defs setBool:NO forKey:[prefsName stringByAppendingString:@"@Enabled"]];
+-(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName {
+    NSString *path = [self pathForExecutableName:resourceName];
 
-    return nil;
+    if (!path) {
+        IOWarn("Can't find working executable for %@ - disabling",prefsName);
+        NSBeep();
+        NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+        [defs setBool:NO forKey:[prefsName stringByAppendingString:@"@Enabled"]];
+    }
+    return path;
 }
 
 -(NSURL *)tempPath {

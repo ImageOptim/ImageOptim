@@ -24,6 +24,7 @@
 -(void)launchTask;
 
 // gets the path of the executable
+-(NSString *)pathForExecutableName:(NSString *)resourceName;
 -(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName;
 
 -(NSString *)sandBoxDefinitionForBinary:(NSString *) executablePath;

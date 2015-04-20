@@ -51,7 +51,8 @@
         return NO;
     }
 
-    [task setCurrentDirectoryPath:[[[NSBundle mainBundle] pathForAuxiliaryExecutable:@"jpegtran"] stringByDeletingLastPathComponent]];
+    NSString *jpegtranPath = [self pathForExecutableName:@"jpegtran"];
+    [task setCurrentDirectoryPath:[jpegtranPath stringByDeletingLastPathComponent]];
 
     NSPipe *commandPipe = [NSPipe pipe];
     NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
