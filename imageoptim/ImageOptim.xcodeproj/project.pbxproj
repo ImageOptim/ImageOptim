@@ -98,7 +98,7 @@
 		5ABE16291AE5099500861C6B /* liblibpng.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 5A20CC951123939C0000400D /* liblibpng.dylib */; };
 		5ABE162A1AE5099F00861C6B /* zopflipng in Resources */ = {isa = PBXBuildFile; fileRef = 5A1EBED317908F8200361F08 /* zopflipng */; };
 		5ABE16621AE50D1D00861C6B /* ImageOptimController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E5C0C922D6D00FD7CDE /* ImageOptimController.m */; };
-		5ABE16D01AE5AD0200861C6B /* FilesQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C4990CA6CDDC000CF636 /* FilesQueue.m */; };
+		5ABE16D01AE5AD0200861C6B /* FilesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C4990CA6CDDC000CF636 /* FilesController.m */; };
 		5ABE16D21AE5AD9F00861C6B /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE16D11AE5AD9F00861C6B /* log.c */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
@@ -557,8 +557,8 @@
 		5AD299BB1436757F0048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = no; path = no.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5AD299BD143675870048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = no; path = no.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5AD299C2143675BB0048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = folder; name = no; path = no.lproj/Help; sourceTree = "<group>"; };
-		5AE1C4980CA6CDDC000CF636 /* FilesQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesQueue.h; sourceTree = "<group>"; };
-		5AE1C4990CA6CDDC000CF636 /* FilesQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesQueue.m; sourceTree = "<group>"; };
+		5AE1C4980CA6CDDC000CF636 /* FilesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesController.h; sourceTree = "<group>"; };
+		5AE1C4990CA6CDDC000CF636 /* FilesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesController.m; sourceTree = "<group>"; };
 		5AE54D800CAEE8AC00903DF4 /* defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = defaults.plist; sourceTree = "<group>"; };
 		5AE54DED0CAEF56100903DF4 /* PngoutWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PngoutWorker.h; sourceTree = "<group>"; };
 		5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PngoutWorker.m; sourceTree = "<group>"; };
@@ -829,8 +829,8 @@
 			children = (
 				5A34A632140EEDB900DE44D2 /* DragDropImageView.h */,
 				5A34A633140EEDB900DE44D2 /* DragDropImageView.m */,
-				5AE1C4980CA6CDDC000CF636 /* FilesQueue.h */,
-				5AE1C4990CA6CDDC000CF636 /* FilesQueue.m */,
+				5AE1C4980CA6CDDC000CF636 /* FilesController.h */,
+				5AE1C4990CA6CDDC000CF636 /* FilesController.m */,
 				1AD5B24F174F850900BC75FD /* GetQueueCountCommand.h */,
 				1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */,
 				5A0D2E5B0C922D6D00FD7CDE /* ImageOptimController.h */,
@@ -1388,7 +1388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A34A634140EEDB900DE44D2 /* DragDropImageView.m in Sources */,
-				5ABE16D01AE5AD0200861C6B /* FilesQueue.m in Sources */,
+				5ABE16D01AE5AD0200861C6B /* FilesController.m in Sources */,
 				1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */,
 				5ABE16621AE50D1D00861C6B /* ImageOptimController.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,

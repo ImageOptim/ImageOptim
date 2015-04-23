@@ -6,15 +6,15 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class FilesQueue;
+@class FilesController;
 
 @interface DirWorker : NSOperation {
-	FilesQueue *filesQueue;
+	FilesController *filesController;
 	NSURL *path;
     NSArray *extensions;
 }
 
--(instancetype)initWithPath:(NSURL *)path filesQueue:(FilesQueue *)q extensions:(NSArray*)e;
+-(instancetype)initWithPath:(NSURL *)path filesController:(FilesController *)q extensions:(NSArray*)e;
 
 @property (copy) NSURL *path;
 @end

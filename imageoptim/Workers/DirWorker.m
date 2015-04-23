@@ -5,7 +5,7 @@
 //
 
 #import "DirWorker.h"
-#import "../FilesQueue.h"
+#import "../FilesController.h"
 #import "../log.h"
 
 @implementation DirWorker
@@ -13,10 +13,10 @@
 
 @synthesize path;
 
--(instancetype)initWithPath:(NSURL *)aPath filesQueue:(FilesQueue *)q extensions:(NSArray *)theExtensions {
+-(instancetype)initWithPath:(NSURL *)aPath filesController:(FilesController *)q extensions:(NSArray *)theExtensions {
     if (self = [super init]) {
         self.path = aPath;
-        filesQueue = q;
+        filesController = q;
         extensions = theExtensions;
     }
     return self;
@@ -38,13 +38,13 @@
                     // assuming that previous buffer flushes created some work to do
                     // buffer size can be increased to lower overhead
                     buffer_size = MIN(buffer_capacity, buffer_size*4);
-                    [filesQueue addURLs:buffer filesOnly:YES];
+                    [filesController addURLs:buffer filesOnly:YES];
                     [buffer removeAllObjects];
                 }
             }
         }
 
-        if ([buffer count]) [filesQueue addURLs:buffer filesOnly:YES];
+        if ([buffer count]) [filesController addURLs:buffer filesOnly:YES];
     }
     @catch (NSException *ex) {
         IOWarn("DIR worker failed %@",ex);

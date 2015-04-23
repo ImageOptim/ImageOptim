@@ -1,16 +1,16 @@
 //
-//  FilesQueue.m
+//  FilesController.m
 //
 //  Created by porneL on 23.wrz.07.
 //
 #import "File.h"
-#import "FilesQueue.h"
+#import "FilesController.h"
 #import "log.h"
 #import "Workers/DirWorker.h"
 #import "RevealButtonCell.h"
 #import "ResultsDb.h"
 
-@interface FilesQueue()
+@interface FilesController()
 
 -(BOOL)isAnyQueueBusy;
 @property (readonly, copy) NSArray *extensions;
@@ -21,7 +21,7 @@
 NSString *const kFilesQueueFinished = @"FilesQueueFinished";
 static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
-@implementation FilesQueue
+@implementation FilesController
 
 @synthesize isBusy, isStoppable;
 
@@ -319,7 +319,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
                 [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
             }
         } else {
-            DirWorker *w = [[DirWorker alloc] initWithPath:path filesQueue:self extensions:[self extensions]];
+            DirWorker *w = [[DirWorker alloc] initWithPath:path filesController:self extensions:[self extensions]];
             [dirWorkerQueue addOperation:w];
         }
     }

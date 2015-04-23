@@ -6,7 +6,7 @@
 
 #import "DragDropImageView.h"
 #import "ImageOptimController.h"
-#import "FilesQueue.h"
+#import "FilesController.h"
 
 
 @implementation DragDropImageView
@@ -98,7 +98,7 @@
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)sender {
     if ([sender draggingSource]!=self) {
         NSArray *files = [[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType];
-        [filesQueue performSelectorInBackground:@selector(addPaths:) withObject:files];
+        [filesController performSelectorInBackground:@selector(addPaths:) withObject:files];
     }
     return YES;
 }

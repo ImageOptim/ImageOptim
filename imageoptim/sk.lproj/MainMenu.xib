@@ -267,7 +267,7 @@
                                     <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                 </dictionary>
                             </binding>
-                            <outlet property="filesQueue" destination="251" id="aqi-nA-YrU"/>
+                            <outlet property="filesController" destination="251" id="aqi-nA-YrU"/>
                         </connections>
                     </customView>
                 </subviews>
@@ -668,7 +668,7 @@ CA
                 <outlet property="tableView" destination="237" id="242"/>
             </connections>
         </customObject>
-        <arrayController objectClassName="File" preservesSelection="NO" selectsInsertedObjects="NO" avoidsEmptySelection="NO" id="251" userLabel="Files" customClass="FilesQueue">
+        <arrayController objectClassName="File" preservesSelection="NO" selectsInsertedObjects="NO" avoidsEmptySelection="NO" id="251" userLabel="Files" customClass="FilesController">
             <declaredKeys>
                 <string>fileName</string>
                 <string>byteSize</string>

@@ -1,13 +1,13 @@
 #import "GetQueueCountCommand.h"
 #import "ImageOptimController.h"
-#import "FilesQueue.h"
+#import "FilesController.h"
 
 @implementation GetQueueCountCommand
 
 - (id)performDefaultImplementation {
     ImageOptimController *imageoptim = (ImageOptimController *)[[NSApplication sharedApplication] delegate];
 
-    return imageoptim.filesQueue.queueCount;
+    return imageoptim.filesController.queueCount;
 }
 
 @end

@@ -1,5 +1,5 @@
 #import "MyTableView.h"
-#import "FilesQueue.h"
+#import "FilesController.h"
 #import "RevealButtonCell.h"
 #import "File.h"
 #import "log.h"
@@ -7,26 +7,26 @@
 @implementation MyTableView
 
 -(void)removeObjects:(NSArray *)objects {
-    FilesQueue *f = (FilesQueue*)[self delegate];
+    FilesController *f = (FilesController*)[self delegate];
 
     [[self undoManager] registerUndoWithTarget:self selector:@selector(addObjects:) object:objects];
     [f removeObjects:objects];
 }
 
 -(void)addObjects:(NSArray *)objects {
-    FilesQueue *f = (FilesQueue*)[self delegate];
+    FilesController *f = (FilesController*)[self delegate];
 
     [[self undoManager] registerUndoWithTarget:self selector:@selector(removeObjects:) object:objects];
     [f addObjects:objects];
 }
 
 - (IBAction)delete:(id)sender {
-    FilesQueue *f = (FilesQueue*)[self delegate];
+    FilesController *f = (FilesController*)[self delegate];
     [self removeObjects:[f selectedObjects]];
 }
 
 - (IBAction)copy:(id)sender {
-    FilesQueue *f = (FilesQueue*)[self delegate];
+    FilesController *f = (FilesController*)[self delegate];
 
     NSArray *selected = [f selectedObjects];
     NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[selected count]];
@@ -46,7 +46,7 @@
 }
 
 -(NSArray*)filesForDataURI {
-    FilesQueue *f = (FilesQueue*)[self delegate];
+    FilesController *f = (FilesController*)[self delegate];
 
     NSArray *selectedFiles = [f selectedObjects];
     NSMutableArray *files = [NSMutableArray arrayWithCapacity:[selectedFiles count]];
@@ -98,7 +98,7 @@
         [urls addObject:[NSURL fileURLWithPath:path]];
     }
 
-    FilesQueue *f = (FilesQueue*)[self delegate];
+    FilesController *f = (FilesController*)[self delegate];
     [f addURLsBelowSelection:urls];
 }
 
@@ -247,8 +247,8 @@
 }
 
 -(NSArray *)clickedRowSelection {
-    FilesQueue *fc = (FilesQueue *)[self delegate];
-    assert([fc isKindOfClass:[FilesQueue class]]);
+    FilesController *fc = (FilesController *)[self delegate];
+    assert([fc isKindOfClass:[FilesController class]]);
 
     NSInteger row = [self clickedRow];
     if (row < 0) {

@@ -1,5 +1,5 @@
 #import "ImageOptimController.h"
-#import "FilesQueue.h"
+#import "FilesController.h"
 #import "RevealButtonCell.h"
 #import "File.h"
 #import "Workers/Worker.h"
@@ -17,7 +17,7 @@ NSDictionary *statusImages;
 
 static const char *kIMPreviewPanelContext = "preview";
 
-@synthesize filesQueue=filesController;
+@synthesize filesController;
 
 - (void)applicationWillFinishLaunching:(NSNotification *)unused {
     if (quitWhenDone) {

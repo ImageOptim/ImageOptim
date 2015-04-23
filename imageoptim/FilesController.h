@@ -1,5 +1,5 @@
 //
-//  FilesQueue.h
+//  FilesController.h
 //
 //  Created by porneL on 23.wrz.07.
 //
@@ -10,17 +10,17 @@
 @class File, ResultsDb;
 extern NSString *const kFilesQueueFinished;
 
-@interface FilesQueue : NSArrayController <NSTableViewDelegate,NSTableViewDataSource> {
+@interface FilesController : NSArrayController <NSTableViewDelegate,NSTableViewDataSource> {
 	NSTableView *tableView;
 	BOOL isEnabled, isBusy, isStoppable;
 	NSInteger nextInsertRow;
 	NSOperationQueue *cpuQueue;
     NSOperationQueue *fileIOQueue;
 	NSOperationQueue *dirWorkerQueue;
-	
+
     NSHashTable *seenPathHashes;
     ResultsDb *db;
-    
+
     NSLock *queueWaitingLock;
 }
 
