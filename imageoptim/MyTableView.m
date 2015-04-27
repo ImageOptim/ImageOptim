@@ -228,8 +228,7 @@
 - (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)isLocal {
     if (isLocal) return NSDragOperationMove;
 
-    return NSDragOperationCopy;
-
+    return NSDragOperationCopy | NSDragOperationGeneric;
 }
 
 -(void) quickLook {
