@@ -147,9 +147,9 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
                            [percFormatter stringFromNumber: @(maxOptimizedFraction)]];
                 }
             }
-        }
 
-        [filesController updateStoppableState];
+            [filesController updateStoppableState];
+        }
 
         dispatch_async(dispatch_get_main_queue(), ^() {
             [statusBarLabel setStringValue:str];
