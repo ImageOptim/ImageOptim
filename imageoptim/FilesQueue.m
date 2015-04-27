@@ -108,11 +108,19 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 - (BOOL)tableView:(NSTableView *)aTableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard {
     if (!isEnabled) return NO;
 
-    NSArray *filePathlist = [[[self arrangedObjects] objectsAtIndexes:rowIndexes] valueForKeyPath:@"filePath.path"];
+    NSArray *fileUrls = [[[self arrangedObjects] objectsAtIndexes:rowIndexes] valueForKey:@"filePath"];
 
-    if ([filePathlist count]) {
-        [pboard declareTypes:@[NSFilenamesPboardType, kIMDraggedRowIndexesPboardType] owner:self];
-        return [pboard setPropertyList:filePathlist forType:NSFilenamesPboardType] &&
+    NSUInteger count = [fileUrls count];
+    if (count) {
+        NSArray *types = @[NSFilenamesPboardType, kIMDraggedRowIndexesPboardType];
+        if (count == 1) {
+            types = [types arrayByAddingObject:NSURLPboardType];
+        }
+        [pboard declareTypes:types owner:nil];
+        if (count == 1) {
+            [[fileUrls firstObject] writeToPasteboard:pboard];
+        }
+        return [pboard setPropertyList:[fileUrls valueForKey:@"path"] forType:NSFilenamesPboardType] &&
                [pboard setData:[NSKeyedArchiver archivedDataWithRootObject:rowIndexes] forType:kIMDraggedRowIndexesPboardType];
     }
     return NO;
