@@ -26,7 +26,7 @@ static const char *kIMPreviewPanelContext = "preview";
 
     NSMutableDictionary *defs = [NSMutableDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defaults" ofType:@"plist"]];
 
-    int maxTasks = [self numberOfCPUs];
+    NSUInteger maxTasks = [[NSProcessInfo processInfo] activeProcessorCount];
 
     defs[@"RunConcurrentTasks"] = @(maxTasks);
     defs[@"RunConcurrentDirscans"] = @((int)ceil((double)maxTasks/3.9));
@@ -105,7 +105,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
 
             NSArray *content = [filesController content];
             for (File *f in content) {
-                const long long bytes = f.byteSizeOriginal, optimized = f.byteSizeOptimized;
+                const NSUInteger bytes = f.byteSizeOriginal, optimized = f.byteSizeOptimized;
                 if (bytes && (bytes != optimized || [f isDone])) {
                     const double optimizedFraction = 1.0 - (double)optimized/(double)bytes;
                     if (optimizedFraction > maxOptimizedFraction) {
@@ -223,13 +223,6 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
     }
 }
 
--(int)numberOfCPUs {
-    host_basic_info_data_t hostInfo;
-    mach_msg_type_number_t infoCount;
-    infoCount = HOST_BASIC_INFO_COUNT;
-    host_info(mach_host_self(), HOST_BASIC_INFO, (host_info_t)&hostInfo, &infoCount);
-    return MIN(32,MAX(1,(hostInfo.max_cpus)));
-}
 
 // invoked by Dock
 - (void)application:(NSApplication *)sender openFiles:(NSArray *)paths {
