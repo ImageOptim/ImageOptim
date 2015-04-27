@@ -33,7 +33,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 
     cpuQueue = [NSOperationQueue new];
-    [cpuQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentTasks"]];
+    [cpuQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentFiles"]];
 
     dirWorkerQueue = [NSOperationQueue new];
     [dirWorkerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentDirscans"]];

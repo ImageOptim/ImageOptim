@@ -40,7 +40,7 @@
 	<true/>
 	<key>RunConcurrentDirscans</key>
 	<integer>2</integer>
-	<key>RunConcurrentTasks</key>
+	<key>RunConcurrentFiles</key>
 	<integer>4</integer>
 	<key>RunLowPriority</key>
 	<true/>

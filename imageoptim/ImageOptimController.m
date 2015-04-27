@@ -28,7 +28,7 @@ static const char *kIMPreviewPanelContext = "preview";
 
     NSUInteger maxTasks = [[NSProcessInfo processInfo] activeProcessorCount];
 
-    defs[@"RunConcurrentTasks"] = @(maxTasks);
+    defs[@"RunConcurrentFiles"] = @(maxTasks);
     defs[@"RunConcurrentDirscans"] = @((int)ceil((double)maxTasks/3.9));
 
     // Use lighter defaults on slower machines
