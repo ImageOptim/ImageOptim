@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
+#import "File.h"
+#import "FilesQueue.h"
 
 @interface BackendTests : XCTestCase
 
@@ -26,6 +28,25 @@
 }
 
 - (void)testCompressOne {
+    NSURL *origPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"unoptimized" withExtension:@"png"];
+    NSURL *path = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSUUID UUID] UUIDString]]];
+
+    NSFileManager *fm = [NSFileManager defaultManager];
+    XCTAssertTrue([fm copyItemAtURL:origPath toURL:path error:nil]);
+
+    File *f = [[File alloc] initWithFilePath:path resultsDatabase:nil];
+    FilesQueue *q = [FilesQueue new];
+
+    [q addFile:f];
+    XCTAssertTrue([f isBusy]);
+    [q wait];
+
+    NSNumber *size, *origSize;
+    XCTAssertTrue([path getResourceValue:&size forKey:NSURLFileSizeKey error:nil]);
+    XCTAssertTrue([origPath getResourceValue:&origPath forKey:NSURLFileSizeKey error:nil]);
+
+    XCTAssertLessThan([origSize integerValue], [size integerValue]);
+    XCTAssertLessThanOrEqual(5552, [size integerValue]);
 }
 
 @end

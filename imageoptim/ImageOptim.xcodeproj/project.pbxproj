@@ -38,6 +38,8 @@
 		5A34A634140EEDB900DE44D2 /* DragDropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A34A633140EEDB900DE44D2 /* DragDropImageView.m */; };
 		5A34D0031AEF6DA300A154E4 /* BackendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE15551AE5072300861C6B /* BackendTests.m */; };
 		5A34D0041AEF6DB300A154E4 /* ImageOptimGPL.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A34CFEE1AEF6D9800A154E4 /* ImageOptimGPL.h */; };
+		5A34D0991AEF75CE00A154E4 /* FilesQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A34D0971AEF75CE00A154E4 /* FilesQueue.h */; };
+		5A34D09A1AEF75CE00A154E4 /* FilesQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A34D0981AEF75CE00A154E4 /* FilesQueue.m */; };
 		5A5811AA1AD73A7E0001838D /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5A58119F1AD73A640001838D /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5A44F4B40CB1868100BD2884 /* PngCrushWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */; };
 		5A44F5840CB2ECEB00BD2884 /* CommandWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */; };
@@ -100,6 +102,7 @@
 		5ABE16621AE50D1D00861C6B /* ImageOptimController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E5C0C922D6D00FD7CDE /* ImageOptimController.m */; };
 		5ABE16D01AE5AD0200861C6B /* FilesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C4990CA6CDDC000CF636 /* FilesController.m */; };
 		5ABE16D21AE5AD9F00861C6B /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE16D11AE5AD9F00861C6B /* log.c */; };
+		5AC64EC21AF3FCFE0032AA7F /* unoptimized.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC64EC11AF3FCFE0032AA7F /* unoptimized.png */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
 
@@ -437,6 +440,8 @@
 		5A34A632140EEDB900DE44D2 /* DragDropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragDropImageView.h; sourceTree = "<group>"; };
 		5A34A633140EEDB900DE44D2 /* DragDropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropImageView.m; sourceTree = "<group>"; };
 		5A34CFEE1AEF6D9800A154E4 /* ImageOptimGPL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageOptimGPL.h; path = Backend/ImageOptimGPL.h; sourceTree = "<group>"; };
+		5A34D0971AEF75CE00A154E4 /* FilesQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesQueue.h; sourceTree = "<group>"; };
+		5A34D0981AEF75CE00A154E4 /* FilesQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesQueue.m; sourceTree = "<group>"; };
 		5A391880140A9B10001B4FD7 /* RevealButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RevealButtonCell.m; sourceTree = "<group>"; };
 		5A391882140A9B19001B4FD7 /* RevealButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevealButtonCell.h; sourceTree = "<group>"; };
 		5A44976911303B01006EAA56 /* ImageOptim.tar.bz2 */ = {isa = PBXFileReference; explicitFileType = archive; path = ImageOptim.tar.bz2; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -540,6 +545,7 @@
 		5ABF611313E37B86009F6F22 /* da */ = {isa = PBXFileReference; lastKnownFileType = folder; name = da; path = da.lproj/Help; sourceTree = "<group>"; };
 		5ABF611613E37BC3009F6F22 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5AC63C490E9ABF0A0053B879 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		5AC64EC11AF3FCFE0032AA7F /* unoptimized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unoptimized.png; sourceTree = "<group>"; };
 		5AC98826155F1ACD00E221A0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5AC98827155F1ACD00E221A0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5AC9882B155F1AE100E221A0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sv; path = sv.lproj/Help; sourceTree = "<group>"; };
@@ -622,6 +628,8 @@
 				5AE54DE50CAEF51300903DF4 /* Workers */,
 				5A0D2E550C922AB700FD7CDE /* File.h */,
 				5A0D2E560C922AB700FD7CDE /* File.m */,
+				5A34D0971AEF75CE00A154E4 /* FilesQueue.h */,
+				5A34D0981AEF75CE00A154E4 /* FilesQueue.m */,
 				5A34CFEE1AEF6D9800A154E4 /* ImageOptimGPL.h */,
 				5ABE16D11AE5AD9F00861C6B /* log.c */,
 				5AA9F5F5189339A500697D8E /* log.h */,
@@ -872,6 +880,7 @@
 			isa = PBXGroup;
 			children = (
 				5ABE15541AE5072300861C6B /* Info.plist */,
+				5AC64EC11AF3FCFE0032AA7F /* unoptimized.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -915,6 +924,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ABE15471AE5072300861C6B /* Backend.h in Headers */,
+				5A34D0991AEF75CE00A154E4 /* FilesQueue.h in Headers */,
 				5A34D0041AEF6DB300A154E4 /* ImageOptimGPL.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1294,6 +1304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AC64EC21AF3FCFE0032AA7F /* unoptimized.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1361,6 +1372,7 @@
 				5ABE15791AE5073E00861C6B /* CommandWorker.m in Sources */,
 				5ABE157A1AE5073E00861C6B /* DirWorker.m in Sources */,
 				5ABE15741AE5073100861C6B /* File.m in Sources */,
+				5A34D09A1AEF75CE00A154E4 /* FilesQueue.m in Sources */,
 				5ABE157B1AE5073E00861C6B /* GifsicleWorker.m in Sources */,
 				5ABE157C1AE5073E00861C6B /* JpegoptimWorker.m in Sources */,
 				5ABE157D1AE5073E00861C6B /* JpegtranWorker.m in Sources */,

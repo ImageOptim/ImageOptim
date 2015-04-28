@@ -9,10 +9,10 @@
 #import "Workers/DirWorker.h"
 #import "RevealButtonCell.h"
 #import "ResultsDb.h"
+#import "FilesQueue.h"
 
 @interface FilesController()
 
--(BOOL)isAnyQueueBusy;
 @property (readonly, copy) NSArray *extensions;
 @property (assign) BOOL isStoppable;
 -(void)updateBusyState;
@@ -21,7 +21,17 @@
 NSString *const kFilesQueueFinished = @"FilesQueueFinished";
 static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
-@implementation FilesController
+@implementation FilesController {
+    FilesQueue *filesQueue;
+    NSLock *queueWaitingLock;
+
+    NSTableView *tableView;
+    BOOL isEnabled, isBusy, isStoppable;
+    NSInteger nextInsertRow;
+
+    NSHashTable *seenPathHashes;
+    ResultsDb *db;
+}
 
 @synthesize isBusy, isStoppable;
 
@@ -30,19 +40,8 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     seenPathHashes = [[NSHashTable alloc] initWithOptions:NSHashTableZeroingWeakMemory capacity:1000];
     db = [ResultsDb new];
 
-    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-
-    cpuQueue = [NSOperationQueue new];
-    [cpuQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentFiles"]];
-
-    dirWorkerQueue = [NSOperationQueue new];
-    [dirWorkerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentDirscans"]];
-
-    fileIOQueue = [NSOperationQueue new];
-    NSUInteger fileops = [defs integerForKey:@"RunConcurrentFileops"];
-    [fileIOQueue setMaxConcurrentOperationCount:fileops?fileops:2];
-
     queueWaitingLock = [NSLock new];
+    filesQueue = [FilesQueue new];
 
     [tableView registerForDraggedTypes:@[NSFilenamesPboardType, kIMDraggedRowIndexesPboardType]];
 
@@ -51,24 +50,11 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     isEnabled = YES;
 }
 
--(NSNumber *)queueCount {
-    return @(cpuQueue.operationCount + dirWorkerQueue.operationCount + fileIOQueue.operationCount);
-}
-
--(BOOL)isAnyQueueBusy {
-    return cpuQueue.operationCount > 0 || dirWorkerQueue.operationCount > 0 || fileIOQueue.operationCount > 0;
-}
-
 -(void)waitForQueuesToFinish {
 
     if ([queueWaitingLock tryLock]) {
         @try {
-            do { // any queue may be re-filled while waiting for another queue, so double-check is necessary
-                [dirWorkerQueue waitUntilAllOperationsAreFinished];
-                [fileIOQueue waitUntilAllOperationsAreFinished];
-                [cpuQueue waitUntilAllOperationsAreFinished];
-
-            } while ([self isAnyQueueBusy]);
+            [filesQueue wait];
         }
         @finally {
             [queueWaitingLock unlock];
@@ -84,9 +70,8 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 -(void)cleanup {
     isEnabled = NO;
-    [dirWorkerQueue cancelAllOperations];
-    [fileIOQueue cancelAllOperations];
-    [cpuQueue cancelAllOperations];
+
+    [filesQueue cleanup];
 
     NSArray *content = [self content];
     [content makeObjectsPerformSelector:@selector(cleanup)];
@@ -311,22 +296,26 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         if (!isDir) {
             File *f = [self findFileByPath:path];
             if (f) {
-                if (![f isBusy]) [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
+                if (![f isBusy]) [filesQueue addFile:f];
             } else {
                 [seenPathHashes addObject:path]; // used by findFileByPath
                 f = [[File alloc] initWithFilePath:path resultsDatabase:db];
                 [toAdd addObject:f];
-                [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
+                [filesQueue addFile:f];
             }
         } else {
             DirWorker *w = [[DirWorker alloc] initWithPath:path filesController:self extensions:[self extensions]];
-            [dirWorkerQueue addOperation:w];
+            [filesQueue addDirWorker:w];
         }
     }
 
     [self performSelectorOnMainThread:@selector(addFileObjects:) withObject:toAdd waitUntilDone:NO];
 
     return allOK;
+}
+
+-(NSNumber *)queueCount {
+    return [filesQueue queueCount];
 }
 
 -(void)stopSelected {
@@ -407,7 +396,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
         for (File *f in files) {
             if (!f.isBusy && (!optimized || f.isOptimized)) {
-                [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
+                [filesQueue addFile:f];
                 anyStarted = YES;
             }
         }
@@ -419,7 +408,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 }
 
 -(void)updateBusyState {
-    BOOL currentlyBusy = [self isAnyQueueBusy];
+    BOOL currentlyBusy = [filesQueue isBusy];
 
     if (isBusy != currentlyBusy) {
         [self willChangeValueForKey:@"isBusy"];

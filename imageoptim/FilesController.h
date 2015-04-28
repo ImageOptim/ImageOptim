@@ -10,19 +10,7 @@
 @class File, ResultsDb;
 extern NSString *const kFilesQueueFinished;
 
-@interface FilesController : NSArrayController <NSTableViewDelegate,NSTableViewDataSource> {
-	NSTableView *tableView;
-	BOOL isEnabled, isBusy, isStoppable;
-	NSInteger nextInsertRow;
-	NSOperationQueue *cpuQueue;
-    NSOperationQueue *fileIOQueue;
-	NSOperationQueue *dirWorkerQueue;
-
-    NSHashTable *seenPathHashes;
-    ResultsDb *db;
-
-    NSLock *queueWaitingLock;
-}
+@interface FilesController : NSArrayController <NSTableViewDelegate,NSTableViewDataSource>
 
 -(void)configureWithTableView:(NSTableView*)a;
 
@@ -48,10 +36,9 @@ extern NSString *const kFilesQueueFinished;
 
 -(void)stopSelected;
 -(void)updateStoppableState;
+-(NSNumber *)queueCount;
 
 @property (readonly, copy) NSArray *fileTypes;
-
-@property (unsafe_unretained, readonly, nonatomic) NSNumber *queueCount;
 @property (readonly) BOOL isBusy, isStoppable;
 
 @end
