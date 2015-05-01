@@ -35,7 +35,10 @@
     XCTAssertTrue([fm copyItemAtURL:origPath toURL:path error:nil]);
 
     File *f = [[File alloc] initWithFilePath:path resultsDatabase:nil];
-    FilesQueue *q = [FilesQueue new];
+    FilesQueue *q = [[FilesQueue alloc] initWithCPUs:4
+                                                dirs:1
+                                               files:4
+                     defaults:[NSUserDefaults standardUserDefaults]];
 
     [q addFile:f];
     XCTAssertTrue([f isBusy]);

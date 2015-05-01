@@ -12,4 +12,5 @@
 -(BOOL)isBusy;
 -(NSNumber *)queueCount;
 
+- (instancetype)initWithCPUs:(NSInteger)cpus dirs:(NSInteger)dirs files:(NSInteger)fileops defaults:(NSUserDefaults*)defaults;
 @end

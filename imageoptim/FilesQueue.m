@@ -3,32 +3,35 @@
 #import "File.h"
 #import "DirWorker.h"
 
+@interface FilesQueue ()
+    @property (strong) NSUserDefaults *defaults;
+@end
+
 @implementation FilesQueue {
     NSOperationQueue *cpuQueue;
     NSOperationQueue *fileIOQueue;
     NSOperationQueue *dirWorkerQueue;
 }
 
-- (instancetype)init {
+- (instancetype)initWithCPUs:(NSInteger)cpus dirs:(NSInteger)dirs files:(NSInteger)fileops defaults:(NSUserDefaults*)defaults {
     self = [super init];
     if (self) {
-        NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+        self.defaults = defaults;
 
         cpuQueue = [NSOperationQueue new];
-        [cpuQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentFiles"]];
+        [cpuQueue setMaxConcurrentOperationCount:cpus?cpus:NSOperationQueueDefaultMaxConcurrentOperationCount];
 
         dirWorkerQueue = [NSOperationQueue new];
-        [dirWorkerQueue setMaxConcurrentOperationCount:[defs integerForKey:@"RunConcurrentDirscans"]];
+        [dirWorkerQueue setMaxConcurrentOperationCount:dirs];
 
         fileIOQueue = [NSOperationQueue new];
-        NSUInteger fileops = [defs integerForKey:@"RunConcurrentFileops"];
         [fileIOQueue setMaxConcurrentOperationCount:fileops?fileops:2];
     }
     return self;
 }
 
 -(void)addFile:(File*)f {
-    [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue];
+    [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue defaults:self.defaults];
 }
 
 -(void)addDirWorker:(DirWorker *)d {

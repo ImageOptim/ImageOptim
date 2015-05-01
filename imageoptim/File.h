@@ -59,7 +59,7 @@ enum IOFileType {
 -(BOOL)revert;
 @property (readonly) BOOL canRevert;
 
--(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue;
+-(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue defaults:(NSUserDefaults*)defaults;
 
 -(BOOL)setFilePathOptimized:(NSURL *)f size:(NSUInteger)s toolName:(NSString*)s;
 
@@ -93,5 +93,5 @@ enum IOFileType {
 +(NSInteger)fileByteSize:(NSURL *)afile;
 
 
--(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue;
+-(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue  defaults:(NSUserDefaults*)defaults;
 @end

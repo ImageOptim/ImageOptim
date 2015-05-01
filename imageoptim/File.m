@@ -39,7 +39,9 @@
 }
 @end
 
-@implementation File
+@implementation File {
+    BOOL preservePermissions;
+}
 
 @synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImageName, percentDone, bestToolName;
 
@@ -275,8 +277,7 @@
 -(BOOL)saveResult {
     assert(filePathOptimized);
     @try {
-        NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-        BOOL preserve = [defs boolForKey:@"PreservePermissions"];
+
         NSFileManager *fm = [NSFileManager defaultManager];
 
         NSError *error = nil;
@@ -288,7 +289,7 @@
             return NO;
         }
 
-        if (preserve) {
+        if (preservePermissions) {
             NSString *writeToFilename = [[NSString stringWithFormat:@".%@~imageoptim", [filePath.lastPathComponent stringByDeletingPathExtension]] stringByAppendingPathExtension:filePath.pathExtension];
             NSURL *writeToURL = [enclosingDir URLByAppendingPathComponent:writeToFilename];
             NSString *writeToPath = writeToURL.path;
@@ -427,7 +428,7 @@
     return 0;
 }
 
--(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)aFileIOQueue {
+-(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)aFileIOQueue defaults:(NSUserDefaults*)defaults {
 
     @synchronized(self) {
         done = NO;
@@ -435,8 +436,11 @@
         optimized = NO;
         fileIOQueue = aFileIOQueue; // will be used for saving
         workers = [[NSMutableArray alloc] initWithCapacity:10];
+        preservePermissions = [defaults boolForKey:@"PreservePermissions"];
 
-        NSOperation *actualEnqueue = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(doEnqueueWorkersInCPUQueue:) object:queue];
+        NSOperation *actualEnqueue = [NSBlockOperation blockOperationWithBlock:^{
+            [self doEnqueueWorkersInCPUQueue:queue defaults:defaults];
+        }];
         if (queue.operationCount < queue.maxConcurrentOperationCount) {
             actualEnqueue.queuePriority = NSOperationQueuePriorityVeryHigh;
         }
@@ -457,7 +461,7 @@
     CC_MD5_Final((unsigned char *)settingsHash, &md5ctx);
 }
 
--(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue {
+-(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue defaults:(NSUserDefaults*)defs {
     [self setStatus:@"progress" order:3 text:NSLocalizedString(@"Inspecting file",@"tooltip")];
 
     NSError *err = nil;
@@ -488,8 +492,6 @@
 
     NSMutableArray *runFirst = [NSMutableArray new];
     NSMutableArray *runLater = [NSMutableArray new];
-
-    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 
     NSMutableArray *worker_list = [NSMutableArray new];
 

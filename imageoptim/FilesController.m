@@ -41,7 +41,13 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     db = [ResultsDb new];
 
     queueWaitingLock = [NSLock new];
-    filesQueue = [FilesQueue new];
+
+    NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+
+    filesQueue = [[FilesQueue alloc] initWithCPUs:[defs integerForKey:@"RunConcurrentFiles"]
+                                             dirs:[defs integerForKey:@"RunConcurrentDirscans"]
+                                            files:[defs integerForKey:@"RunConcurrentFileops"]
+                                         defaults:defs];
 
     [tableView registerForDraggedTypes:@[NSFilenamesPboardType, kIMDraggedRowIndexesPboardType]];
 
