@@ -6,11 +6,10 @@
 
 @synthesize alternativeStrategy;
 
--(instancetype)init {
-    if (self = [super init]) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+-(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
+    if (self = [super initWithDefaults:defaults file:aFile]) {
         iterations = (int)[defaults integerForKey:@"ZopfliIterations"];
-        strip = [[NSUserDefaults standardUserDefaults] boolForKey:@"PngOutRemoveChunks"];
+        strip = [defaults boolForKey:@"PngOutRemoveChunks"];
     }
     return self;
 }

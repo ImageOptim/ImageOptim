@@ -17,7 +17,7 @@
 }
 
 -(instancetype)initWithFile:(File *)aFile {
-    if (self = [self init]) {
+    if (self = [super init]) {
         self.file = aFile;
     }
     return self;

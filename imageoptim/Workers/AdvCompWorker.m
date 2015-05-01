@@ -10,11 +10,9 @@
 
 @implementation AdvCompWorker
 
--(instancetype)init {
-    if (self = [super init]) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+-(instancetype)initWithDefaults:(NSUserDefaults*)defaults file:(File *)aFile {
+    if (self = [super initWithDefaults:defaults file:aFile]) {
         level = [defaults integerForKey:@"AdvPngLevel"];
-
     }
     return self;
 }

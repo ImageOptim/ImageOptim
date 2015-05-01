@@ -13,11 +13,9 @@
     return jpegrescan*2+strip;
 }
 
--(instancetype)initWithFile:(File *)aFile {
-    if (self = [super initWithFile:aFile]) {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+-(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
+    if (self = [super initWithDefaults:defaults file:aFile]) {
         strip = [defaults boolForKey:@"JpegTranStripAll"];
-
         jpegrescan = [defaults boolForKey:@"JpegRescanEnabled"];
     }
     return self;

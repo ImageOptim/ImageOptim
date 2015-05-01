@@ -6,12 +6,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Worker.h"
-#import "../File.h"
+
+@class File;
 
 @interface CommandWorker : Worker {
     NSTask *task;
 }
 
+- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File*)aFile NS_DESIGNATED_INITIALIZER;
 
 -(BOOL)parseLine:(NSString *)line;
 -(void)parseLinesFromHandle:(NSFileHandle *)commandHandle;
@@ -30,4 +32,7 @@
 
 -(BOOL)runWithTempPath:(NSURL*)tempPath;
 -(NSString *)pathForExecutableName:(NSString *)resourceName;
+
+@property (strong) NSUserDefaults *defaults;
+
 @end

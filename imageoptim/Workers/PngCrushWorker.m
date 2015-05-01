@@ -5,12 +5,12 @@
 //
 
 #import "PngCrushWorker.h"
-
+#import "../File.h"
 
 @implementation PngCrushWorker
-- (instancetype)init {
-    if ((self = [super init])) {
-        strip = [[NSUserDefaults standardUserDefaults] boolForKey:@"PngOutRemoveChunks"];
+- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
+    if ((self = [super initWithDefaults:defaults file:aFile])) {
+        strip = [defaults boolForKey:@"PngOutRemoveChunks"];
     }
     return self;
 }

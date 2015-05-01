@@ -9,12 +9,10 @@
 
 @implementation OptiPngWorker
 
--(instancetype)init {
-    if (self = [super init]) {
-        NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-        optlevel = [defs integerForKey:@"OptiPngLevel"];
-        interlace = [defs integerForKey:@"OptiPngInterlace"];
-
+-(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
+    if (self = [super initWithDefaults:defaults file:file]) {
+        optlevel = [defaults integerForKey:@"OptiPngLevel"];
+        interlace = [defaults integerForKey:@"OptiPngInterlace"];
     }
     return self;
 }

@@ -491,33 +491,29 @@
 
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 
-    NSArray *worker_list = nil;
+    NSMutableArray *worker_list = [NSMutableArray new];
 
     if (fileType == FILETYPE_PNG) {
-        worker_list = @[
-                          @ {@"key":@"PngCrushEnabled", @"class":[PngCrushWorker class]},
-                          @ {@"key":@"OptiPngEnabled", @"class":[OptiPngWorker class]},
-        @ {@"key":@"ZopfliEnabled", @"class":[ZopfliWorker class], @"block": ^(Worker *w) {
-            ((ZopfliWorker *)w).alternativeStrategy = hasBeenRunBefore;
+        if ([defs boolForKey:@"PngCrushEnabled"]) [worker_list addObject:[[PngCrushWorker alloc] initWithDefaults:defs file:self]];
+        if ([defs boolForKey:@"OptiPngEnabled"]) [worker_list addObject:[[OptiPngWorker alloc] initWithDefaults:defs file:self]];
+        if ([defs boolForKey:@"PngOutEnabled"]) [worker_list addObject:[[PngoutWorker alloc] initWithDefaults:defs file:self]];
+        if ([defs boolForKey:@"AdvPngEnabled"]) [worker_list addObject:[[AdvCompWorker alloc] initWithDefaults:defs file:self]];
+        if ([defs boolForKey:@"ZopfliEnabled"]) {
+            ZopfliWorker *zw = [[ZopfliWorker alloc] initWithDefaults:defs file:self];
+            zw.alternativeStrategy = hasBeenRunBefore;
+            [worker_list addObject:zw];
         }
-                            },
-        @ {@"key":@"PngOutEnabled", @"class":[PngoutWorker class]},
-        @ {@"key":@"AdvPngEnabled", @"class":[AdvCompWorker class]},
-                      ];
     } else if (fileType == FILETYPE_JPEG) {
-        worker_list = @[
-                          @ {@"key":@"JpegOptimEnabled", @"class":[JpegoptimWorker class]},
-                          @ {@"key":@"JpegTranEnabled", @"class":[JpegtranWorker class]},
-                      ];
+        if ([defs boolForKey:@"JpegOptimEnabled"]) [worker_list addObject:[[JpegoptimWorker alloc] initWithDefaults:defs file:self]];
+        if ([defs boolForKey:@"JpegTranEnabled"]) [worker_list addObject:[[JpegtranWorker alloc] initWithDefaults:defs file:self]];
     } else if (fileType == FILETYPE_GIF) {
         if ([defs boolForKey:@"GifsicleEnabled"]) {
-            GifsicleWorker *w = [[GifsicleWorker alloc] initWithFile:self];
-            w.interlace = NO;
-            [runLater addObject:w];
-
-            w = [[GifsicleWorker alloc] initWithFile:self];
-            w.interlace = YES;
-            [runLater addObject:w];
+            GifsicleWorker *w1 = [[GifsicleWorker alloc] initWithDefaults:defs file:self];
+            w1.interlace = NO;
+            [worker_list addObject:w1];
+            GifsicleWorker *w2 = [[GifsicleWorker alloc] initWithDefaults:defs file:self];
+            w2.interlace = YES;
+            [worker_list addObject:w2];
         }
     } else {
         [self setStatus:@"err" order:8 text:NSLocalizedString(@"File is neither PNG, GIF nor JPEG",@"tooltip")];
@@ -527,29 +523,20 @@
 
     BOOL isQueueUnderUtilized = [queue operationCount] <= [queue maxConcurrentOperationCount];
 
-    for (NSDictionary *wl in worker_list) {
-        if ([defs boolForKey:wl[@"key"]]) {
+    for (Worker *w in worker_list) {
 
-            Worker *w = [wl[@"class"] alloc];
-            w = [w initWithFile:self];
-            if (wl[@"block"]) {
-                void (^block)(Worker *) = wl[@"block"];
-                block(w);
-            }
-
-            // generally optimizers that have side effects should always be run first, one at a time
-            // unfortunately that makes whole process single-core serial when there are very few files
-            // so for small queues rely on nextOperation to give some order when possible
-            if ([w makesNonOptimizingModifications]) {
-                if (!isQueueUnderUtilized || [self isSmall]) {
-                    [runFirst addObject:w];
-                } else {
-                    [w setQueuePriority:[runLater count] ? NSOperationQueuePriorityHigh : NSOperationQueuePriorityVeryHigh];
-                    [runLater addObject:w];
-                }
+        // generally optimizers that have side effects should always be run first, one at a time
+        // unfortunately that makes whole process single-core serial when there are very few files
+        // so for small queues rely on nextOperation to give some order when possible
+        if ([w makesNonOptimizingModifications]) {
+            if (!isQueueUnderUtilized || [self isSmall]) {
+                [runFirst addObject:w];
             } else {
+                [w setQueuePriority:[runLater count] ? NSOperationQueuePriorityHigh : NSOperationQueuePriorityVeryHigh];
                 [runLater addObject:w];
             }
+        } else {
+            [runLater addObject:w];
         }
     }
 

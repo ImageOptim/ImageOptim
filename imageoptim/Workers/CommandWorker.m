@@ -9,7 +9,18 @@
 #import "../File.h"
 #import "../log.h"
 
-@implementation CommandWorker
+@implementation CommandWorker {
+}
+
+
+- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File*)aFile
+{
+    self = [super initWithFile:aFile];
+    if (self) {
+        self.defaults = defaults;
+    }
+    return self;
+}
 
 -(BOOL)parseLine:(NSString *)line {
     /* stub */
@@ -145,8 +156,7 @@
     if (!path) {
         IOWarn("Can't find working executable for %@ - disabling",prefsName);
         NSBeep();
-        NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
-        [defs setBool:NO forKey:[prefsName stringByAppendingString:@"@Enabled"]];
+        [self.defaults setBool:NO forKey:[prefsName stringByAppendingString:@"@Enabled"]];
     }
     return path;
 }
