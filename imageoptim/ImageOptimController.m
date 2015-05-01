@@ -5,6 +5,7 @@
 #import "Workers/Worker.h"
 #import "PrefsController.h"
 #import "MyTableView.h"
+#import "SharedPrefs.h"
 #include <mach/mach_host.h>
 #include <mach/host_info.h>
 #import <Quartz/Quartz.h>
@@ -40,7 +41,10 @@ static const char *kIMPreviewPanelContext = "preview";
         }
     }
 
-    [[NSUserDefaults standardUserDefaults] registerDefaults:defs];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults registerDefaults:defs];
+    
+    IOSharedPrefsCopy(userDefaults);
 
     [filesController configureWithTableView:tableView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observeNotification:) name:kFilesQueueFinished object:filesController];

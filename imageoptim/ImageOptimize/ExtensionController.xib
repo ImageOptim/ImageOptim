@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7702" systemVersion="14E11f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment version="101000" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7702"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="ExtensionController">
+            <connections>
+                <outlet property="status" destination="ckS-qm-9xh" id="e7Y-go-8dG"/>
+                <outlet property="view" destination="sJA-uh-hHC" id="4aX-aA-HQl"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <visualEffectView appearanceType="vibrantLight" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" id="sJA-uh-hHC">
+            <rect key="frame" x="0.0" y="0.0" width="275" height="48"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="ckS-qm-9xh">
+                    <rect key="frame" x="13" y="17" width="94" height="14"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="ImageOptimizing" id="df5-if-FTm">
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="TPM-ex-qc3">
+                    <rect key="frame" x="185" y="9" width="80" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="900" constant="70" id="dAf-cP-6st"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="Stop" bezelStyle="rounded" image="NSStopProgressTemplate" imagePosition="left" alignment="center" controlSize="small" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gF5-rg-Ubq">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="smallSystem"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="stop:" target="-2" id="BJw-E2-g59"/>
+                    </connections>
+                </button>
+                <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="700" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="k2a-43-e8O">
+                    <rect key="frame" x="169" y="16" width="16" height="16"/>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="filesQueue.isBusy" id="YSU-Ug-S6a">
+                            <dictionary key="options">
+                                <bool key="NSConditionallySetsHidden" value="YES"/>
+                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </progressIndicator>
+                <textField horizontalHuggingPriority="300" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="2KC-aR-8S7">
+                    <rect key="frame" x="150" y="17" width="16" height="14"/>
+                    <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="…" id="rxx-2W-M2q">
+                        <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="bov-4W-jWb" customClass="SavingsFormatter"/>
+                        <font key="font" metaFont="smallSystem"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="currentFile.percentOptimized" id="tyZ-Ss-aUW">
+                            <dictionary key="options">
+                                <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                <bool key="NSConditionallySetsHidden" value="YES"/>
+                                <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="TPM-ex-qc3" secondAttribute="trailing" constant="15" id="297-He-Qu1"/>
+                <constraint firstAttribute="centerY" secondItem="ckS-qm-9xh" secondAttribute="centerY" id="7QI-g8-0fR"/>
+                <constraint firstItem="k2a-43-e8O" firstAttribute="centerY" secondItem="TPM-ex-qc3" secondAttribute="centerY" id="AFu-S4-oEc"/>
+                <constraint firstItem="TPM-ex-qc3" firstAttribute="centerY" secondItem="ckS-qm-9xh" secondAttribute="centerY" id="E04-xe-zdE"/>
+                <constraint firstItem="TPM-ex-qc3" firstAttribute="leading" secondItem="k2a-43-e8O" secondAttribute="trailing" constant="5" id="L12-xU-9jc"/>
+                <constraint firstItem="2KC-aR-8S7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ckS-qm-9xh" secondAttribute="trailing" constant="10" id="Pnx-QM-Zy3"/>
+                <constraint firstItem="TPM-ex-qc3" firstAttribute="top" secondItem="sJA-uh-hHC" secondAttribute="top" priority="800" constant="15" id="XqR-Ve-ob9"/>
+                <constraint firstItem="ckS-qm-9xh" firstAttribute="leading" secondItem="sJA-uh-hHC" secondAttribute="leading" constant="15" id="azN-iQ-zGL"/>
+                <constraint firstItem="k2a-43-e8O" firstAttribute="leading" secondItem="2KC-aR-8S7" secondAttribute="trailing" constant="5" id="cBe-ME-nBT"/>
+                <constraint firstAttribute="bottom" secondItem="TPM-ex-qc3" secondAttribute="bottom" priority="800" constant="15" id="cLG-LQ-sAC"/>
+                <constraint firstItem="ckS-qm-9xh" firstAttribute="baseline" secondItem="2KC-aR-8S7" secondAttribute="baseline" id="zl4-Aq-RIG"/>
+            </constraints>
+            <point key="canvasLocation" x="472.5" y="367"/>
+        </visualEffectView>
+        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="wMt-rT-dRC">
+            <rect key="frame" x="0.0" y="0.0" width="38" height="17"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Wt5-Q3-805">
+                <font key="font" metaFont="system"/>
+                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+            </textFieldCell>
+            <point key="canvasLocation" x="195" y="297.5"/>
+        </textField>
+        <userDefaultsController representsSharedInstance="YES" id="qOt-Kx-PBQ"/>
+    </objects>
+    <resources>
+        <image name="NSStopProgressTemplate" width="11" height="11"/>
+    </resources>
+</document>

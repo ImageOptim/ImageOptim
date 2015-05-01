@@ -45,6 +45,7 @@
 		5A5CD39419662E940096D77F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5CD39319662E940096D77F /* AppKit.framework */; };
 		5A5CD39619662E9A0096D77F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5CD39519662E9A0096D77F /* Foundation.framework */; };
 		5A6242080CA86DC7005942A3 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6242070CA86DC7005942A3 /* PrefsController.m */; };
+		5A6A56D01B497E210045AA0C /* SharedPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A1F3CEE1B489796006570E0 /* SharedPrefs.m */; };
 		5A714AAD0CB0196A00C242C0 /* MyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A714AAC0CB0196A00C242C0 /* MyTableView.m */; };
 		5A7D24E213E5BC3100815AAA /* PrefsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A45530D1024EB3000A69944 /* PrefsController.xib */; };
 		5A7D24E313E5BC3100815AAA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A45530A1024EB1100A69944 /* MainMenu.xib */; };
@@ -100,6 +101,9 @@
 		5AC4CBB31AF3FFA10003AEA2 /* ImageOptimGPL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABE15421AE5072300861C6B /* ImageOptimGPL.framework */; };
 		5AC4CC801AF568E90003AEA2 /* SavingsFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */; };
 		5AC64EC21AF3FCFE0032AA7F /* unoptimized.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC64EC11AF3FCFE0032AA7F /* unoptimized.png */; };
+		5AC64F071AF3FDEE0032AA7F /* ExtensionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC64F061AF3FDEE0032AA7F /* ExtensionController.m */; };
+		5AC64F091AF3FDEE0032AA7F /* ExtensionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC64F081AF3FDEE0032AA7F /* ExtensionController.xib */; };
+		5AC64F0C1AF3FDEE0032AA7F /* ImageOptimize.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5AC64EFE1AF3FDEE0032AA7F /* ImageOptimize.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
 
@@ -356,6 +360,13 @@
 			remoteGlobalIDString = 5A1EBE6917908D9D00361F08;
 			remoteInfo = zopflipng;
 		};
+		5AC64F0A1AF3FDEE0032AA7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AC64EFD1AF3FDEE0032AA7F;
+			remoteInfo = ImageOptimize;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -390,6 +401,17 @@
 				5A5811AA1AD73A7E0001838D /* Sparkle.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AC64F231AF3FDEF0032AA7F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5AC64F0C1AF3FDEE0032AA7F /* ImageOptimize.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -445,6 +467,8 @@
 		5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pngcrush.xcodeproj; path = ../pngcrush/pngcrush.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A1D3E8B14366933004EE809 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "zopfli-png.xcodeproj"; path = "../zopfli-png/zopfli-png.xcodeproj"; sourceTree = "<group>"; };
+		5A1F3CEE1B489796006570E0 /* SharedPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedPrefs.m; sourceTree = "<group>"; };
+		5A1F3D001B4897B3006570E0 /* SharedPrefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedPrefs.h; sourceTree = "<group>"; };
 		5A20CC8E1123939C0000400D /* libpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpng.xcodeproj; path = ../libpng/libpng.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A20CC9D112393B80000400D /* jpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpeg.xcodeproj; path = ../libjpeg/jpeg.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A27B956139B03090095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
@@ -559,8 +583,15 @@
 		5ABF610913E37B07009F6F22 /* da */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = da; path = da.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5ABF611313E37B86009F6F22 /* da */ = {isa = PBXFileReference; lastKnownFileType = folder; name = da; path = da.lproj/Help; sourceTree = "<group>"; };
 		5ABF611613E37BC3009F6F22 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5AC4CC101AF445480003AEA2 /* ImageOptim.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ImageOptim.entitlements; sourceTree = "<group>"; };
 		5AC63C490E9ABF0A0053B879 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		5AC64EC11AF3FCFE0032AA7F /* unoptimized.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unoptimized.png; sourceTree = "<group>"; };
+		5AC64EFE1AF3FDEE0032AA7F /* ImageOptimize.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ImageOptimize.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AC64F011AF3FDEE0032AA7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5AC64F041AF3FDEE0032AA7F /* ImageOptimize.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ImageOptimize.entitlements; sourceTree = "<group>"; };
+		5AC64F051AF3FDEE0032AA7F /* ExtensionController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExtensionController.h; sourceTree = "<group>"; };
+		5AC64F061AF3FDEE0032AA7F /* ExtensionController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExtensionController.m; sourceTree = "<group>"; };
+		5AC64F081AF3FDEE0032AA7F /* ExtensionController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExtensionController.xib; sourceTree = "<group>"; };
 		5AC98826155F1ACD00E221A0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		5AC98827155F1ACD00E221A0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = sv; path = sv.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5AC9882B155F1AE100E221A0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sv; path = sv.lproj/Help; sourceTree = "<group>"; };
@@ -620,6 +651,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5AC64EFB1AF3FDEE0032AA7F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AC4CBB31AF3FFA10003AEA2 /* ImageOptimGPL.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -652,6 +691,8 @@
 				5A08FE911936982E001DA24B /* ResultsDb.m */,
 				5A8A18121416D1D700D62DB7 /* SavingsFormatter.h */,
 				5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */,
+				5A1F3D001B4897B3006570E0 /* SharedPrefs.h */,
+				5A1F3CEE1B489796006570E0 /* SharedPrefs.m */,
 			);
 			name = Backend;
 			sourceTree = "<group>";
@@ -663,6 +704,7 @@
 				8D1107320486CEB800E47090 /* ImageOptim.app */,
 				5A44976911303B01006EAA56 /* ImageOptim.tar.bz2 */,
 				5ABE15421AE5072300861C6B /* ImageOptimGPL.framework */,
+				5AC64EFE1AF3FDEE0032AA7F /* ImageOptimize.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -675,6 +717,7 @@
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				5A09013A0ED8D68200F3965B /* Sparkle */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				5AC64EFF1AF3FDEE0032AA7F /* Extension */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -689,6 +732,7 @@
 				5A984D4011238E51007622D7 /* advpng.xcodeproj */,
 				5A27B9C2139B079A0095FC2F /* debug.xcconfig */,
 				5A4DC2051028ADB200A9DD55 /* gifsicle.xcodeproj */,
+				5AC4CC101AF445480003AEA2 /* ImageOptim.entitlements */,
 				1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */,
 				5A20CC9D112393B80000400D /* jpeg.xcodeproj */,
 				5A8167EC0EA11F9D00962CF2 /* jpegoptim.xcodeproj */,
@@ -900,6 +944,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5AC64EFF1AF3FDEE0032AA7F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5AC64F001AF3FDEE0032AA7F /* Supporting Files */,
+				5AC64F051AF3FDEE0032AA7F /* ExtensionController.h */,
+				5AC64F061AF3FDEE0032AA7F /* ExtensionController.m */,
+				5AC64F081AF3FDEE0032AA7F /* ExtensionController.xib */,
+			);
+			name = Extension;
+			path = ImageOptimize;
+			sourceTree = "<group>";
+		};
+		5AC64F001AF3FDEE0032AA7F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5AC64F041AF3FDEE0032AA7F /* ImageOptimize.entitlements */,
+				5AC64F011AF3FDEE0032AA7F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		5AE54DE50CAEF51300903DF4 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1012,6 +1077,24 @@
 			productReference = 5ABE154C1AE5072300861C6B /* BackendTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		5AC64EFD1AF3FDEE0032AA7F /* ImageOptimize */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AC64F221AF3FDEF0032AA7F /* Build configuration list for PBXNativeTarget "ImageOptimize" */;
+			buildPhases = (
+				5AC64EFA1AF3FDEE0032AA7F /* Sources */,
+				5AC64EFB1AF3FDEE0032AA7F /* Frameworks */,
+				5AC64EFC1AF3FDEE0032AA7F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5A1F3CA71B4800D8006570E0 /* PBXTargetDependency */,
+			);
+			name = ImageOptimize;
+			productName = ImageOptimize;
+			productReference = 5AC64EFE1AF3FDEE0032AA7F /* ImageOptimize.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		8D1107260486CEB800E47090 /* ImageOptim */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "ImageOptim" */;
@@ -1020,6 +1103,7 @@
 				5AC63C410E9ABCFD0053B879 /* Copy Frameworks */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
 				5A7D24E113E5BC0C00815AAA /* Resources */,
+				5AC64F231AF3FDEF0032AA7F /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -1027,6 +1111,7 @@
 				5A5811A91AD73A700001838D /* PBXTargetDependency */,
 				5A453F9B16BE79B6002AFE23 /* PBXTargetDependency */,
 				5ABE15581AE5072300861C6B /* PBXTargetDependency */,
+				5AC64F0B1AF3FDEE0032AA7F /* PBXTargetDependency */,
 			);
 			name = ImageOptim;
 			productInstallPath = "$(HOME)/Applications";
@@ -1042,6 +1127,31 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					5ABE15411AE5072300861C6B = {
+						DevelopmentTeam = 59KZTZA4XR;
+					};
+					5AC64EFD1AF3FDEE0032AA7F = {
+						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 59KZTZA4XR;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+						};
+					};
+					8D1107260486CEB800E47090 = {
+						DevelopmentTeam = 59KZTZA4XR;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ImageOptim" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1132,6 +1242,7 @@
 				5A453F8D16BE79A7002AFE23 /* downloads */,
 				5ABE15411AE5072300861C6B /* Backend */,
 				5ABE154B1AE5072300861C6B /* BackendTests */,
+				5AC64EFD1AF3FDEE0032AA7F /* ImageOptimize */,
 			);
 		};
 /* End PBXProject section */
@@ -1303,11 +1414,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5ABE154A1AE5072300861C6B /* Resources */ = {
+		5AC64EFC1AF3FDEE0032AA7F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AC64EC21AF3FCFE0032AA7F /* unoptimized.png in Resources */,
+				5AC64F091AF3FDEE0032AA7F /* ExtensionController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1386,6 +1497,7 @@
 				5ABE15771AE5073100861C6B /* ResultsDb.m in Sources */,
 				5ABE15811AE5073E00861C6B /* Save.m in Sources */,
 				5AC4CC801AF568E90003AEA2 /* SavingsFormatter.m in Sources */,
+				5A6A56D01B497E210045AA0C /* SharedPrefs.m in Sources */,
 				5ABE15821AE5073E00861C6B /* Worker.m in Sources */,
 				5ABE15831AE5073E00861C6B /* ZopfliWorker.m in Sources */,
 			);
@@ -1396,6 +1508,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A34D0031AEF6DA300A154E4 /* BackendTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5AC64EFA1AF3FDEE0032AA7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AC64F071AF3FDEE0032AA7F /* ExtensionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1418,6 +1538,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5A1F3CA71B4800D8006570E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5ABE15411AE5072300861C6B /* Backend */;
+			targetProxy = 5A1F3CA61B4800D8006570E0 /* PBXContainerItemProxy */;
+		};
 		5A453F9B16BE79B6002AFE23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5A453F8D16BE79A7002AFE23 /* downloads */;
@@ -1502,6 +1627,11 @@
 			isa = PBXTargetDependency;
 			name = zopflipng;
 			targetProxy = 5ABE16191AE508C200861C6B /* PBXContainerItemProxy */;
+		};
+		5AC64F0B1AF3FDEE0032AA7F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AC64EFD1AF3FDEE0032AA7F /* ImageOptimize */;
+			targetProxy = 5AC64F0A1AF3FDEE0032AA7F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1687,6 +1817,7 @@
 		5ABE155B1AE5072300861C6B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1697,6 +1828,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1725,6 +1857,7 @@
 		5ABE155C1AE5072300861C6B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
@@ -1735,6 +1868,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -1850,10 +1984,98 @@
 			};
 			name = Release;
 		};
+		5AC64F0D1AF3FDEF0032AA7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = ImageOptimize/ImageOptimize.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = ImageOptimize/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5AC64F0E1AF3FDEF0032AA7F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = ImageOptimize/ImageOptimize.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = ImageOptimize/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = ImageOptim.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(BUILT_PRODUCTS_DIR)",
@@ -1871,6 +2093,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = ImageOptim.entitlements;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(BUILT_PRODUCTS_DIR)",
@@ -1945,6 +2169,15 @@
 			buildConfigurations = (
 				5ABE155D1AE5072300861C6B /* Debug */,
 				5ABE155E1AE5072300861C6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AC64F221AF3FDEF0032AA7F /* Build configuration list for PBXNativeTarget "ImageOptimize" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AC64F0D1AF3FDEF0032AA7F /* Debug */,
+				5AC64F0E1AF3FDEF0032AA7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
