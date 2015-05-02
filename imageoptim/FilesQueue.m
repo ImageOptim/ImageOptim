@@ -31,7 +31,9 @@
 }
 
 -(void)addFile:(File*)f {
+    [self willChangeValueForKey:@"isBusy"];
     [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue defaults:self.defaults];
+    [self didChangeValueForKey:@"isBusy"];
 }
 
 -(void)addDirWorker:(DirWorker *)d {
@@ -58,7 +60,8 @@
         [fileIOQueue waitUntilAllOperationsAreFinished];
         [cpuQueue waitUntilAllOperationsAreFinished];
     } while ([self isBusy]);
-
+    [self willChangeValueForKey:@"isBusy"];
+    [self didChangeValueForKey:@"isBusy"];
 }
 
 @end

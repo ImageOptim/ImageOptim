@@ -39,11 +39,15 @@
 }
 @end
 
+@interface File ()
+@property (assign) BOOL isDone;
+@end
+
 @implementation File {
     BOOL preservePermissions;
 }
 
-@synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImageName, percentDone, bestToolName;
+@synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImageName, percentDone, bestToolName, isDone=done;
 
 -(instancetype)initWithFilePath:(NSURL *)aPath resultsDatabase:(ResultsDb*)aDb
 {
@@ -111,10 +115,6 @@
 
 -(BOOL)isOptimized {
     return byteSizeOptimized < byteSizeOriginal && (optimized || byteSizeOptimized < byteSizeOnDisk);
-}
-
--(BOOL)isDone {
-    return done;
 }
 
 -(void)setByteSizeOptimized:(NSUInteger)size {
@@ -243,7 +243,7 @@
 }
 
 -(BOOL)canRevert {
-    return revertPath && done && !stopping;
+    return revertPath && self.isDone && !stopping;
 }
 
 -(BOOL)revert {
@@ -388,7 +388,7 @@
 
 -(void)saveResultAndUpdateStatus {
     assert([self isBusy]);
-    done = YES;
+    self.isDone = YES;
     if ([self isOptimized] && filePathOptimized && byteSizeOriginal && byteSizeOptimized) {
         BOOL saved = [self saveResult];
         if (saved) {
@@ -431,7 +431,7 @@
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)aFileIOQueue defaults:(NSUserDefaults*)defaults {
 
     @synchronized(self) {
-        done = NO;
+        self.isDone = NO;
         stopping = NO;
         optimized = NO;
         fileIOQueue = aFileIOQueue; // will be used for saving
@@ -445,8 +445,12 @@
             actualEnqueue.queuePriority = NSOperationQueuePriorityVeryHigh;
         }
 
+        [self willChangeValueForKey:@"isBusy"];
+
         [workers addObject:actualEnqueue];
         [fileIOQueue addOperation:actualEnqueue];
+
+        [self didChangeValueForKey:@"isBusy"];
     }
 }
 
@@ -553,7 +557,7 @@
     CC_MD5_Update(md5ctxp, [fileData bytes], (CC_LONG)[fileData length]);
     CC_MD5_Final((unsigned char*)inputFileHash, md5ctxp);
     if ([db getResultWithHash:inputFileHash]) { // FIXME: check for lossy
-        done = YES;
+        self.isDone = YES;
         NSLog(@"Skipping %@, because it has been optimized before", filePath.path);
         [self setNooptStatus];
         [self cleanup];
@@ -594,7 +598,7 @@
     [workers addObjectsFromArray:runLater];
 
     if (![workers count]) {
-        done = YES;
+        self.isDone = YES;
         [self setStatus:@"err" order:8 text:NSLocalizedString(@"All neccessary tools have been disabled in Preferences",@"tooltip")];
         [self cleanup];
     } else {
@@ -631,7 +635,7 @@
         return NO;
     }
     @synchronized(self) {
-        if (!done) {
+        if (!self.isDone) {
             stopping = YES;
             for(Worker *w in workers) {
                 if (![w isKindOfClass:[Save class]]) {
@@ -644,7 +648,7 @@
 }
 
 -(BOOL)isStoppable {
-    return stopping || (![self isDone] && [self isBusy]);
+    return stopping || (!self.isDone && [self isBusy]);
 }
 
 -(void)updateStatusOfWorker:(Worker *)currentWorker running:(BOOL)started {

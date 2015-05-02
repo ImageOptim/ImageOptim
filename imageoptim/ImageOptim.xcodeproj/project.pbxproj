@@ -62,7 +62,6 @@
 		5A7D24EE13E5BC3100815AAA /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 5AC63C490E9ABF0A0053B879 /* dsa_pub.pem */; };
 		5A7D24EF13E5BC3100815AAA /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AE54D800CAEE8AC00903DF4 /* defaults.plist */; };
 		5A8594E81460BCF20044095A /* jpegrescan in Resources */ = {isa = PBXBuildFile; fileRef = 5A8594E71460BCF20044095A /* jpegrescan */; };
-		5A8A18141416D1D700D62DB7 /* SavingsFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */; };
 		5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99FE83140AE80600BB2F79 /* Quartz.framework */; };
 		5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
 		5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA8300CAFE74E004D45CA /* Transformers.m */; };
@@ -102,6 +101,8 @@
 		5ABE16621AE50D1D00861C6B /* ImageOptimController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E5C0C922D6D00FD7CDE /* ImageOptimController.m */; };
 		5ABE16D01AE5AD0200861C6B /* FilesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C4990CA6CDDC000CF636 /* FilesController.m */; };
 		5ABE16D21AE5AD9F00861C6B /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE16D11AE5AD9F00861C6B /* log.c */; };
+		5AC4CBB31AF3FFA10003AEA2 /* ImageOptimGPL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABE15421AE5072300861C6B /* ImageOptimGPL.framework */; };
+		5AC4CC801AF568E90003AEA2 /* SavingsFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */; };
 		5AC64EC21AF3FCFE0032AA7F /* unoptimized.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC64EC11AF3FCFE0032AA7F /* unoptimized.png */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
@@ -635,6 +636,8 @@
 				5AA9F5F5189339A500697D8E /* log.h */,
 				5A08FE901936982E001DA24B /* ResultsDb.h */,
 				5A08FE911936982E001DA24B /* ResultsDb.m */,
+				5A8A18121416D1D700D62DB7 /* SavingsFormatter.h */,
+				5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */,
 			);
 			name = Backend;
 			sourceTree = "<group>";
@@ -849,8 +852,6 @@
 				5A6242070CA86DC7005942A3 /* PrefsController.m */,
 				5A391882140A9B19001B4FD7 /* RevealButtonCell.h */,
 				5A391880140A9B10001B4FD7 /* RevealButtonCell.m */,
-				5A8A18121416D1D700D62DB7 /* SavingsFormatter.h */,
-				5A8A18131416D1D700D62DB7 /* SavingsFormatter.m */,
 				5AACA82F0CAFE74E004D45CA /* Transformers.h */,
 				5AACA8300CAFE74E004D45CA /* Transformers.m */,
 			);
@@ -1382,6 +1383,7 @@
 				5ABE15801AE5073E00861C6B /* PngoutWorker.m in Sources */,
 				5ABE15771AE5073100861C6B /* ResultsDb.m in Sources */,
 				5ABE15811AE5073E00861C6B /* Save.m in Sources */,
+				5AC4CC801AF568E90003AEA2 /* SavingsFormatter.m in Sources */,
 				5ABE15821AE5073E00861C6B /* Worker.m in Sources */,
 				5ABE15831AE5073E00861C6B /* ZopfliWorker.m in Sources */,
 			);
@@ -1407,7 +1409,6 @@
 				5A714AAD0CB0196A00C242C0 /* MyTableView.m in Sources */,
 				5A6242080CA86DC7005942A3 /* PrefsController.m in Sources */,
 				5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */,
-				5A8A18141416D1D700D62DB7 /* SavingsFormatter.m in Sources */,
 				5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

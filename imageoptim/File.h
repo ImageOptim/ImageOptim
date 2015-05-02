@@ -53,11 +53,11 @@ enum IOFileType {
 -(BOOL)isBusy;
 -(BOOL)isStoppable;
 -(BOOL)isOptimized;
--(BOOL)isDone;
 
 -(BOOL)stop;
 -(BOOL)revert;
 @property (readonly) BOOL canRevert;
+@property (readonly) BOOL isDone;
 
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue defaults:(NSUserDefaults*)defaults;
 
