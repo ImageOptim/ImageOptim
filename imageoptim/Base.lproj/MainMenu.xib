@@ -274,7 +274,7 @@
                             </binding>
                         </connections>
                     </customView>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="Chx-W4-45F">
+                    <button toolTip="Settings" translatesAutoresizingMaskIntoConstraints="NO" id="Chx-W4-45F" userLabel="Settings Button">
                         <rect key="frame" x="427" y="11" width="16" height="16"/>
                         <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSActionTemplate" imagePosition="only" imageScaling="proportionallyDown" inset="2" id="wBv-xY-5DV">
                             <behavior key="behavior" lightByContents="YES"/>
@@ -282,6 +282,7 @@
                         </buttonCell>
                         <accessibility description="Show settings"/>
                         <connections>
+                            <action selector="showLossyPrefs:" target="-1" id="B35-ZO-3uL"/>
                             <binding destination="251" name="hidden" keyPath="isBusy" id="LK8-Z3-Lme">
                                 <dictionary key="options">
                                     <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
@@ -291,12 +292,15 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="428" firstAttribute="centerY" secondItem="Chx-W4-45F" secondAttribute="centerY" id="1AA-I8-Vs0"/>
                     <constraint firstItem="428" firstAttribute="leading" secondItem="294" secondAttribute="trailing" constant="7" id="2aN-n3-2sI"/>
                     <constraint firstItem="586" firstAttribute="leading" secondItem="428" secondAttribute="trailing" constant="8" id="4Q3-fw-7u9"/>
+                    <constraint firstItem="428" firstAttribute="width" secondItem="Chx-W4-45F" secondAttribute="width" id="7hW-ta-uGC"/>
                     <constraint firstAttribute="trailing" secondItem="236" secondAttribute="trailing" id="98K-BG-Ip3"/>
                     <constraint firstItem="XNq-qc-Ci6" firstAttribute="top" secondItem="236" secondAttribute="top" id="DyQ-wZ-c9v"/>
                     <constraint firstItem="586" firstAttribute="centerY" secondItem="428" secondAttribute="centerY" id="EEF-Hw-pgC"/>
                     <constraint firstItem="423" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="8" id="EYQ-au-Yi5"/>
+                    <constraint firstItem="428" firstAttribute="centerX" secondItem="Chx-W4-45F" secondAttribute="centerX" id="Gpe-Lw-2jd"/>
                     <constraint firstItem="423" firstAttribute="centerY" secondItem="586" secondAttribute="centerY" id="Ifv-FK-6o5"/>
                     <constraint firstItem="XNq-qc-Ci6" firstAttribute="leading" secondItem="236" secondAttribute="leading" id="LBk-8s-hJc"/>
                     <constraint firstAttribute="bottom" secondItem="423" secondAttribute="bottom" constant="8" id="T9q-uS-x5t"/>
@@ -309,7 +313,7 @@
                     <constraint firstItem="XNq-qc-Ci6" firstAttribute="trailing" secondItem="236" secondAttribute="trailing" id="pcn-HL-uUr"/>
                     <constraint firstItem="586" firstAttribute="top" secondItem="236" secondAttribute="bottom" constant="9" id="s3k-0Z-V7B"/>
                     <constraint firstAttribute="bottom" secondItem="586" secondAttribute="bottom" constant="8" id="std-o8-EXO"/>
-                    <constraint firstItem="XNq-qc-Ci6" firstAttribute="width" secondItem="236" secondAttribute="width" id="uKk-Jt-aDN"/>
+                    <constraint firstItem="428" firstAttribute="height" secondItem="Chx-W4-45F" secondAttribute="height" id="wf9-0K-F7g"/>
                     <constraint firstAttribute="trailing" secondItem="586" secondAttribute="trailing" constant="8" id="ymv-zM-FlS"/>
                 </constraints>
             </view>
@@ -801,8 +805,18 @@ CA
                 </menuItem>
             </items>
         </menu>
+        <button verticalHuggingPriority="750" id="p50-U5-gKS">
+            <rect key="frame" x="0.0" y="0.0" width="106" height="23"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <buttonCell key="cell" type="smallSquare" title="Gradient Button" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="m2A-wl-MFW">
+                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                <font key="font" metaFont="system"/>
+            </buttonCell>
+            <point key="canvasLocation" x="-107" y="527.5"/>
+        </button>
     </objects>
     <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSApplicationIcon" width="128" height="128"/>
         <image name="NSRefreshTemplate" width="11" height="15"/>
