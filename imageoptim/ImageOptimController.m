@@ -387,8 +387,8 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
     }
 
     // convert icon rect to screen coordinates
-    iconRect = [tableView convertRectToBase:iconRect];
-    iconRect.origin = [[tableView window] convertBaseToScreen:iconRect.origin];
+    iconRect.origin = [tableView convertPoint:iconRect.origin toView:nil];
+    iconRect = [tableView.window convertRectToScreen:iconRect];
 
     return iconRect;
 }

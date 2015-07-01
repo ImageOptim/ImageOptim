@@ -151,8 +151,11 @@
     // Find the visible cells that have a non-empty tracking rect and add rects for each of them
     NSRange visibleRows = [self rowsInRect:[self visibleRect]];
     NSIndexSet *visibleColIndexes = [self columnIndexesInRect:[self visibleRect]];
-
-    NSPoint mouseLocation = [self convertPoint:[[self window] convertScreenToBase:[NSEvent mouseLocation]] fromView:nil];
+    
+    CGRect rect = [self.window convertRectFromScreen:(CGRect){
+                       .origin = [NSEvent mouseLocation],
+                   }];
+    NSPoint mouseLocation = [self convertPoint:rect.origin fromView:nil];
 
     for (NSInteger row = visibleRows.location; row < visibleRows.location + visibleRows.length; row++) {
         // If it is a "full width" cell, we don't have to go through the rows
