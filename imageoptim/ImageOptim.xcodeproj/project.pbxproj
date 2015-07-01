@@ -53,7 +53,7 @@
 		5A44F4B40CB1868100BD2884 /* PngCrushWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */; };
 		5A44F5840CB2ECEB00BD2884 /* CommandWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */; };
 		5A4DC21B1028AE1800A9DD55 /* GifsicleWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DC21A1028AE1800A9DD55 /* GifsicleWorker.m */; };
-		5A5811AA1AD73A7E0001838D /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5A58119F1AD73A640001838D /* Sparkle.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5A5811AA1AD73A7E0001838D /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5A58119F1AD73A640001838D /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5A5811AB1AD73A990001838D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A58119F1AD73A640001838D /* Sparkle.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5A5C29430CB04A0F00FAF446 /* OptiPngWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A5C29420CB04A0F00FAF446 /* OptiPngWorker.m */; };
 		5A5CD39419662E940096D77F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5CD39319662E940096D77F /* AppKit.framework */; };
@@ -876,8 +876,8 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0630;
-			};
+				LastUpgradeCheck = 0700;
+					};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ImageOptim" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -1480,8 +1480,9 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				INFOPLIST_FILE = Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptim;
 				PRODUCT_NAME = ImageOptim;
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1497,8 +1498,9 @@
 				INFOPLIST_FILE = Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CODE_SIGN_FLAGS = "--deep";
+				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptim;
 				PRODUCT_NAME = ImageOptim;
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
