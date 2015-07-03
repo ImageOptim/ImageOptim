@@ -6,7 +6,6 @@
 *.zip
 .DS_Store
 .svn
-pngquant/src
 advpng/*.c
 advpng/*.cc
 advpng/*.in

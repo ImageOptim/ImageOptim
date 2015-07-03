@@ -7,3 +7,6 @@
 [submodule "zopfli-png/zopfli"]
 	path = zopfli-png/zopfli
 	url = https://github.com/pornel/zopfli.git
+[submodule "pngquant/src"]
+	path = pngquant/src
+	url = https://github.com/pornel/pngquant.git
