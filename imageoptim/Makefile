@@ -1,9 +1,11 @@
 HELPINDEXES=$(addsuffix Help.helpindex, $(wildcard *.lproj/Help/))
+SUBMODULES=../Sparkle/Sparkle
 
-all: ../Sparkle pngout helpindexes
+all: $(SUBMODULES) pngout helpindexes
 
-../Sparkle:
-	git clone --depth=1 https://github.com/sparkle-project/Sparkle.git $@
+$(SUBMODULES):
+	git submodule init
+	git submodule update --depth=1
 
 pngout:
 	curl http://static.jonof.id.au/dl/kenutils/pngout-20150319-darwin.tar.gz | tar xz
