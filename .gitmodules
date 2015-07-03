@@ -1,3 +1,6 @@
 [submodule "Sparkle"]
 	path = Sparkle
 	url = https://github.com/sparkle-project/Sparkle.git
+[submodule "gifsicle"]
+	path = gifsicle
+	url = https://github.com/pornel/giflossy.git

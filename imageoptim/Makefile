@@ -1,5 +1,5 @@
 HELPINDEXES=$(addsuffix Help.helpindex, $(wildcard *.lproj/Help/))
-SUBMODULES=../Sparkle/Sparkle
+SUBMODULES=../Sparkle/Sparkle ../gifsicle/src
 
 all: $(SUBMODULES) pngout helpindexes
 
