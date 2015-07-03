@@ -1,9 +1,9 @@
 HELPINDEXES=$(addsuffix Help.helpindex, $(wildcard *.lproj/Help/))
-SUBMODULES=../Sparkle/Sparkle ../gifsicle/src
+SUBMODULES=../Sparkle/Sparkle ../gifsicle/src ../zopfli-png/zopfli/src
 
 all: $(SUBMODULES) pngout helpindexes
 
-$(SUBMODULES):
+$(SUBMODULES): ../.gitmodules
 	git submodule init
 	git submodule update --depth=1
 
