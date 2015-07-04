@@ -5,12 +5,12 @@
 
 @interface FilesQueue : NSObject
 
--(void)addFile:(File*)f;
--(void)addDirWorker:(DirWorker*)d;
+-(void)addFile:(nonnull File*)f;
+-(void)addDirWorker:(nonnull DirWorker*)d;
 -(void)wait;
 -(void)cleanup;
 -(BOOL)isBusy;
--(NSNumber *)queueCount;
+-(nonnull NSNumber *)queueCount;
 
-- (instancetype)initWithCPUs:(NSInteger)cpus dirs:(NSInteger)dirs files:(NSInteger)fileops defaults:(NSUserDefaults*)defaults;
+- (nullable instancetype)initWithCPUs:(NSInteger)cpus dirs:(NSInteger)dirs files:(NSInteger)fileops defaults:(nonnull NSUserDefaults*)defaults;
 @end

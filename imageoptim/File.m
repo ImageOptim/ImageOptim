@@ -49,7 +49,7 @@
 
 @synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImageName, percentDone, bestToolName, isDone=done;
 
--(instancetype)initWithFilePath:(NSURL *)aPath resultsDatabase:(ResultsDb*)aDb
+-(instancetype)initWithFilePath:(nonnull NSURL *)aPath resultsDatabase:(nullable ResultsDb *)aDb
 {
     if (self = [self init]) {
         workersPreviousResults = [NSMutableDictionary new];
@@ -77,7 +77,7 @@
     return byteSizeOriginal < 10*1024;
 }
 
--(NSString *)fileName {
+-(nonnull NSString *)fileName {
     if (displayName) return displayName;
     return [filePath lastPathComponent];
 }
@@ -93,7 +93,7 @@
     }
 }
 
-- (id)copyWithZone:(NSZone *)zone {
+- (nonnull id)copyWithZone:(nullable NSZone *)zone {
     return [[File allocWithZone:zone] initWithFilePath:filePath resultsDatabase:db];
 }
 
@@ -406,11 +406,11 @@
     [self cleanup];
 }
 
--(NSString*)mimeType {
+-(nullable NSString *)mimeType {
     return fileType == FILETYPE_PNG ? @"image/png" : (fileType == FILETYPE_JPEG ? @"image/jpeg" : (fileType == FILETYPE_GIF ? @"image/gif" : nil));
 }
 
--(int)fileType:(NSData *)data {
+-(int)fileType:(nonnull NSData *)data {
     const unsigned char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
     const unsigned char jpegheader[] = {0xff,0xd8,0xff};
     const unsigned char gifheader[] = {0x47,0x49,0x46,0x38};
@@ -428,7 +428,7 @@
     return 0;
 }
 
--(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)aFileIOQueue defaults:(NSUserDefaults*)defaults {
+-(void)enqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue fileIOQueue:(nonnull NSOperationQueue *)aFileIOQueue defaults:(nonnull NSUserDefaults*)defaults {
 
     @synchronized(self) {
         self.isDone = NO;
@@ -465,7 +465,7 @@
     CC_MD5_Final((unsigned char *)settingsHash, &md5ctx);
 }
 
--(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue defaults:(NSUserDefaults*)defs {
+-(void)doEnqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue defaults:(nonnull NSUserDefaults*)defs {
     [self setStatus:@"progress" order:3 text:NSLocalizedString(@"Inspecting file",@"tooltip")];
 
     NSError *err = nil;
@@ -651,7 +651,7 @@
     return stopping || (!self.isDone && [self isBusy]);
 }
 
--(void)updateStatusOfWorker:(Worker *)currentWorker running:(BOOL)started {
+-(void)updateStatusOfWorker:(nullable Worker *)currentWorker running:(BOOL)started {
     NSOperation *running = nil;
 
     @synchronized(self) {
@@ -678,7 +678,7 @@
     }
 }
 
--(void)setStatus:(NSString *)imageName order:(NSInteger)order text:(NSString *)text {
+-(void)setStatus:(nonnull NSString *)imageName order:(NSInteger)order text:(nonnull NSString *)text {
     void (^setter)() = ^(void){
         statusOrder = order;
         self.statusText = text;
@@ -691,7 +691,7 @@
     }
 }
 
--(NSString *)description {
+-(nonnull NSString *)description {
     return [NSString stringWithFormat:@"%@ %ld/%ld (workers %ld)", self.filePath,(long)self.byteSizeOriginal,(long)self.byteSizeOptimized, [workers count]];
 }
 

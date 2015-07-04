@@ -59,39 +59,39 @@ enum IOFileType {
 @property (readonly) BOOL canRevert;
 @property (readonly) BOOL isDone;
 
--(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue defaults:(NSUserDefaults*)defaults;
+-(void)enqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue fileIOQueue:(nonnull NSOperationQueue *)fileIOQueue defaults:(nonnull NSUserDefaults*)defaults;
 
--(BOOL)setFilePathOptimized:(NSURL *)f size:(NSUInteger)s toolName:(NSString*)s;
+-(BOOL)setFilePathOptimized:(nonnull NSURL *)f size:(NSUInteger)s toolName:(nonnull NSString *)s;
 
--(instancetype)initWithFilePath:(NSURL *)aPath resultsDatabase:(ResultsDb*)aDb;
--(id)copyWithZone:(NSZone *)zone;
+-(nullable instancetype)initWithFilePath:(nonnull NSURL *)aPath resultsDatabase:(nullable ResultsDb *)aDb;
+-(nonnull id)copyWithZone:(nullable NSZone *)zone;
 -(void)resetToOriginalByteSize:(NSUInteger)size;
 -(void)setByteSizeOptimized:(NSUInteger)size;
--(void)updateStatusOfWorker:(Worker *)currentWorker running:(BOOL)started;
+-(void)updateStatusOfWorker:(nullable Worker *)currentWorker running:(BOOL)started;
 
 -(BOOL)isLarge;
 -(BOOL)isSmall;
 
--(void)setFilePath:(NSURL *)s;
+-(void)setFilePath:(nonnull NSURL *)s;
 
-@property (readonly, copy) NSString *fileName;
-@property (readonly, copy) NSString *mimeType;
+@property (readonly, copy) NSString *__nonnull fileName;
+@property (readonly, copy) NSString *__nullable mimeType;
 
-@property (strong) NSString *statusText, *displayName, *bestToolName;
-@property (strong,nonatomic) NSURL *filePath;
-@property (strong,readonly) NSURL *filePathOptimized;
-@property (strong) NSString *statusImageName;
+@property (strong) NSString *__nullable statusText, *__nonnull displayName, *__nullable bestToolName;
+@property (strong,nonatomic) NSURL *__nonnull filePath;
+@property (strong,readonly) NSURL *__nonnull filePathOptimized;
+@property (strong) NSString *__nonnull statusImageName;
 @property (assign,nonatomic) NSUInteger byteSizeOriginal, byteSizeOptimized;
 @property (assign,readonly) NSInteger statusOrder;
-@property (strong,readonly) NSMutableDictionary *workersPreviousResults;
+@property (strong,readonly) NSMutableDictionary *__nonnull workersPreviousResults;
 
 @property (assign) double percentDone;
 
--(void)setStatus:(NSString *)name order:(NSInteger)order text:(NSString*)text;
+-(void)setStatus:(nonnull NSString *)name order:(NSInteger)order text:(nonnull NSString *)text;
 -(void)cleanup;
 
-+(NSInteger)fileByteSize:(NSURL *)afile;
++(NSInteger)fileByteSize:(nonnull NSURL *)afile;
 
 
--(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue  defaults:(NSUserDefaults*)defaults;
+-(void)doEnqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue defaults:(nonnull NSUserDefaults*)defaults;
 @end
