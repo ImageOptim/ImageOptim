@@ -7,6 +7,7 @@ int quitWhenDone = 0;
 #import "log.h"
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
+#import <objc/runtime.h>
 
 static int isLaunchedWithCliArguments(int argc, char *argv[]) {
     // Unfortunately NSApplicationLaunchIsDefaultLaunchKey doesn't cover bare CLI launch
@@ -21,6 +22,11 @@ static int isLaunchedWithCliArguments(int argc, char *argv[]) {
 
 int main(int argc, char *argv[]) {
     quitWhenDone = hideLogs = isLaunchedWithCliArguments(argc, argv);
+
+    if (NSAppKitVersionNumber < NSAppKitVersionNumber10_10 && ![NSVisualEffectView class]) {
+        Class NSVisualEffectViewClass = objc_allocateClassPair([NSView class], "NSVisualEffectView", 0);
+        objc_registerClassPair(NSVisualEffectViewClass);
+    }
 
     return NSApplicationMain(argc, (const char **) argv);
 }

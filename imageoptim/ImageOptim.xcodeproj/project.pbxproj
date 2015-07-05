@@ -103,6 +103,7 @@
 		5AC64F071AF3FDEE0032AA7F /* ExtensionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC64F061AF3FDEE0032AA7F /* ExtensionController.m */; };
 		5AC64F091AF3FDEE0032AA7F /* ExtensionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC64F081AF3FDEE0032AA7F /* ExtensionController.xib */; };
 		5AC64F0C1AF3FDEE0032AA7F /* ImageOptimize.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5AC64EFE1AF3FDEE0032AA7F /* ImageOptimize.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5AF8536C1B49F21C00CF76F5 /* FadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8536B1B49F21C00CF76F5 /* FadeView.m */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
 
@@ -630,6 +631,8 @@
 		5AEF1B1D10F2BCA900E3E4F0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		5AEF1B2110F2BCB200E3E4F0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AF71642174AF7C30018D3FE /* pngout */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = pngout; path = ../pngout; sourceTree = "<group>"; };
+		5AF8536A1B49F21C00CF76F5 /* FadeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeView.h; sourceTree = "<group>"; };
+		5AF8536B1B49F21C00CF76F5 /* FadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadeView.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ImageOptim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageOptim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C4ABCD1755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ko; path = ko.lproj/Help; sourceTree = "<group>"; };
@@ -895,6 +898,8 @@
 			children = (
 				5A34A632140EEDB900DE44D2 /* DragDropImageView.h */,
 				5A34A633140EEDB900DE44D2 /* DragDropImageView.m */,
+				5AF8536A1B49F21C00CF76F5 /* FadeView.h */,
+				5AF8536B1B49F21C00CF76F5 /* FadeView.m */,
 				5AE1C4980CA6CDDC000CF636 /* FilesController.h */,
 				5AE1C4990CA6CDDC000CF636 /* FilesController.m */,
 				1AD5B24F174F850900BC75FD /* GetQueueCountCommand.h */,
@@ -1525,6 +1530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A34A634140EEDB900DE44D2 /* DragDropImageView.m in Sources */,
+				5AF8536C1B49F21C00CF76F5 /* FadeView.m in Sources */,
 				5ABE16D01AE5AD0200861C6B /* FilesController.m in Sources */,
 				1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */,
 				5ABE16621AE50D1D00861C6B /* ImageOptimController.m in Sources */,

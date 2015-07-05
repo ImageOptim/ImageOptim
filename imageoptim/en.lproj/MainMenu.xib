@@ -19,7 +19,7 @@
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <value key="minSize" type="size" width="411" height="110"/>
             <value key="maxSize" type="size" width="1200" height="2000"/>
-            <view key="contentView" id="2">
+            <view key="contentView" wantsLayer="YES" id="2">
                 <rect key="frame" x="0.0" y="0.0" width="549" height="297"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -250,16 +250,30 @@
                             </binding>
                         </connections>
                     </button>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="712" customClass="DragDropImageView">
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="XNq-qc-Ci6" customClass="FadeView">
                         <rect key="frame" x="0.0" y="39" width="549" height="259"/>
-                        <accessibility description="Drop images here"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="712" customClass="DragDropImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="549" height="259"/>
+                                <animations/>
+                                <accessibility description="Drop images here"/>
+                                <connections>
+                                    <outlet property="filesController" destination="251" id="aqi-nA-YrU"/>
+                                </connections>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="712" firstAttribute="width" secondItem="XNq-qc-Ci6" secondAttribute="width" id="4TW-mH-YzC"/>
+                            <constraint firstItem="712" firstAttribute="leading" secondItem="XNq-qc-Ci6" secondAttribute="leading" id="615-sC-moI"/>
+                            <constraint firstItem="712" firstAttribute="top" secondItem="XNq-qc-Ci6" secondAttribute="top" id="8Lh-dx-EJo"/>
+                            <constraint firstItem="712" firstAttribute="height" secondItem="XNq-qc-Ci6" secondAttribute="height" id="AgV-gf-61k"/>
+                        </constraints>
                         <connections>
-                            <binding destination="251" name="hidden" keyPath="arrangedObjects.@count" id="720">
+                            <binding destination="251" name="hidden" keyPath="arrangedObjects.@count" id="SCX-vI-sGf">
                                 <dictionary key="options">
                                     <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
                                 </dictionary>
                             </binding>
-                            <outlet property="filesController" destination="251" id="aqi-nA-YrU"/>
                         </connections>
                     </customView>
                 </subviews>
@@ -267,21 +281,21 @@
                     <constraint firstItem="428" firstAttribute="leading" secondItem="294" secondAttribute="trailing" constant="7" id="2aN-n3-2sI"/>
                     <constraint firstItem="586" firstAttribute="leading" secondItem="428" secondAttribute="trailing" constant="8" id="4Q3-fw-7u9"/>
                     <constraint firstAttribute="trailing" secondItem="236" secondAttribute="trailing" id="98K-BG-Ip3"/>
-                    <constraint firstItem="712" firstAttribute="width" secondItem="236" secondAttribute="width" id="BLM-h4-tNb"/>
+                    <constraint firstItem="XNq-qc-Ci6" firstAttribute="top" secondItem="236" secondAttribute="top" id="DyQ-wZ-c9v"/>
                     <constraint firstItem="586" firstAttribute="centerY" secondItem="428" secondAttribute="centerY" id="EEF-Hw-pgC"/>
                     <constraint firstItem="423" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="8" id="EYQ-au-Yi5"/>
                     <constraint firstItem="423" firstAttribute="centerY" secondItem="586" secondAttribute="centerY" id="Ifv-FK-6o5"/>
+                    <constraint firstItem="XNq-qc-Ci6" firstAttribute="leading" secondItem="236" secondAttribute="leading" id="LBk-8s-hJc"/>
                     <constraint firstAttribute="bottom" secondItem="423" secondAttribute="bottom" constant="8" id="T9q-uS-x5t"/>
                     <constraint firstAttribute="bottom" secondItem="236" secondAttribute="bottom" constant="39" id="W7k-DE-tH8"/>
                     <constraint firstItem="423" firstAttribute="centerY" secondItem="294" secondAttribute="centerY" id="cFl-bD-jqG"/>
                     <constraint firstItem="236" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="eyA-VZ-bkI"/>
-                    <constraint firstItem="712" firstAttribute="height" secondItem="236" secondAttribute="height" id="gfH-Pv-3Ib"/>
+                    <constraint firstItem="XNq-qc-Ci6" firstAttribute="height" secondItem="236" secondAttribute="height" id="f4r-Gg-F59"/>
                     <constraint firstItem="236" firstAttribute="top" secondItem="2" secondAttribute="top" constant="-1" id="h09-6j-JZ1"/>
                     <constraint firstItem="294" firstAttribute="leading" secondItem="423" secondAttribute="trailing" constant="7" id="lru-KL-RTj"/>
-                    <constraint firstItem="712" firstAttribute="leading" secondItem="236" secondAttribute="leading" id="qul-l3-qkk"/>
-                    <constraint firstItem="712" firstAttribute="top" secondItem="236" secondAttribute="top" id="rC5-NX-3GX"/>
                     <constraint firstItem="586" firstAttribute="top" secondItem="236" secondAttribute="bottom" constant="9" id="s3k-0Z-V7B"/>
                     <constraint firstAttribute="bottom" secondItem="586" secondAttribute="bottom" constant="8" id="std-o8-EXO"/>
+                    <constraint firstItem="XNq-qc-Ci6" firstAttribute="width" secondItem="236" secondAttribute="width" id="uKk-Jt-aDN"/>
                     <constraint firstAttribute="trailing" secondItem="586" secondAttribute="trailing" constant="8" id="ymv-zM-FlS"/>
                 </constraints>
             </view>
