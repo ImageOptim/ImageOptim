@@ -32,10 +32,11 @@ static const char *kIMPreviewPanelContext = "preview";
     defs[@"RunConcurrentDirscans"] = @((int)ceil((double)maxTasks/3.9));
 
     // Use lighter defaults on slower machines
-    if (maxTasks <= 2) {
-        defs[@"PngCrushEnabled"] = @(NO);
-        if (maxTasks <= 4) {
-            defs[@"PngOutEnabled"] = @(NO);
+    if (maxTasks <= 4) {
+        defs[@"PngOutEnabled"] = @(NO);
+        if (maxTasks <= 2) {
+            defs[@"PngCrushEnabled"] = @(NO);
+            defs[@"ZopfliIterations"] = @10;
         }
     }
 
