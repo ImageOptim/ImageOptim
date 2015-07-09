@@ -10,13 +10,12 @@
 @implementation JpegtranWorker
 
 -(NSInteger)settingsIdentifier {
-    return jpegrescan*2+strip;
+    return strip;
 }
 
 -(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
     if (self = [super initWithDefaults:defaults file:aFile]) {
         strip = [defaults boolForKey:@"JpegTranStripAll"];
-        jpegrescan = [defaults boolForKey:@"JpegRescanEnabled"];
     }
     return self;
 }
@@ -26,25 +25,15 @@
     NSMutableArray *args = [NSMutableArray arrayWithObject:file.filePathOptimized.path];
     NSString *executableName, *prefName;
 
-    if (jpegrescan) {
-        executableName = @"jpegrescan";
-        prefName = @"JpegRescan";
-        if (strip) {
-            [args insertObject:@"-s" atIndex:0];
-        }
-        [args addObject:temp.path];
-    } else {
-        executableName = @"jpegtran";
-        prefName = @"JpegTran";
-        [args insertObject:@"-outfile" atIndex:0];
-        [args insertObject:temp.path atIndex:1];
+    executableName = @"jpegtran";
+    prefName = @"JpegTran";
+    [args insertObject:@"-outfile" atIndex:0];
+    [args insertObject:temp.path atIndex:1];
 
-        [args insertObject:@"-optimize" atIndex:0];
-        [args insertObject:@"-copy" atIndex:0];
-        [args insertObject:strip ? @"none" : @"all" atIndex:1];
-    }
+    [args insertObject:@"-optimize" atIndex:0];
+    [args insertObject:@"-copy" atIndex:0];
+    [args insertObject:strip ? @"none" : @"all" atIndex:1];
 
-    // For jpegrescan to work both JpegTran and JpegRescan need to be enabled
     if (![self taskForKey:prefName bundleName:executableName arguments:args]) {
         return NO;
     }

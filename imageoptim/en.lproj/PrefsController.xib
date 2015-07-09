@@ -227,22 +227,6 @@
                                                             <binding destination="300" name="value" keyPath="values.JpegTranEnabled" id="1103"/>
                                                         </connections>
                                                     </button>
-                                                    <button id="1110">
-                                                        <rect key="frame" x="16" y="41" width="110" height="18"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Jpegrescan" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="1111">
-                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <binding destination="300" name="value" keyPath="values.JpegRescanEnabled" id="1113"/>
-                                                            <binding destination="300" name="enabled" keyPath="values.JpegTranEnabled" id="1116">
-                                                                <dictionary key="options">
-                                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                                                                </dictionary>
-                                                            </binding>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                             </view>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>

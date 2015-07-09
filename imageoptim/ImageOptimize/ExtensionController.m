@@ -74,7 +74,6 @@
                     @"RunLowPriority":@(NO),
                     @"JpegTranEnabled":@(YES),
                     @"JpegTranStripAll":@(YES),
-                    @"JpegRescanEnabled":@(YES),
                     @"GifsicleEnabled":@(YES),
                 }];
 
