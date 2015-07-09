@@ -41,10 +41,6 @@
 		5A34D0991AEF75CE00A154E4 /* FilesQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A34D0971AEF75CE00A154E4 /* FilesQueue.h */; };
 		5A34D09A1AEF75CE00A154E4 /* FilesQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A34D0981AEF75CE00A154E4 /* FilesQueue.m */; };
 		5A5811AA1AD73A7E0001838D /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5A58119F1AD73A640001838D /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5A44F4B40CB1868100BD2884 /* PngCrushWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F4B30CB1868100BD2884 /* PngCrushWorker.m */; };
-		5A44F5840CB2ECEB00BD2884 /* CommandWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */; };
-		5A4DC21B1028AE1800A9DD55 /* GifsicleWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DC21A1028AE1800A9DD55 /* GifsicleWorker.m */; };
-		5A5811AA1AD73A7E0001838D /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5A58119F1AD73A640001838D /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5A5811AB1AD73A990001838D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A58119F1AD73A640001838D /* Sparkle.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5A5CD39419662E940096D77F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5CD39319662E940096D77F /* AppKit.framework */; };
 		5A5CD39619662E9A0096D77F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5CD39519662E9A0096D77F /* Foundation.framework */; };
@@ -83,21 +79,21 @@
 		5ABE15811AE5073E00861C6B /* Save.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB81F941AE1BE1300719AB7 /* Save.m */; };
 		5ABE15821AE5073E00861C6B /* Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA13E0CAF241B004D45CA /* Worker.m */; };
 		5ABE15831AE5073E00861C6B /* ZopfliWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD131790935C004992B7 /* ZopfliWorker.m */; };
-		5ABE15841AE5074900861C6B /* pngout in Resources */ = {isa = PBXBuildFile; fileRef = 5AF71642174AF7C30018D3FE /* pngout */; };
+		5ABE15841AE5074900861C6B /* pngout in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5AF71642174AF7C30018D3FE /* pngout */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE161B1AE508E600861C6B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A08FDAF1933D635001DA24B /* libsqlite3.dylib */; };
 		5ABE161C1AE508F400861C6B /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEF1B1D10F2BCA900E3E4F0 /* AppKit.framework */; };
 		5ABE161D1AE508FA00861C6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEF1B2110F2BCB200E3E4F0 /* Foundation.framework */; };
-		5ABE161E1AE5094000861C6B /* pngquant in Resources */ = {isa = PBXBuildFile; fileRef = 5A728F2C1836C0EE004D0D73 /* pngquant */; };
-		5ABE161F1AE5094600861C6B /* pngcrush in Resources */ = {isa = PBXBuildFile; fileRef = 5A1943450FF97F86007C3324 /* pngcrush */; };
-		5ABE16201AE5094A00861C6B /* optipng in Resources */ = {isa = PBXBuildFile; fileRef = 5A1943680FF980B3007C3324 /* optipng */; };
-		5ABE16221AE5095A00861C6B /* jpegrescan in Resources */ = {isa = PBXBuildFile; fileRef = 5A8594E71460BCF20044095A /* jpegrescan */; };
-		5ABE16231AE5095B00861C6B /* jpegtran in Resources */ = {isa = PBXBuildFile; fileRef = 5A739C2B0EA4073700D751E1 /* jpegtran */; };
-		5ABE16241AE5096300861C6B /* jpegoptim in Resources */ = {isa = PBXBuildFile; fileRef = 5A62DB07111CCE9F008848D0 /* jpegoptim */; };
-		5ABE16251AE5096800861C6B /* libimageoptimjpeg.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */; };
-		5ABE16261AE5096D00861C6B /* gifsicle in Resources */ = {isa = PBXBuildFile; fileRef = 5A4DC20D1028ADB200A9DD55 /* gifsicle */; };
-		5ABE16271AE5097800861C6B /* advpng in Resources */ = {isa = PBXBuildFile; fileRef = 5A984D4A11238E51007622D7 /* advpng */; };
-		5ABE16291AE5099500861C6B /* liblibpng.dylib in Resources */ = {isa = PBXBuildFile; fileRef = 5A20CC951123939C0000400D /* liblibpng.dylib */; };
-		5ABE162A1AE5099F00861C6B /* zopflipng in Resources */ = {isa = PBXBuildFile; fileRef = 5A1EBED317908F8200361F08 /* zopflipng */; };
+		5ABE161E1AE5094000861C6B /* pngquant in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A728F2C1836C0EE004D0D73 /* pngquant */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5ABE161F1AE5094600861C6B /* pngcrush in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A1943450FF97F86007C3324 /* pngcrush */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5ABE16201AE5094A00861C6B /* optipng in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A1943680FF980B3007C3324 /* optipng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5ABE16221AE5095A00861C6B /* jpegrescan in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A8594E71460BCF20044095A /* jpegrescan */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5ABE16231AE5095B00861C6B /* jpegtran in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A739C2B0EA4073700D751E1 /* jpegtran */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5ABE16241AE5096300861C6B /* jpegoptim in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A62DB07111CCE9F008848D0 /* jpegoptim */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5ABE16251AE5096800861C6B /* libimageoptimjpeg.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5ABE16261AE5096D00861C6B /* gifsicle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A4DC20D1028ADB200A9DD55 /* gifsicle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5ABE16271AE5097800861C6B /* advpng in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A984D4A11238E51007622D7 /* advpng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5ABE16291AE5099500861C6B /* liblibpng.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A20CC951123939C0000400D /* liblibpng.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5ABE162A1AE5099F00861C6B /* zopflipng in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A1EBED317908F8200361F08 /* zopflipng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE16621AE50D1D00861C6B /* ImageOptimController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E5C0C922D6D00FD7CDE /* ImageOptimController.m */; };
 		5ABE16D01AE5AD0200861C6B /* FilesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C4990CA6CDDC000CF636 /* FilesController.m */; };
 		5ABE16D21AE5AD9F00861C6B /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE16D11AE5AD9F00861C6B /* log.c */; };
@@ -128,6 +124,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 5A1EBE6A17908D9D00361F08;
 			remoteInfo = "zopfli-png";
+		};
+		5A1F3CA61B4800D8006570E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5ABE15411AE5072300861C6B;
+			remoteInfo = Backend;
 		};
 		5A20CC941123939C0000400D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -356,14 +359,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5A3470A8140BC7B50014F638 /* Copy Executables */ = {
+		5A5C88511B4E7DCA00BF10B0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
+				5ABE16271AE5097800861C6B /* advpng in CopyFiles */,
+				5ABE16261AE5096D00861C6B /* gifsicle in CopyFiles */,
+				5ABE16241AE5096300861C6B /* jpegoptim in CopyFiles */,
+				5ABE16221AE5095A00861C6B /* jpegrescan in CopyFiles */,
+				5ABE16231AE5095B00861C6B /* jpegtran in CopyFiles */,
+				5ABE16251AE5096800861C6B /* libimageoptimjpeg.dylib in CopyFiles */,
+				5ABE16291AE5099500861C6B /* liblibpng.dylib in CopyFiles */,
+				5ABE16201AE5094A00861C6B /* optipng in CopyFiles */,
+				5ABE161F1AE5094600861C6B /* pngcrush in CopyFiles */,
+				5ABE15841AE5074900861C6B /* pngout in CopyFiles */,
+				5ABE161E1AE5094000861C6B /* pngquant in CopyFiles */,
+				5ABE162A1AE5099F00861C6B /* zopflipng in CopyFiles */,
 			);
-			name = "Copy Executables";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5AC63C410E9ABCFD0053B879 /* Copy Frameworks */ = {
@@ -957,7 +971,7 @@
 				5ABE153D1AE5072300861C6B /* Sources */,
 				5ABE153E1AE5072300861C6B /* Frameworks */,
 				5ABE153F1AE5072300861C6B /* Headers */,
-				5ABE15401AE5072300861C6B /* Resources */,
+				5A5C88511B4E7DCA00BF10B0 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1005,7 +1019,6 @@
 				8D11072C0486CEB800E47090 /* Sources */,
 				5AC63C410E9ABCFD0053B879 /* Copy Frameworks */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				5A3470A8140BC7B50014F638 /* Copy Executables */,
 				5A7D24E113E5BC0C00815AAA /* Resources */,
 			);
 			buildRules = (
@@ -1282,22 +1295,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5ABE15401AE5072300861C6B /* Resources */ = {
+		5ABE154A1AE5072300861C6B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ABE16271AE5097800861C6B /* advpng in Resources */,
-				5ABE16261AE5096D00861C6B /* gifsicle in Resources */,
-				5ABE16241AE5096300861C6B /* jpegoptim in Resources */,
-				5ABE16221AE5095A00861C6B /* jpegrescan in Resources */,
-				5ABE16231AE5095B00861C6B /* jpegtran in Resources */,
-				5ABE16251AE5096800861C6B /* libimageoptimjpeg.dylib in Resources */,
-				5ABE16291AE5099500861C6B /* liblibpng.dylib in Resources */,
-				5ABE16201AE5094A00861C6B /* optipng in Resources */,
-				5ABE161F1AE5094600861C6B /* pngcrush in Resources */,
-				5ABE15841AE5074900861C6B /* pngout in Resources */,
-				5ABE161E1AE5094000861C6B /* pngquant in Resources */,
-				5ABE162A1AE5099F00861C6B /* zopflipng in Resources */,
+				5AC64EC21AF3FCFE0032AA7F /* unoptimized.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1360,7 +1362,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\ncd \"$BUILT_PRODUCTS_DIR/\"\n\nfind . -name '*.cstemp' -delete\nfind \"ImageOptim.app\" -print0 | xargs -0 -P8 xattr -c\n\n# list must be depth-first\nfor i in \"ImageOptim.app/Contents/Frameworks/Sparkle.framework/Resources/\"*\"Autoupdate.app\" \"ImageOptim.app/Contents/Frameworks/Sparkle.framework\" \"ImageOptim.app/Contents/MacOS/\"*\"png\"* \"ImageOptim.app/Contents/MacOS/\"*\"jpeg\"* \"ImageOptim.app/Contents/MacOS/\"*\".dylib\" \"ImageOptim.app\"; do\n\n    spctl --verbose=4 --assess --type execute \"$i\" || {\n        codesign -f -s \"${CODE_SIGNING_IDENTITY:-Developer ID}\" \"$i\"\n        spctl --verbose=4 --assess --type execute \"$i\" || {\n            echo >&2 \"error: $(basename $i) signature failed\"\n        } || exit 16;\n    }\ndone\n\n\n";
+			shellScript = "set -e\ncd \"$BUILT_PRODUCTS_DIR/\"\n\nfind . '(' -name '*.cstemp' -o -name '._*' -o -name .DS_Store ')' -print -delete\nfind \"ImageOptim.app\" -print0 | xargs -0 -P8 xattr -c\n\nEXEDIR=ImageOptim.app/Contents/Frameworks/ImageOptimGPL.framework/Versions/Current\n\n# list must be depth-first\nfor i in \"ImageOptim.app/Contents/Frameworks/Sparkle.framework/Resources/\"*\"Autoupdate.app\" \"ImageOptim.app/Contents/Frameworks/Sparkle.framework\" \"$EXEDIR/\"*\"png\"* \"$EXEDIR/\"*\"jpeg\"* \"ImageOptim.app\"; do\n\n    spctl --verbose=4 --assess --type execute \"$i\" || {\n        echo >&2 \"warning: signature on '$i' is invalid; trying to fix it\"\n        codesign -f -s \"${CODE_SIGNING_IDENTITY:-Developer ID}\" \"$i\"\n        spctl --verbose=4 --assess --type execute \"$i\" || {\n            codesign -f  --deep -s\"${CODE_SIGNING_IDENTITY:-Developer ID}\" \"$i\"\n            echo >&2 \"warning: $(basename $i) signature failed\"\n        }\n    }\ndone\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1862,7 +1864,6 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptim;
 				PRODUCT_NAME = ImageOptim;
-				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1878,10 +1879,8 @@
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptim;
 				PRODUCT_NAME = ImageOptim;
-				SDKROOT = macosx;
 			};
 			name = Release;
 		};
