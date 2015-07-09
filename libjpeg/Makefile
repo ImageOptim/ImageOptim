@@ -1,9 +1,5 @@
+all: src/jpeglib.h
 
-jpeglib.h:
-	curl http://www.ijg.org/files/jpegsrc.v8.tar.gz | tar xz --strip-components=1
-	-patch -p0 -i remove_unused_features.diff
-	
-clean:
-	
-install:
-	
+src/jpeglib.h: ../.gitmodules
+	git submodule init src
+	git submodule update --depth=1 src && touch src/jpeglib.h

@@ -1,39 +1,71 @@
-/* jconfig.h.  Generated from jconfig.cfg by configure.  */
-/* jconfig.cfg --- source file edited by configure script */
-/* see jconfig.txt for explanations */
+/* jconfig.h.  Generated from jconfig.h.in by configure.  */
+/* Version ID for the JPEG library.
+ * Might be useful for tests like "#if JPEG_LIB_VERSION >= 60".
+ */
+#define JPEG_LIB_VERSION 62
 
-#define HAVE_PROTOTYPES 1
-#define HAVE_UNSIGNED_CHAR 1
-#define HAVE_UNSIGNED_SHORT 1
-/* #undef void */
-/* #undef const */
-/* #undef CHAR_IS_UNSIGNED */
+/* libjpeg-turbo version */
+#define LIBJPEG_TURBO_VERSION 0
+
+/* Support arithmetic encoding */
+/* #undef C_ARITH_CODING_SUPPORTED */
+
+/* Support arithmetic decoding */
+/* #undef D_ARITH_CODING_SUPPORTED */
+
+/*
+ * Define BITS_IN_JSAMPLE as either
+ *   8   for 8-bit sample values (the usual setting)
+ *   12  for 12-bit sample values
+ * Only 8 and 12 are legal data precisions for lossy JPEG according to the
+ * JPEG standard, and the IJG code does not support anything else!
+ * We do not support run-time selection of data precision, sorry.
+ */
+
+#define BITS_IN_JSAMPLE  8      /* use 8 or 12 */
+
+/* Define to 1 if you have the <locale.h> header file. */
+#define HAVE_LOCALE_H 1
+
+/* Define to 1 if you have the <stddef.h> header file. */
 #define HAVE_STDDEF_H 1
+
+/* Define to 1 if you have the <stdlib.h> header file. */
 #define HAVE_STDLIB_H 1
-/* #undef NEED_BSD_STRINGS */
-/* #undef NEED_SYS_TYPES_H */
-/* #undef NEED_FAR_POINTERS */
-/* #undef NEED_SHORT_EXTERNAL_NAMES */
-/* Define this if you get warnings about undefined structures. */
+
+/* Define to 1 if the system has the type `unsigned char'. */
+#define HAVE_UNSIGNED_CHAR 1
+
+/* Define to 1 if the system has the type `unsigned short'. */
+#define HAVE_UNSIGNED_SHORT 1
+
+/* Compiler does not support pointers to undefined structures. */
 /* #undef INCOMPLETE_TYPES_BROKEN */
 
-#ifdef JPEG_INTERNALS
+/* Support in-memory source/destination managers */
+#define MEM_SRCDST_SUPPORTED 1
 
+/* Define if you have BSD-like bzero and bcopy in <strings.h> rather than
+   memset/memcpy in <string.h>. */
+/* #undef NEED_BSD_STRINGS */
+
+/* Define if you need to include <sys/types.h> to get size_t. */
+#define NEED_SYS_TYPES_H 1
+
+/* Define if your (broken) compiler shifts signed values as if they were
+   unsigned. */
 /* #undef RIGHT_SHIFT_IS_UNSIGNED */
-#define INLINE __inline__
-/* These are for configuring the JPEG memory manager. */
-/* #undef DEFAULT_MAX_MEM */
-/* #undef NO_MKTEMP */
 
-#endif /* JPEG_INTERNALS */
+/* Use accelerated SIMD routines. */
+#define WITH_SIMD 0
 
-#ifdef JPEG_CJPEG_DJPEG
+/* Define to 1 if type `char' is unsigned and you are not using gcc.  */
+#ifndef __CHAR_UNSIGNED__
+/* # undef __CHAR_UNSIGNED__ */
+#endif
 
-/* #undef TWO_FILE_COMMANDLINE */
-/* #undef NEED_SIGNAL_CATCHER */
-/* #undef DONT_USE_B_MODE */
+/* Define to empty if `const' does not conform to ANSI C. */
+/* #undef const */
 
-/* Define this if you want percent-done progress reports from cjpeg/djpeg. */
-/* #undef PROGRESS_REPORT */
-
-#endif /* JPEG_CJPEG_DJPEG */
+/* Define to `unsigned int' if <sys/types.h> does not define. */
+/* #undef size_t */

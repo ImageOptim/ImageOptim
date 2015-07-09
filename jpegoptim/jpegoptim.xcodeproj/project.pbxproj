@@ -242,7 +242,10 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_SIGN_COMPARE = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../libjpeg/",
+					"$(SRCROOT)/../libjpeg/src/",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 			};
 			name = Debug;
@@ -266,7 +269,10 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_SIGN_COMPARE = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../libjpeg/",
+					"$(SRCROOT)/../libjpeg/src/",
+				);
 			};
 			name = Release;
 		};

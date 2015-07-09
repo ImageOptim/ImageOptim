@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A739BAF0EA4038A00D751E1 /* jpegtran.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739BAE0EA4038A00D751E1 /* jpegtran.c */; };
-		5A739BB80EA4042600D751E1 /* transupp.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739BB70EA4042600D751E1 /* transupp.c */; };
-		5A739C140EA406A000D751E1 /* cdjpeg.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739C130EA406A000D751E1 /* cdjpeg.c */; };
-		5A739C1C0EA406F600D751E1 /* rdswitch.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739C1B0EA406F600D751E1 /* rdswitch.c */; };
-		5A8594E51460BCC10044095A /* jpegrescan in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A8594CD1460BB340044095A /* jpegrescan */; };
+		5A739BAF0EA4038A00D751E1 /* src/jpegtran.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739BAE0EA4038A00D751E1 /* src/jpegtran.c */; };
+		5A739BB80EA4042600D751E1 /* src/transupp.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739BB70EA4042600D751E1 /* src/transupp.c */; };
+		5A739C140EA406A000D751E1 /* src/cdjpeg.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739C130EA406A000D751E1 /* src/cdjpeg.c */; };
+		5A739C1C0EA406F600D751E1 /* src/rdswitch.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A739C1B0EA406F600D751E1 /* src/rdswitch.c */; };
 		5A8ACE8E111CCCB700EC4491 /* libimageoptimjpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A8ACE8D111CCCB200EC4491 /* libimageoptimjpeg.dylib */; };
 /* End PBXBuildFile section */
 
@@ -30,38 +29,16 @@
 			remoteGlobalIDString = D2AAC0630554660B00DB518D;
 			remoteInfo = jpeg;
 		};
-		5ABAE1C517DD491F00D9FFF4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E;
-			remoteInfo = jpegtran;
-		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		5A8594DD1460BCA70044095A /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				5A8594E51460BCC10044095A /* jpegrescan in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5A27BA26139B08E10095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A27BA27139B08E10095FC2F /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../imageoptim/debug.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A739BA30EA4034800D751E1 /* jpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpeg.xcodeproj; path = ../libjpeg/jpeg.xcodeproj; sourceTree = "<group>"; };
-		5A739BAE0EA4038A00D751E1 /* jpegtran.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpegtran.c; sourceTree = "<group>"; };
-		5A739BB70EA4042600D751E1 /* transupp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = transupp.c; sourceTree = "<group>"; };
-		5A739C130EA406A000D751E1 /* cdjpeg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cdjpeg.c; sourceTree = "<group>"; };
-		5A739C1B0EA406F600D751E1 /* rdswitch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rdswitch.c; sourceTree = "<group>"; };
-		5A8594CD1460BB340044095A /* jpegrescan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.perl; path = jpegrescan; sourceTree = "<group>"; };
-		5A8594DF1460BCA70044095A /* jpegrescan */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = jpegrescan; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A739BAE0EA4038A00D751E1 /* src/jpegtran.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = src/jpegtran.c; sourceTree = "<group>"; };
+		5A739BB70EA4042600D751E1 /* src/transupp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = src/transupp.c; sourceTree = "<group>"; };
+		5A739C130EA406A000D751E1 /* src/cdjpeg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = src/cdjpeg.c; sourceTree = "<group>"; };
+		5A739C1B0EA406F600D751E1 /* src/rdswitch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = src/rdswitch.c; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* jpegtran */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = jpegtran; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -84,7 +61,6 @@
 				08FB7795FE84155DC02AAC07 /* libimageoptimjpeg */,
 				5A27BA26139B08E10095FC2F /* release.xcconfig */,
 				5A27BA27139B08E10095FC2F /* debug.xcconfig */,
-				5A8594CD1460BB340044095A /* jpegrescan */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
 			);
 			name = jpegtran;
@@ -93,10 +69,10 @@
 		08FB7795FE84155DC02AAC07 /* libimageoptimjpeg */ = {
 			isa = PBXGroup;
 			children = (
-				5A739C130EA406A000D751E1 /* cdjpeg.c */,
-				5A739BAE0EA4038A00D751E1 /* jpegtran.c */,
-				5A739C1B0EA406F600D751E1 /* rdswitch.c */,
-				5A739BB70EA4042600D751E1 /* transupp.c */,
+				5A739C130EA406A000D751E1 /* src/cdjpeg.c */,
+				5A739BAE0EA4038A00D751E1 /* src/jpegtran.c */,
+				5A739C1B0EA406F600D751E1 /* src/rdswitch.c */,
+				5A739BB70EA4042600D751E1 /* src/transupp.c */,
 			);
 			name = libimageoptimjpeg;
 			path = ../libjpeg;
@@ -105,7 +81,6 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A8594DF1460BCA70044095A /* jpegrescan */,
 				8DD76FB20486AB0100D96B5E /* jpegtran */,
 			);
 			name = Products;
@@ -122,22 +97,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5A8594DE1460BCA70044095A /* jpegrescan */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5A8594E21460BCA70044095A /* Build configuration list for PBXNativeTarget "jpegrescan" */;
-			buildPhases = (
-				5A8594DD1460BCA70044095A /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5ABAE1C617DD491F00D9FFF4 /* PBXTargetDependency */,
-			);
-			name = jpegrescan;
-			productName = jpegrescan;
-			productReference = 5A8594DF1460BCA70044095A /* jpegrescan */;
-			productType = "com.apple.product-type.tool";
-		};
 		8DD76FA90486AB0100D96B5E /* jpegtran */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "jpegtran" */;
@@ -186,7 +145,6 @@
 			projectRoot = "";
 			targets = (
 				8DD76FA90486AB0100D96B5E /* jpegtran */,
-				5A8594DE1460BCA70044095A /* jpegrescan */,
 			);
 		};
 /* End PBXProject section */
@@ -206,10 +164,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A739C140EA406A000D751E1 /* cdjpeg.c in Sources */,
-				5A739BAF0EA4038A00D751E1 /* jpegtran.c in Sources */,
-				5A739C1C0EA406F600D751E1 /* rdswitch.c in Sources */,
-				5A739BB80EA4042600D751E1 /* transupp.c in Sources */,
+				5A739C140EA406A000D751E1 /* src/cdjpeg.c in Sources */,
+				5A739BAF0EA4038A00D751E1 /* src/jpegtran.c in Sources */,
+				5A739C1C0EA406F600D751E1 /* src/rdswitch.c in Sources */,
+				5A739BB80EA4042600D751E1 /* src/transupp.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,11 +178,6 @@
 			isa = PBXTargetDependency;
 			name = jpeg;
 			targetProxy = 5A62DAF1111CCE73008848D0 /* PBXContainerItemProxy */;
-		};
-		5ABAE1C617DD491F00D9FFF4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8DD76FA90486AB0100D96B5E /* jpegtran */;
-			targetProxy = 5ABAE1C517DD491F00D9FFF4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -259,6 +212,7 @@
 			baseConfigurationReference = 5A27BA27139B08E10095FC2F /* debug.xcconfig */;
 			buildSettings = {
 				ONLY_ACTIVE_ARCH = YES;
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
 			};
 			name = Debug;
 		};
@@ -266,20 +220,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27BA26139B08E10095FC2F /* release.xcconfig */;
 			buildSettings = {
-			};
-			name = Release;
-		};
-		5A8594E31460BCA70044095A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		5A8594E41460BCA70044095A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
 			};
 			name = Release;
 		};
@@ -300,15 +241,6 @@
 			buildConfigurations = (
 				1DEB928A08733DD80010E9CD /* Debug */,
 				1DEB928B08733DD80010E9CD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5A8594E21460BCA70044095A /* Build configuration list for PBXNativeTarget "jpegrescan" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5A8594E31460BCA70044095A /* Debug */,
-				5A8594E41460BCA70044095A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

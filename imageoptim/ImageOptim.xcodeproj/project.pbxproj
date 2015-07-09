@@ -86,7 +86,6 @@
 		5ABE161E1AE5094000861C6B /* pngquant in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A728F2C1836C0EE004D0D73 /* pngquant */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE161F1AE5094600861C6B /* pngcrush in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A1943450FF97F86007C3324 /* pngcrush */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE16201AE5094A00861C6B /* optipng in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A1943680FF980B3007C3324 /* optipng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		5ABE16221AE5095A00861C6B /* jpegrescan in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A8594E71460BCF20044095A /* jpegrescan */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE16231AE5095B00861C6B /* jpegtran in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A739C2B0EA4073700D751E1 /* jpegtran */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE16241AE5096300861C6B /* jpegoptim in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A62DB07111CCE9F008848D0 /* jpegoptim */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE16251AE5096800861C6B /* libimageoptimjpeg.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -228,13 +227,6 @@
 			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
 			remoteInfo = jpegtran;
 		};
-		5A8594E61460BCF20044095A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A739C260EA4073700D751E1 /* jpegtran.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5A8594DF1460BCA70044095A;
-			remoteInfo = jpegrescan;
-		};
 		5A95D412139D72A8005FD6FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A20CC8E1123939C0000400D /* libpng.xcodeproj */;
@@ -333,13 +325,6 @@
 			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E;
 			remoteInfo = jpegtran;
 		};
-		5ABE16111AE508C200861C6B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A739C260EA4073700D751E1 /* jpegtran.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 5A8594DE1460BCA70044095A;
-			remoteInfo = jpegrescan;
-		};
 		5ABE16131AE508C200861C6B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A9D56BC0E7F242C000F129F /* optipng.xcodeproj */;
@@ -387,7 +372,6 @@
 				5ABE16271AE5097800861C6B /* advpng in CopyFiles */,
 				5ABE16261AE5096D00861C6B /* gifsicle in CopyFiles */,
 				5ABE16241AE5096300861C6B /* jpegoptim in CopyFiles */,
-				5ABE16221AE5095A00861C6B /* jpegrescan in CopyFiles */,
 				5ABE16231AE5095B00861C6B /* jpegtran in CopyFiles */,
 				5ABE16251AE5096800861C6B /* libimageoptimjpeg.dylib in CopyFiles */,
 				5ABE16291AE5099500861C6B /* liblibpng.dylib in CopyFiles */,
@@ -882,7 +866,6 @@
 		5A739C270EA4073700D751E1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A8594E71460BCF20044095A /* jpegrescan */,
 				5A739C2B0EA4073700D751E1 /* jpegtran */,
 			);
 			name = Products;
@@ -1059,7 +1042,6 @@
 			dependencies = (
 				5AB114B11B52AEE700A3C73A /* PBXTargetDependency */,
 				5ABE16101AE508C200861C6B /* PBXTargetDependency */,
-				5ABE16121AE508C200861C6B /* PBXTargetDependency */,
 				5ABE16141AE508C200861C6B /* PBXTargetDependency */,
 				5ABE16161AE508C200861C6B /* PBXTargetDependency */,
 				5ABE16181AE508C200861C6B /* PBXTargetDependency */,
@@ -1358,13 +1340,6 @@
 			remoteRef = 5A739C2A0EA4073700D751E1 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5A8594E71460BCF20044095A /* jpegrescan */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = jpegrescan;
-			remoteRef = 5A8594E61460BCF20044095A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		5A95D413139D72A8005FD6FB /* libstatic.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1620,11 +1595,6 @@
 			isa = PBXTargetDependency;
 			name = jpegtran;
 			targetProxy = 5ABE160F1AE508C200861C6B /* PBXContainerItemProxy */;
-		};
-		5ABE16121AE508C200861C6B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = jpegrescan;
-			targetProxy = 5ABE16111AE508C200861C6B /* PBXContainerItemProxy */;
 		};
 		5ABE16141AE508C200861C6B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

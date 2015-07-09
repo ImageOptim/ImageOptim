@@ -35,9 +35,15 @@
         IOWarn("Can't make temp copy of %@ in %@", file.filePathOptimized.path, temp.path);
     }
 
-    NSMutableArray *args = [NSMutableArray arrayWithObjects: (strip ? @"--strip-all" : @"--strip-none"), @"--all-normal", @"-v", @"--", temp.path, nil];
+    BOOL lossy = maxquality > 10 && maxquality < 100;
 
-    if (maxquality > 10 && maxquality < 100) {
+    NSMutableArray *args = [NSMutableArray arrayWithObjects:
+                            strip ? @"--strip-all" : @"--strip-none",
+                            lossy ? @"--all-progressive" : @"--all-normal", // lossless progressive is redundant with jpegtran, but lossy baseline would prevent parallelisation
+                            @"-v", // needed for parsing output size
+                            @"--", temp.path, nil];
+
+    if (lossy) {
         [args insertObject:[NSString stringWithFormat:@"-m%d",(int)maxquality] atIndex:0];
     }
 
