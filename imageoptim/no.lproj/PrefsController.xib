@@ -37,7 +37,7 @@
                                         <box title="Alternativer for filhåndtering" id="280">
                                             <rect key="frame" x="159" y="35" width="448" height="77"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <view key="contentView" id="5G8-hm-X9a">
+                                            <view key="contentView" id="ULk-bt-HkA">
                                                 <rect key="frame" x="2" y="2" width="444" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -80,7 +80,7 @@
                                         <box autoresizesSubviews="NO" title="Metadata" borderType="line" id="1043">
                                             <rect key="frame" x="159" y="116" width="448" height="125"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <view key="contentView" id="9bc-0s-5Fs">
+                                            <view key="contentView" id="OMq-p5-Agh">
                                                 <rect key="frame" x="1" y="1" width="446" height="109"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -132,7 +132,7 @@
                                         <box autoresizesSubviews="NO" title="Slått på" borderType="line" id="1107">
                                             <rect key="frame" x="10" y="9" width="140" height="232"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <view key="contentView" id="AJz-NI-oWx">
+                                            <view key="contentView" id="4Mi-aS-UqS">
                                                 <rect key="frame" x="1" y="1" width="138" height="216"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -225,22 +225,6 @@
                                                         </buttonCell>
                                                         <connections>
                                                             <binding destination="300" name="value" keyPath="values.JpegTranEnabled" id="1103"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button id="1110">
-                                                        <rect key="frame" x="16" y="41" width="110" height="18"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="check" title="Jpegrescan" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="1111">
-                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                            <font key="font" metaFont="system"/>
-                                                        </buttonCell>
-                                                        <connections>
-                                                            <binding destination="300" name="value" keyPath="values.JpegRescanEnabled" id="1113"/>
-                                                            <binding destination="300" name="enabled" keyPath="values.JpegTranEnabled" id="1116">
-                                                                <dictionary key="options">
-                                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                                                                </dictionary>
-                                                            </binding>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -392,7 +376,7 @@
                                         <box boxType="oldStyle" borderType="none" titlePosition="noTitle" id="289">
                                             <rect key="frame" x="143" y="152" width="243" height="62"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <view key="contentView" id="6SI-FW-9Y3">
+                                            <view key="contentView" id="tTB-eb-Md2">
                                                 <rect key="frame" x="0.0" y="0.0" width="243" height="62"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -603,7 +587,7 @@
                                         <box boxType="oldStyle" borderType="none" titlePosition="noTitle" id="291">
                                             <rect key="frame" x="144" y="154" width="325" height="60"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <view key="contentView" id="7pU-He-Yh1">
+                                            <view key="contentView" id="3Js-oz-QdG">
                                                 <rect key="frame" x="0.0" y="0.0" width="325" height="60"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>

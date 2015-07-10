@@ -518,13 +518,6 @@ CA
                                     <binding destination="562" name="value" keyPath="values.JpegTranEnabled" id="685"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Jpegrescan" id="816">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <binding destination="562" name="value" keyPath="values.JpegRescanEnabled" id="818"/>
-                                    <binding destination="562" name="enabled" keyPath="values.JpegTranEnabled" id="819"/>
-                                </connections>
-                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="665"/>
                             <menuItem title="Gifsicle" id="666">
                                 <modifierMask key="keyEquivalentModifierMask"/>
