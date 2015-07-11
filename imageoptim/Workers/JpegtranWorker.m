@@ -50,6 +50,9 @@
     }
 
     NSString *jpegtranPath = [self pathForExecutableName:@"jpegtran"];
+    if (!jpegtranPath) {
+        return NO;
+    }
     [task setCurrentDirectoryPath:[jpegtranPath stringByDeletingLastPathComponent]];
 
     NSPipe *commandPipe = [NSPipe pipe];
