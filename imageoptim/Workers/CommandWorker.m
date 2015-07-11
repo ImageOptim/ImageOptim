@@ -78,6 +78,10 @@
             tempPath = nil;
         }
     }
+    @catch(NSException *e) {
+        IOWarn(@"%@ failed: %@: %@", [self className], [e name], e);
+        [file setError:[NSString stringWithFormat:@"Internal Error: %@ %@", [e name], [e reason]]];
+    }
     @finally {
         if (tempPath) {
             [[NSFileManager defaultManager] removeItemAtURL:tempPath error:nil];
