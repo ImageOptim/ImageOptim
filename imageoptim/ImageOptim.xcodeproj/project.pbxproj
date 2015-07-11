@@ -58,7 +58,6 @@
 		5A7D24EB13E5BC3100815AAA /* wait.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9EE44C0CB59CDC00F08CC5 /* wait.png */; };
 		5A7D24EE13E5BC3100815AAA /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 5AC63C490E9ABF0A0053B879 /* dsa_pub.pem */; };
 		5A7D24EF13E5BC3100815AAA /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AE54D800CAEE8AC00903DF4 /* defaults.plist */; };
-		5A8594E81460BCF20044095A /* jpegrescan in Resources */ = {isa = PBXBuildFile; fileRef = 5A8594E71460BCF20044095A /* jpegrescan */; };
 		5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99FE83140AE80600BB2F79 /* Quartz.framework */; };
 		5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
 		5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA8300CAFE74E004D45CA /* Transformers.m */; };
@@ -374,7 +373,7 @@
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
-			dstSubfolderSpec = 6;
+			dstSubfolderSpec = 7;
 			files = (
 				5ABE16271AE5097800861C6B /* advpng in CopyFiles */,
 				5ABE16261AE5096D00861C6B /* gifsicle in CopyFiles */,
@@ -1390,7 +1389,6 @@
 				5A16343E140BF97400758D99 /* ImageOptim.icns in Resources */,
 				1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */,
 				5A2E55881A7C386900985295 /* InfoPlist.strings in Resources */,
-				5A8594E81460BCF20044095A /* jpegrescan in Resources */,
 				5A7D24E713E5BC3100815AAA /* Localizable.strings in Resources */,
 				5A7D24E313E5BC3100815AAA /* MainMenu.xib in Resources */,
 				5A7D24E813E5BC3100815AAA /* noopt.png in Resources */,
@@ -1473,7 +1471,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\ncd \"$BUILT_PRODUCTS_DIR/\"\n\nfind . '(' -name '*.cstemp' -o -name '._*' -o -name .DS_Store ')' -print -delete\nfind \"ImageOptim.app\" -print0 | xargs -0 -P8 xattr -c\n\nEXEDIR=ImageOptim.app/Contents/Frameworks/ImageOptimGPL.framework/Versions/Current\n\n# list must be depth-first\nfor i in \"ImageOptim.app/Contents/Frameworks/Sparkle.framework/Resources/\"*\"Autoupdate.app\" \"ImageOptim.app/Contents/Frameworks/Sparkle.framework\" \"$EXEDIR/\"*\"png\"* \"$EXEDIR/\"*\"jpeg\"* \"ImageOptim.app\"; do\n\n    spctl --verbose=4 --assess --type execute \"$i\" || {\n        echo >&2 \"warning: signature on '$i' is invalid; trying to fix it\"\n        codesign -f -s \"${CODE_SIGNING_IDENTITY:-Developer ID}\" \"$i\"\n        spctl --verbose=4 --assess --type execute \"$i\" || {\n            codesign -f  --deep -s\"${CODE_SIGNING_IDENTITY:-Developer ID}\" \"$i\"\n            echo >&2 \"warning: $(basename $i) signature failed\"\n        }\n    }\ndone\n\n\n";
+			shellScript = "set -e\ncd \"$BUILT_PRODUCTS_DIR/\"\n\nfind . '(' -name '*.cstemp' -o -name '._*' -o -name .DS_Store ')' -print -delete\nfind \"ImageOptim.app\" -print0 | xargs -0 -P8 xattr -c\n\nEXEDIR=ImageOptim.app/Contents/Frameworks/ImageOptimGPL.framework/Resources\n\n# list must be depth-first\nfor i in \"ImageOptim.app/Contents/Frameworks/Sparkle.framework/Resources/\"*\"Autoupdate.app\" \"ImageOptim.app/Contents/Frameworks/Sparkle.framework\" \"$EXEDIR/\"*\"png\"* \"$EXEDIR/\"*\"jpeg\"* \"ImageOptim.app\"; do\n\n    spctl --verbose=4 --assess --type execute \"$i\" || {\n        echo >&2 \"warning: signature on '$i' is invalid; trying to fix it\"\n        codesign -f -s \"${CODE_SIGNING_IDENTITY:-Developer ID}\" \"$i\"\n        spctl --verbose=4 --assess --type execute \"$i\" || {\n            codesign -f  --deep -s\"${CODE_SIGNING_IDENTITY:-Developer ID}\" \"$i\"\n            echo >&2 \"warning: $(basename $i) signature failed\"\n        }\n    }\ndone\n\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
