@@ -125,8 +125,8 @@
 -(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSMutableArray *)args {
     NSString *executable = [self executablePathForKey:key bundleName:resourceName];
     if (!executable) {
-        IOWarn("Cannot launch %@ in Sandbox",resourceName);
-        [file setStatus:@"err" order:8 text:[NSString stringWithFormat:NSLocalizedString(@"%@ failed to start",@"tooltip"),key]];
+        IOWarn("Cannot launch %@",resourceName);
+        [file setError:[NSString stringWithFormat:NSLocalizedString(@"%@ failed to start",@"tooltip"),key]];
         return NO;
     }
     [self taskWithPath:executable arguments:args];

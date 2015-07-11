@@ -41,13 +41,14 @@
 
 @interface File ()
 @property (assign) BOOL isDone;
+@property (assign) BOOL isFailed;
 @end
 
 @implementation File {
     BOOL preservePermissions;
 }
 
-@synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImageName, percentDone, bestToolName, isDone=done;
+@synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImageName, percentDone, bestToolName, isFailed=failed, isDone=done;
 
 -(instancetype)initWithFilePath:(nonnull NSURL *)aPath resultsDatabase:(nullable ResultsDb *)aDb
 {
@@ -395,11 +396,11 @@
             optimized = YES;
             [self setStatus:@"ok" order:7 text:[NSString stringWithFormat:NSLocalizedString(@"Optimized successfully with %@",@"tooltip"),bestToolName]];
         } else {
-            [self setStatus:@"err" order:9 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
+            [self setError:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
         }
     } else {
         [self setNooptStatus];
-        if (!stopping) {
+        if (!stopping && !self.isFailed) {
             [db setUnoptimizableFileHash:inputFileHash size:byteSizeOnDisk];
         }
     }
@@ -432,6 +433,7 @@
 
     @synchronized(self) {
         self.isDone = NO;
+        self.isFailed = NO;
         stopping = NO;
         optimized = NO;
         fileIOQueue = aFileIOQueue; // will be used for saving
@@ -473,7 +475,7 @@
     NSUInteger length = [fileData length];
     if (!fileData || !length) {
         IOWarn(@"Can't open the file %@ %@", filePath.path, err);
-        [self setStatus:@"err" order:8 text:NSLocalizedString(@"Can't open the file",@"tooltip, generic loading error")];
+        [self setError:NSLocalizedString(@"Can't open the file",@"tooltip, generic loading error")];
         return;
     }
 
@@ -490,7 +492,7 @@
 
     NSFileManager *fm = [NSFileManager defaultManager];
     if (![fm isWritableFileAtPath:filePath.path]) {
-        [self setStatus:@"err" order:9 text:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
+        [self setError:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
         return;
     }
 
@@ -522,7 +524,7 @@
             [worker_list addObject:w2];
         }
     } else {
-        [self setStatus:@"err" order:8 text:NSLocalizedString(@"File is neither PNG, GIF nor JPEG",@"tooltip")];
+        [self setError:NSLocalizedString(@"File is neither PNG, GIF nor JPEG",@"tooltip")];
         [self cleanup];
         return;
     }
@@ -599,7 +601,7 @@
 
     if (![workers count]) {
         self.isDone = YES;
-        [self setStatus:@"err" order:8 text:NSLocalizedString(@"All neccessary tools have been disabled in Preferences",@"tooltip")];
+        [self setError:NSLocalizedString(@"All neccessary tools have been disabled in Preferences",@"tooltip")];
         [self cleanup];
     } else {
         [self updateStatusOfWorker:nil running:NO];
@@ -678,8 +680,19 @@
     }
 }
 
+-(void)setError:(nonnull NSString *)text {
+    self.isFailed = YES;
+    [self setStatus:@"err" order:9 text:text];
+}
+
 -(void)setStatus:(nonnull NSString *)imageName order:(NSInteger)order text:(nonnull NSString *)text {
     void (^setter)() = ^(void){
+
+        // Keep failed status visible instead of replacing with progress/noopt/etc
+        if (self.isFailed && ![imageName isEqualToString:@"ok"] && ![imageName isEqualToString:@"err"]) {
+            return;
+        }
+
         statusOrder = order;
         self.statusText = text;
         self.statusImageName = imageName;

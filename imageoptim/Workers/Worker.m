@@ -61,7 +61,9 @@
         if (![self isCancelled]) {
             if (![self canSkip]) {
                 [self run];
-                if (![self isCancelled]) [self markResultForSkipping];
+                if (![self isCancelled] && !file.isFailed) {
+                    [self markResultForSkipping];
+                }
             } else {
                 IODebug("Skipping %@, because it already optimized %@", [self className], file.fileName);
             }

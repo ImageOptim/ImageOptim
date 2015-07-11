@@ -47,7 +47,7 @@ enum IOFileType {
     uint32_t inputFileHash[4];
     
     enum IOFileType fileType;
-    BOOL done, optimized, stopping;
+    BOOL done, failed, optimized, stopping;
 }
 
 -(BOOL)isBusy;
@@ -57,7 +57,7 @@ enum IOFileType {
 -(BOOL)stop;
 -(BOOL)revert;
 @property (readonly) BOOL canRevert;
-@property (readonly) BOOL isDone;
+@property (readonly) BOOL isDone, isFailed;
 
 -(void)enqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue fileIOQueue:(nonnull NSOperationQueue *)fileIOQueue defaults:(nonnull NSUserDefaults*)defaults;
 
@@ -88,6 +88,7 @@ enum IOFileType {
 @property (assign) double percentDone;
 
 -(void)setStatus:(nonnull NSString *)name order:(NSInteger)order text:(nonnull NSString *)text;
+-(void)setError:(nonnull NSString *)text;
 -(void)cleanup;
 
 +(NSInteger)fileByteSize:(nonnull NSURL *)afile;
