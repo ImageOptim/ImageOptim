@@ -210,9 +210,9 @@
         NSString *name = @(utf8name);
         if (extAttrToRemove[name]) {
             if (removexattr(fileSystemPath, utf8name, 0) == 0) {
-                IODebug("Removed %s from %s", utf8name, fileSystemPath);
+                IODebug("Removed %s from %@", utf8name, path.path);
             } else {
-                IOWarn("Can't remove %s from %s", utf8name, fileSystemPath);
+                IOWarn("Can't remove %s from %@", utf8name, path.path);
                 return NO;
             }
         }
