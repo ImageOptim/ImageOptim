@@ -71,7 +71,7 @@
     }
 
     if (![self makesNonOptimizingModifications] || isSignificantlySmaller) {
-        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"JpegOptim"];
+        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:lossy ? [NSString stringWithFormat: @"JpegOptim %d%%", (int)maxquality] : @"JpegOptim"];
     }
     return NO;
 }
