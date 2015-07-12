@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A8167B30EA11E3F00962CF2 /* getopt.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167820EA11E3F00962CF2 /* getopt.c */; };
-		5A8167B40EA11E3F00962CF2 /* getopt1.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167830EA11E3F00962CF2 /* getopt1.c */; };
-		5A8167B50EA11E3F00962CF2 /* jpegoptim.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167840EA11E3F00962CF2 /* jpegoptim.c */; };
+		5A1663981B529A6100DF7D3C /* jpegdest.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1663971B529A6100DF7D3C /* jpegdest.c */; };
+		5A16639A1B529A8B00DF7D3C /* misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1663991B529A8B00DF7D3C /* misc.c */; };
+		5A8167B50EA11E3F00962CF2 /* src/jpegoptim.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167840EA11E3F00962CF2 /* src/jpegoptim.c */; };
 		5AA49DB5111CC25500137D50 /* libimageoptimjpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA49DB0111CC23000137D50 /* libimageoptimjpeg.dylib */; };
 /* End PBXBuildFile section */
 
@@ -28,24 +28,23 @@
 			remoteGlobalIDString = D2AAC0630554660B00DB518D;
 			remoteInfo = jpeg;
 		};
-		5F084AA91124135A00C7B074 /* PBXContainerItemProxy */ = {
+		5AB115511B52B1DF00A3C73A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5F084AA61124134B00C7B074;
+			remoteGlobalIDString = 5AB1154C1B52B1C800A3C73A;
 			remoteInfo = download;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A1663971B529A6100DF7D3C /* jpegdest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jpegdest.c; path = src/jpegdest.c; sourceTree = "<group>"; };
+		5A1663991B529A8B00DF7D3C /* misc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = misc.c; path = src/misc.c; sourceTree = "<group>"; };
 		5A27BA31139B09080095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A27BA32139B09080095FC2F /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../imageoptim/debug.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A401AF1111A75A500908C9B /* jpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpeg.xcodeproj; path = ../libjpeg/jpeg.xcodeproj; sourceTree = "<group>"; };
-		5A4552991024E22200A69944 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = config.h; sourceTree = "<group>"; };
 		5A81674F0EA11E3F00962CF2 /* jconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jconfig.h; path = ../libjpeg/jconfig.h; sourceTree = SOURCE_ROOT; };
-		5A8167820EA11E3F00962CF2 /* getopt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getopt.c; sourceTree = SOURCE_ROOT; };
-		5A8167830EA11E3F00962CF2 /* getopt1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = getopt1.c; sourceTree = SOURCE_ROOT; };
-		5A8167840EA11E3F00962CF2 /* jpegoptim.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jpegoptim.c; sourceTree = SOURCE_ROOT; };
+		5A8167840EA11E3F00962CF2 /* src/jpegoptim.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = src/jpegoptim.c; sourceTree = SOURCE_ROOT; };
 		8DD76FB20486AB0100D96B5E /* jpegoptim */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = jpegoptim; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -65,18 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				5A401AF1111A75A500908C9B /* jpeg.xcodeproj */,
-				08FB7795FE84155DC02AAC07 /* jpegoptim */,
+				5A81674E0EA11E3F00962CF2 /* jpegoptim */,
 				5A27BA31139B09080095FC2F /* release.xcconfig */,
 				5A27BA32139B09080095FC2F /* debug.xcconfig */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
-			);
-			name = jpegoptim;
-			sourceTree = "<group>";
-		};
-		08FB7795FE84155DC02AAC07 /* jpegoptim */ = {
-			isa = PBXGroup;
-			children = (
-				5A81674E0EA11E3F00962CF2 /* jpegoptim */,
 			);
 			name = jpegoptim;
 			sourceTree = "<group>";
@@ -92,11 +83,10 @@
 		5A81674E0EA11E3F00962CF2 /* jpegoptim */ = {
 			isa = PBXGroup;
 			children = (
-				5A4552991024E22200A69944 /* config.h */,
-				5A8167820EA11E3F00962CF2 /* getopt.c */,
-				5A8167830EA11E3F00962CF2 /* getopt1.c */,
 				5A81674F0EA11E3F00962CF2 /* jconfig.h */,
-				5A8167840EA11E3F00962CF2 /* jpegoptim.c */,
+				5A1663971B529A6100DF7D3C /* jpegdest.c */,
+				5A1663991B529A8B00DF7D3C /* misc.c */,
+				5A8167840EA11E3F00962CF2 /* src/jpegoptim.c */,
 			);
 			name = jpegoptim;
 			sourceTree = "<group>";
@@ -112,10 +102,10 @@
 /* End PBXGroup section */
 
 /* Begin PBXLegacyTarget section */
-		5F084AA61124134B00C7B074 /* download */ = {
+		5AB1154C1B52B1C800A3C73A /* download */ = {
 			isa = PBXLegacyTarget;
 			buildArgumentsString = "$(ACTION)";
-			buildConfigurationList = 5F084AB01124136700C7B074 /* Build configuration list for PBXLegacyTarget "download" */;
+			buildConfigurationList = 5AB115501B52B1C900A3C73A /* Build configuration list for PBXLegacyTarget "download" */;
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
@@ -138,8 +128,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				5AB115521B52B1DF00A3C73A /* PBXTargetDependency */,
 				5A62DB1F111CCEC1008848D0 /* PBXTargetDependency */,
-				5F084AAA1124135A00C7B074 /* PBXTargetDependency */,
 			);
 			name = jpegoptim;
 			productInstallPath = "$(HOME)/bin";
@@ -154,6 +144,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					5AB1154C1B52B1C800A3C73A = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
 			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "jpegoptim" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -173,7 +168,7 @@
 			projectRoot = "";
 			targets = (
 				8DD76FA90486AB0100D96B5E /* jpegoptim */,
-				5F084AA61124134B00C7B074 /* download */,
+				5AB1154C1B52B1C800A3C73A /* download */,
 			);
 		};
 /* End PBXProject section */
@@ -193,9 +188,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A8167B30EA11E3F00962CF2 /* getopt.c in Sources */,
-				5A8167B40EA11E3F00962CF2 /* getopt1.c in Sources */,
-				5A8167B50EA11E3F00962CF2 /* jpegoptim.c in Sources */,
+				5A1663981B529A6100DF7D3C /* jpegdest.c in Sources */,
+				5A16639A1B529A8B00DF7D3C /* misc.c in Sources */,
+				5A8167B50EA11E3F00962CF2 /* src/jpegoptim.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,10 +202,10 @@
 			name = jpeg;
 			targetProxy = 5A62DB1E111CCEC1008848D0 /* PBXContainerItemProxy */;
 		};
-		5F084AAA1124135A00C7B074 /* PBXTargetDependency */ = {
+		5AB115521B52B1DF00A3C73A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5F084AA61124134B00C7B074 /* download */;
-			targetProxy = 5F084AA91124135A00C7B074 /* PBXContainerItemProxy */;
+			target = 5AB1154C1B52B1C800A3C73A /* download */;
+			targetProxy = 5AB115511B52B1DF00A3C73A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -235,7 +230,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27BA32139B09080095FC2F /* debug.xcconfig */;
 			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					NS_BLOCK_ASSERTIONS,
+					"HOST_TYPE='\"darwin\"'",
+					"HAVE_MKSTEMPS=1",
+					"HAVE_UNISTD_H=1",
+					"HAVE_GETOPT_H=1",
+					"HAVE_GETOPT_LONG=1",
+				);
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_SIGN_COMPARE = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
@@ -253,7 +256,12 @@
 				GCC_OBJC_CALL_CXX_CDTORS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
-					HAVE_CONFIG_H,
+					NS_BLOCK_ASSERTIONS,
+					"HOST_TYPE='\"darwin\"'",
+					"HAVE_MKSTEMPS=1",
+					"HAVE_UNISTD_H=1",
+					"HAVE_GETOPT_H=1",
+					"HAVE_GETOPT_LONG=1",
 				);
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_SIGN_COMPARE = NO;
@@ -262,21 +270,15 @@
 			};
 			name = Release;
 		};
-		5F084AA71124134C00C7B074 /* Debug */ = {
+		5AB1154D1B52B1C900A3C73A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_DYNAMIC_NO_PIC = NO;
-				PRODUCT_NAME = download;
-				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		5F084AA81124134C00C7B074 /* Release */ = {
+		5AB1154E1B52B1C900A3C73A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				PRODUCT_NAME = download;
-				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -301,14 +303,13 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5F084AB01124136700C7B074 /* Build configuration list for PBXLegacyTarget "download" */ = {
+		5AB115501B52B1C900A3C73A /* Build configuration list for PBXLegacyTarget "download" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5F084AA71124134C00C7B074 /* Debug */,
-				5F084AA81124134C00C7B074 /* Release */,
+				5AB1154D1B52B1C900A3C73A /* Debug */,
+				5AB1154E1B52B1C900A3C73A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

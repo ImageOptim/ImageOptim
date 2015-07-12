@@ -35,12 +35,7 @@
         IOWarn("Can't make temp copy of %@ in %@", file.filePathOptimized.path, temp.path);
     }
 
-    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-q",@"--",temp.path,nil];
-
-
-    if (strip) {
-        [args insertObject:@"--strip-all" atIndex:0];
-    }
+    NSMutableArray *args = [NSMutableArray arrayWithObjects: (strip ? @"--strip-all" : @"--strip-none"), @"--all-normal", @"-v", @"--", temp.path, nil];
 
     if (maxquality > 10 && maxquality < 100) {
         [args insertObject:[NSString stringWithFormat:@"-m%d",(int)maxquality] atIndex:0];

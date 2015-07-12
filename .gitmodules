@@ -10,3 +10,6 @@
 [submodule "pngquant/src"]
 	path = pngquant/src
 	url = https://github.com/pornel/pngquant.git
+[submodule "jpegoptim/src"]
+	path = jpegoptim/src
+	url = https://github.com/tjko/jpegoptim.git

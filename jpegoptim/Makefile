@@ -1,8 +1,5 @@
+all:  src/jpegoptim.h
 
-jpegoptim.c:
-	curl http://www.kokkonen.net/tjko/src/jpegoptim-1.2.4.tar.gz | tar xz --strip-components=1 --exclude=Makefile
-
-clean:
-
-install:
-
+src/jpeglib.h: ../.gitmodules
+	git submodule init src
+	git submodule update --depth=1 src && touch src/jpegoptim.h
