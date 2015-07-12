@@ -254,6 +254,13 @@
 			remoteGlobalIDString = 5A728F481836C185004D0D73;
 			remoteInfo = imagequant;
 		};
+		5AB114B01B52AEE700A3C73A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A453F8D16BE79A7002AFE23;
+			remoteInfo = downloads;
+		};
 		5ABB9FEF0E8518DF006F51BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -788,15 +795,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5AF9013A0ED8D68200F3965B /* Sparkle */ = {
-			isa = PBXGroup;
-			children = (
-				5A09013F0ED8D6AA00F3965B /* appcast.xml */,
-				5A5811931AD73A630001838D /* Sparkle.xcodeproj */,
-			);
-			name = Sparkle;
-			sourceTree = "<group>";
-		};
 		5A19433A0FF97F86007C3324 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -995,6 +993,15 @@
 			path = Workers;
 			sourceTree = "<group>";
 		};
+		5AF9013A0ED8D68200F3965B /* Sparkle */ = {
+			isa = PBXGroup;
+			children = (
+				5A09013F0ED8D6AA00F3965B /* appcast.xml */,
+				5A5811931AD73A630001838D /* Sparkle.xcodeproj */,
+			);
+			name = Sparkle;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1040,6 +1047,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5AB114B11B52AEE700A3C73A /* PBXTargetDependency */,
 				5ABE16101AE508C200861C6B /* PBXTargetDependency */,
 				5ABE16121AE508C200861C6B /* PBXTargetDependency */,
 				5ABE16141AE508C200861C6B /* PBXTargetDependency */,
@@ -1545,6 +1553,11 @@
 			isa = PBXTargetDependency;
 			name = Sparkle;
 			targetProxy = 5A5811A81AD73A700001838D /* PBXContainerItemProxy */;
+		};
+		5AB114B11B52AEE700A3C73A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A453F8D16BE79A7002AFE23 /* downloads */;
+			targetProxy = 5AB114B01B52AEE700A3C73A /* PBXContainerItemProxy */;
 		};
 		5ABB9FF00E8518DF006F51BB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
