@@ -714,7 +714,6 @@
 				080E96DDFE201D6D7F000001 /* Backend */,
 				5ABD7B881AE45FEA00E7AB4B /* Frontend */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
-				5A09013A0ED8D68200F3965B /* Sparkle */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				5AC64EFF1AF3FDEE0032AA7F /* Extension */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -728,6 +727,7 @@
 			children = (
 				5A48B74A1423F3AD00AE15FB /* Makefile */,
 				5A4554F81025EBE900A69944 /* optimal_file_list */,
+				5AF9013A0ED8D68200F3965B /* Sparkle */,
 				5A984D4011238E51007622D7 /* advpng.xcodeproj */,
 				5A27B9C2139B079A0095FC2F /* debug.xcconfig */,
 				5A4DC2051028ADB200A9DD55 /* gifsicle.xcodeproj */,
@@ -788,7 +788,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5A09013A0ED8D68200F3965B /* Sparkle */ = {
+		5AF9013A0ED8D68200F3965B /* Sparkle */ = {
 			isa = PBXGroup;
 			children = (
 				5A09013F0ED8D6AA00F3965B /* appcast.xml */,
@@ -1127,8 +1127,6 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 0700;
 				TargetAttributes = {
-					5ABE15411AE5072300861C6B = {
-					};
 					5AC64EFD1AF3FDEE0032AA7F = {
 						CreatedOnToolsVersion = 6.3.1;
 						SystemCapabilities = {
