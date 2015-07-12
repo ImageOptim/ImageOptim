@@ -459,7 +459,7 @@
 -(void)setSettingsHash:(NSArray*)allWorkers {
     CC_MD5_CTX md5ctx = {};
     CC_MD5_Init(&md5ctx);
-    CC_MD5_Update(&md5ctx, "1", 1); // to update when programs change
+    CC_MD5_Update(&md5ctx, "2", 1); // to update when programs change
     for (Worker *w in allWorkers) {
         NSInteger tmp = [w settingsIdentifier];
         CC_MD5_Update(&md5ctx, &tmp, sizeof(tmp));
