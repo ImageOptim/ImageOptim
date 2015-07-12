@@ -255,7 +255,6 @@
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="712" customClass="DragDropImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="549" height="259"/>
-                                <animations/>
                                 <accessibility description="Drop images here"/>
                                 <connections>
                                     <outlet property="filesController" destination="251" id="aqi-nA-YrU"/>
