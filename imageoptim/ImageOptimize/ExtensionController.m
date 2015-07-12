@@ -75,6 +75,9 @@
                     @"JpegTranEnabled":@(YES),
                     @"JpegTranStripAll":@(YES),
                     @"GifsicleEnabled":@(YES),
+                    @"PngMinQuality": @(70),
+                    @"JpegOptimMaxQuality": @(80),
+                    @"LossyEnabled": @(YES),
                 }];
 
                 self.filesQueue = [[FilesQueue alloc] initWithCPUs:0 dirs:1 files:1 defaults:defaults];

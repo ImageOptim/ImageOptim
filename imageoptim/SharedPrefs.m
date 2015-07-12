@@ -30,7 +30,13 @@ void IOSharedPrefsCopy(NSUserDefaults *__nonnull defs) {
     }
 
     // Whole dictionaryRepresentation is massive, so just copy interesting bits
-    const NSArray *keys = @[@"AdvPngEnabled", @"AdvPngLevel", @"GifsicleEnabled", @"JpegOptimEnabled", @"JpegOptimMaxQuality", @"JpegTranEnabled", @"JpegTranStripAll", @"OptiPngEnabled", @"OptiPngInterlace", @"OptiPngLevel", @"PngCrushEnabled", @"PngOutEnabled", @"PngOutLevel", @"PngOutRemoveChunks", @"ZopfliEnabled"];
+    const NSArray *keys = @[
+        @"AdvPngEnabled", @"AdvPngLevel", @"GifsicleEnabled",
+        @"JpegOptimEnabled", @"JpegTranEnabled", @"JpegTranStripAll",
+        @"OptiPngEnabled", @"OptiPngInterlace", @"OptiPngLevel",
+        @"PngCrushEnabled", @"PngOutEnabled", @"PngOutLevel", @"PngOutRemoveChunks", @"ZopfliEnabled",
+        @"PngMinQuality", @"JpegOptimMaxQuality",
+    ];
 
     NSUserDefaults *shared = IOSharedPrefs();
 
