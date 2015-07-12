@@ -6,26 +6,40 @@
 <description>ImageOptim updates</description>
 <language>en</language>
 <item>
-<title>Version 1.5.6</title>
+<title>Version 1.6.0</title>
 <description><![CDATA[
 <ul>
-    <li>Improved drag'n'drop of files outside ImageOptim window</li>
-    <li>Removed partial sandbox support that could cause problems on some systems</li>
-</ul>
-<p>Recently:</p>
-<ul>
-    <li>Option to <samp>Stop</samp> optimizations earlier (keeping progress made so far)</li>
-    <li>Removal of "Where from" OS X metadata</li>
-    <li>Lighter/faster default config on slow machines</li>
-    <li>Updated pngcrush</li>
-    <li>Autolayout used for the main window</li>
+    <li>Switched from <code>jpegrescan</code> to <a href="https://github.com/mozilla/mozjpeg#readme">MozJPEG</a></li>
+    <li>Add ability to <em>temporarily</em> enable lossy <a href="http://pngquant.org">pngquant</a> and MozJPEG re-encoding. The setting <a href="https://github.com/pornel/ImageOptim/issues/17">will switch itself off every time</a> ImageOptim restarts</li>
+    <li>Added an App Extension that adds <a href="https://twitter.com/pornelski/status/589545243130888192"><samp>ImageOptimze</samp> option to images inside Apple Mail compose window</a> (OS X 10.10+ only)</li>
+    <li>Fix for erroneous claim that files have already been optimized</li>
+    <li>Faster default settings for Macbook Air and older Macs</li>
+    <li>Fixed QuickLook animation on Yosemite</li>
+    <li>Gratuitous translucency in Yosemite</li>
 </ul>
 ]]></description>
-<pubDate>Mon, 04 May 2015 22:10:22 +0000</pubDate>
-<enclosure url="https://imageoptim.com/ImageOptim1.5.6.tar.bz2" sparkle:version="1.5.6" length="1563037" type="application/bzip2" sparkle:dsaSignature="MCwCFChGMafge/kMCqBeh9T3w82KeDFiAhQhumWJRb2cqkRw87smz4tmy6RSBw=="/>
-<sparkle:minimumSystemVersion>10.7.0</sparkle:minimumSystemVersion>
+<pubDate>Fri, 24 Jul 2015 23:49:31 +0000</pubDate>
+<enclosure url="https://imageoptim.com/ImageOptim1.6.0.tar.bz2" sparkle:version="1.6.0" length="1629633" type="application/bzip2" sparkle:dsaSignature="MCwCFDwKq8QeJ4suyKTmmklCmWsvgpauAhQ5Auj1Ol9wvGT3cdxfCNk11OuFvQ=="/>
+<sparkle:minimumSystemVersion>10.8.0</sparkle:minimumSystemVersion>
+</item>
 
-
+<item>
+<title>Version 1.6.0a4</title>
+<description><![CDATA[
+<p>Unstable version, because you're using unstable OS.</p>
+<ul>
+    <li>Switched from <code>jpegrescan</code> to <a href="https://github.com/mozilla/mozjpeg#readme">MozJPEG</a></li>
+    <li>Add ability to <em>temporarily</em> enable lossy <a href="http://pngquant.org">pngquant</a> and MozJPEG re-encoding. The setting <a href="https://github.com/pornel/ImageOptim/issues/17">will switch itself off every time</a> ImageOptim restarts</li>
+    <li>Added an App Extension that adds <a href="https://twitter.com/pornelski/status/589545243130888192"><samp>ImageOptimze</samp> option to images inside Apple Mail compose window</a> (OS X 10.10+ only)</li>
+    <li>Fix for erroneous claim that files have already been optimized</li>
+    <li>Faster default settings for Macbook Air and older Macs</li>
+    <li>Fixed QuickLook animation on Yosemite</li>
+    <li>Gratuitous translucency in Yosemite</li>
+</ul>
+]]></description>
+<pubDate>Sat, 18 Jul 2015 01:10:30 +0100</pubDate>
+<enclosure url="https://imageoptim.com/ImageOptim1.6.0a4.tar.bz2" sparkle:version="1.6.0a4" length="1654670" type="application/bzip2" sparkle:dsaSignature="MCwCFB4+Zyye35LpWx8Drrihb67rMcpDAhQBOcEItVj2fQFIZhR1Y2G1FUU4cQ=="/>
+<sparkle:minimumSystemVersion>10.11.0</sparkle:minimumSystemVersion>
 </item>
 </channel>
 </rss>
