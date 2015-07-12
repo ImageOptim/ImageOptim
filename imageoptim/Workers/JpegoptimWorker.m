@@ -18,7 +18,7 @@
     if (self = [super initWithDefaults:defaults file:aFile]) {
         // Sharing setting with jpegtran
         strip = [defaults boolForKey:@"JpegTranStripAll"];
-        maxquality = [defaults integerForKey:@"JpegOptimMaxQuality"];
+        maxquality = [defaults boolForKey:@"LossyEnabled"] ? [defaults integerForKey:@"JpegOptimMaxQuality"] : 100;
     }
     return self;
 }

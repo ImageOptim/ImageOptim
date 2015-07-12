@@ -252,7 +252,7 @@
                                             </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" id="189">
-                                            <rect key="frame" x="2" y="186" width="140" height="17"/>
+                                            <rect key="frame" x="7" y="147" width="135" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="JPEG: Chất lượng" id="868">
                                                 <font key="font" metaFont="system"/>
@@ -261,7 +261,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="232">
-                                            <rect key="frame" x="526" y="188" width="45" height="11"/>
+                                            <rect key="frame" x="526" y="149" width="45" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="-100%" id="872">
                                                 <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0%" negativeFormat="-0%" hasThousandSeparators="NO" thousandSeparator=" " id="378">
@@ -285,7 +285,7 @@
                                             </connections>
                                         </textField>
                                         <box boxType="oldStyle" borderType="none" titlePosition="noTitle" id="291">
-                                            <rect key="frame" x="144" y="154" width="383" height="60"/>
+                                            <rect key="frame" x="144" y="115" width="383" height="60"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="6Ji-0t-zjy">
                                                 <rect key="frame" x="0.0" y="0.0" width="383" height="60"/>
@@ -298,8 +298,21 @@
                                                             <font key="font" size="12" name="Helvetica"/>
                                                         </sliderCell>
                                                         <connections>
-                                                            <binding destination="300" name="enabled" keyPath="values.JpegOptimEnabled" id="433"/>
+                                                            <binding destination="300" name="enabled" keyPath="values.JpegOptimEnabled" id="zA7-lF-59j">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                </dictionary>
+                                                            </binding>
                                                             <binding destination="300" name="value" keyPath="values.JpegOptimMaxQuality" id="317"/>
+                                                            <binding destination="300" name="enabled2" keyPath="values.LossyEnabled" previousBinding="zA7-lF-59j" id="eWw-X5-EuP">
+                                                                <dictionary key="options">
+                                                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </slider>
                                                     <textField verticalHuggingPriority="750" id="230">
@@ -357,7 +370,7 @@
                                             <font key="titleFont" size="11" name="LucidaGrande"/>
                                         </box>
                                         <textField verticalHuggingPriority="750" id="Bpe-mx-U1d">
-                                            <rect key="frame" x="2" y="110" width="140" height="17"/>
+                                            <rect key="frame" x="7" y="71" width="135" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="PNG: Chất lượng" id="kE2-GK-JIe">
                                                 <font key="font" metaFont="system"/>
@@ -366,7 +379,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="tAP-Sd-Xea">
-                                            <rect key="frame" x="526" y="112" width="45" height="11"/>
+                                            <rect key="frame" x="526" y="73" width="45" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="-100%" id="Qlv-4X-VkF">
                                                 <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0%" negativeFormat="-0%" hasThousandSeparators="NO" thousandSeparator=" " id="CT4-V1-MoH">
@@ -395,7 +408,7 @@
                                             </connections>
                                         </textField>
                                         <box boxType="oldStyle" borderType="none" titlePosition="noTitle" id="vpW-ba-fgD">
-                                            <rect key="frame" x="144" y="78" width="383" height="60"/>
+                                            <rect key="frame" x="144" y="39" width="383" height="60"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="9kQ-pP-Ei8">
                                                 <rect key="frame" x="0.0" y="0.0" width="383" height="60"/>
@@ -408,6 +421,7 @@
                                                             <font key="font" size="12" name="Helvetica"/>
                                                         </sliderCell>
                                                         <connections>
+                                                            <binding destination="300" name="enabled" keyPath="values.LossyEnabled" id="Iip-8Y-WwR"/>
                                                             <binding destination="300" name="value" keyPath="values.PngMinQuality" id="XOp-mT-Avg">
                                                                 <dictionary key="options">
                                                                     <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
@@ -470,6 +484,31 @@
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <font key="titleFont" size="11" name="LucidaGrande"/>
                                         </box>
+                                        <button id="B5L-0o-JLA">
+                                            <rect key="frame" x="143" y="211" width="429" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Temporarily enable lossy minification" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="wBg-dc-7uj">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <binding destination="300" name="value" keyPath="values.LossyEnabled" id="gJO-m5-3th">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="LMH-fi-gMg">
+                                            <rect key="frame" x="162" y="191" width="410" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="This setting will reset every time ImageOptim is started" id="WaY-uF-lKy">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </subviews>
                                 </view>
                             </tabViewItem>

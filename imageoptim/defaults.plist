@@ -2,14 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LossyEnabled</key>
+	<false/>
+	<key>JpegOptimMaxQuality</key>
+	<integer>80</integer>
+	<key>PngMinQuality</key>
+	<integer>80</integer>
 	<key>AdvPngEnabled</key>
 	<true/>
 	<key>AdvPngLevel</key>
 	<real>4</real>
 	<key>JpegOptimEnabled</key>
 	<true/>
-	<key>JpegOptimMaxQuality</key>
-	<integer>100</integer>
 	<key>JpegTranStripAll</key>
 	<true/>
 	<key>JpegTranEnabled</key>
@@ -28,8 +32,6 @@
 	<true/>
 	<key>PngOutInterruptIfTakesTooLong</key>
 	<true/>
-	<key>PngMinQuality</key>
-	<integer>100</integer>
 	<key>ZopfliEnabled</key>
 	<true/>
 	<key>ZopfliIterations</key>
