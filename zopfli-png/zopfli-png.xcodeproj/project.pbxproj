@@ -48,6 +48,13 @@
 			remoteGlobalIDString = D2AAC0620554660B00DB518D;
 			remoteInfo = libpng;
 		};
+		5AD202BA1B52A64C000D4FF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A1EBE6217908D9D00361F08 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AD202B21B52A641000D4FF2;
+			remoteInfo = download;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -150,6 +157,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		5AD202B21B52A641000D4FF2 /* download */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 5AD202B91B52A641000D4FF2 /* Build configuration list for PBXLegacyTarget "download" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = download;
+			passBuildSettingsInEnvironment = 1;
+			productName = download;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		5A1EBE6917908D9D00361F08 /* zopflipng */ = {
 			isa = PBXNativeTarget;
@@ -162,6 +186,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5AD202BB1B52A64C000D4FF2 /* PBXTargetDependency */,
 				5A2ACD00179090B7004992B7 /* PBXTargetDependency */,
 			);
 			name = zopflipng;
@@ -176,6 +201,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					5AD202B21B52A641000D4FF2 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
 			};
 			buildConfigurationList = 5A1EBE6517908D9D00361F08 /* Build configuration list for PBXProject "zopfli-png" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -196,6 +226,7 @@
 			projectRoot = "";
 			targets = (
 				5A1EBE6917908D9D00361F08 /* zopflipng */,
+				5AD202B21B52A641000D4FF2 /* download */,
 			);
 		};
 /* End PBXProject section */
@@ -249,6 +280,11 @@
 			name = libpng;
 			targetProxy = 5A2ACCFF179090B7004992B7 /* PBXContainerItemProxy */;
 		};
+		5AD202BB1B52A64C000D4FF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AD202B21B52A641000D4FF2 /* download */;
+			targetProxy = 5AD202BA1B52A64C000D4FF2 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -295,6 +331,18 @@
 			};
 			name = Release;
 		};
+		5AD202B31B52A641000D4FF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		5AD202B41B52A641000D4FF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -315,6 +363,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		5AD202B91B52A641000D4FF2 /* Build configuration list for PBXLegacyTarget "download" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AD202B31B52A641000D4FF2 /* Debug */,
+				5AD202B41B52A641000D4FF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

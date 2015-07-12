@@ -20,6 +20,16 @@
 		5AD92F841B45F54600FE17B0 /* quantize.c in Sources */ = {isa = PBXBuildFile; fileRef = 5AD92F831B45F54600FE17B0 /* quantize.c */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5AD202AC1B52A5CE000D4FF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AD202A81B52A5AB000D4FF2;
+			remoteInfo = download;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5A27B9D0139B07DA0095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A27B9D3139B07EA0095FC2F /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../imageoptim/debug.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -87,6 +97,23 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXLegacyTarget section */
+		5AD202A81B52A5AB000D4FF2 /* download */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 5AD202AB1B52A5AB000D4FF2 /* Build configuration list for PBXLegacyTarget "download" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = download;
+			passBuildSettingsInEnvironment = 1;
+			productName = download;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		8DD76FA90486AB0100D96B5E /* gifsicle */ = {
 			isa = PBXNativeTarget;
@@ -98,6 +125,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5AD202AD1B52A5CE000D4FF2 /* PBXTargetDependency */,
 			);
 			name = gifsicle;
 			productInstallPath = "$(HOME)/bin";
@@ -112,6 +140,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					5AD202A81B52A5AB000D4FF2 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+				};
 			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "gifsicle" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -128,6 +161,7 @@
 			projectRoot = "";
 			targets = (
 				8DD76FA90486AB0100D96B5E /* gifsicle */,
+				5AD202A81B52A5AB000D4FF2 /* download */,
 			);
 		};
 /* End PBXProject section */
@@ -152,6 +186,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5AD202AD1B52A5CE000D4FF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AD202A81B52A5AB000D4FF2 /* download */;
+			targetProxy = 5AD202AC1B52A5CE000D4FF2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1DEB928608733DD80010E9CD /* Debug */ = {
@@ -204,6 +246,20 @@
 			};
 			name = Release;
 		};
+		5AD202A91B52A5AB000D4FF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5AD202AA1B52A5AB000D4FF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -224,6 +280,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		5AD202AB1B52A5AB000D4FF2 /* Build configuration list for PBXLegacyTarget "download" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AD202A91B52A5AB000D4FF2 /* Debug */,
+				5AD202AA1B52A5AB000D4FF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
