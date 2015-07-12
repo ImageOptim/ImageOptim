@@ -58,6 +58,13 @@
 			remoteGlobalIDString = 5A728F471836C185004D0D73;
 			remoteInfo = imagequant;
 		};
+		5AD202851B52A437000D4FF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5AD2027D1B52A3E7000D4FF2;
+			remoteInfo = download;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -203,6 +210,23 @@
 		};
 /* End PBXHeadersBuildPhase section */
 
+/* Begin PBXLegacyTarget section */
+		5AD2027D1B52A3E7000D4FF2 /* download */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 5AD202831B52A3E7000D4FF2 /* Build configuration list for PBXLegacyTarget "download" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "";
+			dependencies = (
+			);
+			name = download;
+			passBuildSettingsInEnvironment = 1;
+			productName = download;
+		};
+/* End PBXLegacyTarget section */
+
 /* Begin PBXNativeTarget section */
 		5A728F471836C185004D0D73 /* imagequant */ = {
 			isa = PBXNativeTarget;
@@ -215,6 +239,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5AD202861B52A437000D4FF2 /* PBXTargetDependency */,
 			);
 			name = imagequant;
 			productName = imagequant;
@@ -270,6 +295,7 @@
 			targets = (
 				8DD76FA90486AB0100D96B5E /* pngquant */,
 				5A728F471836C185004D0D73 /* imagequant */,
+				5AD2027D1B52A3E7000D4FF2 /* download */,
 			);
 		};
 /* End PBXProject section */
@@ -328,6 +354,11 @@
 			isa = PBXTargetDependency;
 			target = 5A728F471836C185004D0D73 /* imagequant */;
 			targetProxy = 5A728F6F1836C1E5004D0D73 /* PBXContainerItemProxy */;
+		};
+		5AD202861B52A437000D4FF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5AD2027D1B52A3E7000D4FF2 /* download */;
+			targetProxy = 5AD202851B52A437000D4FF2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -404,6 +435,20 @@
 			};
 			name = Release;
 		};
+		5AD2027E1B52A3E7000D4FF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5AD2027F1B52A3E7000D4FF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -430,6 +475,15 @@
 			buildConfigurations = (
 				5A728F4A1836C185004D0D73 /* Debug */,
 				5A728F4B1836C185004D0D73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AD202831B52A3E7000D4FF2 /* Build configuration list for PBXLegacyTarget "download" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5AD2027E1B52A3E7000D4FF2 /* Debug */,
+				5AD2027F1B52A3E7000D4FF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
