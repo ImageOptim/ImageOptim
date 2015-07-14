@@ -27,6 +27,7 @@
 		1ACFBA171799E9CC006D93B2 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFBA191799E9CC006D93B2 /* Credits.html */; };
 		1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */; };
 		1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */; };
+		5A05C5B91B55B40A000E32E3 /* ImageOptim.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5AACA80F0CAFE3CA004D45CA /* ImageOptim.icns */; };
 		5A0A24F117492D39003264CC /* ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A24EF17492D39003264CC /* ok@2x.png */; };
 		5A0A24F617494254003264CC /* noopt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A24F217494254003264CC /* noopt@2x.png */; };
 		5A0A24F817494254003264CC /* progress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A0A24F417494254003264CC /* progress@2x.png */; };
@@ -1405,6 +1406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AC64F091AF3FDEE0032AA7F /* ExtensionController.xib in Resources */,
+				5A05C5B91B55B40A000E32E3 /* ImageOptim.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
