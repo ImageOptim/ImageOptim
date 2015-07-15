@@ -1427,7 +1427,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$BUILT_PRODUCTS_DIR/\"\nrm -rf verify\nmkdir verify\ntar xjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" -C verify\nspctl --verbose=4 --assess --type execute \"verify/ImageOptim.app\" || exit 13\nspctl --verbose=4 --assess --type execute \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/\"*\"Autoupdate.app\" || exit 12\ncodesign -v -v \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework\" || exit 11\n";
+			shellScript = "cd \"$BUILT_PRODUCTS_DIR/\"\nrm -rf verify\nmkdir verify\ntar xjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" -C verify\ncodesign -v -v \"verify/ImageOptim.app\" || exit 13\ncodesign -v -v \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/\"*\"Autoupdate.app\" || exit 12\ncodesign -v -v \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework\" || exit 11\n";
 			showEnvVarsInLog = 0;
 		};
 		5ABB9FEB0E8518DA006F51BB /* Tar */ = {
