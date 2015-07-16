@@ -41,8 +41,8 @@
 		5A34D0041AEF6DB300A154E4 /* ImageOptimGPL.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A34CFEE1AEF6D9800A154E4 /* ImageOptimGPL.h */; };
 		5A34D0991AEF75CE00A154E4 /* FilesQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A34D0971AEF75CE00A154E4 /* FilesQueue.h */; };
 		5A34D09A1AEF75CE00A154E4 /* FilesQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A34D0981AEF75CE00A154E4 /* FilesQueue.m */; };
-		5A5811AA1AD73A7E0001838D /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5A58119F1AD73A640001838D /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5A5811AB1AD73A990001838D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A58119F1AD73A640001838D /* Sparkle.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		5A5811AA1AD73A7E0001838D /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5811AF1BD73A640001838D /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5A5811AB1AD73A990001838D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5811AF1BD73A640001838D /* Sparkle.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5A5CD39419662E940096D77F /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5CD39319662E940096D77F /* AppKit.framework */; };
 		5A5CD39619662E9A0096D77F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A5CD39519662E9A0096D77F /* Foundation.framework */; };
 		5A6242080CA86DC7005942A3 /* PrefsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6242070CA86DC7005942A3 /* PrefsController.m */; };
@@ -840,9 +840,9 @@
 			children = (
 				5A5811A51AD73A640001838D /* BinaryDelta */,
 				5A5811A71AD73A640001838D /* Autoupdate.app */,
-				5A5811A11AD73A640001838D /* Sparkle Test App.app */,
-				5A5811A31AD73A640001838D /* Sparkle Unit Tests.xctest */,
-				5A58119F1AD73A640001838D /* Sparkle.framework */,
+				5A5811A81AD73A640001838D /* Sparkle Test App.app */,
+				5A5811A91AD73A640001838D /* Sparkle Unit Tests.xctest */,
+				5A5811AF1BD73A640001838D /* Sparkle.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1285,21 +1285,21 @@
 			remoteRef = 5A4DC20C1028ADB200A9DD55 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5A58119F1AD73A640001838D /* Sparkle.framework */ = {
+		5A5811AF1BD73A640001838D /* Sparkle.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Sparkle.framework;
 			remoteRef = 5A58119E1AD73A640001838D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5A5811A11AD73A640001838D /* Sparkle Test App.app */ = {
+		5A5811A81AD73A640001838D /* Sparkle Test App.app */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.application;
 			path = "Sparkle Test App.app";
 			remoteRef = 5A5811A01AD73A640001838D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5A5811A31AD73A640001838D /* Sparkle Unit Tests.xctest */ = {
+		5A5811A91AD73A640001838D /* Sparkle Unit Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Sparkle Unit Tests.xctest";
