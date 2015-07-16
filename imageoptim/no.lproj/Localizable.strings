@@ -31,12 +31,6 @@
 /* tooltip */
 "Optimized successfully with %@" = "Vellykket optimalisering med %@";
 
-/* total ratio, status bar */
-"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Saved %1$@ out of %2$@. %3$@ overall (up to %4$@ per file)";
-
-/* per file avg, status bar */
-"Saved %@ out of %@. %@ per file on average (up to %@)" = "Saved %1$@ out of %2$@. %3$@ per file on average (up to %4$@)";
-
 /* command name, tooltip */
 "Started %@" = "Bearbeider %@";
 

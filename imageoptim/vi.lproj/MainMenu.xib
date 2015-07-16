@@ -306,8 +306,8 @@
         </window>
         <menu title="Menu chính" systemMenu="main" id="29">
             <items>
-                <menuItem title="Tùy chỉnh hình ảnh" id="56">
-                    <menu key="submenu" title="Tùy chỉnh hình ảnh" systemMenu="apple" id="57">
+                <menuItem title="ImageOptim" id="56">
+                    <menu key="submenu" title="ImageOptim" systemMenu="apple" id="57">
                         <items>
                             <menuItem title="Dịch bởi Phan An" id="361">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -447,7 +447,7 @@
                                     <action selector="copy:" target="-1" id="419"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Sao chép Data URL" keyEquivalent="c" id="NlY-Bc-7tu">
+                            <menuItem title="Copy as Data URL" keyEquivalent="c" id="NlY-Bc-7tu">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="copyAsDataURI:" target="-1" id="wqM-oj-7UX"/>

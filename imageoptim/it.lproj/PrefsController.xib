@@ -77,7 +77,7 @@
                                                 <action selector="showHelp:" target="-2" id="689"/>
                                             </connections>
                                         </button>
-                                        <box autoresizesSubviews="NO" title="Metadata" borderType="line" id="1043">
+                                        <box autoresizesSubviews="NO" title="Metadata e profili Colore" borderType="line" id="1043">
                                             <rect key="frame" x="159" y="116" width="448" height="125"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                             <view key="contentView" id="caY-Pc-Rfs">

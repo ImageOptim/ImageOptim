@@ -388,7 +388,7 @@
                             <menuItem isSeparatorItem="YES" id="499">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Close" keyEquivalent="w" id="498">
+                            <menuItem title="Close Window" keyEquivalent="w" id="498">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="500"/>
                                 </connections>
@@ -447,7 +447,7 @@
                                     <action selector="copy:" target="-1" id="419"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Copy Data URL" keyEquivalent="c" id="NlY-Bc-7tu">
+                            <menuItem title="Copy as Data URL" keyEquivalent="c" id="NlY-Bc-7tu">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="copyAsDataURI:" target="-1" id="wqM-oj-7UX"/>
@@ -757,7 +757,7 @@ CA
         <customObject id="623" customClass="SUUpdater"/>
         <menu id="aEm-KO-6Fg">
             <items>
-                <menuItem title="Reveal in Finder" id="ddH-3k-EuT">
+                <menuItem title="Show in Finder" id="ddH-3k-EuT">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openInFinder:" target="-1" id="xE9-vV-I28"/>

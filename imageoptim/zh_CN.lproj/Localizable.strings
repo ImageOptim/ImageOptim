@@ -1,0 +1,42 @@
+/* tooltip */
+"%@ failed to start" = "%@ 启动失败";
+
+/* undo command name */
+"Add" = "添加";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "在首选项中已禁用了所有必要的工具";
+
+/* tooltip, generic loading error */
+"Can't open the file" = "无法将文件映射到内存";
+
+/* undo command name */
+"Cut" = "剪切";
+
+/* tooltip */
+"File cannot be optimized any further" = "文件无法进行任何压缩";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "文件不是 PNG、GIF、JPEG 格式";
+
+/* tooltip */
+"Inspecting file" = "检查文件";
+
+/* newly added to the queue */
+"New file" = "新的文件";
+
+/* tooltip */
+"Optimized file could not be saved" = "压缩的文件无法保存";
+
+/* tooltip */
+"Optimized successfully with %@" = "压缩成功于 %@";
+
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "节约了%1$@（总共%2$@）。总体 %3$@ （每个文件最多 %4$@）";
+
+/* tooltip */
+"Waiting to be optimized" = "等待压缩";
+
+/* tooltip */
+"Waiting to start more optimizations" = "等待开始更多的压缩";
+

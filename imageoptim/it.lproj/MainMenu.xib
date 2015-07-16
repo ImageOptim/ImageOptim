@@ -46,7 +46,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </imageCell>
                                             <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="statusOrder"/>
-                                            <accessibility description="Optimization status"/>
+                                            <accessibility description="Stato ottimizzazione"/>
                                             <connections>
                                                 <binding destination="251" name="value" keyPath="arrangedObjects.statusImageName" id="hqv-Pz-7X2">
                                                     <dictionary key="options">
@@ -80,7 +80,7 @@
                                             </connections>
                                         </tableColumn>
                                         <tableColumn identifier="originalsize" editable="NO" width="85" minWidth="60" maxWidth="120" hidden="YES" id="795">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Size (original)">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Dimensione Originale">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -189,7 +189,7 @@
                         <tableHeaderView key="headerView" id="642">
                             <rect key="frame" x="0.0" y="0.0" width="549" height="23"/>
                             <autoresizingMask key="autoresizingMask"/>
-                            <accessibility description="Status"/>
+                            <accessibility description="Stato"/>
                             <connections>
                                 <outlet property="menu" destination="739" id="746"/>
                             </connections>
@@ -255,7 +255,7 @@
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="712" customClass="DragDropImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="549" height="259"/>
-                                <accessibility description="Drop images here"/>
+                                <accessibility description="Rilascia le immagini qui"/>
                                 <connections>
                                     <outlet property="filesController" destination="251" id="aqi-nA-YrU"/>
                                 </connections>
@@ -379,7 +379,7 @@
                                     <action selector="startAgain:" target="230" id="594"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Optimize Optimized" hidden="YES" alternate="YES" keyEquivalent="r" id="725">
+                            <menuItem title="Calibra Ottimizzazione" hidden="YES" alternate="YES" keyEquivalent="r" id="725">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="startAgainOptimized:" target="-1" id="727"/>
@@ -407,7 +407,7 @@
                             <menuItem isSeparatorItem="YES" id="cW7-Mv-yh0">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Quick Look" keyEquivalent="y" id="708">
+                            <menuItem title="Vista veloce" keyEquivalent="y" id="708">
                                 <connections>
                                     <action selector="quickLookAction:" target="-1" id="709"/>
                                 </connections>
@@ -466,7 +466,7 @@ CA
                                     <action selector="delete:" target="-1" id="422"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Delete Completed" hidden="YES" alternate="YES" id="721">
+                            <menuItem title="Cancellazione Completata" hidden="YES" alternate="YES" id="721">
                                 <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>
@@ -563,11 +563,11 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="812"/>
-                            <menuItem title="Show Columns" id="809">
+                            <menuItem title="Mostra Colonne" id="809">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" id="739" userLabel="Header context menu">
                                     <items>
-                                        <menuItem title="Size (original)" id="791">
+                                        <menuItem title="Dimensione Originale" id="791">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <binding destination="230" name="value" keyPath="originalSizeColumn.hidden" id="808">
@@ -579,7 +579,7 @@ CA
                                                 </binding>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Optimized Size" state="on" id="740">
+                                        <menuItem title="Ottimizza dimensione" state="on" id="740">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <binding destination="230" name="value" keyPath="sizeColumn.hidden" id="769">
@@ -629,7 +629,7 @@ CA
                                     <action selector="showHelp:" target="-1" id="507"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="ImageOptim Website" id="733">
+                            <menuItem title="Sito di ImageOptim " id="733">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="openHomepage:" target="-1" id="737"/>
@@ -642,7 +642,7 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="738"/>
-                            <menuItem title="View Source" id="735">
+                            <menuItem title="Mostra sorgente" id="735">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="viewSource:" target="-1" id="736"/>
@@ -726,7 +726,7 @@ CA
                     </scrollView>
                     <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="645">
                         <rect key="frame" x="216" y="298" width="87" height="14"/>
-                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" title="version" id="646">
+                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" title="versione" id="646">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>

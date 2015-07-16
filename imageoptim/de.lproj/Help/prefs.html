@@ -18,17 +18,17 @@
       <dt>PNG: Entferne alle optionalen Segmente</dt>
       <dd>
         <p>Diese Einstellung ist nur ratsam, wenn man Dateien für das Internet optimiert.</p>
-        <p data-role="strip-dpi">Other invisible information is removed as well, such as DPI and comments.</p>
+        <p data-role="strip-dpi">Andere META-Daten werden auch entfernt - etwa Kommentare und DPI-Angaben.</p>
       </dd>
-      <dt>JPEG: Entferne EXIF Markierungen und Kommentare</dt>
+      <dt>JPEG-Metadaten entfernen (EXIF, Farbprofile, GPS, Drehung, usw.)&lt;br&gt;</dt>
       <dd>
         <p>Entfernt Metadaten, wie z.B. Programmnamen oder das Kameramodell aus den Bildern.</p>
-        <p data-role="strip-copyright">Embedded copyright information is removed as well. Please note that generally images are protected by copyright law regardless whether they contain such invisible metadata or not.</p>
+        <p data-role="strip-copyright">Eingebettete Copyright bzw. Urheberrechts-Informationen werden auch entfernt. Bitte beachten Sie, daß Bilder grundsätzlich durch das Urheberrecht geschützt sind - auch wenn diese Informationen nicht mehr im Bild gespeichert sind.</p>
       </dd>
     </dl>
 <h2>Werkzeuge</h2>
-    <p data-role="slow-tools">Zopfli and PNGOUT are very good PNG compressors, but are very slow. Disable them if you need to optimize PNG files quickly (leave only AdvPNG for fastest, but still good compression).</p>
-    <p data-role="dirty-alpha-tools">Zopfli and OptiPNG will clean RGB values of transparent pixels (known as “dirty alpha”). Disable these two tools if you're optimizing special files that use alpha channel for something else than transparency (e.g. heightmap in game data files).</p>
+    <p data-role="slow-tools">Zopfbi und PNGOUT sind sehr gute, aber langsame PNG Komprimierer. Wenn Sie schnell optimieren müssen sollten sie diese ausschalten und nur AdvPNG für eine schnelle und immer noch gute Komprimierung eingeschaltet lassen.</p>
+    <p data-role="dirty-alpha-tools">Zopfbi und OptiPNG löschen RGB werden aus transparenten Pixeln (bekannt als "dirty alpha"). Schalten Sie diese beiden Tools aus wenn Sie spezielle Dateien optimieren wollen die den Alpha Kanal für etwas anderes als Transparenzwerte verwenden (z.B. Höhenkarten in Spiel-Daten-Dateien).</p>
     <div id="jpegoptim">
       <h2>JPEGOptim</h2>
       <dl>
@@ -42,7 +42,7 @@
     <div id="pngout">
       <h2>PNGOUT</h2>
       <dl>
-<dt>Art der Optimierung</dt>
+<dt>Optimierungstyp</dt>
         <dd>
           <p>PNGOUT ist sehr wirksam, aber sehr langsam. Verwenden Sie die unteren Ebene, wenn Sie ungeduldig sind.</p>
         </dd>
@@ -55,7 +55,7 @@
     <div id="optipng">
       <h2>OptiPNG</h2>
       <dl>
-<dt>Grad der Optimierung</dt>
+<dt>Optimierungsgrad</dt>
         <dd>
           <p>Anzahl der unterschiedlichen Einstellungskombinationen getestet. Es ist selten sinnvoll, sie zu alle versuchen.</p>
         </dd>

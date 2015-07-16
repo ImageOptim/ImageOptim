@@ -1,0 +1,78 @@
+<html lang="zh_CN">
+<head>
+<meta charset="UTF-8">
+<title>ImageOptim 首选项</title>
+<link rel="stylesheet" href="../../style.css" type="text/css">
+<meta name="AppleTitle" content="ImageOptim Preferences Help">
+<meta name="AppleIcon" content="../../crusher.icns">
+<meta name="AppleFont" content="Lucida Grande,Helvetica,Arial">
+<meta name="AppleSearchResultsFont" content="Lucida Grande,Geneva,Arial">
+<meta name="description" content="ImageOptim Preferences">
+</head>
+<body>
+    <h1>ImageOptim 首选项</h1>
+    <p><a href="index.html"> « 回到主页</a></p>
+    <h2>常规首选项</h2>
+    <dl>
+<dt>保存文件的权限、 属性及永久链接</dt>
+      <dd>
+        <p>并不是删除旧文件再写入同名的新文件，而是直接取代原始文件的内容。这样可以保证所有的链接、文件别名、文件所有者及权限或者是其它文件属性维持原样。</p>
+        <p>不保留文件权限的话处理速度会快快一点。</p>
+      </dd>
+      <dt>带 PNG 元数据 (可选块、 伽玛、 颜色配置文件)</dt>
+      <dd>
+        <p>在不同的浏览器中PNG 文件可以有不同的亮度和饱和度，因为不是所有的浏览器同样支持伽玛校正和颜色配置文件功能。删除此信息会使 PNG 跨浏览器的颜色更加一致，也可减小文件大小。</p>
+        <p data-role="strip-dpi">如 DPI 和评论，以及删除了其他无形的信息。</p>
+      </dd>
+      <dt>带 JPEG 元数据 (EXIF，颜色配置文件，GPS、 旋转等)</dt>
+      <dd>
+        <p>删除图片元数据中如颜色配置文件、 曝光时间、 GPS 坐标、 摄像机模型以及软件用于创建该文件的名称。</p>
+        <p data-role="strip-copyright">Embedded copyright information is removed as well. Please note that generally images are protected by copyright law regardless whether they contain such invisible metadata or not.</p>
+      </dd>
+    </dl>
+<h2>工具</h2>
+    <p data-role="slow-tools">Zopfli 和 PNGOUT 是非常好的 PNG 压缩工具，但速度很慢。如果你想快速优化 PNG 文件可禁用它们 (虽然只有 AdvPNG 的速度最快，但其仍然是不错的压缩工具)。</p>
+    <p data-role="dirty-alpha-tools">Zopfli and OptiPNG will clean RGB values of transparent pixels (known as “dirty alpha”). Disable these two tools if you're optimizing special files that use alpha channel for something else than transparency (e.g. heightmap in game data files).</p>
+    <div id="jpegoptim">
+      <h2>JPEGOptim</h2>
+      <dl>
+<dt>最高质量</dt>
+        <dd>
+          <p>设置为 100%时，为 <strong>无损压缩</strong>。</p>
+          <p>Anything below 100% will cause <strong>lower quality</strong> of files if they appear to have been saved with higher quality setting.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="pngout">
+      <h2>PNGOUT</h2>
+      <dl>
+<dt>压缩类型</dt>
+        <dd>
+          <p>PNGOUT 是非常有效的但是非常缓慢。如果你没有耐心请设置为较低的级别。</p>
+        </dd>
+        <dt>如果运行时间太长刚中断</dt>
+        <dd>
+          <p>PNGOUT 在压缩非常大的图图片时可能需要 <em>大量</em> 的时间。此选项启动后会将超过1分钟的压缩处理优雅的中断断。</p>
+        </dd>
+      </dl>
+</div>
+    <div id="optipng">
+      <h2>OptiPNG</h2>
+      <dl>
+<dt>压缩级别</dt>
+        <dd>
+          <p>Number of different setting combinations tested. It rarely makes sense to try them all.</p>
+        </dd>
+        <dt>使图片交错化处理 (渐进式的)</dt>
+        <dd>
+          <p>Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.</p>
+          <p>此复选框具有三种状态： 为选取时，会生成交错化的图片。为半选时，文件的交错化属性不变。未选取时，会移除文件的交错化。</p>
+        </dd>
+      </dl>
+</div>
+    <div id="gifsicle">
+      <h2>Gifsicle</h2>
+      <p>为了更好的压缩效果，请将 GIF 文件转换为 Png (ImageOptim 不会自动做这件事)。</p>
+    </div>
+  </body>
+</html>

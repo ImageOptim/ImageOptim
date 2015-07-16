@@ -59,7 +59,7 @@
                                             </connections>
                                         </tableColumn>
                                         <tableColumn identifier="filename" editable="NO" width="345" minWidth="100" maxWidth="1000" id="238">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Name">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Datei">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,7 +80,7 @@
                                             </connections>
                                         </tableColumn>
                                         <tableColumn identifier="originalsize" editable="NO" width="85" minWidth="60" maxWidth="120" hidden="YES" id="795">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Größe (original)">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Originalgröße">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -100,7 +100,7 @@
                                                 </binding>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn identifier="size" editable="NO" width="85" minWidth="85" maxWidth="85" headerToolTip="Size of file after optimization" id="239">
+                                        <tableColumn identifier="size" editable="NO" width="85" minWidth="85" maxWidth="85" headerToolTip="Größe der Datei nach der Optimierung" id="239">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Größe">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -112,7 +112,7 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
-                                            <accessibility description="Size of file after optimization"/>
+                                            <accessibility description="Größe der Datei nach der Optimierung"/>
                                             <connections>
                                                 <binding destination="251" name="value" keyPath="arrangedObjects.byteSizeOptimized" id="476">
                                                     <dictionary key="options">
@@ -122,7 +122,7 @@
                                             </connections>
                                         </tableColumn>
                                         <tableColumn identifier="savings" editable="NO" width="85" minWidth="85" maxWidth="85" id="243">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Komprimierung">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Einsparungen">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -194,7 +194,7 @@
                                 <outlet property="menu" destination="739" id="746"/>
                             </connections>
                         </tableHeaderView>
-                        <accessibility description="Liste der Dateien die auf die Optimierung warten"/>
+                        <accessibility description="Liste von Dateien die auf die Optimierung warten"/>
                     </scrollView>
                     <textField horizontalHuggingPriority="100" verticalHuggingPriority="750" horizontalCompressionResistancePriority="550" translatesAutoresizingMaskIntoConstraints="NO" id="294" userLabel="Status">
                         <rect key="frame" x="43" y="12" width="379" height="14"/>
@@ -255,7 +255,7 @@
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="712" customClass="DragDropImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="549" height="259"/>
-                                <accessibility description="Drop images here"/>
+                                <accessibility description="Bilder hier fallenlassen"/>
                                 <connections>
                                     <outlet property="filesController" destination="251" id="aqi-nA-YrU"/>
                                 </connections>
@@ -315,7 +315,7 @@
                                     <action selector="makeKeyAndOrderFront:" target="526" id="531"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Nach Updates suchen…" id="624">
+                            <menuItem title="Nach Aktualisierungen suchen…" id="624">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="checkForUpdates:" target="623" id="625"/>
@@ -357,7 +357,7 @@
                             <menuItem isSeparatorItem="YES" id="149">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Beende ImageOptim" keyEquivalent="q" id="136">
+                            <menuItem title="ImageOptim beenden" keyEquivalent="q" id="136">
                                 <connections>
                                     <action selector="terminate:" target="-2" id="139"/>
                                 </connections>
@@ -407,7 +407,7 @@
                             <menuItem isSeparatorItem="YES" id="cW7-Mv-yh0">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Quick Look" keyEquivalent="y" id="708">
+                            <menuItem title="Schnelle Vorschau" keyEquivalent="y" id="708">
                                 <connections>
                                     <action selector="quickLookAction:" target="-1" id="709"/>
                                 </connections>
@@ -429,7 +429,7 @@
                                     <action selector="undo:" target="-1" id="418"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Wiederholen" keyEquivalent="Z" id="384">
+                            <menuItem title="Wiederherstellen" keyEquivalent="Z" id="384">
                                 <connections>
                                     <action selector="redo:" target="-1" id="404"/>
                                 </connections>
@@ -447,7 +447,7 @@
                                     <action selector="copy:" target="-1" id="419"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Kopieren Data URL" keyEquivalent="c" id="NlY-Bc-7tu">
+                            <menuItem title="Als Daten-URL kopieren" keyEquivalent="c" id="NlY-Bc-7tu">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="copyAsDataURI:" target="-1" id="wqM-oj-7UX"/>
@@ -466,7 +466,7 @@ CA
                                     <action selector="delete:" target="-1" id="422"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Delete Completed" hidden="YES" alternate="YES" id="721">
+                            <menuItem title="Fertige Löschen" hidden="YES" alternate="YES" id="721">
                                 <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>
@@ -544,7 +544,7 @@ CA
                 <menuItem title="Fenster" id="19">
                     <menu key="submenu" title="Fenster" systemMenu="window" id="24">
                         <items>
-                            <menuItem title="Im Dock ablegen" keyEquivalent="m" id="23">
+                            <menuItem title="Minimieren" keyEquivalent="m" id="23">
                                 <connections>
                                     <action selector="performMiniaturize:" target="-1" id="37"/>
                                 </connections>
@@ -563,11 +563,11 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="812"/>
-                            <menuItem title="Show Columns" id="809">
+                            <menuItem title="Spalten anzeigen" id="809">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" id="739" userLabel="Header context menu">
                                     <items>
-                                        <menuItem title="Größe (original)" id="791">
+                                        <menuItem title="Originalgröße" id="791">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <binding destination="230" name="value" keyPath="originalSizeColumn.hidden" id="808">
@@ -591,7 +591,7 @@ CA
                                                 </binding>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Komprimierung" state="on" id="741">
+                                        <menuItem title="Einsparungen" state="on" id="741">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <binding destination="230" name="value" keyPath="savingsColumn.hidden" id="786">
@@ -629,20 +629,20 @@ CA
                                     <action selector="showHelp:" target="-1" id="507"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="ImageOptim Website" id="733">
+                            <menuItem title="ImageOptim Webseite" id="733">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="openHomepage:" target="-1" id="737"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Donate" id="820">
+                            <menuItem title="Spenden" id="820">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="openDonationPage:" target="-1" id="822"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="738"/>
-                            <menuItem title="View Source" id="735">
+                            <menuItem title="Quelle ansehen" id="735">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="viewSource:" target="-1" id="736"/>
@@ -726,11 +726,11 @@ CA
                     </scrollView>
                     <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="645">
                         <rect key="frame" x="216" y="298" width="87" height="14"/>
-                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" title="version" id="646">
+                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" title="Version" id="646">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
-                        <accessibility description="version"/>
+                        <accessibility description="Version"/>
                         <connections>
                             <binding destination="230" name="value" keyPath="version" id="650">
                                 <dictionary key="options">
