@@ -488,6 +488,30 @@ CA
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Narzędzia" id="656">
                         <items>
+                            <menuItem title="Jakość: 100%" id="Grx-lU-4x5">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="562" name="value" keyPath="values.LossyEnabled" id="0hw-rx-Ziv">
+                                        <dictionary key="options">
+                                            <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Lossy minification" id="euw-8w-uMu">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="562" name="value" keyPath="values.LossyEnabled" id="jRt-MT-XRv">
+                                        <dictionary key="options">
+                                            <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="IxE-F3-7sg"/>
                             <menuItem title="Zopfli" id="658">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
