@@ -27,7 +27,7 @@
     [[self window] setHidesOnDeactivate:NO];
 
     NSString *locBookName = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleHelpBookName"];
-    NSString *anchors[] = {@"general", @"jpegoptim", @"advpng", @"optipng", @"pngcrush", @"pngout"};
+    NSString *anchors[] = {@"general", @"jpegoptim", @"optipng", @"optipng", @"pngcrush", @"pngout"};
     NSString *anchor = @"main";
 
     if (tag >= 1 && tag <= 6) {
