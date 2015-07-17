@@ -62,8 +62,8 @@
 /* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
 "865.title" = "Web browsers require gamma chunks to be removed";
 
-/* "Maximum quality"; ObjectID = "868"; */
-"868.title" = "Maximum quality";
+/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+"868.title" = "JPEG quality";
 
 /* Checkbox in Preferences. Text shouldn't be longer than English version. */
 "911.title" = "Strip JPEG metadata (EXIF, color profiles, GPS, rotation, etc.)";
@@ -82,3 +82,12 @@
 
 /* "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
 "1124.title" = "Not recommended if you rely on embedded copyright information";
+
+/* Class = "NSTextFieldCell"; title = "This setting will reset every time ImageOptim is started"; ObjectID = "WaY-uF-lKy"; */
+"WaY-uF-lKy.title" = "This setting will reset every time ImageOptim is started";
+
+/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG quality";
+
+/* Class = "NSButtonCell"; title = "Temporarily enable lossy minification"; ObjectID = "wBg-dc-7uj"; */
+"wBg-dc-7uj.title" = "Temporarily enable lossy minification";

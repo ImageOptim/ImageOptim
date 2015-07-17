@@ -80,8 +80,8 @@
 /* Table Column Tooltip "Optimization status" */
 "462.ibExternalAccessibilityDescription" = "Optimization status";
 
-/* Menu Item "Close" */
-"498.title" = "Close";
+/* Class = "NSMenuItem"; title = "Close Window"; ObjectID = "498"; */
+"498.title" = "Close Window";
 
 /* Menu Item "Optimize Again" */
 "593.title" = "Optimize Again";
@@ -196,6 +196,8 @@
 
 /* Menu Item "Show All" */
 "150.title" = "Show All";
+/* Class = "NSMenuItem"; title = "Quality: 100%"; ObjectID = "Grx-lU-4x5"; */
+"Grx-lU-4x5.title" = "Quality: 100%";
 
 /* Class = "NSMenuItem"; title = "Stop"; ObjectID = "HUo-GO-MIU"; */
 "HUo-GO-MIU.title" = "Stop";
@@ -205,6 +207,9 @@
 
 /* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "ddH-3k-EuT"; */
 "ddH-3k-EuT.title" = "Show in Finder";
+
+/* Class = "NSMenuItem"; title = "Lossy minification"; ObjectID = "euw-8w-uMu"; */
+"euw-8w-uMu.title" = "Lossy minification";
 
 /* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "p0m-mn-Gep"; */
 "p0m-mn-Gep.title" = "Show in Finder";
