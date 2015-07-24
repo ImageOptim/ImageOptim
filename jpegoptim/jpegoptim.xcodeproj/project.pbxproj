@@ -238,6 +238,7 @@
 					"HAVE_UNISTD_H=1",
 					"HAVE_GETOPT_H=1",
 					"HAVE_GETOPT_LONG=1",
+					"HAVE_LABS=1",
 				);
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_SIGN_COMPARE = NO;
@@ -265,6 +266,7 @@
 					"HAVE_UNISTD_H=1",
 					"HAVE_GETOPT_H=1",
 					"HAVE_GETOPT_LONG=1",
+					"HAVE_LABS=1",
 				);
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_SIGN_COMPARE = NO;
@@ -316,6 +318,7 @@
 				5AB1154E1B52B1C900A3C73A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
