@@ -29,13 +29,13 @@
 "Optimized file could not be saved" = "最適化されたファイルを保存できませんでした";
 
 /* tooltip */
-"Optimized successfully with %@" = "%@ で最適化に成功しました";
+"Optimized successfully with %@" = "%@ で最適化を完了しました";
 
 /* total ratio, status bar */
-"Saved %@ out of %@. %@ overall (up to %@ per file)" = "%2$@ のうち %1$@ を節減。全体で %3$@ (1ファイル最大で %4$@)";
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "%2$@ のうち %1$@、全体で %3$@ (1ファイル最大で %4$@) 節約しました。";
 
 /* per file avg, status bar */
-"Saved %@ out of %@. %@ per file on average (up to %@)" = "%2$@のうち %1$@ を節減。1ファイル平均で %3$@ (最大で %4$@)";
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "%2$@ のうち %1$@、1ファイル平均で %3$@ (最大で %4$@) 節約しました。";
 
 /* command name, tooltip */
 "Started %@" = "%@ で最適化を開始しました";

@@ -122,7 +122,7 @@
                                             </connections>
                                         </tableColumn>
                                         <tableColumn identifier="savings" editable="NO" width="85" minWidth="85" maxWidth="85" id="243">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="節減率">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="節約率">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -315,7 +315,7 @@
                                     <action selector="makeKeyAndOrderFront:" target="526" id="531"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="アップデートを確認 …" id="624">
+                            <menuItem title="アップデートを確認…" id="624">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="checkForUpdates:" target="623" id="625"/>
@@ -368,7 +368,7 @@
                 <menuItem title="ファイル" id="429">
                     <menu key="submenu" title="ファイル" id="430">
                         <items>
-                            <menuItem title="ファイルを追加 …" keyEquivalent="o" id="437">
+                            <menuItem title="ファイルを追加…" keyEquivalent="o" id="437">
                                 <connections>
                                     <action selector="browseForFiles:" target="230" id="448"/>
                                     <binding destination="251" name="enabled" keyPath="canAdd" id="447"/>
@@ -388,17 +388,17 @@
                             <menuItem isSeparatorItem="YES" id="499">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="閉じる" keyEquivalent="w" id="498">
+                            <menuItem title="ウインドウを閉じる" keyEquivalent="w" id="498">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="500"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="止まる" keyEquivalent="s" id="HUo-GO-MIU">
+                            <menuItem title="とめる" keyEquivalent="s" id="HUo-GO-MIU">
                                 <connections>
                                     <action selector="stop:" target="-1" id="4bR-Hl-BM3"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="オリジナルを戻す" id="FLl-C9-GLI">
+                            <menuItem title="元に戻す" id="FLl-C9-GLI">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="revert:" target="-1" id="K2n-RB-ZYr"/>
@@ -412,7 +412,7 @@
                                     <action selector="quickLookAction:" target="-1" id="709"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Finderで表示" id="p0m-mn-Gep">
+                            <menuItem title="Finder に表示" id="p0m-mn-Gep">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="openInFinder:" target="-1" id="GoN-HG-2GR"/>
@@ -447,7 +447,7 @@
                                     <action selector="copy:" target="-1" id="419"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="コピーデータURL" keyEquivalent="c" id="NlY-Bc-7tu">
+                            <menuItem title="Data URL 形式でコピー" keyEquivalent="c" id="NlY-Bc-7tu">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="copyAsDataURI:" target="-1" id="wqM-oj-7UX"/>
@@ -488,7 +488,7 @@ CA
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="ツール" id="656">
                         <items>
-                            <menuItem title="Quality: 100%" id="Grx-lU-4x5">
+                            <menuItem title="品質: 100%" id="Grx-lU-4x5">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="562" name="value" keyPath="values.LossyEnabled" id="0hw-rx-Ziv">
@@ -500,7 +500,7 @@ CA
                                     </binding>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Lossy minification" id="euw-8w-uMu">
+                            <menuItem title="非可逆圧縮" id="euw-8w-uMu">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="562" name="value" keyPath="values.LossyEnabled" id="jRt-MT-XRv">
@@ -603,7 +603,7 @@ CA
                                                 </binding>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="最適化後サイズ" state="on" id="740">
+                                        <menuItem title="最適化後のサイズ" state="on" id="740">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <binding destination="230" name="value" keyPath="sizeColumn.hidden" id="769">
@@ -615,7 +615,7 @@ CA
                                                 </binding>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="節減率" state="on" id="741">
+                                        <menuItem title="節約率" state="on" id="741">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <binding destination="230" name="value" keyPath="savingsColumn.hidden" id="786">
@@ -659,14 +659,14 @@ CA
                                     <action selector="openHomepage:" target="-1" id="737"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Donate" id="820">
+                            <menuItem title="寄付" id="820">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="openDonationPage:" target="-1" id="822"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="738"/>
-                            <menuItem title="ソースコードを見る" id="735">
+                            <menuItem title="ソースを表示" id="735">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="viewSource:" target="-1" id="736"/>
@@ -781,7 +781,7 @@ CA
         <customObject id="623" customClass="SUUpdater"/>
         <menu id="aEm-KO-6Fg">
             <items>
-                <menuItem title="Show in Finder" id="ddH-3k-EuT">
+                <menuItem title="Finder に表示" id="ddH-3k-EuT">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="openInFinder:" target="-1" id="xE9-vV-I28"/>

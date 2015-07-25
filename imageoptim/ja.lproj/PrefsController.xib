@@ -254,7 +254,7 @@
                                         <textField verticalHuggingPriority="750" id="189">
                                             <rect key="frame" x="7" y="147" width="135" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="JPEGの品質" id="868">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="JPEG の品質" id="868">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -372,7 +372,7 @@
                                         <textField verticalHuggingPriority="750" id="Bpe-mx-U1d">
                                             <rect key="frame" x="7" y="71" width="135" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="PNGの品質" id="kE2-GK-JIe">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="PNG の品質" id="kE2-GK-JIe">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -487,7 +487,7 @@
                                         <button id="B5L-0o-JLA">
                                             <rect key="frame" x="143" y="211" width="429" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Temporarily enable lossy minification" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="wBg-dc-7uj">
+                                            <buttonCell key="cell" type="check" title="一時的に非可逆圧縮を有効にする" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="wBg-dc-7uj">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -503,7 +503,7 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="LMH-fi-gMg">
                                             <rect key="frame" x="162" y="191" width="410" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="This setting will reset every time ImageOptim is started" id="WaY-uF-lKy">
+                                            <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="この設定は ImageOptim を起動するたびにリセットされます" id="WaY-uF-lKy">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -764,7 +764,7 @@
                                         <textField verticalHuggingPriority="750" id="252">
                                             <rect key="frame" x="301" y="156" width="76" height="11"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="狂的" id="820">
+                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="クレイジー" id="820">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
