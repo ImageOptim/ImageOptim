@@ -29,8 +29,11 @@
 
     NSInteger actualIterations = iterations;
 
+    NSString *filters = @"--filters=0pme";
+
     if ([file isLarge]) {
         actualIterations /= 2; // use faster setting for large files
+        filters = @"--filters=p";
     }
 
     if ([file isSmall]) {
@@ -38,7 +41,10 @@
         [args insertObject:@"--splitting=3" atIndex:0]; // try both splitting strategies
     } else if (alternativeStrategy) {
         [args insertObject:@"--splitting=2" atIndex:0]; // by default splitting=1, so make second run use different split
+        filters = @"--filters=bp";
     }
+
+    [args insertObject:filters atIndex:0];
 
     if (actualIterations) {
         [args insertObject:[NSString stringWithFormat:@"--iterations=%d", (int)actualIterations] atIndex:0];
