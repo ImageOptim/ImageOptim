@@ -515,7 +515,7 @@
         if ([defs boolForKey:@"PngCrushEnabled"]) [worker_list addObject:[[PngCrushWorker alloc] initWithDefaults:defs file:self]];
         if ([defs boolForKey:@"OptiPngEnabled"]) [worker_list addObject:[[OptiPngWorker alloc] initWithDefaults:defs file:self]];
         if ([defs boolForKey:@"PngOutEnabled"]) [worker_list addObject:[[PngoutWorker alloc] initWithDefaults:defs file:self]];
-        if ([defs boolForKey:@"AdvPngEnabled"]) [worker_list addObject:[[AdvCompWorker alloc] initWithDefaults:defs file:self]];
+        if ([defs boolForKey:@"AdvPngEnabled"]) [worker_list addObject:[[AdvCompWorker alloc] initWithLevel:[defs integerForKey:@"AdvPngLevel"] file:self]];
         if ([defs boolForKey:@"ZopfliEnabled"]) {
             ZopfliWorker *zw = [[ZopfliWorker alloc] initWithDefaults:defs file:self];
             zw.alternativeStrategy = hasBeenRunBefore;
