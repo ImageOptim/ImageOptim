@@ -22,11 +22,10 @@
 <enclosure url="https://imageoptim.com/ImageOptim1.6.0.tar.bz2" sparkle:version="1.6.0" length="1629633" type="application/bzip2" sparkle:dsaSignature="MCwCFDwKq8QeJ4suyKTmmklCmWsvgpauAhQ5Auj1Ol9wvGT3cdxfCNk11OuFvQ=="/>
 <sparkle:minimumSystemVersion>10.8.0</sparkle:minimumSystemVersion>
 </item>
-
 <item>
-<title>Version 1.6.0a4</title>
+<title>Version 1.6.1a1</title>
 <description><![CDATA[
-<p>Unstable version, because you're using unstable OS.</p>
+<p>Unstable version, because you're using unstable OS. In 1.6:</p>
 <ul>
     <li>Switched from <code>jpegrescan</code> to <a href="https://github.com/mozilla/mozjpeg#readme">MozJPEG</a></li>
     <li>Add ability to <em>temporarily</em> enable lossy <a href="http://pngquant.org">pngquant</a> and MozJPEG re-encoding. The setting <a href="https://github.com/pornel/ImageOptim/issues/17">will switch itself off every time</a> ImageOptim restarts</li>
@@ -36,9 +35,17 @@
     <li>Fixed QuickLook animation on Yosemite</li>
     <li>Gratuitous translucency in Yosemite</li>
 </ul>
+<p>1.6.1a1:</p>
+<ul>
+    <li>Unified speed setting that controls all tools' compression/time trade-off</li>
+    <li>Simplified Chinese localization
+    <li>Romanian localization (thanks Oprea Nicolae)</li>
+    <li>Japanese localization updated (thanks KAMINO Aki)</li>
+    <li>10.8 required</li>
+</ul>
 ]]></description>
-<pubDate>Sat, 18 Jul 2015 01:10:30 +0100</pubDate>
-<enclosure url="https://imageoptim.com/ImageOptim1.6.0a4.tar.bz2" sparkle:version="1.6.0a4" length="1654670" type="application/bzip2" sparkle:dsaSignature="MCwCFB4+Zyye35LpWx8Drrihb67rMcpDAhQBOcEItVj2fQFIZhR1Y2G1FUU4cQ=="/>
+<pubDate>Sun, 26 Jul 2015 14:37:57 +0000</pubDate>
+<enclosure url="https://imageoptim.com/ImageOptim1.6.1a1.tar.bz2" sparkle:version="1.6.1a1" length="1416711" type="application/bzip2" sparkle:dsaSignature="MCwCFHALRNGOFeh3785GRdm1gZq9ywjhAhQZFDtlhIwEUUf78EcVbliTJGueNQ=="/>
 <sparkle:minimumSystemVersion>10.11.0</sparkle:minimumSystemVersion>
 </item>
 </channel>
