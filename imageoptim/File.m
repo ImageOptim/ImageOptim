@@ -517,11 +517,26 @@
                 lossyConverted = YES;
             }
         }
-        if ([defs boolForKey:@"PngCrushEnabled"]) [worker_list addObject:[[PngCrushWorker alloc] initWithLevel:level defaults:defs file:self]];
-        if ([defs boolForKey:@"OptiPngEnabled"]) [worker_list addObject:[[OptiPngWorker alloc] initWithLevel:level file:self]];
-        if ([defs boolForKey:@"PngOutEnabled"]) [worker_list addObject:[[PngoutWorker alloc] initWithLevel:level defaults:defs file:self]];
-        if ([defs boolForKey:@"AdvPngEnabled"]) [worker_list addObject:[[AdvCompWorker alloc] initWithLevel:level file:self]];
-        if ([defs boolForKey:@"ZopfliEnabled"]) {
+        
+        BOOL pngcrushEnabled = [defs boolForKey:@"PngCrushEnabled"];
+        BOOL optipngEnabled = [defs boolForKey:@"OptiPngEnabled"];
+        BOOL pngoutEnabled = [defs boolForKey:@"PngOutEnabled"];
+        BOOL zopfliEnabled = [defs boolForKey:@"ZopfliEnabled"];
+        BOOL advpngEnabled = [defs boolForKey:@"AdvPngEnabled"];
+        
+        if (level < 4 && zopfliEnabled) {
+            pngoutEnabled = NO;
+        }
+        
+        if (level < 2 && optipngEnabled) {
+            pngcrushEnabled = NO;
+        }
+        
+        if (pngcrushEnabled) [worker_list addObject:[[PngCrushWorker alloc] initWithLevel:level defaults:defs file:self]];
+        if (optipngEnabled) [worker_list addObject:[[OptiPngWorker alloc] initWithLevel:level file:self]];
+        if (pngoutEnabled) [worker_list addObject:[[PngoutWorker alloc] initWithLevel:level defaults:defs file:self]];
+        if (advpngEnabled) [worker_list addObject:[[AdvCompWorker alloc] initWithLevel:level file:self]];
+        if (zopfliEnabled) {
             ZopfliWorker *zw = [[ZopfliWorker alloc]initWithLevel:level defaults:defs file:self];
             zw.alternativeStrategy = hasBeenRunBefore;
             [worker_list addObject:zw];
