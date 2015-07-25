@@ -388,17 +388,17 @@
                             <menuItem isSeparatorItem="YES" id="499">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Schließen" keyEquivalent="w" id="498">
+                            <menuItem title="Fenster schließen" keyEquivalent="w" id="498">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="500"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Stop" keyEquivalent="s" id="HUo-GO-MIU">
+                            <menuItem title="Stopp" keyEquivalent="s" id="HUo-GO-MIU">
                                 <connections>
                                     <action selector="stop:" target="-1" id="4bR-Hl-BM3"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Revert to Original" id="FLl-C9-GLI">
+                            <menuItem title="Auf Original zurücksetzen" id="FLl-C9-GLI">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="revert:" target="-1" id="K2n-RB-ZYr"/>
