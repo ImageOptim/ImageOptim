@@ -12,23 +12,19 @@
 -(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
     if (self = [super initWithFile:file]) {
         optlevel = [defaults integerForKey:@"OptiPngLevel"];
-        interlace = [defaults integerForKey:@"OptiPngInterlace"];
     }
     return self;
 }
 
 
 -(NSInteger)settingsIdentifier {
-    return optlevel*2 + interlace;
+    return optlevel*2;
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {
     NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],
+                            @"-i0",
                             @"-out",temp.path,@"--",file.filePathOptimized.path,nil];
-
-    if (interlace != -1) {
-        [args insertObject:[NSString stringWithFormat:@"-i%d",(int)interlace] atIndex:0];
-    }
 
     if (![self taskForKey:@"OptiPng" bundleName:@"optipng" arguments:args]) {
         return NO;
