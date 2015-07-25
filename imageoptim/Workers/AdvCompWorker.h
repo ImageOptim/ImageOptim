@@ -13,4 +13,5 @@
 	NSInteger fileSizeOptimized;	
 }
 
+- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile;
 @end

@@ -12,16 +12,6 @@
 @implementation CommandWorker {
 }
 
-
-- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File*)aFile
-{
-    self = [super initWithFile:aFile];
-    if (self) {
-        self.defaults = defaults;
-    }
-    return self;
-}
-
 -(BOOL)parseLine:(NSString *)line {
     /* stub */
     return NO;
@@ -160,7 +150,6 @@
     if (!path) {
         IOWarn("Can't find working executable for %@ - disabling",prefsName);
         NSBeep();
-        [self.defaults setBool:NO forKey:[prefsName stringByAppendingString:@"@Enabled"]];
     }
     return path;
 }

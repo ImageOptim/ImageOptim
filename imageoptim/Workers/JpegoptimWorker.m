@@ -15,7 +15,7 @@
 }
 
 -(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
-    if (self = [super initWithDefaults:defaults file:aFile]) {
+    if (self = [super initWithFile:aFile]) {
         // Sharing setting with jpegtran
         strip = [defaults boolForKey:@"JpegTranStripAll"];
         maxquality = [defaults boolForKey:@"LossyEnabled"] ? [defaults integerForKey:@"JpegOptimMaxQuality"] : 100;

@@ -10,7 +10,7 @@
 @implementation OptiPngWorker
 
 -(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
-    if (self = [super initWithDefaults:defaults file:file]) {
+    if (self = [super initWithFile:file]) {
         optlevel = [defaults integerForKey:@"OptiPngLevel"];
         interlace = [defaults integerForKey:@"OptiPngInterlace"];
     }

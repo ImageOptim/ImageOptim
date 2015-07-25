@@ -526,12 +526,8 @@
         if ([defs boolForKey:@"JpegTranEnabled"]) [worker_list addObject:[[JpegtranWorker alloc] initWithDefaults:defs file:self]];
     } else if (fileType == FILETYPE_GIF) {
         if ([defs boolForKey:@"GifsicleEnabled"]) {
-            GifsicleWorker *w1 = [[GifsicleWorker alloc] initWithDefaults:defs file:self];
-            w1.interlace = NO;
-            [worker_list addObject:w1];
-            GifsicleWorker *w2 = [[GifsicleWorker alloc] initWithDefaults:defs file:self];
-            w2.interlace = YES;
-            [worker_list addObject:w2];
+            [worker_list addObject:[[GifsicleWorker alloc] initWithInterlace:NO file:self]];
+            [worker_list addObject:[[GifsicleWorker alloc] initWithInterlace:YES file:self]];
         }
     } else {
         [self setError:NSLocalizedString(@"File is neither PNG, GIF nor JPEG",@"tooltip")];

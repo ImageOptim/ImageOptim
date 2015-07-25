@@ -4,7 +4,12 @@
 
 @implementation GifsicleWorker
 
-@synthesize interlace;
+- (instancetype)initWithInterlace:(BOOL)yn file:(File *)aFile {
+    if ((self = [super initWithFile:aFile])) {
+        interlace = yn;
+    }
+    return self;
+}
 
 -(NSInteger)settingsIdentifier {
     return interlace;

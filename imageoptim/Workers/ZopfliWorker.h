@@ -6,6 +6,7 @@
     BOOL strip, alternativeStrategy;
 }
 
+- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile;
 @property (atomic, assign) BOOL alternativeStrategy;
 
 @end

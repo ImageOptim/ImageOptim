@@ -13,8 +13,6 @@
     NSTask *task;
 }
 
-- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File*)aFile NS_DESIGNATED_INITIALIZER;
-
 -(BOOL)parseLine:(NSString *)line;
 -(void)parseLinesFromHandle:(NSFileHandle *)commandHandle;
 
@@ -32,7 +30,5 @@
 
 -(BOOL)runWithTempPath:(NSURL*)tempPath;
 -(NSString *)pathForExecutableName:(NSString *)resourceName;
-
-@property (strong) NSUserDefaults *defaults;
 
 @end

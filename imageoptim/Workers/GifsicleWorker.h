@@ -11,5 +11,5 @@
     BOOL interlace;
 }
 
-@property (nonatomic,assign) BOOL interlace;
+- (instancetype)initWithInterlace:(BOOL)yn file:(File *)aFile;
 @end

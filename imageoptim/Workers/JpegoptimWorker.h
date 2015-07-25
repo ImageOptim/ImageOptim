@@ -12,4 +12,6 @@
     NSInteger fileSizeOptimized;
     BOOL strip;
 }
+
+- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile;
 @end

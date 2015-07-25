@@ -14,7 +14,7 @@
 }
 
 -(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
-    if (self = [super initWithDefaults:defaults file:aFile]) {
+    if (self = [super initWithFile:aFile]) {
         strip = [defaults boolForKey:@"JpegTranStripAll"];
     }
     return self;

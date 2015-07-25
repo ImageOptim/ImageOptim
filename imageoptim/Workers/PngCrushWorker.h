@@ -12,6 +12,7 @@
     BOOL strip;
 }
 
+- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile;
 @property (readonly) BOOL makesNonOptimizingModifications;
 
 @end
