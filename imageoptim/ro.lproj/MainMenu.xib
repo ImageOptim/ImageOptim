@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8152.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment version="1070" identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8152.3"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="230" id="342"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="ImageOptim" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" showsToolbarButton="NO" frameAutosaveName="MainWindow" animationBehavior="default" id="21">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="448" y="483" width="549" height="297"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <value key="minSize" type="size" width="411" height="110"/>
+            <value key="maxSize" type="size" width="1200" height="2000"/>
+            <view key="contentView" wantsLayer="YES" id="2">
+                <rect key="frame" x="0.0" y="0.0" width="549" height="297"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="0.0" verticalLineScroll="19" verticalPageScroll="0.0" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="236">
+                        <rect key="frame" x="0.0" y="39" width="549" height="259"/>
+                        <clipView key="contentView" id="ebk-5A-dcn">
+                            <rect key="frame" x="0.0" y="0.0" width="549" height="259"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" autosaveName="Files" headerView="642" id="237" customClass="MyTableView">
+                                    <rect key="frame" x="0.0" y="0.0" width="549" height="19"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <size key="intercellSpacing" width="3" height="2"/>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                    <tableColumns>
+                                        <tableColumn identifier="status" editable="NO" width="22" minWidth="22" maxWidth="22" headerToolTip="Stare optimizare" id="462">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            </tableHeaderCell>
+                                            <imageCell key="dataCell" refusesFirstResponder="YES" alignment="left" id="463">
+                                                <font key="font" metaFont="system"/>
+                                            </imageCell>
+                                            <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="statusOrder"/>
+                                            <accessibility description="Stare optimizare"/>
+                                            <connections>
+                                                <binding destination="251" name="value" keyPath="arrangedObjects.statusImageName" id="hqv-Pz-7X2">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSConditionallySetsEnabled" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                        <string key="NSValueTransformerName">IOStatusImage</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn identifier="filename" editable="NO" width="345" minWidth="100" maxWidth="1000" id="238">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Fişier">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" allowsUndo="NO" alignment="left" usesSingleLineMode="YES" id="637" customClass="RevealButtonCell">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <sortDescriptor key="sortDescriptorPrototype" selector="caseInsensitiveCompare:" sortKey="fileName"/>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="251" name="value" keyPath="arrangedObjects.fileName" id="477">
+                                                    <dictionary key="options">
+                                                        <integer key="NSRaisesForNotApplicableKeys" value="0"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn identifier="originalsize" editable="NO" width="85" minWidth="60" maxWidth="120" hidden="YES" id="795">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Mărime originală">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" allowsUndo="NO" alignment="right" usesSingleLineMode="YES" id="796">
+                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="801"/>
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="251" name="value" keyPath="arrangedObjects.byteSizeOriginal" id="800">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn identifier="size" editable="NO" width="85" minWidth="85" maxWidth="85" headerToolTip="Mărimea fişierului după optimizare" id="239">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Mărime">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" allowsUndo="NO" alignment="right" usesSingleLineMode="YES" id="638">
+                                                <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="254"/>
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <accessibility description="Mărimea fişierului după optimizare"/>
+                                            <connections>
+                                                <binding destination="251" name="value" keyPath="arrangedObjects.byteSizeOptimized" id="476">
+                                                    <dictionary key="options">
+                                                        <integer key="NSRaisesForNotApplicableKeys" value="0"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn identifier="savings" editable="NO" width="85" minWidth="85" maxWidth="85" id="243">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Salvat">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" allowsUndo="NO" alignment="right" usesSingleLineMode="YES" id="639">
+                                                <numberFormatter key="formatter" formatterBehavior="custom10_4" numberStyle="percent" roundingMode="halfUp" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" minimumFractionDigits="1" maximumFractionDigits="1" id="253" userLabel="Number Formatter" customClass="SavingsFormatter">
+                                                    <real key="multiplier" value="1"/>
+                                                </numberFormatter>
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="251" name="value" keyPath="arrangedObjects.percentOptimized" id="474">
+                                                    <dictionary key="options">
+                                                        <integer key="NSRaisesForNotApplicableKeys" value="0"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn identifier="besttool" editable="NO" width="85" minWidth="40" maxWidth="250" hidden="YES" id="771">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Cea mai bună unealtă">
+                                                <font key="font" metaFont="smallSystem"/>
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" allowsUndo="NO" alignment="left" usesSingleLineMode="YES" id="772">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="251" name="value" keyPath="arrangedObjects.bestToolName" id="777">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSConditionallySetsEditable" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                    </tableColumns>
+                                    <connections>
+                                        <outlet property="dataSource" destination="251" id="823"/>
+                                        <outlet property="delegate" destination="251" id="824"/>
+                                        <outlet property="menu" destination="aEm-KO-6Fg" id="t6F-hh-e2j"/>
+                                    </connections>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </clipView>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="700" constant="100" id="xGg-Tk-Rrf"/>
+                        </constraints>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="641">
+                            <rect key="frame" x="-100" y="-100" width="524" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="640">
+                            <rect key="frame" x="567" y="18" width="15" height="277"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <tableHeaderView key="headerView" id="642">
+                            <rect key="frame" x="0.0" y="0.0" width="549" height="23"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <accessibility description="Stare"/>
+                            <connections>
+                                <outlet property="menu" destination="739" id="746"/>
+                            </connections>
+                        </tableHeaderView>
+                        <accessibility description="Lista fişierelor de optimizat"/>
+                    </scrollView>
+                    <textField horizontalHuggingPriority="100" verticalHuggingPriority="750" horizontalCompressionResistancePriority="550" translatesAutoresizingMaskIntoConstraints="NO" id="294" userLabel="Status">
+                        <rect key="frame" x="43" y="12" width="379" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="onm-4h-DUk"/>
+                        </constraints>
+                        <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Glisaţi şi plasaţi imaginile în zona de sus" usesSingleLineMode="YES" id="632">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <accessibility description="Stare"/>
+                    </textField>
+                    <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="900" translatesAutoresizingMaskIntoConstraints="NO" id="423" userLabel="Add">
+                        <rect key="frame" x="8" y="6" width="30" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="5V3-ih-iDb"/>
+                            <constraint firstAttribute="width" priority="700" constant="30" id="vMW-e3-zXS"/>
+                        </constraints>
+                        <buttonCell key="cell" type="roundTextured" title="Adaugă" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="633">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <accessibility description="Adaugă fişiere sau foldere noi"/>
+                        <connections>
+                            <action selector="browseForFiles:" target="230" id="426"/>
+                            <binding destination="251" name="enabled" keyPath="canAdd" id="451"/>
+                            <outlet property="nextKeyView" destination="237" id="456"/>
+                        </connections>
+                    </button>
+                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="428" userLabel="Progress">
+                        <rect key="frame" x="427" y="11" width="16" height="16"/>
+                        <connections>
+                            <binding destination="251" name="animate" keyPath="isBusy" id="3oN-QV-rc9"/>
+                        </connections>
+                    </progressIndicator>
+                    <button horizontalHuggingPriority="300" verticalHuggingPriority="750" horizontalCompressionResistancePriority="850" translatesAutoresizingMaskIntoConstraints="NO" id="586" userLabel="Again">
+                        <rect key="frame" x="451" y="6" width="90" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="400" constant="90" id="6P8-XL-e9E"/>
+                            <constraint firstAttribute="height" constant="22" id="f8J-J5-eqa"/>
+                        </constraints>
+                        <buttonCell key="cell" type="roundTextured" title="DIn nou" alternateTitle="Rulează optimizările din nou" bezelStyle="texturedRounded" image="NSRefreshTemplate" imagePosition="left" alignment="center" borderStyle="border" inset="2" id="635">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent"></string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="startAgain:" target="230" id="592"/>
+                            <binding destination="251" name="enabled" keyPath="arrangedObjects.@count" id="732">
+                                <dictionary key="options">
+                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </button>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="XNq-qc-Ci6" customClass="FadeView">
+                        <rect key="frame" x="0.0" y="39" width="549" height="259"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="712" customClass="DragDropImageView">
+                                <rect key="frame" x="0.0" y="0.0" width="549" height="259"/>
+                                <accessibility description="Plasaţi fişierele aici"/>
+                                <connections>
+                                    <outlet property="filesController" destination="251" id="aqi-nA-YrU"/>
+                                </connections>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="712" firstAttribute="width" secondItem="XNq-qc-Ci6" secondAttribute="width" id="4TW-mH-YzC"/>
+                            <constraint firstItem="712" firstAttribute="leading" secondItem="XNq-qc-Ci6" secondAttribute="leading" id="615-sC-moI"/>
+                            <constraint firstItem="712" firstAttribute="top" secondItem="XNq-qc-Ci6" secondAttribute="top" id="8Lh-dx-EJo"/>
+                            <constraint firstItem="712" firstAttribute="height" secondItem="XNq-qc-Ci6" secondAttribute="height" id="AgV-gf-61k"/>
+                        </constraints>
+                        <connections>
+                            <binding destination="251" name="hidden" keyPath="arrangedObjects.@count" id="SCX-vI-sGf">
+                                <dictionary key="options">
+                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </customView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="428" firstAttribute="leading" secondItem="294" secondAttribute="trailing" constant="7" id="2aN-n3-2sI"/>
+                    <constraint firstItem="586" firstAttribute="leading" secondItem="428" secondAttribute="trailing" constant="8" id="4Q3-fw-7u9"/>
+                    <constraint firstAttribute="trailing" secondItem="236" secondAttribute="trailing" id="98K-BG-Ip3"/>
+                    <constraint firstItem="XNq-qc-Ci6" firstAttribute="top" secondItem="236" secondAttribute="top" id="DyQ-wZ-c9v"/>
+                    <constraint firstItem="586" firstAttribute="centerY" secondItem="428" secondAttribute="centerY" id="EEF-Hw-pgC"/>
+                    <constraint firstItem="423" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="8" id="EYQ-au-Yi5"/>
+                    <constraint firstItem="423" firstAttribute="centerY" secondItem="586" secondAttribute="centerY" id="Ifv-FK-6o5"/>
+                    <constraint firstItem="XNq-qc-Ci6" firstAttribute="leading" secondItem="236" secondAttribute="leading" id="LBk-8s-hJc"/>
+                    <constraint firstAttribute="bottom" secondItem="423" secondAttribute="bottom" constant="8" id="T9q-uS-x5t"/>
+                    <constraint firstAttribute="bottom" secondItem="236" secondAttribute="bottom" constant="39" id="W7k-DE-tH8"/>
+                    <constraint firstItem="423" firstAttribute="centerY" secondItem="294" secondAttribute="centerY" id="cFl-bD-jqG"/>
+                    <constraint firstItem="236" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="eyA-VZ-bkI"/>
+                    <constraint firstItem="XNq-qc-Ci6" firstAttribute="height" secondItem="236" secondAttribute="height" id="f4r-Gg-F59"/>
+                    <constraint firstItem="236" firstAttribute="top" secondItem="2" secondAttribute="top" constant="-1" id="h09-6j-JZ1"/>
+                    <constraint firstItem="294" firstAttribute="leading" secondItem="423" secondAttribute="trailing" constant="7" id="lru-KL-RTj"/>
+                    <constraint firstItem="586" firstAttribute="top" secondItem="236" secondAttribute="bottom" constant="9" id="s3k-0Z-V7B"/>
+                    <constraint firstAttribute="bottom" secondItem="586" secondAttribute="bottom" constant="8" id="std-o8-EXO"/>
+                    <constraint firstItem="XNq-qc-Ci6" firstAttribute="width" secondItem="236" secondAttribute="width" id="uKk-Jt-aDN"/>
+                    <constraint firstAttribute="trailing" secondItem="586" secondAttribute="trailing" constant="8" id="ymv-zM-FlS"/>
+                </constraints>
+            </view>
+            <contentBorderThickness minY="39"/>
+            <connections>
+                <outlet property="delegate" destination="230" id="235"/>
+                <outlet property="initialFirstResponder" destination="237" id="452"/>
+            </connections>
+        </window>
+        <menu title="MainMenu" systemMenu="main" id="29">
+            <items>
+                <menuItem title="ImageOptim" id="56">
+                    <menu key="submenu" title="ImageOptim" systemMenu="apple" id="57">
+                        <items>
+                            <menuItem title="Despre ImageOptim" id="361">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="makeKeyAndOrderFront:" target="526" id="531"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Verificare actualizări..." id="624">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="checkForUpdates:" target="623" id="625"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="362">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Preferinţe..." keyEquivalent="," id="363">
+                                <connections>
+                                    <action selector="showPrefs:" target="230" id="365"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="364">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Servicii" id="131">
+                                <menu key="submenu" title="Servicii" systemMenu="services" id="130"/>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="144">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Ascunde ImageOptim" keyEquivalent="h" id="134">
+                                <connections>
+                                    <action selector="hide:" target="-2" id="152"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Ascunde celelalte" keyEquivalent="h" id="145">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="hideOtherApplications:" target="-2" id="146"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Arată toate" id="150">
+                                <connections>
+                                    <action selector="unhideAllApplications:" target="-2" id="153"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="149">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Închidere ImageOptim" keyEquivalent="q" id="136">
+                                <connections>
+                                    <action selector="terminate:" target="-2" id="139"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Fişier" id="429">
+                    <menu key="submenu" title="Fişier" id="430">
+                        <items>
+                            <menuItem title="Adaugă fişiere..." keyEquivalent="o" id="437">
+                                <connections>
+                                    <action selector="browseForFiles:" target="230" id="448"/>
+                                    <binding destination="251" name="enabled" keyPath="canAdd" id="447"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Optimizează din nou" keyEquivalent="r" id="593">
+                                <connections>
+                                    <action selector="startAgain:" target="230" id="594"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Optimizare optimizate" hidden="YES" alternate="YES" keyEquivalent="r" id="725">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="startAgainOptimized:" target="-1" id="727"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="499">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Închide fereastra" keyEquivalent="w" id="498">
+                                <connections>
+                                    <action selector="performClose:" target="-1" id="500"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Stop" keyEquivalent="s" id="HUo-GO-MIU">
+                                <connections>
+                                    <action selector="stop:" target="-1" id="4bR-Hl-BM3"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Revine la original" id="FLl-C9-GLI">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="revert:" target="-1" id="K2n-RB-ZYr"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="cW7-Mv-yh0">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Privire rapidă" keyEquivalent="y" id="708">
+                                <connections>
+                                    <action selector="quickLookAction:" target="-1" id="709"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Arată în Finder" id="p0m-mn-Gep">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="openInFinder:" target="-1" id="GoN-HG-2GR"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Editare" id="375">
+                    <menu key="submenu" title="Editare" id="376">
+                        <items>
+                            <menuItem title="Anulare" keyEquivalent="z" id="378">
+                                <connections>
+                                    <action selector="undo:" target="-1" id="418"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Refacere" keyEquivalent="Z" id="384">
+                                <connections>
+                                    <action selector="redo:" target="-1" id="404"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="392">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Tăriere" keyEquivalent="x" id="398">
+                                <connections>
+                                    <action selector="cut:" target="-1" id="406"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Copiere" keyEquivalent="c" id="399">
+                                <connections>
+                                    <action selector="copy:" target="-1" id="419"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Copiază ca date URL" keyEquivalent="c" id="NlY-Bc-7tu">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="copyAsDataURI:" target="-1" id="wqM-oj-7UX"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Lipire" keyEquivalent="v" id="400">
+                                <connections>
+                                    <action selector="paste:" target="-1" id="410"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Ştergere" id="402">
+                                <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
+                                <connections>
+                                    <action selector="delete:" target="-1" id="422"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Ştergere completată" hidden="YES" alternate="YES" id="721">
+                                <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="clearComplete:" target="-1" id="723"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="724"/>
+                            <menuItem title="Selectează tot" keyEquivalent="a" id="377">
+                                <connections>
+                                    <action selector="selectAll:" target="-1" id="413"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Unelte" id="655">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Unelte" id="656">
+                        <items>
+                            <menuItem title="Calitate: 100%" id="Grx-lU-4x5">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="562" name="value" keyPath="values.LossyEnabled" id="0hw-rx-Ziv">
+                                        <dictionary key="options">
+                                            <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Minimizare cu pierderi" id="euw-8w-uMu">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="562" name="value" keyPath="values.LossyEnabled" id="jRt-MT-XRv">
+                                        <dictionary key="options">
+                                            <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                            <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="IxE-F3-7sg"/>
+                            <menuItem title="Zopfli" id="658">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="562" name="value" keyPath="values.ZopfliEnabled" id="815"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="PNGOUT" id="813">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="562" name="value" keyPath="values.PngOutEnabled" id="814"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="OptiPNG" id="659">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="562" name="value" keyPath="values.OptiPngEnabled" id="670"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="AdvPNG" id="661">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="562" name="value" keyPath="values.AdvPngEnabled" id="677"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="PNGCrush" id="660">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="562" name="value" keyPath="values.PngCrushEnabled" id="674"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="662"/>
+                            <menuItem title="JPEGOptim" id="664">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="562" name="value" keyPath="values.JpegOptimEnabled" id="689"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Jpegtran" id="663">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="562" name="value" keyPath="values.JpegTranEnabled" id="685"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="665"/>
+                            <menuItem title="Gifsicle" id="666">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <binding destination="562" name="value" keyPath="values.GifsicleEnabled" id="693"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Fereastră" id="19">
+                    <menu key="submenu" title="Fereastră" systemMenu="window" id="24">
+                        <items>
+                            <menuItem title="Minimizează" keyEquivalent="m" id="23">
+                                <connections>
+                                    <action selector="performMiniaturize:" target="-1" id="37"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Zoom" id="197">
+                                <connections>
+                                    <action selector="performZoom:" target="-1" id="198"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="92">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Aduce toate în faţă" id="5">
+                                <connections>
+                                    <action selector="arrangeInFront:" target="-1" id="39"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="812"/>
+                            <menuItem title="Arată coloane" id="809">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" id="739" userLabel="Header context menu">
+                                    <items>
+                                        <menuItem title="Mărime originală" id="791">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <binding destination="230" name="value" keyPath="originalSizeColumn.hidden" id="808">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Mărime optimizat" state="on" id="740">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <binding destination="230" name="value" keyPath="sizeColumn.hidden" id="769">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Salvat" state="on" id="741">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <binding destination="230" name="value" keyPath="savingsColumn.hidden" id="786">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Cea mai bună unealtă" id="747">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <binding destination="230" name="value" keyPath="bestToolColumn.hidden" id="789">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                        <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Ajutor" id="504">
+                    <menu key="submenu" title="Ajutor" id="505">
+                        <items>
+                            <menuItem title="Ajutor ImageOptim" id="506">
+                                <connections>
+                                    <action selector="showHelp:" target="-1" id="507"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Site web ImageOptim" id="733">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="openHomepage:" target="-1" id="737"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Donaţi" id="820">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="openDonationPage:" target="-1" id="822"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="738"/>
+                            <menuItem title="Vizualizare sursă" id="735">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="viewSource:" target="-1" id="736"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+        </menu>
+        <customObject id="230" customClass="ImageOptimController">
+            <connections>
+                <outlet property="bestToolColumn" destination="771" id="790"/>
+                <outlet property="credits" destination="530" id="707"/>
+                <outlet property="filesController" destination="251" id="274"/>
+                <outlet property="originalSizeColumn" destination="795" id="807"/>
+                <outlet property="progressBar" destination="428" id="465"/>
+                <outlet property="savingsColumn" destination="243" id="770"/>
+                <outlet property="sizeColumn" destination="239" id="755"/>
+                <outlet property="statusBarLabel" destination="294" id="700"/>
+                <outlet property="tableView" destination="237" id="242"/>
+            </connections>
+        </customObject>
+        <arrayController objectClassName="File" preservesSelection="NO" selectsInsertedObjects="NO" avoidsEmptySelection="NO" id="251" userLabel="Files" customClass="FilesController">
+            <declaredKeys>
+                <string>fileName</string>
+                <string>byteSize</string>
+                <string>byteSizeOptimized</string>
+                <string>percentOptimized</string>
+                <string>isOptimized</string>
+                <string>percentDone</string>
+                <string>statusImage</string>
+            </declaredKeys>
+        </arrayController>
+        <window title="Despre ImageOptim" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="526" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="185" y="471" width="312" height="440"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <value key="minSize" type="size" width="312" height="440"/>
+            <value key="maxSize" type="size" width="350" height="460"/>
+            <view key="contentView" id="527">
+                <rect key="frame" x="0.0" y="0.0" width="312" height="440"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="528">
+                        <rect key="frame" x="90" y="297" width="128" height="128"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="128" id="Qml-M5-3KZ"/>
+                            <constraint firstAttribute="width" constant="128" id="eYE-Qo-4I0"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" focusRingType="none" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="636"/>
+                    </imageView>
+                    <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="529">
+                        <rect key="frame" x="11" y="0.0" width="301" height="280"/>
+                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Sjo-P6-Skp">
+                            <rect key="frame" x="0.0" y="0.0" width="301" height="280"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView editable="NO" drawsBackground="NO" importsGraphics="NO" verticallyResizable="YES" textReplacement="YES" id="530">
+                                    <rect key="frame" x="0.0" y="0.0" width="290" height="280"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="301" height="280"/>
+                                    <size key="maxSize" width="575" height="10000000"/>
+                                    <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="301" height="280"/>
+                                    <size key="maxSize" width="575" height="10000000"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" controlSize="small" horizontal="YES" id="644">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" controlSize="small" horizontal="NO" id="643">
+                            <rect key="frame" x="-100" y="-100" width="11" height="315"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                    <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="645">
+                        <rect key="frame" x="216" y="298" width="87" height="14"/>
+                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" title="versiune" id="646">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <accessibility description="versiune"/>
+                        <connections>
+                            <binding destination="230" name="value" keyPath="version" id="650">
+                                <dictionary key="options">
+                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                </dictionary>
+                            </binding>
+                        </connections>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="529" firstAttribute="top" secondItem="528" secondAttribute="bottom" constant="17" id="1Qg-KG-01J"/>
+                    <constraint firstAttribute="trailing" secondItem="645" secondAttribute="trailing" constant="11" id="APB-Vj-6Ga"/>
+                    <constraint firstItem="645" firstAttribute="leading" secondItem="528" secondAttribute="trailing" id="PKF-2L-HUI"/>
+                    <constraint firstAttribute="trailing" secondItem="529" secondAttribute="trailing" id="PuF-I8-yng"/>
+                    <constraint firstItem="528" firstAttribute="top" secondItem="527" secondAttribute="top" constant="15" id="cTA-RX-uW8"/>
+                    <constraint firstAttribute="bottom" secondItem="529" secondAttribute="bottom" id="hzo-7m-XIO"/>
+                    <constraint firstItem="528" firstAttribute="bottom" secondItem="645" secondAttribute="bottom" constant="1" id="iEz-Ev-jT3"/>
+                    <constraint firstItem="529" firstAttribute="leading" secondItem="527" secondAttribute="leading" constant="11" id="lJJ-Ok-QtE"/>
+                    <constraint firstAttribute="centerX" secondItem="528" secondAttribute="centerX" constant="2" id="ppM-RP-tJr"/>
+                </constraints>
+            </view>
+        </window>
+        <userDefaultsController representsSharedInstance="YES" id="562"/>
+        <customObject id="623" customClass="SUUpdater"/>
+        <menu id="aEm-KO-6Fg">
+            <items>
+                <menuItem title="Arată în Finder" id="ddH-3k-EuT">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="openInFinder:" target="-1" id="xE9-vV-I28"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
+    </objects>
+    <resources>
+        <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSApplicationIcon" width="128" height="128"/>
+        <image name="NSRefreshTemplate" width="11" height="15"/>
+    </resources>
+</document>

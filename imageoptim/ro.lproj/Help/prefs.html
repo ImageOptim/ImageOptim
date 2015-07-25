@@ -1,0 +1,77 @@
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<title>Preferinţe ImageOptim</title>
+<link rel="stylesheet" href="../../style.css">
+<meta name="AppleTitle" content="ImageOptim Preferences Help">
+<meta name="AppleIcon" content="../../ImageOptim.icns">
+<meta name="description" content="ImageOptim Preferences">
+</head>
+<body>
+
+    <h1><a name="general">Preferinţe ImageOptim</a></h1>
+    <p><a href="index.html">« Înapoi la index</a></p>
+    <h2>Preferinţe generale</h2>
+    <dl>
+<dt>Păstrează permisiunile fişierelor, atributele şi legăturile hard</dt>
+      <dd>
+        <p>În loc de ştergerea vechiului fişier şi scrierea unuia nou cu acelaşi nume doar înlocuieşte pe loc conţinutul celui vechi. Aceasta asigură că toate legăturile hard, aliasurile, proprietatea fişierului, permisiunile, atributele etinse ale fişierului rămîn aceleaşi.</p>
+        <p>Este un pic mai rapid nepăstrarea permisiunilor.</p>
+      </dd>
+      <dt>Taie metadate PNG (gamma, profile de culoare, bucăţi optionale)</dt>
+      <dd>
+        <p>Fişierele PNG pot avea luminozităţi şi saturaţii diferite în browsere diferite, pentru că nu toate browserele suporta corecţia gamma şi profilurile de culoare în mod egal. Eliminarea acestor informaţii face culoarea PNG mai consistentă în browsere şi reduce dimensiunea fişierului.</p>
+        <p data-role="strip-dpi">Celelalte informaţii invizibile sînt de asemenea înlăturate, cum ar fi DPI şi comentariile.</p>
+      </dd>
+      <dt>Taie metadate JPEG (EXIF, profile de culoare, GPS, rotaţie, etc.)</dt>
+      <dd>
+        <p>Înlătură metadate imagine, cum ar fi profilul de culoare, timpul de expunrere, coordonatele GPS, model aparat şi numele programului folosit pentru a crea fişierul.</p>
+        <p data-role="strip-copyright">Informaţiile de copyright încorporate sînt e asemenea înlăturate. Vă rugăm să reţineţi faptul că în general imaginile sînt protejate de legea drepturilor de autor indiferent dacă ele conţin asemenea metadate invizibile sau nu.</p>
+      </dd>
+    </dl>
+<h2>Unelte</h2>
+    <p data-role="slow-tools">Zopfli şi PNGOUT sînt compresoare PNG foarte bune, dar sînt foarte lente. Dezactivaţi-le dacă aveţi nevoie să optimizaţi rapid fişierele PNG (lăsaţi doar AdvPNG pentru rapiditate şi bună compresie).</p>
+    <p data-role="dirty-alpha-tools">Zopfli şi OptiPNG vor curăţa valorile RGB a pixelilor transparenţi (cunoscuţi ca “dirty alpha”). Dezactivaţi aceste două unelte dacă optimizaţi fişiere speciale care folosesc canalul alfa pentru altceva decît transparenţă (e.g. hartă înălţime în fişierele de date ale jocurilor).</p>
+    <div id="jpegoptim">
+      <h2><a name="jpegoptim">JPEGOptim</a></h2>
+      <dl>
+<dt>Calitate maximă</dt>
+        <dd>
+          <p>Dacă este setat la 100%, optimizarea va fi <strong>fără pierderi</strong>.</p>
+          <p>Orice sub 100% va cauza o <strong>calitate inferioară</strong> a fişierelor în cazul în care par să fi fost salvate cu setare de calitate superioară.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="pngout">
+      <h2><a name="pngout">PNGOUT</a></h2>
+      <dl>
+<dt>Tip de optimizare</dt>
+        <dd>
+          <p>PNGOUT este foarte eficient, dar foarte lent. Folosiţi un nivel inferior dacă sînteţi nerăbdător.</p>
+        </dd>
+        <dt>Întrerupe dacă durează prea mult</dt>
+        <dd>
+          <p>PNGOUT poate avea nevoie de <em>foarte mult</em> timp pentru a optimiza imagini foarte mari. Această opţiune întrerupe elegant PNGOUT după 1 minut.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="optipng">
+      <h2><a name="optipng">OptiPNG</a></h2>
+      <dl>
+<dt>Nivel optimizare</dt>
+        <dd>
+          <p>Number of different setting combinations tested. It rarely makes sense to try them all.</p>
+        </dd>
+        <dt>Face imaginile întreţesute (progresiv)</dt>
+        <dd>
+          <p>Imaginile întreţesute arată mai bine cînd sînt încărcate parţial, dar de obicei întreţererea face compresia mai puţin eficientă.</p>
+          <p>Această casetă are trei stări: dacă este bifată, va forţa iamginile să fie întreţesute. Dacă este mixă, va păstra întreţeserea fişierului neschimbată, defifată va înătura întreţeserea din fişier.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="gifsicle">
+      <h2>Gifsicle</h2>
+      <p>Pentru cea mai bună compresie, ar trebui să convertiţi fişierele GIF în PNG-uri (ImageOptim nu face asta automat).</p>
+    </div>
+  </body>
+</html>
