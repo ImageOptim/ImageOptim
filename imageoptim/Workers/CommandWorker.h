@@ -31,4 +31,5 @@
 -(BOOL)runWithTempPath:(NSURL*)tempPath;
 -(NSString *)pathForExecutableName:(NSString *)resourceName;
 
+-(NSInteger)timelimitForLevel:(NSInteger)level;
 @end

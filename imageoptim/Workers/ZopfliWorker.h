@@ -2,7 +2,7 @@
 #import "CommandWorker.h"
 
 @interface ZopfliWorker : CommandWorker {
-    NSInteger iterations;
+    NSInteger iterations, timelimit;
     BOOL strip, alternativeStrategy;
 }
 

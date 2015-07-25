@@ -16,13 +16,13 @@
     if (self = [super initWithFile:aFile]) {
         level = !aLevel ? 2 : (aLevel >= 4 ? 0 : 1);
         removechunks = [defaults boolForKey:@"PngOutRemoveChunks"];
-        interruptIfTakesTooLong = [defaults boolForKey:@"PngOutInterruptIfTakesTooLong"];
+        timelimit = [self timelimitForLevel:aLevel];
     }
     return self;
 }
 
 -(NSInteger)settingsIdentifier {
-    return level*4 + removechunks*2 + interruptIfTakesTooLong;
+    return level*4 + removechunks*2 + (timelimit < 60 ? 1 : 0);
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {
@@ -63,15 +63,13 @@
     [task setStandardOutput: fileOutputHandle];
     [task setStandardError: commandPipe];
 
-    double timelimit = 10.0 + [file byteSizeOriginal]/1024.0;
-    if (timelimit > 60.0) timelimit = 60.0;
+    [task performSelector:@selector(interrupt) withObject:nil afterDelay:timelimit];
 
-    if (interruptIfTakesTooLong) [task performSelector:@selector(interrupt) withObject:nil afterDelay:timelimit];
     [self launchTask];
 
     [self parseLinesFromHandle:commandHandle];
 
-    if (interruptIfTakesTooLong) [NSObject cancelPreviousPerformRequestsWithTarget:task selector:@selector(interrupt) object:nil];
+    [NSObject cancelPreviousPerformRequestsWithTarget:task selector:@selector(interrupt) object:nil];
 
     [task waitUntilExit];
     [commandHandle closeFile];

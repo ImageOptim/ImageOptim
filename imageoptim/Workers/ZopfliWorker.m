@@ -10,6 +10,7 @@
     if (self = [super initWithFile:aFile]) {
         iterations = 3 + 3*aLevel;
         strip = [defaults boolForKey:@"PngOutRemoveChunks"];
+        timelimit = [self timelimitForLevel:aLevel];
     }
     return self;
 }
@@ -27,8 +28,6 @@
     }
 
     NSInteger actualIterations = iterations;
-    unsigned long timelimit = 10 + [file byteSizeOriginal]/1024;
-    if (timelimit > 60) timelimit = 60;
 
     if ([file isLarge]) {
         actualIterations /= 2; // use faster setting for large files

@@ -165,4 +165,10 @@
     return NO; /*abstract*/
 }
 
+-(NSInteger)timelimitForLevel:(NSInteger)level {
+    const NSInteger timelimit = 10 + [file byteSizeOriginal]/1024;
+    const NSInteger maxTime = 8 + level*13;
+    return MIN(maxTime, timelimit);
+}
+
 @end
