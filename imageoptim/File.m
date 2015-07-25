@@ -502,9 +502,9 @@
     NSMutableArray *runLater = [NSMutableArray new];
 
     NSMutableArray *worker_list = [NSMutableArray new];
+    NSInteger level = [defs integerForKey:@"AdvPngLevel"]; // AdvPNG setting is reused for all tools now
 
     if (fileType == FILETYPE_PNG) {
-        NSInteger level = [defs integerForKey:@"AdvPngLevel"]; // AdvPNG setting is reused for all tools now
         if (hasBeenRunBefore) {
             level++;
         }
@@ -532,7 +532,9 @@
     } else if (fileType == FILETYPE_GIF) {
         if ([defs boolForKey:@"GifsicleEnabled"]) {
             [worker_list addObject:[[GifsicleWorker alloc] initWithInterlace:NO file:self]];
-            [worker_list addObject:[[GifsicleWorker alloc] initWithInterlace:YES file:self]];
+            if (level > 1) {
+                [worker_list addObject:[[GifsicleWorker alloc] initWithInterlace:YES file:self]];
+            }
         }
     } else {
         [self setError:NSLocalizedString(@"File is neither PNG, GIF nor JPEG",@"tooltip")];
