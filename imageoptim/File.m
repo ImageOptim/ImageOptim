@@ -504,20 +504,25 @@
     NSMutableArray *worker_list = [NSMutableArray new];
 
     if (fileType == FILETYPE_PNG) {
+        NSInteger level = [defs integerForKey:@"AdvPngLevel"]; // AdvPNG setting is reused for all tools now
+        if (hasBeenRunBefore) {
+            level++;
+        }
+
         if ([defs boolForKey:@"LossyEnabled"]) {
             NSInteger pngQuality = [defs integerForKey:@"PngMinQuality"];
             if (!lossyConverted && pngQuality < 100 && pngQuality > 30) {
-                Worker *w = [[PngquantWorker alloc] initWithFile:self minQuality:pngQuality];
+                Worker *w = [[PngquantWorker alloc] initWithLevel:level minQuality:pngQuality file:self];
                 [runFirst addObject:w];
                 lossyConverted = YES;
             }
         }
-        if ([defs boolForKey:@"PngCrushEnabled"]) [worker_list addObject:[[PngCrushWorker alloc] initWithDefaults:defs file:self]];
-        if ([defs boolForKey:@"OptiPngEnabled"]) [worker_list addObject:[[OptiPngWorker alloc] initWithDefaults:defs file:self]];
-        if ([defs boolForKey:@"PngOutEnabled"]) [worker_list addObject:[[PngoutWorker alloc] initWithDefaults:defs file:self]];
-        if ([defs boolForKey:@"AdvPngEnabled"]) [worker_list addObject:[[AdvCompWorker alloc] initWithLevel:[defs integerForKey:@"AdvPngLevel"] file:self]];
+        if ([defs boolForKey:@"PngCrushEnabled"]) [worker_list addObject:[[PngCrushWorker alloc] initWithLevel:level defaults:defs file:self]];
+        if ([defs boolForKey:@"OptiPngEnabled"]) [worker_list addObject:[[OptiPngWorker alloc] initWithLevel:level file:self]];
+        if ([defs boolForKey:@"PngOutEnabled"]) [worker_list addObject:[[PngoutWorker alloc] initWithLevel:level defaults:defs file:self]];
+        if ([defs boolForKey:@"AdvPngEnabled"]) [worker_list addObject:[[AdvCompWorker alloc] initWithLevel:level file:self]];
         if ([defs boolForKey:@"ZopfliEnabled"]) {
-            ZopfliWorker *zw = [[ZopfliWorker alloc] initWithDefaults:defs file:self];
+            ZopfliWorker *zw = [[ZopfliWorker alloc]initWithLevel:level defaults:defs file:self];
             zw.alternativeStrategy = hasBeenRunBefore;
             [worker_list addObject:zw];
         }

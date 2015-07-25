@@ -69,7 +69,6 @@
                     @"AdvPngLevel":@(4),
                     @"ZopfliEnabled":@(YES),
                     @"PngOutRemoveChunks":@(YES),
-                    @"ZopfliIterations":@5,
                     @"PreservePermissions":@(NO),
                     @"RunLowPriority":@(NO),
                     @"JpegTranEnabled":@(YES),

@@ -8,9 +8,10 @@
 #import "../File.h"
 
 @implementation PngCrushWorker
-- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
+- (instancetype)initWithLevel:(NSInteger)level defaults:(NSUserDefaults *)defaults file:(File *)aFile {
     if ((self = [super initWithFile:aFile])) {
         strip = [defaults boolForKey:@"PngOutRemoveChunks"];
+        brute = level >= 6;
     }
     return self;
 }
@@ -28,7 +29,7 @@
         [args insertObject:@"alla" atIndex:1];
     }
 
-    if ([file isSmall]) {
+    if ([file isSmall] || (brute && ![file isLarge])) {
         [args insertObject:@"-brute" atIndex:0];
     }
 

@@ -14,7 +14,7 @@
 	NSInteger fileSizeOptimized;
 }
 
-- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile;
+- (instancetype)initWithLevel:(NSInteger)level defaults:(NSUserDefaults *)defaults file:(File *)aFile;
 @property (readonly) BOOL makesNonOptimizingModifications;
 
 @end

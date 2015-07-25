@@ -12,9 +12,9 @@
 
 @implementation PngoutWorker
 
--(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
+- (instancetype)initWithLevel:(NSInteger)aLevel defaults:(NSUserDefaults *)defaults file:(File *)aFile {
     if (self = [super initWithFile:aFile]) {
-        level = 3-[defaults integerForKey:@"PngOutLevel"];
+        level = !aLevel ? 2 : (aLevel >= 4 ? 0 : 1);
         removechunks = [defaults boolForKey:@"PngOutRemoveChunks"];
         interruptIfTakesTooLong = [defaults boolForKey:@"PngOutInterruptIfTakesTooLong"];
     }
@@ -31,13 +31,13 @@
 
     [args insertObject:@"-r" atIndex:0];
 
-    int actualLevel = (int)level;
+    NSInteger actualLevel = level;
     if ([file isLarge] && level < 2) {
         actualLevel++; // use faster setting for large files
     }
 
     if (actualLevel) { // s0 is default
-        [args insertObject:[NSString stringWithFormat:@"-s%d",actualLevel] atIndex:0];
+        [args insertObject:[NSString stringWithFormat:@"-s%d",(int)actualLevel] atIndex:0];
     }
 
     if (!removechunks) { // -k0 (remove) is default

@@ -12,7 +12,7 @@
 
 -(instancetype)initWithLevel:(NSInteger)aLevel file:(File *)aFile {
     if (self = [super initWithFile:aFile]) {
-        level = aLevel;
+        level = MAX(1, MIN(4, aLevel));
     }
     return self;
 }

@@ -5,9 +5,10 @@
 
 @implementation PngquantWorker
 
--(id)initWithFile:(File*)f minQuality:(NSUInteger)aMinQ {
+-(id)initWithLevel:(NSInteger)level minQuality:(NSUInteger)aMinQ file:(File*)f {
     if (self = [super initWithFile:f]) {
         minQuality = aMinQ;
+        speed = MIN(3, 7-level);
     }
     return self;
 }
@@ -17,7 +18,10 @@
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {
-    NSArray *args = @[@"256",@"--skip-if-larger",@"--quality",[NSString stringWithFormat:@"%d-100",(int)minQuality],@"-"];
+    NSArray *args = @[@"256",@"--skip-if-larger",
+                      [NSString stringWithFormat:@"-s%d", (int)speed],
+                      @"--quality", [NSString stringWithFormat:@"%d-100", (int)minQuality],
+                      @"-"];
     if (![self taskForKey:@"PngQuant" bundleName:@"pngquant" arguments:args]) {
         return NO;
     }

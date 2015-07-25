@@ -6,9 +6,9 @@
 
 @synthesize alternativeStrategy;
 
--(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
+-(instancetype)initWithLevel:(NSInteger)aLevel defaults:(NSUserDefaults *)defaults file:(File *)aFile {
     if (self = [super initWithFile:aFile]) {
-        iterations = (int)[defaults integerForKey:@"ZopfliIterations"];
+        iterations = 3 + 3*aLevel;
         strip = [defaults boolForKey:@"PngOutRemoveChunks"];
     }
     return self;
@@ -26,7 +26,7 @@
         [args insertObject:@"--keepchunks=tEXt,zTXt,iTXt,gAMA,sRGB,iCCP,bKGD,pHYs,sBIT,tIME,oFFs,acTL,fcTL,fdAT,prVW,mkBF,mkTS,mkBS,mkBT" atIndex:0];
     }
 
-    int actualIterations = iterations;
+    NSInteger actualIterations = iterations;
     unsigned long timelimit = 10 + [file byteSizeOriginal]/1024;
     if (timelimit > 60) timelimit = 60;
 
@@ -42,7 +42,7 @@
     }
 
     if (actualIterations) {
-        [args insertObject:[NSString stringWithFormat:@"--iterations=%d", actualIterations] atIndex:0];
+        [args insertObject:[NSString stringWithFormat:@"--iterations=%d", (int)actualIterations] atIndex:0];
     }
 
     [args insertObject:[NSString stringWithFormat:@"--timelimit=%lu", timelimit] atIndex:0];

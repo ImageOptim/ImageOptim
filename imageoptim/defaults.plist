@@ -20,22 +20,16 @@
 	<true/>
 	<key>OptiPngEnabled</key>
 	<true/>
-	<key>OptiPngLevel</key>
-	<real>6</real>
 	<key>PngCrushEnabled</key>
 	<true/>
 	<key>PngOutEnabled</key>
 	<true/>
-	<key>PngOutLevel</key>
-	<integer>3</integer>
 	<key>PngOutRemoveChunks</key>
 	<true/>
 	<key>PngOutInterruptIfTakesTooLong</key>
 	<true/>
 	<key>ZopfliEnabled</key>
 	<true/>
-	<key>ZopfliIterations</key>
-	<integer>15</integer>
 	<key>GifsicleEnabled</key>
 	<true/>
 	<key>PreservePermissions</key>

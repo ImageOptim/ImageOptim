@@ -33,8 +33,9 @@ void IOSharedPrefsCopy(NSUserDefaults *__nonnull defs) {
     const NSArray *keys = @[
         @"AdvPngEnabled", @"AdvPngLevel", @"GifsicleEnabled",
         @"JpegOptimEnabled", @"JpegTranEnabled", @"JpegTranStripAll",
-        @"OptiPngEnabled", @"OptiPngLevel",
-        @"PngCrushEnabled", @"PngOutEnabled", @"PngOutLevel", @"PngOutRemoveChunks", @"ZopfliEnabled",
+        @"OptiPngEnabled",
+        @"PngCrushEnabled", @"PngOutEnabled",
+        @"PngOutRemoveChunks", @"ZopfliEnabled",
         @"PngMinQuality", @"JpegOptimMaxQuality",
     ];
 

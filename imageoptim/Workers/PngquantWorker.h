@@ -3,10 +3,10 @@
 #import "CommandWorker.h"
 
 @interface PngquantWorker : CommandWorker {
-    NSUInteger minQuality;
+    NSUInteger minQuality, speed;
 }
 
--(id)initWithFile:(File*)f minQuality:(NSUInteger)aMinQ;
+-(id)initWithLevel:(NSInteger)level minQuality:(NSUInteger)aMinQ file:(File*)f;
 -(BOOL)makesNonOptimizingModifications;
 
 @end

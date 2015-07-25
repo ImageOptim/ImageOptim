@@ -37,7 +37,6 @@ static const char *kIMPreviewPanelContext = "preview";
         defs[@"PngOutEnabled"] = @(NO);
         if (maxTasks <= 2) {
             defs[@"PngCrushEnabled"] = @(NO);
-            defs[@"ZopfliIterations"] = @10;
         }
     }
 

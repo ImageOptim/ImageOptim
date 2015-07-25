@@ -9,9 +9,9 @@
 
 @implementation OptiPngWorker
 
--(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
+-(instancetype)initWithLevel:(NSInteger)level file:(File *)aFile {
     if (self = [super initWithFile:file]) {
-        optlevel = [defaults integerForKey:@"OptiPngLevel"];
+        optlevel = MAX(3, MIN(level+1, 7));
     }
     return self;
 }

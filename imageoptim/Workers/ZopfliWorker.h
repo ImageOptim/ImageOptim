@@ -2,11 +2,11 @@
 #import "CommandWorker.h"
 
 @interface ZopfliWorker : CommandWorker {
-    int iterations;
+    NSInteger iterations;
     BOOL strip, alternativeStrategy;
 }
 
-- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile;
+-(instancetype)initWithLevel:(NSInteger)aLevel defaults:(NSUserDefaults *)defaults file:(File *)aFile;
 @property (atomic, assign) BOOL alternativeStrategy;
 
 @end
