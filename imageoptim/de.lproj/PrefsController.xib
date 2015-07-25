@@ -259,6 +259,14 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <connections>
+                                                <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="XNG-xG-UrX">
+                                                    <dictionary key="options">
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                        <string key="NSValueTransformerName">DisabledColor</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="232">
                                             <rect key="frame" x="526" y="149" width="45" height="11"/>
@@ -276,12 +284,12 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <binding destination="300" name="textColor" keyPath="values.JpegOptimEnabled" id="684">
+                                                <binding destination="300" name="value" keyPath="values.JpegOptimMaxQuality" id="377"/>
+                                                <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="r8F-ID-BJX">
                                                     <dictionary key="options">
                                                         <string key="NSValueTransformerName">DisabledColor</string>
                                                     </dictionary>
                                                 </binding>
-                                                <binding destination="300" name="value" keyPath="values.JpegOptimMaxQuality" id="377"/>
                                             </connections>
                                         </textField>
                                         <box boxType="oldStyle" borderType="none" titlePosition="noTitle" id="291">
@@ -324,7 +332,7 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="300" name="textColor" keyPath="values.JpegOptimEnabled" id="675">
+                                                            <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="f0z-aa-Z92">
                                                                 <dictionary key="options">
                                                                     <string key="NSValueTransformerName">DisabledColor</string>
                                                                 </dictionary>
@@ -340,7 +348,7 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="300" name="textColor" keyPath="values.JpegOptimEnabled" id="681">
+                                                            <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="uwY-IW-qN0">
                                                                 <dictionary key="options">
                                                                     <string key="NSValueTransformerName">DisabledColor</string>
                                                                 </dictionary>
@@ -356,7 +364,7 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="300" name="textColor" keyPath="values.JpegOptimEnabled" id="678">
+                                                            <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="kUj-CY-2dB">
                                                                 <dictionary key="options">
                                                                     <string key="NSValueTransformerName">DisabledColor</string>
                                                                 </dictionary>
@@ -377,6 +385,14 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <connections>
+                                                <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="4aS-6G-01x">
+                                                    <dictionary key="options">
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                        <string key="NSValueTransformerName">DisabledColor</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="tAP-Sd-Xea">
                                             <rect key="frame" x="526" y="73" width="45" height="11"/>
@@ -394,7 +410,7 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <binding destination="300" name="textColor" keyPath="values.JpegOptimEnabled" id="dk1-zG-kSC">
+                                                <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="xYg-uW-bFD">
                                                     <dictionary key="options">
                                                         <string key="NSValueTransformerName">DisabledColor</string>
                                                     </dictionary>
@@ -439,7 +455,7 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="300" name="textColor" keyPath="values.JpegOptimEnabled" id="bAK-rl-D0C">
+                                                            <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="P9i-2e-C0x">
                                                                 <dictionary key="options">
                                                                     <string key="NSValueTransformerName">DisabledColor</string>
                                                                 </dictionary>
@@ -455,7 +471,7 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="300" name="textColor" keyPath="values.JpegOptimEnabled" id="0lG-9P-OUa">
+                                                            <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="OkU-U3-qjG">
                                                                 <dictionary key="options">
                                                                     <string key="NSValueTransformerName">DisabledColor</string>
                                                                 </dictionary>
@@ -471,7 +487,7 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="300" name="textColor" keyPath="values.JpegOptimEnabled" id="FJq-OD-X3A">
+                                                            <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="eZS-93-NYm">
                                                                 <dictionary key="options">
                                                                     <string key="NSValueTransformerName">DisabledColor</string>
                                                                 </dictionary>
@@ -512,215 +528,7 @@
                                     </subviews>
                                 </view>
                             </tabViewItem>
-                            <tabViewItem label="PNGOUT" identifier="" id="175">
-                                <view key="view" id="176">
-                                    <rect key="frame" x="10" y="33" width="617" height="241"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <slider verticalHuggingPriority="750" id="264">
-                                            <rect key="frame" x="145" y="175" width="231" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <sliderCell key="cell" alignment="left" maxValue="3" doubleValue="3" tickMarkPosition="below" numberOfTickMarks="4" allowsTickMarkValuesOnly="YES" sliderType="linear" id="855">
-                                                <font key="font" size="12" name="Helvetica"/>
-                                            </sliderCell>
-                                            <connections>
-                                                <binding destination="300" name="enabled" keyPath="values.PngOutEnabled" id="460"/>
-                                                <binding destination="300" name="value" keyPath="values.PngOutLevel" id="353"/>
-                                            </connections>
-                                        </slider>
-                                        <textField verticalHuggingPriority="750" id="265">
-                                            <rect key="frame" x="2" y="156" width="140" height="47"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Optimierungstyp" id="856">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" id="266">
-                                            <rect key="frame" x="144" y="156" width="64" height="11"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Einfach" id="857">
-                                                <font key="font" metaFont="miniSystem"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" id="269">
-                                            <rect key="frame" x="308" y="156" width="69" height="11"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Wahnsinnig" id="858">
-                                                <font key="font" metaFont="miniSystem"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" id="271">
-                                            <rect key="frame" x="252" y="156" width="89" height="11"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Intensiv" id="860">
-                                                <font key="font" metaFont="miniSystem"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" id="272">
-                                            <rect key="frame" x="191" y="142" width="70" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Längste Übereinstimmung" id="861">
-                                                <font key="font" metaFont="miniSystem"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="6" id="288">
-                                            <rect key="frame" x="585" y="5" width="21" height="23"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" tag="6" inset="2" id="863">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="showHelp:" target="-2" id="694"/>
-                                            </connections>
-                                        </button>
-                                        <button id="945">
-                                            <rect key="frame" x="145" y="120" width="910" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Breche bei zu langer Optimierung ab" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="946">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <binding destination="300" name="enabled" keyPath="values.PngOutEnabled" id="956">
-                                                    <dictionary key="options">
-                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                                                    </dictionary>
-                                                </binding>
-                                                <binding destination="300" name="value" keyPath="values.PngOutInterrupt" id="952">
-                                                    <dictionary key="options">
-                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
-                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
-                                                    </dictionary>
-                                                </binding>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </view>
-                            </tabViewItem>
-                            <tabViewItem label="OptiPNG" identifier="" id="171">
-                                <view key="view" id="172">
-                                    <rect key="frame" x="10" y="33" width="617" height="241"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <button id="226">
-                                            <rect key="frame" x="145" y="120" width="910" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Erstelle die Bilder interlaced (progressive)" bezelStyle="regularSquare" imagePosition="left" alignment="left" allowsMixedState="YES" inset="2" id="828">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <binding destination="300" name="enabled" keyPath="values.OptiPngEnabled" id="455"/>
-                                                <binding destination="300" name="value" keyPath="values.OptiPngInterlace" id="340"/>
-                                            </connections>
-                                        </button>
-                                        <textField verticalHuggingPriority="750" id="228">
-                                            <rect key="frame" x="2" y="152" width="140" height="51"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="Optimierungsgrad" id="829">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" id="275">
-                                            <rect key="frame" x="164" y="101" width="470" height="13"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Diese Dateien sind für gewöhnlich größer" id="831">
-                                                <font key="font" metaFont="label"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="300" name="textColor" keyPath="values.OptiPngEnabled" id="654">
-                                                    <dictionary key="options">
-                                                        <string key="NSValueTransformerName">DisabledColor</string>
-                                                    </dictionary>
-                                                </binding>
-                                            </connections>
-                                        </textField>
-                                        <box boxType="oldStyle" borderType="none" titlePosition="noTitle" id="289">
-                                            <rect key="frame" x="143" y="152" width="253" height="62"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                            <view key="contentView" id="kW2-NS-ARi">
-                                                <rect key="frame" x="0.0" y="0.0" width="253" height="62"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                <subviews>
-                                                    <slider verticalHuggingPriority="750" id="227">
-                                                        <rect key="frame" x="2" y="23" width="241" height="25"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                        <sliderCell key="cell" alignment="left" minValue="4" maxValue="9" doubleValue="9" tickMarkPosition="below" numberOfTickMarks="6" allowsTickMarkValuesOnly="YES" sliderType="linear" id="832">
-                                                            <font key="font" size="12" name="Helvetica"/>
-                                                        </sliderCell>
-                                                        <connections>
-                                                            <binding destination="300" name="enabled" keyPath="values.OptiPngEnabled" id="454"/>
-                                                            <binding destination="300" name="value" keyPath="values.OptiPngLevel" id="347"/>
-                                                        </connections>
-                                                    </slider>
-                                                    <textField verticalHuggingPriority="750" id="229">
-                                                        <rect key="frame" x="1" y="4" width="106" height="11"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="24 Versuche" id="833">
-                                                            <font key="font" metaFont="miniSystem"/>
-                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                        <connections>
-                                                            <binding destination="300" name="textColor" keyPath="values.OptiPngEnabled" id="669">
-                                                                <dictionary key="options">
-                                                                    <string key="NSValueTransformerName">DisabledColor</string>
-                                                                </dictionary>
-                                                            </binding>
-                                                        </connections>
-                                                    </textField>
-                                                    <textField verticalHuggingPriority="750" id="241">
-                                                        <rect key="frame" x="144" y="4" width="100" height="11"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" title="240 Versuche" id="834">
-                                                            <font key="font" metaFont="miniSystem"/>
-                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                        </textFieldCell>
-                                                        <connections>
-                                                            <binding destination="300" name="textColor" keyPath="values.OptiPngEnabled" id="672">
-                                                                <dictionary key="options">
-                                                                    <string key="NSValueTransformerName">DisabledColor</string>
-                                                                </dictionary>
-                                                            </binding>
-                                                        </connections>
-                                                    </textField>
-                                                </subviews>
-                                            </view>
-                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <font key="titleFont" size="11" name="LucidaGrande"/>
-                                        </box>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="4" id="294">
-                                            <rect key="frame" x="585" y="5" width="21" height="23"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" tag="4" inset="2" id="835">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="showHelp:" target="-2" id="692"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                </view>
-                            </tabViewItem>
-                            <tabViewItem label="AdvPNG" identifier="" id="168">
+                            <tabViewItem label="Optimierungsgrad" identifier="" id="168">
                                 <view key="view" id="170">
                                     <rect key="frame" x="10" y="33" width="617" height="241"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -728,11 +536,10 @@
                                         <slider verticalHuggingPriority="750" id="249">
                                             <rect key="frame" x="145" y="175" width="231" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                            <sliderCell key="cell" alignment="left" minValue="1" maxValue="4" doubleValue="4" tickMarkPosition="below" numberOfTickMarks="4" allowsTickMarkValuesOnly="YES" sliderType="linear" id="817">
+                                            <sliderCell key="cell" alignment="left" maxValue="6" doubleValue="4" tickMarkPosition="below" numberOfTickMarks="7" allowsTickMarkValuesOnly="YES" sliderType="linear" id="817">
                                                 <font key="font" size="12" name="Helvetica"/>
                                             </sliderCell>
                                             <connections>
-                                                <binding destination="300" name="enabled" keyPath="values.AdvPngEnabled" id="459"/>
                                                 <binding destination="300" name="value" keyPath="values.AdvPngLevel" id="346"/>
                                             </connections>
                                         </slider>
@@ -753,13 +560,6 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
-                                            <connections>
-                                                <binding destination="300" name="textColor" keyPath="values.AdvPngEnabled" id="657">
-                                                    <dictionary key="options">
-                                                        <string key="NSValueTransformerName">DisabledColor</string>
-                                                    </dictionary>
-                                                </binding>
-                                            </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="252">
                                             <rect key="frame" x="301" y="156" width="76" height="11"/>
@@ -769,13 +569,6 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
-                                            <connections>
-                                                <binding destination="300" name="textColor" keyPath="values.AdvPngEnabled" id="666">
-                                                    <dictionary key="options">
-                                                        <string key="NSValueTransformerName">DisabledColor</string>
-                                                    </dictionary>
-                                                </binding>
-                                            </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="255">
                                             <rect key="frame" x="189" y="156" width="75" height="11"/>
@@ -785,13 +578,6 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
-                                            <connections>
-                                                <binding destination="300" name="textColor" keyPath="values.AdvPngEnabled" id="660">
-                                                    <dictionary key="options">
-                                                        <string key="NSValueTransformerName">DisabledColor</string>
-                                                    </dictionary>
-                                                </binding>
-                                            </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" id="256">
                                             <rect key="frame" x="263" y="156" width="66" height="11"/>
@@ -801,13 +587,6 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
-                                            <connections>
-                                                <binding destination="300" name="textColor" keyPath="values.AdvPngEnabled" id="663">
-                                                    <dictionary key="options">
-                                                        <string key="NSValueTransformerName">DisabledColor</string>
-                                                    </dictionary>
-                                                </binding>
-                                            </connections>
                                         </textField>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" tag="3" id="293">
                                             <rect key="frame" x="585" y="5" width="21" height="23"/>
