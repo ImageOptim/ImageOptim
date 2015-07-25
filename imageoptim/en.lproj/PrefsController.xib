@@ -520,7 +520,7 @@
                                         <slider verticalHuggingPriority="750" id="249">
                                             <rect key="frame" x="145" y="175" width="231" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                            <sliderCell key="cell" alignment="left" minValue="1" maxValue="4" doubleValue="4" tickMarkPosition="below" numberOfTickMarks="4" allowsTickMarkValuesOnly="YES" sliderType="linear" id="817">
+                                            <sliderCell key="cell" alignment="left" maxValue="6" doubleValue="4" tickMarkPosition="below" numberOfTickMarks="7" allowsTickMarkValuesOnly="YES" sliderType="linear" id="817">
                                                 <font key="font" size="12" name="Helvetica"/>
                                             </sliderCell>
                                             <connections>
