@@ -101,7 +101,7 @@
 "462.ibExternalAccessibilityDescription" = "Stan optymalizacji";
 
 /* Class = "NSMenuItem"; title = "Close Window"; ObjectID = "498"; */
-"498.title" = "Zamknij";
+"498.title" = "Zamknij okno";
 
 /* Menu Item "Help" */
 "504.title" = "Pomoc";
@@ -185,7 +185,7 @@
 "809.title" = "Pokaż kolumny";
 
 /* Menu Item "Donate" */
-"820.title" = "Wesprzyj";
+"820.title" = "Wesprzyj darowizną";
 
 /* Class = "NSMenuItem"; title = "Quality: 100%"; ObjectID = "Grx-lU-4x5"; */
 "Grx-lU-4x5.title" = "Jakość: 100%";
@@ -196,3 +196,11 @@
 /* Menu Item "Copy as Data URL"; ID "NlY-Bc-7tu"; */
 "NlY-Bc-7tu.title" = "Kopiuj jako Data URL";
 
+/* Class = "NSMenuItem"; title = "Lossy minification"; ObjectID = "euw-8w-uMu"; */
+"euw-8w-uMu.title" = "Stratna minifikacja";
+
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "p0m-mn-Gep"; */
+"p0m-mn-Gep.title" = "Pokaż w Finderze";
+
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "ddH-3k-EuT"; */
+"ddH-3k-EuT.title" = "Pokaż w Finderze";
