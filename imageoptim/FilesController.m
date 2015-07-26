@@ -37,7 +37,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 -(void)configureWithTableView:(NSTableView *)inTableView {
     tableView = inTableView;
-    seenPathHashes = [[NSHashTable alloc] initWithOptions:NSHashTableZeroingWeakMemory capacity:1000];
+    seenPathHashes = [NSHashTable weakObjectsHashTable];
     db = [ResultsDb new];
 
     queueWaitingLock = [NSLock new];
