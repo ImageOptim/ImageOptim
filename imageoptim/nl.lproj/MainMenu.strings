@@ -1,0 +1,147 @@
+/* Menu Item "Bring All to Front" */
+"5.title" = "Breng alle naar voor";
+
+/* Menu Item "Window" */
+"19.title" = "Venster";
+
+/* Menu Item "Minimize" */
+"23.title" = "Verberg";
+
+/* Top-level Main Menu "Window" */
+"24.title" = "Venster";
+
+/* Class = "NSMenu"; title = "MainMenu"; ObjectID = "29"; */
+"29.title" = "Hoofdmenu";
+
+/* Top-level Main Menu "Services" */
+"130.title" = "Voorzieningen";
+
+/* Menu Item "Services" */
+"131.title" = "Voorzieningen";
+
+/* Menu Item "Hide ImageOptim" */
+"134.title" = "Verberg ImageOptim";
+
+/* Menu Item "Quit ImageOptim" */
+"136.title" = "Stop ImageOptim";
+
+/* Menu Item "Hide Others" */
+"145.title" = "Verberg andere";
+
+/* Menu Item "Show All" */
+"150.title" = "Toon alles";
+
+/* ScrollView Tooltip "List of files to optimize" */
+"236.ibExternalAccessibilityDescription" = "Lijst met te optimaliseren bestanden";
+
+/* Table Column Title (MUST BE SHORT) "File" */
+"238.headerCell.title" = "Bestand";
+
+/* Table Column Title (MUST BE SHORT) "Size" */
+"239.headerCell.title" = "Grootte";
+
+/* Table Column Title (MUST BE SHORT) "Savings" */
+"243.headerCell.title" = "Geoptimaliseerd";
+
+/* Menu Item "About ImageOptim" */
+"361.title" = "Over ImageOptim";
+
+/* Menu Item "Preferences…" */
+"363.title" = "Voorkeuren…";
+
+/* Menu Item "Edit" */
+"375.title" = "Wijzig";
+
+/* Top-level Main Menu "Edit" */
+"376.title" = "Wijzig";
+
+/* Menu Item "Select All" */
+"377.title" = "Selecteer alles";
+
+/* Menu Item "Undo" */
+"378.title" = "Herstel";
+
+/* Menu Item "Redo" */
+"384.title" = "Opnieuw";
+
+/* Menu Item "Cut" */
+"398.title" = "Knip";
+
+/* Menu Item "Copy" */
+"399.title" = "Kopieer";
+
+/* Menu Item "Paste" */
+"400.title" = "Plak";
+
+/* Menu Item "Delete" */
+"402.title" = "Verwijder";
+
+/* Button Tooltip "Add new files or directories" */
+"423.ibExternalAccessibilityDescription" = "Voeg nieuwe bestanden of mappen toe";
+
+/* Menu Item "File" */
+"429.title" = "Archief";
+
+/* Top-level Main Menu "File" */
+"430.title" = "Archief";
+
+/* Menu Item "Add Files…" */
+"437.title" = "Bestanden toevoegen…";
+
+/* Table Column Tooltip "Optimization status" */
+"462.headerToolTip" = "Optimalisatie-status";
+
+/* Class = "NSMenuItem"; title = "Close Window"; ObjectID = "498"; */
+"498.title" = "Sluit venster";
+
+/* Window Title "About ImageOptim" */
+"526.title" = "Over ImageOptim";
+
+/* Menu Item "Optimize Again" */
+"593.title" = "Opnieuw optimaliseren";
+
+/* Menu Item "Check for Updates…" */
+"624.title" = "Controleer op updates…";
+
+/* TextFieldCell "Drag and drop image files onto the area above" */
+"632.title" = "Sleep afbeeldingen op bovenstaande tabel";
+
+/* Button "Add" */
+"423.ibShadowedToolTip" = "Voeg toe";
+
+/* Button; alternateTitle = "Run optimizations again" */
+"635.alternateTitle" = "Voer optimalisaties opnieuw uit";
+
+/* Button "Again" */
+"635.title" = "Opnieuw";
+
+/* Menu Item "Tools" */
+"655.title" = "Gereedschappen";
+
+/* Top-level Main Menu "Tools" */
+"656.title" = "Gereedschappen";
+
+/* Menu Item "Optimized Size" */
+"740.title" = "Grootte";
+
+/* Menu Item "Savings" */
+"741.title" = "Geoptimaliseerd";
+
+/* Menu Item "Best tool" */
+"747.title" = "Gereedschappen";
+
+/* Table Column Title (MUST BE SHORT) "Best tool" */
+"771.headerCell.title" = "Gereedschappen";
+
+/* Menu Item "Original Size" */
+"791.title" = "Grootte (original)";
+
+/* Table Column Title (MUST BE SHORT) "Original Size" */
+"795.headerCell.title" = "Grootte (original)";
+
+/* Class = "NSMenuItem"; title = "Quality: 100%"; ObjectID = "Grx-lU-4x5"; */
+"Grx-lU-4x5.title" = "Kwaliteit: 100%";
+
+/* Menu Item "Copy as Data URL"; ID "NlY-Bc-7tu"; */
+"NlY-Bc-7tu.title" = "Kopieer Data URL";
+

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8152.3" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8121.20" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment version="1070" identifier="macosx"/>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8152.3"/>
     </dependencies>
     <objects>
@@ -12,7 +12,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Tùy chỉnh hình ảnh" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" showsToolbarButton="NO" frameAutosaveName="MainWindow" animationBehavior="default" id="21">
+        <window title="ImageOptim" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" showsToolbarButton="NO" frameAutosaveName="MainWindow" animationBehavior="default" id="21">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" unifiedTitleAndToolbar="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="448" y="483" width="549" height="297"/>
@@ -30,13 +30,13 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" autosaveName="Files" headerView="642" id="237" customClass="MyTableView">
-                                    <rect key="frame" x="0.0" y="0.0" width="549" height="19"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="549" height="236"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="status" editable="NO" width="22" minWidth="22" maxWidth="22" headerToolTip="Trạng thái tùy chỉnh" id="462">
+                                        <tableColumn identifier="status" editable="NO" width="22" minWidth="22" maxWidth="22" headerToolTip="Optimization status" id="462">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -46,7 +46,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </imageCell>
                                             <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="statusOrder"/>
-                                            <accessibility description="Trạng thái tùy chỉnh"/>
+                                            <accessibility description="Optimization status"/>
                                             <connections>
                                                 <binding destination="251" name="value" keyPath="arrangedObjects.statusImageName" id="hqv-Pz-7X2">
                                                     <dictionary key="options">
@@ -59,7 +59,7 @@
                                             </connections>
                                         </tableColumn>
                                         <tableColumn identifier="filename" editable="NO" width="345" minWidth="100" maxWidth="1000" id="238">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Tập tin">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="File">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,7 +80,7 @@
                                             </connections>
                                         </tableColumn>
                                         <tableColumn identifier="originalsize" editable="NO" width="85" minWidth="60" maxWidth="120" hidden="YES" id="795">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Kích thước ban đầu">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Original Size">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -100,8 +100,8 @@
                                                 </binding>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn identifier="size" editable="NO" width="85" minWidth="85" maxWidth="85" headerToolTip="Kích thước của tập tin sau khi tùy chỉnh" id="239">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Kích thước">
+                                        <tableColumn identifier="size" editable="NO" width="85" minWidth="85" maxWidth="85" headerToolTip="Size of file after optimization" id="239">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Size">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
@@ -112,7 +112,7 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
-                                            <accessibility description="Kích thước của tập tin sau khi tùy chỉnh"/>
+                                            <accessibility description="Size of file after optimization"/>
                                             <connections>
                                                 <binding destination="251" name="value" keyPath="arrangedObjects.byteSizeOptimized" id="476">
                                                     <dictionary key="options">
@@ -122,7 +122,7 @@
                                             </connections>
                                         </tableColumn>
                                         <tableColumn identifier="savings" editable="NO" width="85" minWidth="85" maxWidth="85" id="243">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Đang lưu">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Savings">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -144,7 +144,7 @@
                                             </connections>
                                         </tableColumn>
                                         <tableColumn identifier="besttool" editable="NO" width="85" minWidth="40" maxWidth="250" hidden="YES" id="771">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Công cụ tốt nhất">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Best tool">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -189,35 +189,35 @@
                         <tableHeaderView key="headerView" id="642">
                             <rect key="frame" x="0.0" y="0.0" width="549" height="23"/>
                             <autoresizingMask key="autoresizingMask"/>
-                            <accessibility description="Trạng thái"/>
+                            <accessibility description="Status"/>
                             <connections>
                                 <outlet property="menu" destination="739" id="746"/>
                             </connections>
                         </tableHeaderView>
-                        <accessibility description="Danh sách các tập tin để tùy chỉnh"/>
+                        <accessibility description="List of files to optimize"/>
                     </scrollView>
                     <textField horizontalHuggingPriority="100" verticalHuggingPriority="750" horizontalCompressionResistancePriority="550" translatesAutoresizingMaskIntoConstraints="NO" id="294" userLabel="Status">
                         <rect key="frame" x="43" y="12" width="379" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="onm-4h-DUk"/>
                         </constraints>
-                        <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Kéo và thả các tập tin hình ảnh vào khu vực bên trên" usesSingleLineMode="YES" id="632">
+                        <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Drag and drop image files onto the area above" usesSingleLineMode="YES" id="632">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
-                        <accessibility description="Trạng thái"/>
+                        <accessibility description="Status"/>
                     </textField>
-                    <button verticalHuggingPriority="750" horizontalCompressionResistancePriority="900" translatesAutoresizingMaskIntoConstraints="NO" id="423" userLabel="Add">
+                    <button toolTip="Add" verticalHuggingPriority="750" horizontalCompressionResistancePriority="900" translatesAutoresizingMaskIntoConstraints="NO" id="423" userLabel="Add">
                         <rect key="frame" x="8" y="6" width="30" height="25"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="5V3-ih-iDb"/>
                             <constraint firstAttribute="width" priority="700" constant="30" id="vMW-e3-zXS"/>
                         </constraints>
-                        <buttonCell key="cell" type="roundTextured" title="Thêm" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="633">
+                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="633">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
-                        <accessibility description="Thêm các tập tin hoặc thư mục mới"/>
+                        <accessibility description="Add new files or directories"/>
                         <connections>
                             <action selector="browseForFiles:" target="230" id="426"/>
                             <binding destination="251" name="enabled" keyPath="canAdd" id="451"/>
@@ -236,7 +236,7 @@
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="400" constant="90" id="6P8-XL-e9E"/>
                             <constraint firstAttribute="height" constant="22" id="f8J-J5-eqa"/>
                         </constraints>
-                        <buttonCell key="cell" type="roundTextured" title="Lần nữa" alternateTitle="Lặp lại thao tác tùy chỉnh" bezelStyle="texturedRounded" image="NSRefreshTemplate" imagePosition="left" alignment="center" borderStyle="border" inset="2" id="635">
+                        <buttonCell key="cell" type="roundTextured" title="Again" alternateTitle="Run optimizations again" bezelStyle="texturedRounded" image="NSRefreshTemplate" imagePosition="left" alignment="center" borderStyle="border" inset="2" id="635">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                             <string key="keyEquivalent"></string>
@@ -255,7 +255,7 @@
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="712" customClass="DragDropImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="549" height="259"/>
-                                <accessibility description="Bỏ hình ảnh vào đây"/>
+                                <accessibility description="Drop images here"/>
                                 <connections>
                                     <outlet property="filesController" destination="251" id="aqi-nA-YrU"/>
                                 </connections>
@@ -304,18 +304,18 @@
                 <outlet property="initialFirstResponder" destination="237" id="452"/>
             </connections>
         </window>
-        <menu title="Menu chính" systemMenu="main" id="29">
+        <menu title="MainMenu" systemMenu="main" id="29">
             <items>
                 <menuItem title="ImageOptim" id="56">
                     <menu key="submenu" title="ImageOptim" systemMenu="apple" id="57">
                         <items>
-                            <menuItem title="Dịch bởi Phan An" id="361">
+                            <menuItem title="About ImageOptim" id="361">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="makeKeyAndOrderFront:" target="526" id="531"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Kiểm tra cập nhật..." id="624">
+                            <menuItem title="Check for Updates…" id="624">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="checkForUpdates:" target="623" id="625"/>
@@ -324,7 +324,7 @@
                             <menuItem isSeparatorItem="YES" id="362">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Tùy biến..." keyEquivalent="," id="363">
+                            <menuItem title="Preferences…" keyEquivalent="," id="363">
                                 <connections>
                                     <action selector="showPrefs:" target="230" id="365"/>
                                 </connections>
@@ -332,24 +332,24 @@
                             <menuItem isSeparatorItem="YES" id="364">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Dịch vụ" id="131">
-                                <menu key="submenu" title="Dịch vụ" systemMenu="services" id="130"/>
+                            <menuItem title="Services" id="131">
+                                <menu key="submenu" title="Services" systemMenu="services" id="130"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="144">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Ẩn chương trình" keyEquivalent="h" id="134">
+                            <menuItem title="Hide ImageOptim" keyEquivalent="h" id="134">
                                 <connections>
                                     <action selector="hide:" target="-2" id="152"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Ẩn các phần khác" keyEquivalent="h" id="145">
+                            <menuItem title="Hide Others" keyEquivalent="h" id="145">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="hideOtherApplications:" target="-2" id="146"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Hiển thị tất cả" id="150">
+                            <menuItem title="Show All" id="150">
                                 <connections>
                                     <action selector="unhideAllApplications:" target="-2" id="153"/>
                                 </connections>
@@ -357,7 +357,7 @@
                             <menuItem isSeparatorItem="YES" id="149">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Thoát chương trình" keyEquivalent="q" id="136">
+                            <menuItem title="Quit ImageOptim" keyEquivalent="q" id="136">
                                 <connections>
                                     <action selector="terminate:" target="-2" id="139"/>
                                 </connections>
@@ -365,21 +365,21 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Tập tin" id="429">
-                    <menu key="submenu" title="Tập tin" id="430">
+                <menuItem title="File" id="429">
+                    <menu key="submenu" title="File" id="430">
                         <items>
-                            <menuItem title="Thêm Tập tin..." keyEquivalent="o" id="437">
+                            <menuItem title="Add Files…" keyEquivalent="o" id="437">
                                 <connections>
                                     <action selector="browseForFiles:" target="230" id="448"/>
                                     <binding destination="251" name="enabled" keyPath="canAdd" id="447"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Tăng tùy chỉnh" keyEquivalent="r" id="593">
+                            <menuItem title="Optimize Again" keyEquivalent="r" id="593">
                                 <connections>
                                     <action selector="startAgain:" target="230" id="594"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Đã thực hiện xong thao tác tùy chỉnh" hidden="YES" alternate="YES" keyEquivalent="r" id="725">
+                            <menuItem title="Optimize Optimized" hidden="YES" alternate="YES" keyEquivalent="r" id="725">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="startAgainOptimized:" target="-1" id="727"/>
@@ -388,7 +388,7 @@
                             <menuItem isSeparatorItem="YES" id="499">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Đóng lại" keyEquivalent="w" id="498">
+                            <menuItem title="Close Window" keyEquivalent="w" id="498">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="500"/>
                                 </connections>
@@ -407,7 +407,7 @@
                             <menuItem isSeparatorItem="YES" id="cW7-Mv-yh0">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Xem sơ lược nhanh" keyEquivalent="y" id="708">
+                            <menuItem title="Quick Look" keyEquivalent="y" id="708">
                                 <connections>
                                     <action selector="quickLookAction:" target="-1" id="709"/>
                                 </connections>
@@ -421,15 +421,15 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Chỉnh sửa" id="375">
-                    <menu key="submenu" title="Chỉnh sửa" id="376">
+                <menuItem title="Edit" id="375">
+                    <menu key="submenu" title="Edit" id="376">
                         <items>
-                            <menuItem title="Hủy bỏ thao tác" keyEquivalent="z" id="378">
+                            <menuItem title="Undo" keyEquivalent="z" id="378">
                                 <connections>
                                     <action selector="undo:" target="-1" id="418"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Lặp lại thao tác" keyEquivalent="Z" id="384">
+                            <menuItem title="Redo" keyEquivalent="Z" id="384">
                                 <connections>
                                     <action selector="redo:" target="-1" id="404"/>
                                 </connections>
@@ -437,12 +437,12 @@
                             <menuItem isSeparatorItem="YES" id="392">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Cắt" keyEquivalent="x" id="398">
+                            <menuItem title="Cut" keyEquivalent="x" id="398">
                                 <connections>
                                     <action selector="cut:" target="-1" id="406"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Sao chép" keyEquivalent="c" id="399">
+                            <menuItem title="Copy" keyEquivalent="c" id="399">
                                 <connections>
                                     <action selector="copy:" target="-1" id="419"/>
                                 </connections>
@@ -453,12 +453,12 @@
                                     <action selector="copyAsDataURI:" target="-1" id="wqM-oj-7UX"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Dán" keyEquivalent="v" id="400">
+                            <menuItem title="Paste" keyEquivalent="v" id="400">
                                 <connections>
                                     <action selector="paste:" target="-1" id="410"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Xóa" id="402">
+                            <menuItem title="Delete" id="402">
                                 <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>
@@ -466,7 +466,7 @@ CA
                                     <action selector="delete:" target="-1" id="422"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Thực hiện thao tác xóa hoàn tất" hidden="YES" alternate="YES" id="721">
+                            <menuItem title="Delete Completed" hidden="YES" alternate="YES" id="721">
                                 <string key="keyEquivalent" base64-UTF8="YES">
 CA
 </string>
@@ -476,7 +476,7 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="724"/>
-                            <menuItem title="Chọn tất cả" keyEquivalent="a" id="377">
+                            <menuItem title="Select All" keyEquivalent="a" id="377">
                                 <connections>
                                     <action selector="selectAll:" target="-1" id="413"/>
                                 </connections>
@@ -484,9 +484,9 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Công cụ" id="655">
+                <menuItem title="Tools" id="655">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Công cụ" id="656">
+                    <menu key="submenu" title="Tools" id="656">
                         <items>
                             <menuItem title="Quality: 100%" id="Grx-lU-4x5">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -565,15 +565,15 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Cửa sổ" id="19">
-                    <menu key="submenu" title="Cửa sổ" systemMenu="window" id="24">
+                <menuItem title="Window" id="19">
+                    <menu key="submenu" title="Window" systemMenu="window" id="24">
                         <items>
-                            <menuItem title="Thu nhỏ" keyEquivalent="m" id="23">
+                            <menuItem title="Minimize" keyEquivalent="m" id="23">
                                 <connections>
                                     <action selector="performMiniaturize:" target="-1" id="37"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Phóng to" id="197">
+                            <menuItem title="Zoom" id="197">
                                 <connections>
                                     <action selector="performZoom:" target="-1" id="198"/>
                                 </connections>
@@ -581,17 +581,17 @@ CA
                             <menuItem isSeparatorItem="YES" id="92">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Đem tất cả lên phía trước" id="5">
+                            <menuItem title="Bring All to Front" id="5">
                                 <connections>
                                     <action selector="arrangeInFront:" target="-1" id="39"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="812"/>
-                            <menuItem title="Hiển thị các cột thông tin" id="809">
+                            <menuItem title="Show Columns" id="809">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" id="739" userLabel="Header context menu">
                                     <items>
-                                        <menuItem title="Kích thước ban đầu" id="791">
+                                        <menuItem title="Original Size" id="791">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <binding destination="230" name="value" keyPath="originalSizeColumn.hidden" id="808">
@@ -603,7 +603,7 @@ CA
                                                 </binding>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Kích thước sau khi tùy chỉnh" state="on" id="740">
+                                        <menuItem title="Optimized Size" state="on" id="740">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <binding destination="230" name="value" keyPath="sizeColumn.hidden" id="769">
@@ -615,7 +615,7 @@ CA
                                                 </binding>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Đang lưu" state="on" id="741">
+                                        <menuItem title="Savings" state="on" id="741">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <binding destination="230" name="value" keyPath="savingsColumn.hidden" id="786">
@@ -627,7 +627,7 @@ CA
                                                 </binding>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Công cụ tốt nhất" id="747">
+                                        <menuItem title="Best tool" id="747">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <binding destination="230" name="value" keyPath="bestToolColumn.hidden" id="789">
@@ -645,15 +645,15 @@ CA
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Trợ giúp" id="504">
-                    <menu key="submenu" title="Trợ giúp" id="505">
+                <menuItem title="Help" id="504">
+                    <menu key="submenu" title="Help" id="505">
                         <items>
-                            <menuItem title="Trợ giúp chương trình" id="506">
+                            <menuItem title="ImageOptim Help" id="506">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="507"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Trang web của chương trình" id="733">
+                            <menuItem title="ImageOptim Website" id="733">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="openHomepage:" target="-1" id="737"/>
@@ -666,7 +666,7 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="738"/>
-                            <menuItem title="Xem mã nguồn" id="735">
+                            <menuItem title="View Source" id="735">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="viewSource:" target="-1" id="736"/>
@@ -701,7 +701,7 @@ CA
                 <string>statusImage</string>
             </declaredKeys>
         </arrayController>
-        <window title="Dịch bởi Phan Anh" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="526" customClass="NSPanel">
+        <window title="About ImageOptim" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="526" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="185" y="471" width="312" height="440"/>
@@ -750,11 +750,11 @@ CA
                     </scrollView>
                     <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="645">
                         <rect key="frame" x="216" y="298" width="87" height="14"/>
-                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" title="phiên bản" id="646">
+                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" title="version" id="646">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
-                        <accessibility description="phiên bản"/>
+                        <accessibility description="version"/>
                         <connections>
                             <binding destination="230" name="value" keyPath="version" id="650">
                                 <dictionary key="options">
