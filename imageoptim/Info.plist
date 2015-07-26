@@ -118,7 +118,7 @@
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.developer-tools</string>
 	<key>LSMinimumSystemVersion</key>
-	<string>10.7.0</string>
+	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSAppleScriptEnabled</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>

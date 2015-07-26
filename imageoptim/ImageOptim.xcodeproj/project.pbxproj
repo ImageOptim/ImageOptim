@@ -2073,7 +2073,6 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptim;
 				PRODUCT_NAME = ImageOptim;
 			};
@@ -2092,7 +2091,6 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptim;
 				PRODUCT_NAME = ImageOptim;
 			};
