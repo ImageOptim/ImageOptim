@@ -1,0 +1,67 @@
+
+/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+"5.title" = "ImageOptim 首选项";
+
+/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+"167.label" = "常规";
+
+/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "将文件写入磁盘";
+
+/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "保存文件的权限、 属性及永久链接";
+
+/* "Optimization level"; ObjectID = "818"; */
+"818.title" = "压缩级别";
+
+/* "Fast"; ObjectID = "819"; */
+"819.title" = "快速";
+
+/* "Insane"; ObjectID = "820"; */
+"820.title" = "Insane";
+
+/* "Normal"; ObjectID = "821"; */
+"821.title" = "普通";
+
+/* "Extra"; ObjectID = "822"; */
+"822.title" = "额外";
+
+/* button "Make images interlaced (progressive)"; ObjectID = "828"; */
+"828.title" = "使图片交错化处理 (渐进式的)";
+
+/* "Optimization level"; ObjectID = "829"; */
+"829.title" = "压缩级别";
+
+/* "Interlaced files are usually larger"; ObjectID = "831"; */
+"831.title" = "交错化处理的文件通常会更大些";
+
+/* "24 trials"; ObjectID = "833"; */
+"833.title" = "24 trials";
+
+/* "240 trials"; ObjectID = "834"; */
+"834.title" = "240 trials";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"854.title" = "PNG: 清除所有輔助資料塊";
+
+/* "Optimization type"; ObjectID = "856"; */
+"856.title" = "压缩类型";
+
+/* "Simple"; ObjectID = "857"; */
+"857.title" = "简单";
+
+/* "Longest match"; ObjectID = "861"; */
+"861.title" = "最长匹配";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"911.title" = "JPEG: 移除EXIF訊息及註解";
+
+/* button "Interrupt if takes too long to execute"; ObjectID = "946"; */
+"946.title" = "如果执行时间太长刚中断";
+
+/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+"1043.title" = "元数据和颜色配置文件";
+
+/* Header above list of tools to enable */
+"1107.title" = "启用";
+

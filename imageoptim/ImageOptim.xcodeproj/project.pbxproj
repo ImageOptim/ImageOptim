@@ -498,6 +498,10 @@
 		5A5CD39519662E9A0096D77F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		5A5E8B331B650A0F003012E9 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A5E8B341B650A2B003012E9 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/PrefsController.strings; sourceTree = "<group>"; };
+		5A5E8ABF1B6508D9003012E9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "zh-Hans"; path = "zh-Hans.lproj/Help"; sourceTree = "<group>"; };
+		5A5E8AC21B6508D9003012E9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5A5E8AC41B6508DA003012E9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/PrefsController.xib"; sourceTree = "<group>"; };
+		5A5E8B1F1B6509FF003012E9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainMenu.strings"; sourceTree = "<group>"; };
 		5A6242060CA86DC7005942A3 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
 		5A6242070CA86DC7005942A3 /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
 		5A6E04410EA40B6A00380DE7 /* JpegtranWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JpegtranWorker.h; sourceTree = "<group>"; };
@@ -1187,6 +1191,7 @@
 				nb,
 				en,
 				ro,
+				"zh-Hans",
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ImageOptim */;
 			projectDirPath = "";
@@ -1689,6 +1694,7 @@
 				5AC98826155F1ACD00E221A0 /* sv */,
 				5ACCB3F417A8292500853EFE /* tr */,
 				5ACCB3F517A8292500853EFE /* vi */,
+				5A5E8B1F1B6509FF003012E9 /* zh-Hans */,
 				1B5210E616BFA7CA0044C869 /* zh-Hant */,
 			);
 			name = MainMenu.xib;
@@ -1719,6 +1725,7 @@
 				5AC98827155F1ACD00E221A0 /* sv */,
 				5AA9F781189373AB00697D8E /* tr */,
 				5ACCB3FA17A8294900853EFE /* vi */,
+				5A5E8AC41B6508DA003012E9 /* zh-Hans */,
 				1B5210E716BFA7CA0044C869 /* zh-Hant */,
 			);
 			name = PrefsController.xib;
@@ -1748,6 +1755,7 @@
 				5AC9882C155F1AE100E221A0 /* sv */,
 				5ACCB41C17A82E3100853EFE /* tr */,
 				5ACCB41D17A82E3100853EFE /* vi */,
+				5A5E8AC21B6508D9003012E9 /* zh-Hans */,
 				1B5210E516BFA7CA0044C869 /* zh-Hant */,
 			);
 			name = Localizable.strings;
@@ -1777,6 +1785,7 @@
 				5AC9882B155F1AE100E221A0 /* sv */,
 				5AA9F7851893746E00697D8E /* tr */,
 				5AA9F7861893747900697D8E /* vi */,
+				5A5E8ABF1B6508D9003012E9 /* zh-Hans */,
 				1B5210E316BFA7C90044C869 /* zh-Hant */,
 			);
 			name = Help;
