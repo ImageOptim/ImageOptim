@@ -444,6 +444,7 @@
 		5A0344381299882F002091AA /* ru */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ru; path = ru.lproj/PrefsController.xib; sourceTree = "<group>"; };
 		5A03443A12998845002091AA /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A03443B1299884F002091AA /* ru */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ru; path = ru.lproj/Help; sourceTree = "<group>"; };
+		5A059F1A1B6506C400FC8184 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		5A08FDAF1933D635001DA24B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5A08FE901936982E001DA24B /* ResultsDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsDb.h; sourceTree = "<group>"; };
 		5A08FE911936982E001DA24B /* ResultsDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsDb.m; sourceTree = "<group>"; };
@@ -495,6 +496,8 @@
 		5A5C29420CB04A0F00FAF446 /* OptiPngWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptiPngWorker.m; sourceTree = "<group>"; };
 		5A5CD39319662E940096D77F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
 		5A5CD39519662E9A0096D77F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5A5E8B331B650A0F003012E9 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A5E8B341B650A2B003012E9 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/PrefsController.strings; sourceTree = "<group>"; };
 		5A6242060CA86DC7005942A3 /* PrefsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefsController.h; sourceTree = "<group>"; };
 		5A6242070CA86DC7005942A3 /* PrefsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrefsController.m; sourceTree = "<group>"; };
 		5A6E04410EA40B6A00380DE7 /* JpegtranWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JpegtranWorker.h; sourceTree = "<group>"; };
@@ -1183,6 +1186,7 @@
 				vi,
 				nb,
 				en,
+				ro,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ImageOptim */;
 			projectDirPath = "";
@@ -1680,6 +1684,7 @@
 				5A4553121024EF3000A69944 /* Polish */,
 				5A0343BE129984B3002091AA /* pt */,
 				5AE74B5C146DECA300287FA6 /* pt-BR */,
+				5A059F1A1B6506C400FC8184 /* ro */,
 				5A0344371299882B002091AA /* ru */,
 				5AC98826155F1ACD00E221A0 /* sv */,
 				5ACCB3F417A8292500853EFE /* tr */,
@@ -1709,6 +1714,7 @@
 				5A4553131024EF4100A69944 /* Polish */,
 				5A0343BF129984BA002091AA /* pt */,
 				5AE74B5E146DECAA00287FA6 /* pt-BR */,
+				5A5E8B341B650A2B003012E9 /* ro */,
 				5A0344381299882F002091AA /* ru */,
 				5AC98827155F1ACD00E221A0 /* sv */,
 				5AA9F781189373AB00697D8E /* tr */,
@@ -1737,6 +1743,7 @@
 				5A94A03B10275E11005CC9CB /* Polish */,
 				5A7A314713E436690012DCFB /* pt */,
 				5AE74B57146DEC8700287FA6 /* pt-BR */,
+				5A5E8B331B650A0F003012E9 /* ro */,
 				5A03443A12998845002091AA /* ru */,
 				5AC9882C155F1AE100E221A0 /* sv */,
 				5ACCB41C17A82E3100853EFE /* tr */,

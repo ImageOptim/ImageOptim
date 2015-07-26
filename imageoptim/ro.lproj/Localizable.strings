@@ -1,0 +1,48 @@
+/* tooltip */
+"%@ failed to start" = "%@ nu s-a putut începe";
+
+/* undo command name */
+"Add" = "Adaugă";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "Toate uneltele necesare au fost dezactivate în Preferinţe";
+
+/* tooltip, generic loading error */
+"Can't open the file" = "Nu se poate mapa fişierul în memorie";
+
+/* undo command name */
+"Cut" = "Tăriere";
+
+/* tooltip */
+"File cannot be optimized any further" = "Fişierul nu mai poate fi optimizat mai mult";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "Fişierul nu este PNG, GIF şi nici JPEG";
+
+/* tooltip */
+"Inspecting file" = "Inspectare fişier";
+
+/* newly added to the queue */
+"New file" = "Fişier nou";
+
+/* tooltip */
+"Optimized file could not be saved" = "Fişierul optimizat nu a putut fi salvat";
+
+/* tooltip */
+"Optimized successfully with %@" = "Optimizat cu succes cu %@";
+
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Salvat %1$@ din %2$@. %3$@ global (pînă la %4$@ per fişier)";
+
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Salvat%1$@ din %2$@. %3$@ per fişier în medie (pînă la %4$@)";
+
+/* command name, tooltip */
+"Started %@" = "Pornit %@";
+
+/* tooltip */
+"Waiting to be optimized" = "Aşteptare pentru optimizare";
+
+/* tooltip */
+"Waiting to start more optimizations" = "Aşteptare pentru începere mai multe optimizări";
+
