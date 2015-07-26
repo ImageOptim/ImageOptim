@@ -1,4 +1,3 @@
-
 /* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
 "5.title" = "ImageOptim 首选项";
 
@@ -17,9 +16,6 @@
 /* "Fast"; ObjectID = "819"; */
 "819.title" = "快速";
 
-/* "Insane"; ObjectID = "820"; */
-"820.title" = "Insane";
-
 /* "Normal"; ObjectID = "821"; */
 "821.title" = "普通";
 
@@ -34,12 +30,6 @@
 
 /* "Interlaced files are usually larger"; ObjectID = "831"; */
 "831.title" = "交错化处理的文件通常会更大些";
-
-/* "24 trials"; ObjectID = "833"; */
-"833.title" = "24 trials";
-
-/* "240 trials"; ObjectID = "834"; */
-"834.title" = "240 trials";
 
 /* Checkbox in Preferences. Text shouldn't be longer than English version. */
 "854.title" = "PNG: 清除所有輔助資料塊";

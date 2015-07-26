@@ -1,0 +1,50 @@
+/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+"5.title" = "Préférences ImageOptim";
+
+/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+"167.label" = "Général";
+
+/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+"168.label" = "Niveau d'optimisation ";
+
+/* Class = "NSTabViewItem"; label = "Quality"; ObjectID = "177"; */
+"177.label" = "Qualité";
+
+/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "Sauvegarde des fichiers";
+
+/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "Conserver les permissions, attributs et liens";
+
+/* "Optimization level"; ObjectID = "818"; */
+"818.title" = "Niveau d'optimisation ";
+
+/* "Fast"; ObjectID = "819"; */
+"819.title" = "rapide";
+
+/* "Insane"; ObjectID = "820"; */
+"820.title" = "à donf";
+
+/* "Normal"; ObjectID = "821"; */
+"821.title" = "normal";
+
+/* "Extra"; ObjectID = "822"; */
+"822.title" = "extra";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"854.title" = "PNG: Supprimer les chunks optionnels";
+
+/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+"865.title" = "La correction gamma est incompatible avec certains navigateurs Web ";
+
+/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+"868.title" = "JPEG: qualité";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"911.title" = "JPEG: Supprimer les commentaires et informations EXIF";
+
+/* Header above list of tools to enable */
+"1107.title" = "Activer";
+
+/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG: qualité";

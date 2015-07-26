@@ -1,0 +1,47 @@
+/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+"5.title" = "ImageOptim 偏好設定";
+
+/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+"167.label" = "一般";
+
+/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+"168.label" = "最佳化程度";
+
+/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "檔案寫入";
+
+/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "保留檔案權限、屬性及永久連結";
+
+/* "Optimization level"; ObjectID = "818"; */
+"818.title" = "最佳化程度";
+
+/* "Fast"; ObjectID = "819"; */
+"819.title" = "快速";
+
+/* "Insane"; ObjectID = "820"; */
+"820.title" = "瘋狂";
+
+/* "Normal"; ObjectID = "821"; */
+"821.title" = "普通";
+
+/* "Extra"; ObjectID = "822"; */
+"822.title" = "超額";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"854.title" = "PNG: 清除所有輔助資料塊";
+
+/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+"865.title" = "多數瀏覽器無法處理Gamma校準訊息";
+
+/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+"868.title" = "JPEG: 品質";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"911.title" = "JPEG: 移除EXIF訊息及註解";
+
+/* Header above list of tools to enable */
+"1107.title" = "啟用";
+
+/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG: 品質";

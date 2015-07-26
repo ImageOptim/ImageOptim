@@ -1,0 +1,56 @@
+/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+"5.title" = "ImageOptim Voorkeuren";
+
+/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+"167.label" = "Algemeen";
+
+/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+"168.label" = "Optimalisatie-niveau";
+
+/* Class = "NSTabViewItem"; label = "Quality"; ObjectID = "177"; */
+"177.label" = "Kwaliteit";
+
+/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "Bezig met het wegschrijven van de bestanden";
+
+/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "Behoud bestandspermissies, -attributen en hardlinks";
+
+/* "Optimization level"; ObjectID = "818"; */
+"818.title" = "Optimalisatie-niveau";
+
+/* "Fast"; ObjectID = "819"; */
+"819.title" = "Snel";
+
+/* "Insane"; ObjectID = "820"; */
+"820.title" = "Hyper";
+
+/* "Normal"; ObjectID = "821"; */
+"821.title" = "Normaal";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"854.title" = "Verwijder PNG-metadata (gamma, kleurprofielen, optionele chunks)";
+
+/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+"865.title" = "Webbrowsers vereisen dat gamma verwijderd wordt";
+
+/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+"868.title" = "JPEG: kwaliteit";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"911.title" = "Verwijder JPEG-metadata (EXIF, kleurprofielen, GPS, rotatie, etc.)";
+
+/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+"1043.title" = "Metadata en kleurenprofielen";
+
+/* Header above list of tools to enable */
+"1107.title" = "Ingeschakeld";
+
+/* "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+"1122.title" = "Bewaren naar netwerkschijven gaat sneller wanneer de permissies niet behouden worden";
+
+/* "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+"1124.title" = "Niet aan te raden indien je ingesloten copyright-informatie wil behouden";
+
+/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG: kwaliteit";

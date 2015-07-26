@@ -1,0 +1,44 @@
+/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+"167.label" = "Geral";
+
+/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+"168.label" = "Nível de optimização";
+
+/* Class = "NSTabViewItem"; label = "Quality"; ObjectID = "177"; */
+"177.label" = "Qualidade";
+
+/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "Ao escrever ficheiros no disco";
+
+/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "Preservar permissões, atributos e hardlinks para ficheiros";
+
+/* "Optimization level"; ObjectID = "818"; */
+"818.title" = "Nível de optimização";
+
+/* "Fast"; ObjectID = "819"; */
+"819.title" = "Rápida";
+
+/* "Insane"; ObjectID = "820"; */
+"820.title" = "Insano";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"854.title" = "PNG: Remover todos os pedaços opcionais";
+
+/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+"865.title" = "Os browsers Web necessitam que os pedaços gama sejam removidos";
+
+/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+"868.title" = "JPEG: qualidade";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"911.title" = "JPEG: Remover marcadores EXIF e comentários dos ficheiros";
+
+/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+"1043.title" = "Metadata";
+
+/* Header above list of tools to enable */
+"1107.title" = "Activado";
+
+/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG: qualidade";

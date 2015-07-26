@@ -1,0 +1,47 @@
+/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+"5.title" = "Preferenze di ImageOptim";
+
+/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+"167.label" = "Generali";
+
+/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+"168.label" = "Livello di ottimizzazione";
+
+/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "Sto salvando i file sul disco";
+
+/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "Conserva i permessi, gli attributi e gli hardlink nei file";
+
+/* "Optimization level"; ObjectID = "818"; */
+"818.title" = "Livello di ottimizzazione";
+
+/* "Fast"; ObjectID = "819"; */
+"819.title" = "Veloce";
+
+/* "Insane"; ObjectID = "820"; */
+"820.title" = "Insano";
+
+/* "Normal"; ObjectID = "821"; */
+"821.title" = "Normale";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"854.title" = "PNG: Rimuovi tutti i chunks opzionali";
+
+/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+"868.title" = "JPEG qualità";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"911.title" = "JPEG: Togli i marcatori EXIF e i commenti dai file";
+
+/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+"1043.title" = "Metadata e profili Colore";
+
+/* Header above list of tools to enable */
+"1107.title" = "Abilitato";
+
+/* "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+"1124.title" = "Non consigliato se ti basi su informazioni incorporate sul copyright";
+
+/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG qualità";

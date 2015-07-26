@@ -1,0 +1,44 @@
+/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+"5.title" = "ImageOptim nustatymai";
+
+/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+"167.label" = "Bendri";
+
+/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+"168.label" = "Optimizavimo lygis";
+
+/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "Rašyti failus į diską";
+
+/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "Išsaugoti failų teisęs, parametrus ir nuorodas";
+
+/* "Optimization level"; ObjectID = "818"; */
+"818.title" = "Optimizavimo lygis";
+
+/* "Fast"; ObjectID = "819"; */
+"819.title" = "Greitai";
+
+/* "Insane"; ObjectID = "820"; */
+"820.title" = "Beprotiškai";
+
+/* "Normal"; ObjectID = "821"; */
+"821.title" = "Normaliai ";
+
+/* "Extra"; ObjectID = "822"; */
+"822.title" = "Papildomai";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"854.title" = "PNG: Pašalinti visas galimas santraukas";
+
+/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+"865.title" = "Naršyklės reikalauja gamma santrumpų pašalinimo.";
+
+/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+"868.title" = "JPEG: Aukščiausia kokybė";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"911.title" = "JPEG: Išvalyti EXIF žymes ir komentarus iš failų";
+
+/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG: Aukščiausia kokybė";

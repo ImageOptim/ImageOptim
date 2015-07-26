@@ -1,0 +1,50 @@
+/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+"5.title" = "Preferencias de ImageOptim";
+
+/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+"168.label" = "Nivel de optimización";
+
+/* Class = "NSTabViewItem"; label = "Quality"; ObjectID = "177"; */
+"177.label" = "Calidad";
+
+/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "Al guardar archivos al disco";
+
+/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "Conservar permisos de archivos, atributos y hardlinks";
+
+/* "Optimization level"; ObjectID = "818"; */
+"818.title" = "Nivel de optimización";
+
+/* "Fast"; ObjectID = "819"; */
+"819.title" = "Rápido";
+
+/* "Insane"; ObjectID = "820"; */
+"820.title" = "Demente";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"854.title" = "PNG: Eliminar todos los fragmentos opcionales";
+
+/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+"865.title" = "Los navegadores web requieren la eliminación de fragmentos gamma";
+
+/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+"868.title" = "JPEG: calidad";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"911.title" = "JPEG: Eliminar marcadores EXIF y comentarios de los archivos";
+
+/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+"1043.title" = "Metadata";
+
+/* Header above list of tools to enable */
+"1107.title" = "Activado";
+
+/* "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+"1122.title" = "Guardar en unidades de red es más rápido cuando los permisos no se conservan";
+
+/* "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+"1124.title" = "No recomendado si necesita mantener incrustrada información de copyright";
+
+/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG: calidad";

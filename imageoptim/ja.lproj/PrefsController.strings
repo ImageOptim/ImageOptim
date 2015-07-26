@@ -1,0 +1,62 @@
+/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+"5.title" = "イメージオプティム環境設定";
+
+/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+"167.label" = "一般";
+
+/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+"168.label" = "最適化レベル";
+
+/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "ファイルのディスク書き込み";
+
+/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "ファイルのパーミッション、属性、ハードリンクを維持する";
+
+/* "Optimization level"; ObjectID = "818"; */
+"818.title" = "最適化レベル";
+
+/* "Fast"; ObjectID = "819"; */
+"819.title" = "高速";
+
+/* "Insane"; ObjectID = "820"; */
+"820.title" = "クレイジー";
+
+/* "Normal"; ObjectID = "821"; */
+"821.title" = "普通";
+
+/* "Extra"; ObjectID = "822"; */
+"822.title" = "必要以上";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"854.title" = "PNGのメタデータを取り除く (ガンマ値、カラープロファイルなど)";
+
+/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+"865.title" = "一部のウェブブラウザはガンマ値に対応していません";
+
+/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+"868.title" = "JPEG の品質";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"911.title" = "JPEGのメタデータを取り除く (EXIF、カラープロファイル、GPSなど)";
+
+/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+"1043.title" = "メタデータとカラープロファイル";
+
+/* Header above list of tools to enable */
+"1107.title" = "有効";
+
+/* "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+"1122.title" = "維持しない場合、ネットワークドライブへの保存が早くなります";
+
+/* "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+"1124.title" = "埋め込まれた著作権情報を必要とする場合はおすすめしません";
+
+/* Class = "NSTextFieldCell"; title = "This setting will reset every time ImageOptim is started"; ObjectID = "WaY-uF-lKy"; */
+"WaY-uF-lKy.title" = "この設定は ImageOptim を起動するたびにリセットされます";
+
+/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG の品質";
+
+/* Class = "NSButtonCell"; title = "Temporarily enable lossy minification"; ObjectID = "wBg-dc-7uj"; */
+"wBg-dc-7uj.title" = "一時的に非可逆圧縮を有効にする";

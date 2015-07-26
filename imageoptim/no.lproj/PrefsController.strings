@@ -1,0 +1,47 @@
+/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+"5.title" = "Valg for ImageOptim";
+
+/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+"167.label" = "Generelt";
+
+/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+"168.label" = "Optimaliseringsgrad";
+
+/* Class = "NSTabViewItem"; label = "Quality"; ObjectID = "177"; */
+"177.label" = "Kvalitet";
+
+/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "Alternativer for filhåndtering";
+
+/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "Bevar rettigheter, attributter og harde lenker";
+
+/* "Optimization level"; ObjectID = "818"; */
+"818.title" = "Optimaliseringsgrad";
+
+/* "Fast"; ObjectID = "819"; */
+"819.title" = "Rask";
+
+/* "Insane"; ObjectID = "820"; */
+"820.title" = "Sinnsyk";
+
+/* "Extra"; ObjectID = "822"; */
+"822.title" = "Ekstra";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"854.title" = "PNG: Fjern alle valgfrie deler";
+
+/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+"865.title" = "Nettlesere fungerer bedre uten gamma-del";
+
+/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+"868.title" = "JPEG kvalitet";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"911.title" = "JPEG: Fjern EXIF-markører og kommentarer fra filene";
+
+/* Header above list of tools to enable */
+"1107.title" = "Slått på";
+
+/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG kvalitet";

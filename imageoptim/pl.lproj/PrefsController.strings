@@ -1,0 +1,59 @@
+/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+"5.title" = "Preferencje ImageOptim";
+
+/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+"167.label" = "Ogólne";
+
+/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+"168.label" = "Typ optymalizacji";
+
+/* Class = "NSTabViewItem"; label = "Quality"; ObjectID = "177"; */
+"177.label" = "Jakość";
+
+/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "Zapisywanie na dysk";
+
+/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "Zachowaj uprawnienia plików, atrybuty i linki";
+
+/* "Optimization level"; ObjectID = "818"; */
+"818.title" = "Typ optymalizacji";
+
+/* "Fast"; ObjectID = "819"; */
+"819.title" = "Szybki";
+
+/* "Insane"; ObjectID = "820"; */
+"820.title" = "Szalony";
+
+/* "Normal"; ObjectID = "821"; */
+"821.title" = "Normalny";
+
+/* "Extra"; ObjectID = "822"; */
+"822.title" = "Ekstra";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"854.title" = "Usuń wszystkie opcjonalne dane z PNG (np. profil kolorów)";
+
+/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+"865.title" = "Przeglądarki wymagają usunięcia gammy";
+
+/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+"868.title" = "Jakość JPEG";
+
+/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+"911.title" = "Usuń znaczniki EXIF z plików JPEG (np. GPS, profil kolorów)";
+
+/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+"1043.title" = "Metadata";
+
+/* Header above list of tools to enable */
+"1107.title" = "Używaj";
+
+/* "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+"1122.title" = "Spowalnia zapis na dyskach sieciowych";
+
+/* "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+"1124.title" = "Wyłącz, żeby nie usuwać osadzonych informacji o autorze";
+
+/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "Jakość PNG";

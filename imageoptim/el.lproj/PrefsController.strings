@@ -1,0 +1,50 @@
+/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+"5.title" = "Προτιμήσεις ImageOptim";
+
+/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+"167.label" = "Γενικές";
+
+/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+"168.label" = "Επίπεδο βελτιστοποίησης";
+
+/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+"280.title" = "Εγγραφή αρχείων στο δίσκο";
+
+/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+"804.title" = "Διατήρηση δικαιωμάτων αρχείων, ιδιοτήτων και hard συνδέσμων.";
+
+/* "Optimization level"; ObjectID = "818"; */
+"818.title" = "Επίπεδο βελτιστοποίησης";
+
+/* "Fast"; ObjectID = "819"; */
+"819.title" = "Γρήγορη";
+
+/* "Insane"; ObjectID = "820"; */
+"820.title" = "Τρελά!";
+
+/* "Normal"; ObjectID = "821"; */
+"821.title" = "Κανονική";
+
+/* "Extra"; ObjectID = "822"; */
+"822.title" = "Έξτρα";
+
+/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+"865.title" = "Οι φυλλομετρητές στο Web απαιτούν αφαίρεση των gamma chunks";
+
+/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+"868.title" = "JPEG: ποιότητα";
+
+/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+"1043.title" = "Μετα-δεδομένα και χρώματικα προφίλ";
+
+/* Header above list of tools to enable */
+"1107.title" = "Ενεργοποίηση";
+
+/* "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+"1122.title" = "Η αποθήκευση σε δικτυακούς δίσκους είναι γρηγορότερη όταν δεν διατηρούνται τα δικαιώματα";
+
+/* "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+"1124.title" = "Δεν συνιστάται εάν χρειάζεστε τις ενσωματωμένες πληροφορίες πνευματικών δικαιωμάτων";
+
+/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG: ποιότητα";
