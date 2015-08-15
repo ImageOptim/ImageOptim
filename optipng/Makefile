@@ -2,6 +2,8 @@
 VERSION=0.6.5
 OPTIPNG_FILENAME=optipng-$(VERSION).tar.gz
 
+build: all
+
 all: patched
 
 patched: src/optipng.c
@@ -19,5 +21,6 @@ src/optipng.c: /tmp/$(OPTIPNG_FILENAME)
 clean:
 	- rm -rf ./patched ./src/ ./lib/
 
-install:
+install: all
 
+.PHONY: build all install clean

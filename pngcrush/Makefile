@@ -1,7 +1,7 @@
 VERSION=1.7.85
 ARCHIVE=/tmp/pngcrush-$(VERSION).tar.gz
 
-.PHONY: all
+build: all
 
 all: patched
 
@@ -19,3 +19,5 @@ clean:
 	-rm *.c *.h $(ARCHIVE) patched
 
 install:
+
+.PHONY: all build clean

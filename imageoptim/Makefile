@@ -1,6 +1,8 @@
 HELPINDEXES=$(addsuffix Help.helpindex, $(wildcard *.lproj/Help/))
 SUBMODULES=../Sparkle/Sparkle
 
+build: all
+
 all: $(SUBMODULES) pngout helpindexes
 
 $(SUBMODULES): ../.gitmodules
@@ -20,3 +22,5 @@ helpindexes:: $(HELPINDEXES)
 
 %/Help.helpindex: %/index.html %/prefs.html
 	./makehelp.sh $(patsubst %.lproj/Help/Help.helpindex,%,$@)
+
+.PHONY: build all install clean
