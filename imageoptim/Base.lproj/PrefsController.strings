@@ -1,93 +1,84 @@
 
-/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+/* Window title */
 "5.title" = "ImageOptim Preferences";
 
-/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+/* The first prefs tab (misc/general) */
 "167.label" = "General";
 
-/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+/* Tab "Optimization speed" (speed/efficiency trade-off) */
+"168.label" = "Optimization speed";
+
+/* Tab quality (for lossy minification) */
+"177.label" = "Quality";
+
+/* Title in box "Writing files to disk" */
 "280.title" = "Writing files to disk";
 
-/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+/* checkbox "Preserve file permissions, attributes and hardlinks" */
 "804.title" = "Preserve file permissions, attributes and hardlinks";
 
-/* "Optimization level"; ObjectID = "818"; */
+/* label in speed tab "Optimization level" */
 "818.title" = "Optimization level";
 
-/* "Fast"; ObjectID = "819"; */
+/* "Fast" */
 "819.title" = "Fast";
 
-/* "Insane"; ObjectID = "820"; */
+/* "Insane" */
 "820.title" = "Insane";
 
-/* "Normal"; ObjectID = "821"; */
+/* "Normal" */
 "821.title" = "Normal";
 
-/* "Extra"; ObjectID = "822"; */
+/* "Extra" */
 "822.title" = "Extra";
 
-/* button "Make images interlaced (progressive)"; ObjectID = "828"; */
-"828.title" = "Make images interlaced (progressive)";
-
-/* "Optimization level"; ObjectID = "829"; */
+/* "Optimization level" */
 "829.title" = "Optimization level";
 
-/* "Interlaced files are usually larger"; ObjectID = "831"; */
-"831.title" = "Interlaced files are usually larger";
-
-/* "24 trials"; ObjectID = "833"; */
-"833.title" = "24 trials";
-
-/* "240 trials"; ObjectID = "834"; */
-"834.title" = "240 trials";
-
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "854.title" = "Strip PNG metadata (gamma, color profiles, optional chunks)";
 
-/* "Optimization type"; ObjectID = "856"; */
+/* "Optimization type" */
 "856.title" = "Optimization type";
 
-/* "Simple"; ObjectID = "857"; */
+/* Optimization level: "Simple" */
 "857.title" = "Simple";
 
-/* "Xtreme"; ObjectID = "858"; */
+/* Optimization level: "Xtreme" */
 "858.title" = "Xtreme";
 
-/* "Intense"; ObjectID = "860"; */
+/* Optimization level: "Intense" */
 "860.title" = "Intense";
 
-/* "Longest match"; ObjectID = "861"; */
+/* Optimization level: "Longest match" */
 "861.title" = "Longest match";
 
-/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+/* note "Web browsers require gamma chunks to be removed" */
 "865.title" = "Web browsers require gamma chunks to be removed";
 
-/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+/* label "JPEG quality" */
 "868.title" = "JPEG quality";
 
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "911.title" = "Strip JPEG metadata (EXIF, color profiles, GPS, rotation, etc.)";
 
-/* button "Interrupt if takes too long to execute"; ObjectID = "946"; */
-"946.title" = "Interrupt if takes too long to execute";
-
-/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+/* Box title "Metadata and color profiles" */
 "1043.title" = "Metadata and color profiles";
 
 /* Header above list of tools to enable */
 "1107.title" = "Enable";
 
-/* "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+/* "Saving to network drives is faster when permissions are not preserved" */
 "1122.title" = "Saving to network drives is faster when permissions are not preserved";
 
-/* "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+/* If stripping metadata "Not recommended if you rely on embedded copyright information" */
 "1124.title" = "Not recommended if you rely on embedded copyright information";
 
-/* Class = "NSTextFieldCell"; title = "This setting will reset every time ImageOptim is started"; ObjectID = "WaY-uF-lKy"; */
+/* Note about temporary setting "This setting will reset every time ImageOptim is started"; ObjectID = "WaY-uF-lKy"; */
 "WaY-uF-lKy.title" = "This setting will reset every time ImageOptim is started";
 
-/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG quality";
 
-/* Class = "NSButtonCell"; title = "Temporarily enable lossy minification"; ObjectID = "wBg-dc-7uj"; */
+/* Checkbox "Temporarily enable lossy minification"; ObjectID = "wBg-dc-7uj"; */
 "wBg-dc-7uj.title" = "Temporarily enable lossy minification";
