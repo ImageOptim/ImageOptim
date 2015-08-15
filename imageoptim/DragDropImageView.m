@@ -121,7 +121,11 @@
 - (BOOL)performDragOperation:(id <NSDraggingInfo>)sender {
     if ([sender draggingSource]!=self) {
         NSArray *files = [[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType];
-        [filesController performSelectorInBackground:@selector(addPaths:) withObject:files];
+        if (lossy) {
+            [filesController performSelectorInBackground:@selector(addPathsLossy:) withObject:files];
+        } else {
+            [filesController performSelectorInBackground:@selector(addPaths:) withObject:files];
+        }
     }
     return YES;
 }

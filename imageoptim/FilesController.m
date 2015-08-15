@@ -265,15 +265,28 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         [urls addObject:[NSURL fileURLWithPath:path]];
     }
 
-    return [self addURLs:urls filesOnly:NO];
+    return [self addURLs:urls filesOnly:NO enableLossy:NO];
+}
+
+-(BOOL)addPathsLossy:(NSArray*)paths {
+    NSMutableArray *urls = [NSMutableArray arrayWithCapacity:[paths count]];
+    for(NSString *path in paths) {
+        [urls addObject:[NSURL fileURLWithPath:path]];
+    }
+
+    return [self addURLs:urls filesOnly:NO enableLossy:YES];
 }
 
 -(BOOL)addURLs:(NSArray *)paths {
-    return [self addURLs:paths filesOnly:NO];
+    return [self addURLs:paths filesOnly:NO enableLossy:NO];
+}
+
+-(BOOL)addURLs:(NSArray *)paths filesOnly:(BOOL)filesOnly {
+    return [self addURLs:paths filesOnly:filesOnly enableLossy:NO];
 }
 
 /** filesOnly indicates that paths do not contain any directories or symlinks */
--(BOOL)addURLs:(NSArray *)paths filesOnly:(BOOL)filesOnly {
+-(BOOL)addURLs:(NSArray *)paths filesOnly:(BOOL)filesOnly enableLossy:(BOOL)lossy {
     if (!isEnabled) {
         return NO;
     }
@@ -307,7 +320,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
                 [seenPathHashes addObject:path]; // used by findFileByPath
                 f = [[File alloc] initWithFilePath:path resultsDatabase:db];
                 [toAdd addObject:f];
-                [filesQueue addFile:f];
+                [filesQueue addFile:f enableLossy:lossy];
             }
         } else {
             DirWorker *w = [[DirWorker alloc] initWithPath:path filesController:self extensions:[self extensions]];

@@ -31,6 +31,14 @@
 }
 
 -(void)addFile:(File*)f {
+    [self addFile:f enableLossy:NO];
+}
+
+-(void)addFile:(File*)f enableLossy:(BOOL)lossy {
+    if (lossy) {
+        [self.defaults setBool:YES forKey:@"LossyEnabled"];
+    }
+
     [self willChangeValueForKey:@"isBusy"];
     [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue defaults:self.defaults];
     [self didChangeValueForKey:@"isBusy"];

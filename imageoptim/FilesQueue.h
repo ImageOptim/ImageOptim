@@ -6,6 +6,7 @@
 @interface FilesQueue : NSObject
 
 -(void)addFile:(nonnull File*)f;
+-(void)addFile:(nonnull File*)f enableLossy:(BOOL)l;
 -(void)addDirWorker:(nonnull DirWorker*)d;
 -(void)wait;
 -(void)cleanup;
