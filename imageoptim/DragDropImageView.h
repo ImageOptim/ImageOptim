@@ -7,7 +7,7 @@
 
 @interface DragDropImageView : NSView
 {
-    BOOL highlight; //highlight the drop zone
+    BOOL highlight, lossy; //highlight the drop zone
     BOOL smoothSizes; // use blurry fractional sizes for smooth animation during live resize
 
     IBOutlet FilesController *filesController;

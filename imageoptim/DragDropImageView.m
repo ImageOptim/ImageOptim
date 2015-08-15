@@ -23,24 +23,47 @@
     return NSAppKitVersionNumber < NSAppKitVersionNumber10_10;;
 }
 
+-(BOOL)isLossy:(id <NSDraggingInfo>)op {
+    NSUInteger mask = [op draggingSourceOperationMask];
+
+    // The default is all operations
+    NSUInteger allMask = NSDragOperationCopy | NSDragOperationMove | NSDragOperationGeneric;
+
+    if ((mask & allMask) == allMask) return NO;
+
+    return !!(mask & NSDragOperationCopy);
+}
+
 //Destination Operations
-- (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender {
-    highlight=YES;
+- (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)info {
+    highlight = YES;
+    lossy = [self isLossy:info];
     [self setNeedsDisplay:YES];
     return NSDragOperationCopy;
 }
 
+- (NSDragOperation)draggingUpdated:(id<NSDraggingInfo>)info {
+    BOOL newLossy = [self isLossy:info];
+    if (lossy != newLossy) {
+        lossy = newLossy;
+        [self setNeedsDisplay:YES];
+    }
+    return NSDragOperationCopy;
+}
+
+
 - (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)flag {
-    return NSDragOperationCopy;//send data as copy operation
+    return lossy ? NSDragOperationCopy : NSDragOperationGeneric;//send data as copy operation
 }
 
 - (void)draggingExited:(id <NSDraggingInfo>)sender {
-    highlight=NO;//remove highlight of the drop zone
+    highlight = NO;//remove highlight of the drop zone
+    lossy = NO;
     [self setNeedsDisplay: YES];
 }
 
 -(void)viewWillStartLiveResize {
-    smoothSizes = YES;
+    smoothSizes = YES; // Never disabled to prevent noticeable switch
     [super viewWillStartLiveResize];
 }
 
@@ -53,6 +76,9 @@
     NSRectFillUsingOperation(rect, NSCompositeSourceOver);
 
     NSColor *gray = [NSColor colorWithDeviceWhite:0 alpha:highlight ? 1.0/4.0 : 1.0/8.0];
+    if (lossy) {
+        gray = [NSColor orangeColor];
+    }
     [gray set];
     [gray setFill];
 
@@ -86,8 +112,8 @@
     [r fill];
 }
 
-- (BOOL)prepareForDragOperation:(id <NSDraggingInfo>)sender {
-    highlight=NO;//finished with the drag so remove any highlighting
+- (BOOL)prepareForDragOperation:(id <NSDraggingInfo>)info {
+    highlight = NO;//finished with the drag so remove any highlighting
     [self setNeedsDisplay: YES];
     return YES;
 }
