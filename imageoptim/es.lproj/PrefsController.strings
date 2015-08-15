@@ -1,50 +1,51 @@
-/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+/* Window title */
 "5.title" = "Preferencias de ImageOptim";
 
-/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+/* Tab "Optimization speed" (speed/efficiency trade-off) */
 "168.label" = "Nivel de optimización";
 
-/* Class = "NSTabViewItem"; label = "Quality"; ObjectID = "177"; */
+/* Tab quality (for lossy minification) */
 "177.label" = "Calidad";
 
-/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+/* Title in box "Writing files to disk" */
 "280.title" = "Al guardar archivos al disco";
 
-/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+/* checkbox "Preserve file permissions, attributes and hardlinks" */
 "804.title" = "Conservar permisos de archivos, atributos y hardlinks";
 
-/* "Optimization level"; ObjectID = "818"; */
+/* label in speed tab "Optimization level" */
 "818.title" = "Nivel de optimización";
 
-/* "Fast"; ObjectID = "819"; */
+/* "Fast" */
 "819.title" = "Rápido";
 
-/* "Insane"; ObjectID = "820"; */
+/* "Insane" */
 "820.title" = "Demente";
 
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "854.title" = "PNG: Eliminar todos los fragmentos opcionales";
 
-/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+/* note "Web browsers require gamma chunks to be removed" */
 "865.title" = "Los navegadores web requieren la eliminación de fragmentos gamma";
 
-/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+/* label "JPEG quality" */
 "868.title" = "JPEG: calidad";
 
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "911.title" = "JPEG: Eliminar marcadores EXIF y comentarios de los archivos";
 
-/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+/* Box title "Metadata and color profiles" */
 "1043.title" = "Metadata";
 
 /* Header above list of tools to enable */
 "1107.title" = "Activado";
 
-/* "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+/* "Saving to network drives is faster when permissions are not preserved" */
 "1122.title" = "Guardar en unidades de red es más rápido cuando los permisos no se conservan";
 
-/* "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+/* If stripping metadata "Not recommended if you rely on embedded copyright information" */
 "1124.title" = "No recomendado si necesita mantener incrustrada información de copyright";
 
-/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG: calidad";
+

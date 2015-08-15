@@ -1,50 +1,51 @@
-/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+/* Window title */
 "5.title" = "Préférences ImageOptim";
 
-/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+/* The first prefs tab (misc/general) */
 "167.label" = "Général";
 
-/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+/* Tab "Optimization speed" (speed/efficiency trade-off) */
 "168.label" = "Niveau d'optimisation ";
 
-/* Class = "NSTabViewItem"; label = "Quality"; ObjectID = "177"; */
+/* Tab quality (for lossy minification) */
 "177.label" = "Qualité";
 
-/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+/* Title in box "Writing files to disk" */
 "280.title" = "Sauvegarde des fichiers";
 
-/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+/* checkbox "Preserve file permissions, attributes and hardlinks" */
 "804.title" = "Conserver les permissions, attributs et liens";
 
-/* "Optimization level"; ObjectID = "818"; */
+/* label in speed tab "Optimization level" */
 "818.title" = "Niveau d'optimisation ";
 
-/* "Fast"; ObjectID = "819"; */
+/* "Fast" */
 "819.title" = "rapide";
 
-/* "Insane"; ObjectID = "820"; */
+/* "Insane" */
 "820.title" = "à donf";
 
-/* "Normal"; ObjectID = "821"; */
+/* "Normal" */
 "821.title" = "normal";
 
-/* "Extra"; ObjectID = "822"; */
+/* "Extra" */
 "822.title" = "extra";
 
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "854.title" = "PNG: Supprimer les chunks optionnels";
 
-/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+/* note "Web browsers require gamma chunks to be removed" */
 "865.title" = "La correction gamma est incompatible avec certains navigateurs Web ";
 
-/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+/* label "JPEG quality" */
 "868.title" = "JPEG: qualité";
 
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "911.title" = "JPEG: Supprimer les commentaires et informations EXIF";
 
 /* Header above list of tools to enable */
 "1107.title" = "Activer";
 
-/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG: qualité";
+

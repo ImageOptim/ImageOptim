@@ -1,56 +1,57 @@
-/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+/* Window title */
 "5.title" = "ImageOptim indstillinger";
 
-/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+/* The first prefs tab (misc/general) */
 "167.label" = "Generelt";
 
-/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+/* Tab "Optimization speed" (speed/efficiency trade-off) */
 "168.label" = "Optimeringsniveau";
 
-/* Class = "NSTabViewItem"; label = "Quality"; ObjectID = "177"; */
+/* Tab quality (for lossy minification) */
 "177.label" = "Kvalitet";
 
-/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+/* Title in box "Writing files to disk" */
 "280.title" = "Skriver filer til disken";
 
-/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+/* checkbox "Preserve file permissions, attributes and hardlinks" */
 "804.title" = "Bevar filrettigheder, egenskaber og hardlinks";
 
-/* "Optimization level"; ObjectID = "818"; */
+/* label in speed tab "Optimization level" */
 "818.title" = "Optimeringsniveau";
 
-/* "Fast"; ObjectID = "819"; */
+/* "Fast" */
 "819.title" = "Hurtig";
 
-/* "Insane"; ObjectID = "820"; */
+/* "Insane" */
 "820.title" = "Sindssyg";
 
-/* "Extra"; ObjectID = "822"; */
+/* "Extra" */
 "822.title" = "Ekstra";
 
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "854.title" = "Fjern PNG metadata (gamma, farveprofiler, valgfri komponenter)";
 
-/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+/* note "Web browsers require gamma chunks to be removed" */
 "865.title" = "Internet browsere kræver fjernelse af gamma";
 
-/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+/* label "JPEG quality" */
 "868.title" = "JPEG kvalitet";
 
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "911.title" = "Fjern JPEG metadata (EXIF, farveprofiler, GPS, rotation, etc.)";
 
-/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+/* Box title "Metadata and color profiles" */
 "1043.title" = "Metadata og farveprofiler";
 
 /* Header above list of tools to enable */
 "1107.title" = "Slået til";
 
-/* "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+/* "Saving to network drives is faster when permissions are not preserved" */
 "1122.title" = "At gemme til netværksdrev er hurtigere når tilladelser ikke bevares";
 
-/* "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+/* If stripping metadata "Not recommended if you rely on embedded copyright information" */
 "1124.title" = "Ikke anbefalet hvis du afhænger af integreret copyright information";
 
-/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG kvalitet";
+

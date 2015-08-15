@@ -1,59 +1,60 @@
-/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+/* Window title */
 "5.title" = "Настройки ImageOptim";
 
-/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+/* The first prefs tab (misc/general) */
 "167.label" = "Основные";
 
-/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+/* Tab "Optimization speed" (speed/efficiency trade-off) */
 "168.label" = "Уровень оптимизации";
 
-/* Class = "NSTabViewItem"; label = "Quality"; ObjectID = "177"; */
+/* Tab quality (for lossy minification) */
 "177.label" = "Качество";
 
-/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+/* Title in box "Writing files to disk" */
 "280.title" = "Запись файлов на диск";
 
-/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+/* checkbox "Preserve file permissions, attributes and hardlinks" */
 "804.title" = "Сохранять разрешения, аттрибуты и ссылки";
 
-/* "Optimization level"; ObjectID = "818"; */
+/* label in speed tab "Optimization level" */
 "818.title" = "Уровень оптимизации";
 
-/* "Fast"; ObjectID = "819"; */
+/* "Fast" */
 "819.title" = "Быстрый";
 
-/* "Insane"; ObjectID = "820"; */
+/* "Insane" */
 "820.title" = "Безумный";
 
-/* "Normal"; ObjectID = "821"; */
+/* "Normal" */
 "821.title" = "Нормальный";
 
-/* "Extra"; ObjectID = "822"; */
+/* "Extra" */
 "822.title" = "Экстра";
 
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "854.title" = "Удалить метаданные PNG (гамму, цветовые профили и др.)";
 
-/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+/* note "Web browsers require gamma chunks to be removed" */
 "865.title" = "Веб-браузеры требуют удаление чанков гаммы";
 
-/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+/* label "JPEG quality" */
 "868.title" = "JPEG качество";
 
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "911.title" = "Удалить метаданные JPEG (EXIF, профили цвета, GPS и др.)";
 
-/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+/* Box title "Metadata and color profiles" */
 "1043.title" = "Метаданные и цветовые профили";
 
 /* Header above list of tools to enable */
 "1107.title" = "Включить";
 
-/* "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+/* "Saving to network drives is faster when permissions are not preserved" */
 "1122.title" = "Сохранение на сетевые диски происходит быстрее, если не сохранять разрешения файлов";
 
-/* "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+/* If stripping metadata "Not recommended if you rely on embedded copyright information" */
 "1124.title" = "Не рекомендуется, если вы полагаетесь на встроенную информацию о правообладателе";
 
-/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG качество";
+

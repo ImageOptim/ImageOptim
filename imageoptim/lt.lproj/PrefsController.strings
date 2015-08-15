@@ -1,44 +1,45 @@
-/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+/* Window title */
 "5.title" = "ImageOptim nustatymai";
 
-/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+/* The first prefs tab (misc/general) */
 "167.label" = "Bendri";
 
-/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+/* Tab "Optimization speed" (speed/efficiency trade-off) */
 "168.label" = "Optimizavimo lygis";
 
-/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+/* Title in box "Writing files to disk" */
 "280.title" = "Rašyti failus į diską";
 
-/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+/* checkbox "Preserve file permissions, attributes and hardlinks" */
 "804.title" = "Išsaugoti failų teisęs, parametrus ir nuorodas";
 
-/* "Optimization level"; ObjectID = "818"; */
+/* label in speed tab "Optimization level" */
 "818.title" = "Optimizavimo lygis";
 
-/* "Fast"; ObjectID = "819"; */
+/* "Fast" */
 "819.title" = "Greitai";
 
-/* "Insane"; ObjectID = "820"; */
+/* "Insane" */
 "820.title" = "Beprotiškai";
 
-/* "Normal"; ObjectID = "821"; */
+/* "Normal" */
 "821.title" = "Normaliai ";
 
-/* "Extra"; ObjectID = "822"; */
+/* "Extra" */
 "822.title" = "Papildomai";
 
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "854.title" = "PNG: Pašalinti visas galimas santraukas";
 
-/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+/* note "Web browsers require gamma chunks to be removed" */
 "865.title" = "Naršyklės reikalauja gamma santrumpų pašalinimo.";
 
-/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+/* label "JPEG quality" */
 "868.title" = "JPEG: Aukščiausia kokybė";
 
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "911.title" = "JPEG: Išvalyti EXIF žymes ir komentarus iš failų";
 
-/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG: Aukščiausia kokybė";
+

@@ -1,56 +1,57 @@
-/* "Window"; title = "ImageOptim Preferences"; ObjectID = "5"; */
+/* Window title */
 "5.title" = "Tùy Biến";
 
-/* "TabViewItem"; label = "General"; ObjectID = "167"; */
+/* The first prefs tab (misc/general) */
 "167.label" = "Tổng quan";
 
-/* Class = "NSTabViewItem"; label = "Optimization speed"; ObjectID = "168"; */
+/* Tab "Optimization speed" (speed/efficiency trade-off) */
 "168.label" = "Cấp độ Tùy Chỉnh";
 
-/* "Box"; title = "Writing files to disk"; ObjectID = "280"; */
+/* Title in box "Writing files to disk" */
 "280.title" = "Viết dữ liệu tập tin lên đĩa";
 
-/* button "Preserve file permissions, attributes and hardlinks"; ObjectID = "804"; */
+/* checkbox "Preserve file permissions, attributes and hardlinks" */
 "804.title" = "Bảo toàn các quyền hạn tác động, thuộc tính và các liên kết kèm theo";
 
-/* "Optimization level"; ObjectID = "818"; */
+/* label in speed tab "Optimization level" */
 "818.title" = "Cấp độ Tùy Chỉnh";
 
-/* "Fast"; ObjectID = "819"; */
+/* "Fast" */
 "819.title" = "Nhanh";
 
-/* "Insane"; ObjectID = "820"; */
+/* "Insane" */
 "820.title" = "Phồng tôm";
 
-/* "Normal"; ObjectID = "821"; */
+/* "Normal" */
 "821.title" = "Bình thường";
 
-/* "Extra"; ObjectID = "822"; */
+/* "Extra" */
 "822.title" = "Bổ sung";
 
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "854.title" = "Bỏ qua thông tin chi tiết về PNG (gamma, hồ sơ màu, chunk tùy chọn)";
 
-/* "Web browsers require gamma chunks to be removed"; ObjectID = "865"; */
+/* note "Web browsers require gamma chunks to be removed" */
 "865.title" = "Trình duyệt web cần loại bỏ các phần gamma chunk";
 
-/* Class = "NSTextFieldCell"; title = "JPEG quality"; ObjectID = "868"; */
+/* label "JPEG quality" */
 "868.title" = "JPEG: Chất lượng";
 
-/* Checkbox in Preferences. Text shouldn't be longer than English version. */
+/* Checkbox in Preferences */
 "911.title" = "Bỏ qua thông tin chi tiết về JPEG metadata (EXIF, hồ sơ màu, GPS, góc quay, v.v..)";
 
-/* "Box"; title = "Metadata and color profiles"; ObjectID = "1043"; */
+/* Box title "Metadata and color profiles" */
 "1043.title" = "Thông tin chi tiết và hồ sơ màu";
 
 /* Header above list of tools to enable */
 "1107.title" = "Bật";
 
-/* "Saving to network drives is faster when permissions are not preserved"; ObjectID = "1122"; */
+/* "Saving to network drives is faster when permissions are not preserved" */
 "1122.title" = "Lưu vào các ổ đĩa mạng sẽ nhanh hơn khi các phần quyền hạn không được lưu giữ";
 
-/* "Not recommended if you rely on embedded copyright information"; ObjectID = "1124"; */
+/* If stripping metadata "Not recommended if you rely on embedded copyright information" */
 "1124.title" = "Không khuyên dùng nếu bạn cần thông tin bản quyền về phần nhúng";
 
-/* Class = "NSTextFieldCell"; title = "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG: Chất lượng";
+
