@@ -1,3 +1,4 @@
+
 /* Window title */
 "5.title" = "Настройки ImageOptim";
 
@@ -5,7 +6,7 @@
 "167.label" = "Основные";
 
 /* Tab "Optimization speed" (speed/efficiency trade-off) */
-"168.label" = "Уровень оптимизации";
+"168.label" = "Скорость оптимизации";
 
 /* Tab quality (for lossy minification) */
 "177.label" = "Качество";
@@ -14,31 +15,49 @@
 "280.title" = "Запись файлов на диск";
 
 /* checkbox "Preserve file permissions, attributes and hardlinks" */
-"804.title" = "Сохранять разрешения, аттрибуты и ссылки";
+"804.title" = "Сохранять ссылки, разрешения и аттрибуты файла";
 
 /* label in speed tab "Optimization level" */
 "818.title" = "Уровень оптимизации";
 
 /* "Fast" */
-"819.title" = "Быстрый";
+"819.title" = "Быстро";
 
 /* "Insane" */
-"820.title" = "Безумный";
+"820.title" = "Безумно";
 
 /* "Normal" */
-"821.title" = "Нормальный";
+"821.title" = "Нормально";
 
 /* "Extra" */
 "822.title" = "Экстра";
 
+/* "Optimization level" */
+"829.title" = "Уровень оптимизации";
+
 /* Checkbox in Preferences */
 "854.title" = "Удалить метаданные PNG (гамму, цветовые профили и др.)";
+
+/* "Optimization type" */
+"856.title" = "Тип оптимизации";
+
+/* Optimization level: "Simple" */
+"857.title" = "Простой";
+
+/* Optimization level: "Xtreme" */
+"858.title" = "Экстремальный";
+
+/* Optimization level: "Intense" */
+"860.title" = "Интенсив";
+
+/* Optimization level: "Longest match" */
+"861.title" = "Наибольшее совпадение";
 
 /* note "Web browsers require gamma chunks to be removed" */
 "865.title" = "Веб-браузеры требуют удаление чанков гаммы";
 
 /* label "JPEG quality" */
-"868.title" = "JPEG качество";
+"868.title" = "Качество JPEG";
 
 /* Checkbox in Preferences */
 "911.title" = "Удалить метаданные JPEG (EXIF, профили цвета, GPS и др.)";
@@ -50,11 +69,16 @@
 "1107.title" = "Включить";
 
 /* "Saving to network drives is faster when permissions are not preserved" */
-"1122.title" = "Сохранение на сетевые диски происходит быстрее, если не сохранять разрешения файлов";
+"1122.title" = "Сохранение на сетевые диски будет быстрее, если не сохранять разрешения файлов";
 
 /* If stripping metadata "Not recommended if you rely on embedded copyright information" */
 "1124.title" = "Не рекомендуется, если вы полагаетесь на встроенную информацию о правообладателе";
 
-/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
-"kE2-GK-JIe.title" = "PNG качество";
+/* Note about temporary setting "This setting will reset every time ImageOptim is started"; ObjectID = "WaY-uF-lKy"; */
+"WaY-uF-lKy.title" = "Эта настройка будет сброшена при следующем старте ImageOptim";
 
+/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "Качество PNG";
+
+/* Checkbox "Temporarily enable lossy minification"; ObjectID = "wBg-dc-7uj"; */
+"wBg-dc-7uj.title" = "Временно включить минимизацию с потерями";
