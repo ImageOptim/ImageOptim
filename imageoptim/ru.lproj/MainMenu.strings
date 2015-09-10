@@ -10,9 +10,6 @@
 /* Top-level Main Menu "Window" */
 "24.title" = "Окно";
 
-/* Class = "NSMenu"; title = "MainMenu"; ObjectID = "29"; */
-"29.title" = "ОсновноеМеню";
-
 /* Top-level Main Menu "Services" */
 "130.title" = "Службы";
 
@@ -38,7 +35,7 @@
 "236.ibExternalAccessibilityDescription" = "Список файлов для оптимизации";
 
 /* Table Column Title (MUST BE SHORT) "File" */
-"238.headerCell.title" = "Имя файла";
+"238.headerCell.title" = "Файл";
 
 /* Table Column Title (MUST BE SHORT) "Size" */
 "239.headerCell.title" = "Размер";
@@ -91,6 +88,9 @@
 /* Button Tooltip "Add new files or directories" */
 "423.ibExternalAccessibilityDescription" = "Добавить новые файлы или папки";
 
+/* Button "Add" */
+"423.ibShadowedToolTip" = "Добавить";
+
 /* Menu Item "File" */
 "429.title" = "Файл";
 
@@ -107,13 +107,13 @@
 "462.ibExternalAccessibilityDescription" = "Состояние оптимизации";
 
 /* Class = "NSMenuItem"; title = "Close Window"; ObjectID = "498"; */
-"498.title" = "Закрыть";
-
-/* Menu Item "Help" */
-"504.title" = "Справка";
+"498.title" = "Закрыть окно";
 
 /* Top-level Main Menu "Help" */
 "505.title" = "Справка";
+
+/* Menu Item "Help" */
+"504.title" = "Справка";
 
 /* Menu Item "ImageOptim Help" */
 "506.title" = "Справка ImageOptim";
@@ -129,9 +129,6 @@
 
 /* TextFieldCell "Drag and drop image files onto the area above" */
 "632.title" = "Перетяните файлы изображений в область выше";
-
-/* Button "Add" */
-"423.ibShadowedToolTip" = "Добавить";
 
 /* Button; alternateTitle = "Run optimizations again" */
 "635.alternateTitle" = "Запустить оптимизации еще раз";
@@ -170,7 +167,7 @@
 "733.title" = "Веб-страница ImageOptim";
 
 /* Menu Item "View Source" */
-"735.title" = "Смотреть исходники";
+"735.title" = "Показать исходный код";
 
 /* Menu Item "Optimized Size" */
 "740.title" = "Оптимизированный размер";
@@ -188,7 +185,7 @@
 "791.title" = "Размер оригинала";
 
 /* Table Column Title (MUST BE SHORT) "Original Size" */
-"795.headerCell.title" = "Размер оригинала";
+"795.headerCell.title" = "Оригинал";
 
 /* Menu Item "Show Columns" */
 "809.title" = "Показать столбцы";
@@ -196,9 +193,23 @@
 /* Menu Item "Donate" */
 "820.title" = "Пожертвовать";
 
+/* Class = "NSMenuItem"; title = "Revert to Original"; ObjectID = "FLl-C9-GLI"; */
+"FLl-C9-GLI.title" = "Вернуть к оригиналу";
+
 /* Class = "NSMenuItem"; title = "Quality: 100%"; ObjectID = "Grx-lU-4x5"; */
 "Grx-lU-4x5.title" = "Качество: 100%";
+
+/* Class = "NSMenuItem"; title = "Stop"; ObjectID = "HUo-GO-MIU"; */
+"HUo-GO-MIU.title" = "Остановить";
 
 /* Menu Item "Copy as Data URL"; ID "NlY-Bc-7tu"; */
 "NlY-Bc-7tu.title" = "Копировать как Data URL";
 
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "ddH-3k-EuT"; */
+"ddH-3k-EuT.title" = "Показать в Finder";
+
+/* Class = "NSMenuItem"; title = "Lossy minification"; ObjectID = "euw-8w-uMu"; */
+"euw-8w-uMu.title" = "Минимизация с потерями";
+
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "p0m-mn-Gep"; */
+"p0m-mn-Gep.title" = "Показать в Finder";
