@@ -7,7 +7,7 @@ all: $(SUBMODULES) pngout helpindexes
 
 $(SUBMODULES): ../.gitmodules
 	git submodule init $(shell dirname $@)
-	git submodule update --depth=1 $(shell dirname $@) && touch $@
+	git submodule update --depth=100 $(shell dirname $@) && touch $@
 
 pngout:
 	curl http://static.jonof.id.au/dl/kenutils/pngout-20150319-darwin.tar.gz | tar xz
