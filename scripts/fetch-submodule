@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Set lock file path to this script dir
+LOCKFILE="$(dirname "$PWD/$0")/.lock"
+
+# Remove lock file on exit under any circumstances
+trap "rm -f $LOCKFILE" EXIT
+
+# Set lockfile and check it every second if it already locked
+lockfile -1 $LOCKFILE
+git submodule update --init $1

@@ -3,8 +3,7 @@ build: all
 all: zopfli/src
 
 zopfli/src: ../.gitmodules
-	git submodule init zopfli
-	git submodule update --depth=100 zopfli && touch zopfli/src
+	../scripts/fetch-submodule zopfli && touch zopfli/src
 
 .PHONY: build all install clean
 
