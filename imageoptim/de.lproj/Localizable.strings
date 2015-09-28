@@ -5,31 +5,37 @@
 "Add" = "Hinzufügen";
 
 /* tooltip */
-"All neccessary tools have been disabled in Preferences" = "Alle benötigten Programme wurden in den Einstellungen deaktiviert";
+"All neccessary tools have been disabled in Preferences" = "Alle benötigten Werkzeuge wurden in den Einstellungen deaktiviert";
 
 /* tooltip, generic loading error */
-"Can't open the file" = "Die Datei konnte nicht in den Speicher geladen werden";
+"Can't open the file" = "Datei konnte nicht geöffnet werden";
 
 /* undo command name */
 "Cut" = "Ausschneiden";
 
 /* tooltip */
-"File cannot be optimized any further" = "Die Datei kann nicht mehr weiter optimiert werden";
+"File cannot be optimized any further" = "Datei kann nicht weiter optimiert werden";
 
 /* tooltip */
-"File is neither PNG, GIF nor JPEG" = "Datei ist weder PNG, GIF noch JPEG";
+"File is neither PNG, GIF nor JPEG" = "Dateityp ist weder PNG noch GIF oder JPEG";
 
 /* tooltip */
-"Inspecting file" = "Datei wird inspiziert";
+"Inspecting file" = "Datei wird untersucht";
 
 /* newly added to the queue */
 "New file" = "Neue Datei";
 
 /* tooltip */
-"Optimized file could not be saved" = "Die optimierte Datei konnte nicht gespeichert werden";
+"Optimized file could not be saved" = "Optimierte Datei konnte nicht gesichert werden";
 
 /* tooltip */
 "Optimized successfully with %@" = "Erfolgreich mit %@ optimiert";
+
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "%@ von %@ eingespart, insgesamt %@ (bis zu %@ pro Datei)";
+
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "%@ von %@ eingespart, im Durchschnitt %@ pro Datei (bis zu %@)";
 
 /* command name, tooltip */
 "Started %@" = "%@ wurde gestartet";
@@ -38,5 +44,4 @@
 "Waiting to be optimized" = "Warte auf Optimierung";
 
 /* tooltip */
-"Waiting to start more optimizations" = "Warte darauf weitere Optimierungen starten zu können";
-
+"Waiting to start more optimizations" = "Warte auf den Start weiterer Optimierungen";
