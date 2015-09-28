@@ -1,11 +1,11 @@
 /* Menu Item "Bring All to Front" */
-"5.title" = "Alle anzeigen";
+"5.title" = "Alle nach vorne bringen";
 
 /* Menu Item "Window" */
 "19.title" = "Fenster";
 
 /* Menu Item "Minimize" */
-"23.title" = "Minimieren";
+"23.title" = "Im Dock ablegen";
 
 /* Top-level Main Menu "Window" */
 "24.title" = "Fenster";
@@ -31,8 +31,11 @@
 /* Menu Item "Show All" */
 "150.title" = "Alle anzeigen";
 
+/* Menu Item "Zoom" */
+"197.title" = "Zoomen";
+
 /* ScrollView Tooltip "List of files to optimize" */
-"236.ibExternalAccessibilityDescription" = "Liste von Dateien die auf die Optimierung warten";
+"236.ibExternalAccessibilityDescription" = "Liste von Dateien, die auf die Optimierung warten";
 
 /* Table Column Title (MUST BE SHORT) "File" */
 "238.headerCell.title" = "Datei";
@@ -47,13 +50,13 @@
 "239.ibExternalAccessibilityDescription" = "Größe der Datei nach der Optimierung";
 
 /* Table Column Title (MUST BE SHORT) "Savings" */
-"243.headerCell.title" = "Einsparungen";
+"243.headerCell.title" = "Ersparnis";
 
 /* Menu Item "About ImageOptim" */
 "361.title" = "Über ImageOptim";
 
 /* Menu Item "Preferences…" */
-"363.title" = "Einstellungen…";
+"363.title" = "Einstellungen …";
 
 /* Menu Item "Edit" */
 "375.title" = "Bearbeiten";
@@ -62,13 +65,13 @@
 "376.title" = "Bearbeiten";
 
 /* Menu Item "Select All" */
-"377.title" = "Alle auswählen";
+"377.title" = "Alles auswählen";
 
 /* Menu Item "Undo" */
-"378.title" = "Wiederrufen";
+"378.title" = "Widerrufen";
 
 /* Menu Item "Redo" */
-"384.title" = "Wiederherstellen";
+"384.title" = "Wiederholen";
 
 /* Menu Item "Cut" */
 "398.title" = "Ausschneiden";
@@ -77,7 +80,7 @@
 "399.title" = "Kopieren";
 
 /* Menu Item "Paste" */
-"400.title" = "Einfügen";
+"400.title" = "Einsetzen";
 
 /* Menu Item "Delete" */
 "402.title" = "Löschen";
@@ -86,13 +89,13 @@
 "423.ibExternalAccessibilityDescription" = "Neue Dateien oder Verzeichnisse hinzufügen";
 
 /* Menu Item "File" */
-"429.title" = "Datei";
+"429.title" = "Ablage";
 
 /* Top-level Main Menu "File" */
-"430.title" = "Datei";
+"430.title" = "Ablage";
 
 /* Menu Item "Add Files…" */
-"437.title" = "Dateien hinzufügen…";
+"437.title" = "Dateien hinzufügen …";
 
 /* Table Column Tooltip "Optimization status" */
 "462.headerToolTip" = "Optimierungsstatus";
@@ -110,7 +113,7 @@
 "505.title" = "Hilfe";
 
 /* Menu Item "ImageOptim Help" */
-"506.title" = "ImageOptim Hilfe";
+"506.title" = "ImageOptim-Hilfe";
 
 /* Window Title "About ImageOptim" */
 "526.title" = "Über ImageOptim";
@@ -119,16 +122,16 @@
 "593.title" = "Optimierung wiederholen";
 
 /* Menu Item "Check for Updates…" */
-"624.title" = "Nach Aktualisierungen suchen…";
+"624.title" = "Nach Aktualisierungen suchen …";
 
 /* TextFieldCell "Drag and drop image files onto the area above" */
-"632.title" = "Dateien per Drag'n'drop zur Liste oben hinzufügen";
+"632.title" = "Ziehen Sie Dateien zum Optimieren in den oberen Bereich.";
 
 /* Button "Add" */
 "423.ibShadowedToolTip" = "Hinzufügen";
 
 /* Button; alternateTitle = "Run optimizations again" */
-"635.alternateTitle" = "Fertige löschen";
+"635.alternateTitle" = "Erneut optimieren";
 
 /* Button "Again" */
 "635.title" = "Wiederholen";
@@ -146,37 +149,40 @@
 "656.title" = "Werkzeuge";
 
 /* Menu Item "Quick Look" */
-"708.title" = "Schnelle Vorschau";
+"708.title" = "Übersicht";
 
 /* Class = "DragDropImageView Tooltip "Drop images here" */
 "712.ibExternalAccessibilityDescription" = "Bilder hier fallenlassen";
 
 /* Menu Item "Delete Completed" */
-"721.title" = "Fertige Löschen";
+"721.title" = "Fertige löschen";
+
+/* Menu Item "Optimize Optimized" */
+"725.title" = "Optimierte optimieren";
 
 /* Menu Item "ImageOptim Website" */
-"733.title" = "ImageOptim Webseite";
+"733.title" = "ImageOptim-Website";
 
 /* Menu Item "View Source" */
-"735.title" = "Quelle ansehen";
+"735.title" = "Quelltext ansehen";
 
 /* Menu Item "Optimized Size" */
 "740.title" = "Größe";
 
 /* Menu Item "Savings" */
-"741.title" = "Einsparungen";
+"741.title" = "Ersparnis";
 
 /* Menu Item "Best tool" */
-"747.title" = "Werkzeuge";
+"747.title" = "Werkzeug";
 
 /* Table Column Title (MUST BE SHORT) "Best tool" */
-"771.headerCell.title" = "Werkzeuge";
+"771.headerCell.title" = "Werkzeug";
 
 /* Menu Item "Original Size" */
 "791.title" = "Originalgröße";
 
 /* Table Column Title (MUST BE SHORT) "Original Size" */
-"795.headerCell.title" = "Originalgröße";
+"795.headerCell.title" = "Orig. Größe";
 
 /* Menu Item "Show Columns" */
 "809.title" = "Spalten anzeigen";
@@ -194,5 +200,13 @@
 "HUo-GO-MIU.title" = "Stopp";
 
 /* Menu Item "Copy as Data URL"; ID "NlY-Bc-7tu"; */
-"NlY-Bc-7tu.title" = "Als Daten-URL kopieren";
+"NlY-Bc-7tu.title" = "Als Data-URL kopieren";
 
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "ddH-3k-EuT"; */
+"ddH-3k-EuT.title" = "Im Finder anzeigen";
+
+/* Class = "NSMenuItem"; title = "Lossy minification"; ObjectID = "euw-8w-uMu"; */
+"euw-8w-uMu.title" = "Verlustbehaftet";
+
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "p0m-mn-Gep"; */
+"p0m-mn-Gep.title" = "Im Finder anzeigen";

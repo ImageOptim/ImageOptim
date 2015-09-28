@@ -5,13 +5,13 @@
 "167.label" = "Allgemein";
 
 /* Tab "Optimization speed" (speed/efficiency trade-off) */
-"168.label" = "Optimierungsgrad";
+"168.label" = "Geschwindigkeit";
 
 /* Tab quality (for lossy minification) */
 "177.label" = "Qualität";
 
 /* Title in box "Writing files to disk" */
-"280.title" = "Dateien werden auf die Festplatte geschrieben";
+"280.title" = "Sichern der Dateien";
 
 /* checkbox "Preserve file permissions, attributes and hardlinks" */
 "804.title" = "Dateiberechtigungen, -attribute und Hardlinks erhalten";
@@ -26,26 +26,34 @@
 "820.title" = "Wahnsinnig";
 
 /* Checkbox in Preferences */
-"854.title" = "PNG: Entferne alle optionalen Segmente";
+"854.title" = "PNG-Metadaten (Gamma, Farbprofil, optionale Chunks) entfernen";
 
 /* note "Web browsers require gamma chunks to be removed" */
-"865.title" = "Web Browser erwarten entfernte Gamma Daten";
+"865.title" = "Web-Browser erwarten entfernte Gamma-Daten.";
 
 /* label "JPEG quality" */
 "868.title" = "JPEG-Qualität";
 
 /* Checkbox in Preferences */
-"911.title" = "JPEG: Entferne EXIF Markierungen und Kommentare";
+"911.title" = "JPEG-Metadaten (EXIF, Farbprofil, GPS, Ausrichtung, …) entfernen";
 
 /* Box title "Metadata and color profiles" */
-"1043.title" = "Metadata";
+"1043.title" = "Metadaten und Farbprofile";
 
 /* Header above list of tools to enable */
-"1107.title" = "Aktiviert";
+"1107.title" = "Aktivieren";
+
+/* "Saving to network drives is faster when permissions are not preserved" */
+"1122.title" = "Sichern auf Netzlaufwerken wird hierduch langsamer.";
 
 /* If stripping metadata "Not recommended if you rely on embedded copyright information" */
-"1124.title" = "Wird nicht empfohlen wenn Sie Copyright bzw. Urheberinformationen in den Meta-Daten brauchen.";
+"1124.title" = "Nicht empfohlen bei eingebetteten Copyright-Informationen.";
+
+/* Note about temporary setting "This setting will reset every time ImageOptim is started"; ObjectID = "WaY-uF-lKy"; */
+"WaY-uF-lKy.title" = "Diese Einstellung wird beim nächsten Start zurückgesetzt.";
 
 /* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG-Qualität";
 
+/* Checkbox "Temporarily enable lossy minification"; ObjectID = "wBg-dc-7uj"; */
+"wBg-dc-7uj.title" = "Verlustbehaftete Komprimierung vorübergehend aktivieren";
