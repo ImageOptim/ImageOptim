@@ -29,7 +29,7 @@
 "Optimized file could not be saved" = "Оптимизированный файл не может быть сохранен";
 
 /* tooltip */
-"Optimized successfully with %@" = "Успешно оптимизированно используя %@";
+"Optimized successfully with %@" = "Успешно оптимизировано, используя %@";
 
 /* total ratio, status bar */
 "Saved %@ out of %@. %@ overall (up to %@ per file)" = "Сэкономлено %1$@ из  %2$@. %3$@ всего (до %4$@ на файл)";
@@ -45,4 +45,3 @@
 
 /* tooltip */
 "Waiting to start more optimizations" = "Ожидание начала дальнейших оптимизаций";
-
