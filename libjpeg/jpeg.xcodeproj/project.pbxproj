@@ -244,7 +244,7 @@
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0710;
 				TargetAttributes = {
 					5AB114FB1B52B11A00A3C73A = {
 						CreatedOnToolsVersion = 7.0;
@@ -353,6 +353,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9E6139B08640095FC2F /* debug.xcconfig */;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				LD_DYLIB_INSTALL_NAME = "@loader_path/libimageoptimjpeg.dylib";
 				ONLY_ACTIVE_ARCH = YES;
 				SKIP_INSTALL = YES;

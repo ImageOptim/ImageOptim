@@ -271,7 +271,7 @@
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0710;
 			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "pngquant" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -397,6 +397,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5AED10E9139BD4C900FF5C69 /* debug.xcconfig */;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					HAVE_CONFIG_H,
 					PNG_CONFIGURE_LIBPNG,

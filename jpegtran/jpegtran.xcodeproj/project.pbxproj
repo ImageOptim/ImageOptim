@@ -122,7 +122,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0710;
 			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "jpegtran" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -211,6 +211,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27BA27139B08E10095FC2F /* debug.xcconfig */;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
 			};

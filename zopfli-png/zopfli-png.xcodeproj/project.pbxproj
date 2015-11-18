@@ -200,7 +200,7 @@
 		5A1EBE6217908D9D00361F08 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0710;
 				TargetAttributes = {
 					5AD202B21B52A641000D4FF2 = {
 						CreatedOnToolsVersion = 7.0;
@@ -292,6 +292,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A1EBEB417908E7400361F08 /* debug.xcconfig */;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
 					NS_BLOCK_ASSERTIONS,
@@ -371,6 +372,7 @@
 				5AD202B41B52A641000D4FF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

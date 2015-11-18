@@ -202,7 +202,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0710;
 			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "optipng" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -310,6 +310,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27BA55139B097C0095FC2F /* debug.xcconfig */;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = NO;

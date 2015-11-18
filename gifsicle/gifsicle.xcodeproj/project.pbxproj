@@ -139,7 +139,7 @@
 		08FB7793FE84155DC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0710;
 				TargetAttributes = {
 					5AD202A81B52A5AB000D4FF2 = {
 						CreatedOnToolsVersion = 7.0;
@@ -217,6 +217,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9D3139B07EA0095FC2F /* debug.xcconfig */;
 			buildSettings = {
+				ENABLE_TESTABILITY = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
 				GCC_THREADSAFE_STATICS = NO;
 				HEADER_SEARCH_PATHS = (
@@ -288,6 +289,7 @@
 				5AD202AA1B52A5AB000D4FF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
