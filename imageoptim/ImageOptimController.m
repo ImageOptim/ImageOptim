@@ -43,8 +43,6 @@ static const char *kIMPreviewPanelContext = "preview";
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults registerDefaults:defs];
     
-    [userDefaults setBool:NO forKey:@"LossyEnabled"];
-
     IOSharedPrefsCopy(userDefaults);
 
     [filesController configureWithTableView:tableView];
