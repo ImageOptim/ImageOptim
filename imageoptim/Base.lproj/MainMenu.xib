@@ -683,7 +683,6 @@ CA
                 <outlet property="credits" destination="530" id="707"/>
                 <outlet property="filesController" destination="251" id="274"/>
                 <outlet property="originalSizeColumn" destination="795" id="807"/>
-                <outlet property="progressBar" destination="428" id="465"/>
                 <outlet property="savingsColumn" destination="243" id="770"/>
                 <outlet property="sizeColumn" destination="239" id="755"/>
                 <outlet property="statusBarLabel" destination="294" id="700"/>
