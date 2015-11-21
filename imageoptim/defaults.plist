@@ -30,6 +30,8 @@
 	<true/>
 	<key>GifsicleEnabled</key>
 	<true/>
+	<key>GifQuality</key>
+	<integer>80</integer>
 	<key>PreservePermissions</key>
 	<true/>
 	<key>RunConcurrentDirscans</key>

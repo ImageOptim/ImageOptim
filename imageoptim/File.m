@@ -461,7 +461,7 @@
 -(void)setSettingsHash:(NSArray*)allWorkers {
     CC_MD5_CTX md5ctx = {};
     CC_MD5_Init(&md5ctx);
-    CC_MD5_Update(&md5ctx, "2", 1); // to update when programs change
+    CC_MD5_Update(&md5ctx, "3", 1); // to update when programs change
     for (Worker *w in allWorkers) {
         NSInteger tmp = [w settingsIdentifier];
         CC_MD5_Update(&md5ctx, &tmp, sizeof(tmp));
@@ -503,13 +503,14 @@
 
     NSMutableArray *worker_list = [NSMutableArray new];
     NSInteger level = [defs integerForKey:@"AdvPngLevel"]; // AdvPNG setting is reused for all tools now
+    BOOL lossyEnabled = [defs boolForKey:@"LossyEnabled"];
 
     if (fileType == FILETYPE_PNG) {
         if (hasBeenRunBefore) {
             level++;
         }
 
-        if ([defs boolForKey:@"LossyEnabled"]) {
+        if (lossyEnabled) {
             NSInteger pngQuality = [defs integerForKey:@"PngMinQuality"];
             if (!lossyConverted && pngQuality < 100 && pngQuality > 30) {
                 Worker *w = [[PngquantWorker alloc] initWithLevel:level minQuality:pngQuality file:self];
@@ -546,9 +547,16 @@
         if ([defs boolForKey:@"JpegTranEnabled"]) [worker_list addObject:[[JpegtranWorker alloc] initWithDefaults:defs file:self]];
     } else if (fileType == FILETYPE_GIF) {
         if ([defs boolForKey:@"GifsicleEnabled"]) {
-            [worker_list addObject:[[GifsicleWorker alloc] initWithInterlace:NO file:self]];
-            if (level > 1) {
-                [worker_list addObject:[[GifsicleWorker alloc] initWithInterlace:YES file:self]];
+            NSInteger gifQuality = [defs integerForKey:@"GifQuality"];
+            if (lossyEnabled && !lossyConverted && gifQuality < 100 && gifQuality > 30) {
+                Worker *w = [[GifsicleWorker alloc] initWithInterlace:NO quality:gifQuality file:self];
+                [runFirst addObject:w];
+                lossyConverted = YES;
+            } else {
+                [worker_list addObject:[[GifsicleWorker alloc] initWithInterlace:NO quality:100 file:self]];
+                if (level > 1) {
+                    [worker_list addObject:[[GifsicleWorker alloc] initWithInterlace:YES quality:100 file:self]];
+                }
             }
         }
     } else {
