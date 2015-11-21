@@ -37,7 +37,7 @@ extern NSDictionary *statusImages;
 -(IBAction)browseForFiles:(id)sender;
 
 @property (readonly) int numberOfCPUs;
--(void)loadCreditsHTML;
+-(void)loadCreditsHTML:(id)_;
 
 @property (unsafe_unretained, readonly) FilesController *filesController;
 @end

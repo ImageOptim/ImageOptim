@@ -182,13 +182,13 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
     [credits setString:@""];
 
     // this creates and sets the text for textview
-    [self loadCreditsHTML];
+    [self performSelectorInBackground:@selector(loadCreditsHTML:) withObject:nil];
 
     [self initStatusbar];
 }
 
 
--(void)loadCreditsHTML {
+-(void)loadCreditsHTML:(id)_unused {
 
     static const char header[] = "<!DOCTYPE html>\
     <meta charset=utf-8>\
