@@ -43,6 +43,8 @@ static const char *kIMPreviewPanelContext = "preview";
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults registerDefaults:defs];
     
+    [self initStatusbarWithDefaults:userDefaults];
+
     IOSharedPrefsCopy(userDefaults);
 
     [filesController configureWithTableView:tableView];
@@ -80,8 +82,14 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
     return [[formatter stringFromNumber:@(size)] stringByAppendingString:unit];
 };
 
+static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name, NSString *key, NSMutableArray *arr) {
+    NSInteger q = [defs integerForKey:key];
+    if (q > 0 && q < 100) {
+        [arr addObject:[NSString stringWithFormat:@"%@ %ld%%", name, q]];
+    }
+}
 
--(void)initStatusbar {
+-(void)initStatusbarWithDefaults:(NSUserDefaults *)defs {
     [[statusBarLabel cell] setBackgroundStyle:NSBackgroundStyleRaised];
 
     static BOOL overallAvg = NO;
@@ -102,6 +110,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
                            dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0));
     dispatch_source_set_event_handler(statusBarUpdateQueue, ^ {
         NSString *str = defaultText;
+        BOOL selectable = NO;
         @synchronized(filesController) {
             long long bytesTotal=0, optimizedTotal=0;
             double optimizedFractionTotal=0, maxOptimizedFraction=0;
@@ -122,7 +131,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
                 }
             }
 
-            if (fileCount > 1) {
+            if (fileCount > 1 && bytesTotal) {
                 const double savedTotal = 1.0 - (double)optimizedTotal/(double)bytesTotal;
                 const double savedAvg = optimizedFractionTotal/(double)fileCount;
                 if (savedTotal > 0.001) {
@@ -149,6 +158,19 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
                            formatSize(bytesTotal, formatter),
                            [percFormatter stringFromNumber: @(avgNum)],
                            [percFormatter stringFromNumber: @(maxOptimizedFraction)]];
+                    selectable = YES;
+                }
+            } else {
+                if ([defs boolForKey:@"LossyEnabled"]) {
+                    NSMutableArray *arr = [NSMutableArray new];
+                    appendFormatNameIfLossyEnabled(defs, @"JPEG", @"JpegOptimMaxQuality", arr);
+                    appendFormatNameIfLossyEnabled(defs, @"PNG", @"PngMinQuality", arr);
+                    appendFormatNameIfLossyEnabled(defs, @"GIF", @"GifQuality", arr);
+                    if ([arr count]) {
+                        str = [NSString stringWithFormat:@"%@ (%@)",
+                                                      NSLocalizedString(@"Lossy minification enabled", @"status bar"),
+                                                      [arr componentsJoinedByString:@", "]];
+                    }
                 }
             }
 
@@ -157,7 +179,7 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
 
         dispatch_async(dispatch_get_main_queue(), ^() {
             [statusBarLabel setStringValue:str];
-            [statusBarLabel setSelectable:(str != defaultText)];
+            [statusBarLabel setSelectable:selectable];
         });
         usleep(100000); // 1/10th of a sec to avoid updating statusbar as fast as possible (100% cpu on the statusbar alone is ridiculous)
     });
@@ -166,6 +188,12 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
     [filesController addObserver:self forKeyPath:@"arrangedObjects.@count" options:0 context:nil];
     [filesController addObserver:self forKeyPath:@"arrangedObjects.@sum.byteSizeOptimized" options:0 context:nil];
     [filesController addObserver:self forKeyPath:@"selectionIndexes" options:0 context:(void*)kIMPreviewPanelContext];
+
+    dispatch_source_merge_data(statusBarUpdateQueue, 1); // Initial display
+
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSUserDefaultsDidChangeNotification object:defs queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note){
+        dispatch_source_merge_data(statusBarUpdateQueue, 1);
+    }];
 }
 
 -(void)awakeFromNib {
@@ -181,8 +209,6 @@ static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
 
     // this creates and sets the text for textview
     [self performSelectorInBackground:@selector(loadCreditsHTML:) withObject:nil];
-
-    [self initStatusbar];
 }
 
 
