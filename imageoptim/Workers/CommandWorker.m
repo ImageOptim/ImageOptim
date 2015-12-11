@@ -46,6 +46,10 @@
 {
     task = [NSTask new];
 
+    if ([task respondsToSelector:@selector(setQualityOfService:)]) {
+        task.qualityOfService = NSQualityOfServiceUtility;
+    }
+
     IODebug("Launching %@ %@",path,[arguments componentsJoinedByString:@" "]);
 
     [task setLaunchPath: path];

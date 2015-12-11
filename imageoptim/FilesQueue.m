@@ -17,6 +17,7 @@
     self = [super init];
     if (self) {
         self.defaults = defaults;
+        BOOL lowPriority = [defaults boolForKey:@"RunLowPriority"];
 
         cpuQueue = [NSOperationQueue new];
         [cpuQueue setMaxConcurrentOperationCount:cpus?cpus:NSOperationQueueDefaultMaxConcurrentOperationCount];
@@ -26,6 +27,12 @@
 
         fileIOQueue = [NSOperationQueue new];
         [fileIOQueue setMaxConcurrentOperationCount:fileops?fileops:2];
+
+        if ([cpuQueue respondsToSelector:@selector(setQualityOfService:)]) {
+            cpuQueue.qualityOfService = lowPriority ? NSQualityOfServiceUtility : NSQualityOfServiceUserInitiated;
+            fileIOQueue.qualityOfService = lowPriority ? NSQualityOfServiceUtility : NSQualityOfServiceUserInitiated;
+            dirWorkerQueue.qualityOfService = NSQualityOfServiceUserInitiated;
+        }
     }
     return self;
 }
