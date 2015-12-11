@@ -162,11 +162,12 @@
 /* Begin PBXLegacyTarget section */
 		5A984AA611238023007622D7 /* download */ = {
 			isa = PBXLegacyTarget;
-			buildArgumentsString = "$(ACTION)";
+			buildArgumentsString = "";
 			buildConfigurationList = 5A984ABF112380E4007622D7 /* Build configuration list for PBXLegacyTarget "download" */;
 			buildPhases = (
 			);
 			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = "";
 			dependencies = (
 			);
 			name = download;
