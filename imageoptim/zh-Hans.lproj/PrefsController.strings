@@ -8,13 +8,16 @@
 "280.title" = "将文件写入磁盘";
 
 /* checkbox "Preserve file permissions, attributes and hardlinks" */
-"804.title" = "保存文件的权限、 属性及永久链接";
+"804.title" = "保留文件的权限、属性和硬链接";
 
 /* label in speed tab "Optimization level" */
-"818.title" = "压缩级别";
+"818.title" = "优化级别";
 
 /* "Fast" */
 "819.title" = "快速";
+
+/* "Insane" */
+"820.title" = "疯狂";
 
 /* "Normal" */
 "821.title" = "普通";
@@ -23,19 +26,16 @@
 "822.title" = "额外";
 
 /* button "Make images interlaced (progressive)"; ObjectID = "828"; */
-"828.title" = "使图片交错化处理 (渐进式的)";
-
-/* "Optimization level" */
-"829.title" = "压缩级别";
+"828.title" = "使图片交错化 (渐进式载入)";
 
 /* "Interlaced files are usually larger"; ObjectID = "831"; */
 "831.title" = "交错化处理的文件通常会更大些";
 
 /* Checkbox in Preferences */
-"854.title" = "PNG: 清除所有輔助資料塊";
+"854.title" = "剔除 PNG 元数据（伽马值、颜色配置、可选区块）";
 
 /* "Optimization type" */
-"856.title" = "压缩类型";
+"856.title" = "优化类型";
 
 /* Optimization level: "Simple" */
 "857.title" = "简单";
@@ -43,15 +43,36 @@
 /* Optimization level: "Longest match" */
 "861.title" = "最长匹配";
 
+/* note "Web browsers require gamma chunks to be removed" */
+"865.title" = "Web 浏览器需要的伽马值区块将被去除";
+
+/* label "JPEG quality" */
+"868.title" = "JPEG 质量";
+
 /* Checkbox in Preferences */
-"911.title" = "JPEG: 移除EXIF訊息及註解";
+"911.title" = "剔除 JPEG 元数据（EXIF、颜色配置、GPS 位置、旋转方向等）";
 
 /* button "Interrupt if takes too long to execute"; ObjectID = "946"; */
-"946.title" = "如果执行时间太长刚中断";
+"946.title" = "如果执行时间太长则中断";
 
 /* Box title "Metadata and color profiles" */
 "1043.title" = "元数据和颜色配置文件";
 
 /* Header above list of tools to enable */
 "1107.title" = "启用";
+
+/* "Saving to network drives is faster when permissions are not preserved" */
+"1122.title" = "不保留权限时保存到网络驱动器会更快";
+
+/* If stripping metadata "Not recommended if you rely on embedded copyright information" */
+"1124.title" = "不推荐，如果你依赖嵌入式的版权信息";
+
+/* Note about temporary setting "This setting will reset every time ImageOptim is started"; ObjectID = "WaY-uF-lKy"; */
+"WaY-uF-lKy.title" = "此设置将每次在 ImageOptim 启动时重置";
+
+/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG 质量";
+
+/* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
+"wBgxz7uj.title" = "临时启用有损压缩";
 

@@ -32,26 +32,8 @@
 /* "Extra" */
 "822.title" = "Extra";
 
-/* "Optimization level" */
-"829.title" = "Optimization level";
-
 /* Checkbox in Preferences */
 "854.title" = "Strip PNG metadata (gamma, color profiles, optional chunks)";
-
-/* "Optimization type" */
-"856.title" = "Optimization type";
-
-/* Optimization level: "Simple" */
-"857.title" = "Simple";
-
-/* Optimization level: "Xtreme" */
-"858.title" = "Xtreme";
-
-/* Optimization level: "Intense" */
-"860.title" = "Intense";
-
-/* Optimization level: "Longest match" */
-"861.title" = "Longest match";
 
 /* note "Web browsers require gamma chunks to be removed" */
 "865.title" = "Web browsers require gamma chunks to be removed";
@@ -74,11 +56,14 @@
 /* If stripping metadata "Not recommended if you rely on embedded copyright information" */
 "1124.title" = "Not recommended if you rely on embedded copyright information";
 
-/* Note about temporary setting "This setting will reset every time ImageOptim is started"; ObjectID = "WaY-uF-lKy"; */
-"WaY-uF-lKy.title" = "This setting will reset every time ImageOptim is started";
+/* Class = "NSTextFieldCell"; title = "GIF quality"; ObjectID = "OIX-Pu-xXQ"; */
+"OIX-Pu-xXQ.title" = "GIF quality";
+
+/* "Makes files much smaller, but may change how images look"; (Note about setting lossy on) */
+"LossTipTxt.title" = "Makes files much smaller, but may change how images look";
 
 /* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG quality";
 
-/* Checkbox "Temporarily enable lossy minification"; ObjectID = "wBg-dc-7uj"; */
-"wBg-dc-7uj.title" = "Temporarily enable lossy minification";
+/* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
+"wBgxz7uj.title" = "Enable lossy minification";

@@ -49,6 +49,6 @@
 /* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "Calitate PNG";
 
-/* Checkbox "Temporarily enable lossy minification"; ObjectID = "wBg-dc-7uj"; */
-"wBg-dc-7uj.title" = "Activează temporar minimizarea cu pierderi";
+/* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
+"wBgxz7uj.title" = "Activează minimizarea cu pierderi";
 

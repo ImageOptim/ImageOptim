@@ -1,11 +1,11 @@
 /* Button; alternateTitle = "Run optimizations again" */
-"635.alternateTitle" = "再次运行压缩";
+"635.alternateTitle" = "再次运行优化";
 
 /* Button "Again" */
-"635.title" = "再处理";
+"635.title" = "再次";
 
 /* TextFieldCell "Drag and drop image files onto the area above" */
-"632.title" = "托拽图像文件到上方区域";
+"632.title" = "拖放图像文件到上方区域";
 
 /* Table Column Title (MUST BE SHORT) "File" */
 "238.headerCell.title" = "文件";
@@ -14,10 +14,10 @@
 "239.headerCell.title" = "大小";
 
 /* Table Column Tooltip "Size of file after optimization" */
-"239.headerToolTip" = "压缩后的文件大小";
+"239.headerToolTip" = "优化后的文件大小";
 
 /* Table Column Tooltip "Size of file after optimization" */
-"239.ibExternalAccessibilityDescription" = "压缩后的文件大小";
+"239.ibExternalAccessibilityDescription" = "优化后的文件大小";
 
 /* Table Column Title (MUST BE SHORT) "Savings" */
 "243.headerCell.title" = "保存";
@@ -53,7 +53,7 @@
 "399.title" = "复制";
 
 /* Menu Item "Copy as Data URL"; ID "NlY-Bc-7tu"; */
-"NlY-Bc-7tu.title" = "作为数据 URL 复制";
+"NlY-Bc-7tu.title" = "复制为数据 URL";
 
 /* Menu Item "Paste" */
 "400.title" = "粘贴";
@@ -74,13 +74,16 @@
 "437.title" = "添加文件...";
 
 /* Table Column Tooltip "Optimization status" */
-"462.headerToolTip" = "压缩状态";
+"462.headerToolTip" = "优化状态";
 
 /* Table Column Tooltip "Optimization status" */
-"462.ibExternalAccessibilityDescription" = "压缩状态";
+"462.ibExternalAccessibilityDescription" = "优化状态";
+
+/* Class = "NSMenuItem"; title = "Close Window"; ObjectID = "498"; */
+"498.title" = "关闭窗口";
 
 /* Menu Item "Optimize Again" */
-"593.title" = "再次压缩";
+"593.title" = "再次优化";
 
 /* Button "Add" */
 "633.title" = "添加";
@@ -109,6 +112,9 @@
 /* Menu Item "Delete Completed" */
 "721.title" = "删除已完成";
 
+/* Menu Item "Optimize Optimized" */
+"725.title" = "优化已优化的";
+
 /* Menu Item "ImageOptim Website" */
 "733.title" = "ImageOptim 网站";
 
@@ -119,7 +125,7 @@
 "809.title" = "显示的列";
 
 /* Menu Item "Optimized Size" */
-"740.title" = "压缩的大小";
+"740.title" = "优化的大小";
 
 /* Menu Item "Savings" */
 "741.title" = "保存";
@@ -155,7 +161,7 @@
 "526.title" = "关于 ImageOptim";
 
 /* ScrollView Tooltip "List of files to optimize" */
-"236.ibExternalAccessibilityDescription" = "要压缩的文件列表";
+"236.ibExternalAccessibilityDescription" = "要优化的文件列表";
 
 /* Menu Item "Bring All to Front" */
 "5.title" = "前置全部窗口";
@@ -184,9 +190,27 @@
 /* Menu Item "Hide Others" */
 "145.title" = "隐藏其他";
 
+/* Class = "NSMenuItem"; title = "Revert to Original"; ObjectID = "FLl-C9-GLI"; */
+"FLl-C9-GLI.title" = "恢复原状";
+
 /* Menu Item "Show All" */
 "150.title" = "全部显示";
 
+/* Class = "NSMenuItem"; title = "Quality: 100%"; ObjectID = "Grx-lU-4x5"; */
+"Grx-lU-4x5.title" = "质量：100%";
+
+/* Class = "NSMenuItem"; title = "Stop"; ObjectID = "HUo-GO-MIU"; */
+"HUo-GO-MIU.title" = "停止";
+
 /* Menu Item "Zoom" */
 "197.title" = "缩放";
+
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "ddH-3k-EuT"; */
+"ddH-3k-EuT.title" = "在 Finder 中显示";
+
+/* Class = "NSMenuItem"; title = "Lossy minification"; ObjectID = "euw-8w-uMu"; */
+"euw-8w-uMu.title" = "有损压缩";
+
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "p0m-mn-Gep"; */
+"p0m-mn-Gep.title" = "在 Finder 中显示";
 

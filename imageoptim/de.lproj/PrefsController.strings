@@ -55,5 +55,6 @@
 /* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG-Qualität";
 
-/* Checkbox "Temporarily enable lossy minification"; ObjectID = "wBg-dc-7uj"; */
-"wBg-dc-7uj.title" = "Verlustbehaftete Komprimierung vorübergehend aktivieren";
+/* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
+"wBgxz7uj.title" = "Verlustbehaftete Komprimierung aktivieren";
+

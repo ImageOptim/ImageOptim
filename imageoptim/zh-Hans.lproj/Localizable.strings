@@ -14,29 +14,33 @@
 "Cut" = "剪切";
 
 /* tooltip */
-"File cannot be optimized any further" = "文件无法进行任何压缩";
+"File cannot be optimized any further" = "文件不能被进一步优化了";
 
 /* tooltip */
-"File is neither PNG, GIF nor JPEG" = "文件不是 PNG、GIF、JPEG 格式";
+"File is neither PNG, GIF nor JPEG" = "文件不是 PNG、GIF 或者 JPEG 格式";
 
 /* tooltip */
-"Inspecting file" = "检查文件";
+"Inspecting file" = "正在检查文件";
 
 /* newly added to the queue */
-"New file" = "新的文件";
+"New file" = "新文件";
 
 /* tooltip */
-"Optimized file could not be saved" = "压缩的文件无法保存";
+"Optimized file could not be saved" = "优化的文件未能保存";
 
 /* tooltip */
-"Optimized successfully with %@" = "压缩成功于 %@";
+"Optimized successfully with %@" = "优化成功于 %@";
 
 /* total ratio, status bar */
-"Saved %@ out of %@. %@ overall (up to %@ per file)" = "节约了%1$@（总共%2$@）。总体 %3$@ （每个文件最多 %4$@）";
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "节省了 %1$@（总计 %2$@）。总体 %3$@ （每个文件最多 %4$@）";
+
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "节约了%1$@（总共%2$@）。平均每个文件 %3$@（最多 %4$@）";
+
+/* command name, tooltip */
+"Started %@" = "开始 %@";
 
 /* tooltip */
-"Waiting to be optimized" = "等待压缩";
-
 /* tooltip */
-"Waiting to start more optimizations" = "等待开始更多的压缩";
+"Waiting to be optimized" = "等待开始更多优化";
 

@@ -136,9 +136,6 @@
 /* Button "Again" */
 "635.title" = "Again";
 
-/* Table column Tooltip "Status" */
-"642.ibExternalAccessibilityDescription" = "Status";
-
 /* TextField Tooltip "version" */
 "645.ibExternalAccessibilityDescription" = "version";
 
@@ -213,3 +210,6 @@
 
 /* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "p0m-mn-Gep"; */
 "p0m-mn-Gep.title" = "Show in Finder";
+
+/* Class = "NSTableHeaderView"; ibExternalAccessibilityDescription = "Status"; ObjectID = "ygK-3e-IlX"; */
+"ygK-3e-IlX.ibExternalAccessibilityDescription" = "Status";

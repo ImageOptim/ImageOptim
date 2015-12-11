@@ -22,6 +22,12 @@
 /* tooltip */
 "Inspecting file" = "Inspekterar fil";
 
+/* kilobytes suffix */
+"KB" = " KB";
+
+/* megabytes suffix */
+"MB" = " MB";
+
 /* newly added to the queue */
 "New file" = "Ny fil";
 
@@ -33,7 +39,4 @@
 
 /* command name, tooltip */
 "Started %@" = "%@ har startat";
-
-/* tooltip */
-"Waiting to be optimized" = "Väntar på optimering";
 

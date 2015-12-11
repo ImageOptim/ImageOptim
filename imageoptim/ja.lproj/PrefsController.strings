@@ -58,6 +58,6 @@
 /* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG の品質";
 
-/* Checkbox "Temporarily enable lossy minification"; ObjectID = "wBg-dc-7uj"; */
-"wBg-dc-7uj.title" = "一時的に非可逆圧縮を有効にする";
+/* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
+"wBgxz7uj.title" = "非可逆圧縮を有効にする";
 

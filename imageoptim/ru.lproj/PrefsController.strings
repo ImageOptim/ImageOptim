@@ -1,4 +1,3 @@
-
 /* Window title */
 "5.title" = "Настройки ImageOptim";
 
@@ -31,9 +30,6 @@
 
 /* "Extra" */
 "822.title" = "Экстра";
-
-/* "Optimization level" */
-"829.title" = "Уровень оптимизации";
 
 /* Checkbox in Preferences */
 "854.title" = "Удалить метаданные PNG (гамму, цветовые профили и др.)";
@@ -80,5 +76,6 @@
 /* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "Качество PNG";
 
-/* Checkbox "Temporarily enable lossy minification"; ObjectID = "wBg-dc-7uj"; */
-"wBg-dc-7uj.title" = "Временно включить минимизацию с потерями";
+/* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
+"wBgxz7uj.title" = "Включить минимизацию с потерями";
+

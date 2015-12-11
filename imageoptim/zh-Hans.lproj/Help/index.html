@@ -1,75 +1,59 @@
 <html lang="zh_CN">
 <head>
-<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<meta charset="UTF-8">
 <title>ImageOptim 帮助</title>
 <link rel="stylesheet" href="../../style.css" type="text/css">
 <meta name="AppleTitle" content="ImageOptim Help">
 <meta name="AppleIcon" content="../../ImageOptim.icns">
-
 <meta name="description" content="How to use ImageOptim">
 </head>
 <body>
-<h1>ImageOptim</h1>
 
-    <h2>使用方法</h2>
-
-    <ol>
-<li>拖放PNG、JPEG文件或者文件夹到ImageOptim窗口的文件列表中。</li>
-
-        <li>等待处理完成。</li>
-
-        <li>得到好处！(为文件变小了)</li>
-    </ol>
-<p>你也可以播放文件到ImageOptim的Dock图标上</p>
-
-    <p><a href="prefs.html"> 了解如何更改首选项</a>。</p>
-
-    <h2>文件列表中的图标</h2>
-
-    <table>
+        <h1>ImageOptim</h1>
+        <h2>使用方法</h2>
+        <ol>
+<li>拖放 PNG 或 JPEG 文件或者文件夹到 ImageOptim 窗口的文件列表中。</li>
+            <li>等待处理完成。</li>
+            <li>得到改善（文件变小了！）</li>
+        </ol>
+<p data-role="files-overwritten">文件将被较小的版本覆盖。未优化的版本将被移动到废纸篓。</p>
+        <p>您也可以拖放文件到 ImageOptim 的 Dock 图标上。</p>
+        <p><a href="prefs.html"> 了解如何更改首选项</a>。</p>
+        <h2>文件列表中的图标</h2>
+        <table>
 <tr>
-<th><img src="../../ok.png" alt="Green Checkmark"></th>
-
-            <td>图片压缩成功。</td>
-        </tr>
+<th><img src="../../ok.png" alt="绿色对勾"></th>
+                <td>图片已优化成功。</td>
+            </tr>
 <tr>
-<th><img src="../../noopt.png" alt="Green X"></th>
-
-            <td>图片没什么问题，只是不能再压缩得更小了。</td>
-        </tr>
+<th><img src="../../noopt.png" alt="绿色 X"></th>
+                <td>一切都很好，但图像不能再优化的更小了。</td>
+            </tr>
 <tr>
-<th><img src="../../progress.png" alt="Gray star"></th>
-
-            <td>正在压缩这张图片。</td>
-        </tr>
+<th><img src="../../progress.png" alt="灰色星星"></th>
+                <td>正在优化这个文件。</td>
+            </tr>
 <tr>
-<th><img src="../../wait.png" alt="Gray dots"></th>
-
-            <td>待其他图片片压缩完成后，处理理这张图片。</td>
-        </tr>
+<th><img src="../../wait.png" alt="灰色点状"></th>
+                <td>文件正在排队等待被优化，等待其他文件处理完成。</td>
+            </tr>
 <tr>
-<th><img src="../../err.png" alt="Orange exclamation mark"></th>
-
-            <td>压缩时出现错误，可以执行<code>Console.app</code>查看详情。</td>
-        </tr>
+<th><img src="../../err.png" alt="橙色感叹号"></th>
+                <td>优化时发生错误。您可以运行 <code>Console.app</code> 查看解释。</td>
+            </tr>
 </table>
 <h2>优化原理</h2>
-
-    <p>ImageOptim 是为这些应用程序的前端(GUI):</p>
-
-    <ul>
-<li>OptiPNG</li>
-
-        <li>PNGCrush</li>
-
-        <li>AdvPNG</li>
-
-        <li>JpegOptim</li>
-
-        <li>JpegTran</li>
-
-        <li>以及PNGOUT（可选）。</li>
-    </ul>
-<p>ImageOptim执行这些程序并自动输出最小的文件。</p>
-</body>
+        <p>ImageOptim 是这些应用程序的前端界面（GUI）：</p>
+        <ul>
+<li>Zopfli</li>
+            <li>OptiPNG</li>
+            <li>PNGCrush</li>
+            <li>AdvPNG</li>
+            <li>JpegOptim</li>
+            <li>JpegTran</li>
+            <li>MozJPEG</li>
+            <li>及 PNGOUT。</li>
+        </ul>
+<p>ImageOptim 会运行它们，最后自动选择最小的文件。</p>
+    </body>
 </html>

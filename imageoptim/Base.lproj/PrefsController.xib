@@ -476,7 +476,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="14" id="Yfa-wr-7Cv"/>
                                             </constraints>
-                                            <buttonCell key="cell" type="check" title="Enable lossy minification" bezelStyle="regularSquare" imagePosition="left" lineBreakMode="truncatingTail" state="on" inset="2" id="wBg-dc-7uj">
+                                            <buttonCell key="cell" type="check" title="Enable lossy minification" bezelStyle="regularSquare" imagePosition="left" lineBreakMode="truncatingTail" state="on" inset="2" id="wBgxz7uj">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -494,7 +494,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="14" id="NgO-4c-c5Z"/>
                                             </constraints>
-                                            <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Makes files much smaller, but may change how images look" id="WaY-uF-lKy">
+                                            <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Makes files much smaller, but may change how images look" id="LossTipTxt">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
