@@ -14,7 +14,12 @@ typedef BOOL (^rowcallback)(int numColumns, char **values, char **columnNames);
 {
     if ((self = [super init])) {
         NSURL *cachesPath = [[NSFileManager defaultManager] URLForDirectory:NSCachesDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil];
-        cachesPath = [cachesPath URLByAppendingPathComponent:@"ImageOptimResults.db"];
+        NSURL *cachesWithBundlePath = [cachesPath URLByAppendingPathComponent:[[NSBundle mainBundle] bundleIdentifier] isDirectory:YES];
+        [[NSFileManager defaultManager] createDirectoryAtURL:cachesWithBundlePath withIntermediateDirectories:YES attributes:nil error:nil];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:[cachesPath URLByAppendingPathComponent:@"ImageOptimResults.db"].path]) {
+            [[NSFileManager defaultManager] moveItemAtURL:[cachesPath URLByAppendingPathComponent:@"ImageOptimResults.db"] toURL:[cachesWithBundlePath URLByAppendingPathComponent:@"Results.db"] error:nil];
+        }
+        cachesPath = [cachesWithBundlePath URLByAppendingPathComponent:@"Results.db"];
         IODebug(@"Results cache is in %@", cachesPath.path);
         if (SQLITE_OK != sqlite3_open([cachesPath.path fileSystemRepresentation], &db)) {
             IOWarn(@"Failed to open db: %s", sqlite3_errmsg(db));
