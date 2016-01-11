@@ -20,13 +20,16 @@
         BOOL lowPriority = [defaults boolForKey:@"RunLowPriority"];
 
         cpuQueue = [NSOperationQueue new];
-        [cpuQueue setMaxConcurrentOperationCount:cpus?cpus:NSOperationQueueDefaultMaxConcurrentOperationCount];
+        cpuQueue.name = @"cpuQueue";
+        cpuQueue.maxConcurrentOperationCount = cpus?cpus:NSOperationQueueDefaultMaxConcurrentOperationCount;
 
         dirWorkerQueue = [NSOperationQueue new];
-        [dirWorkerQueue setMaxConcurrentOperationCount:dirs];
+        dirWorkerQueue.name = @"dirWorkerQueue";
+        dirWorkerQueue.maxConcurrentOperationCount = dirs;
 
         fileIOQueue = [NSOperationQueue new];
-        [fileIOQueue setMaxConcurrentOperationCount:fileops?fileops:2];
+        fileIOQueue.name = @"fileIOQueue";
+        fileIOQueue.maxConcurrentOperationCount = fileops?fileops:2;
 
         if ([cpuQueue respondsToSelector:@selector(setQualityOfService:)]) {
             cpuQueue.qualityOfService = lowPriority ? NSQualityOfServiceUtility : NSQualityOfServiceUserInitiated;
