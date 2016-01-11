@@ -13,6 +13,8 @@
     NSOperationQueue *dirWorkerQueue;
 }
 
+@synthesize isBusy;
+
 - (instancetype)initWithCPUs:(NSInteger)cpus dirs:(NSInteger)dirs files:(NSInteger)fileops defaults:(NSUserDefaults*)defaults {
     self = [super init];
     if (self) {
@@ -36,14 +38,38 @@
             fileIOQueue.qualityOfService = lowPriority ? NSQualityOfServiceUtility : NSQualityOfServiceUserInitiated;
             dirWorkerQueue.qualityOfService = NSQualityOfServiceUserInitiated;
         }
+
+        [cpuQueue addObserver:self forKeyPath:@"operationCount" options:0 context:NULL];
+        [dirWorkerQueue addObserver:self forKeyPath:@"operationCount" options:0 context:NULL];
+        [fileIOQueue addObserver:self forKeyPath:@"operationCount" options:0 context:NULL];
     }
     return self;
 }
 
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
+                         change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"operationCount"]) {
+        NSOperationQueue *queue = object;
+        NSUInteger newCount = queue.operationCount;
+        BOOL wasBusy = self.isBusy;
+        if (!wasBusy && newCount) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.isBusy = YES;
+            });
+        } else if (wasBusy && !newCount) {
+            BOOL goingBusy = cpuQueue.operationCount > 0 || dirWorkerQueue.operationCount > 0 || fileIOQueue.operationCount > 0;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.isBusy = goingBusy;
+            });
+        }
+    }
+}
+
+
 -(void)addFile:(File*)f {
-    [self willChangeValueForKey:@"isBusy"];
     [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue defaults:self.defaults];
-    [self didChangeValueForKey:@"isBusy"];
 }
 
 -(void)addDirWorker:(DirWorker *)d {
@@ -54,10 +80,6 @@
     return @(cpuQueue.operationCount + dirWorkerQueue.operationCount + fileIOQueue.operationCount);
 }
 
--(BOOL)isBusy {
-    return cpuQueue.operationCount > 0 || dirWorkerQueue.operationCount > 0 || fileIOQueue.operationCount > 0;
-}
-
 -(void)cleanup {
     [dirWorkerQueue cancelAllOperations];
     [fileIOQueue cancelAllOperations];
@@ -65,13 +87,13 @@
 }
 
 -(void)wait {
-    do { // any queue may be re-filled while waiting for another queue, so double-check is necessary
+    // any queue may be re-filled while waiting for another queue. This is wonky :(
+    do {
         [dirWorkerQueue waitUntilAllOperationsAreFinished];
         [fileIOQueue waitUntilAllOperationsAreFinished];
         [cpuQueue waitUntilAllOperationsAreFinished];
-    } while ([self isBusy]);
-    [self willChangeValueForKey:@"isBusy"];
-    [self didChangeValueForKey:@"isBusy"];
+    }
+    while (dirWorkerQueue.operationCount > 0 || fileIOQueue.operationCount > 0 || cpuQueue.operationCount > 0);
 }
 
 @end

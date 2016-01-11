@@ -9,8 +9,8 @@
 -(void)addDirWorker:(nonnull DirWorker*)d;
 -(void)wait;
 -(void)cleanup;
--(BOOL)isBusy;
 -(nonnull NSNumber *)queueCount;
+@property (assign, atomic) BOOL isBusy;
 
 - (nullable instancetype)initWithCPUs:(NSInteger)cpus dirs:(NSInteger)dirs files:(NSInteger)fileops defaults:(nonnull NSUserDefaults*)defaults;
 @end
