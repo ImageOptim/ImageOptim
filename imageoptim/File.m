@@ -433,6 +433,8 @@
 
 -(void)enqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue fileIOQueue:(nonnull NSOperationQueue *)aFileIOQueue defaults:(nonnull NSUserDefaults*)defaults {
 
+    BOOL isQueueUnderUtilized = queue.operationCount < queue.maxConcurrentOperationCount;
+
     @synchronized(self) {
         self.isDone = NO;
         self.isFailed = NO;
@@ -445,7 +447,7 @@
         NSOperation *actualEnqueue = [NSBlockOperation blockOperationWithBlock:^{
             [self doEnqueueWorkersInCPUQueue:queue defaults:defaults];
         }];
-        if (queue.operationCount < queue.maxConcurrentOperationCount) {
+        if (isQueueUnderUtilized) {
             actualEnqueue.queuePriority = NSOperationQueuePriorityVeryHigh;
         }
 
@@ -565,7 +567,7 @@
         return;
     }
 
-    BOOL isQueueUnderUtilized = [queue operationCount] <= [queue maxConcurrentOperationCount];
+    BOOL isQueueUnderUtilized = queue.operationCount < queue.maxConcurrentOperationCount;
 
     for (Worker *w in worker_list) {
 
