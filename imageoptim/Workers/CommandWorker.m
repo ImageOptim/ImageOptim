@@ -85,6 +85,11 @@
 
 -(void)launchTask {
     @try {
+        BOOL supportsQoS = [task respondsToSelector:@selector(setQualityOfService:)];
+
+        if (supportsQoS) {
+            task.qualityOfService = self.qualityOfService;
+        }
         [task launch];
 
         int pid = [task processIdentifier];
