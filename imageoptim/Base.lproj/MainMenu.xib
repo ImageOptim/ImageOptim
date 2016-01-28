@@ -500,8 +500,7 @@ CA
                                     </binding>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Lossy minification" id="euw-8w-uMu">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                            <menuItem title="Lossy minification" keyEquivalent="l" id="euw-8w-uMu">
                                 <connections>
                                     <binding destination="562" name="value" keyPath="values.LossyEnabled" id="jRt-MT-XRv">
                                         <dictionary key="options">
