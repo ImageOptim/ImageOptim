@@ -3,9 +3,13 @@
 # Set lock file path to this script dir
 LOCKFILE="$(dirname "$PWD/$0")/.lock"
 
-# Remove lock file on exit under any circumstances
-trap "rm -f $LOCKFILE" EXIT
+removelockfile() {
+    rm -f "$LOCKFILE";
+}
 
-# Set lockfile and check it every second if it already locked
-lockfile -1 $LOCKFILE
+# Remove lock file on exit under any circumstances
+trap removelockfile EXIT
+
+while test -f "$LOCKFILE"; do echo "locked, waiting (delete $LOCKFILE if stuck)"; sleep 1; done
+touch "$LOCKFILE"
 git submodule update --init $1
