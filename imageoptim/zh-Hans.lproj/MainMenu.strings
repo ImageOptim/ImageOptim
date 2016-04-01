@@ -1,8 +1,8 @@
 /* Button; alternateTitle = "Run optimizations again" */
-"635.alternateTitle" = "再次运行优化";
+"635.alternateTitle" = "再次进行优化处理";
 
 /* Button "Again" */
-"635.title" = "再次";
+"635.title" = "再优化";
 
 /* TextFieldCell "Drag and drop image files onto the area above" */
 "632.title" = "拖放图像文件到上方区域";
@@ -20,7 +20,7 @@
 "239.ibExternalAccessibilityDescription" = "优化后的文件大小";
 
 /* Table Column Title (MUST BE SHORT) "Savings" */
-"243.headerCell.title" = "保存";
+"243.headerCell.title" = "已节省";
 
 /* TextField Tooltip "Status" */
 "294.ibExternalAccessibilityDescription" = "状态";
@@ -53,7 +53,7 @@
 "399.title" = "复制";
 
 /* Menu Item "Copy as Data URL"; ID "NlY-Bc-7tu"; */
-"NlY-Bc-7tu.title" = "复制为数据 URL";
+"NlY-Bc-7tu.title" = "复制 Data URL";
 
 /* Menu Item "Paste" */
 "400.title" = "粘贴";
@@ -104,7 +104,7 @@
 "656.title" = "工具";
 
 /* Menu Item "Quick Look" */
-"708.title" = "快速查看";
+"708.title" = "预览";
 
 /* Class = "DragDropImageView Tooltip "Drop images here" */
 "712.ibExternalAccessibilityDescription" = "将图片拖至此处";
