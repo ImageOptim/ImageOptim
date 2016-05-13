@@ -6,7 +6,7 @@
 	url = https://github.com/pornel/giflossy.git
 [submodule "zopfli-png/zopfli"]
 	path = zopfli-png/zopfli
-	url = https://github.com/pornel/zopfli.git
+	url = https://github.com/ImageOptim/zopfli.git
 [submodule "pngquant/src"]
 	path = pngquant/src
 	url = https://github.com/pornel/pngquant.git
