@@ -311,6 +311,7 @@
 					NS_BLOCK_ASSERTIONS,
 				);
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../libpng/";
+				LLVM_LTO = YES;
 			};
 			name = Release;
 		};
