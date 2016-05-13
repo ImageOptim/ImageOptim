@@ -1297,11 +1297,18 @@
 			remoteRef = 5A4DC20C1028ADB200A9DD55 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5A5811AF1BD73A640001838D /* Sparkle.framework */ = {
+		5A5811A51AD73A640001838D /* BinaryDelta */ = {
 			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Sparkle.framework;
-			remoteRef = 5A58119E1AD73A640001838D /* PBXContainerItemProxy */;
+			fileType = "compiled.mach-o.executable";
+			path = BinaryDelta;
+			remoteRef = 5A5811A41AD73A640001838D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5A5811A71AD73A640001838D /* Autoupdate.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Autoupdate.app;
+			remoteRef = 5A5811A61AD73A640001838D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5A5811A81AD73A640001838D /* Sparkle Test App.app */ = {
@@ -1318,18 +1325,11 @@
 			remoteRef = 5A5811A21AD73A640001838D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5A5811A51AD73A640001838D /* BinaryDelta */ = {
+		5A5811AF1BD73A640001838D /* Sparkle.framework */ = {
 			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = BinaryDelta;
-			remoteRef = 5A5811A41AD73A640001838D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5A5811A71AD73A640001838D /* Autoupdate.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Autoupdate.app;
-			remoteRef = 5A5811A61AD73A640001838D /* PBXContainerItemProxy */;
+			fileType = wrapper.framework;
+			path = Sparkle.framework;
+			remoteRef = 5A58119E1AD73A640001838D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5A62DB07111CCE9F008848D0 /* jpegoptim */ = {
