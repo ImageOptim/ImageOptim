@@ -361,6 +361,13 @@
 			remoteGlobalIDString = 5AC64EFD1AF3FDEE0032AA7F;
 			remoteInfo = ImageOptimize;
 		};
+		5ADDF2FE1CE613A800B4AD58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 726B2B5D1C645FC900388755;
+			remoteInfo = "UI Tests";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -852,6 +859,7 @@
 				5A5811A81AD73A640001838D /* Sparkle Test App.app */,
 				5A5811A91AD73A640001838D /* Sparkle Unit Tests.xctest */,
 				5A5811AF1BD73A640001838D /* Sparkle.framework */,
+				5ADDF2FF1CE613A800B4AD58 /* UI Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1372,6 +1380,13 @@
 			fileType = archive.ar;
 			path = libimagequant.a;
 			remoteRef = 5A9B031A1836E5360043BDAC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5ADDF2FF1CE613A800B4AD58 /* UI Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "UI Tests.xctest";
+			remoteRef = 5ADDF2FE1CE613A800B4AD58 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
