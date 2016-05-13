@@ -53,17 +53,10 @@
     if ([keyPath isEqualToString:@"operationCount"]) {
         NSOperationQueue *queue = object;
         NSUInteger newCount = queue.operationCount;
-        BOOL wasBusy = self.isBusy;
-        if (!wasBusy && newCount) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.isBusy = YES;
-            });
-        } else if (wasBusy && !newCount) {
-            BOOL goingBusy = cpuQueue.operationCount > 0 || dirWorkerQueue.operationCount > 0 || fileIOQueue.operationCount > 0;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.isBusy = goingBusy;
-            });
-        }
+        BOOL newBusy = newCount > 0 || cpuQueue.operationCount > 0 || dirWorkerQueue.operationCount > 0 || fileIOQueue.operationCount > 0;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.isBusy = newBusy;
+        });
     }
 }
 

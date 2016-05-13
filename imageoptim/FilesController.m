@@ -49,6 +49,8 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
                                             files:[defs integerForKey:@"RunConcurrentFileops"]
                                          defaults:defs];
 
+    [filesQueue addObserver:self forKeyPath:@"isBusy" options:0 context:NULL];
+    
     [tableView registerForDraggedTypes:@[NSFilenamesPboardType, kIMDraggedRowIndexesPboardType]];
 
     [self setSelectsInsertedObjects:NO];
@@ -56,19 +58,14 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     isEnabled = YES;
 }
 
--(void)waitForQueuesToFinish {
 
-    if ([queueWaitingLock tryLock]) {
-        @try {
-            [filesQueue wait];
-        }
-        @finally {
-            [queueWaitingLock unlock];
-        }
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object
+                         change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"isBusy"]) {
+        [self updateBusyState];
     }
-    [self performSelectorOnMainThread:@selector(updateBusyState) withObject:nil waitUntilDone:NO];
 }
-
 
 -(void)setRow:(NSInteger)row {
     nextInsertRow=row;
@@ -250,8 +247,6 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
             nextInsertRow += [files count];
         }
     }
-
-    [self updateBusyState];
 }
 
 -(void)addURLsBelowSelection:(NSArray *)paths {
@@ -409,8 +404,6 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     }
 
     if (!anyStarted) NSBeep();
-
-    [self updateBusyState];
 }
 
 -(void)updateBusyState {
@@ -422,13 +415,6 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         [self didChangeValueForKey:@"isBusy"];
 
         [self updateStoppableState];
-
-        if (isBusy) {
-            if ([queueWaitingLock tryLock]) { // if it's locked, there's thread waiting for finish
-                [queueWaitingLock unlock]; // can't lock/unlock across threads, so new lock will have to be made
-                [self performSelectorInBackground:@selector(waitForQueuesToFinish) withObject:nil];
-            }
-        }
     }
 
     if (!currentlyBusy) {
