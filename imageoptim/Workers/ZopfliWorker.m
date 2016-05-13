@@ -32,7 +32,7 @@
     NSString *filters = @"--filters=0pme";
 
     if ([file isLarge]) {
-        actualIterations /= 2; // use faster setting for large files
+        actualIterations = 5 + actualIterations/3; // use faster setting for large files
         filters = @"--filters=p";
     }
 
