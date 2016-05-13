@@ -445,7 +445,9 @@
         preservePermissions = [defaults boolForKey:@"PreservePermissions"];
 
         NSOperation *actualEnqueue = [NSBlockOperation blockOperationWithBlock:^{
-            [self doEnqueueWorkersInCPUQueue:queue defaults:defaults];
+            @synchronized(self) {
+                [self doEnqueueWorkersInCPUQueue:queue defaults:defaults];
+            }
         }];
         if (isQueueUnderUtilized) {
             actualEnqueue.queuePriority = NSOperationQueuePriorityVeryHigh;
