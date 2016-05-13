@@ -36,12 +36,11 @@
         filters = @"--filters=p";
     }
 
-    if ([file isSmall]) {
-        actualIterations *= 2;
-        [args insertObject:@"--splitting=3" atIndex:0]; // try both splitting strategies
-    } else if (alternativeStrategy) {
-        [args insertObject:@"--splitting=2" atIndex:0]; // by default splitting=1, so make second run use different split
+    if (alternativeStrategy) {
+        timelimit *= 1.4;
         filters = @"--filters=bp";
+    } else {
+        timelimit *= 0.8;
     }
 
     [args insertObject:filters atIndex:0];
