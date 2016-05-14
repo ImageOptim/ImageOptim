@@ -48,11 +48,11 @@
     [task setStandardOutput: devnull];
 
     [self launchTask];
-    [task waitUntilExit];
+    BOOL ok = [self waitUntilTaskExit];
 
     [devnull closeFile];
 
-    if ([task terminationStatus]) return NO;
+    if (!ok) return NO;
 
     NSString *toolName = isLossy ? @"Giflossy" : (interlace ? @"Gifsicle interlaced" : @"Gifsicle");
 

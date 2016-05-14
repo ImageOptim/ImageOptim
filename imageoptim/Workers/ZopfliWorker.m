@@ -65,11 +65,11 @@
     [self launchTask];
 
     [commandHandle readInBackgroundAndNotify];
-    [task waitUntilExit];
+    BOOL ok = [self waitUntilTaskExit];
 
     [commandHandle closeFile];
 
-    if ([task terminationStatus]) return NO;
+    if (!ok) return NO;
 
     NSInteger fileSizeOptimized = [File fileByteSize:temp];
     if (fileSizeOptimized > 70) {

@@ -22,6 +22,7 @@
 -(long)readNumberAfter:(NSString *)str inLine:(NSString *)line;
 
 -(void)launchTask;
+-(BOOL)waitUntilTaskExit;
 
 // gets the path of the executable
 -(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName;

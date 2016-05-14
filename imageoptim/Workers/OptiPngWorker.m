@@ -40,10 +40,10 @@
 
     [self parseLinesFromHandle:commandHandle];
 
-    [task waitUntilExit];
+    BOOL ok = [self waitUntilTaskExit];
     [commandHandle closeFile];
 
-    if ([task terminationStatus]) return NO;
+    if (!ok) return NO;
 
     if (fileSizeOptimized) {
         return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"OptiPNG"];

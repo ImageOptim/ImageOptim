@@ -95,6 +95,16 @@
     }
 }
 
+-(BOOL)waitUntilTaskExit {
+    [task waitUntilExit];
+    int status = [task terminationStatus];
+    if (status) {
+        NSLog(@"Task %@ failed with status %d", [self className], status);
+        return NO;
+    }
+    return YES;
+}
+
 -(long)readNumberAfter:(NSString *)str inLine:(NSString *)line {
     NSRange substr = [line rangeOfString:str];
 

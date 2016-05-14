@@ -50,11 +50,11 @@
     [self launchTask];
 
     [commandHandle readToEndOfFileInBackgroundAndNotify];
-    [task waitUntilExit];
+    BOOL ok = [self waitUntilTaskExit];
 
     [commandHandle closeFile];
 
-    if ([task terminationStatus]) return NO;
+    if (!ok) return NO;
 
     NSUInteger fileSizeOptimized = [File fileByteSize:temp];
     if (fileSizeOptimized) {
