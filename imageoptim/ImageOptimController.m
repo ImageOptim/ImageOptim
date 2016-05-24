@@ -14,8 +14,6 @@
 
 extern int quitWhenDone;
 
-NSDictionary *statusImages;
-
 static const char *kIMPreviewPanelContext = "preview";
 
 @synthesize filesController;
@@ -61,7 +59,6 @@ static const char *kIMPreviewPanelContext = "preview";
 - (void)handleServices:(NSPasteboard *)pboard
     userData:(NSString *)userData
     error:(NSString **)error {
-    assert(statusImages);
 
     NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
     [filesController performSelectorInBackground:@selector(addPaths:) withObject:paths];
