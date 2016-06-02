@@ -59,3 +59,4 @@
 /* Use accelerated SIMD routines. */
 #define WITH_SIMD 0
 
+#define SIZEOF_SIZE_T 8
