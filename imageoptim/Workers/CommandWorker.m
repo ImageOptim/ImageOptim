@@ -85,6 +85,11 @@
 
 -(void)launchTask {
     @try {
+        BOOL supportsQoS = [task respondsToSelector:@selector(setQualityOfService:)];
+
+        if (supportsQoS) {
+            task.qualityOfService = self.qualityOfService;
+        }
         [task launch];
 
         int pid = [task processIdentifier];
@@ -93,6 +98,16 @@
     @catch (NSException *e) {
         IOWarn("Failed to launch %@ - %@",[self className],e);
     }
+}
+
+-(BOOL)waitUntilTaskExit {
+    [task waitUntilExit];
+    int status = [task terminationStatus];
+    if (status) {
+        NSLog(@"Task %@ failed with status %d", [self className], status);
+        return NO;
+    }
+    return YES;
 }
 
 -(long)readNumberAfter:(NSString *)str inLine:(NSString *)line {

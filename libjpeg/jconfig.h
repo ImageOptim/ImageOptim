@@ -59,13 +59,4 @@
 /* Use accelerated SIMD routines. */
 #define WITH_SIMD 0
 
-/* Define to 1 if type `char' is unsigned and you are not using gcc.  */
-#ifndef __CHAR_UNSIGNED__
-/* # undef __CHAR_UNSIGNED__ */
-#endif
-
-/* Define to empty if `const' does not conform to ANSI C. */
-/* #undef const */
-
-/* Define to `unsigned int' if <sys/types.h> does not define. */
-/* #undef size_t */
+#define SIZEOF_SIZE_T 8

@@ -46,10 +46,12 @@
 
     NSNumber *size, *origSize;
     XCTAssertTrue([path getResourceValue:&size forKey:NSURLFileSizeKey error:nil]);
-    XCTAssertTrue([origPath getResourceValue:&origPath forKey:NSURLFileSizeKey error:nil]);
+    XCTAssertTrue([origPath getResourceValue:&origSize forKey:NSURLFileSizeKey error:nil]);
 
-    XCTAssertLessThan([origSize integerValue], [size integerValue]);
-    XCTAssertLessThanOrEqual(5552, [size integerValue]);
+    XCTAssertLessThan(1, 2);
+    XCTAssertLessThan([size integerValue], [origSize integerValue]);
+    XCTAssertLessThanOrEqual(1, 2);
+    XCTAssertLessThanOrEqual([size integerValue], 5552);
 }
 
 @end

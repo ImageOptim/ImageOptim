@@ -32,16 +32,15 @@
     NSString *filters = @"--filters=0pme";
 
     if ([file isLarge]) {
-        actualIterations /= 2; // use faster setting for large files
+        actualIterations = 5 + actualIterations/3; // use faster setting for large files
         filters = @"--filters=p";
     }
 
-    if ([file isSmall]) {
-        actualIterations *= 2;
-        [args insertObject:@"--splitting=3" atIndex:0]; // try both splitting strategies
-    } else if (alternativeStrategy) {
-        [args insertObject:@"--splitting=2" atIndex:0]; // by default splitting=1, so make second run use different split
+    if (alternativeStrategy) {
+        timelimit *= 1.4;
         filters = @"--filters=bp";
+    } else {
+        timelimit *= 0.8;
     }
 
     [args insertObject:filters atIndex:0];
@@ -65,11 +64,11 @@
     [self launchTask];
 
     [commandHandle readInBackgroundAndNotify];
-    [task waitUntilExit];
+    BOOL ok = [self waitUntilTaskExit];
 
     [commandHandle closeFile];
 
-    if ([task terminationStatus]) return NO;
+    if (!ok) return NO;
 
     NSInteger fileSizeOptimized = [File fileByteSize:temp];
     if (fileSizeOptimized > 70) {

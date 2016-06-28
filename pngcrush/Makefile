@@ -1,4 +1,4 @@
-VERSION=1.7.88
+VERSION=1.7.92
 ARCHIVE=/tmp/pngcrush-$(VERSION).tar.gz
 
 build: all

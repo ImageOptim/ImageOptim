@@ -130,14 +130,16 @@
     }
 }
 
--(void)removeOldFilePathOptimized {
-    NSURL *path = filePathOptimized;
-    if (path) {
-        filePathOptimized = nil;
-        if (![filePathsOptimizedInUse containsObject:path]) {
-            [[NSFileManager defaultManager] removeItemAtURL:path error:nil];
+-(void)removeOldFilePathOptimized:(NSURL *)path {
+    if (!path) {
+        return;
+    }
+    @synchronized(self) {
+        if ([filePathsOptimizedInUse containsObject:path]) {
+            return;
         }
     }
+    [[NSFileManager defaultManager] removeItemAtURL:path error:nil];
 }
 
 -(void)updateBestToolName:(ToolStats*)newTool {
@@ -163,19 +165,21 @@
 
 -(BOOL)setFilePathOptimized:(NSURL *)tempPath size:(NSUInteger)size toolName:(NSString *)toolname {
     IODebug("File %@ optimized with %@ from %u to %u in %@",[filePath?filePath:filePathOptimized path],toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,tempPath);
+    NSURL *oldPath = nil;
+    BOOL changed = NO;
     @synchronized(self) {
         if (size && size < byteSizeOptimized) {
             assert(![filePathOptimized.path isEqualToString:tempPath.path]);
-            [self removeOldFilePathOptimized];
+            oldPath = filePathOptimized;
             filePathOptimized = tempPath;
             NSUInteger oldSize = byteSizeOptimized;
             [self setByteSizeOptimized:size];
-
             [self performSelectorOnMainThread:@selector(updateBestToolName:) withObject:[[ToolStats alloc] initWithName:toolname oldSize:oldSize newSize:size] waitUntilDone:NO];
-            return YES;
+            changed = YES;
         }
     }
-    return NO;
+    [self removeOldFilePathOptimized:oldPath];
+    return changed;
 }
 
 -(BOOL)removeExtendedAttrAtURL:(NSURL *)path
@@ -433,8 +437,12 @@
 
 -(void)enqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue fileIOQueue:(nonnull NSOperationQueue *)aFileIOQueue defaults:(nonnull NSUserDefaults*)defaults {
 
-    BOOL isQueueUnderUtilized = queue.operationCount < queue.maxConcurrentOperationCount;
-
+    [self willChangeValueForKey:@"isBusy"];
+    NSOperation *actualEnqueue = [NSBlockOperation blockOperationWithBlock:^{
+        @synchronized(self) {
+            [self doEnqueueWorkersInCPUQueue:queue defaults:defaults];
+        }
+    }];
     @synchronized(self) {
         self.isDone = NO;
         self.isFailed = NO;
@@ -444,20 +452,15 @@
         workers = [[NSMutableArray alloc] initWithCapacity:10];
         preservePermissions = [defaults boolForKey:@"PreservePermissions"];
 
-        NSOperation *actualEnqueue = [NSBlockOperation blockOperationWithBlock:^{
-            [self doEnqueueWorkersInCPUQueue:queue defaults:defaults];
-        }];
+        BOOL isQueueUnderUtilized = queue.operationCount < queue.maxConcurrentOperationCount;
         if (isQueueUnderUtilized) {
             actualEnqueue.queuePriority = NSOperationQueuePriorityVeryHigh;
         }
 
-        [self willChangeValueForKey:@"isBusy"];
-
         [workers addObject:actualEnqueue];
         [fileIOQueue addOperation:actualEnqueue];
-
-        [self didChangeValueForKey:@"isBusy"];
     }
+    [self didChangeValueForKey:@"isBusy"];
 }
 
 -(void)setSettingsHash:(NSArray*)allWorkers {
@@ -506,6 +509,9 @@
     NSMutableArray *worker_list = [NSMutableArray new];
     NSInteger level = [defs integerForKey:@"AdvPngLevel"]; // AdvPNG setting is reused for all tools now
     BOOL lossyEnabled = [defs boolForKey:@"LossyEnabled"];
+    if (lossyEnabled) {
+        [defs setBool:YES forKey:@"LossyUsed"];
+    }
 
     if (fileType == FILETYPE_PNG) {
         if (hasBeenRunBefore) {
@@ -649,16 +655,22 @@
 }
 
 -(void)cleanup {
+    NSURL *oldPath;
+    NSMutableSet *paths;
     @synchronized(self) {
         stopping = NO;
         [workers makeObjectsPerformSelector:@selector(cancel)];
         [workers removeAllObjects];
-        [self removeOldFilePathOptimized];
-        NSFileManager *fm = [NSFileManager defaultManager];
-        for(NSString *path in filePathsOptimizedInUse) {
-            [fm removeItemAtPath:path error:nil];
-        }
-        [filePathsOptimizedInUse removeAllObjects];
+        oldPath = filePathOptimized;
+        filePathOptimized = nil;
+        paths = filePathsOptimizedInUse;
+        filePathsOptimizedInUse = [NSMutableSet new];
+    }
+
+    [self removeOldFilePathOptimized:oldPath];
+    NSFileManager *fm = [NSFileManager defaultManager];
+    for(NSString *path in paths) {
+        [fm removeItemAtPath:path error:nil];
     }
 }
 

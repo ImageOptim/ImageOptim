@@ -47,11 +47,11 @@
     [self launchTask];
 
     [self parseLinesFromHandle:commandHandle];
-    [task waitUntilExit];
+    BOOL ok = [self waitUntilTaskExit];
 
     [commandHandle closeFile];
 
-    if ([task terminationStatus]) return NO;
+    if (!ok) return NO;
 
     return [file setFilePathOptimized:temp  size:fileSizeOptimized toolName:@"AdvPNG"];
 }

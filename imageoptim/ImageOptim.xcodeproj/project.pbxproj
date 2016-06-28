@@ -361,6 +361,13 @@
 			remoteGlobalIDString = 5AC64EFD1AF3FDEE0032AA7F;
 			remoteInfo = ImageOptimize;
 		};
+		5ADDF2FE1CE613A800B4AD58 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 726B2B5D1C645FC900388755;
+			remoteInfo = "UI Tests";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -852,6 +859,7 @@
 				5A5811A81AD73A640001838D /* Sparkle Test App.app */,
 				5A5811A91AD73A640001838D /* Sparkle Unit Tests.xctest */,
 				5A5811AF1BD73A640001838D /* Sparkle.framework */,
+				5ADDF2FF1CE613A800B4AD58 /* UI Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1108,6 +1116,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "ImageOptim" */;
 			buildPhases = (
+				5AB422EF1CE730CD00E9B0D7 /* Xcode code signing sucks */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				5AC63C410E9ABCFD0053B879 /* Copy Frameworks */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
@@ -1135,7 +1144,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0730;
 				TargetAttributes = {
 					5AC64EFD1AF3FDEE0032AA7F = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1297,11 +1306,18 @@
 			remoteRef = 5A4DC20C1028ADB200A9DD55 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5A5811AF1BD73A640001838D /* Sparkle.framework */ = {
+		5A5811A51AD73A640001838D /* BinaryDelta */ = {
 			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Sparkle.framework;
-			remoteRef = 5A58119E1AD73A640001838D /* PBXContainerItemProxy */;
+			fileType = "compiled.mach-o.executable";
+			path = BinaryDelta;
+			remoteRef = 5A5811A41AD73A640001838D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5A5811A71AD73A640001838D /* Autoupdate.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Autoupdate.app;
+			remoteRef = 5A5811A61AD73A640001838D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5A5811A81AD73A640001838D /* Sparkle Test App.app */ = {
@@ -1318,18 +1334,11 @@
 			remoteRef = 5A5811A21AD73A640001838D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5A5811A51AD73A640001838D /* BinaryDelta */ = {
+		5A5811AF1BD73A640001838D /* Sparkle.framework */ = {
 			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = BinaryDelta;
-			remoteRef = 5A5811A41AD73A640001838D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5A5811A71AD73A640001838D /* Autoupdate.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = Autoupdate.app;
-			remoteRef = 5A5811A61AD73A640001838D /* PBXContainerItemProxy */;
+			fileType = wrapper.framework;
+			path = Sparkle.framework;
+			remoteRef = 5A58119E1AD73A640001838D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5A62DB07111CCE9F008848D0 /* jpegoptim */ = {
@@ -1372,6 +1381,13 @@
 			fileType = archive.ar;
 			path = libimagequant.a;
 			remoteRef = 5A9B031A1836E5360043BDAC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5ADDF2FF1CE613A800B4AD58 /* UI Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "UI Tests.xctest";
+			remoteRef = 5ADDF2FE1CE613A800B4AD58 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1441,6 +1457,22 @@
 			shellPath = /bin/sh;
 			shellScript = "cd \"$BUILT_PRODUCTS_DIR/\"\nrm -rf verify\nmkdir verify\ntar xjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" -C verify\ncodesign --strict --deep -v -v \"verify/ImageOptim.app\" || exit 13\ncodesign -v -v \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/\"*\"Autoupdate.app\" || exit 12\ncodesign -v -v \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework\" || exit 11\n";
 			showEnvVarsInLog = 0;
+		};
+		5AB422EF1CE730CD00E9B0D7 /* Xcode code signing sucks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"",
+			);
+			name = "Xcode code signing sucks";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/myfile",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "rm -rf \"$TARGET_BUILD_DIR/ImageOptim.app\"\n";
 		};
 		5ABB9FEB0E8518DA006F51BB /* Tar */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1947,7 +1979,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.pornel.ImageOptimizeExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptimizeExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageOptim.app/Contents/MacOS/ImageOptim";
@@ -1992,7 +2024,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.pornel.ImageOptimizeExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptimizeExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ImageOptim.app/Contents/MacOS/ImageOptim";
@@ -2038,7 +2070,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.pornel.ImageOptimizeExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptimizeExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
@@ -2080,7 +2112,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @executable_path/../../../../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "net.pornel.ImageOptimizeExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptimizeExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;

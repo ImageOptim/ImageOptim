@@ -2,13 +2,13 @@
 
 $bundleName = "ImageOptim";
 $baseURL = dirname(readKey('SUFeedURL'));
-$minOSVersion = readKey('LSMinimumSystemVersion');
+$minOSVersion = "10.8";
 $exactVersion = readKey('CFBundleVersion');
 $niceVersion = readKey('CFBundleShortVersionString');
 if (!$niceVersion) $niceVersion = $exactVersion;
 
 $download_url = "$baseURL/$bundleName$niceVersion.tar.bz2";
-$archivepath = isset($argv[1]) ? $argv[1] : "DerivedData/ImageOptim/Build/Products/Release/$bundleName.tar.bz2";
+$archivepath = exec('xcodebuild -project ImageOptim.xcodeproj/ -showBuildSettings 2>/dev/null | fgrep TARGET_BUILD_DIR | awk \'{print $3}\'') . "/$bundleName.tar.bz2";
 $pempath = getenv("HOME")."/.ssh/dsa_priv_imageoptim.pem";
 
 $appcastpath = rawurldecode(basename(readKey('SUFeedURL')));

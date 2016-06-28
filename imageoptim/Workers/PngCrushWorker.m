@@ -47,11 +47,11 @@
 
     [commandHandle readToEndOfFileInBackgroundAndNotify];
 
-    [task waitUntilExit];
+    BOOL ok = [self waitUntilTaskExit];
 
     [commandHandle closeFile];
 
-    if ([task terminationStatus]) return NO;
+    if (!ok) return NO;
 
     NSUInteger fileSizeOptimized;
     // pngcrush sometimes writes only PNG header (70 bytes)!

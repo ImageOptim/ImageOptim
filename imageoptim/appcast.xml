@@ -6,42 +6,13 @@
 <description>ImageOptim updates</description>
 <language>en</language>
 <item>
-<title>Version 1.6.0</title>
+<title>Version 1.6.2a2</title>
 <description><![CDATA[
 <ul>
-    <li>Switched from <code>jpegrescan</code> to <a href="https://github.com/mozilla/mozjpeg#readme">MozJPEG</a></li>
-    <li>Add ability to <em>temporarily</em> enable lossy <a href="http://pngquant.org">pngquant</a> and MozJPEG re-encoding. The setting <a href="https://github.com/pornel/ImageOptim/issues/17">will switch itself off every time</a> ImageOptim restarts</li>
-    <li>Added an App Extension that adds <a href="https://twitter.com/pornelski/status/589545243130888192"><samp>ImageOptimze</samp> option to images inside Apple Mail compose window</a> (OS X 10.10+ only)</li>
-    <li>Fix for erroneous claim that files have already been optimized</li>
-    <li>Faster default settings for Macbook Air and older Macs</li>
-    <li>Fixed QuickLook animation on Yosemite</li>
-    <li>Gratuitous translucency in Yosemite</li>
-</ul>
-]]></description>
-<pubDate>Fri, 24 Jul 2015 23:49:31 +0000</pubDate>
-<enclosure url="https://imageoptim.com/ImageOptim1.6.0.tar.bz2" sparkle:version="1.6.0" length="1629633" type="application/bzip2" sparkle:dsaSignature="MCwCFDwKq8QeJ4suyKTmmklCmWsvgpauAhQ5Auj1Ol9wvGT3cdxfCNk11OuFvQ=="/>
-<sparkle:minimumSystemVersion>10.8.0</sparkle:minimumSystemVersion>
-</item>
-<item>
-<title>Version 1.6.1a1</title>
-<description><![CDATA[
-<p>Unstable version, because you're using unstable OS. In 1.6:</p>
-<ul>
-    <li>Switched from <code>jpegrescan</code> to <a href="https://github.com/mozilla/mozjpeg#readme">MozJPEG</a></li>
-    <li>Add ability to <em>temporarily</em> enable lossy <a href="http://pngquant.org">pngquant</a> and MozJPEG re-encoding. The setting <a href="https://github.com/pornel/ImageOptim/issues/17">will switch itself off every time</a> ImageOptim restarts</li>
-    <li>Added an App Extension that adds <a href="https://twitter.com/pornelski/status/589545243130888192"><samp>ImageOptimze</samp> option to images inside Apple Mail compose window</a> (OS X 10.10+ only)</li>
-    <li>Fix for erroneous claim that files have already been optimized</li>
-    <li>Faster default settings for Macbook Air and older Macs</li>
-    <li>Fixed QuickLook animation on Yosemite</li>
-    <li>Gratuitous translucency in Yosemite</li>
-</ul>
-<p>1.6.1a1:</p>
-<ul>
-    <li>Unified speed setting that controls all tools' compression/time trade-off</li>
-    <li>Simplified Chinese localization
-    <li>Romanian localization (thanks Oprea Nicolae)</li>
-    <li>Japanese localization updated (thanks KAMINO Aki)</li>
-    <li>10.8 required</li>
+    <li>Much faster version of Zopfli</li>
+    <li>Updated pngcrush, pngquant2, MozJPEG</li>
+    <li>Runs tools with lower priority (OS&nbsp;X&nbsp;10.10+ only)</li>
+    <li>Updated Chinese localization (by pluwen)</li>
 </ul>
 ]]></description>
 <pubDate>Sun, 26 Jul 2015 14:37:57 +0000</pubDate>
