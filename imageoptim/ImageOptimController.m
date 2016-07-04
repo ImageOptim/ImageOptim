@@ -48,6 +48,21 @@ static const char *kIMPreviewPanelContext = "preview";
     [filesController configureWithTableView:tableView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observeNotification:) name:kFilesQueueFinished object:filesController];
 
+    NSArray *monospaceFontColumns = @[
+                                      fileColumn,
+                                      sizeColumn,
+                                      originalSizeColumn,
+                                      savingsColumn,
+                                      bestToolColumn,
+                                      ];
+    for (NSTableColumn *column in monospaceFontColumns) {
+        NSFont *font = [NSFont systemFontOfSize:13];
+        if ([NSFont respondsToSelector:@selector(monospacedDigitSystemFontOfSize:weight:)]) {
+            font = [NSFont monospacedDigitSystemFontOfSize:13 weight:NSFontWeightRegular];
+        }
+        [column.dataCell setFont:font];
+    }
+
     [NSApp setServicesProvider:self];
     NSUpdateDynamicServices();
 }
