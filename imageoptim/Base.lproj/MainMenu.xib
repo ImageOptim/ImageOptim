@@ -678,12 +678,13 @@ CA
         </menu>
         <customObject id="230" customClass="ImageOptimController">
             <connections>
-                <outlet property="bestToolColumn" destination="771" id="790"/>
+                <outlet property="bestToolColumn" destination="771" id="yJB-bn-Bu0"/>
                 <outlet property="credits" destination="530" id="707"/>
+                <outlet property="fileColumn" destination="238" id="Aya-HA-Hia"/>
                 <outlet property="filesController" destination="251" id="274"/>
-                <outlet property="originalSizeColumn" destination="795" id="807"/>
-                <outlet property="savingsColumn" destination="243" id="770"/>
-                <outlet property="sizeColumn" destination="239" id="755"/>
+                <outlet property="originalSizeColumn" destination="795" id="Fip-0O-tR1"/>
+                <outlet property="savingsColumn" destination="243" id="a1E-Oi-JZA"/>
+                <outlet property="sizeColumn" destination="239" id="u4r-2K-YDt"/>
                 <outlet property="statusBarLabel" destination="294" id="700"/>
                 <outlet property="tableView" destination="237" id="242"/>
             </connections>
