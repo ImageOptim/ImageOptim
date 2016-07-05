@@ -16,7 +16,7 @@ extern NSDictionary *statusImages;
     IBOutlet NSTextField *statusBarLabel;
     IBOutlet NSTextView *credits;
 
-    IBOutlet NSTableColumn *sizeColumn, *originalSizeColumn, *savingsColumn, *bestToolColumn;
+    IBOutlet NSTableColumn *fileColumn, *sizeColumn, *originalSizeColumn, *savingsColumn, *bestToolColumn;
 
 	QLPreviewPanel* previewPanel;
 
