@@ -7,3 +7,6 @@ To get started, open `imageoptim/ImageOptim.xcodeproj`. It will automatically do
 ## Sponsored by
 
 [PSW GROUP](https://www.psw-group.de/)
+
+## Language Support
+* 中文简体 (Chinese Simplified) - [Pluwen](https://twitter.com/pluwen)
