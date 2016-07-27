@@ -9,4 +9,4 @@ To get started, open `imageoptim/ImageOptim.xcodeproj`. It will automatically do
 [PSW GROUP](https://www.psw-group.de/)
 
 ## Language Support
-* 中文简体 (Chinese Simplified) - [Pluwen](https://twitter.com/pluwen)
+* 中文简体 (Chinese Simplified) - asins、elevenjoker、Mariotaku Lee、[Pluwen](https://twitter.com/pluwen)、Y.F Yang
