@@ -186,6 +186,7 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
                 }
             }
 
+            // that was also in KVO, but caused deadlocks there. Here it's deferred.
             [filesController updateStoppableState];
         }
 
@@ -246,12 +247,11 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
+    // Defer and coalesce statusbar updates
+    dispatch_source_merge_data(statusBarUpdateQueue, 1);
+
     if (context == kIMPreviewPanelContext) {
         [previewPanel reloadData];
-        [filesController updateStoppableState];
-    } else {
-        // Defer and coalesce statusbar updates
-        dispatch_source_merge_data(statusBarUpdateQueue, 1);
     }
 }
 
