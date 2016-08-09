@@ -6,7 +6,7 @@ build: all
 all: patched
 
 $(ARCHIVE):
-	curl -L -o $(ARCHIVE) http://downloads.sourceforge.net/project/pmt/pngcrush/$(VERSION)/pngcrush-$(VERSION).tar.gz
+	curl -L -o $(ARCHIVE) http://downloads.sourceforge.net/project/pmt/pngcrush/old-versions/1.7/$(VERSION)/pngcrush-$(VERSION).tar.gz
 
 pngcrush.c: pngcrush.patch $(ARCHIVE)
 	tar xzf $(ARCHIVE) --strip-components=1 --exclude=Makefile
