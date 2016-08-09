@@ -675,11 +675,7 @@
 }
 
 -(BOOL)isBusy {
-    BOOL isit;
-    @synchronized(self) {
-        isit = [workers count] > 0;
-    }
-    return isit;
+    return [workers count] > 0;
 }
 
 -(BOOL)stop {
