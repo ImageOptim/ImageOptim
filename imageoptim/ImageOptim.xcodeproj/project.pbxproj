@@ -1118,9 +1118,9 @@
 			buildPhases = (
 				5AB422EF1CE730CD00E9B0D7 /* Xcode code signing sucks */,
 				8D11072C0486CEB800E47090 /* Sources */,
+				5A7D24E113E5BC0C00815AAA /* Resources */,
 				5AC63C410E9ABCFD0053B879 /* Copy Frameworks */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				5A7D24E113E5BC0C00815AAA /* Resources */,
 				5AC64F231AF3FDEF0032AA7F /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -1468,7 +1468,6 @@
 			);
 			name = "Xcode code signing sucks";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/myfile",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1871,7 +1870,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1912,7 +1910,6 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -2049,7 +2046,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = ImageOptimize/ImageOptimize.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -2095,7 +2091,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = ImageOptimize/ImageOptimize.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2124,7 +2119,6 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = ImageOptim.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(BUILT_PRODUCTS_DIR)",
@@ -2142,7 +2136,6 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = ImageOptim.entitlements;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(BUILT_PRODUCTS_DIR)",
