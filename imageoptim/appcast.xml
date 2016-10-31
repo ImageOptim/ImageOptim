@@ -6,7 +6,7 @@
 <description>ImageOptim updates</description>
 <language>en</language>
 <item>
-<title>Version 1.6.2a2</title>
+<title>Version 1.6.2</title>
 <description><![CDATA[
 <ul>
     <li>Much faster version of Zopfli</li>
@@ -15,9 +15,10 @@
     <li>Updated Chinese localization (by pluwen)</li>
 </ul>
 ]]></description>
-<pubDate>Sun, 26 Jul 2015 14:37:57 +0000</pubDate>
-<enclosure url="https://imageoptim.com/ImageOptim1.6.1a1.tar.bz2" sparkle:version="1.6.1a1" length="1416711" type="application/bzip2" sparkle:dsaSignature="MCwCFHALRNGOFeh3785GRdm1gZq9ywjhAhQZFDtlhIwEUUf78EcVbliTJGueNQ=="/>
-<sparkle:minimumSystemVersion>10.11.0</sparkle:minimumSystemVersion>
+<pubDate>Mon, 31 Oct 2016 17:50:35 +0000</pubDate>
+<enclosure url="https://imageoptim.com/ImageOptim1.6.2.tar.bz2" sparkle:version="1.6.2" length="1439821" type="application/bzip2" sparkle:dsaSignature="MC4CFQCUPK0Fp1dYN52I/Dmb/FgqDT51oQIVAIoQOIA0cLTdGaIhLNi3YAx9AtQY"/>
+<sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
+
 </item>
 </channel>
 </rss>
