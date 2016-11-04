@@ -236,13 +236,15 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 
     NSMutableData *html = [NSMutableData dataWithBytesNoCopy:(void*)header length:sizeof(header) freeWhenDone:NO];
     [html appendData:[NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Credits" ofType:@"html"]]];
-
-    [credits setEditable:YES];
     NSAttributedString *tmpStr = [[NSAttributedString alloc]
                                   initWithHTML:html
                                   documentAttributes:nil];
-    [credits insertText:tmpStr];
-    [credits setEditable:NO];
+
+    dispatch_async(dispatch_get_main_queue(), ^(){
+        [credits setEditable:YES];
+        [credits insertText:tmpStr];
+        [credits setEditable:NO];
+    });
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
