@@ -18,7 +18,9 @@ const SPARKLE_NS = "http://www.andymatuschak.org/xml-namespaces/sparkle";
 if (!file_exists($archivepath)) throw new Exception("Can't find $archivepath");
 
 $feed = new DOMDocument;
-$feed->load($appcastpath);
+if (!$feed->load($appcastpath)) {
+    throw new Exception("can't load $appcastpath");
+}
 
 $xp = new DOMXPath($feed);
 $xp->registerNamespace("sparkle",SPARKLE_NS);
