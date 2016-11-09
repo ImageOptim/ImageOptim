@@ -6,8 +6,13 @@
 <description>ImageOptim updates</description>
 <language>en</language>
 <item>
-<title>Version 1.6.2</title>
+<title>Version 1.6.3</title>
 <description><![CDATA[
+<ul>
+    <li>Fixed potential crash on startup</li>
+    <li>Updated pngcrush</li>
+</ul>
+<p>Recently:</p>
 <ul>
     <li>Much faster version of Zopfli</li>
     <li>Updated pngcrush, pngquant2, MozJPEG</li>
@@ -15,8 +20,8 @@
     <li>Updated Chinese localization (by pluwen)</li>
 </ul>
 ]]></description>
-<pubDate>Mon, 31 Oct 2016 17:50:35 +0000</pubDate>
-<enclosure url="https://imageoptim.com/ImageOptim1.6.2.tar.bz2" sparkle:version="1.6.2" length="1439821" type="application/bzip2" sparkle:dsaSignature="MC4CFQCUPK0Fp1dYN52I/Dmb/FgqDT51oQIVAIoQOIA0cLTdGaIhLNi3YAx9AtQY"/>
+<pubDate>Wed, 09 Nov 2016 22:57:47 +0000</pubDate>
+<enclosure url="https://imageoptim.com/ImageOptim1.6.3.tar.bz2" sparkle:version="1.6.3" length="1433793" type="application/bzip2" sparkle:dsaSignature="MCwCFBMYphTB41Me0bxd9wyvRuFFbTwmAhQJPSGJ2Ir4RMKXukpdv+3JKfMrfQ=="/>
 <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
 
 </item>
