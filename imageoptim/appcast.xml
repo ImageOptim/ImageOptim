@@ -6,23 +6,19 @@
 <description>ImageOptim updates</description>
 <language>en</language>
 <item>
-<title>Version 1.6.3</title>
+<title>Version 1.6.4</title>
 <description><![CDATA[
 <ul>
-    <li>Fixed potential crash on startup</li>
-    <li>Updated pngcrush</li>
-</ul>
-<p>Recently:</p>
-<ul>
-    <li>Much faster version of Zopfli</li>
-    <li>Updated pngcrush, pngquant2, MozJPEG</li>
-    <li>Runs tools with lower priority (OS&nbsp;X&nbsp;10.10+ only)</li>
-    <li>Updated Chinese localization (by pluwen)</li>
+    <li>Main window settings button for quicker access to lossy minification options.</li>
+    <li>Major update to gifsicle. It's faster and has higher quality.</li>
+    <li>Minor updates for Zopfli, pngquant2, jpegoptim.</li>
 </ul>
 ]]></description>
-<pubDate>Wed, 09 Nov 2016 22:57:47 +0000</pubDate>
-<enclosure url="https://imageoptim.com/ImageOptim1.6.3.tar.bz2" sparkle:version="1.6.3" length="1433793" type="application/bzip2" sparkle:dsaSignature="MCwCFBMYphTB41Me0bxd9wyvRuFFbTwmAhQJPSGJ2Ir4RMKXukpdv+3JKfMrfQ=="/>
+<pubDate>Sat, 17 Dec 2016 13:46:25 +0000</pubDate>
+<enclosure url="https://imageoptim.com/ImageOptim1.6.4.tar.bz2" sparkle:version="1.6.4" length="1403225" type="application/bzip2" sparkle:dsaSignature="MCwCFAsInn8X3FHj0cS5pMtqhjRYH2cKAhQpDcgieNHv+tHWfzEMyqW0VZBKpA=="/>
 <sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
+
+
 
 </item>
 </channel>
