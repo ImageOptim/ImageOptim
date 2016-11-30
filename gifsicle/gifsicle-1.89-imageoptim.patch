@@ -1,5 +1,5 @@
 diff --git a/src/gifsicle.c b/src/gifsicle.c
-index 3900b21..5ea28da 100644
+index ca3f388..8d11d17 100644
 --- a/src/gifsicle.c
 +++ b/src/gifsicle.c
 @@ -33,7 +33,6 @@ Gt_Frameset *nested_frames = 0;
@@ -37,7 +37,7 @@ index 3900b21..5ea28da 100644
    apply_color_transforms(input_transforms, gfs);
    gfs->refcount++;
  
-@@ -840,63 +826,6 @@ set_new_fixed_colormap(const char *name)
+@@ -840,62 +826,6 @@ set_new_fixed_colormap(const char *name)
      def_output_data.colormap_fixed = read_colormap_file(name, 0);
  }
  
@@ -62,15 +62,15 @@ index 3900b21..5ea28da 100644
 -      uint32_t ntransp;
 -      int i, any_locals = 0;
 -      for (i = 0; i < gfs->nimages; i++)
--	if (gfs->images[i]->local)
--	  any_locals = 1;
+-        if (gfs->images[i]->local)
+-          any_locals = 1;
 -      kchist_make(&kch, gfs, &ntransp);
 -      if (kch.n <= active_output_data.colormap_size
 -          && !any_locals
 -          && !active_output_data.colormap_fixed) {
--	warning(1, "trivial adaptive palette (only %d colors in source)", kch.n);
+-        warning(1, "trivial adaptive palette (only %d colors in source)", kch.n);
 -        kchist_cleanup(&kch);
--	return;
+-        return;
 -      }
 -      active_output_data.colormap_needs_transparency = ntransp > 0;
 -    }
@@ -97,11 +97,10 @@ index 3900b21..5ea28da 100644
 -  }
 -}
 -
--
+ 
  /*****
   * output GIF images
-  **/
-@@ -946,8 +875,7 @@ merge_and_write_frames(const char *outfile, int f1, int f2)
+@@ -946,8 +876,7 @@ merge_and_write_frames(const char *outfile, int f1, int f2)
      verbose_open('[', outfile ? outfile : "#stdout#");
    active_output_data.active_output_name = outfile;
  
@@ -111,7 +110,7 @@ index 3900b21..5ea28da 100644
    warn_local_colormaps = !colormap_change;
  
    if (!(active_output_data.scaling
-@@ -974,8 +902,6 @@ merge_and_write_frames(const char *outfile, int f1, int f2)
+@@ -974,8 +903,6 @@ merge_and_write_frames(const char *outfile, int f1, int f2)
                      active_output_data.scaling == GT_SCALING_RESIZE_FIT,
                      active_output_data.scale_method,
                      active_output_data.scale_colors);
@@ -120,7 +119,7 @@ index 3900b21..5ea28da 100644
      if (output_transforms)
        apply_color_transforms(output_transforms, out);
      if (active_output_data.optimizing & GT_OPT_MASK)
-@@ -1408,17 +1334,6 @@ main(int argc, char *argv[])
+@@ -1408,17 +1335,6 @@ main(int argc, char *argv[])
    pthread_mutex_init(&kd3_sort_lock, 0);
  #endif
  
@@ -138,7 +137,7 @@ index 3900b21..5ea28da 100644
    while (1) {
      int opt = Clp_Next(clp);
      switch (opt) {
-@@ -1755,11 +1670,6 @@ main(int argc, char *argv[])
+@@ -1755,11 +1671,6 @@ main(int argc, char *argv[])
        break;
      }
  
