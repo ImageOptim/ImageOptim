@@ -510,7 +510,9 @@
     NSInteger level = [defs integerForKey:@"AdvPngLevel"]; // AdvPNG setting is reused for all tools now
     BOOL lossyEnabled = [defs boolForKey:@"LossyEnabled"];
     if (lossyEnabled) {
-        [defs setBool:YES forKey:@"LossyUsed"];
+        dispatch_async(dispatch_get_main_queue(), ^(){
+            [defs setBool:YES forKey:@"LossyUsed"];
+        });
     }
 
     if (fileType == FILETYPE_PNG) {
