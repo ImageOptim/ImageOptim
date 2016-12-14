@@ -310,6 +310,15 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
     [prefsController showWindow:self];
 }
 
+
+- (IBAction)showLossyPrefs:(id)sender {
+    if (!prefsController) {
+        prefsController = [PrefsController new];
+    }
+    [prefsController showLossySettings:sender];
+}
+
+
 -(IBAction)openHomepage:(id)sender {
     [self openURL:@"http://imageoptim.com"];
 }

@@ -21,6 +21,11 @@
     return self;
 }
 
+-(IBAction)showLossySettings:(id)sender {
+    [self showWindow:sender];
+    [self.tabs selectTabViewItemAtIndex:1];
+}
+
 -(IBAction)showHelp:(id)sender {
     NSInteger tag = [sender tag];
 
