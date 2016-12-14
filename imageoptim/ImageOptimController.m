@@ -79,21 +79,6 @@ static const char *kIMPreviewPanelContext = "preview";
     [filesController performSelectorInBackground:@selector(addPaths:) withObject:paths];
 }
 
-static NSString *formatSize(long long byteSize, NSNumberFormatter *formatter) {
-    NSString *unit;
-    double size;
-
-    if (byteSize > 1000*1000LL) {
-        size = (double)byteSize / (1000.0*1000.0);
-        unit = NSLocalizedString(@"MB", "megabytes suffix");
-    } else {
-        size = (double)byteSize / 1000.0;
-        unit = NSLocalizedString(@"KB", "kilobytes suffix");
-    }
-
-    return [[formatter stringFromNumber:@(size)] stringByAppendingString:unit];
-};
-
 static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name, NSString *key, NSMutableArray *arr) {
     NSInteger q = [defs integerForKey:key];
     if (q > 0 && q < 100) {
@@ -106,16 +91,15 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 
     static BOOL overallAvg = NO;
     static NSString *defaultText; defaultText = statusBarLabel.stringValue;
-    static NSNumberFormatter* formatter; formatter = [NSNumberFormatter new];
+    NSByteCountFormatter *sizeFormatter = [[NSByteCountFormatter alloc] init];
+
     static NSNumberFormatter* percFormatter; percFormatter = [NSNumberFormatter new];
 
     if (quitWhenDone) {
         defaultText = NSLocalizedString(@"ImageOptim will quit when optimizations are complete", @"status bar");
     }
 
-    [formatter setMaximumFractionDigits:1];
     [percFormatter setMaximumFractionDigits:1];
-    [formatter setNumberStyle: NSNumberFormatterDecimalStyle];
     [percFormatter setNumberStyle: NSNumberFormatterPercentStyle];
 
     statusBarUpdateQueue = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_OR, 0, 0,
@@ -166,8 +150,8 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
                     const long long bytesSaved = bytesTotal - optimizedTotal;
 
                     str = [NSString stringWithFormat:fmtStr,
-                           formatSize(bytesSaved, formatter),
-                           formatSize(bytesTotal, formatter),
+                           [sizeFormatter stringFromByteCount:bytesSaved],
+                           [sizeFormatter stringFromByteCount:bytesTotal],
                            [percFormatter stringFromNumber: @(avgNum)],
                            [percFormatter stringFromNumber: @(maxOptimizedFraction)]];
                     selectable = YES;
