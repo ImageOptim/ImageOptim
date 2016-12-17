@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
 #import "File.h"
-#import "FilesQueue.h"
+#import "JobQueue.h"
 
 @interface BackendTests : XCTestCase
 
@@ -34,13 +34,13 @@
     NSFileManager *fm = [NSFileManager defaultManager];
     XCTAssertTrue([fm copyItemAtURL:origPath toURL:path error:nil]);
 
-    File *f = [[File alloc] initWithFilePath:path resultsDatabase:nil];
-    FilesQueue *q = [[FilesQueue alloc] initWithCPUs:4
+    Job *f = [[Job alloc] initWithFilePath:path resultsDatabase:nil];
+    JobQueue *q = [[JobQueue alloc] initWithCPUs:4
                                                 dirs:1
                                                files:4
                      defaults:[NSUserDefaults standardUserDefaults]];
 
-    [q addFile:f];
+    [q addJob:f];
     XCTAssertTrue([f isBusy]);
     [q wait];
 

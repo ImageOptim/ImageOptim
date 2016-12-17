@@ -5,7 +5,7 @@
 //
 
 #import "JpegoptimWorker.h"
-#import "../File.h"
+#import "../Job.h"
 #import "../log.h"
 
 @implementation JpegoptimWorker
@@ -14,7 +14,7 @@
     return maxquality*2 + strip;
 }
 
--(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
+-(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
         // Sharing setting with jpegtran
         strip = [defaults boolForKey:@"JpegTranStripAll"];

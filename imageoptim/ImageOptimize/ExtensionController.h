@@ -8,11 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class File, FilesQueue;
+@class Job, JobQueue;
 
 @interface ExtensionController : NSViewController
 
-@property (strong) File *currentFile;
+@property (strong) Job *currentFile;
 @property IBOutlet NSTextField *status;
-@property (strong) FilesQueue *filesQueue;
+@property (strong) JobQueue *jobQueue;
 @end

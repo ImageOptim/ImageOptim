@@ -1,11 +1,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class File, DirWorker;
+@class Job, DirWorker;
 
-@interface FilesQueue : NSObject
+@interface JobQueue : NSObject
 
--(void)addFile:(nonnull File*)f;
+-(void)addJob:(nonnull Job*)f;
 -(void)addDirWorker:(nonnull DirWorker*)d;
 -(void)wait;
 -(void)cleanup;

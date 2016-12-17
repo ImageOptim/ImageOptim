@@ -1,7 +1,7 @@
 #import "ImageOptimController.h"
 #import "FilesController.h"
 #import "RevealButtonCell.h"
-#import "File.h"
+#import "Job.h"
 #import "Workers/Worker.h"
 #import "PrefsController.h"
 #import "MyTableView.h"
@@ -40,13 +40,13 @@ static const char *kIMPreviewPanelContext = "preview";
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults registerDefaults:defs];
-    
+
     [self initStatusbarWithDefaults:userDefaults];
 
     IOSharedPrefsCopy(userDefaults);
 
     [filesController configureWithTableView:tableView];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observeNotification:) name:kFilesQueueFinished object:filesController];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(observeNotification:) name:kJobQueueFinished object:filesController];
 
     NSArray *monospaceFontColumns = @[
                                       fileColumn,
@@ -68,7 +68,7 @@ static const char *kIMPreviewPanelContext = "preview";
 }
 
 -(void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:kFilesQueueFinished object:filesController];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kJobQueueFinished object:filesController];
 }
 
 - (void)handleServices:(NSPasteboard *)pboard
@@ -113,7 +113,7 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
             int fileCount=0;
 
             NSArray *content = [filesController content];
-            for (File *f in content) {
+            for (Job *f in content) {
                 const NSUInteger bytes = f.byteSizeOriginal, optimized = f.byteSizeOptimized;
                 if (bytes && (bytes != optimized || [f isDone])) {
                     const double optimizedFraction = 1.0 - (double)optimized/(double)bytes;

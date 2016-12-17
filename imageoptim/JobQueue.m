@@ -1,13 +1,13 @@
 
-#import "FilesQueue.h"
-#import "File.h"
+#import "JobQueue.h"
+#import "Job.h"
 #import "DirWorker.h"
 
-@interface FilesQueue ()
+@interface JobQueue ()
     @property (strong) NSUserDefaults *defaults;
 @end
 
-@implementation FilesQueue {
+@implementation JobQueue {
     NSOperationQueue *cpuQueue;
     NSOperationQueue *fileIOQueue;
     NSOperationQueue *dirWorkerQueue;
@@ -62,7 +62,7 @@
 }
 
 
--(void)addFile:(File*)f {
+-(void)addJob:(Job *)f {
     [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue defaults:self.defaults];
 }
 

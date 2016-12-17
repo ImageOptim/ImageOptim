@@ -1,7 +1,7 @@
 #import "MyTableView.h"
 #import "FilesController.h"
 #import "RevealButtonCell.h"
-#import "File.h"
+#import "Job.h"
 #import "log.h"
 
 @implementation MyTableView
@@ -31,8 +31,8 @@
     NSArray *selected = [f selectedObjects];
     NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[selected count]];
     NSMutableArray *fileNames = [NSMutableArray arrayWithCapacity:[selected count]];
-    for(File *file in selected) {
-        NSString *path = file.filePath.path;
+    for(Job *job in selected) {
+        NSString *path = job.filePath.path;
         [filePaths addObject:path];
         [fileNames addObject:[path.lastPathComponent stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     };
@@ -45,28 +45,28 @@
     }
 }
 
--(NSArray*)filesForDataURI {
+-(NSArray*)jobsForDataURI {
     FilesController *f = (FilesController*)[self delegate];
 
     NSArray *selectedFiles = [f selectedObjects];
-    NSMutableArray *files = [NSMutableArray arrayWithCapacity:[selectedFiles count]];
+    NSMutableArray *jobs = [NSMutableArray arrayWithCapacity:[selectedFiles count]];
     NSUInteger totalSize = 0;
-    for(File *file in selectedFiles) {
-        if (![file isDone] || !file.byteSizeOptimized) continue;
-        if (file.byteSizeOptimized > 100000) continue;
-        totalSize += file.byteSizeOptimized;
+    for(Job *job in selectedFiles) {
+        if (![job isDone] || !job.byteSizeOptimized) continue;
+        if (job.byteSizeOptimized > 100000) continue;
+        totalSize += job.byteSizeOptimized;
         if (totalSize > 1000000) break;
-        [files addObject:file];
+        [jobs addObject:job];
     }
-    return files;
+    return jobs;
 }
 
 - (IBAction)copyAsDataURI:(id)sender {
     NSMutableArray *urls = [NSMutableArray new];
-    for(File *file in [self filesForDataURI]) {
-        NSData *data = [NSData dataWithContentsOfURL:file.filePath];
+    for(Job *job in [self jobsForDataURI]) {
+        NSData *data = [NSData dataWithContentsOfURL:job.filePath];
 
-        NSString *type = [file mimeType];
+        NSString *type = [job mimeType];
         if (!type) continue;
 
         NSString *url = [[NSString stringWithFormat:@"data:%@;base64,", type]
@@ -110,7 +110,7 @@
         return [self numberOfSelectedRows] > 0;
     } else if (action == @selector(copyAsDataURI:)) {
         NSData *data = [NSData data];
-        return [data respondsToSelector:@selector(base64Encoding)] && [self numberOfSelectedRows] > 0 && [[self filesForDataURI] count] > 0;
+        return [data respondsToSelector:@selector(base64Encoding)] && [self numberOfSelectedRows] > 0 && [[self jobsForDataURI] count] > 0;
     } else if (action == @selector(paste:)) {
         NSPasteboard *pboard = [NSPasteboard generalPasteboard];
         NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
@@ -151,7 +151,7 @@
     // Find the visible cells that have a non-empty tracking rect and add rects for each of them
     NSRange visibleRows = [self rowsInRect:[self visibleRect]];
     NSIndexSet *visibleColIndexes = [self columnIndexesInRect:[self visibleRect]];
-    
+
     CGRect rect = [self.window convertRectFromScreen:(CGRect){
                        .origin = [NSEvent mouseLocation],
                    }];

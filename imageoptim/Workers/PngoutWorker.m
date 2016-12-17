@@ -7,12 +7,12 @@
 //
 
 #import "PngoutWorker.h"
-#import "../File.h"
+#import "../Job.h"
 #import "../log.h"
 
 @implementation PngoutWorker
 
-- (instancetype)initWithLevel:(NSInteger)aLevel defaults:(NSUserDefaults *)defaults file:(File *)aFile {
+- (instancetype)initWithLevel:(NSInteger)aLevel defaults:(NSUserDefaults *)defaults file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
         level = !aLevel ? 2 : (aLevel >= 4 ? 0 : 1);
         removechunks = [defaults boolForKey:@"PngOutRemoveChunks"];

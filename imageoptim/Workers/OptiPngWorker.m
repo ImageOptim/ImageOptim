@@ -5,11 +5,11 @@
 //
 
 #import "OptiPngWorker.h"
-#import "../File.h"
+#import "../Job.h"
 
 @implementation OptiPngWorker
 
--(instancetype)initWithLevel:(NSInteger)level file:(File *)aFile {
+-(instancetype)initWithLevel:(NSInteger)level file:(Job *)aFile {
     if (self = [super initWithFile:file]) {
         optlevel = MAX(3, MIN(level+1, 7));
     }

@@ -5,7 +5,7 @@
 //
 
 #import "JpegtranWorker.h"
-#import "../File.h"
+#import "../Job.h"
 
 @implementation JpegtranWorker
 
@@ -13,7 +13,7 @@
     return strip;
 }
 
--(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile {
+-(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
         strip = [defaults boolForKey:@"JpegTranStripAll"];
     }
@@ -56,7 +56,7 @@
 
     if (!ok) return NO;
 
-    NSUInteger fileSizeOptimized = [File fileByteSize:temp];
+    NSUInteger fileSizeOptimized = [Job fileByteSize:temp];
     if (fileSizeOptimized) {
         return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"MozJPEG"];
     }

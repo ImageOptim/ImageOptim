@@ -5,7 +5,7 @@
 //
 
 #import "Worker.h"
-#import "File.h"
+#import "Job.h"
 #import "log.h"
 
 @implementation Worker
@@ -16,14 +16,14 @@
     return 0;
 }
 
--(instancetype)initWithFile:(File *)aFile {
+-(instancetype)initWithFile:(Job *)aFile {
     if (self = [super init]) {
         self.file = aFile;
     }
     return self;
 }
 
--(BOOL)isRelatedTo:(File *)f {
+-(BOOL)isRelatedTo:(Job *)f {
     return (f == file);
 }
 

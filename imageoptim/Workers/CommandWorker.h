@@ -7,7 +7,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Worker.h"
 
-@class File;
+@class Job;
 
 @interface CommandWorker : Worker {
     NSTask *task;

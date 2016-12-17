@@ -5,10 +5,10 @@
 //
 
 #import "PngCrushWorker.h"
-#import "../File.h"
+#import "../Job.h"
 
 @implementation PngCrushWorker
-- (instancetype)initWithLevel:(NSInteger)level defaults:(NSUserDefaults *)defaults file:(File *)aFile {
+- (instancetype)initWithLevel:(NSInteger)level defaults:(NSUserDefaults *)defaults file:(Job *)aFile {
     if ((self = [super initWithFile:aFile])) {
         strip = [defaults boolForKey:@"PngOutRemoveChunks"];
         brute = level >= 6;
@@ -55,7 +55,7 @@
 
     NSUInteger fileSizeOptimized;
     // pngcrush sometimes writes only PNG header (70 bytes)!
-    if ((fileSizeOptimized = [File fileByteSize:temp]) && fileSizeOptimized > 70) {
+    if ((fileSizeOptimized = [Job fileByteSize:temp]) && fileSizeOptimized > 70) {
         return [file setFilePathOptimized:temp  size:fileSizeOptimized toolName:@"Pngcrush"];
     }
     return NO;

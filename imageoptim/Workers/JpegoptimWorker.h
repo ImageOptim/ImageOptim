@@ -13,5 +13,5 @@
     BOOL strip;
 }
 
-- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(File *)aFile;
+- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(Job *)aFile;
 @end

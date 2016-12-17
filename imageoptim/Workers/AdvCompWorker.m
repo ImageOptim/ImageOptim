@@ -5,12 +5,12 @@
 //
 
 #import "AdvCompWorker.h"
-#import "../File.h"
+#import "../Job.h"
 #import "../log.h"
 
 @implementation AdvCompWorker
 
--(instancetype)initWithLevel:(NSInteger)aLevel file:(File *)aFile {
+-(instancetype)initWithLevel:(NSInteger)aLevel file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
         level = MAX(1, MIN(4, aLevel));
     }
@@ -29,11 +29,11 @@
         IOWarn("Can't make temp copy of %@ in %@; %@",file.filePathOptimized.path,temp.path,error);
         return NO;
     }
-  
+
     NSMutableArray* args = [NSMutableArray arrayWithObjects:
                             [NSString stringWithFormat:@"-%d",(int)(level ? level : 4)],
                             @"-z", @"--", temp.path, nil];
-  
+
     if (![self taskForKey:@"AdvPng" bundleName:@"advpng" arguments:args]) {
         return NO;
     }

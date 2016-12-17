@@ -3,13 +3,13 @@
 //
 //  Created by porneL on 23.wrz.07.
 //
-#import "File.h"
+#import "Job.h"
 #import "FilesController.h"
 #import "log.h"
 #import "Workers/DirWorker.h"
 #import "RevealButtonCell.h"
 #import "ResultsDb.h"
-#import "FilesQueue.h"
+#import "JobQueue.h"
 
 @interface FilesController()
 
@@ -18,11 +18,11 @@
 -(void)updateBusyState;
 @end
 
-NSString *const kFilesQueueFinished = @"FilesQueueFinished";
+NSString *const kJobQueueFinished = @"JobQueueFinished";
 static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 @implementation FilesController {
-    FilesQueue *filesQueue;
+    JobQueue *jobQueue;
     NSLock *queueWaitingLock;
 
     NSTableView *tableView;
@@ -44,13 +44,13 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 
-    filesQueue = [[FilesQueue alloc] initWithCPUs:[defs integerForKey:@"RunConcurrentFiles"]
+    jobQueue = [[JobQueue alloc] initWithCPUs:[defs integerForKey:@"RunConcurrentFiles"]
                                              dirs:[defs integerForKey:@"RunConcurrentDirscans"]
                                             files:[defs integerForKey:@"RunConcurrentFileops"]
                                          defaults:defs];
 
-    [filesQueue addObserver:self forKeyPath:@"isBusy" options:0 context:NULL];
-    
+    [jobQueue addObserver:self forKeyPath:@"isBusy" options:0 context:NULL];
+
     [tableView registerForDraggedTypes:@[NSFilenamesPboardType, kIMDraggedRowIndexesPboardType]];
 
     [self setSelectsInsertedObjects:NO];
@@ -74,7 +74,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 -(void)cleanup {
     isEnabled = NO;
 
-    [filesQueue cleanup];
+    [jobQueue cleanup];
 
     NSArray *content = [self content];
     [content makeObjectsPerformSelector:@selector(cleanup)];
@@ -122,7 +122,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation {
     NSArray *objs = [self arrangedObjects];
     if (row < (signed)[objs count]) {
-        File *f = objs[row];
+        Job *f = objs[row];
 
         if ([aCell isKindOfClass:[RevealButtonCell class]]) {
             NSRect infoButtonRect = [((RevealButtonCell *)aCell) infoButtonRectForBounds:*rect];
@@ -220,13 +220,13 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 /** selfLock must be locked before using this
     That's a dumb linear search. Would be nice to replace NSArray with NSSet or NSHashTable.
  */
--(File *)findFileByPath:(NSURL *)path {
+-(Job *)findFileByPath:(NSURL *)path {
     if (![seenPathHashes containsObject:path]) {
         return nil;
     }
 
     NSString *pathString = path.path;
-    for (File *f in [self content]) {
+    for (Job *f in [self content]) {
         if ([pathString isEqualToString:f.filePath.path]) {
             return f;
         }
@@ -234,7 +234,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return nil;
 }
 
--(void)addFileObjects:(NSArray *)files {
+-(void)addJobObjects:(NSArray *)files {
     [[tableView undoManager] registerUndoWithTarget:self selector:@selector(removeObjects:) object:files];
     [[tableView undoManager] setActionName:NSLocalizedString(@"Add",@"undo command name")];
 
@@ -295,32 +295,32 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         }
 
         if (!isDir) {
-            File *f = [self findFileByPath:path];
+            Job *f = [self findFileByPath:path];
             if (f) {
-                if (![f isBusy]) [filesQueue addFile:f];
+                if (![f isBusy]) [jobQueue addJob:f];
             } else {
                 [seenPathHashes addObject:path]; // used by findFileByPath
-                f = [[File alloc] initWithFilePath:path resultsDatabase:db];
+                f = [[Job alloc] initWithFilePath:path resultsDatabase:db];
                 [toAdd addObject:f];
-                [filesQueue addFile:f];
+                [jobQueue addJob:f];
             }
         } else {
             DirWorker *w = [[DirWorker alloc] initWithPath:path filesController:self extensions:[self extensions]];
-            [filesQueue addDirWorker:w];
+            [jobQueue addDirWorker:w];
         }
     }
 
-    [self performSelectorOnMainThread:@selector(addFileObjects:) withObject:toAdd waitUntilDone:NO];
+    [self performSelectorOnMainThread:@selector(addJobObjects:) withObject:toAdd waitUntilDone:NO];
 
     return allOK;
 }
 
 -(NSNumber *)queueCount {
-    return [filesQueue queueCount];
+    return [jobQueue queueCount];
 }
 
 -(void)stopSelected {
-    for(File *f in self.selectedObjects) {
+    for(Job *f in self.selectedObjects) {
         [f stop];
     }
     [self updateStoppableState];
@@ -329,7 +329,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 -(void)revert {
     BOOL beep = NO;
     NSArray *array = [self selectedObjects];
-    for (File *f in array) {
+    for (Job *f in array) {
         if (![f revert]) beep = YES;
     }
     if (beep) NSBeep();
@@ -337,7 +337,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 -(BOOL)canRevert {
     NSArray *array = [self selectedObjects];
-    for (File *f in array) {
+    for (Job *f in array) {
         if ([f canRevert]) return YES;
     }
     return NO;
@@ -345,7 +345,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 
 -(BOOL)canClearComplete {
-    for (File *f in [self arrangedObjects]) {
+    for (Job *f in [self arrangedObjects]) {
         if (f.isDone) return YES;
     }
     return NO;
@@ -356,7 +356,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     NSMutableIndexSet *set = [NSMutableIndexSet new];
 
     @synchronized(self) {
-        for (File *f in [self arrangedObjects]) {
+        for (Job *f in [self arrangedObjects]) {
             if (f.isDone) [set addIndex:i];
             i++;
         }
@@ -371,7 +371,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     NSArray *array = [self selectedObjects];
     if (![array count]) array = [self content];
 
-    for (File *f in array) {
+    for (Job *f in array) {
         if (!f.isBusy && (!optimized || f.isOptimized)) return YES;
     }
     return NO;
@@ -380,24 +380,24 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 -(void)startAgainOptimized:(BOOL)optimized {
     BOOL anyStarted = NO;
     @synchronized(self) {
-        NSArray *files = [self selectedObjects];
-        NSInteger selectionCount = [files count];
+        NSArray *jobs = [self selectedObjects];
+        NSInteger selectionCount = [jobs count];
 
         // UI doesn't give a way to deselect all, so here's a substitute
         // when selecting "again" on file that doesn't need it, deselect
         if (1 == selectionCount) {
-            File *file = files[0];
-            if (file.isBusy || !file.isOptimized) {
-                files = [files copy];
+            Job *job = jobs[0];
+            if (job.isBusy || !job.isOptimized) {
+                jobs = [jobs copy];
                 [self setSelectedObjects:@[]];
             }
         } else if (!selectionCount) {
-            files = [self content];
+            jobs = [self content];
         }
 
-        for (File *f in files) {
+        for (Job *f in jobs) {
             if (!f.isBusy && (!optimized || f.isOptimized)) {
-                [filesQueue addFile:f];
+                [jobQueue addJob:f];
                 anyStarted = YES;
             }
         }
@@ -407,7 +407,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 }
 
 -(void)updateBusyState {
-    BOOL currentlyBusy = [filesQueue isBusy];
+    BOOL currentlyBusy = [jobQueue isBusy];
 
     if (isBusy != currentlyBusy) {
         [self willChangeValueForKey:@"isBusy"];
@@ -418,14 +418,14 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     }
 
     if (!currentlyBusy) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:kFilesQueueFinished object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kJobQueueFinished object:self];
     }
 }
 
 -(void)updateStoppableState {
     if (isBusy) {
         NSArray *array = [self selectedObjects];
-        for(File *f in array) {
+        for(Job *f in array) {
             if ([f isStoppable]) {
                 self.isStoppable = YES;
                 return;

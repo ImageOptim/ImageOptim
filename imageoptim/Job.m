@@ -4,7 +4,7 @@
 //  Created by porneL on 8.wrz.07.
 //
 
-#import "File.h"
+#import "Job.h"
 #import "ImageOptimController.h"
 #import "Workers/Save.h"
 #import "Workers/AdvCompWorker.h"
@@ -40,12 +40,12 @@
 }
 @end
 
-@interface File ()
+@interface Job ()
 @property (assign) BOOL isDone;
 @property (assign) BOOL isFailed;
 @end
 
-@implementation File {
+@implementation Job {
     BOOL preservePermissions;
 }
 
@@ -96,7 +96,7 @@
 }
 
 - (nonnull id)copyWithZone:(nullable NSZone *)zone {
-    return [[File allocWithZone:zone] initWithFilePath:filePath resultsDatabase:db];
+    return [[Job allocWithZone:zone] initWithFilePath:filePath resultsDatabase:db];
 }
 
 -(void)resetToOriginalByteSize:(NSUInteger)size {
@@ -259,7 +259,7 @@
     }
     [self cleanup];
 
-    if (byteSizeOriginal != [File fileByteSize:revertPath]) {
+    if (byteSizeOriginal != [Job fileByteSize:revertPath]) {
         IOWarn(@"Revert path '%@' has wrong size, %ld expected", revertPath, (long)byteSizeOriginal);
         return NO;
     }

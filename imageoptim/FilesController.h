@@ -8,7 +8,7 @@
 #import <Quartz/Quartz.h>
 
 @class File, ResultsDb;
-extern NSString *const kFilesQueueFinished;
+extern NSString *const kJobQueueFinished;
 
 @interface FilesController : NSArrayController <NSTableViewDelegate,NSTableViewDataSource>
 

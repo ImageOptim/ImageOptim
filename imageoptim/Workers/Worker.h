@@ -8,11 +8,11 @@
 
 
 @class Worker;
-@class File;
+@class Job;
 
 @interface Worker : NSOperation {
     NSOperation *nextOperation;
-    File *file;
+    Job *file;
     int fileType;
 }
 
@@ -20,11 +20,11 @@
 // which can be used to cause domino effect and process operations in order for each file
 // as long as there are more queued operations than processing threads.
 @property (atomic, strong) NSOperation *nextOperation;
-@property (atomic, strong) File *file;
+@property (atomic, strong) Job *file;
 
--(instancetype)initWithFile:(File *)aFile;
+-(instancetype)initWithFile:(Job *)aFile;
 
--(BOOL)isRelatedTo:(File *)f;
+-(BOOL)isRelatedTo:(Job *)f;
 
 @property (readonly) BOOL makesNonOptimizingModifications;
 

@@ -1,11 +1,11 @@
 
 #import "PngquantWorker.h"
-#import "../File.h"
+#import "../Job.h"
 #import "../log.h"
 
 @implementation PngquantWorker
 
--(id)initWithLevel:(NSInteger)level minQuality:(NSUInteger)aMinQ file:(File*)f {
+-(id)initWithLevel:(NSInteger)level minQuality:(NSUInteger)aMinQ file:(Job *)f {
     if (self = [super initWithFile:f]) {
         minQuality = aMinQ;
         speed = MIN(3, 7-level);
@@ -68,7 +68,7 @@
         return NO;
     }
 
-    NSUInteger fileSizeOptimized = [File fileByteSize:temp];
+    NSUInteger fileSizeOptimized = [Job fileByteSize:temp];
     return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"pngquant"];
 }
 

@@ -16,7 +16,7 @@ enum IOFileType {
     FILETYPE_GIF
 };
 
-@interface File : NSObject <NSCopying, QLPreviewItem> {
+@interface Job : NSObject <NSCopying, QLPreviewItem> {
 	NSURL *filePath, *revertPath;
 	NSString *displayName;
 	

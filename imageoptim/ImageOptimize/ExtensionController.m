@@ -7,8 +7,8 @@
 //
 
 #import "ExtensionController.h"
-#import "FilesQueue.h"
-#import "File.h"
+#import "JobQueue.h"
+#import "Job.h"
 #import "SharedPrefs.h"
 
 @interface ExtensionController ()
@@ -61,7 +61,7 @@
             }
 
             dispatch_async(dispatch_get_global_queue(0,0), ^{
-                File *f = [[File alloc] initWithFilePath:tempFilePath resultsDatabase:nil];
+                Job *f = [[Job alloc] initWithFilePath:tempFilePath resultsDatabase:nil];
                 self.currentFile = f;
                 NSUserDefaults *defaults = IOSharedPrefs();
                 [defaults registerDefaults:@{
@@ -79,9 +79,9 @@
                     @"LossyEnabled": @(YES),
                 }];
 
-                self.filesQueue = [[FilesQueue alloc] initWithCPUs:0 dirs:1 files:1 defaults:defaults];
-                [self.filesQueue addFile:f];
-                [self.filesQueue wait];
+                self.jobQueue = [[JobQueue alloc] initWithCPUs:0 dirs:1 files:1 defaults:defaults];
+                [self.jobQueue addJob:f];
+                [self.jobQueue wait];
 
                 BOOL optimized = [f isOptimized];
                 [[self status] setStringValue:

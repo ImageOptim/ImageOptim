@@ -12,5 +12,5 @@
     BOOL interlace;
 }
 
-- (instancetype)initWithInterlace:(BOOL)yn quality:(NSUInteger)quality file:(File *)aFile;
+- (instancetype)initWithInterlace:(BOOL)yn quality:(NSUInteger)quality file:(Job *)aFile;
 @end

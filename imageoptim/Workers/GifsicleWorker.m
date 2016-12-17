@@ -1,10 +1,10 @@
 
 #import "GifsicleWorker.h"
-#import "../File.h"
+#import "../Job.h"
 
 @implementation GifsicleWorker
 
-- (instancetype)initWithInterlace:(BOOL)yn quality:(NSUInteger)aQuality file:(File *)aFile {
+- (instancetype)initWithInterlace:(BOOL)yn quality:(NSUInteger)aQuality file:(Job *)aFile {
     if ((self = [super initWithFile:aFile])) {
         quality = aQuality;
         interlace = yn;
@@ -56,7 +56,7 @@
 
     NSString *toolName = isLossy ? @"Giflossy" : (interlace ? @"Gifsicle interlaced" : @"Gifsicle");
 
-    NSUInteger fileSizeOptimized = [File fileByteSize:temp];
+    NSUInteger fileSizeOptimized = [Job fileByteSize:temp];
 
     if (isLossy) {
         BOOL isSignificantlySmaller;

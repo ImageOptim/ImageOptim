@@ -12,7 +12,7 @@
     BOOL strip, brute;
 }
 
-- (instancetype)initWithLevel:(NSInteger)level defaults:(NSUserDefaults *)defaults file:(File *)aFile;
+- (instancetype)initWithLevel:(NSInteger)level defaults:(NSUserDefaults *)defaults file:(Job *)aFile;
 @property (readonly) BOOL makesNonOptimizingModifications;
 
 @end

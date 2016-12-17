@@ -1,12 +1,12 @@
 
 #import "ZopfliWorker.h"
-#import "../File.h"
+#import "../Job.h"
 
 @implementation ZopfliWorker
 
 @synthesize alternativeStrategy;
 
--(instancetype)initWithLevel:(NSInteger)aLevel defaults:(NSUserDefaults *)defaults file:(File *)aFile {
+-(instancetype)initWithLevel:(NSInteger)aLevel defaults:(NSUserDefaults *)defaults file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
         iterations = 3 + 3*aLevel;
         strip = [defaults boolForKey:@"PngOutRemoveChunks"];
@@ -70,7 +70,7 @@
 
     if (!ok) return NO;
 
-    NSInteger fileSizeOptimized = [File fileByteSize:temp];
+    NSInteger fileSizeOptimized = [Job fileByteSize:temp];
     if (fileSizeOptimized > 70) {
         return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"Zopfli"];
     }
