@@ -534,6 +534,7 @@
         BOOL pngoutEnabled = [defs boolForKey:@"PngOutEnabled"];
         BOOL zopfliEnabled = [defs boolForKey:@"ZopfliEnabled"];
         BOOL advpngEnabled = [defs boolForKey:@"AdvPngEnabled"];
+        BOOL removePNGChunks = [defs boolForKey:@"PngOutRemoveChunks"];
         
         if (level < 4 && zopfliEnabled) {
             pngoutEnabled = NO;
@@ -546,7 +547,9 @@
         if (pngcrushEnabled) [worker_list addObject:[[PngCrushWorker alloc] initWithLevel:level defaults:defs file:self]];
         if (optipngEnabled) [worker_list addObject:[[OptiPngWorker alloc] initWithLevel:level file:self]];
         if (pngoutEnabled) [worker_list addObject:[[PngoutWorker alloc] initWithLevel:level defaults:defs file:self]];
-        if (advpngEnabled) [worker_list addObject:[[AdvCompWorker alloc] initWithLevel:level file:self]];
+        if (advpngEnabled && removePNGChunks) {
+            [worker_list addObject:[[AdvCompWorker alloc] initWithLevel:level file:self]];
+        }
         if (zopfliEnabled) {
             ZopfliWorker *zw = [[ZopfliWorker alloc]initWithLevel:level defaults:defs file:self];
             zw.alternativeStrategy = hasBeenRunBefore;
