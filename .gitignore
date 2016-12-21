@@ -155,3 +155,5 @@ pngquant/build/*
 pngcrush/Makefile-nolib
 pngcrush/pngcrush.c.orig
 imageoptim/pngout-20130221-darwin/*
+gifsicle/patched
+pngcrush/patched

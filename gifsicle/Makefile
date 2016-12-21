@@ -1,9 +1,14 @@
 build: all
 
-all: gifsicle/src
+all: patched
+
+patched: gifsicle/src
+	patch -p1 -d gifsicle < gifsicle-1.89-imageoptim.patch && touch patched
 
 gifsicle/src: ../.gitmodules
 	../scripts/fetch-submodule gifsicle && touch gifsicle/src
-	patch -p1 -d gifsicle < gifsicle-1.89-imageoptim.patch
+
+clean:
+	-rm patched
 
 .PHONY: build all install clean
