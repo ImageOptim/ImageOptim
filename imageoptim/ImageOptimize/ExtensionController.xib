@@ -41,7 +41,7 @@
                 <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="700" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="k2a-43-e8O">
                     <rect key="frame" x="169" y="16" width="16" height="16"/>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="filesQueue.isBusy" id="YSU-Ug-S6a">
+                        <binding destination="-2" name="value" keyPath="jobQueue.isBusy" id="CGw-PS-bTq">
                             <dictionary key="options">
                                 <bool key="NSConditionallySetsHidden" value="YES"/>
                                 <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
