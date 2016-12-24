@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <XCTest/XCTest.h>
-#import "File.h"
+#import "Job.h"
 #import "JobQueue.h"
 
 @interface BackendTests : XCTestCase
