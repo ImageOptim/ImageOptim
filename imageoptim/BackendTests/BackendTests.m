@@ -43,6 +43,7 @@
     [q addJob:f];
     XCTAssertTrue([f isBusy]);
     [q wait];
+    XCTAssertFalse([f isBusy]);
 
     NSNumber *size, *origSize;
     XCTAssertTrue([path getResourceValue:&size forKey:NSURLFileSizeKey error:nil]);
