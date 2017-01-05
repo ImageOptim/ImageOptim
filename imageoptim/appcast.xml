@@ -6,8 +6,14 @@
 <description>ImageOptim updates</description>
 <language>en</language>
 <item>
-<title>Version 1.6.4</title>
+<title>Version 1.6.5</title>
 <description><![CDATA[
+<ul>
+    <li>Fixed Apple Mail extension.</li>
+    <li>Fixed stripping of color profiles when AdvPNG is enabled.</li>
+    <li>Updated Sparkle updater (auto-updates are much faster now).</li>
+</ul>
+<p>Recently:</p>
 <ul>
     <li>Main window settings button for quicker access to lossy minification options.</li>
     <li>Major update to gifsicle. It's faster and has higher quality.</li>
