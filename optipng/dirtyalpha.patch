@@ -17,7 +17,7 @@ index e4d5c98..5e82152 100644
 @@ -1151,6 +1151,69 @@ opng_analyze_sample_usage(png_structp png_ptr, png_infop info_ptr,
        usage_map[info_ptr->background.index] = 1;
  }
- 
+
 +/*
 + * Remove RGB components or transparent pixels in RGB+alpha images.
 + * The function returns OPNG_REDUCE_DIRTY_ALPHA if any pixels were cleared.
@@ -81,7 +81,7 @@ index e4d5c98..5e82152 100644
 +}
 +
 +
- 
+
  /*
   * Reduce the palette (only the fast method is implemented).
 @@ -1339,7 +1402,7 @@ opng_reduce_image(png_structp png_ptr, png_infop info_ptr,
@@ -90,13 +90,13 @@ index e4d5c98..5e82152 100644
     unsigned int color_type;
 -   png_uint_32 result;
 +   png_uint_32 result = 0;
- 
+
     opng_debug(1, "in opng_reduce_image_type");
- 
+
 @@ -1354,8 +1417,14 @@ opng_reduce_image(png_structp png_ptr, png_infop info_ptr,
- 
+
     /* The reductions below must be applied in the given order. */
- 
+
 +   if ((color_type == PNG_COLOR_TYPE_RGB_ALPHA ||
 +        color_type == PNG_COLOR_TYPE_GRAY_ALPHA)
 +       && (reductions & OPNG_REDUCE_DIRTY_ALPHA)
@@ -106,7 +106,7 @@ index e4d5c98..5e82152 100644
     /* Try to reduce the high bits and color/alpha channels. */
 -   result = opng_reduce_bits(png_ptr, info_ptr, reductions);
 +   result |= opng_reduce_bits(png_ptr, info_ptr, reductions);
- 
+
     /* Try to reduce the palette image. */
     if (color_type == PNG_COLOR_TYPE_PALETTE &&
 diff --git a/src/opngreduc.h b/src/opngreduc.h
@@ -120,17 +120,17 @@ index 23f2eb0..a9f27e3 100644
 +#define OPNG_REDUCE_DIRTY_ALPHA      0x0400  /* zero RGB components of
 +                                                transparent pixels */
  #define OPNG_REDUCE_ANCILLARY        0x1000
- 
+
  #define OPNG_REDUCE_BIT_DEPTH  \
 @@ -89,7 +91,7 @@ png_uint_32 PNGAPI opng_reduce_image(png_structp png_ptr, png_infop info_ptr,
- 
+
  #define OPNG_REDUCE_ALL  \
     (OPNG_REDUCE_BIT_DEPTH | OPNG_REDUCE_COLOR_TYPE | \
 -    OPNG_REDUCE_PALETTE_ALL | OPNG_REDUCE_ANCILLARY)
 +    OPNG_REDUCE_PALETTE_ALL | OPNG_REDUCE_ANCILLARY | OPNG_REDUCE_DIRTY_ALPHA)
- 
+
  #endif /* OPNG_IMAGE_REDUCTIONS_SUPPORTED */
- 
+
 diff --git a/src/optipng.c b/src/optipng.c
 index 1768859..06b4902 100644
 --- a/src/optipng.c
@@ -156,7 +156,7 @@ index 1768859..06b4902 100644
              /* -nz */
 @@ -846,9 +851,9 @@ app_print_cntrl(int cntrl_code)
      }
- 
+
      if (con_file != NULL)
 -        fputs(con_str, con_file);
 +        fprintf(con_file, "%s",con_str);
@@ -164,8 +164,8 @@ index 1768859..06b4902 100644
 -        fputs(log_str, log_file);
 +        fprintf(log_file, "%s",log_str);
  }
- 
- 
+
+
 diff --git a/src/optipng.h b/src/optipng.h
 index cb6343e..55c4b2b 100644
 --- a/src/optipng.h

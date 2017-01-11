@@ -528,22 +528,22 @@
                 lossyConverted = YES;
             }
         }
-        
+
         BOOL pngcrushEnabled = [defs boolForKey:@"PngCrushEnabled"];
         BOOL optipngEnabled = [defs boolForKey:@"OptiPngEnabled"];
         BOOL pngoutEnabled = [defs boolForKey:@"PngOutEnabled"];
         BOOL zopfliEnabled = [defs boolForKey:@"ZopfliEnabled"];
         BOOL advpngEnabled = [defs boolForKey:@"AdvPngEnabled"];
         BOOL removePNGChunks = [defs boolForKey:@"PngOutRemoveChunks"];
-        
+
         if (level < 4 && zopfliEnabled) {
             pngoutEnabled = NO;
         }
-        
+
         if (level < 2 && optipngEnabled) {
             pngcrushEnabled = NO;
         }
-        
+
         if (pngcrushEnabled) [worker_list addObject:[[PngCrushWorker alloc] initWithLevel:level defaults:defs file:self]];
         if (optipngEnabled) [worker_list addObject:[[OptiPngWorker alloc] initWithLevel:level file:self]];
         if (pngoutEnabled) [worker_list addObject:[[PngoutWorker alloc] initWithLevel:level defaults:defs file:self]];

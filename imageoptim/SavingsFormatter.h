@@ -6,6 +6,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SavingsFormatter : NSNumberFormatter 
+@interface SavingsFormatter : NSNumberFormatter
 
 @end

@@ -7,8 +7,8 @@
 #import <Cocoa/Cocoa.h>
 #import "CommandWorker.h"
 
-@interface PngCrushWorker : CommandWorker {    
-	int firstIdatSize;	
+@interface PngCrushWorker : CommandWorker {
+	int firstIdatSize;
     BOOL strip, brute;
 }
 
