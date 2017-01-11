@@ -6,6 +6,7 @@
 
 #import "Worker.h"
 #import "Job.h"
+#import "File.h"
 #import "log.h"
 
 @implementation Worker
@@ -40,7 +41,7 @@
     NSNumber *previousResult = resultsBySettings[@([self settingsIdentifier])];
     if (!previousResult) return NO;
 
-    return job.byteSizeOptimized == [previousResult integerValue];
+    return job.wipInput.byteSize == [previousResult integerValue];
 }
 
 -(void)markResultForSkipping {
@@ -50,7 +51,7 @@
             resultsBySettings = [NSMutableDictionary new];
             (job.workersPreviousResults)[[self className]] = resultsBySettings;
         }
-        resultsBySettings[@([self settingsIdentifier])] = @(job.byteSizeOptimized);
+        resultsBySettings[@([self settingsIdentifier])] = @(job.wipInput.byteSize); // FIXME: should be passed in, race condition
     }
 }
 

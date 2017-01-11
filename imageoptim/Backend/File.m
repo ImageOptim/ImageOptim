@@ -55,7 +55,14 @@
 }
 
 -(nullable File*)copyOfPath:(NSURL *)path size:(NSUInteger)s {
-    assert(s == [File byteSize:path]);
+    if (!s) {
+        return nil;
+    }
+
+    if (s != [File byteSize:path]) {
+        NSLog(@"Expected size %d, but file is actually %d", (int)s, (int)[File byteSize:path]);
+        return nil;
+    }
     return [[File alloc] initWithType:fileType size:s fromPath:path];
 }
 

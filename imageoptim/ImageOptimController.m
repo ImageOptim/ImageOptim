@@ -2,6 +2,7 @@
 #import "FilesController.h"
 #import "RevealButtonCell.h"
 #import "Job.h"
+#import "File.h"
 #import "Backend/Workers/Worker.h"
 #import "PrefsController.h"
 #import "MyTableView.h"
@@ -114,8 +115,12 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 
             NSArray *content = [filesController content];
             for (Job *f in content) {
-                const NSUInteger bytes = f.byteSizeOriginal, optimized = f.byteSizeOptimized;
-                if (bytes && (bytes != optimized || [f isDone])) {
+                const File *optimizedFile = f.wipInput;
+                if (!optimizedFile) optimizedFile = f.savedOutput;
+                if (!optimizedFile) continue;
+                
+                const NSUInteger bytes = f.initialInput.byteSize, optimized = optimizedFile.byteSize;
+                if (bytes && optimized && (bytes != optimized || [f isDone])) {
                     const double optimizedFraction = 1.0 - (double)optimized/(double)bytes;
                     if (optimizedFraction > maxOptimizedFraction) {
                         maxOptimizedFraction = optimizedFraction;
@@ -182,15 +187,20 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
     });
     dispatch_resume(statusBarUpdateQueue);
 
+    [filesController addObserver:self forKeyPath:@"isBusy" options:0 context:nil];
     [filesController addObserver:self forKeyPath:@"arrangedObjects.@count" options:0 context:nil];
     [filesController addObserver:self forKeyPath:@"arrangedObjects.@sum.byteSizeOptimized" options:0 context:nil];
     [filesController addObserver:self forKeyPath:@"selectionIndexes" options:0 context:(void*)kIMPreviewPanelContext];
 
-    dispatch_source_merge_data(statusBarUpdateQueue, 1); // Initial display
+    [self updateStatusBar]; // Initial display
 
     [[NSNotificationCenter defaultCenter] addObserverForName:NSUserDefaultsDidChangeNotification object:defs queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note){
-        dispatch_source_merge_data(statusBarUpdateQueue, 1);
+        [self updateStatusBar];
     }];
+}
+
+-(void)updateStatusBar {
+    dispatch_source_merge_data(statusBarUpdateQueue, 1);
 }
 
 -(void)awakeFromNib {

@@ -46,28 +46,29 @@
     }
 }
 
--(NSArray*)jobsForDataURI {
+-(NSArray<File *> *)filesForDataURI {
     FilesController *f = (FilesController*)[self delegate];
 
     NSArray *selectedFiles = [f selectedObjects];
-    NSMutableArray *jobs = [NSMutableArray arrayWithCapacity:[selectedFiles count]];
+    NSMutableArray *files = [NSMutableArray arrayWithCapacity:[selectedFiles count]];
     NSUInteger totalSize = 0;
     for(Job *job in selectedFiles) {
-        if (![job isDone] || !job.byteSizeOptimized) continue;
-        if (job.byteSizeOptimized > 100000) continue;
-        totalSize += job.byteSizeOptimized;
+        if (![job isDone]) continue;
+        File *file = job.savedOutput ? job.savedOutput : job.unoptimizedInput;
+        if (!file || file.byteSize > 100000) continue;
+        totalSize += file.byteSize;
         if (totalSize > 1000000) break;
-        [jobs addObject:job];
+        [files addObject:file];
     }
-    return jobs;
+    return files;
 }
 
 - (IBAction)copyAsDataURI:(id)sender {
     NSMutableArray *urls = [NSMutableArray new];
-    for(Job *job in [self jobsForDataURI]) {
-        NSData *data = [NSData dataWithContentsOfURL:job.filePath];
+    for(File *file in [self filesForDataURI]) {
+        NSData *data = [NSData dataWithContentsOfURL:file.path];
 
-        NSString *type = [job.unoptimizedInput mimeType]; // FIXME: use either input or output, whichever is ready
+        NSString *type = [file mimeType];
         if (!type) continue;
 
         NSString *url = [[NSString stringWithFormat:@"data:%@;base64,", type]
@@ -111,7 +112,7 @@
         return [self numberOfSelectedRows] > 0;
     } else if (action == @selector(copyAsDataURI:)) {
         NSData *data = [NSData data];
-        return [data respondsToSelector:@selector(base64Encoding)] && [self numberOfSelectedRows] > 0 && [[self jobsForDataURI] count] > 0;
+        return [data respondsToSelector:@selector(base64Encoding)] && [self numberOfSelectedRows] > 0 && [[self filesForDataURI] count] > 0;
     } else if (action == @selector(paste:)) {
         NSPasteboard *pboard = [NSPasteboard generalPasteboard];
         NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];

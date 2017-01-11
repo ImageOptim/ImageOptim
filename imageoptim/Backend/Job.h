@@ -16,13 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 	NSURL *filePath, *revertPath;
 	NSString *displayName;
 
-    /** size of file before any optimizations */
-	NSUInteger byteSizeOriginal;
-    /** expected current size of file on disk, updated before and after optimization */
-    NSUInteger byteSizeOnDisk;
-    /** current best estimate of what optimized file size will be */
-    NSUInteger byteSizeOptimized;
-
     NSString *bestToolName;
     NSMutableDictionary *bestTools;
 	double percentDone;
@@ -59,8 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(nullable instancetype)initWithFilePath:(NSURL *)aPath resultsDatabase:(nullable ResultsDb *)aDb;
 -(id)copyWithZone:(nullable NSZone *)zone;
--(void)resetToOriginalByteSize:(NSUInteger)size;
--(void)setByteSizeOptimized:(NSUInteger)size;
 -(void)updateStatusOfWorker:(nullable Worker *)currentWorker running:(BOOL)started;
 
 -(void)setFilePath:(NSURL *)s;
@@ -72,7 +63,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong) NSString *displayName;
 @property (strong, nonatomic) NSURL *filePath;
 @property (strong) NSString *statusImageName;
-@property (assign,nonatomic) NSUInteger byteSizeOriginal, byteSizeOptimized;
+@property (readonly,nonatomic) NSNumber *byteSizeOriginal;
+@property (readonly,nonatomic) NSNumber *byteSizeOptimized;
+@property (readonly,nonatomic) NSNumber *percentOptimized;
 @property (assign,readonly) NSInteger statusOrder;
 @property (strong,readonly) NSMutableDictionary *workersPreviousResults;
 

@@ -9,6 +9,7 @@
 #import "ExtensionController.h"
 #import "JobQueue.h"
 #import "Job.h"
+#import "File.h"
 #import "SharedPrefs.h"
 
 @interface ExtensionController ()
@@ -94,7 +95,7 @@
                     NSItemProvider *result = [[NSItemProvider alloc] initWithContentsOfURL:tempFilePath];
                     inputItem.attachments = @[result];
                     [self.extensionContext completeRequestReturningItems:@[inputItem] completionHandler:^(BOOL res){
-                        NSLog(@"Returned image %d > %d (%d)", (int)[f byteSizeOriginal], (int)[f byteSizeOptimized], (int)res);
+                        NSLog(@"Returned image %d > %d (%d)", (int)[f byteSizeOriginal], (int)f.savedOutput.byteSize, (int)res);
                         [[NSFileManager defaultManager] removeItemAtURL:tempFilePath error:nil];
                         tempFilePath = nil;
                     }];

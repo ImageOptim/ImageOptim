@@ -49,7 +49,7 @@
     BOOL preservePermissions;
 }
 
-@synthesize workersPreviousResults, byteSizeOriginal, byteSizeOptimized, filePath, displayName, statusText, statusOrder, statusImageName, percentDone, bestToolName, isFailed=failed, isDone=done;
+@synthesize workersPreviousResults, filePath, displayName, statusText, statusOrder, statusImageName, percentDone, bestToolName, isFailed=failed, isDone=done;
 
 -(instancetype)initWithFilePath:(nonnull NSURL *)aPath resultsDatabase:(nullable ResultsDb *)aDb
 {
@@ -74,41 +74,75 @@
     return [[Job allocWithZone:zone] initWithFilePath:filePath resultsDatabase:db];
 }
 
--(void)resetToOriginalByteSize:(NSUInteger)size {
-    [bestTools removeAllObjects];
-    self.bestToolName = nil;
-    lossyConverted = NO;
-    byteSizeOptimized = 0;
-    byteSizeOriginal = size;
-    byteSizeOnDisk = size;
-    [self setByteSizeOptimized:size];
+-(nullable File *)optimizedFileWithFallback:(BOOL)fallback {
+    File *optimizedFile = self.wipInput;
+    if (optimizedFile) {
+        return optimizedFile;;
+    }
+    optimizedFile = self.savedOutput;
+    if (optimizedFile) {
+        return optimizedFile;
+    }
+    if (fallback) {
+        return self.unoptimizedInput;
+    } else {
+        return nil;
+    }
 }
 
--(double)percentOptimized {
-    if (!byteSizeOptimized) return 0.0;
+-(NSNumber *)percentOptimized {
+    File *optimizedFile = self.wipInput;
+    if (optimizedFile == self.unoptimizedInput && !self.savedOutput) {
+        return nil; // early work in progress, don't display anything
+    }
+
+    optimizedFile = [self optimizedFileWithFallback:false];
+    if (!optimizedFile && self.isDone && !self.isFailed) {
+        return [NSNumber numberWithInteger:0];
+    }
+
+    NSUInteger byteSizeOptimized = [self optimizedFileWithFallback:false].byteSize;
+    NSUInteger byteSizeOriginal = self.initialInput.byteSize;
+
+    if (!byteSizeOptimized) {
+        return nil;
+    }
     double p = 100.0 - 100.0* (double)byteSizeOptimized/(double)byteSizeOriginal;
-    if (p<0) return 0.0;
-    return p;
+    if (p<0) return [NSNumber numberWithInteger:0];
+    return [NSNumber numberWithDouble:p];
 }
 
 -(BOOL)isOptimized {
-    return byteSizeOptimized < byteSizeOriginal && (optimized || byteSizeOptimized < byteSizeOnDisk);
+    File *unoptimizedInput = self.unoptimizedInput;
+    File *optimizedFile = [self optimizedFileWithFallback:false];
+
+    if (!optimizedFile || unoptimizedInput == optimizedFile) {
+        return NO;
+    }
+
+    return optimizedFile.byteSize < unoptimizedInput.byteSize;
 }
 
--(void)setByteSizeOptimized:(NSUInteger)size {
-    @synchronized(self) {
-        if ((!byteSizeOptimized || size < byteSizeOptimized) && size > 30) {
-            [self willChangeValueForKey:@"percentOptimized"];
-            byteSizeOptimized = size;
-            [self didChangeValueForKey:@"percentOptimized"];
-        }
-    }
+-(NSNumber *)byteSizeOptimized {
+    File *input = [self optimizedFileWithFallback:true];
+
+    return [NSNumber numberWithUnsignedInteger:input.byteSize];
 }
+
+-(NSNumber *)byteSizeOriginal {
+    File *input = self.initialInput;
+    if (!input) {
+        return nil;
+    }
+    return [NSNumber numberWithUnsignedInteger:input.byteSize];
+}
+
 
 -(void)updateBestToolName:(ToolStats*)newTool {
     bestTools[newTool->name] = newTool;
 
-    NSString *smallestFileToolName = nil; NSUInteger smallestFile = byteSizeOriginal;
+    NSString *smallestFileToolName = nil;
+    NSUInteger smallestFile = self.unoptimizedInput.byteSize;
     NSString *bestRatioToolName = nil; float bestRatio = 0;
     for (NSString *name in bestTools) {
         ToolStats *t = bestTools[name];
@@ -126,21 +160,48 @@
     }
 }
 
+-(void)setNewFileInitial:(nullable File *)initial {
+    @synchronized(self) {
+        [self willChangeValueForKey:@"byteSizeOriginal"];
+        self.initialInput = initial;
+        self.unoptimizedInput = initial;
+        self.savedOutput = nil;
+        self.bestToolName = nil;
+        [self didChangeValueForKey:@"byteSizeOriginal"];
+        lossyConverted = NO;
+        [bestTools removeAllObjects];
+    }
+    [self setFileOptimized:initial];
+}
+
+-(void)setFileOptimized:(nullable File *)newFile {
+    [self willChangeValueForKey:@"byteSizeOptimized"];
+    [self willChangeValueForKey:@"percentOptimized"];
+    self.wipInput = newFile;
+    [self didChangeValueForKey:@"percentOptimized"];
+    [self didChangeValueForKey:@"byteSizeOptimized"];
+}
+
 -(BOOL)setFileOptimized:(File *)newFile toolName:(NSString *)toolname {
     if (!newFile) {
         return NO;
     }
-    
-    File *oldFile = self.wipInput;
-    NSUInteger oldSize = oldFile.byteSize;
+
     NSUInteger newSize = newFile.byteSize;
-    
-    IODebug("File %@ optimized with %@ from %u to %u in %@",_unoptimizedInput.path,toolname,(unsigned int)oldSize,(unsigned int)newSize,newFile.path);
     BOOL changed = NO;
     @synchronized(self) {
-        if (newSize && newSize < oldSize) {
-            self.wipInput = newFile;
-            [self setByteSizeOptimized:newSize];
+        File *oldFile = self.wipInput;
+        NSUInteger oldSize = oldFile.byteSize;
+
+        BOOL isSmaller = newSize && newSize < oldSize;
+        IODebug("%@ %@ file %@ from %lu to %lu in %@",
+                toolname,
+                isSmaller ? @"optimized" : @"did not optimize",
+                _unoptimizedInput.path.path,
+                (unsigned long)oldSize,(unsigned long)newSize,
+                newFile.path.path);
+        if (isSmaller) {
+            [self setFileOptimized:newFile];
             [self performSelectorOnMainThread:@selector(updateBestToolName:) withObject:[[ToolStats alloc] initWithName:toolname oldSize:oldSize newSize:newSize] waitUntilDone:NO];
             changed = YES;
         }
@@ -225,6 +286,7 @@
     }
     [self cleanup];
 
+    NSUInteger byteSizeOriginal = self.initialInput.byteSize;
     if (byteSizeOriginal != [File byteSize:revertPath]) {
         IOWarn(@"Revert path '%@' has wrong size, %ld expected", revertPath, (long)byteSizeOriginal);
         return NO;
@@ -242,7 +304,7 @@
     if (newFilePath) {
         filePath = [newFilePath copy];
     }
-    [self resetToOriginalByteSize:byteSizeOriginal];
+    [self setNewFileInitial:[self.initialInput copyOfPath:filePath]];
     [self setStatus:@"noopt" order:6 text:NSLocalizedString(@"Reverted to original",@"tooltip")];
     return YES;
 }
@@ -298,8 +360,8 @@
                 return NO;
             }
 
-            if ([data length] != byteSizeOptimized) {
-                IOWarn("Temp file size %u does not match expected %u in %@ for %@",(unsigned int)[data length],(unsigned int)byteSizeOptimized,fileToSave.path,filePath.path);
+            if ([data length] != fileToSave.byteSize) {
+                IOWarn("Temp file size %u does not match expected %u in %@ for %@",(unsigned int)[data length],(unsigned int)fileToSave.byteSize,fileToSave.path,filePath.path);
                 return NO;
             }
 
@@ -343,8 +405,7 @@
             return NO;
         }
 
-        byteSizeOnDisk = byteSizeOptimized;
-        _savedOutput = _wipInput;
+        self.savedOutput = [_wipInput copyOfPath:filePath];
 
         [self removeExtendedAttrAtURL:filePath];
     }
@@ -357,13 +418,14 @@
 }
 
 -(void)setNooptStatus {
+    [self setFileOptimized:nil]; // Needed to update 0% optimized display
     [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
 }
 
 -(void)saveResultAndUpdateStatus {
     assert([self isBusy]);
     self.isDone = YES;
-    if ([self isOptimized] && byteSizeOriginal && byteSizeOptimized) {
+    if ([self isOptimized]) {
         BOOL saved = [self saveResult];
         if (saved) {
             optimized = YES;
@@ -374,7 +436,7 @@
     } else {
         [self setNooptStatus];
         if (!stopping && !self.isFailed) {
-            [db setUnoptimizableFileHash:inputFileHash size:byteSizeOnDisk];
+            [db setUnoptimizableFileHash:inputFileHash size:self.unoptimizedInput.byteSize];
         }
     }
     [self cleanup];
@@ -425,26 +487,25 @@
     NSError *err = nil;
     NSData *fileData = [NSData dataWithContentsOfURL:filePath options:NSDataReadingMappedIfSafe error:&err];
     NSUInteger length = [fileData length];
-    
+
     File *input = [[File alloc] initWithData:fileData fromPath:filePath];
-    self.unoptimizedInput = input;
+
     if (!input || !length) {
         IOWarn(@"Can't open the file %@ %@", filePath.path, err);
+        [self setNewFileInitial:nil];
         [self setError:NSLocalizedString(@"Can't open the file",@"tooltip, generic loading error")];
         return;
     }
-    if (!self.initialInput) {
-        self.initialInput = input;
-    }
-    self.wipInput = input;
 
-    BOOL hasBeenRunBefore = (byteSizeOnDisk && length == byteSizeOnDisk);
+    BOOL hasChangedSinceLastSave = self.savedOutput && self.savedOutput.byteSize != input.byteSize;
+    BOOL hasBeenRunBefore = self.initialInput && !hasChangedSinceLastSave;
 
-    @synchronized(self) {
-        // if file hasn't changed since last optimization, keep previous byteSizeOriginal, etc.
-        if (!byteSizeOnDisk || length != byteSizeOnDisk) {
-            [self resetToOriginalByteSize:length];
-        }
+    // if file hasn't changed since last optimization, keep previous byteSizeOriginal, etc.
+    if (!hasBeenRunBefore || hasChangedSinceLastSave) {
+        [self setNewFileInitial:input];
+    } else {
+        self.unoptimizedInput = input;
+        [self setFileOptimized:input];
     }
 
     NSFileManager *fm = [NSFileManager defaultManager];
@@ -706,13 +767,13 @@
 }
 
 -(nonnull NSString *)description {
-    return [NSString stringWithFormat:@"%@ %ld/%ld (workers %ld)", self.filePath,(long)self.byteSizeOriginal,(long)self.byteSizeOptimized, [workers count]];
+    return [NSString stringWithFormat:@"%@ %ld/%ld (workers %ld)", self.filePath,(long)self.byteSizeOriginal,(long)self.wipInput.byteSize, [workers count]];
 }
 
 #pragma mark QL
 
 -(NSURL *) previewItemURL {
-    return self.wipInput.path;
+    return [self optimizedFileWithFallback:true].path;
 }
 
 -(NSString *) previewItemTitle {

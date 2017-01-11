@@ -84,7 +84,7 @@
     }
 
     if (fileSizeOptimized) {
-        return [job setFileOptimized:[file copyOfPath:temp size:fileSizeOptimized] toolName:@"PNGOUT"];
+        return [job setFileOptimized:[file copyOfPath:temp] toolName:@"PNGOUT"];
     }
     return NO;
 }
