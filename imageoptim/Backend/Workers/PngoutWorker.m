@@ -8,7 +8,7 @@
 
 #import "PngoutWorker.h"
 #import "../Job.h"
-#import "../log.h"
+#import "../../log.h"
 
 @implementation PngoutWorker
 

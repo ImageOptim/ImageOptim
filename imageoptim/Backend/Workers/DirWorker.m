@@ -5,8 +5,8 @@
 //
 
 #import "DirWorker.h"
-#import "../FilesController.h"
-#import "../log.h"
+#import "../../FilesController.h"
+#import "../../log.h"
 
 @implementation DirWorker
 

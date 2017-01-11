@@ -7,7 +7,7 @@
 #import "CommandWorker.h"
 #include <unistd.h>
 #import "../Job.h"
-#import "../log.h"
+#import "../../log.h"
 
 @implementation CommandWorker {
 }

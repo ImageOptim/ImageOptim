@@ -2,7 +2,7 @@
 #import "FilesController.h"
 #import "RevealButtonCell.h"
 #import "Job.h"
-#import "Workers/Worker.h"
+#import "Backend/Workers/Worker.h"
 #import "PrefsController.h"
 #import "MyTableView.h"
 #import "SharedPrefs.h"

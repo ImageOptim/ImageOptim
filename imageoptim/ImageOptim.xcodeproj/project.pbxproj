@@ -461,8 +461,8 @@
 		5A0A24F417494254003264CC /* progress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "progress@2x.png"; sourceTree = "<group>"; };
 		5A0A24F517494254003264CC /* wait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wait@2x.png"; sourceTree = "<group>"; };
 		5A0A24FC17495224003264CC /* err@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "err@2x.png"; sourceTree = "<group>"; };
-		5A0D2E550C922AB700FD7CDE /* Job.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Job.h; sourceTree = "<group>"; };
-		5A0D2E560C922AB700FD7CDE /* Job.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Job.m; sourceTree = "<group>"; };
+		5A0D2E550C922AB700FD7CDE /* Job.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Job.h; path = Backend/Job.h; sourceTree = "<group>"; };
+		5A0D2E560C922AB700FD7CDE /* Job.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Job.m; path = Backend/Job.m; sourceTree = "<group>"; };
 		5A0D2E5B0C922D6D00FD7CDE /* ImageOptimController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageOptimController.h; sourceTree = "<group>"; };
 		5A0D2E5C0C922D6D00FD7CDE /* ImageOptimController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageOptimController.m; sourceTree = "<group>"; };
 		5A0E43D81B650F28008EF2EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PrefsController.strings; sourceTree = "<group>"; };
@@ -481,8 +481,8 @@
 		5A34A632140EEDB900DE44D2 /* DragDropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragDropImageView.h; sourceTree = "<group>"; };
 		5A34A633140EEDB900DE44D2 /* DragDropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropImageView.m; sourceTree = "<group>"; };
 		5A34CFEE1AEF6D9800A154E4 /* ImageOptimGPL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageOptimGPL.h; path = Backend/ImageOptimGPL.h; sourceTree = "<group>"; };
-		5A34D0971AEF75CE00A154E4 /* JobQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobQueue.h; sourceTree = "<group>"; };
-		5A34D0981AEF75CE00A154E4 /* JobQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobQueue.m; sourceTree = "<group>"; };
+		5A34D0971AEF75CE00A154E4 /* JobQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JobQueue.h; path = Backend/JobQueue.h; sourceTree = "<group>"; };
+		5A34D0981AEF75CE00A154E4 /* JobQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JobQueue.m; path = Backend/JobQueue.m; sourceTree = "<group>"; };
 		5A391880140A9B10001B4FD7 /* RevealButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RevealButtonCell.m; sourceTree = "<group>"; };
 		5A391882140A9B19001B4FD7 /* RevealButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RevealButtonCell.h; sourceTree = "<group>"; };
 		5A44976911303B01006EAA56 /* ImageOptim.tar.bz2 */ = {isa = PBXFileReference; explicitFileType = archive; path = ImageOptim.tar.bz2; sourceTree = BUILT_PRODUCTS_DIR; };

@@ -6,7 +6,7 @@
 #import "Job.h"
 #import "FilesController.h"
 #import "log.h"
-#import "Workers/DirWorker.h"
+#import "Backend/Workers/DirWorker.h"
 #import "RevealButtonCell.h"
 #import "ResultsDb.h"
 #import "JobQueue.h"

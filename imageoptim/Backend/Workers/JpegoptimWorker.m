@@ -6,7 +6,7 @@
 
 #import "JpegoptimWorker.h"
 #import "../Job.h"
-#import "../log.h"
+#import "../../log.h"
 
 @implementation JpegoptimWorker
 
