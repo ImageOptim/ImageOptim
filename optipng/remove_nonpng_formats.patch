@@ -10,7 +10,7 @@ index e0744d3..a3fc2db 100644
     FILE *stream;
     fpos_t fpos;
 -   int result;
- 
+
     /* Precondition. */
  #ifdef PNG_FLAG_MALLOC_NULL_MEM_OK
 @@ -110,26 +108,5 @@ pngx_read_image(png_structp png_ptr, png_infop info_ptr,

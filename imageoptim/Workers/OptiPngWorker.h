@@ -9,11 +9,11 @@
 
 @interface OptiPngWorker : CommandWorker {
     NSInteger optlevel, interlace;
-    
-    
+
+
 	NSInteger idatSize;
-	NSUInteger fileSize;	
-	NSUInteger fileSizeOptimized;	
+	NSUInteger fileSize;
+	NSUInteger fileSizeOptimized;
 }
 
 -(instancetype)initWithLevel:(NSInteger)level file:(Job *)aFile;

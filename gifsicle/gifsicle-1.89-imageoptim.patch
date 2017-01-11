@@ -3,25 +3,25 @@ index ca3f388..8d11d17 100644
 --- a/src/gifsicle.c
 +++ b/src/gifsicle.c
 @@ -33,7 +33,6 @@ Gt_Frameset *nested_frames = 0;
- 
+
  Gif_Stream *input = 0;
  const char *input_name = 0;
 -static int unoptimizing = 0;
- 
+
  const int GIFSICLE_DEFAULT_THREAD_COUNT = 8;
  int thread_count = 0;
 @@ -326,7 +325,6 @@ const Clp_Option options[] = {
      Clp_Negate },
    { "transparent", 't', 't', COLOR_TYPE, Clp_Negate },
- 
+
 -  { "unoptimize", 'U', UNOPTIMIZE_OPT, 0, Clp_Negate },
    { "use-colormap", 0, USE_COLORMAP_OPT, Clp_ValString, Clp_Negate },
- 
+
    { "verbose", 'V', VERBOSE_OPT, 0, Clp_Negate },
 @@ -760,18 +758,6 @@ input_stream(const char *name)
      add_frame(frames, gfs, gfs->images[i]);
    def_frame = old_def_frame;
- 
+
 -  if (unoptimizing)
 -    if (!Gif_FullUnoptimize(gfs, GIF_UNOPTIMIZE_SIMPLEST_DISPOSAL)) {
 -      static int context = 0;
@@ -36,11 +36,11 @@ index ca3f388..8d11d17 100644
 -
    apply_color_transforms(input_transforms, gfs);
    gfs->refcount++;
- 
+
 @@ -840,62 +826,6 @@ set_new_fixed_colormap(const char *name)
      def_output_data.colormap_fixed = read_colormap_file(name, 0);
  }
- 
+
 -static void
 -do_colormap_change(Gif_Stream *gfs)
 -{
@@ -97,18 +97,18 @@ index ca3f388..8d11d17 100644
 -  }
 -}
 -
- 
+
  /*****
   * output GIF images
 @@ -946,8 +876,7 @@ merge_and_write_frames(const char *outfile, int f1, int f2)
      verbose_open('[', outfile ? outfile : "#stdout#");
    active_output_data.active_output_name = outfile;
- 
+
 -  colormap_change = active_output_data.colormap_size > 0
 -    || active_output_data.colormap_fixed;
 +  colormap_change = 0;
    warn_local_colormaps = !colormap_change;
- 
+
    if (!(active_output_data.scaling
 @@ -974,8 +903,6 @@ merge_and_write_frames(const char *outfile, int f1, int f2)
                      active_output_data.scaling == GT_SCALING_RESIZE_FIT,
@@ -122,7 +122,7 @@ index ca3f388..8d11d17 100644
 @@ -1408,17 +1335,6 @@ main(int argc, char *argv[])
    pthread_mutex_init(&kd3_sort_lock, 0);
  #endif
- 
+
 -  /* Yep, I'm an idiot.
 -     GIF dimensions are unsigned 16-bit integers. I assume that these
 -     numbers will fit in an 'int'. This assertion tests that assumption.
@@ -140,7 +140,7 @@ index ca3f388..8d11d17 100644
 @@ -1755,11 +1671,6 @@ main(int argc, char *argv[])
        break;
      }
- 
+
 -     case UNOPTIMIZE_OPT:
 -      UNCHECKED_MARK_CH(input, CH_UNOPTIMIZE);
 -      unoptimizing = clp->negated ? 0 : 1;

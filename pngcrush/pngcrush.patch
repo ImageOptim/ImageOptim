@@ -17,15 +17,15 @@ index 21b6e3b..08e882e 100644
 -        keystroke = keystroke;  /* stifle compiler warning */
      }
  }
- 
+
 @@ -3194,7 +3192,6 @@ void pngcrush_write_png(png_structp write_pointer, png_bytep data,
  static void pngcrush_flush(png_structp png_ptr)
  {
     /* Do nothing. */
 -   PNGCRUSH_UNUSED(png_ptr)
  }
- 
- 
+
+
 @@ -3247,6 +3244,7 @@ void pngcrush_examine_pixels_fn(png_structp png_ptr, png_row_infop
        if ((row_info->color_type == 2 || row_info->color_type == 6) &&
            make_gray == 1) /* RGB */
@@ -39,13 +39,13 @@ index 21b6e3b..08e882e 100644
        {
          i = (int) row_info->rowbytes-1;
 +        make_gray = 2;
- 
+
          if (row_info->bit_depth == 8)
            {
 @@ -8281,7 +8280,7 @@ png_uint_32 pngcrush_measure_idat(png_structp png_ptr)
                printf("   Reading %c%c%c%c chunk.\n",
                    chunk_name[0],chunk_name[1],chunk_name[2],chunk_name[3]);
- 
+
 -        if (new_mng)
 +        if (0)
          {

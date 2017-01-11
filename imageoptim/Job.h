@@ -19,7 +19,7 @@ enum IOFileType {
 @interface Job : NSObject <NSCopying, QLPreviewItem> {
 	NSURL *filePath, *revertPath;
 	NSString *displayName;
-	
+
     /** size of file before any optimizations */
 	NSUInteger byteSizeOriginal;
     /** expected current size of file on disk, updated before and after optimization */
@@ -30,14 +30,14 @@ enum IOFileType {
     NSString *bestToolName;
     NSMutableDictionary *bestTools;
 	double percentDone;
-	
+
     NSMutableSet *filePathsOptimizedInUse;
 	NSURL *filePathOptimized;
-		
+
 	NSString *statusImageName;
     NSString *statusText;
     NSInteger statusOrder;
-    
+
     NSMutableArray *workers;
     NSMutableDictionary *workersPreviousResults;
 
@@ -45,7 +45,7 @@ enum IOFileType {
     ResultsDb *db;
     uint32_t settingsHash[4];
     uint32_t inputFileHash[4];
-    
+
     enum IOFileType fileType;
     BOOL done, failed, optimized, stopping, lossyConverted;
 }
