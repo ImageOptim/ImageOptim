@@ -1,10 +1,9 @@
 //
-//  File.m
-//
 //  Created by porneL on 8.wrz.07.
 //
 
 #import "Job.h"
+#import "File.h"
 #import "ImageOptimController.h"
 #import "Workers/Save.h"
 #import "Workers/AdvCompWorker.h"
@@ -43,6 +42,7 @@
 @interface Job ()
 @property (assign) BOOL isDone;
 @property (assign) BOOL isFailed;
+@property (readwrite, nullable) File *initialInput, *unoptimizedInput, *wipInput, *savedOutput;
 @end
 
 @implementation Job {
@@ -65,34 +65,9 @@
     return self;
 }
 
--(BOOL)isLarge {
-    if (fileType == FILETYPE_PNG) {
-        return byteSizeOriginal > 250*1024;
-    }
-    return byteSizeOriginal > 1*1024*1024;
-}
-
--(BOOL)isSmall {
-    if (fileType == FILETYPE_PNG) {
-        return byteSizeOriginal < 2048;
-    }
-    return byteSizeOriginal < 10*1024;
-}
-
 -(nonnull NSString *)fileName {
     if (displayName) return displayName;
     return [filePath lastPathComponent];
-}
-
--(NSURL*)filePathOptimized {
-    @synchronized(self) {
-        NSURL *path = filePathOptimized;
-        if (path) {
-            [filePathsOptimizedInUse addObject:path];
-            return path;
-        }
-        return filePath;
-    }
 }
 
 - (nonnull id)copyWithZone:(nullable NSZone *)zone {
@@ -130,18 +105,6 @@
     }
 }
 
--(void)removeOldFilePathOptimized:(NSURL *)path {
-    if (!path) {
-        return;
-    }
-    @synchronized(self) {
-        if ([filePathsOptimizedInUse containsObject:path]) {
-            return;
-        }
-    }
-    [[NSFileManager defaultManager] removeItemAtURL:path error:nil];
-}
-
 -(void)updateBestToolName:(ToolStats*)newTool {
     bestTools[newTool->name] = newTool;
 
@@ -163,22 +126,25 @@
     }
 }
 
--(BOOL)setFilePathOptimized:(NSURL *)tempPath size:(NSUInteger)size toolName:(NSString *)toolname {
-    IODebug("File %@ optimized with %@ from %u to %u in %@",[filePath?filePath:filePathOptimized path],toolname,(unsigned int)byteSizeOptimized,(unsigned int)size,tempPath);
-    NSURL *oldPath = nil;
+-(BOOL)setFileOptimized:(File *)newFile toolName:(NSString *)toolname {
+    if (!newFile) {
+        return NO;
+    }
+    
+    File *oldFile = self.wipInput;
+    NSUInteger oldSize = oldFile.byteSize;
+    NSUInteger newSize = newFile.byteSize;
+    
+    IODebug("File %@ optimized with %@ from %u to %u in %@",_unoptimizedInput.path,toolname,(unsigned int)oldSize,(unsigned int)newSize,newFile.path);
     BOOL changed = NO;
     @synchronized(self) {
-        if (size && size < byteSizeOptimized) {
-            assert(![filePathOptimized.path isEqualToString:tempPath.path]);
-            oldPath = filePathOptimized;
-            filePathOptimized = tempPath;
-            NSUInteger oldSize = byteSizeOptimized;
-            [self setByteSizeOptimized:size];
-            [self performSelectorOnMainThread:@selector(updateBestToolName:) withObject:[[ToolStats alloc] initWithName:toolname oldSize:oldSize newSize:size] waitUntilDone:NO];
+        if (newSize && newSize < oldSize) {
+            self.wipInput = newFile;
+            [self setByteSizeOptimized:newSize];
+            [self performSelectorOnMainThread:@selector(updateBestToolName:) withObject:[[ToolStats alloc] initWithName:toolname oldSize:oldSize newSize:newSize] waitUntilDone:NO];
             changed = YES;
         }
     }
-    [self removeOldFilePathOptimized:oldPath];
     return changed;
 }
 
@@ -259,7 +225,7 @@
     }
     [self cleanup];
 
-    if (byteSizeOriginal != [Job fileByteSize:revertPath]) {
+    if (byteSizeOriginal != [File byteSize:revertPath]) {
         IOWarn(@"Revert path '%@' has wrong size, %ld expected", revertPath, (long)byteSizeOriginal);
         return NO;
     }
@@ -282,13 +248,13 @@
 }
 
 -(BOOL)saveResult {
-    assert(filePathOptimized);
+    File *fileToSave = self.wipInput;
     @try {
 
         NSFileManager *fm = [NSFileManager defaultManager];
 
         NSError *error = nil;
-        NSURL *moveFromPath = filePathOptimized;
+        NSURL *moveFromPath = fileToSave.path;
         NSURL *enclosingDir = [filePath URLByDeletingLastPathComponent];
 
         if (![fm isWritableFileAtPath:enclosingDir.path]) {
@@ -326,19 +292,19 @@
                 return NO;
             }
 
-            NSData *data = [NSData dataWithContentsOfURL:filePathOptimized];
+            NSData *data = [NSData dataWithContentsOfURL:fileToSave.path];
             if (!data) {
-                IOWarn("Unable to read %@", filePathOptimized.path);
+                IOWarn("Unable to read %@", fileToSave.path);
                 return NO;
             }
 
             if ([data length] != byteSizeOptimized) {
-                IOWarn("Temp file size %u does not match expected %u in %@ for %@",(unsigned int)[data length],(unsigned int)byteSizeOptimized,filePathOptimized.path,filePath.path);
+                IOWarn("Temp file size %u does not match expected %u in %@ for %@",(unsigned int)[data length],(unsigned int)byteSizeOptimized,fileToSave.path,filePath.path);
                 return NO;
             }
 
             if ([data length] < 30) {
-                IOWarn("File %@ is suspiciously small, could be truncated", filePathOptimized.path);
+                IOWarn("File %@ is suspiciously small, could be truncated", fileToSave.path);
                 return NO;
             }
 
@@ -378,6 +344,7 @@
         }
 
         byteSizeOnDisk = byteSizeOptimized;
+        _savedOutput = _wipInput;
 
         [self removeExtendedAttrAtURL:filePath];
     }
@@ -396,7 +363,7 @@
 -(void)saveResultAndUpdateStatus {
     assert([self isBusy]);
     self.isDone = YES;
-    if ([self isOptimized] && filePathOptimized && byteSizeOriginal && byteSizeOptimized) {
+    if ([self isOptimized] && byteSizeOriginal && byteSizeOptimized) {
         BOOL saved = [self saveResult];
         if (saved) {
             optimized = YES;
@@ -411,28 +378,6 @@
         }
     }
     [self cleanup];
-}
-
--(nullable NSString *)mimeType {
-    return fileType == FILETYPE_PNG ? @"image/png" : (fileType == FILETYPE_JPEG ? @"image/jpeg" : (fileType == FILETYPE_GIF ? @"image/gif" : nil));
-}
-
--(int)fileType:(nonnull NSData *)data {
-    const unsigned char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
-    const unsigned char jpegheader[] = {0xff,0xd8,0xff};
-    const unsigned char gifheader[] = {0x47,0x49,0x46,0x38};
-    char filedata[6];
-
-    [data getBytes:filedata length:sizeof(filedata)];
-
-    if (0==memcmp(filedata, pngheader, sizeof(pngheader))) {
-        return FILETYPE_PNG;
-    } else if (0==memcmp(filedata, jpegheader, sizeof(jpegheader))) {
-        return FILETYPE_JPEG;
-    } else if (0==memcmp(filedata, gifheader, sizeof(gifheader))) {
-        return FILETYPE_GIF;
-    }
-    return 0;
 }
 
 -(void)enqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue fileIOQueue:(nonnull NSOperationQueue *)aFileIOQueue defaults:(nonnull NSUserDefaults*)defaults {
@@ -480,13 +425,18 @@
     NSError *err = nil;
     NSData *fileData = [NSData dataWithContentsOfURL:filePath options:NSDataReadingMappedIfSafe error:&err];
     NSUInteger length = [fileData length];
-    if (!fileData || !length) {
+    
+    File *input = [[File alloc] initWithData:fileData fromPath:filePath];
+    self.unoptimizedInput = input;
+    if (!input || !length) {
         IOWarn(@"Can't open the file %@ %@", filePath.path, err);
         [self setError:NSLocalizedString(@"Can't open the file",@"tooltip, generic loading error")];
         return;
     }
-
-    fileType = [self fileType:fileData];
+    if (!self.initialInput) {
+        self.initialInput = input;
+    }
+    self.wipInput = input;
 
     BOOL hasBeenRunBefore = (byteSizeOnDisk && length == byteSizeOnDisk);
 
@@ -515,7 +465,8 @@
         });
     }
 
-    if (fileType == FILETYPE_PNG) {
+    switch(input->fileType) {
+        case FILETYPE_PNG:
         if (hasBeenRunBefore) {
             level++;
         }
@@ -555,10 +506,12 @@
             zw.alternativeStrategy = hasBeenRunBefore;
             [worker_list addObject:zw];
         }
-    } else if (fileType == FILETYPE_JPEG) {
+        break;
+        case FILETYPE_JPEG:
         if ([defs boolForKey:@"JpegOptimEnabled"]) [worker_list addObject:[[JpegoptimWorker alloc] initWithDefaults:defs file:self]];
         if ([defs boolForKey:@"JpegTranEnabled"]) [worker_list addObject:[[JpegtranWorker alloc] initWithDefaults:defs file:self]];
-    } else if (fileType == FILETYPE_GIF) {
+        break;
+        case FILETYPE_GIF:
         if ([defs boolForKey:@"GifsicleEnabled"]) {
             NSInteger gifQuality = [defs integerForKey:@"GifQuality"];
             if (lossyEnabled && !lossyConverted && gifQuality < 100 && gifQuality > 30) {
@@ -572,7 +525,8 @@
                 }
             }
         }
-    } else {
+        break;
+        default:
         [self setError:NSLocalizedString(@"File is neither PNG, GIF nor JPEG",@"tooltip")];
         [self cleanup];
         return;
@@ -586,7 +540,7 @@
         // unfortunately that makes whole process single-core serial when there are very few files
         // so for small queues rely on nextOperation to give some order when possible
         if ([w makesNonOptimizingModifications]) {
-            if (!isQueueUnderUtilized || [self isSmall]) {
+            if (!isQueueUnderUtilized || [input isSmall]) {
                 [runFirst addObject:w];
             } else {
                 [w setQueuePriority:[runLater count] ? NSOperationQueuePriorityHigh : NSOperationQueuePriorityVeryHigh];
@@ -622,9 +576,9 @@
         if (previousWorker) {
             [w addDependency:previousWorker];
             previousWorker.nextOperation = w;
-        } else if ([self isSmall]) {
+        } else if ([input isSmall]) {
             [w setQueuePriority: NSOperationQueuePriorityVeryLow];
-        } else if (![self isLarge]) {
+        } else if (![input isLarge]) {
             [w setQueuePriority: NSOperationQueuePriorityLow];
         }
         [saveOp addDependency:w];
@@ -660,19 +614,15 @@
 }
 
 -(void)cleanup {
-    NSURL *oldPath;
     NSMutableSet *paths;
     @synchronized(self) {
         stopping = NO;
         [workers makeObjectsPerformSelector:@selector(cancel)];
         [workers removeAllObjects];
-        oldPath = filePathOptimized;
-        filePathOptimized = nil;
         paths = filePathsOptimizedInUse;
         filePathsOptimizedInUse = [NSMutableSet new];
     }
 
-    [self removeOldFilePathOptimized:oldPath];
     NSFileManager *fm = [NSFileManager defaultManager];
     for(NSString *path in paths) {
         [fm removeItemAtPath:path error:nil];
@@ -759,20 +709,10 @@
     return [NSString stringWithFormat:@"%@ %ld/%ld (workers %ld)", self.filePath,(long)self.byteSizeOriginal,(long)self.byteSizeOptimized, [workers count]];
 }
 
-+(NSInteger)fileByteSize:(NSURL *)afile {
-    NSNumber *value = nil;
-    NSError *err = nil;
-    if ([afile getResourceValue:&value forKey:NSURLFileSizeKey error:&err] && value) {
-        return [value integerValue];
-    }
-    IOWarn("Could not stat %@: %@", afile.path, err);
-    return 0;
-}
-
 #pragma mark QL
 
 -(NSURL *) previewItemURL {
-    return self.filePathOptimized;
+    return self.wipInput.path;
 }
 
 -(NSString *) previewItemTitle {

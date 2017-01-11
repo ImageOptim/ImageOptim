@@ -1,6 +1,7 @@
 
 #import "GifsicleWorker.h"
 #import "../Job.h"
+#import "../File.h"
 
 @implementation GifsicleWorker
 
@@ -17,12 +18,14 @@
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {
+    File *file = job.wipInput;
+
     NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-o",temp.path,
                             interlace ? @"--interlace" : @"--no-interlace",
                             @"-O3",
                             @"--careful",/* needed for Safari/Preview decoding bug */
                             @"--no-comments",@"--no-names",@"--same-delay",@"--same-loopcount",@"--no-warnings",
-                            @"--",file.filePathOptimized.path,nil];
+                            @"--",file.path,nil];
 
     BOOL isLossy = quality < 100;
 
@@ -56,19 +59,19 @@
 
     NSString *toolName = isLossy ? @"Giflossy" : (interlace ? @"Gifsicle interlaced" : @"Gifsicle");
 
-    NSUInteger fileSizeOptimized = [Job fileByteSize:temp];
+    File *output = [file copyOfPath:temp];
+    if (!output) {
+        return NO;
+    }
 
     if (isLossy) {
-        BOOL isSignificantlySmaller;
-        @synchronized(file) {
-            isSignificantlySmaller = fileSizeOptimized * (105 + (100 - quality)/2) / 100 < file.byteSizeOptimized;
-        }
+        BOOL isSignificantlySmaller = output.byteSize * (105 + (100 - quality)/2) / 100 < file.byteSize;
         if (!isSignificantlySmaller) {
             return NO;
         }
     }
 
-    return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:toolName];
+    return [job setFileOptimized:output toolName:toolName];
 }
 
 @end

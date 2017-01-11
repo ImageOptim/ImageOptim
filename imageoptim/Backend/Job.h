@@ -8,13 +8,7 @@
 #import <Quartz/Quartz.h>
 #import "Workers/Worker.h"
 
-@class ResultsDb;
-
-enum IOFileType {
-    FILETYPE_PNG=1,
-    FILETYPE_JPEG,
-    FILETYPE_GIF
-};
+@class ResultsDb, File;
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -34,7 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 	double percentDone;
 
     NSMutableSet *filePathsOptimizedInUse;
-	NSURL *filePathOptimized;
 
 	NSString *statusImageName;
     NSString *statusText;
@@ -48,7 +41,6 @@ NS_ASSUME_NONNULL_BEGIN
     uint32_t settingsHash[4];
     uint32_t inputFileHash[4];
 
-    enum IOFileType fileType;
     BOOL done, failed, optimized, stopping, lossyConverted;
 }
 
@@ -63,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue defaults:(NSUserDefaults*)defaults;
 
--(BOOL)setFilePathOptimized:(NSURL *)f size:(NSUInteger)s toolName:(NSString *)s;
+-(BOOL)setFileOptimized:(nullable File *)f toolName:(NSString *)s;
 
 -(nullable instancetype)initWithFilePath:(NSURL *)aPath resultsDatabase:(nullable ResultsDb *)aDb;
 -(id)copyWithZone:(nullable NSZone *)zone;
@@ -71,18 +63,14 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setByteSizeOptimized:(NSUInteger)size;
 -(void)updateStatusOfWorker:(nullable Worker *)currentWorker running:(BOOL)started;
 
--(BOOL)isLarge;
--(BOOL)isSmall;
-
 -(void)setFilePath:(NSURL *)s;
 
+@property (readonly, nullable) File *initialInput, *unoptimizedInput, *wipInput, *savedOutput;
 @property (readonly, copy) NSString *fileName;
-@property (readonly, copy, nullable) NSString *mimeType;
 
 @property (strong, nullable) NSString *statusText, *bestToolName;
 @property (strong) NSString *displayName;
 @property (strong, nonatomic) NSURL *filePath;
-@property (strong, readonly) NSURL *filePathOptimized;
 @property (strong) NSString *statusImageName;
 @property (assign,nonatomic) NSUInteger byteSizeOriginal, byteSizeOptimized;
 @property (assign,readonly) NSInteger statusOrder;
@@ -93,9 +81,6 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)setStatus:(NSString *)name order:(NSInteger)order text:(NSString *)text;
 -(void)setError:(NSString *)text;
 -(void)cleanup;
-
-+(NSInteger)fileByteSize:(NSURL *)afile;
-
 
 -(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue defaults:(NSUserDefaults*)defaults;
 @end

@@ -6,6 +6,7 @@
 
 #import "JpegtranWorker.h"
 #import "../Job.h"
+#import "../File.h"
 
 @implementation JpegtranWorker
 
@@ -21,8 +22,10 @@
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {
+    File *file = job.wipInput;
+
     // eh, handling of paths starting with "-" is unsafe here. Hopefully all paths from dropped files will be absolute...
-    NSMutableArray *args = [NSMutableArray arrayWithObject:file.filePathOptimized.path];
+    NSMutableArray *args = [NSMutableArray arrayWithObject:file.path];
 
     [args insertObject:@"-outfile" atIndex:0];
     [args insertObject:temp.path atIndex:1];
@@ -56,11 +59,7 @@
 
     if (!ok) return NO;
 
-    NSUInteger fileSizeOptimized = [Job fileByteSize:temp];
-    if (fileSizeOptimized) {
-        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"MozJPEG"];
-    }
-    return NO;
+    return [job setFileOptimized:[file copyOfPath:temp] toolName:@"MozJPEG"];
 }
 
 -(BOOL)parseLine:(NSString *)line {

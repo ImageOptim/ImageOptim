@@ -103,6 +103,8 @@
 		5AC64F071AF3FDEE0032AA7F /* ExtensionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC64F061AF3FDEE0032AA7F /* ExtensionController.m */; };
 		5AC64F091AF3FDEE0032AA7F /* ExtensionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC64F081AF3FDEE0032AA7F /* ExtensionController.xib */; };
 		5AC64F0C1AF3FDEE0032AA7F /* ImageOptimize.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5AC64EFE1AF3FDEE0032AA7F /* ImageOptimize.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5AD033531E26B6840030291A /* File.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AD033511E26B6840030291A /* File.h */; };
+		5AD033541E26B6840030291A /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD033521E26B6840030291A /* File.m */; };
 		5AE04E2E1B5301E100669E85 /* PngquantWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9F4371899D063006C64C8 /* PngquantWorker.m */; };
 		5AF8536C1B49F21C00CF76F5 /* FadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8536B1B49F21C00CF76F5 /* FadeView.m */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -616,6 +618,8 @@
 		5ACCB41A17A82E3100853EFE /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5ACCB41C17A82E3100853EFE /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5ACCB41D17A82E3100853EFE /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5AD033511E26B6840030291A /* File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = File.h; path = Backend/File.h; sourceTree = "<group>"; };
+		5AD033521E26B6840030291A /* File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = File.m; path = Backend/File.m; sourceTree = "<group>"; };
 		5AD299B9143675770048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5AD299BB1436757F0048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = no; path = no.lproj/ImageOptim.strings; sourceTree = "<group>"; };
 		5AD299BD143675870048C725 /* no */ = {isa = PBXFileReference; lastKnownFileType = file.plist.strings; name = no; path = no.lproj/PrefsController.strings; sourceTree = "<group>"; };
@@ -693,6 +697,8 @@
 				5ABE15441AE5072300861C6B /* Supporting Files */,
 				5ABE15521AE5072300861C6B /* Tests */,
 				5AE54DE50CAEF51300903DF4 /* Workers */,
+				5AD033511E26B6840030291A /* File.h */,
+				5AD033521E26B6840030291A /* File.m */,
 				5A34CFEE1AEF6D9800A154E4 /* ImageOptimGPL.h */,
 				5A0D2E550C922AB700FD7CDE /* Job.h */,
 				5A0D2E560C922AB700FD7CDE /* Job.m */,
@@ -1023,6 +1029,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5ABE15471AE5072300861C6B /* Backend.h in Headers */,
+				5AD033531E26B6840030291A /* File.h in Headers */,
 				5A34D0041AEF6DB300A154E4 /* ImageOptimGPL.h in Headers */,
 				5A34D0991AEF75CE00A154E4 /* JobQueue.h in Headers */,
 			);
@@ -1519,6 +1526,7 @@
 				5ABE15781AE5073E00861C6B /* AdvCompWorker.m in Sources */,
 				5ABE15791AE5073E00861C6B /* CommandWorker.m in Sources */,
 				5ABE157A1AE5073E00861C6B /* DirWorker.m in Sources */,
+				5AD033541E26B6840030291A /* File.m in Sources */,
 				5ABE157B1AE5073E00861C6B /* GifsicleWorker.m in Sources */,
 				5ABE15741AE5073100861C6B /* Job.m in Sources */,
 				5A34D09A1AEF75CE00A154E4 /* JobQueue.m in Sources */,

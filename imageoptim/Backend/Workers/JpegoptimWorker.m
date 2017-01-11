@@ -6,6 +6,7 @@
 
 #import "JpegoptimWorker.h"
 #import "../Job.h"
+#import "../File.h"
 #import "../../log.h"
 
 @implementation JpegoptimWorker
@@ -28,11 +29,13 @@
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {
+    File *file = job.wipInput;
+
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;
 
-    if (![fm copyItemAtURL:file.filePathOptimized toURL:temp error:&error]) {
-        IOWarn("Can't make temp copy of %@ in %@", file.filePathOptimized.path, temp.path);
+    if (![fm copyItemAtURL:file.path toURL:temp error:&error]) {
+        IOWarn("Can't make temp copy of %@ in %@", file.path, temp.path);
     }
 
     BOOL lossy = maxquality > 10 && maxquality < 100;
@@ -67,11 +70,11 @@
     BOOL isSignificantlySmaller;
     @synchronized(file) {
         // require at least 5% gain when doing lossy optimization
-        isSignificantlySmaller = file.byteSizeOptimized*0.95 > fileSizeOptimized;
+        isSignificantlySmaller = file.byteSize*0.95 > fileSizeOptimized;
     }
 
     if (![self makesNonOptimizingModifications] || isSignificantlySmaller) {
-        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:lossy ? [NSString stringWithFormat: @"JpegOptim %d%%", (int)maxquality] : @"JpegOptim"];
+        return [job setFileOptimized:[file copyOfPath:temp size:fileSizeOptimized] toolName:lossy ? [NSString stringWithFormat: @"JpegOptim %d%%", (int)maxquality] : @"JpegOptim"];
     }
     return NO;
 }

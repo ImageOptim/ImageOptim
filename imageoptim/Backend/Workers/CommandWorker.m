@@ -7,6 +7,7 @@
 #import "CommandWorker.h"
 #include <unistd.h>
 #import "../Job.h"
+#import "../File.h"
 #import "../../log.h"
 
 @implementation CommandWorker {
@@ -74,7 +75,7 @@
     }
     @catch(NSException *e) {
         IOWarn(@"%@ failed: %@: %@", [self className], [e name], e);
-        [file setError:[NSString stringWithFormat:@"Internal Error: %@ %@", [e name], [e reason]]];
+        [job setError:[NSString stringWithFormat:@"Internal Error: %@ %@", [e name], [e reason]]];
     }
     @finally {
         if (tempPath) {
@@ -139,7 +140,7 @@
     NSString *executable = [self executablePathForKey:key bundleName:resourceName];
     if (!executable) {
         IOWarn("Cannot launch %@",resourceName);
-        [file setError:[NSString stringWithFormat:NSLocalizedString(@"%@ failed to start",@"tooltip"),key]];
+        [job setError:[NSString stringWithFormat:NSLocalizedString(@"%@ failed to start",@"tooltip"),key]];
         return NO;
     }
     [self taskWithPath:executable arguments:args];
@@ -185,7 +186,7 @@
 }
 
 -(NSInteger)timelimitForLevel:(NSInteger)level {
-    const NSInteger timelimit = 10 + [file byteSizeOriginal]/1024;
+    const NSInteger timelimit = 10 + [job.wipInput byteSize]/1024;
     const NSInteger maxTime = 8 + level*13;
     return MIN(maxTime, timelimit);
 }

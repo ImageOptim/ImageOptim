@@ -1,6 +1,7 @@
 
 #import "PngquantWorker.h"
 #import "../Job.h"
+#import "../File.h"
 #import "../../log.h"
 
 @implementation PngquantWorker
@@ -18,6 +19,8 @@
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {
+    File *file = job.wipInput;
+
     NSArray *args = @[@"256",@"--skip-if-larger",
                       [NSString stringWithFormat:@"-s%d", (int)speed],
                       @"--quality", [NSString stringWithFormat:@"%d-100", (int)minQuality],
@@ -27,9 +30,9 @@
     }
 
     NSError *err = nil;
-    NSFileHandle *fileInputHandle = [NSFileHandle fileHandleForReadingFromURL:file.filePathOptimized error:&err];
+    NSFileHandle *fileInputHandle = [NSFileHandle fileHandleForReadingFromURL:file.path error:&err];
     if (!fileInputHandle) {
-        IOWarn("Can't read %@ %@",file.filePathOptimized.path, err);
+        IOWarn("Can't read %@ %@",file.path, err);
         return NO;
     }
 
@@ -68,8 +71,7 @@
         return NO;
     }
 
-    NSUInteger fileSizeOptimized = [Job fileByteSize:temp];
-    return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"pngquant"];
+    return [job setFileOptimized:[file copyOfPath:temp] toolName:@"pngquant"];
 }
 
 -(BOOL)makesNonOptimizingModifications {

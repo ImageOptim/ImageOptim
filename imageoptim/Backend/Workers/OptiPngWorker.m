@@ -6,11 +6,12 @@
 
 #import "OptiPngWorker.h"
 #import "../Job.h"
+#import "../File.h"
 
 @implementation OptiPngWorker
 
--(instancetype)initWithLevel:(NSInteger)level file:(Job *)aFile {
-    if (self = [super initWithFile:file]) {
+-(instancetype)initWithLevel:(NSInteger)level file:(Job *)aJob {
+    if (self = [super initWithFile:aJob]) {
         optlevel = MAX(3, MIN(level+1, 7));
     }
     return self;
@@ -22,9 +23,11 @@
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {
+    File *file = job.wipInput;
+
     NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],
                             @"-i0",
-                            @"-out",temp.path,@"--",file.filePathOptimized.path,nil];
+                            @"-out",temp.path,@"--",file.path,nil];
 
     if (![self taskForKey:@"OptiPng" bundleName:@"optipng" arguments:args]) {
         return NO;
@@ -46,7 +49,7 @@
     if (!ok) return NO;
 
     if (fileSizeOptimized) {
-        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"OptiPNG"];
+        return [job setFileOptimized:[file copyOfPath:temp size:fileSizeOptimized] toolName:@"OptiPNG"];
     }
     return NO;
 }

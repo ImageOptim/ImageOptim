@@ -2,6 +2,7 @@
 #import "FilesController.h"
 #import "RevealButtonCell.h"
 #import "Job.h"
+#import "File.h"
 #import "log.h"
 
 @implementation MyTableView
@@ -66,7 +67,7 @@
     for(Job *job in [self jobsForDataURI]) {
         NSData *data = [NSData dataWithContentsOfURL:job.filePath];
 
-        NSString *type = [job mimeType];
+        NSString *type = [job.unoptimizedInput mimeType]; // FIXME: use either input or output, whichever is ready
         if (!type) continue;
 
         NSString *url = [[NSString stringWithFormat:@"data:%@;base64,", type]

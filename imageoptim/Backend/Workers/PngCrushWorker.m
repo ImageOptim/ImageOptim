@@ -6,6 +6,7 @@
 
 #import "PngCrushWorker.h"
 #import "../Job.h"
+#import "../File.h"
 
 @implementation PngCrushWorker
 - (instancetype)initWithLevel:(NSInteger)level defaults:(NSUserDefaults *)defaults file:(Job *)aFile {
@@ -21,7 +22,8 @@
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {
-    NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-nofilecheck",@"-bail",@"-blacken",@"-reduce",@"-cc",@"--",file.filePathOptimized.path,temp.path,nil];
+    File *file = job.wipInput;
+    NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-nofilecheck",@"-bail",@"-blacken",@"-reduce",@"-cc",@"--",file.path,temp.path,nil];
 
     // Reusing PngOut config here
     if (strip) {
@@ -53,10 +55,10 @@
 
     if (!ok) return NO;
 
-    NSUInteger fileSizeOptimized;
+    File *output = [file copyOfPath:temp];
     // pngcrush sometimes writes only PNG header (70 bytes)!
-    if ((fileSizeOptimized = [Job fileByteSize:temp]) && fileSizeOptimized > 70) {
-        return [file setFilePathOptimized:temp  size:fileSizeOptimized toolName:@"Pngcrush"];
+    if (output && output.byteSize > 70) {
+        return [job setFileOptimized:output toolName:@"Pngcrush"];
     }
     return NO;
 }

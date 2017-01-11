@@ -6,6 +6,7 @@
 
 #import "AdvCompWorker.h"
 #import "../Job.h"
+#import "../File.h"
 #import "../../log.h"
 
 @implementation AdvCompWorker
@@ -25,8 +26,10 @@
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;
 
-    if (![fm copyItemAtURL:file.filePathOptimized toURL:temp error:&error]) {
-        IOWarn("Can't make temp copy of %@ in %@; %@",file.filePathOptimized.path,temp.path,error);
+    File *file = job.wipInput;
+
+    if (![fm copyItemAtURL:file.path toURL:temp error:&error]) {
+        IOWarn("Can't make temp copy of %@ in %@; %@",file.path,temp.path,error);
         return NO;
     }
 
@@ -53,7 +56,7 @@
 
     if (!ok) return NO;
 
-    return [file setFilePathOptimized:temp  size:fileSizeOptimized toolName:@"AdvPNG"];
+    return [job setFileOptimized:[file copyOfPath:temp size:fileSizeOptimized] toolName:@"AdvPNG"];
 }
 
 -(BOOL)parseLine:(NSString *)line {

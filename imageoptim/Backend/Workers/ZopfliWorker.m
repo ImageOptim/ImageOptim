@@ -1,6 +1,7 @@
 
 #import "ZopfliWorker.h"
 #import "../Job.h"
+#import "../File.h"
 
 @implementation ZopfliWorker
 
@@ -20,7 +21,9 @@
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {
-    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"--lossy_transparent",@"-y",/*@"--",*/file.filePathOptimized.path,temp.path,nil];
+    File *file = job.wipInput;
+
+    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"--lossy_transparent",@"-y",/*@"--",*/file.path,temp.path,nil];
 
     if (!strip) {
         // FIXME: that's crappy. Should list actual chunks in file :/
@@ -70,9 +73,9 @@
 
     if (!ok) return NO;
 
-    NSInteger fileSizeOptimized = [Job fileByteSize:temp];
-    if (fileSizeOptimized > 70) {
-        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"Zopfli"];
+    File *output = [file copyOfPath:temp];
+    if (output && output.byteSize > 70) {
+        return [job setFileOptimized:output toolName:@"Zopfli"];
     }
     return NO;
 }

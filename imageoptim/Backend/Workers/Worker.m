@@ -10,7 +10,7 @@
 
 @implementation Worker
 
-@synthesize file, nextOperation;
+@synthesize job, nextOperation;
 
 -(NSInteger)settingsIdentifier {
     return 0;
@@ -18,13 +18,13 @@
 
 -(instancetype)initWithFile:(Job *)aFile {
     if (self = [super init]) {
-        self.file = aFile;
+        self.job = aFile;
     }
     return self;
 }
 
 -(BOOL)isRelatedTo:(Job *)f {
-    return (f == file);
+    return (f == job);
 }
 
 -(BOOL)canSkip {
@@ -32,40 +32,40 @@
     if (![self isIdempotent]) return NO;
 
     NSDictionary *resultsBySettings;
-    @synchronized(file) {
-        resultsBySettings = (file.workersPreviousResults)[[self className]];
+    @synchronized(job) {
+        resultsBySettings = (job.workersPreviousResults)[[self className]];
     }
     if (!resultsBySettings) return NO;
 
     NSNumber *previousResult = resultsBySettings[@([self settingsIdentifier])];
     if (!previousResult) return NO;
 
-    return file.byteSizeOptimized == [previousResult integerValue];
+    return job.byteSizeOptimized == [previousResult integerValue];
 }
 
 -(void)markResultForSkipping {
-    @synchronized(file) {
-        NSMutableDictionary *resultsBySettings = (file.workersPreviousResults)[[self className]];
+    @synchronized(job) {
+        NSMutableDictionary *resultsBySettings = (job.workersPreviousResults)[[self className]];
         if (!resultsBySettings) {
             resultsBySettings = [NSMutableDictionary new];
-            (file.workersPreviousResults)[[self className]] = resultsBySettings;
+            (job.workersPreviousResults)[[self className]] = resultsBySettings;
         }
-        resultsBySettings[@([self settingsIdentifier])] = @(file.byteSizeOptimized);
+        resultsBySettings[@([self settingsIdentifier])] = @(job.byteSizeOptimized);
     }
 }
 
 -(void)main {
-    [file updateStatusOfWorker:self running:YES];
+    [job updateStatusOfWorker:self running:YES];
 
     @try {
         if (![self isCancelled]) {
             if (![self canSkip]) {
                 [self run];
-                if (![self isCancelled] && !file.isFailed) {
+                if (![self isCancelled] && !job.isFailed) {
                     [self markResultForSkipping];
                 }
             } else {
-                IODebug("Skipping %@, because it already optimized %@", [self className], file.fileName);
+                IODebug("Skipping %@, because it already optimized %@", [self className], job.fileName);
             }
         }
     }
@@ -73,7 +73,7 @@
         if (![self isCancelled]) {
             [nextOperation setQueuePriority:NSOperationQueuePriorityVeryHigh];
         }
-        [file updateStatusOfWorker:self running:NO];
+        [job updateStatusOfWorker:self running:NO];
     }
 }
 
@@ -90,7 +90,7 @@
 
 -(NSString *)description {
     return [NSString stringWithFormat:@"%@ %X ready %d, running %d, deleg %@",
-            [self className],(unsigned int)[self hash],[self isReady],[self isExecuting],file];
+            [self className],(unsigned int)[self hash],[self isReady],[self isExecuting],job];
 }
 
 @end

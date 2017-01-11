@@ -8,6 +8,7 @@
 
 #import "PngoutWorker.h"
 #import "../Job.h"
+#import "../File.h"
 #import "../../log.h"
 
 @implementation PngoutWorker
@@ -26,8 +27,10 @@
 }
 
 -(BOOL)runWithTempPath:(NSURL *)temp {
+    File *file = job.wipInput;
+
     // uses stdout for file to force progress output to unbufferred stderr
-    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/file.filePathOptimized.path,@"-",nil];
+    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/file.path,@"-",nil];
 
     [args insertObject:@"-r" atIndex:0];
 
@@ -81,7 +84,7 @@
     }
 
     if (fileSizeOptimized) {
-        return [file setFilePathOptimized:temp size:fileSizeOptimized toolName:@"PNGOUT"];
+        return [job setFileOptimized:[file copyOfPath:temp size:fileSizeOptimized] toolName:@"PNGOUT"];
     }
     return NO;
 }
