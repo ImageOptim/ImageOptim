@@ -690,8 +690,8 @@
 		080E96DDFE201D6D7F000001 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
-				5ABE15521AE5072300861C6B /* BackendTests */,
 				5ABE15441AE5072300861C6B /* Supporting Files */,
+				5ABE15521AE5072300861C6B /* Tests */,
 				5AE54DE50CAEF51300903DF4 /* Workers */,
 				5A34CFEE1AEF6D9800A154E4 /* ImageOptimGPL.h */,
 				5A0D2E550C922AB700FD7CDE /* Job.h */,
@@ -932,13 +932,14 @@
 			path = Backend;
 			sourceTree = "<group>";
 		};
-		5ABE15521AE5072300861C6B /* BackendTests */ = {
+		5ABE15521AE5072300861C6B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				5ABE15531AE5072300861C6B /* Supporting Files */,
 				5ABE15551AE5072300861C6B /* BackendTests.m */,
 			);
-			path = BackendTests;
+			name = Tests;
+			path = Backend/Tests;
 			sourceTree = "<group>";
 		};
 		5ABE15531AE5072300861C6B /* Supporting Files */ = {
@@ -1974,7 +1975,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = BackendTests/Info.plist;
+				INFOPLIST_FILE = Backend/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -2019,7 +2020,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = BackendTests/Info.plist;
+				INFOPLIST_FILE = Backend/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
