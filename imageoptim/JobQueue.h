@@ -3,14 +3,16 @@
 
 @class Job, DirWorker;
 
+NS_ASSUME_NONNULL_BEGIN
 @interface JobQueue : NSObject
 
--(void)addJob:(nonnull Job*)f;
--(void)addDirWorker:(nonnull DirWorker*)d;
+-(void)addJob:(Job*)f;
+-(void)addDirWorker:(DirWorker*)d;
 -(void)wait;
 -(void)cleanup;
--(nonnull NSNumber *)queueCount;
+-(NSNumber *)queueCount;
 @property (assign, atomic) BOOL isBusy;
 
-- (nullable instancetype)initWithCPUs:(NSInteger)cpus dirs:(NSInteger)dirs files:(NSInteger)fileops defaults:(nonnull NSUserDefaults*)defaults;
+- (nullable instancetype)initWithCPUs:(NSInteger)cpus dirs:(NSInteger)dirs files:(NSInteger)fileops defaults:(NSUserDefaults*)defaults;
 @end
+NS_ASSUME_NONNULL_END

@@ -16,6 +16,8 @@ enum IOFileType {
     FILETYPE_GIF
 };
 
+
+NS_ASSUME_NONNULL_BEGIN
 @interface Job : NSObject <NSCopying, QLPreviewItem> {
 	NSURL *filePath, *revertPath;
 	NSString *displayName;
@@ -59,12 +61,12 @@ enum IOFileType {
 @property (readonly) BOOL canRevert;
 @property (readonly) BOOL isDone, isFailed;
 
--(void)enqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue fileIOQueue:(nonnull NSOperationQueue *)fileIOQueue defaults:(nonnull NSUserDefaults*)defaults;
+-(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue defaults:(NSUserDefaults*)defaults;
 
--(BOOL)setFilePathOptimized:(nonnull NSURL *)f size:(NSUInteger)s toolName:(nonnull NSString *)s;
+-(BOOL)setFilePathOptimized:(NSURL *)f size:(NSUInteger)s toolName:(NSString *)s;
 
--(nullable instancetype)initWithFilePath:(nonnull NSURL *)aPath resultsDatabase:(nullable ResultsDb *)aDb;
--(nonnull id)copyWithZone:(nullable NSZone *)zone;
+-(nullable instancetype)initWithFilePath:(NSURL *)aPath resultsDatabase:(nullable ResultsDb *)aDb;
+-(id)copyWithZone:(nullable NSZone *)zone;
 -(void)resetToOriginalByteSize:(NSUInteger)size;
 -(void)setByteSizeOptimized:(NSUInteger)size;
 -(void)updateStatusOfWorker:(nullable Worker *)currentWorker running:(BOOL)started;
@@ -72,27 +74,29 @@ enum IOFileType {
 -(BOOL)isLarge;
 -(BOOL)isSmall;
 
--(void)setFilePath:(nonnull NSURL *)s;
+-(void)setFilePath:(NSURL *)s;
 
-@property (readonly, copy) NSString *__nonnull fileName;
-@property (readonly, copy) NSString *__nullable mimeType;
+@property (readonly, copy) NSString *fileName;
+@property (readonly, copy, nullable) NSString *mimeType;
 
-@property (strong) NSString *__nullable statusText, *__nonnull displayName, *__nullable bestToolName;
-@property (strong,nonatomic) NSURL *__nonnull filePath;
-@property (strong,readonly) NSURL *__nonnull filePathOptimized;
-@property (strong) NSString *__nonnull statusImageName;
+@property (strong, nullable) NSString *statusText, *bestToolName;
+@property (strong) NSString *displayName;
+@property (strong, nonatomic) NSURL *filePath;
+@property (strong, readonly) NSURL *filePathOptimized;
+@property (strong) NSString *statusImageName;
 @property (assign,nonatomic) NSUInteger byteSizeOriginal, byteSizeOptimized;
 @property (assign,readonly) NSInteger statusOrder;
-@property (strong,readonly) NSMutableDictionary *__nonnull workersPreviousResults;
+@property (strong,readonly) NSMutableDictionary *workersPreviousResults;
 
 @property (assign) double percentDone;
 
--(void)setStatus:(nonnull NSString *)name order:(NSInteger)order text:(nonnull NSString *)text;
--(void)setError:(nonnull NSString *)text;
+-(void)setStatus:(NSString *)name order:(NSInteger)order text:(NSString *)text;
+-(void)setError:(NSString *)text;
 -(void)cleanup;
 
-+(NSInteger)fileByteSize:(nonnull NSURL *)afile;
++(NSInteger)fileByteSize:(NSURL *)afile;
 
 
--(void)doEnqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue defaults:(nonnull NSUserDefaults*)defaults;
+-(void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue defaults:(NSUserDefaults*)defaults;
 @end
+NS_ASSUME_NONNULL_END
