@@ -49,14 +49,13 @@
     BOOL preservePermissions;
 }
 
-@synthesize workersPreviousResults, filePath, displayName, statusText, statusOrder, statusImageName, percentDone, bestToolName, isFailed=failed, isDone=done;
+@synthesize workersPreviousResults, filePath, displayName, statusText, statusOrder, statusImageName, bestToolName, isFailed, isDone;
 
 -(instancetype)initWithFilePath:(nonnull NSURL *)aPath resultsDatabase:(nullable ResultsDb *)aDb
 {
     if (self = [self init]) {
         workersPreviousResults = [NSMutableDictionary new];
         bestTools = [NSMutableDictionary new];
-        filePathsOptimizedInUse = [NSMutableSet new];
         filePath = aPath;
         db = aDb;
         self.displayName = [[NSFileManager defaultManager] displayNameAtPath:filePath.path];
@@ -428,7 +427,6 @@
     if ([self isOptimized]) {
         BOOL saved = [self saveResult];
         if (saved) {
-            optimized = YES;
             [self setStatus:@"ok" order:7 text:[NSString stringWithFormat:NSLocalizedString(@"Optimized successfully with %@",@"tooltip"),bestToolName]];
         } else {
             [self setError:NSLocalizedString(@"Optimized file could not be saved",@"tooltip")];
@@ -454,7 +452,6 @@
         self.isDone = NO;
         self.isFailed = NO;
         stopping = NO;
-        optimized = NO;
         fileIOQueue = aFileIOQueue; // will be used for saving
         workers = [[NSMutableArray alloc] initWithCapacity:10];
         preservePermissions = [defaults boolForKey:@"PreservePermissions"];
@@ -680,8 +677,6 @@
         stopping = NO;
         [workers makeObjectsPerformSelector:@selector(cancel)];
         [workers removeAllObjects];
-        paths = filePathsOptimizedInUse;
-        filePathsOptimizedInUse = [NSMutableSet new];
     }
 
     NSFileManager *fm = [NSFileManager defaultManager];

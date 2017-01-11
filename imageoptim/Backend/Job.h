@@ -18,9 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 
     NSString *bestToolName;
     NSMutableDictionary *bestTools;
-	double percentDone;
-
-    NSMutableSet *filePathsOptimizedInUse;
 
 	NSString *statusImageName;
     NSString *statusText;
@@ -34,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
     uint32_t settingsHash[4];
     uint32_t inputFileHash[4];
 
-    BOOL done, failed, optimized, stopping, lossyConverted;
+    BOOL stopping, lossyConverted;
 }
 
 -(BOOL)isBusy;
@@ -68,8 +65,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly,nonatomic) NSNumber *percentOptimized;
 @property (assign,readonly) NSInteger statusOrder;
 @property (strong,readonly) NSMutableDictionary *workersPreviousResults;
-
-@property (assign) double percentDone;
 
 -(void)setStatus:(NSString *)name order:(NSInteger)order text:(NSString *)text;
 -(void)setError:(NSString *)text;
