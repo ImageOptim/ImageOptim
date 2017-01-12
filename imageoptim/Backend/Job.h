@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @interface Job : NSObject <NSCopying, QLPreviewItem> {
-	NSURL *filePath, *revertPath;
+	NSURL *filePath;
 	NSString *displayName;
 
     NSString *bestToolName;
@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)setFilePath:(NSURL *)s;
 
-@property (readonly, nullable) File *initialInput, *unoptimizedInput, *wipInput, *savedOutput;
+@property (readonly, nullable) File *initialInput, *unoptimizedInput, *wipInput, *savedOutput, *revertFile;
 @property (readonly, copy) NSString *fileName;
 
 @property (strong, nullable) NSString *statusText, *bestToolName;

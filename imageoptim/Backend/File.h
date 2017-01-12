@@ -24,7 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(nullable instancetype)initWithData:(NSData *)fileData fromPath:(NSURL *)path;
 
+// This is not copying, but only creates an instance poiting to the new place
+// If size is given, it aviods disk accesss
 -(nullable File*)copyOfPath:(NSURL *)path;
+-(nullable File*)copyOfPath:(NSURL *)path size:(NSUInteger)s;
 -(nullable TempFile*)tempCopyOfPath:(NSURL *)path;
 -(nullable TempFile*)tempCopyOfPath:(NSURL *)path size:(NSUInteger)s;
 

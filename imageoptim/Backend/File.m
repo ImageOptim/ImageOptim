@@ -55,6 +55,10 @@
     return [[File alloc] initWithType:fileType size:[File byteSize:path] fromPath:path];
 }
 
+-(nullable File*)copyOfPath:(NSURL *)path size:(NSUInteger)s {
+    return [[File alloc] initWithType:fileType size:s fromPath:path];
+}
+
 -(nullable TempFile*)tempCopyOfPath:(NSURL *)path {
     return [[TempFile alloc] initWithType:fileType size:[File byteSize:path] fromPath:path];
 }

@@ -42,7 +42,7 @@
 @interface Job ()
 @property (assign) BOOL isDone;
 @property (assign) BOOL isFailed;
-@property (readwrite, nullable) File *initialInput, *unoptimizedInput, *wipInput, *savedOutput;
+@property (readwrite, nullable) File *initialInput, *unoptimizedInput, *wipInput, *savedOutput, *revertFile;
 @end
 
 @implementation Job {
@@ -164,6 +164,7 @@
         [self willChangeValueForKey:@"byteSizeOriginal"];
         self.initialInput = initial;
         self.unoptimizedInput = initial;
+        self.revertFile = nil;
         self.savedOutput = nil;
         self.bestToolName = nil;
         [self didChangeValueForKey:@"byteSizeOriginal"];
@@ -276,7 +277,7 @@
 }
 
 -(BOOL)canRevert {
-    return revertPath && self.isDone && !stopping;
+    return self.revertFile && self.isDone && !stopping;
 }
 
 -(BOOL)revert {
@@ -285,25 +286,27 @@
     }
     [self cleanup];
 
-    NSUInteger byteSizeOriginal = self.initialInput.byteSize;
-    if (byteSizeOriginal != [File byteSize:revertPath]) {
-        IOWarn(@"Revert path '%@' has wrong size, %ld expected", revertPath, (long)byteSizeOriginal);
+    File *revertFile = self.revertFile;
+
+    NSUInteger byteSizeOriginal = revertFile.byteSize;
+    if (byteSizeOriginal != [File byteSize:revertFile.path]) {
+        IOWarn(@"Revert path '%@' has wrong size, %ld expected", revertFile.path, (long)byteSizeOriginal);
         return NO;
     }
 
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *err = nil;
     NSURL *newFilePath = nil;
-    if (![fm replaceItemAtURL:filePath withItemAtURL:revertPath backupItemName:nil options:0 resultingItemURL:&newFilePath error:&err]) {
-        IOWarn(@"Can't revert: %@ due to %@", revertPath, err);
+    if (![fm replaceItemAtURL:filePath withItemAtURL:revertFile.path backupItemName:nil options:NSFileManagerItemReplacementUsingNewMetadataOnly resultingItemURL:&newFilePath error:&err]) {
+        IOWarn(@"Can't revert: %@ due to %@", revertFile.path, err);
         return NO;
     }
 
-    revertPath = nil;
     if (newFilePath) {
         filePath = [newFilePath copy];
     }
-    [self setNewFileInitial:[self.initialInput copyOfPath:filePath]];
+    [filePath removeAllCachedResourceValues];
+    [self setNewFileInitial:[self.revertFile copyOfPath:filePath]];
     [self setStatus:@"noopt" order:6 text:NSLocalizedString(@"Reverted to original",@"tooltip")];
     return YES;
 }
@@ -385,14 +388,19 @@
 
         NSURL *revertPathTmp;
         if ([self trashFileAtURL:filePath resultingItemURL:&revertPathTmp error:&error]) {
-            revertPath = revertPathTmp;
+            if (!self.revertFile) {
+                File *previous = self.unoptimizedInput;
+                self.revertFile = [previous copyOfPath:revertPathTmp size:previous.byteSize];
+            }
         } else {
             IOWarn("Can't trash %@ %@", filePath.path, error);
             NSURL *backupPath = [NSURL fileURLWithPath:[[[filePath lastPathComponent] stringByAppendingString:@"~bak"] stringByAppendingPathExtension:[filePath pathExtension]]];
 
             [fm removeItemAtURL:backupPath error:nil];
             if ([fm moveItemAtURL:filePath toURL:backupPath error:&error]) {
-                revertPath = backupPath;
+                if (!self.revertFile) {
+                    self.revertFile = [self.unoptimizedInput copyOfPath:backupPath];
+                }
             } else {
                 IOWarn("Can't move to %@ %@", backupPath, error);
                 return NO;
