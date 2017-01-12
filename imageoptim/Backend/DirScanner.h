@@ -1,5 +1,4 @@
 //
-//  DirWorker.h
 //
 //  Created by porneL on 30.wrz.07.
 //
@@ -8,7 +7,7 @@
 
 @class FilesController;
 
-@interface DirWorker : NSOperation {
+@interface DirScanner : NSOperation {
 	FilesController *filesController;
 	NSURL *path;
     NSArray *extensions;

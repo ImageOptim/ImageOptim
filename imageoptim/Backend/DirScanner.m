@@ -1,14 +1,14 @@
 //
-//  DirWorker.m
+//  DirScanner.m
 //
 //  Created by porneL on 30.wrz.07.
 //
 
-#import "DirWorker.h"
-#import "../../FilesController.h"
-#import "../../log.h"
+#import "DirScanner.h"
+#import "../FilesController.h"
+#import "../log.h"
 
-@implementation DirWorker
+@implementation DirScanner
 
 
 @synthesize path;

@@ -1,7 +1,7 @@
 
 #import "JobQueue.h"
 #import "Job.h"
-#import "DirWorker.h"
+#import "DirScanner.h"
 
 @interface JobQueue ()
     @property (strong) NSUserDefaults *defaults;
@@ -66,7 +66,7 @@
     [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue defaults:self.defaults];
 }
 
--(void)addDirWorker:(DirWorker *)d {
+-(void)addDirScanner:(DirScanner *)d {
     [dirWorkerQueue addOperation:d];
 }
 

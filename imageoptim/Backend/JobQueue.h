@@ -1,13 +1,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class Job, DirWorker;
+@class Job, DirScanner;
 
 NS_ASSUME_NONNULL_BEGIN
 @interface JobQueue : NSObject
 
 -(void)addJob:(Job*)f;
--(void)addDirWorker:(DirWorker*)d;
+-(void)addDirScanner:(DirScanner *)d;
 -(void)wait;
 -(void)cleanup;
 -(NSNumber *)queueCount;

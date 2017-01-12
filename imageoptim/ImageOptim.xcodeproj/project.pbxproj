@@ -70,7 +70,7 @@
 		5ABE15771AE5073100861C6B /* ResultsDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A08FE911936982E001DA24B /* ResultsDb.m */; };
 		5ABE15781AE5073E00861C6B /* AdvCompWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE54E200CAF16D800903DF4 /* AdvCompWorker.m */; };
 		5ABE15791AE5073E00861C6B /* CommandWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */; };
-		5ABE157A1AE5073E00861C6B /* DirWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA1370CAF23FF004D45CA /* DirWorker.m */; };
+		5ABE157A1AE5073E00861C6B /* DirScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA1370CAF23FF004D45CA /* DirScanner.m */; };
 		5ABE157B1AE5073E00861C6B /* GifsicleWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A4DC21A1028AE1800A9DD55 /* GifsicleWorker.m */; };
 		5ABE157C1AE5073E00861C6B /* JpegoptimWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E5B2A0CB961E000E05D28 /* JpegoptimWorker.m */; };
 		5ABE157D1AE5073E00861C6B /* JpegtranWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6E04420EA40B6A00380DE7 /* JpegtranWorker.m */; };
@@ -575,8 +575,8 @@
 		5AA9F7861893747900697D8E /* vi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = vi; path = vi.lproj/Help; sourceTree = "<group>"; };
 		5AA9F799189374A000697D8E /* pl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = pl; path = pl.lproj/Help; sourceTree = "<group>"; };
 		5AA9F7A9189374BF00697D8E /* el */ = {isa = PBXFileReference; lastKnownFileType = file.plist.strings; name = el; path = el.lproj/PrefsController.strings; sourceTree = "<group>"; };
-		5AACA1360CAF23FF004D45CA /* DirWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirWorker.h; sourceTree = "<group>"; };
-		5AACA1370CAF23FF004D45CA /* DirWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirWorker.m; sourceTree = "<group>"; };
+		5AACA1360CAF23FF004D45CA /* DirScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DirScanner.h; path = Backend/DirScanner.h; sourceTree = "<group>"; };
+		5AACA1370CAF23FF004D45CA /* DirScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DirScanner.m; path = Backend/DirScanner.m; sourceTree = "<group>"; };
 		5AACA13D0CAF241B004D45CA /* Worker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Worker.h; sourceTree = "<group>"; };
 		5AACA13E0CAF241B004D45CA /* Worker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Worker.m; sourceTree = "<group>"; };
 		5AACA7BA0CAFD0D2004D45CA /* MyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTableView.h; sourceTree = "<group>"; };
@@ -697,6 +697,8 @@
 				5ABE15441AE5072300861C6B /* Supporting Files */,
 				5ABE15521AE5072300861C6B /* Tests */,
 				5AE54DE50CAEF51300903DF4 /* Workers */,
+				5AACA1360CAF23FF004D45CA /* DirScanner.h */,
+				5AACA1370CAF23FF004D45CA /* DirScanner.m */,
 				5AD033511E26B6840030291A /* File.h */,
 				5AD033521E26B6840030291A /* File.m */,
 				5A34CFEE1AEF6D9800A154E4 /* ImageOptimGPL.h */,
@@ -985,8 +987,6 @@
 				5AE54E200CAF16D800903DF4 /* AdvCompWorker.m */,
 				5A44F5850CB2ECFE00BD2884 /* CommandWorker.h */,
 				5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */,
-				5AACA1360CAF23FF004D45CA /* DirWorker.h */,
-				5AACA1370CAF23FF004D45CA /* DirWorker.m */,
 				5A4DC2191028AE1800A9DD55 /* GifsicleWorker.h */,
 				5A4DC21A1028AE1800A9DD55 /* GifsicleWorker.m */,
 				5A9E5B290CB961E000E05D28 /* JpegoptimWorker.h */,
@@ -1525,7 +1525,7 @@
 			files = (
 				5ABE15781AE5073E00861C6B /* AdvCompWorker.m in Sources */,
 				5ABE15791AE5073E00861C6B /* CommandWorker.m in Sources */,
-				5ABE157A1AE5073E00861C6B /* DirWorker.m in Sources */,
+				5ABE157A1AE5073E00861C6B /* DirScanner.m in Sources */,
 				5AD033541E26B6840030291A /* File.m in Sources */,
 				5ABE157B1AE5073E00861C6B /* GifsicleWorker.m in Sources */,
 				5ABE15741AE5073100861C6B /* Job.m in Sources */,

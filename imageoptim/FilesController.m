@@ -6,7 +6,7 @@
 #import "Job.h"
 #import "FilesController.h"
 #import "log.h"
-#import "Backend/Workers/DirWorker.h"
+#import "Backend/DirScanner.h"
 #import "RevealButtonCell.h"
 #import "ResultsDb.h"
 #import "JobQueue.h"
@@ -305,8 +305,8 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
                 [jobQueue addJob:f];
             }
         } else {
-            DirWorker *w = [[DirWorker alloc] initWithPath:path filesController:self extensions:[self extensions]];
-            [jobQueue addDirWorker:w];
+            DirScanner *w = [[DirScanner alloc] initWithPath:path filesController:self extensions:[self extensions]];
+            [jobQueue addDirScanner:w];
         }
     }
 
