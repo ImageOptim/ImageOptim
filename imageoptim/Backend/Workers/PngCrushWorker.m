@@ -6,7 +6,7 @@
 
 #import "PngCrushWorker.h"
 #import "../Job.h"
-#import "../File.h"
+#import "../TempFile.h"
 
 @implementation PngCrushWorker
 - (instancetype)initWithLevel:(NSInteger)level defaults:(NSUserDefaults *)defaults file:(Job *)aFile {
@@ -54,7 +54,7 @@
 
     if (!ok) return NO;
 
-    File *output = [file copyOfPath:temp];
+    TempFile *output = [file tempCopyOfPath:temp];
     // pngcrush sometimes writes only PNG header (70 bytes)!
     if (output && output.byteSize > 70) {
         return [job setFileOptimized:output toolName:@"Pngcrush"];

@@ -6,7 +6,7 @@
 
 #import "AdvCompWorker.h"
 #import "../Job.h"
-#import "../File.h"
+#import "../TempFile.h"
 #import "../../log.h"
 
 @implementation AdvCompWorker
@@ -55,7 +55,7 @@
 
     if (!ok) return NO;
 
-    return [job setFileOptimized:[file copyOfPath:temp size:fileSizeOptimized] toolName:@"AdvPNG"];
+    return [job setFileOptimized:[file tempCopyOfPath:temp size:fileSizeOptimized] toolName:@"AdvPNG"];
 }
 
 -(BOOL)parseLine:(NSString *)line {

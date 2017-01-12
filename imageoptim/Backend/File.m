@@ -7,6 +7,7 @@
 //
 
 #import "File.h"
+#import "TempFile.h"
 #import "../log.h"
 #import <assert.h>
 
@@ -54,7 +55,11 @@
     return [[File alloc] initWithType:fileType size:[File byteSize:path] fromPath:path];
 }
 
--(nullable File*)copyOfPath:(NSURL *)path size:(NSUInteger)s {
+-(nullable TempFile*)tempCopyOfPath:(NSURL *)path {
+    return [[TempFile alloc] initWithType:fileType size:[File byteSize:path] fromPath:path];
+}
+
+-(nullable TempFile*)tempCopyOfPath:(NSURL *)path size:(NSUInteger)s {
     if (!s) {
         return nil;
     }
@@ -63,7 +68,7 @@
         NSLog(@"Expected size %d, but file is actually %d", (int)s, (int)[File byteSize:path]);
         return nil;
     }
-    return [[File alloc] initWithType:fileType size:s fromPath:path];
+    return [[TempFile alloc] initWithType:fileType size:s fromPath:path];
 }
 
 -(BOOL)isLarge {

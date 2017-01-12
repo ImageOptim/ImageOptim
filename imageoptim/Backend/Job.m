@@ -3,7 +3,7 @@
 //
 
 #import "Job.h"
-#import "File.h"
+#import "TempFile.h"
 #import "ImageOptimController.h"
 #import "Workers/Save.h"
 #import "Workers/AdvCompWorker.h"
@@ -181,7 +181,7 @@
     [self didChangeValueForKey:@"byteSizeOptimized"];
 }
 
--(BOOL)setFileOptimized:(File *)newFile toolName:(NSString *)toolname {
+-(BOOL)setFileOptimized:(TempFile *)newFile toolName:(NSString *)toolname {
     if (!newFile) {
         return NO;
     }
@@ -405,6 +405,7 @@
         }
 
         self.savedOutput = [_wipInput copyOfPath:filePath];
+        [self setFileOptimized:nil];
 
         [self removeExtendedAttrAtURL:filePath];
     }
@@ -420,6 +421,7 @@
     [self setFileOptimized:nil]; // Needed to update 0% optimized display
     [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
     self.isDone = YES;
+    [self stopAllWorkers];
 }
 
 -(void)saveResultAndUpdateStatus {
@@ -427,6 +429,7 @@
     if ([self isOptimized]) {
         BOOL saved = [self saveResult];
         self.isDone = YES;
+        [self stopAllWorkers];
         if (saved) {
             [self setStatus:@"ok" order:7 text:[NSString stringWithFormat:NSLocalizedString(@"Optimized successfully with %@",@"tooltip"),bestToolName]];
         } else {
@@ -438,7 +441,6 @@
             [db setUnoptimizableFileHash:inputFileHash size:self.unoptimizedInput.byteSize];
         }
     }
-    [self cleanup];
 }
 
 -(void)enqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue fileIOQueue:(nonnull NSOperationQueue *)aFileIOQueue defaults:(nonnull NSUserDefaults*)defaults {
@@ -623,7 +625,6 @@
     if ([db getResultWithHash:inputFileHash]) { // FIXME: check for lossy
         NSLog(@"Skipping %@, because it has been optimized before", filePath.path);
         [self setNooptStatus];
-        [self cleanup];
         return;
     }
 
@@ -671,18 +672,17 @@
     }
 }
 
--(void)cleanup {
-    NSMutableSet *paths;
+-(void)stopAllWorkers {
     @synchronized(self) {
-        stopping = NO;
         [workers makeObjectsPerformSelector:@selector(cancel)];
         [workers removeAllObjects];
+        stopping = NO;
     }
+}
 
-    NSFileManager *fm = [NSFileManager defaultManager];
-    for(NSString *path in paths) {
-        [fm removeItemAtPath:path error:nil];
-    }
+-(void)cleanup {
+    [self stopAllWorkers];
+    [self setFileOptimized:nil];
 }
 
 -(BOOL)isBusy {

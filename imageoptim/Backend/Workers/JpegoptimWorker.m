@@ -6,7 +6,7 @@
 
 #import "JpegoptimWorker.h"
 #import "../Job.h"
-#import "../File.h"
+#import "../TempFile.h"
 #import "../../log.h"
 
 @implementation JpegoptimWorker
@@ -73,7 +73,7 @@
     }
 
     if (![self makesNonOptimizingModifications] || isSignificantlySmaller) {
-        return [job setFileOptimized:[file copyOfPath:temp size:fileSizeOptimized] toolName:lossy ? [NSString stringWithFormat: @"JpegOptim %d%%", (int)maxquality] : @"JpegOptim"];
+        return [job setFileOptimized:[file tempCopyOfPath:temp size:fileSizeOptimized] toolName:lossy ? [NSString stringWithFormat: @"JpegOptim %d%%", (int)maxquality] : @"JpegOptim"];
     }
     return NO;
 }

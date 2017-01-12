@@ -8,7 +8,7 @@
 #import <Quartz/Quartz.h>
 #import "Workers/Worker.h"
 
-@class ResultsDb, File;
+@class ResultsDb, File, TempFile;
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue defaults:(NSUserDefaults*)defaults;
 
--(BOOL)setFileOptimized:(nullable File *)f toolName:(NSString *)s;
+-(BOOL)setFileOptimized:(nullable TempFile *)f toolName:(NSString *)s;
 
 -(nullable instancetype)initWithFilePath:(NSURL *)aPath resultsDatabase:(nullable ResultsDb *)aDb;
 -(id)copyWithZone:(nullable NSZone *)zone;

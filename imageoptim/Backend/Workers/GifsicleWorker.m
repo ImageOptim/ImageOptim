@@ -1,7 +1,7 @@
 
 #import "GifsicleWorker.h"
 #import "../Job.h"
-#import "../File.h"
+#import "../TempFile.h"
 
 @implementation GifsicleWorker
 
@@ -58,7 +58,7 @@
 
     NSString *toolName = isLossy ? @"Giflossy" : (interlace ? @"Gifsicle interlaced" : @"Gifsicle");
 
-    File *output = [file copyOfPath:temp];
+    TempFile *output = [file tempCopyOfPath:temp];
     if (!output) {
         return NO;
     }

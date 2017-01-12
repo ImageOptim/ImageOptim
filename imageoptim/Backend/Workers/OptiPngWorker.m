@@ -6,7 +6,7 @@
 
 #import "OptiPngWorker.h"
 #import "../Job.h"
-#import "../File.h"
+#import "../TempFile.h"
 
 @implementation OptiPngWorker
 
@@ -48,7 +48,7 @@
     if (!ok) return NO;
 
     if (fileSizeOptimized) {
-        return [job setFileOptimized:[file copyOfPath:temp size:fileSizeOptimized] toolName:@"OptiPNG"];
+        return [job setFileOptimized:[file tempCopyOfPath:temp size:fileSizeOptimized] toolName:@"OptiPNG"];
     }
     return NO;
 }

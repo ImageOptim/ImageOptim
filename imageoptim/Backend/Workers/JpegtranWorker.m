@@ -6,7 +6,7 @@
 
 #import "JpegtranWorker.h"
 #import "../Job.h"
-#import "../File.h"
+#import "../TempFile.h"
 
 @implementation JpegtranWorker
 
@@ -58,7 +58,7 @@
 
     if (!ok) return NO;
 
-    return [job setFileOptimized:[file copyOfPath:temp] toolName:@"MozJPEG"];
+    return [job setFileOptimized:[file tempCopyOfPath:temp] toolName:@"MozJPEG"];
 }
 
 -(BOOL)parseLine:(NSString *)line {

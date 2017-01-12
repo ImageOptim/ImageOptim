@@ -8,7 +8,7 @@
 
 #import "PngoutWorker.h"
 #import "../Job.h"
-#import "../File.h"
+#import "../TempFile.h"
 #import "../../log.h"
 
 @implementation PngoutWorker
@@ -83,7 +83,7 @@
     }
 
     if (fileSizeOptimized) {
-        return [job setFileOptimized:[file copyOfPath:temp] toolName:@"PNGOUT"];
+        return [job setFileOptimized:[file tempCopyOfPath:temp] toolName:@"PNGOUT"];
     }
     return NO;
 }

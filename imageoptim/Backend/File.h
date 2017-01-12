@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class TempFile;
+
 enum IOFileType {
     FILETYPE_PNG=1,
     FILETYPE_JPEG,
@@ -23,7 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(nullable instancetype)initWithData:(NSData *)fileData fromPath:(NSURL *)path;
 
 -(nullable File*)copyOfPath:(NSURL *)path;
--(nullable File*)copyOfPath:(NSURL *)path size:(NSUInteger)s;
+-(nullable TempFile*)tempCopyOfPath:(NSURL *)path;
+-(nullable TempFile*)tempCopyOfPath:(NSURL *)path size:(NSUInteger)s;
 
 -(BOOL)isLarge;
 -(BOOL)isSmall;

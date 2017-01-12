@@ -1,7 +1,7 @@
 
 #import "ZopfliWorker.h"
 #import "../Job.h"
-#import "../File.h"
+#import "../TempFile.h"
 
 @implementation ZopfliWorker
 
@@ -72,7 +72,7 @@
 
     if (!ok) return NO;
 
-    File *output = [file copyOfPath:temp];
+    TempFile *output = [file tempCopyOfPath:temp];
     if (output && output.byteSize > 70) {
         return [job setFileOptimized:output toolName:@"Zopfli"];
     }

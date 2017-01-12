@@ -1,7 +1,7 @@
 
 #import "PngquantWorker.h"
 #import "../Job.h"
-#import "../File.h"
+#import "../TempFile.h"
 #import "../../log.h"
 
 @implementation PngquantWorker
@@ -70,7 +70,7 @@
         return NO;
     }
 
-    return [job setFileOptimized:[file copyOfPath:temp] toolName:@"pngquant"];
+    return [job setFileOptimized:[file tempCopyOfPath:temp] toolName:@"pngquant"];
 }
 
 -(BOOL)makesNonOptimizingModifications {
