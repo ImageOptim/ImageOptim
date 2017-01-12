@@ -762,7 +762,9 @@
 }
 
 -(nonnull NSString *)description {
-    return [NSString stringWithFormat:@"%@ %ld/%ld (workers %ld)", self.filePath,(long)self.byteSizeOriginal,(long)self.wipInput.byteSize, [workers count]];
+    return [NSString stringWithFormat:@"%@ %ld/%ld/%ld (workers %ld) s=%d d=%d/%d %@", self.filePath,
+            [self.byteSizeOriginal longValue],(long)self.wipInput.byteSize,(long)self.savedOutput.byteSize,
+            [workers count], stopping, isDone, isFailed, self.statusText];
 }
 
 #pragma mark QL
