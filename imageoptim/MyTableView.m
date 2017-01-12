@@ -72,7 +72,7 @@
         if (!type) continue;
 
         NSString *url = [[NSString stringWithFormat:@"data:%@;base64,", type]
-                         stringByAppendingString:[data base64Encoding]];
+                         stringByAppendingString:[data base64EncodedStringWithOptions:0]];
 
         [urls addObject:url];
     }
