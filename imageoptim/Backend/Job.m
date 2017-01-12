@@ -412,7 +412,8 @@
             return NO;
         }
 
-        self.savedOutput = [_wipInput copyOfPath:filePath];
+        [filePath removeAllCachedResourceValues];
+        self.savedOutput = [fileToSave copyOfPath:filePath size:fileToSave.byteSize];
         [self setFileOptimized:nil];
 
         [self removeExtendedAttrAtURL:filePath];
