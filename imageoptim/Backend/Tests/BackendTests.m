@@ -42,17 +42,31 @@
 
     [q addJob:f];
     XCTAssertTrue([f isBusy]);
+    XCTAssertFalse([f isDone]);
+    XCTAssertFalse([f isFailed]);
     [q wait];
     XCTAssertFalse([f isBusy]);
 
     NSNumber *size, *origSize;
+    [path removeAllCachedResourceValues];
+    [origPath removeAllCachedResourceValues];
+
     XCTAssertTrue([path getResourceValue:&size forKey:NSURLFileSizeKey error:nil]);
     XCTAssertTrue([origPath getResourceValue:&origSize forKey:NSURLFileSizeKey error:nil]);
+
+    XCTAssertTrue([f isDone]);
+    XCTAssertFalse([f isFailed]);
+    XCTAssertFalse([f isStoppable]);
 
     XCTAssertLessThan(1, 2);
     XCTAssertLessThan([size integerValue], [origSize integerValue]);
     XCTAssertLessThanOrEqual(1, 2);
     XCTAssertLessThanOrEqual([size integerValue], 5552);
+
+    XCTAssertTrue([f canRevert]);
+
+    XCTAssertEqual([[f byteSizeOptimized] integerValue], [size integerValue]);
+    XCTAssertEqual([[f byteSizeOriginal] integerValue], [origSize integerValue]);
 }
 
 @end
