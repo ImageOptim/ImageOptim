@@ -111,7 +111,8 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
         @synchronized(filesController) {
             long long bytesTotal=0, optimizedTotal=0;
             double optimizedFractionTotal=0, maxOptimizedFraction=0;
-            int fileCount=0;
+            NSUInteger optimizedFileCount=0;
+            BOOL anyBusyFiles = false;
 
             NSArray *content = [filesController content];
             for (Job *f in content) {
@@ -119,6 +120,10 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
                 if (!optimizedFile) optimizedFile = f.savedOutput;
                 if (!optimizedFile) continue;
                 
+                if (!anyBusyFiles && [f isBusy]) {
+                    anyBusyFiles = YES;
+                }
+
                 const NSUInteger bytes = f.initialInput.byteSize, optimized = optimizedFile.byteSize;
                 if (bytes && optimized && (bytes != optimized || [f isDone])) {
                     const double optimizedFraction = 1.0 - (double)optimized/(double)bytes;
@@ -128,13 +133,13 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
                     optimizedFractionTotal += optimizedFraction;
                     bytesTotal += bytes;
                     optimizedTotal += optimized;
-                    fileCount++;
+                    optimizedFileCount++;
                 }
             }
 
-            if (fileCount > 1 && bytesTotal) {
+            if (optimizedFileCount > 1 && bytesTotal) {
                 const double savedTotal = 1.0 - (double)optimizedTotal/(double)bytesTotal;
-                const double savedAvg = optimizedFractionTotal/(double)fileCount;
+                const double savedAvg = optimizedFractionTotal/(double)optimizedFileCount;
                 if (savedTotal > 0.001) {
                     if (savedTotal*0.8 > savedAvg) {
                         overallAvg = YES;
@@ -161,18 +166,18 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
                            [percFormatter stringFromNumber: @(maxOptimizedFraction)]];
                     selectable = YES;
                 }
-            } else {
-                if ([defs boolForKey:@"LossyEnabled"]) {
-                    NSMutableArray *arr = [NSMutableArray new];
-                    appendFormatNameIfLossyEnabled(defs, @"JPEG", @"JpegOptimMaxQuality", arr);
-                    appendFormatNameIfLossyEnabled(defs, @"PNG", @"PngMinQuality", arr);
-                    appendFormatNameIfLossyEnabled(defs, @"GIF", @"GifQuality", arr);
-                    if ([arr count]) {
-                        str = [NSString stringWithFormat:@"%@ (%@)",
-                                                      NSLocalizedString(@"Lossy minification enabled", @"status bar"),
-                                                      [arr componentsJoinedByString:@", "]];
-                    }
+            } else if ([defs boolForKey:@"LossyEnabled"]) {
+                NSMutableArray *arr = [NSMutableArray new];
+                appendFormatNameIfLossyEnabled(defs, @"JPEG", @"JpegOptimMaxQuality", arr);
+                appendFormatNameIfLossyEnabled(defs, @"PNG", @"PngMinQuality", arr);
+                appendFormatNameIfLossyEnabled(defs, @"GIF", @"GifQuality", arr);
+                if ([arr count]) {
+                    str = [NSString stringWithFormat:@"%@ (%@)",
+                                                  NSLocalizedString(@"Lossy minification enabled", @"status bar"),
+                                                  [arr componentsJoinedByString:@", "]];
                 }
+            } else if (anyBusyFiles) {
+                str = @"";
             }
 
             // that was also in KVO, but caused deadlocks there. Here it's deferred.
