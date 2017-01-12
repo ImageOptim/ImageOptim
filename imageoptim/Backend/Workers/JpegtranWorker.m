@@ -21,8 +21,7 @@
     return self;
 }
 
--(BOOL)runWithTempPath:(NSURL *)temp {
-    File *file = job.wipInput;
+-(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
 
     // eh, handling of paths starting with "-" is unsafe here. Hopefully all paths from dropped files will be absolute...
     NSMutableArray *args = [NSMutableArray arrayWithObject:file.path];

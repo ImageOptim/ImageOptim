@@ -26,8 +26,7 @@
     return level*4 + removechunks*2 + (timelimit < 60 ? 1 : 0);
 }
 
--(BOOL)runWithTempPath:(NSURL *)temp {
-    File *file = job.wipInput;
+-(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
 
     // uses stdout for file to force progress output to unbufferred stderr
     NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/file.path,@"-",nil];

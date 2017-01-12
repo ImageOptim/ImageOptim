@@ -7,7 +7,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Worker.h"
 
-@class Job;
+@class Job, File;
 
 @interface CommandWorker : Worker {
     NSTask *task;
@@ -29,7 +29,7 @@
 
 -(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args;
 
--(BOOL)runWithTempPath:(NSURL*)tempPath;
+-(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp;
 -(NSString *)pathForExecutableName:(NSString *)resourceName;
 
 -(NSInteger)timelimitForLevel:(NSInteger)level;

@@ -17,8 +17,7 @@
     return interlace + 2*quality;
 }
 
--(BOOL)runWithTempPath:(NSURL *)temp {
-    File *file = job.wipInput;
+-(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
 
     NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-o",temp.path,
                             interlace ? @"--interlace" : @"--no-interlace",

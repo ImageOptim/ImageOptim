@@ -419,13 +419,14 @@
 -(void)setNooptStatus {
     [self setFileOptimized:nil]; // Needed to update 0% optimized display
     [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further",@"tooltip")];
+    self.isDone = YES;
 }
 
 -(void)saveResultAndUpdateStatus {
     assert([self isBusy]);
-    self.isDone = YES;
     if ([self isOptimized]) {
         BOOL saved = [self saveResult];
+        self.isDone = YES;
         if (saved) {
             [self setStatus:@"ok" order:7 text:[NSString stringWithFormat:NSLocalizedString(@"Optimized successfully with %@",@"tooltip"),bestToolName]];
         } else {
@@ -620,7 +621,6 @@
     CC_MD5_Update(md5ctxp, [fileData bytes], (CC_LONG)[fileData length]);
     CC_MD5_Final((unsigned char*)inputFileHash, md5ctxp);
     if ([db getResultWithHash:inputFileHash]) { // FIXME: check for lossy
-        self.isDone = YES;
         NSLog(@"Skipping %@, because it has been optimized before", filePath.path);
         [self setNooptStatus];
         [self cleanup];

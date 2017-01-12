@@ -22,8 +22,7 @@
     return optlevel*2;
 }
 
--(BOOL)runWithTempPath:(NSURL *)temp {
-    File *file = job.wipInput;
+-(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
 
     NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],
                             @"-i0",

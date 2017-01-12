@@ -28,8 +28,7 @@
     return maxquality < 100;
 }
 
--(BOOL)runWithTempPath:(NSURL *)temp {
-    File *file = job.wipInput;
+-(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
 
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;

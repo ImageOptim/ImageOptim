@@ -22,11 +22,10 @@
     return level;
 }
 
--(BOOL)runWithTempPath:(NSURL *)temp {
+-(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;
 
-    File *file = job.wipInput;
 
     if (![fm copyItemAtURL:file.path toURL:temp error:&error]) {
         IOWarn("Can't make temp copy of %@ in %@; %@",file.path,temp.path,error);

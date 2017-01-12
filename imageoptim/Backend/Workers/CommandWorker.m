@@ -69,7 +69,8 @@
 -(void)run {
     NSURL *tempPath = [self tempPath];
     @try {
-        if ([self runWithTempPath:tempPath] && ![self isCancelled]) {
+        BOOL keptFile = [self optimizeFile:job.wipInput toTempPath:tempPath];
+        if (keptFile && ![self isCancelled]) {
             tempPath = nil;
         }
     }
@@ -181,7 +182,7 @@
     return [NSURL fileURLWithPath: [NSTemporaryDirectory() stringByAppendingPathComponent: filename]];
 }
 
--(BOOL)runWithTempPath:(NSURL *)tempPath {
+-(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)tempPath {
     return NO; /*abstract*/
 }
 

@@ -18,8 +18,7 @@
     return minQuality;
 }
 
--(BOOL)runWithTempPath:(NSURL *)temp {
-    File *file = job.wipInput;
+-(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
 
     NSArray *args = @[@"256",@"--skip-if-larger",
                       [NSString stringWithFormat:@"-s%d", (int)speed],
