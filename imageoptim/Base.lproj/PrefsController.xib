@@ -163,7 +163,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="1085">
-                                                        <rect key="frame" x="18" y="34" width="67" height="18"/>
+                                                        <rect key="frame" x="18" y="39" width="67" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="BDo-gs-jto"/>
                                                         </constraints>
@@ -179,7 +179,7 @@
                                                         </connections>
                                                     </button>
                                                     <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="1086">
-                                                        <rect key="frame" x="18" y="172" width="78" height="18"/>
+                                                        <rect key="frame" x="18" y="177" width="78" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="gDL-dX-IGx"/>
                                                         </constraints>
@@ -192,7 +192,7 @@
                                                         </connections>
                                                     </button>
                                                     <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="1087">
-                                                        <rect key="frame" x="18" y="112" width="86" height="18"/>
+                                                        <rect key="frame" x="18" y="117" width="86" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="XIC-mV-kdi"/>
                                                         </constraints>
@@ -205,7 +205,7 @@
                                                         </connections>
                                                     </button>
                                                     <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="1088">
-                                                        <rect key="frame" x="18" y="152" width="75" height="18"/>
+                                                        <rect key="frame" x="18" y="157" width="75" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="Uql-Zi-hfS"/>
                                                         </constraints>
@@ -218,7 +218,7 @@
                                                         </connections>
                                                     </button>
                                                     <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="1089">
-                                                        <rect key="frame" x="18" y="132" width="73" height="18"/>
+                                                        <rect key="frame" x="18" y="137" width="73" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="uSC-x3-Qgo"/>
                                                         </constraints>
@@ -231,7 +231,7 @@
                                                         </connections>
                                                     </button>
                                                     <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="1117">
-                                                        <rect key="frame" x="18" y="192" width="57" height="18"/>
+                                                        <rect key="frame" x="18" y="197" width="57" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="z4Z-gh-18g"/>
                                                         </constraints>
@@ -244,7 +244,7 @@
                                                         </connections>
                                                     </button>
                                                     <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="1090">
-                                                        <rect key="frame" x="18" y="83" width="92" height="18"/>
+                                                        <rect key="frame" x="18" y="88" width="92" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="Jlk-8Z-mbp"/>
                                                             <constraint firstAttribute="height" constant="14" id="LaR-4O-JAQ"/>
@@ -258,7 +258,7 @@
                                                         </connections>
                                                     </button>
                                                     <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="1091">
-                                                        <rect key="frame" x="18" y="63" width="77" height="18"/>
+                                                        <rect key="frame" x="18" y="68" width="77" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="44C-39-tHc"/>
                                                         </constraints>
@@ -270,13 +270,36 @@
                                                             <binding destination="300" name="value" keyPath="values.JpegTranEnabled" id="1103"/>
                                                         </connections>
                                                     </button>
+                                                    <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="78U-a4-xCR">
+                                                        <rect key="frame" x="18" y="19" width="59" height="18"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14" id="KfP-2h-NkZ"/>
+                                                        </constraints>
+                                                        <buttonCell key="cell" type="check" title="SVGO" bezelStyle="regularSquare" imagePosition="left" alignment="left" lineBreakMode="truncatingTail" state="on" inset="2" id="ndj-4c-oHZ">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                            <connections>
+                                                                <binding destination="300" name="value" keyPath="values.SvgoEnabled" id="k5X-PD-GK4">
+                                                                    <dictionary key="options">
+                                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                    </dictionary>
+                                                                </binding>
+                                                            </connections>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <binding destination="300" name="value" keyPath="values.SvgoEnabled" id="S8A-r5-4NB"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1088" secondAttribute="trailing" constant="12" id="72p-CO-cJu"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1087" secondAttribute="trailing" constant="12" id="C92-D4-MXy"/>
+                                                    <constraint firstItem="78U-a4-xCR" firstAttribute="leading" secondItem="1085" secondAttribute="leading" id="Cek-TY-eWL"/>
                                                     <constraint firstItem="1087" firstAttribute="top" secondItem="1089" secondAttribute="bottom" constant="6" id="Fed-4a-nRz"/>
                                                     <constraint firstItem="1089" firstAttribute="leading" secondItem="55p-R0-QvS" secondAttribute="leading" constant="20" id="Ji6-IV-G9i"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1085" secondAttribute="trailing" constant="12" id="MGe-at-Icd"/>
+                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="78U-a4-xCR" secondAttribute="bottom" constant="15" id="MJR-Ab-AK1"/>
                                                     <constraint firstItem="1117" firstAttribute="leading" secondItem="55p-R0-QvS" secondAttribute="leading" constant="20" id="MTf-zU-XGN"/>
                                                     <constraint firstItem="1091" firstAttribute="top" secondItem="1090" secondAttribute="bottom" constant="6" id="NGN-NP-WGG"/>
                                                     <constraint firstItem="1090" firstAttribute="leading" secondItem="55p-R0-QvS" secondAttribute="leading" constant="20" id="PiQ-PP-7DU"/>
@@ -289,10 +312,11 @@
                                                     <constraint firstItem="1088" firstAttribute="top" secondItem="1086" secondAttribute="bottom" constant="6" id="bmq-tA-Pm8"/>
                                                     <constraint firstItem="1086" firstAttribute="leading" secondItem="55p-R0-QvS" secondAttribute="leading" constant="20" id="cLX-Gl-SI4"/>
                                                     <constraint firstItem="1089" firstAttribute="top" secondItem="1088" secondAttribute="bottom" constant="6" id="hZN-8v-BfM"/>
-                                                    <constraint firstItem="1117" firstAttribute="top" secondItem="55p-R0-QvS" secondAttribute="top" constant="20" id="i7w-I4-dLy"/>
+                                                    <constraint firstItem="1117" firstAttribute="top" secondItem="55p-R0-QvS" secondAttribute="top" constant="15" id="i7w-I4-dLy"/>
                                                     <constraint firstItem="1088" firstAttribute="leading" secondItem="55p-R0-QvS" secondAttribute="leading" constant="20" id="idD-7i-PTu"/>
                                                     <constraint firstItem="1085" firstAttribute="leading" secondItem="55p-R0-QvS" secondAttribute="leading" constant="20" id="lGN-Th-fHT"/>
                                                     <constraint firstItem="1085" firstAttribute="top" secondItem="1091" secondAttribute="bottom" constant="15" id="mgT-CQ-VZi"/>
+                                                    <constraint firstItem="78U-a4-xCR" firstAttribute="top" secondItem="1085" secondAttribute="bottom" constant="6" id="uXp-aW-vYC"/>
                                                     <constraint firstItem="1087" firstAttribute="leading" secondItem="55p-R0-QvS" secondAttribute="leading" constant="20" id="uhJ-pD-s03"/>
                                                     <constraint firstItem="1086" firstAttribute="top" secondItem="1117" secondAttribute="bottom" constant="6" id="wqG-hx-MLU"/>
                                                     <constraint firstItem="1090" firstAttribute="top" secondItem="1087" secondAttribute="bottom" constant="15" id="x8Z-h9-t8K"/>
@@ -806,7 +830,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="249">
-                                            <rect key="frame" x="145" y="213" width="231" height="25"/>
+                                            <rect key="frame" x="145" y="214" width="231" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="227" id="ZJY-5N-Z7e"/>
                                             </constraints>
@@ -818,7 +842,7 @@
                                             </connections>
                                         </slider>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="250">
-                                            <rect key="frame" x="28" y="225" width="113" height="17"/>
+                                            <rect key="frame" x="28" y="226" width="113" height="17"/>
                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Optimization level" id="818">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -826,7 +850,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="251">
-                                            <rect key="frame" x="145" y="195" width="23" height="11"/>
+                                            <rect key="frame" x="145" y="196" width="23" height="11"/>
                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Fast" id="819">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -834,7 +858,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="252">
-                                            <rect key="frame" x="343" y="195" width="33" height="11"/>
+                                            <rect key="frame" x="343" y="196" width="33" height="11"/>
                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Insane" id="820">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -842,7 +866,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="255">
-                                            <rect key="frame" x="207" y="195" width="40" height="11"/>
+                                            <rect key="frame" x="207" y="196" width="40" height="11"/>
                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Normal" id="821">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -850,7 +874,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="256">
-                                            <rect key="frame" x="281" y="195" width="31" height="11"/>
+                                            <rect key="frame" x="281" y="196" width="31" height="11"/>
                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Extra" id="822">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
