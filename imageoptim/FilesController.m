@@ -438,6 +438,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 #define PNG_ENABLED 1
 #define JPEG_ENABLED 2
 #define GIF_ENABLED 4
+#define SVG_ENABLED 8
 
 -(int)typesEnabled {
     int types = 0;
@@ -454,6 +455,10 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
     if ([defs boolForKey:@"GifsicleEnabled"]) {
         types |= GIF_ENABLED;
+    }
+
+    if ([defs boolForKey:@"SvgoEnabled"]) {
+        types |= SVG_ENABLED;
     }
 
     if (!types) types = PNG_ENABLED; // will show error in the list
@@ -477,6 +482,9 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         [extensions addObject:@"gif"];
         [extensions addObject:@"GIF"];
     }
+    if (types & SVG_ENABLED) {
+        [extensions addObject:@"svg"];
+    }
 
     return extensions;
 }
@@ -495,6 +503,9 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     }
     if (types & GIF_ENABLED) {
         [fileTypes addObjectsFromArray:@[@"gif",@"GIF",NSFileTypeForHFSTypeCode('GIFf'),@"public.gif",@"image/gif"]];
+    }
+    if (types & SVG_ENABLED) {
+        [fileTypes addObjectsFromArray:@[@"svg",@"public.svg-image",@"image/svg"]];
     }
     return fileTypes;
 }

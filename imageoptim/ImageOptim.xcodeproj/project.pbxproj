@@ -59,6 +59,9 @@
 		5A7D24EB13E5BC3100815AAA /* wait.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A9EE44C0CB59CDC00F08CC5 /* wait.png */; };
 		5A7D24EE13E5BC3100815AAA /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 5AC63C490E9ABF0A0053B879 /* dsa_pub.pem */; };
 		5A7D24EF13E5BC3100815AAA /* defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AE54D800CAEE8AC00903DF4 /* defaults.plist */; };
+		5A7FB6D71E2C37DD00481B4A /* SvgoWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A7FB6D61E2C37DD00481B4A /* SvgoWorker.h */; };
+		5A7FB6F31E2C37EB00481B4A /* SvgoWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FB6F21E2C37EB00481B4A /* SvgoWorker.m */; };
+		5A7FB7261E2C3E1600481B4A /* svgo.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A7FB7251E2C3E1600481B4A /* svgo.js */; };
 		5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99FE83140AE80600BB2F79 /* Quartz.framework */; };
 		5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
 		5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA8300CAFE74E004D45CA /* Transformers.m */; };
@@ -232,6 +235,27 @@
 			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
 			remoteInfo = jpegtran;
 		};
+		5A7FB6ED1E2C37DD00481B4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 722954B41D04ADAF00ECF9CA;
+			remoteInfo = fileop;
+		};
+		5A7FB6EF1E2C37DD00481B4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5AE13FB31E0D9E07000D2C2C;
+			remoteInfo = generate_appcast;
+		};
+		5A7FB7231E2C3DF800481B4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5A7FB7051E2C39CC00481B4A;
+			remoteInfo = SVGO;
+		};
 		5A95D412139D72A8005FD6FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A20CC8E1123939C0000400D /* libpng.xcodeproj */;
@@ -391,6 +415,7 @@
 				5ABE161F1AE5094600861C6B /* pngcrush in CopyFiles */,
 				5ABE15841AE5074900861C6B /* pngout in CopyFiles */,
 				5ABE161E1AE5094000861C6B /* pngquant in CopyFiles */,
+				5A7FB7261E2C3E1600481B4A /* svgo.js in CopyFiles */,
 				5ABE162A1AE5099F00861C6B /* zopflipng in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +551,9 @@
 		5A7D24F213EDF5F100815AAA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A7D24F313EDF5F100815AAA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ImageOptim.strings; sourceTree = "<group>"; };
 		5A7D24F413EDF5F100815AAA /* es */ = {isa = PBXFileReference; lastKnownFileType = file.plist.strings; name = es; path = es.lproj/PrefsController.strings; sourceTree = "<group>"; };
+		5A7FB6D61E2C37DD00481B4A /* SvgoWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvgoWorker.h; sourceTree = "<group>"; };
+		5A7FB6F21E2C37EB00481B4A /* SvgoWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvgoWorker.m; sourceTree = "<group>"; };
+		5A7FB7251E2C3E1600481B4A /* svgo.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = svgo.js; path = ../../svgo/build/svgo.js; sourceTree = "<group>"; };
 		5A8167EC0EA11F9D00962CF2 /* jpegoptim.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpegoptim.xcodeproj; path = ../jpegoptim/jpegoptim.xcodeproj; sourceTree = "<group>"; };
 		5A89F7DA1B64FFBC00F4C0B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ImageOptim.strings; sourceTree = "<group>"; };
 		5A8A18121416D1D700D62DB7 /* SavingsFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavingsFormatter.h; sourceTree = "<group>"; };
@@ -941,6 +969,7 @@
 			children = (
 				5AF71642174AF7C30018D3FE /* pngout */,
 				5ABE15451AE5072300861C6B /* Info.plist */,
+				5A7FB7251E2C3E1600481B4A /* svgo.js */,
 			);
 			name = "Supporting Files";
 			path = Backend;
@@ -1009,6 +1038,8 @@
 				5AA9F4371899D063006C64C8 /* PngquantWorker.m */,
 				5AB81F931AE1BE1300719AB7 /* Save.h */,
 				5AB81F941AE1BE1300719AB7 /* Save.m */,
+				5A7FB6D61E2C37DD00481B4A /* SvgoWorker.h */,
+				5A7FB6F21E2C37EB00481B4A /* SvgoWorker.m */,
 				5AACA13D0CAF241B004D45CA /* Worker.h */,
 				5AACA13E0CAF241B004D45CA /* Worker.m */,
 				5A2ACD121790935C004992B7 /* ZopfliWorker.h */,
@@ -1038,6 +1069,7 @@
 				5AD033531E26B6840030291A /* File.h in Headers */,
 				5A34D0041AEF6DB300A154E4 /* ImageOptimGPL.h in Headers */,
 				5A34D0991AEF75CE00A154E4 /* JobQueue.h in Headers */,
+				5A7FB6D71E2C37DD00481B4A /* SvgoWorker.h in Headers */,
 				5AD0347C1E27185D0030291A /* TempFile.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1059,6 +1091,19 @@
 			passBuildSettingsInEnvironment = 1;
 			productName = downloads;
 		};
+		5A7FB7051E2C39CC00481B4A /* SVGO */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 5A7FB71E1E2C39CC00481B4A /* Build configuration list for PBXLegacyTarget "SVGO" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = SVGO;
+			passBuildSettingsInEnvironment = 1;
+			productName = SVGO;
+		};
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
@@ -1074,6 +1119,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5A7FB7241E2C3DF800481B4A /* PBXTargetDependency */,
 				5AB114B11B52AEE700A3C73A /* PBXTargetDependency */,
 				5ABE16101AE508C200861C6B /* PBXTargetDependency */,
 				5ABE16141AE508C200861C6B /* PBXTargetDependency */,
@@ -1275,6 +1321,7 @@
 				5ABE15411AE5072300861C6B /* Backend */,
 				5ABE154B1AE5072300861C6B /* BackendTests */,
 				5AC64EFD1AF3FDEE0032AA7F /* ImageOptimize */,
+				5A7FB7051E2C39CC00481B4A /* SVGO */,
 			);
 		};
 /* End PBXProject section */
@@ -1548,6 +1595,7 @@
 				5ABE15811AE5073E00861C6B /* Save.m in Sources */,
 				5AC4CC801AF568E90003AEA2 /* SavingsFormatter.m in Sources */,
 				5A6A56D01B497E210045AA0C /* SharedPrefs.m in Sources */,
+				5A7FB6F31E2C37EB00481B4A /* SvgoWorker.m in Sources */,
 				5AD0347D1E27185D0030291A /* TempFile.m in Sources */,
 				5ABE15821AE5073E00861C6B /* Worker.m in Sources */,
 				5ABE15831AE5073E00861C6B /* ZopfliWorker.m in Sources */,
@@ -1604,6 +1652,11 @@
 			isa = PBXTargetDependency;
 			name = Sparkle;
 			targetProxy = 5A5811A81AD73A700001838D /* PBXContainerItemProxy */;
+		};
+		5A7FB7241E2C3DF800481B4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5A7FB7051E2C39CC00481B4A /* SVGO */;
+			targetProxy = 5A7FB7231E2C3DF800481B4A /* PBXContainerItemProxy */;
 		};
 		5AB114B11B52AEE700A3C73A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1855,6 +1908,20 @@
 		5A453F8F16BE79A7002AFE23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+			};
+			name = Release;
+		};
+		5A7FB7061E2C39CC00481B4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5A7FB7071E2C39CC00481B4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -2203,6 +2270,15 @@
 			buildConfigurations = (
 				5A453F8E16BE79A7002AFE23 /* Debug */,
 				5A453F8F16BE79A7002AFE23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A7FB71E1E2C39CC00481B4A /* Build configuration list for PBXLegacyTarget "SVGO" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5A7FB7061E2C39CC00481B4A /* Debug */,
+				5A7FB7071E2C39CC00481B4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

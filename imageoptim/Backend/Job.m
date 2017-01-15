@@ -15,6 +15,7 @@
 #import "Workers/JpegoptimWorker.h"
 #import "Workers/JpegtranWorker.h"
 #import "Workers/GifsicleWorker.h"
+#import "Workers/SvgoWorker.h"
 #import <sys/xattr.h>
 #import "log.h"
 #include "ResultsDb.h"
@@ -595,6 +596,11 @@
                 }
             }
         }
+        break;
+        case FILETYPE_SVG:
+            if ([defs boolForKey:@"SvgoEnabled"]) {
+                [worker_list addObject:[[SvgoWorker alloc] initWithFile:self]];
+            }
         break;
         default:
         [self setError:NSLocalizedString(@"File is neither PNG, GIF nor JPEG",@"tooltip")];

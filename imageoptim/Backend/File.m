@@ -30,6 +30,7 @@
     const unsigned char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
     const unsigned char jpegheader[] = {0xff,0xd8,0xff};
     const unsigned char gifheader[] = {0x47,0x49,0x46,0x38};
+    const unsigned char svgheader[] = {'<','s','v','g'};
     char fileHeaderBytes[6];
 
     if (!fileData || fileData.length < sizeof(fileHeaderBytes)) {
@@ -46,6 +47,8 @@
         type = FILETYPE_JPEG;
     } else if (0==memcmp(fileHeaderBytes, gifheader, sizeof(gifheader))) {
         type = FILETYPE_GIF;
+    } else if (0==memcmp(fileHeaderBytes, svgheader, sizeof(svgheader)) || [aPath.pathExtension isEqualToString:@"svg"]) {
+        type = FILETYPE_SVG;
     }
 
     return [self initWithType:type size:fileData.length fromPath:aPath];
