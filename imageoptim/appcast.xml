@@ -2,7 +2,7 @@
 <rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
 <channel>
 <title>ImageOptim</title>
-<link>https://imageoptim.com/appcast-test.xml</link>
+<link>https://imageoptim.com/appcast.xml</link>
 <description>ImageOptim updates</description>
 <language>en</language>
 <item>
@@ -20,12 +20,14 @@
     <li>Minor updates for Zopfli, pngquant2, jpegoptim.</li>
 </ul>
 ]]></description>
-<pubDate>Sat, 17 Dec 2016 13:46:25 +0000</pubDate>
-<enclosure url="https://imageoptim.com/ImageOptim1.6.4.tar.bz2" sparkle:version="1.6.4" length="1403225" type="application/bzip2" sparkle:dsaSignature="MCwCFAsInn8X3FHj0cS5pMtqhjRYH2cKAhQpDcgieNHv+tHWfzEMyqW0VZBKpA=="/>
-<sparkle:minimumSystemVersion>10.8</sparkle:minimumSystemVersion>
-
-
-
+<pubDate>Thu, 05 Jan 2017 01:07:16 +0000</pubDate>
+<sparkle:minimumSystemVersion>10.8.0</sparkle:minimumSystemVersion>
+<enclosure url="https://imageoptim.com/ImageOptim1.6.5.tar.bz2" sparkle:version="1.6.5" length="1381589" type="application/octet-stream" sparkle:dsaSignature="MCwCFHE9PRtTG349vTwNvvd/c7+6bPkwAhRgEeuAl61DJwkH3Ti7/vBN0YWB1w=="/>
+<sparkle:deltas>
+<enclosure url="https://imageoptim.com/ImageOptim1.6.5-1.6.2.delta" sparkle:version="1.6.5" sparkle:deltaFrom="1.6.2" length="806728" type="application/octet-stream" sparkle:dsaSignature="MCwCFGP0u52UI0p6yW/yT0OHbfmBZ4bJAhRnXcWwqjbzBLNs2aLOcbQR0kzI+w=="/>
+<enclosure url="https://imageoptim.com/ImageOptim1.6.5-1.6.3.delta" sparkle:version="1.6.5" sparkle:deltaFrom="1.6.3" length="745196" type="application/octet-stream" sparkle:dsaSignature="MCwCFGSzb4a5iTn75HtoPhouXk+HMwOWAhR9VVVN0da3aNABWN7+g9iW4KwBpQ=="/>
+<enclosure url="https://imageoptim.com/ImageOptim1.6.5-1.6.1.delta" sparkle:version="1.6.5" sparkle:deltaFrom="1.6.1" length="1198956" type="application/octet-stream" sparkle:dsaSignature="MCwCFEW8IvmPM6KHlH7Tq3wE6t/neH78AhQi66BstKzzmhKJcoaZwJaUFo6MZQ=="/>
+<enclosure url="https://imageoptim.com/ImageOptim1.6.5-1.6.4.delta" sparkle:version="1.6.5" sparkle:deltaFrom="1.6.4" length="661443" type="application/octet-stream" sparkle:dsaSignature="MCwCFAJwUFbyBwmhX1iJXELYmDFjMgzsAhRPGijVqJhtnfBazmZxNj82fOh/7g=="/></sparkle:deltas>
 </item>
 </channel>
 </rss>
