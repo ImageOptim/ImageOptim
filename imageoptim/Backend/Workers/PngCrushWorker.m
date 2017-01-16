@@ -17,12 +17,12 @@
     return self;
 }
 
--(NSInteger)settingsIdentifier {
+- (NSInteger)settingsIdentifier {
     return strip;
 }
 
--(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
-    NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-nofilecheck",@"-bail",@"-blacken",@"-reduce",@"-cc",@"--",file.path,temp.path,nil];
+- (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
+    NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-nofilecheck", @"-bail", @"-blacken", @"-reduce", @"-cc", @"--", file.path, temp.path, nil];
 
     // Reusing PngOut config here
     if (strip) {
@@ -41,8 +41,8 @@
     NSPipe *commandPipe = [NSPipe pipe];
     NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
 
-    [task setStandardOutput: commandPipe];
-    [task setStandardError: commandPipe];
+    [task setStandardOutput:commandPipe];
+    [task setStandardError:commandPipe];
 
     [self launchTask];
 
@@ -62,7 +62,7 @@
     return NO;
 }
 
--(BOOL)makesNonOptimizingModifications {
+- (BOOL)makesNonOptimizingModifications {
     return strip;
 }
 

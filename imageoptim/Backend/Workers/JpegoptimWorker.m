@@ -15,7 +15,7 @@
     return maxquality*2 + strip;
 }
 
--(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(Job *)aFile {
+- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
         // Sharing setting with jpegtran
         strip = [defaults boolForKey:@"JpegTranStripAll"];
@@ -24,12 +24,11 @@
     return self;
 }
 
--(BOOL)makesNonOptimizingModifications {
+- (BOOL)makesNonOptimizingModifications {
     return maxquality < 100;
 }
 
--(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
-
+- (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;
 
@@ -46,7 +45,7 @@
                             @"--", temp.path, nil];
 
     if (lossy) {
-        [args insertObject:[NSString stringWithFormat:@"-m%d",(int)maxquality] atIndex:0];
+        [args insertObject:[NSString stringWithFormat:@"-m%d", (int)maxquality] atIndex:0];
     }
 
     if (![self taskForKey:@"JpegOptim" bundleName:@"jpegoptim" arguments:args]) {
@@ -56,8 +55,8 @@
     NSPipe *commandPipe = [NSPipe pipe];
     NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
 
-    [task setStandardOutput: commandPipe];
-    [task setStandardError: commandPipe];
+    [task setStandardOutput:commandPipe];
+    [task setStandardError:commandPipe];
 
     [self launchTask];
 
@@ -73,12 +72,12 @@
     }
 
     if (![self makesNonOptimizingModifications] || isSignificantlySmaller) {
-        return [job setFileOptimized:[file tempCopyOfPath:temp size:fileSizeOptimized] toolName:lossy ? [NSString stringWithFormat: @"JpegOptim %d%%", (int)maxquality] : @"JpegOptim"];
+        return [job setFileOptimized:[file tempCopyOfPath:temp size:fileSizeOptimized] toolName:lossy ? [NSString stringWithFormat:@"JpegOptim %d%%", (int)maxquality] : @"JpegOptim"];
     }
     return NO;
 }
 
--(BOOL)parseLine:(NSString *)line {
+- (BOOL)parseLine:(NSString *)line {
     NSInteger size;
     if ((size = [self readNumberAfter:@" --> " inLine:line])) {
         fileSizeOptimized = size;

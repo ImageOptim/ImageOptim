@@ -10,10 +10,10 @@
 
 @implementation TempFile
 
--(void)dealloc {
+- (void)dealloc {
     NSURL *path = self.path;
-    dispatch_async(dispatch_get_global_queue(0,0), ^{
-        [[NSFileManager defaultManager] removeItemAtURL:path error:nil];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+      [[NSFileManager defaultManager] removeItemAtURL:path error:nil];
     });
 }
 

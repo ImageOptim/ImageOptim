@@ -10,7 +10,7 @@
 
 @implementation PrefsController
 
--(instancetype)init {
+- (instancetype)init {
     if ((self = [super initWithWindowNibName:@"PrefsController"])) {
         CeilFormatter *cf = [CeilFormatter new];
         [NSValueTransformer setValueTransformer:cf forName:@"CeilFormatter"];
@@ -21,12 +21,12 @@
     return self;
 }
 
--(IBAction)showLossySettings:(id)sender {
+- (IBAction)showLossySettings:(id)sender {
     [self showWindow:sender];
     [self.tabs selectTabViewItemAtIndex:1];
 }
 
--(IBAction)showHelp:(id)sender {
+- (IBAction)showHelp:(id)sender {
     NSInteger tag = [sender tag];
 
     [[self window] setHidesOnDeactivate:NO];

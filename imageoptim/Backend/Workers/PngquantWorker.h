@@ -6,7 +6,7 @@
     NSUInteger minQuality, speed;
 }
 
--(id)initWithLevel:(NSInteger)level minQuality:(NSUInteger)aMinQ file:(Job*)f;
--(BOOL)makesNonOptimizingModifications;
+- (id)initWithLevel:(NSInteger)level minQuality:(NSUInteger)aMinQ file:(Job *)f;
+- (BOOL)makesNonOptimizingModifications;
 
 @end

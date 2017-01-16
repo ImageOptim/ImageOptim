@@ -24,27 +24,27 @@
 }
 
 //Destination Operations
-- (NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender {
-    highlight=YES;
+- (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender {
+    highlight = YES;
     [self setNeedsDisplay:YES];
     return NSDragOperationCopy;
 }
 
 - (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)flag {
-    return NSDragOperationCopy;//send data as copy operation
+    return NSDragOperationCopy; //send data as copy operation
 }
 
-- (void)draggingExited:(id <NSDraggingInfo>)sender {
-    highlight=NO;//remove highlight of the drop zone
-    [self setNeedsDisplay: YES];
+- (void)draggingExited:(id<NSDraggingInfo>)sender {
+    highlight = NO; //remove highlight of the drop zone
+    [self setNeedsDisplay:YES];
 }
 
--(void)viewWillStartLiveResize {
+- (void)viewWillStartLiveResize {
     smoothSizes = YES;
     [super viewWillStartLiveResize];
 }
 
--(void)drawRect:(NSRect)rect {
+- (void)drawRect:(NSRect)rect {
     if (NSAppKitVersionNumber < NSAppKitVersionNumber10_10) {
         [[NSColor windowBackgroundColor] setFill];
     } else {
@@ -86,14 +86,14 @@
     [r fill];
 }
 
-- (BOOL)prepareForDragOperation:(id <NSDraggingInfo>)sender {
-    highlight=NO;//finished with the drag so remove any highlighting
-    [self setNeedsDisplay: YES];
+- (BOOL)prepareForDragOperation:(id<NSDraggingInfo>)sender {
+    highlight = NO; //finished with the drag so remove any highlighting
+    [self setNeedsDisplay:YES];
     return YES;
 }
 
-- (BOOL)performDragOperation:(id <NSDraggingInfo>)sender {
-    if ([sender draggingSource]!=self) {
+- (BOOL)performDragOperation:(id<NSDraggingInfo>)sender {
+    if ([sender draggingSource] != self) {
         NSArray *files = [[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType];
         [filesController performSelectorInBackground:@selector(addPaths:) withObject:files];
     }
@@ -101,7 +101,7 @@
 }
 
 - (BOOL)acceptsFirstMouse:(NSEvent *)event {
-    return YES;//so source doesn't have to be the active window
+    return YES; //so source doesn't have to be the active window
 }
 
 @end

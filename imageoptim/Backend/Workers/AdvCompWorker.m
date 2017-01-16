@@ -11,24 +11,23 @@
 
 @implementation AdvCompWorker
 
--(instancetype)initWithLevel:(NSInteger)aLevel file:(Job *)aFile {
+- (instancetype)initWithLevel:(NSInteger)aLevel file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
         level = MAX(1, MIN(4, aLevel));
     }
     return self;
 }
 
--(NSInteger)settingsIdentifier {
+- (NSInteger)settingsIdentifier {
     return level;
 }
 
--(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
+- (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
     NSFileManager *fm = [NSFileManager defaultManager];
     NSError *error = nil;
 
-
     if (![fm copyItemAtURL:file.path toURL:temp error:&error]) {
-        IOWarn("Can't make temp copy of %@ in %@; %@",file.path,temp.path,error);
+        IOWarn("Can't make temp copy of %@ in %@; %@", file.path, temp.path, error);
         return NO;
     }
 
@@ -43,8 +42,8 @@
     NSPipe *commandPipe = [NSPipe pipe];
     NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
 
-    [task setStandardOutput: commandPipe];
-    [task setStandardError: commandPipe];
+    [task setStandardOutput:commandPipe];
+    [task setStandardError:commandPipe];
 
     [self launchTask];
 
@@ -58,10 +57,10 @@
     return [job setFileOptimized:[file tempCopyOfPath:temp size:fileSizeOptimized] toolName:@"AdvPNG"];
 }
 
--(BOOL)parseLine:(NSString *)line {
+- (BOOL)parseLine:(NSString *)line {
     NSScanner *scan = [NSScanner scannerWithString:line];
 
-    int original,optimized;
+    int original, optimized;
 
     if ([scan scanInt:&original] && [scan scanInt:&optimized]) {
         fileSizeOptimized = optimized;

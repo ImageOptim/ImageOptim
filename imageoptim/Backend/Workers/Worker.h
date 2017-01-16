@@ -6,7 +6,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-
 @class Worker;
 @class Job;
 
@@ -22,13 +21,13 @@
 @property (atomic, strong) NSOperation *nextOperation;
 @property (atomic, strong) Job *job;
 
--(instancetype)initWithFile:(Job *)aFile;
+- (instancetype)initWithFile:(Job *)aFile;
 
--(BOOL)isRelatedTo:(Job *)f;
+- (BOOL)isRelatedTo:(Job *)f;
 
 @property (readonly) BOOL makesNonOptimizingModifications;
 
--(void)run;
+- (void)run;
 
 @property (readonly) NSInteger settingsIdentifier;
 @property (getter=isIdempotent, readonly) BOOL idempotent;

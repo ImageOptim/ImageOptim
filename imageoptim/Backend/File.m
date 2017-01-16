@@ -13,7 +13,7 @@
 
 @implementation File
 
--(nullable instancetype)initWithType:(enum IOFileType)type size:(NSUInteger)size fromPath:(NSURL *)aPath {
+- (nullable instancetype)initWithType:(enum IOFileType)type size:(NSUInteger)size fromPath:(NSURL *)aPath {
     if (!size) {
         return nil;
     }
@@ -41,32 +41,32 @@
 
     enum IOFileType type = 0;
 
-    if (0==memcmp(fileHeaderBytes, pngheader, sizeof(pngheader))) {
+    if (0 == memcmp(fileHeaderBytes, pngheader, sizeof(pngheader))) {
         type = FILETYPE_PNG;
-    } else if (0==memcmp(fileHeaderBytes, jpegheader, sizeof(jpegheader))) {
+    } else if (0 == memcmp(fileHeaderBytes, jpegheader, sizeof(jpegheader))) {
         type = FILETYPE_JPEG;
-    } else if (0==memcmp(fileHeaderBytes, gifheader, sizeof(gifheader))) {
+    } else if (0 == memcmp(fileHeaderBytes, gifheader, sizeof(gifheader))) {
         type = FILETYPE_GIF;
-    } else if (0==memcmp(fileHeaderBytes, svgheader, sizeof(svgheader)) || [aPath.pathExtension isEqualToString:@"svg"]) {
+    } else if (0 == memcmp(fileHeaderBytes, svgheader, sizeof(svgheader)) || [aPath.pathExtension isEqualToString:@"svg"]) {
         type = FILETYPE_SVG;
     }
 
     return [self initWithType:type size:fileData.length fromPath:aPath];
 }
 
--(nullable File*)copyOfPath:(NSURL *)path {
+- (nullable File *)copyOfPath:(NSURL *)path {
     return [[File alloc] initWithType:fileType size:[File byteSize:path] fromPath:path];
 }
 
--(nullable File*)copyOfPath:(NSURL *)path size:(NSUInteger)s {
+- (nullable File *)copyOfPath:(NSURL *)path size:(NSUInteger)s {
     return [[File alloc] initWithType:fileType size:s fromPath:path];
 }
 
--(nullable TempFile*)tempCopyOfPath:(NSURL *)path {
+- (nullable TempFile *)tempCopyOfPath:(NSURL *)path {
     return [[TempFile alloc] initWithType:fileType size:[File byteSize:path] fromPath:path];
 }
 
--(nullable TempFile*)tempCopyOfPath:(NSURL *)path size:(NSUInteger)s {
+- (nullable TempFile *)tempCopyOfPath:(NSURL *)path size:(NSUInteger)s {
     if (!s) {
         return nil;
     }
@@ -78,22 +78,21 @@
     return [[TempFile alloc] initWithType:fileType size:s fromPath:path];
 }
 
--(BOOL)isLarge {
-    
+- (BOOL)isLarge {
     if (fileType == FILETYPE_PNG) {
-        return _byteSize > 250*1024;
+        return _byteSize > 250 * 1024;
     }
-    return _byteSize > 1*1024*1024;
+    return _byteSize > 1 * 1024 * 1024;
 }
 
--(BOOL)isSmall {
+- (BOOL)isSmall {
     if (fileType == FILETYPE_PNG) {
         return _byteSize < 2048;
     }
-    return _byteSize < 10*1024;
+    return _byteSize < 10 * 1024;
 }
 
-+(NSInteger)byteSize:(NSURL *)afile {
++ (NSInteger)byteSize:(NSURL *)afile {
     NSNumber *value = nil;
     NSError *err = nil;
     if ([afile getResourceValue:&value forKey:NSURLFileSizeKey error:&err] && value) {
@@ -103,10 +102,8 @@
     return 0;
 }
 
-
--(nullable NSString *)mimeType {
+- (nullable NSString *)mimeType {
     return fileType == FILETYPE_PNG ? @"image/png" : (fileType == FILETYPE_JPEG ? @"image/jpeg" : (fileType == FILETYPE_GIF ? @"image/gif" : nil));
 }
-
 
 @end

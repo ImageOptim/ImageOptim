@@ -10,19 +10,18 @@
 
 @implementation JpegtranWorker
 
--(NSInteger)settingsIdentifier {
+- (NSInteger)settingsIdentifier {
     return strip;
 }
 
--(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(Job *)aFile {
+- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
         strip = [defaults boolForKey:@"JpegTranStripAll"];
     }
     return self;
 }
 
--(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
-
+- (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
     // eh, handling of paths starting with "-" is unsafe here. Hopefully all paths from dropped files will be absolute...
     NSMutableArray *args = [NSMutableArray arrayWithObject:file.path];
 
@@ -46,8 +45,8 @@
     NSPipe *commandPipe = [NSPipe pipe];
     NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
 
-    [task setStandardOutput: commandPipe];
-    [task setStandardError: commandPipe];
+    [task setStandardOutput:commandPipe];
+    [task setStandardError:commandPipe];
 
     [self launchTask];
 
@@ -61,7 +60,7 @@
     return [job setFileOptimized:[file tempCopyOfPath:temp] toolName:@"MozJPEG"];
 }
 
--(BOOL)parseLine:(NSString *)line {
+- (BOOL)parseLine:(NSString *)line {
     NSRange substr = [line rangeOfString:@"End Of Image"];
     if (substr.length) {
         return YES;

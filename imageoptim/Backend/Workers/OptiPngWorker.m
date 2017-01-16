@@ -35,8 +35,8 @@
     NSPipe *commandPipe = [NSPipe pipe];
     NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
 
-    [task setStandardError: commandPipe];
-    [task setStandardOutput: commandPipe];
+    [task setStandardError:commandPipe];
+    [task setStandardOutput:commandPipe];
 
     [self launchTask];
 
@@ -53,7 +53,7 @@
     return NO;
 }
 
--(BOOL)parseLine:(NSString *)line {
+- (BOOL)parseLine:(NSString *)line {
     NSUInteger res;
 
     if ([line length] > 20) {

@@ -4,12 +4,11 @@
 
 @class RevealButtonCell;
 
-@interface MyTableView : NSTableView
-{
+@interface MyTableView : NSTableView {
     NSInteger iMouseRow, iMouseCol;
     RevealButtonCell *iMouseCell;
 }
-- (IBAction)delete:(id)sender;
+- (IBAction) delete:(id)sender;
 - (IBAction)copyAsDataURI:(id)sender;
 - (IBAction)openInFinder:(id)sender;
 - (void)quickLook;

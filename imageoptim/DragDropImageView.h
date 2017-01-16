@@ -5,8 +5,7 @@
 
 #import "FilesController.h"
 
-@interface DragDropImageView : NSView
-{
+@interface DragDropImageView : NSView {
     BOOL highlight; //highlight the drop zone
     BOOL smoothSizes; // use blurry fractional sizes for smooth animation during live resize
 

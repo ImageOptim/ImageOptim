@@ -26,10 +26,9 @@
     return level*4 + removechunks*2 + (timelimit < 60 ? 1 : 0);
 }
 
--(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
-
+- (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
     // uses stdout for file to force progress output to unbufferred stderr
-    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"-v",/*@"--",*/file.path,@"-",nil];
+    NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-v", /*@"--",*/ file.path, @"-", nil];
 
     [args insertObject:@"-r" atIndex:0];
 
@@ -39,7 +38,7 @@
     }
 
     if (actualLevel) { // s0 is default
-        [args insertObject:[NSString stringWithFormat:@"-s%d",(int)actualLevel] atIndex:0];
+        [args insertObject:[NSString stringWithFormat:@"-s%d", (int)actualLevel] atIndex:0];
     }
 
     if (!removechunks) { // -k0 (remove) is default
@@ -55,15 +54,15 @@
     NSFileHandle *fileOutputHandle = [NSFileHandle fileHandleForWritingToURL:temp error:&err];
 
     if (!fileOutputHandle) {
-        IOWarn("Can't create %@ %@",temp.path, err);
+        IOWarn("Can't create %@ %@", temp.path, err);
         return NO;
     }
 
     NSPipe *commandPipe = [NSPipe pipe];
     NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
 
-    [task setStandardOutput: fileOutputHandle];
-    [task setStandardError: commandPipe];
+    [task setStandardOutput:fileOutputHandle];
+    [task setStandardError:commandPipe];
 
     [task performSelector:@selector(interrupt) withObject:nil afterDelay:timelimit];
 
@@ -88,11 +87,11 @@
     return NO;
 }
 
--(BOOL)makesNonOptimizingModifications {
+- (BOOL)makesNonOptimizingModifications {
     return removechunks;
 }
 
--(BOOL)parseLine:(NSString *)line {
+- (BOOL)parseLine:(NSString *)line {
     // run PNGOUT killing timer
     [[NSRunLoop currentRunLoop] limitDateForMode:NSDefaultRunLoopMode];
 
@@ -100,7 +99,7 @@
 
     if ([line length] > 4 && [[line substringToIndex:4] isEqual:@"Out:"]) {
         [scan setScanLocation:4];
-        int byteSize=0;
+        int byteSize = 0;
         if ([scan scanInt:&byteSize] && byteSize) {
             fileSizeOptimized = byteSize;
         }

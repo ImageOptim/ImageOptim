@@ -13,18 +13,18 @@
 
 @synthesize job, nextOperation;
 
--(NSInteger)settingsIdentifier {
+- (NSInteger)settingsIdentifier {
     return 0;
 }
 
--(instancetype)initWithFile:(Job *)aFile {
+- (instancetype)initWithFile:(Job *)aFile {
     if (self = [super init]) {
         self.job = aFile;
     }
     return self;
 }
 
--(BOOL)isRelatedTo:(Job *)f {
+- (BOOL)isRelatedTo:(Job *)f {
     return (f == job);
 }
 
@@ -44,7 +44,7 @@
     return job.wipInput.byteSize == [previousResult integerValue];
 }
 
--(void)markResultForSkipping {
+- (void)markResultForSkipping {
     @synchronized(job) {
         NSMutableDictionary *resultsBySettings = (job.workersPreviousResults)[[self className]];
         if (!resultsBySettings) {
@@ -55,7 +55,7 @@
     }
 }
 
--(void)main {
+- (void)main {
     [job updateStatusOfWorker:self running:YES];
 
     @try {
@@ -78,20 +78,20 @@
     }
 }
 
--(void)run {
+- (void)run {
 }
 
--(BOOL)isIdempotent {
+- (BOOL)isIdempotent {
     return YES;
 }
 
--(BOOL)makesNonOptimizingModifications {
+- (BOOL)makesNonOptimizingModifications {
     return NO;
 }
 
--(NSString *)description {
+- (NSString *)description {
     return [NSString stringWithFormat:@"%@ %X ready %d, running %d, deleg %@",
-            [self className],(unsigned int)[self hash],[self isReady],[self isExecuting],job];
+                                      [self className], (unsigned int)[self hash], [self isReady], [self isExecuting], job];
 }
 
 @end

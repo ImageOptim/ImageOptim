@@ -7,7 +7,7 @@
 
 @synthesize alternativeStrategy;
 
--(instancetype)initWithLevel:(NSInteger)aLevel defaults:(NSUserDefaults *)defaults file:(Job *)aFile {
+- (instancetype)initWithLevel:(NSInteger)aLevel defaults:(NSUserDefaults *)defaults file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
         iterations = 3 + 3*aLevel;
         strip = [defaults boolForKey:@"PngOutRemoveChunks"];
@@ -20,9 +20,8 @@
     return iterations*4 + strip*2 + alternativeStrategy;
 }
 
--(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
-
-    NSMutableArray *args = [NSMutableArray arrayWithObjects: @"--lossy_transparent",@"-y",/*@"--",*/file.path,temp.path,nil];
+- (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
+    NSMutableArray *args = [NSMutableArray arrayWithObjects:@"--lossy_transparent", @"-y", /*@"--",*/ file.path, temp.path, nil];
 
     if (!strip) {
         // FIXME: that's crappy. Should list actual chunks in file :/
@@ -60,8 +59,8 @@
     NSPipe *commandPipe = [NSPipe pipe];
     NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
 
-    [task setStandardOutput: commandPipe];
-    [task setStandardError: commandPipe];
+    [task setStandardOutput:commandPipe];
+    [task setStandardError:commandPipe];
 
     [self launchTask];
 
@@ -79,11 +78,11 @@
     return NO;
 }
 
--(BOOL)isIdempotent {
+- (BOOL)isIdempotent {
     return NO;
 }
 
--(BOOL)makesNonOptimizingModifications {
+- (BOOL)makesNonOptimizingModifications {
     return YES;
 }
 

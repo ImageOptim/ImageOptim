@@ -32,8 +32,7 @@
         int loss = pow(100 - quality, 1.8) / 5.0;
         if ([file isSmall]) {
             loss = 1 + loss / 8; // Spare GIF icons
-        }
-        else if (![file isLarge]) {
+        } else if (![file isLarge]) {
             loss = 1 + loss / 2; // Spare GIF images
         }
         [args insertObject:[NSString stringWithFormat:@"--lossy=%d", loss] atIndex:0];
@@ -45,9 +44,9 @@
 
     NSFileHandle *devnull = [NSFileHandle fileHandleWithNullDevice];
 
-    [task setStandardInput: devnull];
-    [task setStandardError: devnull];
-    [task setStandardOutput: devnull];
+    [task setStandardInput:devnull];
+    [task setStandardError:devnull];
+    [task setStandardOutput:devnull];
 
     [self launchTask];
     BOOL ok = [self waitUntilTaskExit];
