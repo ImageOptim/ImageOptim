@@ -45,7 +45,7 @@
     BOOL ok = [self waitUntilTaskExit];
     if (!ok) return NO;
 
-    return [job setFileOptimized:[file tempCopyOfPath:temp] toolName:@"SVGO"];
+    return [job setFileOptimized:[file tempCopyOfPath:temp] toolName:useLossy ? @"SVGO" : @"SVGO lite"];
 }
 
 @end
