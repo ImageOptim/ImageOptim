@@ -6,14 +6,22 @@
 
 @implementation SvgoWorker
 
+-(instancetype)initWithLossy:(BOOL)lossy job:(Job *)f {
+    if (self = [super initWithFile:f]) {
+        useLossy = lossy;
+    }
+    return self;
+}
+
 - (NSInteger)settingsIdentifier {
-    return 2;
+    return useLossy ? 5 : 6;
 }
 
 - (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSString *scriptPath = [bundle pathForResource:@"svgo" ofType:@"js"];
     if (!scriptPath) {
+        IOWarn(@"Broken install, missing script");
         return NO;
     }
 
@@ -32,7 +40,7 @@
     [self taskWithPath:nodePath arguments:args];
 
     [self launchTask];
-    
+
     BOOL ok = [self waitUntilTaskExit];
     if (!ok) return NO;
 

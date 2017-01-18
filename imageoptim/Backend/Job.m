@@ -599,7 +599,7 @@
         break;
         case FILETYPE_SVG:
             if ([defs boolForKey:@"SvgoEnabled"]) {
-                [worker_list addObject:[[SvgoWorker alloc] initWithFile:self]];
+                [worker_list addObject:[[SvgoWorker alloc] initWithLossy:lossyEnabled job:self]];
             }
         break;
         default:
