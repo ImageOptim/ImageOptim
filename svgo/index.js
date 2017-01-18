@@ -3,58 +3,67 @@
 const SVGO = require('svgo');
 const fs = require('fs');
 
-const svgo = new SVGO({
-    full: true,
-    plugins: [
-        'removeDoctype',
-        'removeXMLProcInst',
-        'removeComments',
-        'removeMetadata',
-        'removeXMLNS',
-        'removeEditorsNSData',
-        'cleanupAttrs',
-        'minifyStyles',
-        'convertStyleToAttrs',
-        'cleanupIDs',
-        'removeRasterImages',
-        'removeUselessDefs',
-        'cleanupNumericValues',
-        'cleanupListOfValues',
-        'convertColors',
-        'removeUnknownsAndDefaults',
-        'removeNonInheritableGroupAttrs',
-        'removeUselessStrokeAndFill',
-        'removeViewBox',
-        'cleanupEnableBackground',
-        'removeHiddenElems',
-        'removeEmptyText',
-        'convertShapeToPath',
-        'moveElemsAttrsToGroup',
-        'moveGroupAttrsToElems',
-        'collapseGroups',
-        'convertPathData',
-        'convertTransform',
-        'removeEmptyAttrs',
-        'removeEmptyContainers',
-        'mergePaths',
-        'removeUnusedNS',
-        'transformsWithOnePath',
-        'sortAttrs',
-        'removeTitle',
-        'removeDesc',
-        'removeDimensions',
-        'removeAttrs',
-        'removeElementsByAttr',
-        'addClassesToSVGElement',
-        'removeStyleElement',
-        'addAttributesToSVGElement',
-    ],
-});
+const defaults = [
+    'cleanupAttrs',
+    'cleanupListOfValues',
+    'cleanupNumericValues',
+    'collapseGroups',
+    'convertColors',
+    'convertStyleToAttrs',
+    'minifyStyles',
+    'moveGroupAttrsToElems',
+    'removeComments',
+    'removeDoctype',
+    'removeEditorsNSData',
+    'removeEmptyAttrs',
+    'removeEmptyContainers',
+    'removeEmptyText',
+    'removeHiddenElems',
+    'removeNonInheritableGroupAttrs',
+    'removeXMLProcInst',
+    'sortAttrs',
+];
+
+const lossy = [
+    'addAttributesToSVGElement',
+    'addClassesToSVGElement',
+    'cleanupEnableBackground',
+    'cleanupIDs',
+    'convertPathData',
+    'convertShapeToPath',
+    'convertTransform',
+    'mergePaths',
+    'moveElemsAttrsToGroup',
+    'removeAttrs',
+    'removeDesc',
+    'removeDimensions',
+    'removeElementsByAttr',
+    'removeMetadata',
+    'removeRasterImages',
+    'removeStyleElement',
+    'removeTitle',
+    'removeUnknownsAndDefaults',
+    'removeUnusedNS',
+    'removeUselessDefs',
+    'removeUselessStrokeAndFill',
+    'removeViewBox',
+    'removeXMLNS',
+    'transformsWithOnePath',
+];
+
 
 try {
-    const inFile = process.argv[2];
-    const outFile = process.argv[3];
+    const useLossy = process.argv[2];
+    const inFile = process.argv[3];
+    const outFile = process.argv[4];
     const svgstr = fs.readFileSync(inFile);
+
+    const plugins = useLossy == "1" ? defaults.concat(lossy) : defaults;
+
+    const svgo = new SVGO({
+        full: true,
+        plugins: plugins,
+    });
 
     svgo.optimize(svgstr, function(result) {
         if (result.error || !result.data) {

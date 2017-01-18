@@ -27,6 +27,7 @@
 
     NSArray *args = @[
         scriptPath,
+        useLossy ? @"1" : @"0",
         file.path.path,
         temp.path
     ];
