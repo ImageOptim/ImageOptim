@@ -13,7 +13,7 @@ pngcrush.c: pngcrush.patch $(ARCHIVE)
 	-rm png.h pngconf.h 2>/dev/null
 
 patched: pngcrush.c
-	patch -p1 < pngcrush.patch && touch patched
+	patch --forward -p1 < pngcrush.patch && touch patched
 
 clean:
 	-rm *.c *.h $(ARCHIVE) patched
