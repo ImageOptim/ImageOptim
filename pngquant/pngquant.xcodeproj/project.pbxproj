@@ -20,8 +20,8 @@
 		5A728F631836C1AF004D0D73 /* nearest.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A728F551836C1AF004D0D73 /* nearest.h */; };
 		5A728F641836C1AF004D0D73 /* pam.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A728F561836C1AF004D0D73 /* pam.c */; };
 		5A728F651836C1AF004D0D73 /* pam.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A728F571836C1AF004D0D73 /* pam.h */; };
-		5A728F661836C1AF004D0D73 /* viter.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A728F581836C1AF004D0D73 /* viter.c */; };
-		5A728F671836C1AF004D0D73 /* viter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A728F591836C1AF004D0D73 /* viter.h */; };
+		5A728F661836C1AF004D0D73 /* kmeans.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A728F581836C1AF004D0D73 /* kmeans.c */; };
+		5A728F671836C1AF004D0D73 /* kmeans.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A728F591836C1AF004D0D73 /* kmeans.h */; };
 		5A728F6C1836C1D4004D0D73 /* pngquant.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A728F681836C1D4004D0D73 /* pngquant.c */; };
 		5A728F6D1836C1D4004D0D73 /* rwpng_cocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A728F691836C1D4004D0D73 /* rwpng_cocoa.m */; };
 		5A728F6E1836C1D4004D0D73 /* rwpng.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A728F6A1836C1D4004D0D73 /* rwpng.c */; };
@@ -87,8 +87,8 @@
 		5A728F551836C1AF004D0D73 /* nearest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = nearest.h; path = src/lib/nearest.h; sourceTree = "<group>"; };
 		5A728F561836C1AF004D0D73 /* pam.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pam.c; path = src/lib/pam.c; sourceTree = "<group>"; };
 		5A728F571836C1AF004D0D73 /* pam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pam.h; path = src/lib/pam.h; sourceTree = "<group>"; };
-		5A728F581836C1AF004D0D73 /* viter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = viter.c; path = src/lib/viter.c; sourceTree = "<group>"; };
-		5A728F591836C1AF004D0D73 /* viter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = viter.h; path = src/lib/viter.h; sourceTree = "<group>"; };
+		5A728F581836C1AF004D0D73 /* kmeans.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kmeans.c; path = src/lib/kmeans.c; sourceTree = "<group>"; };
+		5A728F591836C1AF004D0D73 /* kmeans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = kmeans.h; path = src/lib/kmeans.h; sourceTree = "<group>"; };
 		5A728F681836C1D4004D0D73 /* pngquant.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngquant.c; path = src/pngquant.c; sourceTree = "<group>"; };
 		5A728F691836C1D4004D0D73 /* rwpng_cocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = rwpng_cocoa.m; path = src/rwpng_cocoa.m; sourceTree = "<group>"; };
 		5A728F6A1836C1D4004D0D73 /* rwpng.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rwpng.c; path = src/rwpng.c; sourceTree = "<group>"; };
@@ -155,8 +155,8 @@
 				5A728F6A1836C1D4004D0D73 /* rwpng.c */,
 				5A728F6B1836C1D4004D0D73 /* rwpng.h */,
 				5A728F691836C1D4004D0D73 /* rwpng_cocoa.m */,
-				5A728F581836C1AF004D0D73 /* viter.c */,
-				5A728F591836C1AF004D0D73 /* viter.h */,
+				5A728F581836C1AF004D0D73 /* kmeans.c */,
+				5A728F591836C1AF004D0D73 /* kmeans.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -204,7 +204,7 @@
 				5A728F611836C1AF004D0D73 /* mempool.h in Headers */,
 				5A728F631836C1AF004D0D73 /* nearest.h in Headers */,
 				5A728F651836C1AF004D0D73 /* pam.h in Headers */,
-				5A728F671836C1AF004D0D73 /* viter.h in Headers */,
+				5A728F671836C1AF004D0D73 /* kmeans.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +328,7 @@
 				5A728F601836C1AF004D0D73 /* mempool.c in Sources */,
 				5A728F621836C1AF004D0D73 /* nearest.c in Sources */,
 				5A728F641836C1AF004D0D73 /* pam.c in Sources */,
-				5A728F661836C1AF004D0D73 /* viter.c in Sources */,
+				5A728F661836C1AF004D0D73 /* kmeans.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
