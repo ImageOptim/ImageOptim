@@ -100,6 +100,9 @@
 /* Button Tooltip "Add new files or directories" */
 "423.ibExternalAccessibilityDescription" = "新しいファイルまたはフォルダを追加";
 
+/* Button "Add" */
+"423.ibShadowedToolTip" = "追加";
+
 /* Menu Item "File" */
 "429.title" = "ファイル";
 
@@ -138,9 +141,6 @@
 
 /* TextFieldCell "Drag and drop image files onto the area above" */
 "632.title" = "上の領域に画像ファイルをドラッグ＆ドロップしてください";
-
-/* Button "Add" */
-"423.ibShadowedToolTip" = "追加";
 
 /* Button; alternateTitle = "Run optimizations again" */
 "635.alternateTitle" = "再度最適化を実行する";
@@ -225,4 +225,7 @@
 
 /* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "p0m-mn-Gep"; */
 "p0m-mn-Gep.title" = "Finder に表示";
+
+/* Class = "NSTableHeaderView"; ibExternalAccessibilityDescription = "Status"; ObjectID = "ygK-3e-IlX"; */
+"ygK-3e-IlX.ibExternalAccessibilityDescription" = "ステータス";
 

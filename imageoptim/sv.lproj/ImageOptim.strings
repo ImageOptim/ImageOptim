@@ -85,6 +85,9 @@
 /* Button Tooltip "Add new files or directories" */
 "423.ibExternalAccessibilityDescription" = "Lägg till nya filer eller mappar";
 
+/* Button "Add" */
+"423.ibShadowedToolTip" = "Lägg till";
+
 /* Menu Item "File" */
 "429.title" = "Arkiv";
 
@@ -123,9 +126,6 @@
 
 /* TextFieldCell "Drag and drop image files onto the area above" */
 "632.title" = "Dra bildfiler till området ovan";
-
-/* Button "Add" */
-"423.ibShadowedToolTip" = "Lägg till";
 
 /* Button; alternateTitle = "Run optimizations again" */
 "635.alternateTitle" = "Optimera igen";
@@ -175,9 +175,24 @@
 /* Menu Item "Show Columns" */
 "809.title" = "Visa kolumner";
 
+/* Class = "NSMenuItem"; title = "Revert to Original"; ObjectID = "FLl-C9-GLI"; */
+"FLl-C9-GLI.title" = "Återställ till originalet";
+
 /* Class = "NSMenuItem"; title = "Quality: 100%"; ObjectID = "Grx-lU-4x5"; */
 "Grx-lU-4x5.title" = "Kvalitet: 100%";
 
+/* Class = "NSMenuItem"; title = "Stop"; ObjectID = "HUo-GO-MIU"; */
+"HUo-GO-MIU.title" = "Avbryt";
+
 /* Menu Item "Copy as Data URL"; ID "NlY-Bc-7tu"; */
 "NlY-Bc-7tu.title" = "Kopiera Data URL";
+
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "ddH-3k-EuT"; */
+"ddH-3k-EuT.title" = "Visa i Finder";
+
+/* Class = "NSMenuItem"; title = "Lossy minification"; ObjectID = "euw-8w-uMu"; */
+"euw-8w-uMu.title" = "Lossy minifiering";
+
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "p0m-mn-Gep"; */
+"p0m-mn-Gep.title" = "Visa i Finder";
 
