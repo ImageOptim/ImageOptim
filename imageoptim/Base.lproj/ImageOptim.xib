@@ -355,6 +355,12 @@
                             <menuItem isSeparatorItem="YES" id="364">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
+                            <menuItem title="Web API…" id="eaB-hR-QWi">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="openHomepage:" target="-1" id="iQq-eW-fmy"/>
+                                </connections>
+                            </menuItem>
                             <menuItem title="Services" id="131">
                                 <menu key="submenu" title="Services" systemMenu="services" id="130"/>
                             </menuItem>

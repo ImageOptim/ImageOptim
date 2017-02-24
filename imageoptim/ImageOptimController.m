@@ -317,16 +317,20 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
     [prefsController showLossySettings:sender];
 }
 
+- (IBAction)openApiHomepage:(id)sender {
+    [self openURL:@"https://imageoptim.com/app-api"];
+}
+
 - (IBAction)openHomepage:(id)sender {
-    [self openURL:@"http://imageoptim.com"];
+    [self openURL:@"https://imageoptim.com"];
 }
 
 - (IBAction)viewSource:(id)sender {
-    [self openURL:@"http://imageoptim.com/source"];
+    [self openURL:@"https://imageoptim.com/source"];
 }
 
 - (IBAction)openDonationPage:(id)sender {
-    [self openURL:@"http://imageoptim.com/donate.html"];
+    [self openURL:@"https://imageoptim.com/donate.html"];
 }
 
 - (void)openURL:(NSString *)stringURL {
