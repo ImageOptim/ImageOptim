@@ -10,7 +10,9 @@
 @interface PrefsController : NSWindowController {
 }
 @property IBOutlet NSTabView *tabs;
+@property (readonly) BOOL svgSupported;
 
 - (IBAction)showHelp:(id)sender;
 - (IBAction)showLossySettings:(id)sender;
 @end
+

@@ -40,4 +40,10 @@
     }
     [[NSHelpManager sharedHelpManager] openHelpAnchor:anchor inBook:locBookName];
 }
+
+// This doesn't belong here :(
+-(BOOL)svgSupported {
+    NSString *nodePath = @"/usr/local/bin/node";
+    return [[NSFileManager defaultManager] isExecutableFileAtPath:nodePath];
+}
 @end

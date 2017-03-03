@@ -288,6 +288,11 @@
                                                             </connections>
                                                         </buttonCell>
                                                         <connections>
+                                                            <binding destination="-2" name="enabled" keyPath="svgSupported" id="aqw-QZ-jZC">
+                                                                <dictionary key="options">
+                                                                    <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                </dictionary>
+                                                            </binding>
                                                             <binding destination="300" name="value" keyPath="values.SvgoEnabled" id="S8A-r5-4NB"/>
                                                         </connections>
                                                     </button>
