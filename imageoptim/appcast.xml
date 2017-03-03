@@ -6,28 +6,20 @@
 <description>ImageOptim updates</description>
 <language>en</language>
 <item>
-<title>Version 1.6.5</title>
+<title>1.7.0</title>
+<pubDate>Fri, 03 Mar 2017 12:55:48 +0000</pubDate>
 <description><![CDATA[
 <ul>
-    <li>Fixed Apple Mail extension.</li>
-    <li>Fixed stripping of color profiles when AdvPNG is enabled.</li>
-    <li>Updated Sparkle updater (auto-updates are much faster now).</li>
-</ul>
-<p>Recently:</p>
-<ul>
-    <li>Main window settings button for quicker access to lossy minification options.</li>
-    <li>Major update to gifsicle. It's faster and has higher quality.</li>
-    <li>Minor updates for Zopfli, pngquant2, jpegoptim.</li>
+    <li>Added lossless and lossy SVG optimization. Only available if you have <a href="https://nodejs.org/">Node.js</a> installed.</li>
+    <li>Big under-the-hood changes improving handling of the list of files, temporary files, and reverting to original</li>
 </ul>
 ]]></description>
-<pubDate>Thu, 05 Jan 2017 01:07:16 +0000</pubDate>
 <sparkle:minimumSystemVersion>10.8.0</sparkle:minimumSystemVersion>
-<enclosure url="https://imageoptim.com/ImageOptim1.6.5.tar.bz2" sparkle:version="1.6.5" length="1381589" type="application/octet-stream" sparkle:dsaSignature="MCwCFHE9PRtTG349vTwNvvd/c7+6bPkwAhRgEeuAl61DJwkH3Ti7/vBN0YWB1w=="/>
+<enclosure url="https://imageoptim.com/ImageOptim1.7.0.tar.bz2" sparkle:version="1.7.0" sparkle:shortVersionString="1.7.0" length="1461712" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCHSGb4eCdPnzKVbe+1cYkSR/tJUwIUVwOODceZ7jvZF35YpJQaUrnlH7s="/>
 <sparkle:deltas>
-<enclosure url="https://imageoptim.com/ImageOptim1.6.5-1.6.2.delta" sparkle:version="1.6.5" sparkle:deltaFrom="1.6.2" length="806728" type="application/octet-stream" sparkle:dsaSignature="MCwCFGP0u52UI0p6yW/yT0OHbfmBZ4bJAhRnXcWwqjbzBLNs2aLOcbQR0kzI+w=="/>
-<enclosure url="https://imageoptim.com/ImageOptim1.6.5-1.6.3.delta" sparkle:version="1.6.5" sparkle:deltaFrom="1.6.3" length="745196" type="application/octet-stream" sparkle:dsaSignature="MCwCFGSzb4a5iTn75HtoPhouXk+HMwOWAhR9VVVN0da3aNABWN7+g9iW4KwBpQ=="/>
-<enclosure url="https://imageoptim.com/ImageOptim1.6.5-1.6.1.delta" sparkle:version="1.6.5" sparkle:deltaFrom="1.6.1" length="1198956" type="application/octet-stream" sparkle:dsaSignature="MCwCFEW8IvmPM6KHlH7Tq3wE6t/neH78AhQi66BstKzzmhKJcoaZwJaUFo6MZQ=="/>
-<enclosure url="https://imageoptim.com/ImageOptim1.6.5-1.6.4.delta" sparkle:version="1.6.5" sparkle:deltaFrom="1.6.4" length="661443" type="application/octet-stream" sparkle:dsaSignature="MCwCFAJwUFbyBwmhX1iJXELYmDFjMgzsAhRPGijVqJhtnfBazmZxNj82fOh/7g=="/></sparkle:deltas>
+<enclosure url="https://imageoptim.com/ImageOptim1.7.0-1.6.4.delta" sparkle:version="1.7.0" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.6.4" length="1220947" type="application/octet-stream" sparkle:dsaSignature="MCwCFF1QocZ3q00GwNbR9WfUh8srLB5EAhR4o6fwdb4oRdqaAbXMGzgMg9FYmA=="/>
+<enclosure url="https://imageoptim.com/ImageOptim1.7.0-1.6.5.delta" sparkle:version="1.7.0" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.6.5" length="1034388" type="application/octet-stream" sparkle:dsaSignature="MCwCFHG9vTwVSoetl8fisoKlzoPUdSvHAhRa9iSzhF6yHR2rtt6AOuFiqPn1cg=="/>
+<enclosure url="https://imageoptim.com/ImageOptim1.7.0-1.6.3.delta" sparkle:version="1.7.0" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.6.3" length="1247243" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCPcd/1pM1emhoKdUbJ4Ep6oVuAZgIUdDGjnocNVQhl54CPwDy1BISlWPM="/></sparkle:deltas>
 </item>
 </channel>
 </rss>
