@@ -358,7 +358,7 @@
                             <menuItem title="Web API…" id="eaB-hR-QWi">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <action selector="openHomepage:" target="-1" id="iQq-eW-fmy"/>
+                                    <action selector="openApiHomepage:" target="-1" id="Tzm-Ws-jMO"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Services" id="131">

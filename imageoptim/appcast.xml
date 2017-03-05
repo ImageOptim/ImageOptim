@@ -15,11 +15,12 @@
 </ul>
 ]]></description>
 <sparkle:minimumSystemVersion>10.8.0</sparkle:minimumSystemVersion>
-<enclosure url="https://imageoptim.com/ImageOptim1.7.0.tar.bz2" sparkle:version="1.7.0" sparkle:shortVersionString="1.7.0" length="1461712" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCHSGb4eCdPnzKVbe+1cYkSR/tJUwIUVwOODceZ7jvZF35YpJQaUrnlH7s="/>
+<enclosure url="https://imageoptim.com/ImageOptim1.7.0.1.tar.bz2" sparkle:version="1.7.0.1" sparkle:shortVersionString="1.7.0" length="1461613" type="application/octet-stream" sparkle:dsaSignature="MCwCFGgah0loSAwUoEn3Z2NjZS/cA6u3AhRFnyqnkz0owjL0d1zhFyItbq+q8w=="/>
 <sparkle:deltas>
-<enclosure url="https://imageoptim.com/ImageOptim1.7.0-1.6.4.delta" sparkle:version="1.7.0" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.6.4" length="1220947" type="application/octet-stream" sparkle:dsaSignature="MCwCFF1QocZ3q00GwNbR9WfUh8srLB5EAhR4o6fwdb4oRdqaAbXMGzgMg9FYmA=="/>
-<enclosure url="https://imageoptim.com/ImageOptim1.7.0-1.6.5.delta" sparkle:version="1.7.0" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.6.5" length="1034388" type="application/octet-stream" sparkle:dsaSignature="MCwCFHG9vTwVSoetl8fisoKlzoPUdSvHAhRa9iSzhF6yHR2rtt6AOuFiqPn1cg=="/>
-<enclosure url="https://imageoptim.com/ImageOptim1.7.0-1.6.3.delta" sparkle:version="1.7.0" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.6.3" length="1247243" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCPcd/1pM1emhoKdUbJ4Ep6oVuAZgIUdDGjnocNVQhl54CPwDy1BISlWPM="/></sparkle:deltas>
+<enclosure url="https://imageoptim.com/ImageOptim1.7.0.1-1.7.0.delta" sparkle:version="1.7.0.1" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.7.0" length="39211" type="application/octet-stream" sparkle:dsaSignature="MC0CFC/GT65ezc2rUS/NPxbX/2boRDVdAhUAjq7E6NJA9T2DYjwBBg3D+879pag="/>
+<enclosure url="https://imageoptim.com/ImageOptim1.7.0.1-1.6.5.delta" sparkle:version="1.7.0.1" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.6.5" length="1034390" type="application/octet-stream" sparkle:dsaSignature="MC0CFByhk4Ig7QXhsl8Cd9zrmNH4qmWsAhUAl+GKGOkkxrZxY+N7QjUSuIPkph4="/>
+<enclosure url="https://imageoptim.com/ImageOptim1.7.0.1-1.6.4.delta" sparkle:version="1.7.0.1" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.6.4" length="1220955" type="application/octet-stream" sparkle:dsaSignature="MCwCFFNb3j6I23XmIxh9TPpP01EQgs4jAhQn5cnCtI3sokx+U2zzpw/HyAxsIg=="/>
+<enclosure url="https://imageoptim.com/ImageOptim1.7.0.1-1.6.3.delta" sparkle:version="1.7.0.1" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.6.3" length="1247221" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCZF6KMs/xapd2f4wGDpIQ5f5rybAIUZrV9E1jvTHS9n3W7euntOtRBgtI="/></sparkle:deltas>
 </item>
 </channel>
 </rss>
