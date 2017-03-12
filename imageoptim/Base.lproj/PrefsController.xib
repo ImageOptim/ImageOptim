@@ -368,7 +368,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="22" id="xHG-og-Ry4"/>
                                             </constraints>
-                                            <sliderCell key="cell" lineBreakMode="truncatingTail" continuous="YES" alignment="left" minValue="40" maxValue="100" doubleValue="40" tickMarkPosition="below" numberOfTickMarks="13" allowsTickMarkValuesOnly="YES" sliderType="linear" id="874">
+                                            <sliderCell key="cell" lineBreakMode="truncatingTail" continuous="YES" alignment="left" minValue="50" maxValue="99" doubleValue="50" tickMarkPosition="below" numberOfTickMarks="25" allowsTickMarkValuesOnly="YES" sliderType="linear" id="874">
                                                 <font key="font" size="12" name="Helvetica"/>
                                             </sliderCell>
                                             <connections>
@@ -390,11 +390,11 @@
                                             </connections>
                                         </slider>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="230">
-                                            <rect key="frame" x="118" y="161" width="24" height="11"/>
+                                            <rect key="frame" x="118" y="161" width="23" height="11"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="11" id="Bji-wM-JPf"/>
                                             </constraints>
-                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="40%" id="875">
+                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="50%" id="875">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -409,11 +409,11 @@
                                             </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="231">
-                                            <rect key="frame" x="547" y="161" width="28" height="11"/>
+                                            <rect key="frame" x="551" y="161" width="24" height="11"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="11" id="slh-t8-q2y"/>
                                             </constraints>
-                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="100%" id="876">
+                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="99%" id="876">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -432,7 +432,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="11" id="R6y-no-1fV"/>
                                             </constraints>
-                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="70%" id="877">
+                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="75%" id="877">
                                                 <font key="font" metaFont="miniSystem"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
