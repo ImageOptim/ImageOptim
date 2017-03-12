@@ -732,16 +732,16 @@ CA
         <window title="About ImageOptim" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="526" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="185" y="471" width="312" height="440"/>
+            <rect key="contentRect" x="185" y="471" width="312" height="475"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <value key="minSize" type="size" width="312" height="440"/>
-            <value key="maxSize" type="size" width="350" height="460"/>
+            <value key="maxSize" type="size" width="350" height="480"/>
             <view key="contentView" id="527">
-                <rect key="frame" x="0.0" y="0.0" width="312" height="440"/>
+                <rect key="frame" x="0.0" y="0.0" width="312" height="475"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView focusRingType="none" translatesAutoresizingMaskIntoConstraints="NO" id="528">
-                        <rect key="frame" x="90" y="297" width="128" height="128"/>
+                        <rect key="frame" x="90" y="332" width="128" height="128"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="128" id="Qml-M5-3KZ"/>
                             <constraint firstAttribute="width" constant="128" id="eYE-Qo-4I0"/>
@@ -749,16 +749,16 @@ CA
                         <imageCell key="cell" refusesFirstResponder="YES" focusRingType="none" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="636"/>
                     </imageView>
                     <scrollView focusRingType="none" borderType="none" autohidesScrollers="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="529">
-                        <rect key="frame" x="11" y="0.0" width="301" height="280"/>
+                        <rect key="frame" x="11" y="0.0" width="301" height="315"/>
                         <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Sjo-P6-Skp">
-                            <rect key="frame" x="0.0" y="0.0" width="301" height="280"/>
+                            <rect key="frame" x="0.0" y="0.0" width="301" height="315"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView editable="NO" drawsBackground="NO" importsGraphics="NO" textReplacement="YES" id="530">
-                                    <rect key="frame" x="0.0" y="0.0" width="290" height="280"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="290" height="315"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <size key="minSize" width="301" height="280"/>
+                                    <size key="minSize" width="301" height="315"/>
                                     <size key="maxSize" width="575" height="10000000"/>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 </textView>
@@ -775,7 +775,7 @@ CA
                         </scroller>
                     </scrollView>
                     <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="645">
-                        <rect key="frame" x="216" y="298" width="87" height="14"/>
+                        <rect key="frame" x="216" y="333" width="87" height="14"/>
                         <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" selectable="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" alignment="left" title="version" id="646">
                             <font key="font" metaFont="smallSystem"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
