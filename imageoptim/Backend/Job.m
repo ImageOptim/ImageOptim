@@ -16,6 +16,7 @@
 #import "Workers/JpegtranWorker.h"
 #import "Workers/GifsicleWorker.h"
 #import "Workers/SvgoWorker.h"
+#import "Workers/GuetzliWorker.h"
 #import <sys/xattr.h>
 #import "log.h"
 #include "ResultsDb.h"
@@ -581,6 +582,7 @@
         case FILETYPE_JPEG:
         if ([defs boolForKey:@"JpegOptimEnabled"]) [worker_list addObject:[[JpegoptimWorker alloc] initWithDefaults:defs file:self]];
         if ([defs boolForKey:@"JpegTranEnabled"]) [worker_list addObject:[[JpegtranWorker alloc] initWithDefaults:defs file:self]];
+        if ([defs boolForKey:@"GuetzliEnabled"]) [worker_list addObject:[[GuetzliWorker alloc] initWithDefaults:defs file:self]];
         break;
         case FILETYPE_GIF:
         if ([defs boolForKey:@"GifsicleEnabled"]) {

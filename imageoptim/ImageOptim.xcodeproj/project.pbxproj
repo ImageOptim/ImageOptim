@@ -113,6 +113,8 @@
 		5AE04E2E1B5301E100669E85 /* PngquantWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9F4371899D063006C64C8 /* PngquantWorker.m */; };
 		5AF8536C1B49F21C00CF76F5 /* FadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8536B1B49F21C00CF76F5 /* FadeView.m */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		D047E4651E7C3D7C0036F96B /* GuetzliWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = D047E4641E7C3D7C0036F96B /* GuetzliWorker.m */; };
+		D047E5311E7D90DD0036F96B /* guetzli in CopyFiles */ = {isa = PBXBuildFile; fileRef = D047E4861E7D7E310036F96B /* guetzli */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -382,6 +384,34 @@
 			remoteGlobalIDString = 726B2B5D1C645FC900388755;
 			remoteInfo = "UI Tests";
 		};
+		D047E45F1E7C3CE80036F96B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 722954B41D04ADAF00ECF9CA;
+			remoteInfo = fileop;
+		};
+		D047E4611E7C3CE80036F96B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5AE13FB31E0D9E07000D2C2C;
+			remoteInfo = generate_appcast;
+		};
+		D047E4851E7D7E310036F96B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D047E47C1E7D7DF00036F96B /* guetzli.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D047E4721E7D7DF00036F96B;
+			remoteInfo = guetzli;
+		};
+		D047E4CC1E7D81040036F96B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D047E47C1E7D7DF00036F96B /* guetzli.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D047E4E71E7D868D0036F96B;
+			remoteInfo = guetzli;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -391,6 +421,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				D047E5311E7D90DD0036F96B /* guetzli in CopyFiles */,
 				5ABE16271AE5097800861C6B /* advpng in CopyFiles */,
 				5ABE16261AE5096D00861C6B /* gifsicle in CopyFiles */,
 				5ABE16241AE5096300861C6B /* jpegoptim in CopyFiles */,
@@ -661,6 +692,9 @@
 		5AF8536B1B49F21C00CF76F5 /* FadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadeView.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ImageOptim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageOptim.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D047E4491E7C3CE70036F96B /* GuetzliWorker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuetzliWorker.h; sourceTree = "<group>"; };
+		D047E4641E7C3D7C0036F96B /* GuetzliWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuetzliWorker.m; sourceTree = "<group>"; };
+		D047E47C1E7D7DF00036F96B /* guetzli.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = guetzli.xcodeproj; path = ../guetzli/guetzli.xcodeproj; sourceTree = "<group>"; };
 		F8C4ABCD1755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ko; path = ko.lproj/Help; sourceTree = "<group>"; };
 		F8C4ABCF1755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8C4ABD01755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/ImageOptim.strings; sourceTree = "<group>"; };
@@ -767,6 +801,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				D047E47C1E7D7DF00036F96B /* guetzli.xcodeproj */,
 				5A48B74A1423F3AD00AE15FB /* Makefile */,
 				5A4554F81025EBE900A69944 /* optimal_file_list */,
 				5AF9013A0ED8D68200F3965B /* Sparkle */,
@@ -882,12 +917,14 @@
 		5A5811941AD73A630001838D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A5811A51AD73A640001838D /* BinaryDelta */,
-				5A5811A71AD73A640001838D /* Autoupdate.app */,
+				5A5811AF1BD73A640001838D /* Sparkle.framework */,
 				5A5811A81AD73A640001838D /* Sparkle Test App.app */,
 				5A5811A91AD73A640001838D /* Sparkle Unit Tests.xctest */,
-				5A5811AF1BD73A640001838D /* Sparkle.framework */,
+				5A5811A51AD73A640001838D /* BinaryDelta */,
+				5A5811A71AD73A640001838D /* Autoupdate.app */,
 				5ADDF2FF1CE613A800B4AD58 /* UI Tests.xctest */,
+				D047E4601E7C3CE80036F96B /* fileop */,
+				D047E4621E7C3CE80036F96B /* generate_appcast */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1021,6 +1058,8 @@
 				5AE54DED0CAEF56100903DF4 /* PngoutWorker.h */,
 				5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */,
 				5AA9F4361899D063006C64C8 /* PngquantWorker.h */,
+				D047E4491E7C3CE70036F96B /* GuetzliWorker.h */,
+				D047E4641E7C3D7C0036F96B /* GuetzliWorker.m */,
 				5AA9F4371899D063006C64C8 /* PngquantWorker.m */,
 				5AB81F931AE1BE1300719AB7 /* Save.h */,
 				5AB81F941AE1BE1300719AB7 /* Save.m */,
@@ -1042,6 +1081,14 @@
 				5A5811931AD73A630001838D /* Sparkle.xcodeproj */,
 			);
 			name = Sparkle;
+			sourceTree = "<group>";
+		};
+		D047E4821E7D7E310036F96B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D047E4861E7D7E310036F96B /* guetzli */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1105,6 +1152,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D047E4CD1E7D81040036F96B /* PBXTargetDependency */,
 				5A7FB7241E2C3DF800481B4A /* PBXTargetDependency */,
 				5AB114B11B52AEE700A3C73A /* PBXTargetDependency */,
 				5ABE16101AE508C200861C6B /* PBXTargetDependency */,
@@ -1196,6 +1244,7 @@
 				TargetAttributes = {
 					5AC64EFD1AF3FDEE0032AA7F = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 59KZTZA4XR;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 1;
@@ -1261,6 +1310,10 @@
 				{
 					ProductGroup = 5A4DC2061028ADB200A9DD55 /* Products */;
 					ProjectRef = 5A4DC2051028ADB200A9DD55 /* gifsicle.xcodeproj */;
+				},
+				{
+					ProductGroup = D047E4821E7D7E310036F96B /* Products */;
+					ProjectRef = D047E47C1E7D7DF00036F96B /* guetzli.xcodeproj */;
 				},
 				{
 					ProductGroup = 5A20CC9E112393B90000400D /* Products */;
@@ -1439,6 +1492,27 @@
 			remoteRef = 5ADDF2FE1CE613A800B4AD58 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		D047E4601E7C3CE80036F96B /* fileop */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = fileop;
+			remoteRef = D047E45F1E7C3CE80036F96B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D047E4621E7C3CE80036F96B /* generate_appcast */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = generate_appcast;
+			remoteRef = D047E4611E7C3CE80036F96B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D047E4861E7D7E310036F96B /* guetzli */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = guetzli;
+			remoteRef = D047E4851E7D7E310036F96B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1585,6 +1659,7 @@
 				5AD0347D1E27185D0030291A /* TempFile.m in Sources */,
 				5ABE15821AE5073E00861C6B /* Worker.m in Sources */,
 				5ABE15831AE5073E00861C6B /* ZopfliWorker.m in Sources */,
+				D047E4651E7C3D7C0036F96B /* GuetzliWorker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1723,6 +1798,11 @@
 			isa = PBXTargetDependency;
 			target = 5AC64EFD1AF3FDEE0032AA7F /* ImageOptimize */;
 			targetProxy = 5AC64F0A1AF3FDEE0032AA7F /* PBXContainerItemProxy */;
+		};
+		D047E4CD1E7D81040036F96B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = guetzli;
+			targetProxy = D047E4CC1E7D81040036F96B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
