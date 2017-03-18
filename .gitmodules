@@ -16,3 +16,9 @@
 [submodule "jpegoptim/src"]
 	path = jpegoptim/src
 	url = https://github.com/tjko/jpegoptim.git
+[submodule "guetzli/guetzli"]
+	path = guetzli/guetzli
+	url = https://github.com/google/guetzli.git
+[submodule "guetzli/gflags"]
+	path = guetzli/gflags
+	url = https://github.com/gflags/gflags.git
