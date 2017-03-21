@@ -421,9 +421,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				D047E5311E7D90DD0036F96B /* guetzli in CopyFiles */,
 				5ABE16271AE5097800861C6B /* advpng in CopyFiles */,
 				5ABE16261AE5096D00861C6B /* gifsicle in CopyFiles */,
+				D047E5311E7D90DD0036F96B /* guetzli in CopyFiles */,
 				5ABE16241AE5096300861C6B /* jpegoptim in CopyFiles */,
 				5ABE16231AE5095B00861C6B /* jpegtran in CopyFiles */,
 				5ABE16251AE5096800861C6B /* libimageoptimjpeg.dylib in CopyFiles */,
@@ -801,13 +801,13 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				D047E47C1E7D7DF00036F96B /* guetzli.xcodeproj */,
 				5A48B74A1423F3AD00AE15FB /* Makefile */,
 				5A4554F81025EBE900A69944 /* optimal_file_list */,
 				5AF9013A0ED8D68200F3965B /* Sparkle */,
 				5A984D4011238E51007622D7 /* advpng.xcodeproj */,
 				5A27B9C2139B079A0095FC2F /* debug.xcconfig */,
 				5A4DC2051028ADB200A9DD55 /* gifsicle.xcodeproj */,
+				D047E47C1E7D7DF00036F96B /* guetzli.xcodeproj */,
 				5AC4CC101AF445480003AEA2 /* ImageOptim.entitlements */,
 				1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */,
 				5A20CC9D112393B80000400D /* jpeg.xcodeproj */,
@@ -1047,6 +1047,8 @@
 				5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */,
 				5A4DC2191028AE1800A9DD55 /* GifsicleWorker.h */,
 				5A4DC21A1028AE1800A9DD55 /* GifsicleWorker.m */,
+				D047E4491E7C3CE70036F96B /* GuetzliWorker.h */,
+				D047E4641E7C3D7C0036F96B /* GuetzliWorker.m */,
 				5A9E5B290CB961E000E05D28 /* JpegoptimWorker.h */,
 				5A9E5B2A0CB961E000E05D28 /* JpegoptimWorker.m */,
 				5A6E04410EA40B6A00380DE7 /* JpegtranWorker.h */,
@@ -1058,8 +1060,6 @@
 				5AE54DED0CAEF56100903DF4 /* PngoutWorker.h */,
 				5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */,
 				5AA9F4361899D063006C64C8 /* PngquantWorker.h */,
-				D047E4491E7C3CE70036F96B /* GuetzliWorker.h */,
-				D047E4641E7C3D7C0036F96B /* GuetzliWorker.m */,
 				5AA9F4371899D063006C64C8 /* PngquantWorker.m */,
 				5AB81F931AE1BE1300719AB7 /* Save.h */,
 				5AB81F941AE1BE1300719AB7 /* Save.m */,
@@ -1642,6 +1642,7 @@
 				5ABE157A1AE5073E00861C6B /* DirScanner.m in Sources */,
 				5AD033541E26B6840030291A /* File.m in Sources */,
 				5ABE157B1AE5073E00861C6B /* GifsicleWorker.m in Sources */,
+				D047E4651E7C3D7C0036F96B /* GuetzliWorker.m in Sources */,
 				5ABE15741AE5073100861C6B /* Job.m in Sources */,
 				5A34D09A1AEF75CE00A154E4 /* JobQueue.m in Sources */,
 				5ABE157C1AE5073E00861C6B /* JpegoptimWorker.m in Sources */,
@@ -1659,7 +1660,6 @@
 				5AD0347D1E27185D0030291A /* TempFile.m in Sources */,
 				5ABE15821AE5073E00861C6B /* Worker.m in Sources */,
 				5ABE15831AE5073E00861C6B /* ZopfliWorker.m in Sources */,
-				D047E4651E7C3D7C0036F96B /* GuetzliWorker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
