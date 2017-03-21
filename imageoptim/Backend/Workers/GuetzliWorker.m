@@ -24,7 +24,7 @@
 }
 
 - (BOOL)makesNonOptimizingModifications {
-    return level < 100;
+    return YES;
 }
 
 - (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
