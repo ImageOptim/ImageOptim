@@ -13,8 +13,9 @@
 
 @implementation GuetzliWorker
 
--(instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(Job *)aFile {
+-(instancetype)initWithDefaults:(NSUserDefaults *)defaults serialQueue:(dispatch_queue_t)q file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
+        queue = q;
         level = [defaults boolForKey:@"LossyEnabled"] ? [defaults integerForKey:@"JpegOptimMaxQuality"] : 95;
         if (level < 84) {
             level = 84;
@@ -43,17 +44,21 @@
         return NO;
     }
 
+    BOOL __block ok = NO;
     NSPipe *commandPipe = [NSPipe pipe];
     NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
 
-    [task setStandardOutput:commandPipe];
-    [task setStandardError:commandPipe];
+    // Guetzli uses so much memory, that only one process at once can run
+    dispatch_sync(queue, ^{
+        [task setStandardOutput:commandPipe];
+        [task setStandardError:commandPipe];
 
-    [self launchTask];
+        [self launchTask];
 
-    [commandHandle readToEndOfFileInBackgroundAndNotify];
+        [commandHandle readToEndOfFileInBackgroundAndNotify];
 
-    BOOL ok = [self waitUntilTaskExit];
+        ok = [self waitUntilTaskExit];
+    });
 
     [commandHandle closeFile];
 

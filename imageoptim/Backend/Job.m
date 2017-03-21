@@ -454,12 +454,12 @@
     }
 }
 
--(void)enqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue fileIOQueue:(nonnull NSOperationQueue *)aFileIOQueue defaults:(nonnull NSUserDefaults*)defaults {
+-(void)enqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue fileIOQueue:(nonnull NSOperationQueue *)aFileIOQueue serialQueue:(dispatch_queue_t)serialQueue defaults:(nonnull NSUserDefaults*)defaults {
 
     [self willChangeValueForKey:@"isBusy"];
     NSOperation *actualEnqueue = [NSBlockOperation blockOperationWithBlock:^{
         @synchronized(self) {
-            [self doEnqueueWorkersInCPUQueue:queue defaults:defaults];
+            [self doEnqueueWorkersInCPUQueue:queue serialQueue:serialQueue defaults:defaults];
         }
     }];
     @synchronized(self) {
@@ -492,7 +492,7 @@
     CC_MD5_Final((unsigned char *)settingsHash, &md5ctx);
 }
 
--(void)doEnqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue defaults:(nonnull NSUserDefaults*)defs {
+-(void)doEnqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue serialQueue:(dispatch_queue_t)serialQueue defaults:(nonnull NSUserDefaults*)defs {
     [self setStatus:@"progress" order:3 text:NSLocalizedString(@"Inspecting file",@"tooltip")];
 
     NSError *err = nil;
@@ -581,7 +581,7 @@
         break;
         case FILETYPE_JPEG:
         if ([defs boolForKey:@"GuetzliEnabled"] && [defs integerForKey:@"JpegOptimMaxQuality"] >= 80) {
-            [worker_list addObject:[[GuetzliWorker alloc] initWithDefaults:defs file:self]];
+            [worker_list addObject:[[GuetzliWorker alloc] initWithDefaults:defs serialQueue:serialQueue file:self]];
         }
         if ([defs boolForKey:@"JpegOptimEnabled"]) [worker_list addObject:[[JpegoptimWorker alloc] initWithDefaults:defs file:self]];
         if ([defs boolForKey:@"JpegTranEnabled"]) [worker_list addObject:[[JpegtranWorker alloc] initWithDefaults:defs file:self]];

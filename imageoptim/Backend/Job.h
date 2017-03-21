@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly) BOOL canRevert;
 @property (readonly) BOOL isDone, isFailed;
 
-- (void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue defaults:(NSUserDefaults *)defaults;
+- (void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue serialQueue:(dispatch_queue_t)serialQueue defaults:(NSUserDefaults *)defaults;
 
 - (BOOL)setFileOptimized:(nullable TempFile *)f toolName:(NSString *)s;
 
@@ -69,6 +69,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setError:(NSString *)text;
 - (void)cleanup;
 
-- (void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue defaults:(NSUserDefaults *)defaults;
+- (void)doEnqueueWorkersInCPUQueue:(NSOperationQueue *)queue serialQueue:(dispatch_queue_t)serialQueue defaults:(NSUserDefaults *)defaults;
 @end
 NS_ASSUME_NONNULL_END

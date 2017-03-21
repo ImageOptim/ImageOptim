@@ -11,6 +11,7 @@
     NSOperationQueue *cpuQueue;
     NSOperationQueue *fileIOQueue;
     NSOperationQueue *dirWorkerQueue;
+    dispatch_queue_t serialQueue;
 
     dispatch_source_t operationCountUpdateQueue;
 }
@@ -22,6 +23,8 @@
     if (self) {
         self.defaults = defaults;
         BOOL lowPriority = [defaults boolForKey:@"RunLowPriority"];
+
+        serialQueue = dispatch_queue_create("serial", DISPATCH_QUEUE_SERIAL);
 
         cpuQueue = [NSOperationQueue new];
         cpuQueue.name = @"cpuQueue";
@@ -61,7 +64,7 @@
 }
 
 - (void)addJob:(Job *)f {
-    [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue defaults:self.defaults];
+    [f enqueueWorkersInCPUQueue:cpuQueue fileIOQueue:fileIOQueue serialQueue:serialQueue defaults:self.defaults];
 }
 
 - (void)addDirScanner:(DirScanner *)d {
