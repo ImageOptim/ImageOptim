@@ -30,30 +30,15 @@
 		D047E5231E7D87670036F96B /* liblibpng.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D047E5221E7D87670036F96B /* liblibpng.dylib */; };
 		D047E5291E7D8A050036F96B /* butteraugli.cc in Sources */ = {isa = PBXBuildFile; fileRef = D047E5251E7D89D50036F96B /* butteraugli.cc */; };
 		D047E52B1E7D8BFD0036F96B /* libimageoptimjpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D047E52A1E7D8BFD0036F96B /* libimageoptimjpeg.dylib */; };
-		D047E52D1E7D8D390036F96B /* libgflags.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D047E52C1E7D8D390036F96B /* libgflags.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D047E4E21E7D85FD0036F96B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D047E46A1E7D7DF00036F96B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D047E4D61E7D85920036F96B;
-			remoteInfo = "gflags makefile";
-		};
 		D047E4EF1E7D86970036F96B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D047E46A1E7D7DF00036F96B /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D047E4CE1E7D81720036F96B;
 			remoteInfo = download;
-		};
-		D047E4F11E7D869A0036F96B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D047E46A1E7D7DF00036F96B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D047E4DC1E7D85DA0036F96B;
-			remoteInfo = gflags;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -124,7 +109,6 @@
 		D047E5251E7D89D50036F96B /* butteraugli.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = butteraugli.cc; path = guetzli/third_party/butteraugli/butteraugli/butteraugli.cc; sourceTree = "<group>"; };
 		D047E5261E7D89D50036F96B /* butteraugli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = butteraugli.h; path = guetzli/third_party/butteraugli/butteraugli/butteraugli.h; sourceTree = "<group>"; };
 		D047E52A1E7D8BFD0036F96B /* libimageoptimjpeg.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libimageoptimjpeg.dylib; path = "../../../Library/Developer/Xcode/DerivedData/ImageOptim-cmhdqovjmikzhafpeansxwkmezkf/Build/Products/Debug/libimageoptimjpeg.dylib"; sourceTree = "<group>"; };
-		D047E52C1E7D8D390036F96B /* libgflags.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libgflags.a; path = gflags/lib/libgflags.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +116,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D047E52D1E7D8D390036F96B /* libgflags.a in Frameworks */,
 				D047E52B1E7D8BFD0036F96B /* libimageoptimjpeg.dylib in Frameworks */,
 				D047E5231E7D87670036F96B /* liblibpng.dylib in Frameworks */,
 			);
@@ -217,7 +200,6 @@
 		D047E5211E7D87670036F96B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D047E52C1E7D8D390036F96B /* libgflags.a */,
 				D047E52A1E7D8BFD0036F96B /* libimageoptimjpeg.dylib */,
 				D047E5221E7D87670036F96B /* liblibpng.dylib */,
 			);
@@ -250,35 +232,6 @@
 			passBuildSettingsInEnvironment = 1;
 			productName = download;
 		};
-		D047E4D61E7D85920036F96B /* gflags makefile */ = {
-			isa = PBXLegacyTarget;
-			buildArgumentsString = .;
-			buildConfigurationList = D047E4D71E7D85920036F96B /* Build configuration list for PBXLegacyTarget "gflags makefile" */;
-			buildPhases = (
-			);
-			buildToolPath = /opt/local/bin/cmake;
-			buildWorkingDirectory = /Users/peter/src/ImageOptim/guetzli/gflags;
-			dependencies = (
-			);
-			name = "gflags makefile";
-			passBuildSettingsInEnvironment = 1;
-			productName = gflags;
-		};
-		D047E4DC1E7D85DA0036F96B /* gflags */ = {
-			isa = PBXLegacyTarget;
-			buildArgumentsString = "";
-			buildConfigurationList = D047E4DD1E7D85DA0036F96B /* Build configuration list for PBXLegacyTarget "gflags" */;
-			buildPhases = (
-			);
-			buildToolPath = /usr/bin/make;
-			buildWorkingDirectory = /Users/peter/src/ImageOptim/guetzli/gflags;
-			dependencies = (
-				D047E4E31E7D85FD0036F96B /* PBXTargetDependency */,
-			);
-			name = gflags;
-			passBuildSettingsInEnvironment = 1;
-			productName = gflags;
-		};
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
@@ -294,7 +247,6 @@
 			);
 			dependencies = (
 				D047E4F01E7D86970036F96B /* PBXTargetDependency */,
-				D047E4F21E7D869A0036F96B /* PBXTargetDependency */,
 			);
 			name = guetzli;
 			productName = guetzli;
@@ -310,14 +262,6 @@
 				LastUpgradeCheck = 0820;
 				TargetAttributes = {
 					D047E4CE1E7D81720036F96B = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-					};
-					D047E4D61E7D85920036F96B = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-					};
-					D047E4DC1E7D85DA0036F96B = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -340,8 +284,6 @@
 			projectRoot = "";
 			targets = (
 				D047E4CE1E7D81720036F96B /* download */,
-				D047E4D61E7D85920036F96B /* gflags makefile */,
-				D047E4DC1E7D85DA0036F96B /* gflags */,
 				D047E4E71E7D868D0036F96B /* guetzli */,
 			);
 		};
@@ -379,20 +321,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D047E4E31E7D85FD0036F96B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D047E4D61E7D85920036F96B /* gflags makefile */;
-			targetProxy = D047E4E21E7D85FD0036F96B /* PBXContainerItemProxy */;
-		};
 		D047E4F01E7D86970036F96B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D047E4CE1E7D81720036F96B /* download */;
 			targetProxy = D047E4EF1E7D86970036F96B /* PBXContainerItemProxy */;
-		};
-		D047E4F21E7D869A0036F96B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D047E4DC1E7D85DA0036F96B /* gflags */;
-			targetProxy = D047E4F11E7D869A0036F96B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -432,11 +364,6 @@
 		D047E4ED1E7D868D0036F96B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/gflags/lib",
-				);
-				OTHER_CFLAGS = "-DPNG_SETJMP_SUPPORTED";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -444,10 +371,6 @@
 		D047E4EE1E7D868D0036F96B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-					"$(inherited)",
-					"$(PROJECT_DIR)/gflags/lib",
-				);
-				OTHER_CFLAGS = "-DPNG_SETJMP_SUPPORTED";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

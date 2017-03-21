@@ -19,6 +19,3 @@
 [submodule "guetzli/guetzli"]
 	path = guetzli/guetzli
 	url = https://github.com/google/guetzli.git
-[submodule "guetzli/gflags"]
-	path = guetzli/gflags
-	url = https://github.com/gflags/gflags.git
