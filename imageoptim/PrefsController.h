@@ -8,6 +8,7 @@
 @class ImageOptimController;
 
 @interface PrefsController : NSWindowController {
+    BOOL notified;
 }
 @property IBOutlet NSTabView *tabs;
 @property (readonly) BOOL svgSupported;
