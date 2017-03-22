@@ -580,8 +580,9 @@
         }
         break;
         case FILETYPE_JPEG:
-        if (!hasBeenRunBefore && [defs boolForKey:@"GuetzliEnabled"] && [defs integerForKey:@"JpegOptimMaxQuality"] >= 80) {
+        if (!lossyConverted && !hasBeenRunBefore && [defs boolForKey:@"GuetzliEnabled"] && [defs integerForKey:@"JpegOptimMaxQuality"] >= 80) {
             [worker_list addObject:[[GuetzliWorker alloc] initWithDefaults:defs serialQueue:serialQueue file:self]];
+            lossyConverted = YES;
         }
         if ([defs boolForKey:@"JpegOptimEnabled"]) [worker_list addObject:[[JpegoptimWorker alloc] initWithDefaults:defs file:self]];
         if ([defs boolForKey:@"JpegTranEnabled"]) [worker_list addObject:[[JpegtranWorker alloc] initWithDefaults:defs file:self]];
