@@ -334,6 +334,7 @@
 			baseConfigurationReference = 5A86E6131E8133B900C54C09 /* debug.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/guetzli $(SRCROOT)/guetzli/third_party/butteraugli $(SRCROOT)/../libpng";
 			};
 			name = Debug;
@@ -343,6 +344,7 @@
 			baseConfigurationReference = 5A86E6141E8133B900C54C09 /* release.xcconfig */;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/guetzli $(SRCROOT)/guetzli/third_party/butteraugli $(SRCROOT)/../libpng";
 			};
 			name = Release;
