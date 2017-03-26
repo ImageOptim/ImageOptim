@@ -48,8 +48,7 @@
     NSPipe *commandPipe = [NSPipe pipe];
     NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
 
-    // Guetzli uses so much memory, that only one process at once can run
-    dispatch_sync(queue, ^{
+    void (^run)(void) = ^{
         [task setStandardOutput:commandPipe];
         [task setStandardError:commandPipe];
 
@@ -58,7 +57,13 @@
         [commandHandle readToEndOfFileInBackgroundAndNotify];
 
         ok = [self waitUntilTaskExit];
-    });
+    };
+    if (![file isSmall]) {
+        // Guetzli uses so much memory, that it's dangerous to run all images in parallel
+        dispatch_sync(queue, run);
+    } else {
+        run();
+    }
 
     [commandHandle closeFile];
 
