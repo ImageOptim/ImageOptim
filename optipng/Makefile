@@ -19,7 +19,7 @@ src/optipng.c: /tmp/$(OPTIPNG_FILENAME)
 	curl -L http://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-$(VERSION)/$(OPTIPNG_FILENAME) -o /tmp/$(OPTIPNG_FILENAME)
 
 clean:
-	- rm -rf ./patched ./src/ ./lib/
+	- rm -rf ./patched ./src/ ./lib/ /tmp/$(OPTIPNG_FILENAME)
 
 install: all
 
