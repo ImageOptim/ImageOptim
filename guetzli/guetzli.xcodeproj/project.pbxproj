@@ -33,6 +33,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5AB6A9051E966617009BDBC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AB6A8FE1E966617009BDBC3 /* libpng.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC0630554660B00DB518D;
+			remoteInfo = libpng;
+		};
+		5AB6A9071E966617009BDBC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AB6A8FE1E966617009BDBC3 /* libpng.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5AC2B4D613394EDA00376783;
+			remoteInfo = static;
+		};
+		5AB6A9091E96661C009BDBC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5AB6A8FE1E966617009BDBC3 /* libpng.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC0620554660B00DB518D;
+			remoteInfo = libpng;
+		};
 		D047E4EF1E7D86970036F96B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D047E46A1E7D7DF00036F96B /* Project object */;
@@ -57,6 +78,7 @@
 /* Begin PBXFileReference section */
 		5A86E6131E8133B900C54C09 /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../imageoptim/debug.xcconfig; sourceTree = "<group>"; };
 		5A86E6141E8133B900C54C09 /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = "<group>"; };
+		5AB6A8FE1E966617009BDBC3 /* libpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpng.xcodeproj; path = ../libpng/libpng.xcodeproj; sourceTree = "<group>"; };
 		D047E4871E7D7F070036F96B /* butteraugli_comparator.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = butteraugli_comparator.cc; path = guetzli/butteraugli_comparator.cc; sourceTree = "<group>"; };
 		D047E4881E7D7F070036F96B /* butteraugli_comparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = butteraugli_comparator.h; path = guetzli/butteraugli_comparator.h; sourceTree = "<group>"; };
 		D047E4891E7D7F070036F96B /* color_transform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = color_transform.h; path = guetzli/color_transform.h; sourceTree = "<group>"; };
@@ -124,15 +146,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5AB6A8FF1E966617009BDBC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5AB6A9061E966617009BDBC3 /* liblibpng.dylib */,
+				5AB6A9081E966617009BDBC3 /* libstatic.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D047E4691E7D7DF00036F96B = {
 			isa = PBXGroup;
 			children = (
-				5A86E6131E8133B900C54C09 /* debug.xcconfig */,
-				5A86E6141E8133B900C54C09 /* release.xcconfig */,
-				D047E5271E7D89F10036F96B /* third_party */,
+				D047E5211E7D87670036F96B /* Frameworks */,
 				D047E4741E7D7DF00036F96B /* guetzli */,
 				D047E4731E7D7DF00036F96B /* Products */,
-				D047E5211E7D87670036F96B /* Frameworks */,
+				D047E5271E7D89F10036F96B /* third_party */,
+				5A86E6131E8133B900C54C09 /* debug.xcconfig */,
+				5AB6A8FE1E966617009BDBC3 /* libpng.xcodeproj */,
+				5A86E6141E8133B900C54C09 /* release.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -166,6 +198,8 @@
 				D047E4971E7D7F070036F96B /* idct.cc */,
 				D047E4981E7D7F070036F96B /* idct.h */,
 				D047E4991E7D7F070036F96B /* jpeg_bit_writer.h */,
+				D047E4A21E7D7F070036F96B /* jpeg_data.cc */,
+				D047E4A31E7D7F070036F96B /* jpeg_data.h */,
 				D047E49A1E7D7F070036F96B /* jpeg_data_decoder.cc */,
 				D047E49B1E7D7F070036F96B /* jpeg_data_decoder.h */,
 				D047E49C1E7D7F070036F96B /* jpeg_data_encoder.cc */,
@@ -174,8 +208,6 @@
 				D047E49F1E7D7F070036F96B /* jpeg_data_reader.h */,
 				D047E4A01E7D7F070036F96B /* jpeg_data_writer.cc */,
 				D047E4A11E7D7F070036F96B /* jpeg_data_writer.h */,
-				D047E4A21E7D7F070036F96B /* jpeg_data.cc */,
-				D047E4A31E7D7F070036F96B /* jpeg_data.h */,
 				D047E4A41E7D7F070036F96B /* jpeg_error.h */,
 				D047E4A51E7D7F070036F96B /* jpeg_huffman_decode.cc */,
 				D047E4A61E7D7F070036F96B /* jpeg_huffman_decode.h */,
@@ -209,9 +241,9 @@
 		D047E5271E7D89F10036F96B /* third_party */ = {
 			isa = PBXGroup;
 			children = (
-				D047E5241E7D89D50036F96B /* butteraugli_main.cc */,
 				D047E5251E7D89D50036F96B /* butteraugli.cc */,
 				D047E5261E7D89D50036F96B /* butteraugli.h */,
+				D047E5241E7D89D50036F96B /* butteraugli_main.cc */,
 			);
 			name = third_party;
 			sourceTree = "<group>";
@@ -246,6 +278,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5AB6A90A1E96661C009BDBC3 /* PBXTargetDependency */,
 				D047E4F01E7D86970036F96B /* PBXTargetDependency */,
 			);
 			name = guetzli;
@@ -281,6 +314,12 @@
 			mainGroup = D047E4691E7D7DF00036F96B;
 			productRefGroup = D047E4731E7D7DF00036F96B /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 5AB6A8FF1E966617009BDBC3 /* Products */;
+					ProjectRef = 5AB6A8FE1E966617009BDBC3 /* libpng.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				D047E4CE1E7D81720036F96B /* download */,
@@ -288,6 +327,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		5AB6A9061E966617009BDBC3 /* liblibpng.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = liblibpng.dylib;
+			remoteRef = 5AB6A9051E966617009BDBC3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5AB6A9081E966617009BDBC3 /* libstatic.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libstatic.a;
+			remoteRef = 5AB6A9071E966617009BDBC3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D047E4E41E7D868D0036F96B /* Sources */ = {
@@ -303,11 +359,11 @@
 				D047E5001E7D86AD0036F96B /* gamma_correct.cc in Sources */,
 				D047E5021E7D86AD0036F96B /* guetzli.cc in Sources */,
 				D047E5031E7D86AD0036F96B /* idct.cc in Sources */,
+				D047E50E1E7D86AD0036F96B /* jpeg_data.cc in Sources */,
 				D047E5061E7D86AD0036F96B /* jpeg_data_decoder.cc in Sources */,
 				D047E5081E7D86AD0036F96B /* jpeg_data_encoder.cc in Sources */,
 				D047E50A1E7D86AD0036F96B /* jpeg_data_reader.cc in Sources */,
 				D047E50C1E7D86AD0036F96B /* jpeg_data_writer.cc in Sources */,
-				D047E50E1E7D86AD0036F96B /* jpeg_data.cc in Sources */,
 				D047E5111E7D86AD0036F96B /* jpeg_huffman_decode.cc in Sources */,
 				D047E5141E7D86AD0036F96B /* output_image.cc in Sources */,
 				D047E5161E7D86AD0036F96B /* preprocess_downsample.cc in Sources */,
@@ -321,6 +377,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5AB6A90A1E96661C009BDBC3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = libpng;
+			targetProxy = 5AB6A9091E96661C009BDBC3 /* PBXContainerItemProxy */;
+		};
 		D047E4F01E7D86970036F96B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D047E4CE1E7D81720036F96B /* download */;
@@ -335,6 +396,12 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					NS_BLOCK_ASSERTIONS,
+					HAVE_CONFIG_H,
+					PNG_CONFIGURE_LIBPNG,
+				);
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/guetzli $(SRCROOT)/guetzli/third_party/butteraugli $(SRCROOT)/../libpng";
 			};
 			name = Debug;
@@ -345,6 +412,12 @@
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
 				CLANG_CXX_LIBRARY = "libc++";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					NDEBUG,
+					NS_BLOCK_ASSERTIONS,
+					HAVE_CONFIG_H,
+					PNG_CONFIGURE_LIBPNG,
+				);
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/guetzli $(SRCROOT)/guetzli/third_party/butteraugli $(SRCROOT)/../libpng";
 			};
 			name = Release;
