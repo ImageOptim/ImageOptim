@@ -39,6 +39,20 @@
 #define PADDING_AROUND_INFO_IMAGE 2.0f
 #define IMAGE_SIZE 0.0f
 
+- (NSImage *)infoButtonImageFaded {
+    static NSImage *image;
+    if (!image) {
+        NSImage *opaqueImage = [self infoButtonImage];
+        NSRect dimensions = NSMakeRect(0, 0, INFO_IMAGE_SIZE, INFO_IMAGE_SIZE);
+        image = [[NSImage alloc] initWithSize:dimensions.size];
+        [image lockFocus];
+        [opaqueImage drawInRect:dimensions fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:0.3f respectFlipped:YES hints:nil];
+        [image unlockFocus];
+    }
+    return image;
+}
+
+
 - (NSRect)rectForInfoButtonBasedOnTitleRect:(NSRect)titleRect inBounds:(NSRect)bounds {
     NSRect buttonRect = titleRect;
 
@@ -106,10 +120,15 @@
     }
 
     NSRect infoButtonRect = [self infoButtonRectForBounds:bounds];
-    NSImage *image = [self infoButtonImage];
 
-    float opacity = iMouseHoveredInInfoButton ? 1.0f : ([self isHighlighted] ? 0.5f : 0.3f);
-    [image drawInRect:infoButtonRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:opacity respectFlipped:YES hints:nil];
+    if (iMouseHoveredInInfoButton || [self isHighlighted]) {
+        float opacity = [self isHighlighted] ? 0.5f : 1.f;
+        NSImage *opaqueImage = [self infoButtonImage];
+        [opaqueImage drawInRect:infoButtonRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:opacity respectFlipped:YES hints:nil];
+    } else {
+        NSImage *fadedImage = [self infoButtonImageFaded];
+        [fadedImage drawInRect:infoButtonRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.f respectFlipped:YES hints:nil];
+    }
 }
 
 - (NSCellHitResult)hitTestForEvent:(NSEvent *)event inRect:(NSRect)cellFrame ofView:(NSView *)controlView {
