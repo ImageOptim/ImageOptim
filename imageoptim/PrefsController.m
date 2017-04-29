@@ -8,6 +8,9 @@
 #import "ImageOptimController.h"
 #import "Transformers.h"
 
+static const char *kGuetzliContext = "guetzli";
+static const char *kStripAllContext = "strip";
+
 @implementation PrefsController
 
 - (instancetype)init {
@@ -18,7 +21,8 @@
         DisabledColor *dc = [DisabledColor new];
         [NSValueTransformer setValueTransformer:dc forName:@"DisabledColor"];
 
-        [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"GuetzliEnabled" options:0 context:nil];
+        [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"GuetzliEnabled" options:0 context:(void*)kGuetzliContext];
+        [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"JpegTranStripAll" options:0 context:(void*)kStripAllContext];
     }
     return self;
 }
@@ -26,12 +30,27 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)defaults
                         change:(NSDictionary *)change
                        context:(void *)context {
-    if (!notified && [defaults boolForKey:@"GuetzliEnabled"]) {
-        notified = YES;
-        [self warnGuetzliSlowness];
-
-        if ([defaults integerForKey:@"JpegOptimMaxQuality"] < 85) {
-            [defaults setInteger:85 forKey:@"JpegOptimMaxQuality"];
+    if (context == (void*)kGuetzliContext) {
+        if ([defaults boolForKey:@"GuetzliEnabled"]) {
+            if (!notified) {
+                notified = YES;
+                [self warnGuetzliSlowness];
+            }
+            if ([defaults integerForKey:@"JpegOptimMaxQuality"] < 85) {
+                [defaults setInteger:85 forKey:@"JpegOptimMaxQuality"];
+            }
+            if (![defaults boolForKey:@"JpegTranStripAll"]) {
+                [defaults setBool:YES forKey:@"JpegTranStripAllSetByGuetzli"];
+                [defaults setBool:YES forKey:@"JpegTranStripAll"];
+            }
+        } else if ([defaults boolForKey:@"JpegTranStripAll"] && [defaults boolForKey:@"JpegTranStripAllSetByGuetzli"]) {
+            [defaults setBool:NO forKey:@"JpegTranStripAllSetByGuetzli"];
+            [defaults setBool:NO forKey:@"JpegTranStripAll"];
+        }
+    } else if (context == (void*)kStripAllContext) {
+        if ([defaults boolForKey:@"GuetzliEnabled"] && ![defaults boolForKey:@"JpegTranStripAll"]) {
+            [defaults setBool:NO forKey:@"JpegTranStripAllSetByGuetzli"];
+            [defaults setBool:NO forKey:@"GuetzliEnabled"];
         }
     }
 }
