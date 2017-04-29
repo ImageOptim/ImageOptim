@@ -29,8 +29,11 @@
 }
 
 - (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
+    BOOL smallFile = [file isSmall];
+
     NSMutableArray *args = [NSMutableArray arrayWithObjects:
                             @"--quality", [NSString stringWithFormat:@"%ld", (long)level],
+                            @"--memlimit", smallFile ? @"2000" : @"6000",
                             file.path,
                             temp.path,
                             nil];
@@ -58,7 +61,7 @@
 
         ok = [self waitUntilTaskExit];
     };
-    if (![file isSmall]) {
+    if (!smallFile) {
         // Guetzli uses so much memory, that it's dangerous to run all images in parallel
         dispatch_sync(queue, run);
     } else {
