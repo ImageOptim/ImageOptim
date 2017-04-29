@@ -271,7 +271,7 @@
                                                             <binding destination="300" name="value" keyPath="values.JpegTranEnabled" id="1103"/>
                                                         </connections>
                                                     </button>
-                                                    <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="78U-a4-xCR">
+                                                    <button toolTip="Requires Node.js installed system-wide" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="78U-a4-xCR">
                                                         <rect key="frame" x="18" y="34" width="59" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="KfP-2h-NkZ"/>
@@ -297,7 +297,7 @@
                                                             <binding destination="300" name="value" keyPath="values.SvgoEnabled" id="S8A-r5-4NB"/>
                                                         </connections>
                                                     </button>
-                                                    <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="cc1-Qe-2aX" userLabel="Guetzli">
+                                                    <button toolTip="Guetzli always strips JPEG metadata" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="cc1-Qe-2aX" userLabel="Guetzli">
                                                         <rect key="frame" x="18" y="83" width="65" height="18"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="B4D-H4-N9T"/>
