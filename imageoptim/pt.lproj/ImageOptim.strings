@@ -76,6 +76,9 @@
 /* Button Tooltip "Add new files or directories" */
 "423.ibExternalAccessibilityDescription" = "Adicionar novos ficheiros ou directórios";
 
+/* Button "Add" */
+"423.ibShadowedToolTip" = "Adicionar";
+
 /* Menu Item "File" */
 "429.title" = "Ficheiro";
 
@@ -94,11 +97,11 @@
 /* Class = "NSMenuItem"; title = "Close Window"; ObjectID = "498"; */
 "498.title" = "Fechar";
 
-/* Menu Item "Help" */
-"504.title" = "Ajuda";
-
 /* Top-level Main Menu "Help" */
 "505.title" = "Ajuda";
+
+/* Menu Item "Help" */
+"504.title" = "Ajuda";
 
 /* Menu Item "ImageOptim Help" */
 "506.title" = "Ajuda do ImageOptim";
@@ -156,6 +159,9 @@
 
 /* Class = "NSMenuItem"; title = "Quality: 100%"; ObjectID = "Grx-lU-4x5"; */
 "Grx-lU-4x5.title" = "Qualidade: 100%";
+
+/* Class = "NSMenuItem"; title = "Stop"; ObjectID = "HUo-GO-MIU"; */
+"HUo-GO-MIU.title" = "Parar";
 
 /* Menu Item "Copy as Data URL"; ID "NlY-Bc-7tu"; */
 "NlY-Bc-7tu.title" = "Copiar Data URL";

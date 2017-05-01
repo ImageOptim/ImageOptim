@@ -1,3 +1,69 @@
-/* Tab "Optimization speed" (speed/efficiency trade-off) */
-"168.label" = "Optimization level";
 
+/* Window title */
+"5.title" = "Nastavenia ImageOptim";
+
+/* The first prefs tab (misc/general) */
+"167.label" = "Všeobecné";
+
+/* Tab "Optimization speed" (speed/efficiency trade-off) */
+"168.label" = "Rýchlosť optimalizácie";
+
+/* Tab quality (for lossy minification) */
+"177.label" = "Kvalita";
+
+/* Title in box "Writing files to disk" */
+"280.title" = "Zápis súborov na disk";
+
+/* checkbox "Preserve file permissions, attributes and hardlinks" */
+"804.title" = "Zachovať práva k súborom, vlastnosti a tvrdé odkazy";
+
+/* label in speed tab "Optimization level" */
+"818.title" = "Úroveň optimalizácie";
+
+/* "Fast" */
+"819.title" = "Rýchla";
+
+/* "Insane" */
+"820.title" = "Šialená";
+
+/* "Normal" */
+"821.title" = "Normálna";
+
+/* "Extra" */
+"822.title" = "Extra";
+
+/* Checkbox in Preferences */
+"854.title" = "Odstrániť metadáta z PNG (gama, farebné profily, nepovinné kusy)";
+
+/* note "Web browsers require gamma chunks to be removed" */
+"865.title" = "Webové prehliadače vyžadujú, aby boli gama kusy odstránené";
+
+/* label "JPEG quality" */
+"868.title" = "JPEG kvalita";
+
+/* Checkbox in Preferences */
+"911.title" = "Odstrániť metadáta z JPEG (EXIF, farebné profily, GPS, rotácia, atď.)";
+
+/* Box title "Metadata and color profiles" */
+"1043.title" = "Metadáta a farebné profily";
+
+/* Header above list of tools to enable */
+"1107.title" = "Povoliť";
+
+/* "Saving to network drives is faster when permissions are not preserved" */
+"1122.title" = "Ukladanie na sieťové disky je rýchlejšie, keď nie sú zachované práva";
+
+/* If stripping metadata "Not recommended if you rely on embedded copyright information" */
+"1124.title" = "Neodporúča sa, ak spoliehate na vložené informácie o autorských právach";
+
+/* Class = "NSTextFieldCell"; title = "GIF quality"; ObjectID = "OIX-Pu-xXQ"; */
+"OIX-Pu-xXQ.title" = "Kvalita GIF";
+
+/* "Makes files much smaller, but may change how images look"; (Note about setting lossy on) */
+"LossTipTxt.title" = "Robí súbory oveľa menšími, ale môže zmeniť vzhľad obrázkov";
+
+/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "Kvalita PNG";
+
+/* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
+"wBgxz7uj.title" = "Povoliť stratové zmenšovanie";

@@ -88,6 +88,9 @@
 /* Button Tooltip "Add new files or directories" */
 "423.ibExternalAccessibilityDescription" = "Neue Dateien oder Verzeichnisse hinzufügen";
 
+/* Button "Add" */
+"423.ibShadowedToolTip" = "Hinzufügen";
+
 /* Menu Item "File" */
 "429.title" = "Ablage";
 
@@ -126,9 +129,6 @@
 
 /* TextFieldCell "Drag and drop image files onto the area above" */
 "632.title" = "Ziehen Sie Dateien zum Optimieren in den oberen Bereich.";
-
-/* Button "Add" */
-"423.ibShadowedToolTip" = "Hinzufügen";
 
 /* Button; alternateTitle = "Run optimizations again" */
 "635.alternateTitle" = "Erneut optimieren";

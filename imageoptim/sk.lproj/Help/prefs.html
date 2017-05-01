@@ -1,0 +1,77 @@
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<title>Nastavenia ImageOptim</title>
+<link rel="stylesheet" href="../../style.css">
+<meta name="AppleTitle" content="ImageOptim Preferences Help">
+<meta name="AppleIcon" content="../../ImageOptim.icns">
+<meta name="description" content="ImageOptim Preferences">
+</head>
+<body>
+
+    <h1><a name="general">Nastavenia ImageOptim</a></h1>
+    <p><a href="index.html">« Späť na úvod</a></p>
+    <h2>Všeobecné nastavenia</h2>
+    <dl>
+<dt>Zachovať práva k súborom, vlastnosti a tvrdé odkazy</dt>
+      <dd>
+        <p>Namiesto odstránenia pôvodných súborov, zapísanie nového s rovnakým názvom, iba sa nahradí pôvodný obsah súboru. To zaistí, že všetky tvrdé odkazy, aliasy, vlastníctva súborov, oprávnenia, rozšírené atribúty súborov zostanú rovnaké.</p>
+        <p>Je mierne rýchlejšie nezachovávať oprávnenia.</p>
+      </dd>
+      <dt>Odstrániť metadáta z PNG (gama, farebné profily, nepovinné kusy)</dt>
+      <dd>
+        <p>PNG súbory môžu mať rôzny jas a sýtosť farieb v rôznych prehliadačoch, pretože nie všetky prehliadače podporujú funkcie gama korekcie a farebných profilov rovnako. Odstránenie týchto informácií robí farbu PNG viac konzistentnú naprieč prehliadačmi a zmenší sa veľkosť súboru.</p>
+        <p data-role="strip-dpi">Ostatné neviditeľné informácie sa odstránia rovnako, ako napríklad DPI a komentáre.</p>
+      </dd>
+      <dt>Odstrániť metadáta z JPEG (EXIF, farebné profily, GPS, rotácia, atď.)</dt>
+      <dd>
+        <p>Odstraňuje metadáta z obrázkov, ako napríklad profil farieb, doba expozície, GPS súradnice, model fotoaparátu a názov softvéru použitého na vytvorenie daného súboru.</p>
+        <p data-role="strip-copyright">Rovnako sa odstránia vložené informácie o autorských právach. Upozorňujeme, že vo všeobecnosti sú obrázky chránené autorským právom bez ohľadu na to či obsahujú takéto neviditeľné metadáta, alebo nie.</p>
+      </dd>
+    </dl>
+<h2>Nástroje</h2>
+    <p data-role="slow-tools">Zopfli a PNGOUT sú veľmi dobré PNG kompresory, ale sú veľmi pomalé. Zakážte ich, ak potrebujete rýchlo optimalizovať súbory PNG (ponechajte len AdvPNG pre najrýchlejšiu, ale stále dobrú kompresiu).</p>
+    <p data-role="dirty-alpha-tools">Zopfli a OptiPNG vyčistí RGB hodnoty pre transparentné pixely (známe ako "špinavé alpha"). Zakážte tieto dva nástroje, ak optimalizujete špeciálne súbory, ktoré používajú alfa kanál na niečo iného, než transparentnosť (napr. výšková mapa v dátových súboroch hier).</p>
+    <div id="jpegoptim">
+      <h2><a name="jpegoptim">JPEGOptim</a></h2>
+      <dl>
+<dt>Maximálna kvalita</dt>
+        <dd>
+          <p>Ak je nastavené na 100%, optimalizácia bude <strong>bezstratová</strong>.</p>
+          <p>Čokoľvek pod 100% spôsobí <strong>nižšiu kvalitu</strong> súborov, ak sa zdá, že boli uložené s nastavením vyššej kvality.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="pngout">
+      <h2><a name="pngout">PNGOUT</a></h2>
+      <dl>
+<dt>Typ optimalizácie</dt>
+        <dd>
+          <p>PNGOUT je veľmi účinný, ale tiež veľmi pomalý. Použitie nižšiu úroveň, ak ste netrpezliví.</p>
+        </dd>
+        <dt>Prerušiť, ak to trvá príliš dlho</dt>
+        <dd>
+          <p>PNGOUT môže potrebovať <em>veľa</em> času na optimalizáciu veľmi veľkých obrázkov. Táto možnosť elegantne preruší PNGOUT po 1 minúte.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="optipng">
+      <h2><a name="optipng">OptiPNG</a></h2>
+      <dl>
+<dt>Úroveň optimalizácie</dt>
+        <dd>
+          <p>Počet vyskúšaných kombinácií rôznych nastavení. Málokedy má zmysel vyskúšať ich všetky.</p>
+        </dd>
+        <dt>Spraviť obrázky prekladané (progresívne)</dt>
+        <dd>
+          <p>Prekladané obrázky vyzerajú lepšie, keď sú čiastočne načítané, ale obvykle prekladanie robí kompresiu menej efektívnu.</p>
+          <p>Toto políčko má tri stavy: Ak je zaškrtnuté, obrázky budú prekladané. Ak je zmiešané, zachová prekladanie súboru nezmenené a ak je nezaškrtnuté, odstráni prekladanie zo súborov.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="gifsicle">
+      <h2>Gifsicle</h2>
+      <p>Pre najlepšiu kompresiu, by ste mali previesť súbory GIF na PNG (ImageOptim to nerobí automaticky).</p>
+    </div>
+  </body>
+</html>

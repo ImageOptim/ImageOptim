@@ -1,0 +1,54 @@
+/* tooltip */
+"%@ failed to start" = "%@ sa nepodarilo spustiť";
+
+/* undo command name */
+"Add" = "Pridať";
+
+/* undo command name */
+"Cut" = "Vystrihnúť";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "Všetky potrebné nástroje boli v Nastaveniach zakázané";
+
+/* tooltip, generic loading error */
+"Can't open the file" = "Súbor sa nedá otvoriť";
+
+/* tooltip */
+"File cannot be optimized any further" = "Súbor sa už nedá viac vylepšiť";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "Súbor nie je PNG, GIF ani JPEG";
+
+/* status bar */
+"ImageOptim will quit when optimizations are complete" = "ImageOptim bude po dokončení optimalizácií ukončený";
+
+/* tooltip */
+"Inspecting file" = "Súbor sa skúma";
+
+/* newly added to the queue */
+"New file" = "Nový súbor";
+
+/* status bar */
+"Lossy minification enabled" = "Povolené stratové zmenšenie";
+
+/* tooltip */
+"Optimized file could not be saved" = "Optimalizovaný súbor sa nepodarilo uložiť";
+
+/* tooltip */
+"Optimized successfully with %@" = "Optimalizované úspešne s %@";
+
+/* tooltip */
+"Reverted to original" = "Vrátené na originál";
+
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Ušetrené %1$@ z %2$@. %3$@ celkom (až do %4$@ na súbor)";
+
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Ušetrené %1$@ z %2$@. %3$@ priemerne na súbor (až do %4$@)";
+
+/* command name, tooltip */
+"Started %@" = "Spustený %@";
+
+/* tooltip */
+"Waiting to be optimized" = "Čaká na optimalizáciu";
+

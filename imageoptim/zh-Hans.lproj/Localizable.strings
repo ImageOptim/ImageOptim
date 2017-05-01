@@ -4,20 +4,23 @@
 /* undo command name */
 "Add" = "添加";
 
-/* tooltip */
-"All neccessary tools have been disabled in Preferences" = "在首选项中已禁用了所有必要的工具";
-
-/* tooltip, generic loading error */
-"Can't open the file" = "无法将文件映射到内存";
-
 /* undo command name */
 "Cut" = "剪切";
 
 /* tooltip */
-"File cannot be optimized any further" = "文件不能被进一步优化了";
+"All neccessary tools have been disabled in Preferences" = "在首选项中已禁用所有必要工具";
+
+/* tooltip, generic loading error */
+"Can't open the file" = "无法打开该文件";
 
 /* tooltip */
-"File is neither PNG, GIF nor JPEG" = "文件不是 PNG、GIF 或者 JPEG 格式";
+"File cannot be optimized any further" = "文件不能被进一步优化";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "文件不是 PNG、GIF 或 JPEG 格式";
+
+/* status bar */
+"ImageOptim will quit when optimizations are complete" = "ImageOptim 将在优化完成后退出";
 
 /* tooltip */
 "Inspecting file" = "正在检查文件";
@@ -25,22 +28,27 @@
 /* newly added to the queue */
 "New file" = "新文件";
 
+/* status bar */
+"Lossy minification enabled" = "微量有损已启用";
+
 /* tooltip */
 "Optimized file could not be saved" = "优化的文件未能保存";
 
 /* tooltip */
 "Optimized successfully with %@" = "优化成功于 %@";
 
+/* tooltip */
+"Reverted to original" = "已恢复原状";
+
 /* total ratio, status bar */
 "Saved %@ out of %@. %@ overall (up to %@ per file)" = "节省了 %1$@（总计 %2$@）。总体 %3$@ （每个文件最多 %4$@）";
 
 /* per file avg, status bar */
-"Saved %@ out of %@. %@ per file on average (up to %@)" = "节约了%1$@（总共%2$@）。平均每个文件 %3$@（最多 %4$@）";
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "节省了 %1$@（总共%2$@）。平均每个文件 %3$@（最多 %4$@）";
 
 /* command name, tooltip */
 "Started %@" = "开始 %@";
 
 /* tooltip */
-/* tooltip */
-"Waiting to be optimized" = "等待开始更多优化";
+"Waiting to be optimized" = "等待被优化";
 

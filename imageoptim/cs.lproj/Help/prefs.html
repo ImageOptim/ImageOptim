@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="cs">
 <meta charset="UTF-8">
 <title>Nastavení ImageOptim.</title>
 <link rel="stylesheet" href="../../style.css">
@@ -12,27 +13,27 @@
     <dl>
 <dt>Zachovat práva k souborům, vlastnosti a tvrdé odkazy</dt>
       <dd>
-        <p>Instead of deleting old file writing a new one with the same name, just replaces old file's content in-place. This ensures that all hardlinks, aliases, file ownership, permissions, extended file attributes will stay the same.</p>
+        <p>Namísto odstraňování starých souborů zápis nového se stejným názvem, jen nahradí starý obsah souboru. Tím je zajištěno, že všechny trvdé okazy, aliasy, vlastnictví souborů, oprávnění a rozšířené atributy souboru zůstanou stejné.</p>
         <p>Je lehce rychlejší nezachovávat oprávnění.</p>
       </dd>
-      <dt>Strip PNG metadata (gamma, color profiles, optional chunks)</dt>
+      <dt>Zbavit  PNG popisných dat (gama, barevné profily, nepovinné kusy)</dt>
       <dd>
-        <p>PNG files can have different brightness and saturation in different browsers, because not all browsers support gamma correction and color profiles features equally. Removal of this information makes PNG color more consistent across browsers and reduces file size.</p>
-        <p data-role="strip-dpi">Other invisible information is removed as well, such as DPI and comments.</p>
+        <p>PNG soubory mohou mít odlišný jas a sytost barev v různých prohlížečích, protože některé prohlížeče nepodporují funkce gama korekci a barevné profily stejně. Odstraněním těchto informací z PNG je barva více konzistentní napříč prohlížeči a snižuje se velikost souboru.</p>
+        <p data-role="strip-dpi">Další neviditelné informace jsou odebrány také, například DPI a komentáře.</p>
       </dd>
-      <dt>Strip JPEG metadata (EXIF, color profiles, GPS, rotation, etc.)</dt>
+      <dt>Zbavit  JPEG popisných dat (EXIF, barevné profily, GPS, otočení atd.)</dt>
       <dd>
-        <p>Removes image metadata, such as color profile, exposure time, GPS coordinates, camera model and name of software used to create the file.</p>
-        <p data-role="strip-copyright">Embedded copyright information is removed as well. Please note that generally images are protected by copyright law regardless whether they contain such invisible metadata or not.</p>
+        <p>Odstraní popisné data obrazu, například profil barev, expoziční čas, GPS souřadnice, model fotoaparátu a název softwaru použitého k vytvoření souboru.</p>
+        <p data-role="strip-copyright">Vložené informace o autorských právech jsou odebrány také. Vezměte prosím na vědomí, že obecně jsou obrázky chráněny autorským zákonem bez ohledu na to zda obsahují takové neviditelné metadata, či nikoliv.</p>
       </dd>
     </dl>
 <h2>Nástroje</h2>
-    <p data-role="slow-tools">Zopfli and PNGOUT are very good PNG compressors, but are very slow. Disable them if you need to optimize PNG files quickly (leave only AdvPNG for fastest, but still good compression).</p>
-    <p data-role="dirty-alpha-tools">Zopfli and OptiPNG will clean RGB values of transparent pixels (known as “dirty alpha”). Disable these two tools if you're optimizing special files that use alpha channel for something else than transparency (e.g. heightmap in game data files).</p>
+    <p data-role="slow-tools">Zopfli a PNGOUT jsou velmi dobré PNG kompresory, ale jsou velmi pomalé. Zakažte je, pokud potřebujete rychle optimalizovat soubory PNG (ponechat pouze AdvPNG pro nejrychlejší, ale stále dobrou kompresi).</p>
+    <p data-role="dirty-alpha-tools">Zopfli a OptiPNG vyčistí RGB hodnoty průhledných pixelů (známé jako "špinavé alfa"). Tyto dva nástroje zakážete, pokud optimalizujete speciální soubory, které používají alfa kanál pro něco jiného než průhlednost (např. výšková mapa v datových souborech hry).</p>
     <div id="jpegoptim">
       <h2><a name="jpegoptim">JPEGOptim</a></h2>
       <dl>
-<dt>Největší kvalita</dt>
+<dt>Maximální kvalita</dt>
         <dd>
           <p>Pokud nastaveno na 100%, vylepšování bude <strong>bezztrátové</strong>.</p>
           <p>Cokoli pod 100% povede k <strong>nižší kvalitě</strong> souborů, pokud je to tak, že byly uloženy s nastavením vyšší kvality.</p>
@@ -48,7 +49,7 @@
         </dd>
         <dt>Přerušit, pokud to trvá příliš dlouho</dt>
         <dd>
-          <p>PNGOUT may need <em>a lot</em> of time to optimize very large images. This option gracefully interrupts PNGOUT after 1 minute.</p>
+          <p>PNGOUT může potřebovat <em>hodně</em> času na optimalizaci velmi velkých obrázků. Tato možnost řádně přeruší PNGOUT po 1 minutě.</p>
         </dd>
       </dl>
 </div>
@@ -61,14 +62,14 @@
         </dd>
         <dt>Udělat obrázky prokládané (progresivní)</dt>
         <dd>
-          <p>Interlaced images look better when they're loaded partially, but usually interlace makes compression less efficient.</p>
-          <p>This checkbox has three states: if checked, will force images to be interlaced. When mixed, it will keep file's interlace unchanged, unchecked will remove interlace from files.</p>
+          <p>Prokládané obrázky vypadají lépe, když jsou načteny částečně, ale obvykle prokládání vede k méně efektivní kompresi.</p>
+          <p>Toto zaškrtávací políčko má tři stavy: je-li zaškrtnuto, budou obrázky prokládané. Je-li smícháné, bude prokládání souboru nezměněno a je-li odškrtnuto bude prokládání ze souborů odstraněno.</p>
         </dd>
       </dl>
 </div>
     <div id="gifsicle">
       <h2>Gifsicle</h2>
-      <p>For best compression, you should convert GIF files to PNGs (ImageOptim does not do that automatically).</p>
+      <p>Pro nejlepší kompresi, měli byste převést soubory GIF na PNG (ImageOptim to nedělá automaticky).</p>
     </div>
   </body>
 </html>

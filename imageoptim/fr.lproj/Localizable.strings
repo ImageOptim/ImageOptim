@@ -19,6 +19,9 @@
 /* tooltip */
 "File is neither PNG, GIF nor JPEG" = "Le fichier n'est ni un PNG ni un JPEG";
 
+/* status bar */
+"ImageOptim will quit when optimizations are complete" = "ImageOptim quittera quand les optimisations seront terminées.";
+
 /* tooltip */
 "Inspecting file" = "Analyse du fichier";
 
@@ -31,11 +34,23 @@
 /* newly added to the queue */
 "New file" = "Nouveau fichier";
 
+/* status bar */
+"Lossy minification enabled" = "Minification avec perte activée";
+
 /* tooltip */
 "Optimized file could not be saved" = "Le fichier optmimisé n'a pas pu être sauvegardé";
 
 /* tooltip */
 "Optimized successfully with %@" = "Optimisé avec succès (%@)";
+
+/* tooltip */
+"Reverted to original" = "Retour à l'original";
+
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "%1$@ de sauvegardé sur %2$@. %3$@ au total (jusqu'à %4$@ par fichier)";
+
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "%1$@ de sauvegardé sur %2$@. %3$@ par fichier en moyenne (jusqu'à %4$@)";
 
 /* command name, tooltip */
 "Started %@" = "%@ démarré";

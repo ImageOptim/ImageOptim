@@ -1,0 +1,60 @@
+/* tooltip */
+"%@ failed to start" = "فشل %@ بالبدء";
+
+/* undo command name */
+"Add" = "أضف";
+
+/* undo command name */
+"Cut" = "قص";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "كل الأدوات الأساسية تم تعطيلها من خصائص";
+
+/* tooltip, generic loading error */
+"Can't open the file" = "لايمكن فتح الملف";
+
+/* tooltip */
+"File cannot be optimized any further" = "الملف لايمكن تحسينها أكثر الحالي";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "الملف ليس PNG أو  GIF أو JPEG";
+
+/* status bar */
+"ImageOptim will quit when optimizations are complete" = "سيقوم ImageOptim بإغلاق نفسه بعد إنتهاء التحسينات";
+
+/* tooltip */
+"Inspecting file" = "فحص ملف";
+
+/* kilobytes suffix */
+"KB" = "كيلوبايت";
+
+/* newly added to the queue */
+"New file" = "ملف جديد";
+
+/* status bar */
+"Lossy minification enabled" = "التصغير المهترئ مفعل";
+
+/* megabytes suffix */
+"MB" = "ميغا بايت";
+
+/* tooltip */
+"Optimized file could not be saved" = "الملف المُحسن لم نستطع حفظه";
+
+/* tooltip */
+"Optimized successfully with %@" = "تم التحسين بنجاح مع %@";
+
+/* tooltip */
+"Reverted to original" = "استرجاع الأصلي";
+
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "تم حفظ %1$@ من أصل %2$@. إجمالاً %3$@. (مايصل %4$@ لكل ملف)";
+
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "تم حفظ %1$@ من أصل %2$@. بالمتوسط %3$@ لكل ملف (مايصل إلى  %4$@)";
+
+/* command name, tooltip */
+"Started %@" = "بدأ %@";
+
+/* tooltip */
+"Waiting to be optimized" = "بالإنتظار لكي يتم تحسينها";
+

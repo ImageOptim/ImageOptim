@@ -73,6 +73,9 @@
 /* Button Tooltip "Add new files or directories" */
 "423.ibExternalAccessibilityDescription" = "Ajouter des fichiers…";
 
+/* Button "Add" */
+"423.ibShadowedToolTip" = "Ajouter";
+
 /* Menu Item "File" */
 "429.title" = "Fichier";
 
@@ -88,11 +91,11 @@
 /* Class = "NSMenuItem"; title = "Close Window"; ObjectID = "498"; */
 "498.title" = "Fermer";
 
-/* Menu Item "Help" */
-"504.title" = "Aide";
-
 /* Top-level Main Menu "Help" */
 "505.title" = "Aide";
+
+/* Menu Item "Help" */
+"504.title" = "Aide";
 
 /* Menu Item "ImageOptim Help" */
 "506.title" = "Aide ImageOptim";
@@ -109,17 +112,12 @@
 /* TextFieldCell "Drag and drop image files onto the area above" */
 "632.title" = "Déposez les fichiers à optimiser ci-dessus.";
 
-/* Button "Add" */
-"423.ibShadowedToolTip" = "Ajouter des fichiers…";
-
 /* Button; alternateTitle = "Run optimizations again" */
 "635.alternateTitle" = "Optimiser à nouveau";
 
 /* Button "Again" */
 "635.title" = "Relancer";
 
-/* Table column Tooltip "Status" */
-"642.ibExternalAccessibilityDescription" = "Statut";
 
 /* Menu Item "Tools" */
 "655.title" = "Outils";
@@ -145,9 +143,27 @@
 /* Table Column Title (MUST BE SHORT) "Original Size" */
 "795.headerCell.title" = "Taille (original)";
 
+
+/* Class = "NSMenuItem"; title = "Revert to Original"; ObjectID = "FLl-C9-GLI"; */
+"FLl-C9-GLI.title" = "Revenir à l'original";
+
 /* Class = "NSMenuItem"; title = "Quality: 100%"; ObjectID = "Grx-lU-4x5"; */
 "Grx-lU-4x5.title" = "Qualité: 100%";
+
+/* Class = "NSMenuItem"; title = "Stop"; ObjectID = "HUo-GO-MIU"; */
+"HUo-GO-MIU.title" = "Arrêter";
 
 /* Menu Item "Copy as Data URL"; ID "NlY-Bc-7tu"; */
 "NlY-Bc-7tu.title" = "Copier Data URL";
 
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "ddH-3k-EuT"; */
+"ddH-3k-EuT.title" = "Voir dans le Finder";
+
+/* Class = "NSMenuItem"; title = "Lossy minification"; ObjectID = "euw-8w-uMu"; */
+"euw-8w-uMu.title" = "Minification avec perte";
+
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "p0m-mn-Gep"; */
+"p0m-mn-Gep.title" = "Voir dans le Finder";
+
+/* Class = "NSTableHeaderView"; ibExternalAccessibilityDescription = "Status"; ObjectID = "ygK-3e-IlX"; */
+"ygK-3e-IlX.ibExternalAccessibilityDescription" = "Statut";

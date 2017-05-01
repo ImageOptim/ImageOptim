@@ -85,6 +85,9 @@
 /* Button Tooltip "Add new files or directories" */
 "423.ibExternalAccessibilityDescription" = "Adaugă fişiere sau foldere noi";
 
+/* Button "Add" */
+"423.ibShadowedToolTip" = "Adaugă";
+
 /* Menu Item "File" */
 "429.title" = "Fişier";
 
@@ -103,11 +106,11 @@
 /* Class = "NSMenuItem"; title = "Close Window"; ObjectID = "498"; */
 "498.title" = "Închide fereastra";
 
-/* Menu Item "Help" */
-"504.title" = "Ajutor";
-
 /* Top-level Main Menu "Help" */
 "505.title" = "Ajutor";
+
+/* Menu Item "Help" */
+"504.title" = "Ajutor";
 
 /* Menu Item "ImageOptim Help" */
 "506.title" = "Ajutor ImageOptim";
@@ -123,9 +126,6 @@
 
 /* TextFieldCell "Drag and drop image files onto the area above" */
 "632.title" = "Glisaţi şi plasaţi imaginile în zona de sus";
-
-/* Class = "NSButtonCell"; title = "Adaugă"; ObjectID = "633"; */
-"633.title" = "Adaugă";
 
 /* Button; alternateTitle = "Run optimizations again" */
 "635.alternateTitle" = "Rulează optimizările din nou";

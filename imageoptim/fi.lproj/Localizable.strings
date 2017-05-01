@@ -1,0 +1,60 @@
+/* tooltip */
+"%@ failed to start" = "%@ ei onnistunut aloittamaan";
+
+/* undo command name */
+"Add" = "Lisää";
+
+/* undo command name */
+"Cut" = "Leikkaa";
+
+/* tooltip */
+"All neccessary tools have been disabled in Preferences" = "Kaikki tarvittavat työkalut on poistettu käytöstä asetuksista";
+
+/* tooltip, generic loading error */
+"Can't open the file" = "Tiedostoa ei voi avata";
+
+/* tooltip */
+"File cannot be optimized any further" = "Tiedostoa ei voi optimoida enempää";
+
+/* tooltip */
+"File is neither PNG, GIF nor JPEG" = "Tiedosto ei ole PNG, GIF tai JPEG";
+
+/* status bar */
+"ImageOptim will quit when optimizations are complete" = "ImageOptim sulkeutuu, kun optimoinnit ovat valmiit";
+
+/* tooltip */
+"Inspecting file" = "Tutkitaan tiedostoa";
+
+/* kilobytes suffix */
+"KB" = "kt";
+
+/* newly added to the queue */
+"New file" = "Uusi tiedosto";
+
+/* status bar */
+"Lossy minification enabled" = "Häviöllinen pienennys käytössä";
+
+/* megabytes suffix */
+"MB" = "Mt";
+
+/* tooltip */
+"Optimized file could not be saved" = "Optimoitua tiedostoa ei voitu tallentaa";
+
+/* tooltip */
+"Optimized successfully with %@" = "Optimoitu onnistuneesti työkaluin %@";
+
+/* tooltip */
+"Reverted to original" = "Palautettu alkuperäinen";
+
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Säästetty %1$@ / %2$@. Yhteensä %3$@ (jopa %4$@ / tiedosto)";
+
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Säästetty %1$@ / %2$@. Keskimäärin %3$@ / tiedosto (jopa %4$@)";
+
+/* command name, tooltip */
+"Started %@" = "Aloitettu %@";
+
+/* tooltip */
+"Waiting to be optimized" = "Odotetaan optimointia";
+

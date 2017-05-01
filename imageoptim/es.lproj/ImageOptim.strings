@@ -85,6 +85,9 @@
 /* Button Tooltip "Add new files or directories" */
 "423.ibExternalAccessibilityDescription" = "Añadir nuevos archivos o directorios";
 
+/* Button "Add" */
+"423.ibShadowedToolTip" = "Añadir";
+
 /* Menu Item "File" */
 "429.title" = "Archivo";
 
@@ -100,11 +103,11 @@
 /* Class = "NSMenuItem"; title = "Close Window"; ObjectID = "498"; */
 "498.title" = "Cerrar";
 
-/* Menu Item "Help" */
-"504.title" = "Ayuda";
-
 /* Top-level Main Menu "Help" */
 "505.title" = "Ayuda";
+
+/* Menu Item "Help" */
+"504.title" = "Ayuda";
 
 /* Menu Item "ImageOptim Help" */
 "506.title" = "Ayuda ImageOptim";
@@ -120,9 +123,6 @@
 
 /* TextFieldCell "Drag and drop image files onto the area above" */
 "632.title" = "Arrastre y suelte archivos de imágenes aquí encima";
-
-/* Button "Add" */
-"423.ibShadowedToolTip" = "Añadir";
 
 /* Button; alternateTitle = "Run optimizations again" */
 "635.alternateTitle" = "Ejecutar optimizaciones de nuevo";
@@ -163,9 +163,27 @@
 /* Table Column Title (MUST BE SHORT) "Original Size" */
 "795.headerCell.title" = "Tamaño (original)";
 
+
+/* Class = "NSMenuItem"; title = "Revert to Original"; ObjectID = "FLl-C9-GLI"; */
+"FLl-C9-GLI.title" = "Restaurar al original";
+
 /* Class = "NSMenuItem"; title = "Quality: 100%"; ObjectID = "Grx-lU-4x5"; */
 "Grx-lU-4x5.title" = "Calidad: 100%";
+
+/* Class = "NSMenuItem"; title = "Stop"; ObjectID = "HUo-GO-MIU"; */
+"HUo-GO-MIU.title" = "Detener";
 
 /* Menu Item "Copy as Data URL"; ID "NlY-Bc-7tu"; */
 "NlY-Bc-7tu.title" = "Copiar Data URL";
 
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "ddH-3k-EuT"; */
+"ddH-3k-EuT.title" = "Mostrar en el Finder";
+
+/* Class = "NSMenuItem"; title = "Lossy minification"; ObjectID = "euw-8w-uMu"; */
+"euw-8w-uMu.title" = "Minificación con pérdidas";
+
+/* Class = "NSMenuItem"; title = "Show in Finder"; ObjectID = "p0m-mn-Gep"; */
+"p0m-mn-Gep.title" = "Mostrar en el Finder";
+
+/* Class = "NSTableHeaderView"; ibExternalAccessibilityDescription = "Status"; ObjectID = "ygK-3e-IlX"; */
+"ygK-3e-IlX.ibExternalAccessibilityDescription" = "Estado";

@@ -1,0 +1,69 @@
+
+/* Window title */
+"5.title" = "ImageOptim-asetukset";
+
+/* The first prefs tab (misc/general) */
+"167.label" = "Yleiset";
+
+/* Tab "Optimization speed" (speed/efficiency trade-off) */
+"168.label" = "Optimointinopeus";
+
+/* Tab quality (for lossy minification) */
+"177.label" = "Laatu";
+
+/* Title in box "Writing files to disk" */
+"280.title" = "Tiedostojen kirjoitus levylle";
+
+/* checkbox "Preserve file permissions, attributes and hardlinks" */
+"804.title" = "Säilytä tiedostojen oikeudet, määritteet ja kovat linkit";
+
+/* label in speed tab "Optimization level" */
+"818.title" = "Optimoinnin taso";
+
+/* "Fast" */
+"819.title" = "Nopea";
+
+/* "Insane" */
+"820.title" = "Järjetön";
+
+/* "Normal" */
+"821.title" = "Tavallinen";
+
+/* "Extra" */
+"822.title" = "Erityinen";
+
+/* Checkbox in Preferences */
+"854.title" = "Poista PNG:n metadata (gamma, väriprofiilit, valinnaiset lohkot)";
+
+/* note "Web browsers require gamma chunks to be removed" */
+"865.title" = "Selaimet edellyttävät, että gammalohkot poistetaan";
+
+/* label "JPEG quality" */
+"868.title" = "JPEG:n laatu";
+
+/* Checkbox in Preferences */
+"911.title" = "Poista JPEG:n metadata (EXIF, väriprofiilit, GPS, kierto jne.)";
+
+/* Box title "Metadata and color profiles" */
+"1043.title" = "Metadata ja väriprofiilit";
+
+/* Header above list of tools to enable */
+"1107.title" = "Ota käyttöön";
+
+/* "Saving to network drives is faster when permissions are not preserved" */
+"1122.title" = "Verkkolevyille tallentaminen on nopeampaa, kun oikeuksia ei säilytetä";
+
+/* If stripping metadata "Not recommended if you rely on embedded copyright information" */
+"1124.title" = "Ei suositella, jos luotat upotettuun tekijänoikeustietoon";
+
+/* Class = "NSTextFieldCell"; title = "GIF quality"; ObjectID = "OIX-Pu-xXQ"; */
+"OIX-Pu-xXQ.title" = "GIF:n laatu";
+
+/* "Makes files much smaller, but may change how images look"; (Note about setting lossy on) */
+"LossTipTxt.title" = "Saa tiedostoista paljon pienempiä, mutta voi vaikuttaa kuvien ulkoasuun";
+
+/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG:n laatu";
+
+/* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
+"wBgxz7uj.title" = "Ota häviöllinen pienennys käyttöön";

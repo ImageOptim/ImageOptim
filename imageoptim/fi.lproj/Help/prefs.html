@@ -1,0 +1,77 @@
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<title>ImageOptim-asetukset</title>
+<link rel="stylesheet" href="../../style.css">
+<meta name="AppleTitle" content="ImageOptim Preferences Help">
+<meta name="AppleIcon" content="../../ImageOptim.icns">
+<meta name="description" content="ImageOptim Preferences">
+</head>
+<body>
+
+    <h1><a name="general">ImageOptim-asetukset</a></h1>
+    <p><a href="index.html">« Takaisin etusivulle</a></p>
+    <h2>Yleiset asetukset</h2>
+    <dl>
+<dt>Säilytä tiedostojen oikeudet, määritteet ja kovat linkit</dt>
+      <dd>
+        <p>Instead of deleting old file writing a new one with the same name, just replaces old file's content in-place. This ensures that all hardlinks, aliases, file ownership, permissions, extended file attributes will stay the same.</p>
+        <p>It's slightly faster not to preserve permissions.</p>
+      </dd>
+      <dt>Poista PNG:n metadata (gamma, väriprofiilit, valinnaiset lohkot)</dt>
+      <dd>
+        <p>PNG files can have different brightness and saturation in different browsers, because not all browsers support gamma correction and color profiles features equally. Removal of this information makes PNG color more consistent across browsers and reduces file size.</p>
+        <p data-role="strip-dpi">Other invisible information is removed as well, such as DPI and comments.</p>
+      </dd>
+      <dt>Poista JPEG:n metadata (EXIF, väriprofiilit, GPS, kierto jne.)</dt>
+      <dd>
+        <p>Removes image metadata, such as color profile, exposure time, GPS coordinates, camera model and name of software used to create the file.</p>
+        <p data-role="strip-copyright">Embedded copyright information is removed as well. Please note that generally images are protected by copyright law regardless whether they contain such invisible metadata or not.</p>
+      </dd>
+    </dl>
+<h2>Työkalut</h2>
+    <p data-role="slow-tools">Zopfli and PNGOUT are very good PNG compressors, but are very slow. Disable them if you need to optimize PNG files quickly (leave only AdvPNG for fastest, but still good compression).</p>
+    <p data-role="dirty-alpha-tools">Zopfli and OptiPNG will clean RGB values of transparent pixels (known as “dirty alpha”). Disable these two tools if you're optimizing special files that use alpha channel for something else than transparency (e.g. heightmap in game data files).</p>
+    <div id="jpegoptim">
+      <h2><a name="jpegoptim">JPEGOptim</a></h2>
+      <dl>
+<dt>Maximum quality</dt>
+        <dd>
+          <p>Jos asetettu 100 %:iin, optimointi on  <strong>häviötön</strong>.</p>
+          <p>Anything below 100% will cause <strong>lower quality</strong> of files if they appear to have been saved with higher quality setting.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="pngout">
+      <h2><a name="pngout">PNGOUT</a></h2>
+      <dl>
+<dt>Optimoinnin tyyppi</dt>
+        <dd>
+          <p>PNGOUT on erittäin tehokas mutta myös erittäin hidas. Käytä alempaa tasoa, jos olet malttamaton.</p>
+        </dd>
+        <dt>Keskeytys, jos vie liian kauan</dt>
+        <dd>
+          <p>PNGOUT voi kuluttaa <em>paljon</em> aikaa suurien kuvien optimoimiseen. Tämä valinta keskeyttää PNGOUTin hallitusti minuutin jälkeen.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="optipng">
+      <h2><a name="optipng">OptiPNG</a></h2>
+      <dl>
+<dt>Optimoinnin taso</dt>
+        <dd>
+          <p>Useita erilaisia asetusyhdistelmiä on testattu. On harvoin hyötyä kokeilla niitä kaikkia.</p>
+        </dd>
+        <dt>Tee kuvista lomitettuja (progressiivisia)</dt>
+        <dd>
+          <p>Lomitetut kuvat näyttävät paremmilta osittain latautuneina, mutta lomitus heikentää usein pakkaustehoa.</p>
+          <p>This checkbox has three states: if checked, will force images to be interlaced. When mixed, it will keep file's interlace unchanged, unchecked will remove interlace from files.</p>
+        </dd>
+      </dl>
+</div>
+    <div id="gifsicle">
+      <h2>Gifsicle</h2>
+      <p>Parhaan pakkauksen saavuttamiseksi GIF-kuvat tulee muuntaa PNG-muotoon. (ImageOptim ei tee tätä automaattisesti.)</p>
+    </div>
+  </body>
+</html>

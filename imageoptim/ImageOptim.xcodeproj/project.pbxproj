@@ -568,6 +568,25 @@
 		5A7D24F213EDF5F100815AAA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A7D24F313EDF5F100815AAA /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ImageOptim.strings; sourceTree = "<group>"; };
 		5A7D24F413EDF5F100815AAA /* es */ = {isa = PBXFileReference; lastKnownFileType = file.plist.strings; name = es; path = es.lproj/PrefsController.strings; sourceTree = "<group>"; };
+		5A7F3D781EB73DA100E94752 /* sk */ = {isa = PBXFileReference; lastKnownFileType = folder; name = sk; path = sk.lproj/Help; sourceTree = "<group>"; };
+		5A7F3D941EB73DA500E94752 /* ro */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ro; path = ro.lproj/Help; sourceTree = "<group>"; };
+		5A7F3D961EB73E0E00E94752 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ja; path = ja.lproj/Credits.html; sourceTree = "<group>"; };
+		5A7F3DAA1EB73ED800E94752 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A7F3DC21EB73EF300E94752 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/PrefsController.strings; sourceTree = "<group>"; };
+		5A7F3DC31EB73F0000E94752 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/ImageOptim.strings; sourceTree = "<group>"; };
+		5A7F3DC41EB73F2E00E94752 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/ImageOptim.strings; sourceTree = "<group>"; };
+		5A7F3DC61EB73F3E00E94752 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A7F3DC71EB73F4700E94752 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/PrefsController.strings; sourceTree = "<group>"; };
+		5A7F3DC81EB7401600E94752 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = ar; path = ar.lproj/Credits.html; sourceTree = "<group>"; };
+		5A7F3E111EB7414800E94752 /* ar */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ar; path = ar.lproj/Help; sourceTree = "<group>"; };
+		5A7F3E121EB7418500E94752 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/ImageOptim.strings; sourceTree = "<group>"; };
+		5A7F3E131EB7419400E94752 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A7F3E141EB741AB00E94752 /* fi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fi; path = fi.lproj/Help; sourceTree = "<group>"; };
+		5A7F3E181EB741CB00E94752 /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/PrefsController.strings; sourceTree = "<group>"; };
+		5A7F3E191EB741FC00E94752 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/ImageOptim.strings; sourceTree = "<group>"; };
+		5A7F3E1A1EB7420700E94752 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/PrefsController.strings; sourceTree = "<group>"; };
+		5A7F3E1B1EB7420B00E94752 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A7F3E1C1EB7421700E94752 /* uk */ = {isa = PBXFileReference; lastKnownFileType = folder; name = uk; path = uk.lproj/Help; sourceTree = "<group>"; };
 		5A7FB6D61E2C37DD00481B4A /* SvgoWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvgoWorker.h; sourceTree = "<group>"; };
 		5A7FB6F21E2C37EB00481B4A /* SvgoWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvgoWorker.m; sourceTree = "<group>"; };
 		5A7FB7251E2C3E1600481B4A /* svgo.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = svgo.js; path = ../../svgo/build/svgo.js; sourceTree = "<group>"; };
@@ -1299,6 +1318,7 @@
 				en,
 				ro,
 				"zh-Hans",
+				ar,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* ImageOptim */;
 			projectDirPath = "";
@@ -1810,6 +1830,7 @@
 		1ACFBA191799E9CC006D93B2 /* Credits.html */ = {
 			isa = PBXVariantGroup;
 			children = (
+				5A7F3DC81EB7401600E94752 /* ar */,
 				5A012EBD17A89234002E794E /* cs */,
 				1ACFBA3A179A1348006D93B2 /* da */,
 				1ACFBA3F179A1352006D93B2 /* de */,
@@ -1817,6 +1838,7 @@
 				1ACFBA3D179A1351006D93B2 /* es */,
 				1ACFBA3E179A1352006D93B2 /* fr */,
 				1ACFBA49179A135B006D93B2 /* it */,
+				5A7F3D961EB73E0E00E94752 /* ja */,
 				1ACFBA3C179A1350006D93B2 /* nl */,
 				5A012EFC17A89860002E794E /* no */,
 				1ACFBA39179A1314006D93B2 /* pl */,
@@ -1841,6 +1863,7 @@
 		5A45530A1024EB1100A69944 /* ImageOptim.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
+				5A7F3DC41EB73F2E00E94752 /* ar */,
 				5ACCB3F117A828FF00853EFE /* cs */,
 				5ABF610913E37B07009F6F22 /* da */,
 				5A8DFBD710C097A0009A5C8E /* Dutch */,
@@ -1849,6 +1872,7 @@
 				5A8B52D41559C278005AA6E3 /* en-GB */,
 				5A45530B1024EB1100A69944 /* English */,
 				5A7D24F313EDF5F100815AAA /* es */,
+				5A7F3E121EB7418500E94752 /* fi */,
 				5A94A00D102757F0005CC9CB /* French */,
 				5AA339011117C41400046C79 /* German */,
 				5AA2213E10DE9CF900D67435 /* Italian */,
@@ -1861,8 +1885,10 @@
 				5AE74B5C146DECA300287FA6 /* pt-BR */,
 				5A059F1A1B6506C400FC8184 /* ro */,
 				5A0344371299882B002091AA /* ru */,
+				5A7F3DC31EB73F0000E94752 /* sk */,
 				5AC98826155F1ACD00E221A0 /* sv */,
 				5ACCB3F417A8292500853EFE /* tr */,
+				5A7F3E191EB741FC00E94752 /* uk */,
 				5ACCB3F517A8292500853EFE /* vi */,
 				5A5E8B1F1B6509FF003012E9 /* zh-Hans */,
 				1B5210E616BFA7CA0044C869 /* zh-Hant */,
@@ -1873,6 +1899,7 @@
 		5A45530D1024EB3000A69944 /* PrefsController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
+				5A7F3DC71EB73F4700E94752 /* ar */,
 				5A45530E1024EB3000A69944 /* Base */,
 				5ACCB3F617A8294900853EFE /* cs */,
 				5ABF610813E37AFC009F6F22 /* da */,
@@ -1881,6 +1908,7 @@
 				5A0E43D81B650F28008EF2EB /* en */,
 				5A8B52D31559C269005AA6E3 /* en-GB */,
 				5A7D24F413EDF5F100815AAA /* es */,
+				5A7F3E181EB741CB00E94752 /* fi */,
 				5A94A00C102757E5005CC9CB /* French */,
 				5AA339021117C41B00046C79 /* German */,
 				5AA2213F10DE9D0100D67435 /* Italian */,
@@ -1893,8 +1921,10 @@
 				5AE74B5E146DECAA00287FA6 /* pt-BR */,
 				5A5E8B341B650A2B003012E9 /* ro */,
 				5A0344381299882F002091AA /* ru */,
+				5A7F3DC21EB73EF300E94752 /* sk */,
 				5AC98827155F1ACD00E221A0 /* sv */,
 				5AA9F781189373AB00697D8E /* tr */,
+				5A7F3E1A1EB7420700E94752 /* uk */,
 				5ACCB3FA17A8294900853EFE /* vi */,
 				5A5E8AC41B6508DA003012E9 /* zh-Hans */,
 				1B5210E716BFA7CA0044C869 /* zh-Hant */,
@@ -1905,12 +1935,14 @@
 		5A94A03A10275E11005CC9CB /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
+				5A7F3DC61EB73F3E00E94752 /* ar */,
 				5ACCB41917A82E3100853EFE /* cs */,
 				5ABF611613E37BC3009F6F22 /* da */,
 				5A8DFBEB10C09812009A5C8E /* Dutch */,
 				5ACCB41A17A82E3100853EFE /* el */,
 				5A8B52D51559C291005AA6E3 /* en-GB */,
 				5A7D24F213EDF5F100815AAA /* es */,
+				5A7F3E131EB7419400E94752 /* fi */,
 				5A94A04D10275F40005CC9CB /* French */,
 				5AA338BF1117C00300046C79 /* German */,
 				5AA2213310DE9CEF00D67435 /* Italian */,
@@ -1923,8 +1955,10 @@
 				5AE74B57146DEC8700287FA6 /* pt-BR */,
 				5A5E8B331B650A0F003012E9 /* ro */,
 				5A03443A12998845002091AA /* ru */,
+				5A7F3DAA1EB73ED800E94752 /* sk */,
 				5AC9882C155F1AE100E221A0 /* sv */,
 				5ACCB41C17A82E3100853EFE /* tr */,
+				5A7F3E1B1EB7420B00E94752 /* uk */,
 				5ACCB41D17A82E3100853EFE /* vi */,
 				5A5E8AC21B6508D9003012E9 /* zh-Hans */,
 				1B5210E516BFA7CA0044C869 /* zh-Hant */,
@@ -1935,6 +1969,7 @@
 		5A95FEBE0CB8041A00737B79 /* Help */ = {
 			isa = PBXVariantGroup;
 			children = (
+				5A7F3E111EB7414800E94752 /* ar */,
 				5AA9F7821893743B00697D8E /* cs */,
 				5ABF611313E37B86009F6F22 /* da */,
 				5A8DFBD910C097B9009A5C8E /* Dutch */,
@@ -1942,6 +1977,7 @@
 				5A8B52D61559C29D005AA6E3 /* en-GB */,
 				5A95FEBF0CB8041A00737B79 /* English */,
 				5A7D24F113EDF5F100815AAA /* es */,
+				5A7F3E141EB741AB00E94752 /* fi */,
 				5A94A02610275AFD005CC9CB /* fr */,
 				5AA338A31117BF5500046C79 /* German */,
 				5AA9F7841893746300697D8E /* it */,
@@ -1952,9 +1988,12 @@
 				5AA9F799189374A000697D8E /* pl */,
 				5A034423129985D5002091AA /* pt */,
 				5AE74B60146DECB100287FA6 /* pt-BR */,
+				5A7F3D941EB73DA500E94752 /* ro */,
 				5A03443B1299884F002091AA /* ru */,
+				5A7F3D781EB73DA100E94752 /* sk */,
 				5AC9882B155F1AE100E221A0 /* sv */,
 				5AA9F7851893746E00697D8E /* tr */,
+				5A7F3E1C1EB7421700E94752 /* uk */,
 				5AA9F7861893747900697D8E /* vi */,
 				5A5E8ABF1B6508D9003012E9 /* zh-Hans */,
 				1B5210E316BFA7C90044C869 /* zh-Hant */,
