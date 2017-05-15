@@ -1,4 +1,4 @@
-#ImageOptim
+# ImageOptim
 
 [ImageOptim](http://imageoptim.com) is a GUI for lossless image optimization tools: PNGOUT, AdvPNG, Pngcrush, OptiPNG, JpegOptim, MozJPEG, jpegtran, and Gifsicle.
 
