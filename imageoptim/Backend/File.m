@@ -103,7 +103,14 @@
 }
 
 - (nullable NSString *)mimeType {
-    return fileType == FILETYPE_PNG ? @"image/png" : (fileType == FILETYPE_JPEG ? @"image/jpeg" : (fileType == FILETYPE_GIF ? @"image/gif" : nil));
+    switch (fileType) {
+        case FILETYPE_PNG: return @"image/png";
+        case FILETYPE_JPEG: return @"image/jpeg";
+        case FILETYPE_GIF: return @"image/gif";
+        case FILETYPE_SVG: return @"image/svg";
+        default:
+            return nil;
+    }
 }
 
 @end
