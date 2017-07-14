@@ -65,7 +65,6 @@
 		5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99FE83140AE80600BB2F79 /* Quartz.framework */; };
 		5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
 		5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA8300CAFE74E004D45CA /* Transformers.m */; };
-		5ABE15471AE5072300861C6B /* Backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 5ABE15461AE5072300861C6B /* Backend.h */; };
 		5ABE154D1AE5072300861C6B /* ImageOptimGPL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABE15421AE5072300861C6B /* ImageOptimGPL.framework */; };
 		5ABE15591AE5072300861C6B /* ImageOptimGPL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABE15421AE5072300861C6B /* ImageOptimGPL.framework */; };
 		5ABE155A1AE5072300861C6B /* ImageOptimGPL.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 5ABE15421AE5072300861C6B /* ImageOptimGPL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -653,7 +652,6 @@
 		5AB81F941AE1BE1300719AB7 /* Save.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Save.m; sourceTree = "<group>"; };
 		5ABE15421AE5072300861C6B /* ImageOptimGPL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageOptimGPL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ABE15451AE5072300861C6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5ABE15461AE5072300861C6B /* Backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Backend.h; sourceTree = "<group>"; };
 		5ABE154C1AE5072300861C6B /* BackendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ABE15541AE5072300861C6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5ABE15551AE5072300861C6B /* BackendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackendTests.m; sourceTree = "<group>"; };
@@ -1117,7 +1115,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ABE15471AE5072300861C6B /* Backend.h in Headers */,
 				5AD033531E26B6840030291A /* File.h in Headers */,
 				5A34D0041AEF6DB300A154E4 /* ImageOptimGPL.h in Headers */,
 				5A34D0991AEF75CE00A154E4 /* JobQueue.h in Headers */,
