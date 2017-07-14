@@ -6,21 +6,25 @@
 <description>ImageOptim updates</description>
 <language>en</language>
 <item>
-<title>1.7.0</title>
-<pubDate>Fri, 03 Mar 2017 12:55:48 +0000</pubDate>
+<title>1.7.1</title>
 <description><![CDATA[
-<ul>
-    <li>Added lossless and lossy SVG optimization. Only available if you have <a href="https://nodejs.org/">Node.js</a> installed.</li>
-    <li>Big under-the-hood changes improving handling of the list of files, temporary files, and reverting to original</li>
-</ul>
+<li>Added experimental Guetzli optimizer.
+    <ul>
+        <li>It's off by default (enable in <samp>Preferences</samp>), because it's <strong>very slow</strong>: 1 minute + 200MB RAM per megapixel. It is normal for a large photo to take 10 minutes and gigabytes of memory.</li>
+        <li>It's ineffective on JPEGs with quality 85 or lower. It's best to create JPEGs with 100% quality for running Guetzli on them.</li>
+        <li>Guetzli does not support color profiles, so <a href="/color-profiles.html">only use sRGB</a>.</li>
+        <li>Running Guetzli on the same image twice is not recommended, as it will decrease quality more than it reduces the file size. If you need smaller files, disable Guetzli, and enable <samp>Lossy</samp> mode instead.</li>
+    </ul>
+</li>
+<li>Added new languages: Arabic, Finnish, Slovak, Ukrainian</li>
+<li>Minor updates to SVGO, PNGOUT</li>
 ]]></description>
-<sparkle:minimumSystemVersion>10.8.0</sparkle:minimumSystemVersion>
-<enclosure url="https://imageoptim.com/ImageOptim1.7.0.1.tar.bz2" sparkle:version="1.7.0.1" sparkle:shortVersionString="1.7.0" length="1461613" type="application/octet-stream" sparkle:dsaSignature="MCwCFGgah0loSAwUoEn3Z2NjZS/cA6u3AhRFnyqnkz0owjL0d1zhFyItbq+q8w=="/>
+<pubDate>Fri, 14 Jul 2017 14:55:52 +0100</pubDate>
+<sparkle:minimumSystemVersion>10.9.0</sparkle:minimumSystemVersion>
+<enclosure url="https://imageoptim.com/ImageOptim1.7.1.tar.bz2" sparkle:version="1.7.1" sparkle:shortVersionString="1.7.1" length="1517457" type="application/octet-stream" sparkle:dsaSignature="MCwCFHZdviMk4tRhwUWTMZP6f8Y0Tb6HAhRPji2OYO7vYMoyLFYHkn7bNfBhRQ=="/>
 <sparkle:deltas>
-<enclosure url="https://imageoptim.com/ImageOptim1.7.0.1-1.7.0.delta" sparkle:version="1.7.0.1" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.7.0" length="39211" type="application/octet-stream" sparkle:dsaSignature="MC0CFC/GT65ezc2rUS/NPxbX/2boRDVdAhUAjq7E6NJA9T2DYjwBBg3D+879pag="/>
-<enclosure url="https://imageoptim.com/ImageOptim1.7.0.1-1.6.5.delta" sparkle:version="1.7.0.1" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.6.5" length="1034390" type="application/octet-stream" sparkle:dsaSignature="MC0CFByhk4Ig7QXhsl8Cd9zrmNH4qmWsAhUAl+GKGOkkxrZxY+N7QjUSuIPkph4="/>
-<enclosure url="https://imageoptim.com/ImageOptim1.7.0.1-1.6.4.delta" sparkle:version="1.7.0.1" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.6.4" length="1220955" type="application/octet-stream" sparkle:dsaSignature="MCwCFFNb3j6I23XmIxh9TPpP01EQgs4jAhQn5cnCtI3sokx+U2zzpw/HyAxsIg=="/>
-<enclosure url="https://imageoptim.com/ImageOptim1.7.0.1-1.6.3.delta" sparkle:version="1.7.0.1" sparkle:shortVersionString="1.7.0" sparkle:deltaFrom="1.6.3" length="1247221" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCZF6KMs/xapd2f4wGDpIQ5f5rybAIUZrV9E1jvTHS9n3W7euntOtRBgtI="/></sparkle:deltas>
+<enclosure url="https://imageoptim.com/ImageOptim1.7.1-1.7.0.1.delta" sparkle:version="1.7.1" sparkle:shortVersionString="1.7.1" sparkle:deltaFrom="1.7.0.1" length="1036695" type="application/octet-stream" sparkle:dsaSignature="MCwCFAafLoxBRApyC7kJGMB6kvPW790gAhQswEQJTkJkOsM4X07/mYbvjEzZ2A=="/>
+<enclosure url="https://imageoptim.com/ImageOptim1.7.1-1.7.0.delta" sparkle:version="1.7.1" sparkle:shortVersionString="1.7.1" sparkle:deltaFrom="1.7.0" length="1036712" type="application/octet-stream" sparkle:dsaSignature="MC4CFQCXdOfMRlz/iSGFtDxozb+iOWkSlQIVAJ2Y0UC1bsLHFEgPNdHql95yqwYf"/></sparkle:deltas>
 </item>
 </channel>
 </rss>
