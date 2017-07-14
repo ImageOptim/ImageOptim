@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A2297151F1900A9002BE8D1 /* pngquant_opts.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A2297111F1900A9002BE8D1 /* pngquant_opts.c */; };
 		5A389D401662DA1500E237CB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A389D3F1662DA1500E237CB /* Cocoa.framework */; };
 		5A728F5A1836C1AF004D0D73 /* blur.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A728F4C1836C1AF004D0D73 /* blur.c */; };
 		5A728F5B1836C1AF004D0D73 /* blur.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A728F4D1836C1AF004D0D73 /* blur.h */; };
@@ -73,6 +74,7 @@
 		5A13D67114BBAEB80099F018 /* CHANGELOG */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGELOG; sourceTree = "<group>"; };
 		5A13D67214BBAEB80099F018 /* pngquant.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = pngquant.1; sourceTree = "<group>"; };
 		5A13D67314BBAEB80099F018 /* COPYRIGHT */ = {isa = PBXFileReference; lastKnownFileType = text; path = COPYRIGHT; sourceTree = "<group>"; };
+		5A2297111F1900A9002BE8D1 /* pngquant_opts.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = pngquant_opts.c; path = src/pngquant_opts.c; sourceTree = "<group>"; };
 		5A389D3F1662DA1500E237CB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		5A728F481836C185004D0D73 /* libimagequant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libimagequant.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A728F4C1836C1AF004D0D73 /* blur.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = blur.c; path = src/lib/blur.c; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				5A728F4C1836C1AF004D0D73 /* blur.c */,
 				5A728F4D1836C1AF004D0D73 /* blur.h */,
 				5A728F4E1836C1AF004D0D73 /* libimagequant.c */,
+				5A2297111F1900A9002BE8D1 /* pngquant_opts.c */,
 				5A728F4F1836C1AF004D0D73 /* libimagequant.h */,
 				5A728F501836C1AF004D0D73 /* mediancut.c */,
 				5A728F511836C1AF004D0D73 /* mediancut.h */,
@@ -339,6 +342,7 @@
 				5A728F6C1836C1D4004D0D73 /* pngquant.c in Sources */,
 				5A728F6E1836C1D4004D0D73 /* rwpng.c in Sources */,
 				5A728F6D1836C1D4004D0D73 /* rwpng_cocoa.m in Sources */,
+				5A2297151F1900A9002BE8D1 /* pngquant_opts.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
