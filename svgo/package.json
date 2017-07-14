@@ -17,10 +17,10 @@
   },
   "homepage": "https://github.com/pornel/ImageOptim#readme",
   "dependencies": {
-    "svgo": "^0.7.1"
+    "svgo": "^0.7.2"
   },
   "devDependencies": {
     "json-loader": "^0.5.4",
-    "webpack": "^1.14.0"
+    "webpack": "^1.15.0"
   }
 }
