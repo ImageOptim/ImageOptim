@@ -6,25 +6,34 @@
 <description>ImageOptim updates</description>
 <language>en</language>
 <item>
-<title>1.7.1</title>
-<description><![CDATA[
-<li>Added experimental Guetzli optimizer.
+    <title>1.7.3</title>
+    <description><![CDATA[
     <ul>
-        <li>It's off by default (enable in <samp>Preferences</samp>), because it's <strong>very slow</strong>: 1 minute + 200MB RAM per megapixel. It is normal for a large photo to take 10 minutes and gigabytes of memory.</li>
-        <li>It's ineffective on JPEGs with quality 85 or lower. It's best to create JPEGs with 100% quality for running Guetzli on them.</li>
-        <li>Guetzli does not support color profiles, so <a href="/color-profiles.html">only use sRGB</a>.</li>
-        <li>Running Guetzli on the same image twice is not recommended, as it will decrease quality more than it reduces the file size. If you need smaller files, disable Guetzli, and enable <samp>Lossy</samp> mode instead.</li>
+        <li>New icon for macOS (High) Sierra users
+        <li>Added support for color profiles in Guetzli
+        <li>Updated translations
     </ul>
-</li>
-<li>Added new languages: Arabic, Finnish, Slovak, Ukrainian</li>
-<li>Minor updates to SVGO, PNGOUT</li>
-]]></description>
-<pubDate>Fri, 14 Jul 2017 14:55:52 +0100</pubDate>
-<sparkle:minimumSystemVersion>10.9.0</sparkle:minimumSystemVersion>
-<enclosure url="https://imageoptim.com/ImageOptim1.7.1.tar.bz2" sparkle:version="1.7.1" sparkle:shortVersionString="1.7.1" length="1517457" type="application/octet-stream" sparkle:dsaSignature="MCwCFHZdviMk4tRhwUWTMZP6f8Y0Tb6HAhRPji2OYO7vYMoyLFYHkn7bNfBhRQ=="/>
-<sparkle:deltas>
-<enclosure url="https://imageoptim.com/ImageOptim1.7.1-1.7.0.1.delta" sparkle:version="1.7.1" sparkle:shortVersionString="1.7.1" sparkle:deltaFrom="1.7.0.1" length="1036695" type="application/octet-stream" sparkle:dsaSignature="MCwCFAafLoxBRApyC7kJGMB6kvPW790gAhQswEQJTkJkOsM4X07/mYbvjEzZ2A=="/>
-<enclosure url="https://imageoptim.com/ImageOptim1.7.1-1.7.0.delta" sparkle:version="1.7.1" sparkle:shortVersionString="1.7.1" sparkle:deltaFrom="1.7.0" length="1036712" type="application/octet-stream" sparkle:dsaSignature="MC4CFQCXdOfMRlz/iSGFtDxozb+iOWkSlQIVAJ2Y0UC1bsLHFEgPNdHql95yqwYf"/></sparkle:deltas>
+    ]]></description>
+    <pubDate>Wed, 04 Oct 2017 16:15:22 +0100</pubDate>
+    <sparkle:minimumSystemVersion>10.12.0</sparkle:minimumSystemVersion>
+    <enclosure url="https://imageoptim.com/ImageOptim1.7.3.tar.bz2" sparkle:version="1.7.3" sparkle:shortVersionString="1.7.3" length="1554079" type="application/octet-stream" sparkle:dsaSignature="MCwCFBWXqH6OzU0jbkh3trS6xfbPKLbvAhRe4zLuS5sxFpZ9B0UJ/ZOE8o1MFQ=="/>
+    <sparkle:deltas>
+    <enclosure url="https://imageoptim.com/ImageOptim1.7.3-1.7.2.delta" sparkle:version="1.7.3" sparkle:shortVersionString="1.7.3" sparkle:deltaFrom="1.7.2" length="188629" type="application/octet-stream" sparkle:dsaSignature="MCwCFDczMqNN25+HNWmmsbiNpPAuWKscAhQMelzaHov8isK3OjtLNv3ZEmL7iA=="/>
+    <enclosure url="https://imageoptim.com/ImageOptim1.7.3-1.7.1.delta" sparkle:version="1.7.3" sparkle:shortVersionString="1.7.3" sparkle:deltaFrom="1.7.1" length="1080790" type="application/octet-stream" sparkle:dsaSignature="MCwCFBUh7Soj+QzAIm+kdcoksZj3PBtIAhRv5yBxqoSxMLjTjim5JTscnyRWAQ=="/></sparkle:deltas>
+</item>
+<item>
+    <title>1.7.2</title>
+    <description><![CDATA[
+    <ul>
+        <li>Added support for color profiles in Guetzli
+        <li>Updated translations
+    </ul>
+    ]]></description>
+    <pubDate>Sun, 17 Sep 2017 23:44:03 +0100</pubDate>
+    <sparkle:minimumSystemVersion>10.9.0</sparkle:minimumSystemVersion>
+    <enclosure url="https://imageoptim.com/ImageOptim1.7.2.tar.bz2" sparkle:version="1.7.2" sparkle:shortVersionString="1.7.2" length="1553964" type="application/octet-stream" sparkle:dsaSignature="MCwCFEbeus3sOpSYs3+NyvY7Is4EpAzMAhRV4OEdoLKlpM7UFgZXg1QoJQ8SAw=="/>
+    <sparkle:deltas>
+    <enclosure url="https://imageoptim.com/ImageOptim1.7.2-1.7.1.delta" sparkle:version="1.7.2" sparkle:shortVersionString="1.7.2" sparkle:deltaFrom="1.7.1" length="962069" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCPUdBTFw9F/h12R6YHFVoNG2A45AIUbkGhXOPHsw0DQVmOftgyyqNII28="/></sparkle:deltas>
 </item>
 </channel>
 </rss>
