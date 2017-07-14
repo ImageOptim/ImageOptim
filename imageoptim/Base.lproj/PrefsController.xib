@@ -202,7 +202,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <binding destination="300" name="value" keyPath="values.PngCrushEnabled" id="1102"/>
+                                                            <binding destination="300" name="value" keyPath="values.PngCrush2Enabled" id="F2m-BT-z4x"/>
                                                         </connections>
                                                     </button>
                                                     <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="1088">

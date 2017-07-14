@@ -567,7 +567,7 @@ CA
                             <menuItem title="PNGCrush" id="660">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
-                                    <binding destination="562" name="value" keyPath="values.PngCrushEnabled" id="674"/>
+                                    <binding destination="562" name="value" keyPath="values.PngCrush2Enabled" id="BVq-a7-EPH"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="662"/>

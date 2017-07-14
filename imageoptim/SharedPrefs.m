@@ -34,7 +34,7 @@ void IOSharedPrefsCopy(NSUserDefaults *__nonnull defs) {
         @"AdvPngEnabled", @"AdvPngLevel", @"GifsicleEnabled",
         @"JpegOptimEnabled", @"JpegTranEnabled", @"JpegTranStripAll",
         @"OptiPngEnabled",
-        @"PngCrushEnabled", @"PngOutEnabled",
+        @"PngCrush2Enabled", @"PngOutEnabled",
         @"PngOutRemoveChunks", @"ZopfliEnabled",
         @"PngMinQuality", @"JpegOptimMaxQuality", @"GifQuality",
     ];

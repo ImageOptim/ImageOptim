@@ -552,7 +552,7 @@
             }
         }
 
-        BOOL pngcrushEnabled = [defs boolForKey:@"PngCrushEnabled"];
+        BOOL pngcrushEnabled = [defs boolForKey:@"PngCrush2Enabled"];
         BOOL optipngEnabled = [defs boolForKey:@"OptiPngEnabled"];
         BOOL pngoutEnabled = [defs boolForKey:@"PngOutEnabled"];
         BOOL zopfliEnabled = [defs boolForKey:@"ZopfliEnabled"];

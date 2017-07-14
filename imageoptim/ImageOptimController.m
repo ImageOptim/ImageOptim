@@ -35,7 +35,7 @@ static const char *kIMPreviewPanelContext = "preview";
     if (maxTasks <= 4) {
         defs[@"PngOutEnabled"] = @(NO);
         if (maxTasks <= 2) {
-            defs[@"PngCrushEnabled"] = @(NO);
+            defs[@"PngCrush2Enabled"] = @(NO);
         }
     }
 
