@@ -34,7 +34,7 @@
     NSMutableArray *args = [NSMutableArray arrayWithObjects:
                             @"--quality", [NSString stringWithFormat:@"%ld", (long)level],
                             @"--memlimit", smallFile ? @"2000" : @"6000",
-                            file.path,
+                            temp.path,
                             temp.path,
                             nil];
 
@@ -46,6 +46,11 @@
     if (!guetzliPath) {
         return NO;
     }
+
+    NSBitmapImageRep *inputRep = (NSBitmapImageRep *)[NSBitmapImageRep imageRepWithContentsOfURL:file.path];
+    NSBitmapImageRep *sRGBRep = [inputRep bitmapImageRepByConvertingToColorSpace:[NSColorSpace sRGBColorSpace] renderingIntent:NSColorRenderingIntentRelativeColorimetric];
+    NSData *sRGBPNGData = [sRGBRep representationUsingType:NSPNGFileType properties:@{}];
+    [sRGBPNGData writeToURL:temp atomically:NO];
 
     BOOL __block ok = NO;
     NSPipe *commandPipe = [NSPipe pipe];
