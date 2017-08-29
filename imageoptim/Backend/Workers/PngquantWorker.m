@@ -20,9 +20,10 @@
 
 -(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
 
+    NSUInteger maxQuality = MIN(100, minQuality+20);
     NSArray *args = @[@"256",@"--skip-if-larger",
                       [NSString stringWithFormat:@"-s%d", (int)speed],
-                      @"--quality", [NSString stringWithFormat:@"%d-100", (int)minQuality],
+                      @"--quality", [NSString stringWithFormat:@"%d-%d", (int)minQuality, (int)maxQuality],
                       @"-"];
     if (![self taskForKey:@"PngQuant" bundleName:@"pngquant" arguments:args]) {
         return NO;
