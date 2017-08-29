@@ -66,7 +66,7 @@
 
         ok = [self waitUntilTaskExit];
     };
-    if (!smallFile) {
+    if ([file isLarge]) {
         // Guetzli uses so much memory, that it's dangerous to run all images in parallel
         dispatch_sync(queue, run);
     } else {
