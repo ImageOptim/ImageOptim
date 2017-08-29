@@ -5,6 +5,7 @@
 #import "File.h"
 #import "log.h"
 
+@import Quartz;
 @implementation MyTableView
 
 -(void)removeObjects:(NSArray *)objects {

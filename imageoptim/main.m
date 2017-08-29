@@ -6,7 +6,7 @@ int quitWhenDone = 0;
 
 #import "log.h"
 #import <Foundation/Foundation.h>
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 #import <objc/runtime.h>
 
 static int isLaunchedWithCliArguments(int argc, char *argv[]) {

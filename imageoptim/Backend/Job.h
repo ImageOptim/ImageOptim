@@ -4,8 +4,8 @@
 //  Created by porneL on 8.wrz.07.
 //
 
-#import <Cocoa/Cocoa.h>
 #import <Quartz/Quartz.h>
+@import Cocoa;
 #import "Workers/Worker.h"
 
 @class ResultsDb, File, TempFile;

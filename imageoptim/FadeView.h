@@ -1,6 +1,6 @@
 
 #import <Foundation/Foundation.h>
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 #import <AppKit/AppKit.h>
 
 @interface FadeView : NSVisualEffectView

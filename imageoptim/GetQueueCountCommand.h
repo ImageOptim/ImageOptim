@@ -1,4 +1,4 @@
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
 
 /* This class implements a simple verb with no parameters.  The verb

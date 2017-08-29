@@ -4,7 +4,7 @@
 //  Created by porneL on 29.wrz.07.
 //
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 #import "CommandWorker.h"
 
 @interface PngoutWorker : CommandWorker {

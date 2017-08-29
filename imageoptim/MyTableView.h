@@ -1,6 +1,6 @@
 /* MyTableView */
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
 @class RevealButtonCell;
 

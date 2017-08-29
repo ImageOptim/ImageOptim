@@ -9,7 +9,7 @@
 #ifndef GuetzliWorker_h
 #define GuetzliWorker_h
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 #import "CommandWorker.h"
 
 @interface GuetzliWorker : CommandWorker {

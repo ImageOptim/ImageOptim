@@ -6,7 +6,7 @@
 //
 //
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
 @class Job, JobQueue;
 

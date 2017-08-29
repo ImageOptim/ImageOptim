@@ -4,8 +4,7 @@
 //  Created by porneL on 23.wrz.07.
 //
 
-#import <Cocoa/Cocoa.h>
-#import <Quartz/Quartz.h>
+@import Cocoa;
 
 @class File, ResultsDb;
 extern NSString *const kJobQueueFinished;

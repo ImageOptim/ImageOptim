@@ -6,7 +6,7 @@
 //
 //
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 #import <XCTest/XCTest.h>
 #import "Job.h"
 #import "JobQueue.h"
