@@ -4,14 +4,13 @@
 //  Created by porneL on 8.wrz.07.
 //
 
-#import <Quartz/Quartz.h>
 @import Cocoa;
 #import "Workers/Worker.h"
 
 @class ResultsDb, File, TempFile;
 
 NS_ASSUME_NONNULL_BEGIN
-@interface Job : NSObject<NSCopying, QLPreviewItem> {
+@interface Job : NSObject<NSCopying> {
     NSURL *filePath;
     NSString *displayName;
 
