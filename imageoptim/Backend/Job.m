@@ -763,7 +763,7 @@
 }
 
 -(void)setStatus:(nonnull NSString *)imageName order:(NSInteger)order text:(nonnull NSString *)text {
-    void (^setter)() = ^(void){
+    void (^setter)(void) = ^(void){
 
         // Keep failed status visible instead of replacing with progress/noopt/etc
         if (self.isFailed && ![imageName isEqualToString:@"ok"] && ![imageName isEqualToString:@"err"]) {
