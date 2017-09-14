@@ -70,12 +70,14 @@
 /* If stripping metadata "Not recommended if you rely on embedded copyright information" */
 "1124.title" = "Не рекомендуется, если вы полагаетесь на встроенную информацию о правообладателе";
 
-/* Note about temporary setting "This setting will reset every time ImageOptim is started"; ObjectID = "WaY-uF-lKy"; */
-"WaY-uF-lKy.title" = "Эта настройка будет сброшена при следующем старте ImageOptim";
+/* Class = "NSTextFieldCell"; title = "GIF quality"; ObjectID = "OIX-Pu-xXQ"; */
+"OIX-Pu-xXQ.title" = "Качество GIF";
+
+/* "Makes files much smaller, but may change how images look"; (Note about setting lossy on) */
+"LossTipTxt.title" = "Делает файлы гораздо меньше, но может изменить то, как изображения выглядят";
 
 /* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "Качество PNG";
 
 /* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
 "wBgxz7uj.title" = "Включить минимизацию с потерями";
-

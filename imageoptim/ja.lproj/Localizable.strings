@@ -19,17 +19,26 @@
 /* tooltip */
 "File is neither PNG, GIF nor JPEG" = "ファイルが PNG、GIF、JPEG のいずれの形式でもありません";
 
+/* status bar */
+"ImageOptim will quit when optimizations are complete" = "最適化完了後にイメージオプティムを終了します";
+
 /* tooltip */
 "Inspecting file" = "ファイルの検証中";
 
 /* newly added to the queue */
 "New file" = "新しいファイル";
 
+/* status bar */
+"Lossy minification enabled" = "非可逆圧縮が有効化されました";
+
 /* tooltip */
 "Optimized file could not be saved" = "最適化されたファイルを保存できませんでした";
 
 /* tooltip */
 "Optimized successfully with %@" = "%@ で最適化を完了しました";
+
+/* tooltip */
+"Reverted to original" = "元に戻しました";
 
 /* total ratio, status bar */
 "Saved %@ out of %@. %@ overall (up to %@ per file)" = "%2$@ のうち %1$@、全体で %3$@ (1ファイル最大で %4$@) 節約しました。";

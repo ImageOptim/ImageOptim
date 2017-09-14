@@ -1,11 +1,15 @@
+
 /* Window title */
-"5.title" = "Προτιμήσεις ImageOptim";
+"5.title" = "Προτιμήσεις";
 
 /* The first prefs tab (misc/general) */
 "167.label" = "Γενικές";
 
 /* Tab "Optimization speed" (speed/efficiency trade-off) */
-"168.label" = "Επίπεδο βελτιστοποίησης";
+"168.label" = "Ταχύτητα βελτιστοποίησης";
+
+/* Tab quality (for lossy minification) */
+"177.label" = "Ποιότητα";
 
 /* Title in box "Writing files to disk" */
 "280.title" = "Εγγραφή αρχείων στο δίσκο";
@@ -20,7 +24,7 @@
 "819.title" = "Γρήγορη";
 
 /* "Insane" */
-"820.title" = "Τρελά!";
+"820.title" = "Τρελά";
 
 /* "Normal" */
 "821.title" = "Κανονική";
@@ -28,14 +32,20 @@
 /* "Extra" */
 "822.title" = "Έξτρα";
 
+/* Checkbox in Preferences */
+"854.title" = "Αφαίρεση  μεταδεδομένων PNG (γάμμα, χρωματικό προφίλ, προαιρετικά κομμάτια)";
+
 /* note "Web browsers require gamma chunks to be removed" */
-"865.title" = "Οι φυλλομετρητές στο Web απαιτούν αφαίρεση των gamma chunks";
+"865.title" = "Οι φυλλομετρητές στο Web απαιτούν αφαίρεση στα κομμάτια γάμμα";
 
 /* label "JPEG quality" */
-"868.title" = "JPEG: ποιότητα";
+"868.title" = "JPEG ποιότητα";
+
+/* Checkbox in Preferences */
+"911.title" = "Αφαίρεση μεταδεδομένων JPEG (EXIF, χρωματικών προφίλ, GPS, περιστροφή, κτλ.)";
 
 /* Box title "Metadata and color profiles" */
-"1043.title" = "Μετα-δεδομένα και χρώματικα προφίλ";
+"1043.title" = "Μεταδεδομένα και χρωματικά προφίλ";
 
 /* Header above list of tools to enable */
 "1107.title" = "Ενεργοποίηση";
@@ -46,6 +56,14 @@
 /* If stripping metadata "Not recommended if you rely on embedded copyright information" */
 "1124.title" = "Δεν συνιστάται εάν χρειάζεστε τις ενσωματωμένες πληροφορίες πνευματικών δικαιωμάτων";
 
-/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
-"kE2-GK-JIe.title" = "PNG: ποιότητα";
+/* Class = "NSTextFieldCell"; title = "GIF quality"; ObjectID = "OIX-Pu-xXQ"; */
+"OIX-Pu-xXQ.title" = "GIF ποιότητα";
 
+/* "Makes files much smaller, but may change how images look"; (Note about setting lossy on) */
+"LossTipTxt.title" = "Κάνει τα αρχεία πολύ μικρότερα, αλλά μπορεί να αλλάξει την εμφάνιση των εικόνων";
+
+/* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
+"kE2-GK-JIe.title" = "PNG ποιότητα";
+
+/* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
+"wBgxz7uj.title" = "Ενεργοποιεί τη σμίκρυνση με απώλειες";

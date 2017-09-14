@@ -5,7 +5,7 @@
 "167.label" = "Allgemein";
 
 /* Tab "Optimization speed" (speed/efficiency trade-off) */
-"168.label" = "Geschwindigkeit";
+"168.label" = "Optimierung";
 
 /* Tab quality (for lossy minification) */
 "177.label" = "Qualität";
@@ -49,12 +49,14 @@
 /* If stripping metadata "Not recommended if you rely on embedded copyright information" */
 "1124.title" = "Nicht empfohlen bei eingebetteten Copyright-Informationen.";
 
-/* Note about temporary setting "This setting will reset every time ImageOptim is started"; ObjectID = "WaY-uF-lKy"; */
-"WaY-uF-lKy.title" = "Diese Einstellung wird beim nächsten Start zurückgesetzt.";
+/* Class = "NSTextFieldCell"; title = "GIF quality"; ObjectID = "OIX-Pu-xXQ"; */
+"OIX-Pu-xXQ.title" = "GIF Qualität";
+
+/* "Makes files much smaller, but may change how images look"; (Note about setting lossy on) */
+"LossTipTxt.title" = "Erstellt viel kleinere Dateien, die aber anders aussehen können";
 
 /* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG-Qualität";
 
 /* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
-"wBgxz7uj.title" = "Verlustbehaftete Komprimierung aktivieren";
-
+"wBgxz7uj.title" = "Verlustbehaftete Kompression aktivieren";

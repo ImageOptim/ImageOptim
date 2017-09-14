@@ -19,6 +19,9 @@
 /* tooltip */
 "File is neither PNG, GIF nor JPEG" = "Filen är varken i PNG- eller JPG-format";
 
+/* status bar */
+"ImageOptim will quit when optimizations are complete" = "ImageOptim kommer avslutas när optimeringarna är färdiga";
+
 /* tooltip */
 "Inspecting file" = "Inspekterar fil";
 
@@ -31,12 +34,26 @@
 /* newly added to the queue */
 "New file" = "Ny fil";
 
+/* status bar */
+"Lossy minification enabled" = "Lossy minifiering aktiverat";
+
 /* tooltip */
 "Optimized file could not be saved" = "Den optimerade filen kunde inte sparas";
 
 /* tooltip */
 "Optimized successfully with %@" = "Optimering med %@ lyckades";
 
+/* tooltip */
+"Reverted to original" = "Återställde till originalet";
+
+/* total ratio, status bar */
+"Saved %@ out of %@. %@ overall (up to %@ per file)" = "Sparar %1$@ av totalt %2$@. %3$@ per fil i genomsnitt (upp till %4$@ per fil)";
+
+/* per file avg, status bar */
+"Saved %@ out of %@. %@ per file on average (up to %@)" = "Sparat %1$@ av totalt %2$@. %3$@ per fil i genomsnitt (upp till %4$@)";
+
 /* command name, tooltip */
 "Started %@" = "%@ har startat";
 
+/* tooltip */
+"Waiting to be optimized" = "Väntar på optimering";

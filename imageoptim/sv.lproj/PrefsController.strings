@@ -5,10 +5,10 @@
 "167.label" = "Allmänt";
 
 /* Tab "Optimization speed" (speed/efficiency trade-off) */
-"168.label" = "Optimeringsnivå";
+"168.label" = "Optimeringshastighet";
 
 /* Tab quality (for lossy minification) */
-"177.label" = "Kvalitet";
+"177.label" = "Kvalité";
 
 /* Title in box "Writing files to disk" */
 "280.title" = "Vid sparande";
@@ -43,6 +43,15 @@
 /* Header above list of tools to enable */
 "1107.title" = "Aktivera";
 
+
+/* Class = "NSTextFieldCell"; title = "GIF quality"; ObjectID = "OIX-Pu-xXQ"; */
+"OIX-Pu-xXQ.title" = "GIF-kvalité";
+
+/* "Makes files much smaller, but may change how images look"; (Note about setting lossy on) */
+"LossTipTxt.title" = "Skapar mycket mindre filer men kan ändra dess utseende";
+
 /* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG: Maxkvalitet";
 
+/* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
+"wBgxz7uj.title" = "Sätt på lossy minifiering";

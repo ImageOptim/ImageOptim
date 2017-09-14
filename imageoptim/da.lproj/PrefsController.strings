@@ -5,7 +5,7 @@
 "167.label" = "Generelt";
 
 /* Tab "Optimization speed" (speed/efficiency trade-off) */
-"168.label" = "Optimeringsniveau";
+"168.label" = "Optimeringshastighed";
 
 /* Tab quality (for lossy minification) */
 "177.label" = "Kvalitet";
@@ -52,6 +52,14 @@
 /* If stripping metadata "Not recommended if you rely on embedded copyright information" */
 "1124.title" = "Ikke anbefalet hvis du afhænger af integreret copyright information";
 
+/* Class = "NSTextFieldCell"; title = "GIF quality"; ObjectID = "OIX-Pu-xXQ"; */
+"OIX-Pu-xXQ.title" = "GIF-kvalitet";
+
+/* "Makes files much smaller, but may change how images look"; (Note about setting lossy on) */
+"LossTipTxt.title" = "Gør filer meget mindre, men kan ændre, hvordan billeder ser ud";
+
 /* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG kvalitet";
 
+/* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
+"wBgxz7uj.title" = "Slå destruktiv filformindskelse til";

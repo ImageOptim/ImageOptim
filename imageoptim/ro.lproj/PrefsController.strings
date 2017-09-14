@@ -2,7 +2,10 @@
 "5.title" = "Preferinţe ImageOptim";
 
 /* Tab "Optimization speed" (speed/efficiency trade-off) */
-"168.label" = "Nivel optimizare";
+"168.label" = "Viteză optimizare";
+
+/* Tab quality (for lossy minification) */
+"177.label" = "Calitate";
 
 /* Title in box "Writing files to disk" */
 "280.title" = "Scriere fişiere pe disc";
@@ -43,12 +46,14 @@
 /* If stripping metadata "Not recommended if you rely on embedded copyright information" */
 "1124.title" = "Nerecomandat dacă vă bazaţi pe informaţii de copyright încorporate";
 
-/* Note about temporary setting "This setting will reset every time ImageOptim is started"; ObjectID = "WaY-uF-lKy"; */
-"WaY-uF-lKy.title" = "Setările se vor reseta la fiecare pornire ImageOptim";
+/* Class = "NSTextFieldCell"; title = "GIF quality"; ObjectID = "OIX-Pu-xXQ"; */
+"OIX-Pu-xXQ.title" = "Calitate GIF";
+
+/* "Makes files much smaller, but may change how images look"; (Note about setting lossy on) */
+"LossTipTxt.title" = "Face fişierele mult mai mici, dar poate schimba aspectul imaginilor";
 
 /* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "Calitate PNG";
 
 /* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
-"wBgxz7uj.title" = "Activează minimizarea cu pierderi";
-
+"wBgxz7uj.title" = "Activează minificarea cu pierderi";

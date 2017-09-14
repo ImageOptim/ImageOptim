@@ -5,7 +5,8 @@
 "167.label" = "一般";
 
 /* Tab "Optimization speed" (speed/efficiency trade-off) */
-"168.label" = "最適化レベル";
+"168.label" = "最適化の速度";
+
 
 /* Title in box "Writing files to disk" */
 "280.title" = "ファイルのディスク書き込み";
@@ -17,16 +18,16 @@
 "818.title" = "最適化レベル";
 
 /* "Fast" */
-"819.title" = "高速";
+"819.title" = "低いが高速";
 
 /* "Insane" */
-"820.title" = "クレイジー";
+"820.title" = "非常に高い";
 
 /* "Normal" */
 "821.title" = "普通";
 
 /* "Extra" */
-"822.title" = "必要以上";
+"822.title" = "高い";
 
 /* Checkbox in Preferences */
 "854.title" = "PNGのメタデータを取り除く (ガンマ値、カラープロファイルなど)";
@@ -52,8 +53,11 @@
 /* If stripping metadata "Not recommended if you rely on embedded copyright information" */
 "1124.title" = "埋め込まれた著作権情報を必要とする場合はおすすめしません";
 
-/* Note about temporary setting "This setting will reset every time ImageOptim is started"; ObjectID = "WaY-uF-lKy"; */
-"WaY-uF-lKy.title" = "この設定は ImageOptim を起動するたびにリセットされます";
+/* Class = "NSTextFieldCell"; title = "GIF quality"; ObjectID = "OIX-Pu-xXQ"; */
+"OIX-Pu-xXQ.title" = "GIF の品質";
+
+/* "Makes files much smaller, but may change how images look"; (Note about setting lossy on) */
+"LossTipTxt.title" = "ファイルのサイズがより小さくなりますが、画像の見た目が変わることがあります";
 
 /* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG の品質";

@@ -2,7 +2,7 @@
 "167.label" = "Geral";
 
 /* Tab "Optimization speed" (speed/efficiency trade-off) */
-"168.label" = "Nível de optimização";
+"168.label" = "Velicidade da otimização";
 
 /* Tab quality (for lossy minification) */
 "177.label" = "Qualidade";
@@ -40,6 +40,15 @@
 /* Header above list of tools to enable */
 "1107.title" = "Activado";
 
+
+/* Class = "NSTextFieldCell"; title = "GIF quality"; ObjectID = "OIX-Pu-xXQ"; */
+"OIX-Pu-xXQ.title" = "GIF qualidade";
+
+/* "Makes files much smaller, but may change how images look"; (Note about setting lossy on) */
+"LossTipTxt.title" = "Cria arquivos mais pequenos, mas pode alterar a forma de como as imagens aparecem";
+
 /* Quality setting slider "PNG quality"; ObjectID = "kE2-GK-JIe"; */
 "kE2-GK-JIe.title" = "PNG: qualidade";
 
+/* Class = "NSButtonCell"; title = "Enable lossy minification"; ObjectID = "wBgxz7uj"; */
+"wBgxz7uj.title" = "Ativar a minificação com perdas";

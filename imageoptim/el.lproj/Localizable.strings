@@ -1,5 +1,5 @@
 /* tooltip */
-"%@ failed to start" = "%@ απετυχε η έναρξη";
+"%@ failed to start" = "%@ απέτυχε η έναρξη";
 
 /* undo command name */
 "Add" = "Προσθηκη";
@@ -19,17 +19,26 @@
 /* tooltip */
 "File is neither PNG, GIF nor JPEG" = "Το αρχείο δεν είναι ούτε PNG, GIF, ούτε JPEG ";
 
+/* status bar */
+"ImageOptim will quit when optimizations are complete" = "Το ImageOptim θα κλείσει όταν τελειώσει η βελτιστοποίηση.";
+
 /* tooltip */
 "Inspecting file" = "Επιθεώρηση αρχείου";
 
 /* newly added to the queue */
 "New file" = "Νεο αρχειο";
 
+/* status bar */
+"Lossy minification enabled" = "Η σμίκρυνση με απώλειες έχει ενεργοποιηθεί.";
+
 /* tooltip */
 "Optimized file could not be saved" = "Το βελτιωμενο αρχειο δεν μπορεσε να αποθηκευθει";
 
 /* tooltip */
 "Optimized successfully with %@" = "Βελτιωση επιτυχης με %@";
+
+/* tooltip */
+"Reverted to original" = "Επανήλθε στην αρχική";
 
 /* total ratio, status bar */
 "Saved %@ out of %@. %@ overall (up to %@ per file)" = "Κερδήθηκαν %1$@ από %2$@. %3$@ συνολικά (έως %4$@ ανά αρχείο)";
