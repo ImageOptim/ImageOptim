@@ -258,12 +258,18 @@
 
 -(BOOL)trashFileAtURL:(NSURL *)path resultingItemURL:(NSURL**)returning error:(NSError **)err {
     NSFileManager *fm = [NSFileManager defaultManager];
+    if (returning) *returning = nil;
 
     if ([fm respondsToSelector:@selector(trashItemAtURL:resultingItemURL:error:)]) { // 10.8
         if ([fm trashItemAtURL:path resultingItemURL:returning error:err]) {
             return YES;
         }
         IOWarn("Recovering trashing error %@", *err); // may fail on network drives
+
+        if (![fm fileExistsAtPath:path.path]) {
+            // the file got deleted anyway?
+            return YES;
+        }
     }
 
     NSURL *trashedPath = [[[NSURL fileURLWithPath:NSHomeDirectory() isDirectory:YES] URLByAppendingPathComponent:@".Trash"] URLByAppendingPathComponent:[path lastPathComponent]];
@@ -273,8 +279,6 @@
         if (returning) *returning = trashedPath;
         return YES;
     }
-
-    if (returning) *returning = nil;
     return NO;
 }
 
