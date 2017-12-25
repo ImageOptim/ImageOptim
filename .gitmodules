@@ -19,3 +19,6 @@
 [submodule "guetzli/guetzli"]
 	path = guetzli/guetzli
 	url = https://github.com/google/guetzli.git
+[submodule "svgcleaner/src"]
+	path = svgcleaner/src
+	url = https://github.com/RazrFalcon/svgcleaner.git
