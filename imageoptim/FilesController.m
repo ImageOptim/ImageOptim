@@ -471,7 +471,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         types |= GIF_ENABLED;
     }
 
-    if ([defs boolForKey:@"SvgoEnabled"]) {
+    if ([defs boolForKey:@"SvgoEnabled"] || [defs boolForKey:@"SvgcleanerEnabled"]) {
         types |= SVG_ENABLED;
     }
 

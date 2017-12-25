@@ -63,6 +63,7 @@
 		5A7FB6F31E2C37EB00481B4A /* SvgoWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FB6F21E2C37EB00481B4A /* SvgoWorker.m */; };
 		5A7FB7261E2C3E1600481B4A /* svgo.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A7FB7251E2C3E1600481B4A /* svgo.js */; };
 		5A93FB6A1FF1BB85005D2F27 /* svgcleaner in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A93FB651FF1BB2C005D2F27 /* svgcleaner */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		5A93FD2F1FF1C452005D2F27 /* SvgcleanerWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93FD051FF1BF1F005D2F27 /* SvgcleanerWorker.m */; };
 		5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99FE83140AE80600BB2F79 /* Quartz.framework */; };
 		5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
 		5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA8300CAFE74E004D45CA /* Transformers.m */; };
@@ -435,7 +436,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				5A93FB6A1FF1BB85005D2F27 /* svgcleaner in CopyFiles */,
 				5ABE16271AE5097800861C6B /* advpng in CopyFiles */,
 				5ABE16261AE5096D00861C6B /* gifsicle in CopyFiles */,
 				D047E5311E7D90DD0036F96B /* guetzli in CopyFiles */,
@@ -447,6 +447,7 @@
 				5ABE161F1AE5094600861C6B /* pngcrush in CopyFiles */,
 				5ABE15841AE5074900861C6B /* pngout in CopyFiles */,
 				5ABE161E1AE5094000861C6B /* pngquant in CopyFiles */,
+				5A93FB6A1FF1BB85005D2F27 /* svgcleaner in CopyFiles */,
 				5A7FB7261E2C3E1600481B4A /* svgo.js in CopyFiles */,
 				5ABE162A1AE5099F00861C6B /* zopflipng in CopyFiles */,
 			);
@@ -618,6 +619,8 @@
 		5A8DFBD910C097B9009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Dutch; path = nl.lproj/Help; sourceTree = "<group>"; };
 		5A8DFBEB10C09812009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Dutch; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = svgcleaner.xcodeproj; path = ../svgcleaner/svgcleaner.xcodeproj; sourceTree = "<group>"; };
+		5A93FCEC1FF1BF1F005D2F27 /* SvgcleanerWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvgcleanerWorker.h; sourceTree = "<group>"; };
+		5A93FD051FF1BF1F005D2F27 /* SvgcleanerWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvgcleanerWorker.m; sourceTree = "<group>"; };
 		5A94A00C102757E5005CC9CB /* French */ = {isa = PBXFileReference; lastKnownFileType = file.plist.strings; name = French; path = fr.lproj/PrefsController.strings; sourceTree = "<group>"; };
 		5A94A00D102757F0005CC9CB /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = fr.lproj/ImageOptim.strings; sourceTree = "<group>"; };
 		5A94A02610275AFD005CC9CB /* fr */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fr; path = fr.lproj/Help; sourceTree = "<group>"; };
@@ -952,14 +955,14 @@
 		5A5811941AD73A630001838D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A5811AF1BD73A640001838D /* Sparkle.framework */,
-				5A5811A81AD73A640001838D /* Sparkle Test App.app */,
-				5A5811A91AD73A640001838D /* Sparkle Unit Tests.xctest */,
 				5A5811A51AD73A640001838D /* BinaryDelta */,
-				5A5811A71AD73A640001838D /* Autoupdate.app */,
-				5ADDF2FF1CE613A800B4AD58 /* UI Tests.xctest */,
 				D047E4601E7C3CE80036F96B /* fileop */,
 				D047E4621E7C3CE80036F96B /* generate_appcast */,
+				5A5811A71AD73A640001838D /* Autoupdate.app */,
+				5A5811A81AD73A640001838D /* Sparkle Test App.app */,
+				5A5811A91AD73A640001838D /* Sparkle Unit Tests.xctest */,
+				5A5811AF1BD73A640001838D /* Sparkle.framework */,
+				5ADDF2FF1CE613A800B4AD58 /* UI Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1106,6 +1109,8 @@
 				5AA9F4371899D063006C64C8 /* PngquantWorker.m */,
 				5AB81F931AE1BE1300719AB7 /* Save.h */,
 				5AB81F941AE1BE1300719AB7 /* Save.m */,
+				5A93FCEC1FF1BF1F005D2F27 /* SvgcleanerWorker.h */,
+				5A93FD051FF1BF1F005D2F27 /* SvgcleanerWorker.m */,
 				5A7FB6D61E2C37DD00481B4A /* SvgoWorker.h */,
 				5A7FB6F21E2C37EB00481B4A /* SvgoWorker.m */,
 				5AACA13D0CAF241B004D45CA /* Worker.h */,
@@ -1711,6 +1716,7 @@
 				5ABE15811AE5073E00861C6B /* Save.m in Sources */,
 				5AC4CC801AF568E90003AEA2 /* SavingsFormatter.m in Sources */,
 				5A6A56D01B497E210045AA0C /* SharedPrefs.m in Sources */,
+				5A93FD2F1FF1C452005D2F27 /* SvgcleanerWorker.m in Sources */,
 				5A7FB6F31E2C37EB00481B4A /* SvgoWorker.m in Sources */,
 				5AD0347D1E27185D0030291A /* TempFile.m in Sources */,
 				5ABE15821AE5073E00861C6B /* Worker.m in Sources */,

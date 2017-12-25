@@ -16,6 +16,7 @@
 #import "Workers/JpegtranWorker.h"
 #import "Workers/GifsicleWorker.h"
 #import "Workers/SvgoWorker.h"
+#import "Workers/SvgcleanerWorker.h"
 #import "Workers/GuetzliWorker.h"
 #import <sys/xattr.h>
 #import "log.h"
@@ -609,6 +610,9 @@
         case FILETYPE_SVG:
             if ([defs boolForKey:@"SvgoEnabled"]) {
                 [worker_list addObject:[[SvgoWorker alloc] initWithLossy:lossyEnabled job:self]];
+            }
+            if ([defs boolForKey:@"SvgcleanerEnabled"]) {
+                [worker_list addObject:[[SvgcleanerWorker alloc] initWithLossy:lossyEnabled job:self]];
             }
         break;
         default:

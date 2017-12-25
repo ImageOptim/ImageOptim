@@ -310,6 +310,27 @@
                                                             <binding destination="300" name="value" keyPath="values.GuetzliEnabled" id="ifC-Y3-JHb"/>
                                                         </connections>
                                                     </button>
+                                                    <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="e0a-M4-dJq">
+                                                        <rect key="frame" x="18" y="32" width="88" height="18"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14" id="TOz-TY-K8I"/>
+                                                        </constraints>
+                                                        <buttonCell key="cell" type="check" title="svgcleaner" bezelStyle="regularSquare" imagePosition="left" alignment="left" lineBreakMode="truncatingTail" state="on" inset="2" id="9GG-IQ-e5n">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                            <connections>
+                                                                <binding destination="300" name="value" keyPath="values.SvgcleanerEnabled" id="BjL-Yj-zyT">
+                                                                    <dictionary key="options">
+                                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                                    </dictionary>
+                                                                </binding>
+                                                            </connections>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <binding destination="300" name="value" keyPath="values.SvgcleanerEnabled" id="auW-v9-rqK"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="cc1-Qe-2aX" firstAttribute="top" secondItem="1091" secondAttribute="bottom" constant="6" id="34X-YG-IzW"/>
