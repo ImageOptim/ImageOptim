@@ -249,7 +249,7 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 
     dispatch_async(dispatch_get_main_queue(), ^() {
       [credits setEditable:YES];
-      [credits insertText:tmpStr];
+      [credits insertText:tmpStr replacementRange:NSMakeRange(0, 0)];
       [credits setEditable:NO];
     });
 }
