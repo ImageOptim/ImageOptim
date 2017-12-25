@@ -62,6 +62,7 @@
 		5A7FB6D71E2C37DD00481B4A /* SvgoWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A7FB6D61E2C37DD00481B4A /* SvgoWorker.h */; };
 		5A7FB6F31E2C37EB00481B4A /* SvgoWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FB6F21E2C37EB00481B4A /* SvgoWorker.m */; };
 		5A7FB7261E2C3E1600481B4A /* svgo.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A7FB7251E2C3E1600481B4A /* svgo.js */; };
+		5A93FB6A1FF1BB85005D2F27 /* svgcleaner in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A93FB651FF1BB2C005D2F27 /* svgcleaner */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99FE83140AE80600BB2F79 /* Quartz.framework */; };
 		5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
 		5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA8300CAFE74E004D45CA /* Transformers.m */; };
@@ -243,6 +244,20 @@
 			remoteGlobalIDString = 5A7FB7051E2C39CC00481B4A;
 			remoteInfo = SVGO;
 		};
+		5A93FB641FF1BB2C005D2F27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CA6078BC43D03F68F4F5D17F;
+			remoteInfo = svgcleaner;
+		};
+		5A93FB671FF1BB58005D2F27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CA60E3E260F98DABB6BB56B9;
+			remoteInfo = svgcleaner;
+		};
 		5A95D412139D72A8005FD6FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A20CC8E1123939C0000400D /* libpng.xcodeproj */;
@@ -420,6 +435,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				5A93FB6A1FF1BB85005D2F27 /* svgcleaner in CopyFiles */,
 				5ABE16271AE5097800861C6B /* advpng in CopyFiles */,
 				5ABE16261AE5096D00861C6B /* gifsicle in CopyFiles */,
 				D047E5311E7D90DD0036F96B /* guetzli in CopyFiles */,
@@ -601,6 +617,7 @@
 		5A8DFBD810C097AC009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = file.plist.strings; name = Dutch; path = nl.lproj/PrefsController.strings; sourceTree = "<group>"; };
 		5A8DFBD910C097B9009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Dutch; path = nl.lproj/Help; sourceTree = "<group>"; };
 		5A8DFBEB10C09812009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Dutch; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = svgcleaner.xcodeproj; path = ../svgcleaner/svgcleaner.xcodeproj; sourceTree = "<group>"; };
 		5A94A00C102757E5005CC9CB /* French */ = {isa = PBXFileReference; lastKnownFileType = file.plist.strings; name = French; path = fr.lproj/PrefsController.strings; sourceTree = "<group>"; };
 		5A94A00D102757F0005CC9CB /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = fr.lproj/ImageOptim.strings; sourceTree = "<group>"; };
 		5A94A02610275AFD005CC9CB /* fr */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fr; path = fr.lproj/Help; sourceTree = "<group>"; };
@@ -836,6 +853,7 @@
 				5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */,
 				5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */,
 				5A27B956139B03090095FC2F /* release.xcconfig */,
+				5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */,
 				5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */,
 			);
 			name = "Other Sources";
@@ -967,6 +985,14 @@
 			isa = PBXGroup;
 			children = (
 				5A739C2B0EA4073700D751E1 /* jpegtran */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5A93FB4A1FF1BB2C005D2F27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5A93FB651FF1BB2C005D2F27 /* svgcleaner */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1168,6 +1194,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				5A93FB681FF1BB58005D2F27 /* PBXTargetDependency */,
 				D047E4CD1E7D81040036F96B /* PBXTargetDependency */,
 				5A7FB7241E2C3DF800481B4A /* PBXTargetDependency */,
 				5AB114B11B52AEE700A3C73A /* PBXTargetDependency */,
@@ -1365,6 +1392,10 @@
 					ProjectRef = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
 				},
 				{
+					ProductGroup = 5A93FB4A1FF1BB2C005D2F27 /* Products */;
+					ProjectRef = 5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */;
+				},
+				{
 					ProductGroup = 5A1EBECF17908F8200361F08 /* Products */;
 					ProjectRef = 5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */;
 				},
@@ -1479,6 +1510,13 @@
 			fileType = "compiled.mach-o.executable";
 			path = jpegtran;
 			remoteRef = 5A739C2A0EA4073700D751E1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5A93FB651FF1BB2C005D2F27 /* svgcleaner */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = svgcleaner;
+			remoteRef = 5A93FB641FF1BB2C005D2F27 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5A95D413139D72A8005FD6FB /* libstatic.a */ = {
@@ -1735,6 +1773,11 @@
 			isa = PBXTargetDependency;
 			target = 5A7FB7051E2C39CC00481B4A /* SVGO */;
 			targetProxy = 5A7FB7231E2C3DF800481B4A /* PBXContainerItemProxy */;
+		};
+		5A93FB681FF1BB58005D2F27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = svgcleaner;
+			targetProxy = 5A93FB671FF1BB58005D2F27 /* PBXContainerItemProxy */;
 		};
 		5AB114B11B52AEE700A3C73A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
