@@ -57,6 +57,29 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>svg</string>
+				<string>SVG</string>
+			</array>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>image/svg+xml</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>SVG</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>public.svg-image</string>
+			</array>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>Binary</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
 				<string>jpeg</string>
 				<string>jpg</string>
 				<string>JPG</string>
@@ -149,6 +172,7 @@
 				<string>public.png</string>
 				<string>public.jpeg</string>
 				<string>com.compuserve.gif</string>
+				<string>public.svg-image</string>
 			</array>
 			<key>NSServiceDescription</key>
 			<string>Losslessly reduce image file sizes with ImageOptim</string>
