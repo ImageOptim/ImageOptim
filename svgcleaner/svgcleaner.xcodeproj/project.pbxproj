@@ -1,170 +1,201 @@
 // !$*UTF8*$!
 {
-    archiveVersion = 1;
-    objectVersion = 42;
-    objects = {
-        CA6012D89BE7F6DB4218AA7C = {
-            isa = PBXGroup;
-            children = (
-                CA607ECAAC34D5FA2C9FF2AB,
-CA605C35FBA7CECEA26819EB,
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
 
-            );
-            sourceTree = "<group>";
-        };
+/* Begin PBXContainerItemProxy section */
+		CA6083A050BA7CD48376D9A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA60062A554B0AFBC33A0431 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA60B244E18A256F30C550D3;
+			remoteInfo = Cargo;
+		};
+/* End PBXContainerItemProxy section */
 
+/* Begin PBXFileReference section */
+		CA6078BC43D03F68F4F5D17F /* svgcleaner */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = svgcleaner; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA607ECAAC34D5FA2C9FF2AB /* src/Cargo.toml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = src/Cargo.toml; sourceTree = "<group>"; };
+/* End PBXFileReference section */
 
-        CA6078BC43D03F68F4F5D17F /* bin */ = {
-            isa = PBXFileReference;
-            explicitFileType = "compiled.mach-o.executable";
-            includeInIndex = 0;
-            name = svgcleaner;
-            sourceTree = BUILT_PRODUCTS_DIR;
-        };CA60E3E260F98DABB6BB56B9 /* bin */ = {
-            isa = PBXNativeTarget;
-            buildConfigurationList = CA606E03F4135C1B23A7EC23;
-            buildPhases = (
-            );
-            buildRules = (
-            );
-            dependencies = (
-                CA60056E55E735DF50995BEE
-            );
-            name = "svgcleaner";
-            productName = "svgcleaner";
-            productReference = CA6078BC43D03F68F4F5D17F;
-            productType = "com.apple.product-type.tool";
-        };CA60B244E18A256F30C550D3 = {
-            isa = PBXLegacyTarget;
-            buildArgumentsString = "build $(CARGO_FLAGS)";
-            buildConfigurationList = CA60204992D388DE5A523404;
-            buildPhases = (
-            );
-            buildToolPath = "$(HOME)/.cargo/bin/cargo";
-            buildWorkingDirectory = "$(SRCROOT)/src";
-            name = Cargo;
-            passBuildSettingsInEnvironment = 1;
-            productName = Cargo;
-        };
+/* Begin PBXGroup section */
+		CA6012D89BE7F6DB4218AA7C = {
+			isa = PBXGroup;
+			children = (
+				CA605C35FBA7CECEA26819EB /* Products */,
+				CA607ECAAC34D5FA2C9FF2AB /* src/Cargo.toml */,
+			);
+			sourceTree = "<group>";
+		};
+		CA605C35FBA7CECEA26819EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA6078BC43D03F68F4F5D17F /* svgcleaner */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
 
-        CA606E03F4135C1B23A7EC23 /* bin */ = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                CA60C0BB73E4D32C79E7FBDB /* Release */,
-                CA604A66FADD183CEAC0292B /* Debug */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
-        CA60C0BB73E4D32C79E7FBDB /* bin */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                PRODUCT_NAME = "$(TARGET_NAME)";
-            };
-            name = Release;
-        };
-        CA604A66FADD183CEAC0292B /* bin */ = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                PRODUCT_NAME = "$(TARGET_NAME)";
-            };
-            name = Debug;
-        };
-                CA607ECAAC34D5FA2C9FF2AB /* Cargo.toml */ = {
-                    isa = PBXFileReference;
-                    lastKnownFileType = "sourcecode.text-based-dylib-definition";
-                    fileEncoding = 4;
-                    path = src/Cargo.toml;
-                    sourceTree = "<group>";
-            };
+/* Begin PBXLegacyTarget section */
+		CA60B244E18A256F30C550D3 /* Cargo */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "build $(CARGO_FLAGS)";
+			buildConfigurationList = CA60204992D388DE5A523404 /* Build configuration list for PBXLegacyTarget "Cargo" */;
+			buildPhases = (
+			);
+			buildToolPath = "$(HOME)/.cargo/bin/cargo";
+			buildWorkingDirectory = "$(SRCROOT)/src";
+			name = Cargo;
+			passBuildSettingsInEnvironment = 1;
+			productName = Cargo;
+		};
+/* End PBXLegacyTarget section */
 
-        CA605C35FBA7CECEA26819EB = {
-            isa = PBXGroup;
-            children = (
-                CA6078BC43D03F68F4F5D17F,
+/* Begin PBXNativeTarget section */
+		CA60E3E260F98DABB6BB56B9 /* svgcleaner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA606E03F4135C1B23A7EC23 /* Build configuration list for PBXNativeTarget "svgcleaner" */;
+			buildPhases = (
+				5ACEC6BD1FF2506500C09F1B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA60056E55E735DF50995BEE /* PBXTargetDependency */,
+			);
+			name = svgcleaner;
+			productName = svgcleaner;
+			productReference = CA6078BC43D03F68F4F5D17F /* svgcleaner */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
 
-            );
-            name = Products;
-            sourceTree = "<group>";
-        };
+/* Begin PBXProject section */
+		CA60062A554B0AFBC33A0431 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				TargetAttributes = {
+					CA60B244E18A256F30C550D3 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					CA60E3E260F98DABB6BB56B9 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CA60204992D388DE5A523404 /* Build configuration list for PBXLegacyTarget "Cargo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CA6012D89BE7F6DB4218AA7C;
+			productRefGroup = CA605C35FBA7CECEA26819EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA60E3E260F98DABB6BB56B9 /* svgcleaner */,
+				CA60B244E18A256F30C550D3 /* Cargo */,
+			);
+		};
+/* End PBXProject section */
 
-        CA6083A050BA7CD48376D9A5 = {
-            isa = PBXContainerItemProxy;
-            containerPortal = CA60062A554B0AFBC33A0431;
-            proxyType = 1;
-            remoteGlobalIDString = CA60B244E18A256F30C550D3;
-            remoteInfo = Cargo;
-        };
+/* Begin PBXShellScriptBuildPhase section */
+		5ACEC6BD1FF2506500C09F1B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/svgcleaner",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "strip \"${BUILT_PRODUCTS_DIR}/svgcleaner\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
-        CA60056E55E735DF50995BEE = {
-            isa = PBXTargetDependency;
-            target = CA60B244E18A256F30C550D3;
-            targetProxy = CA6083A050BA7CD48376D9A5;
-        };
+/* Begin PBXTargetDependency section */
+		CA60056E55E735DF50995BEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA60B244E18A256F30C550D3 /* Cargo */;
+			targetProxy = CA6083A050BA7CD48376D9A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
-        CA60204992D388DE5A523404 = {
-            isa = XCConfigurationList;
-            buildConfigurations = (
-                CA601AE947055CBB36DADD19 /* Release */,
-                CA60D05535C8B0168FBB5C7A /* Debug */,
-            );
-            defaultConfigurationIsVisible = 0;
-            defaultConfigurationName = Release;
-        };
+/* Begin XCBuildConfiguration section */
+		CA601AE947055CBB36DADD19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLY_RULES_IN_COPY_FILES = YES;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CARGO_FLAGS = "--release";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/target";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/target/release";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CA604A66FADD183CEAC0292B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CA60C0BB73E4D32C79E7FBDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CA60D05535C8B0168FBB5C7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLY_RULES_IN_COPY_FILES = YES;
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CARGO_FLAGS = "";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/target";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/target/debug";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
 
-        CA601AE947055CBB36DADD19 = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/target/release"; /* hack for Cargo */
-                CARGO_TARGET_DIR = "$(BUILD_DIR)/target"; /* hack for Cargo */
-                CARGO_FLAGS = "--release";
-                ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-                ONLY_ACTIVE_ARCH = YES;
-                SDKROOT = macosx;
-            };
-            name = Release;
-        };
-
-        CA60D05535C8B0168FBB5C7A = {
-            isa = XCBuildConfiguration;
-            buildSettings = {
-                CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/target/debug"; /* hack for Cargo */
-                CARGO_TARGET_DIR = "$(BUILD_DIR)/target"; /* hack for Cargo */
-                CARGO_FLAGS = "";
-                ARCHS = "$(NATIVE_ARCH_ACTUAL)";
-                ONLY_ACTIVE_ARCH = YES;
-                SDKROOT = macosx;
-            };
-            name = Debug;
-        };
-
-        CA60062A554B0AFBC33A0431 = {
-            isa = PBXProject;
-            attributes = {
-                LastUpgradeCheck = 0920;
-                TargetAttributes = {
-                    CA60E3E260F98DABB6BB56B9 = {
-                        CreatedOnToolsVersion = 9.2;
-                        ProvisioningStyle = Automatic;
-                    };
-                    CA60B244E18A256F30C550D3 = {
-                        CreatedOnToolsVersion = 9.2;
-                        ProvisioningStyle = Automatic;
-                    };
-                                    };
-            };
-            buildConfigurationList = CA60204992D388DE5A523404;
-            compatibilityVersion = "Xcode 8.0";
-            mainGroup = CA6012D89BE7F6DB4218AA7C;
-            productRefGroup = CA605C35FBA7CECEA26819EB;
-            projectDirPath = "";
-            projectRoot = "";
-            targets = (
-                CA60E3E260F98DABB6BB56B9,
-CA60B244E18A256F30C550D3,
-
-            );
-        };
-    };
-    rootObject = CA60062A554B0AFBC33A0431;
+/* Begin XCConfigurationList section */
+		CA60204992D388DE5A523404 /* Build configuration list for PBXLegacyTarget "Cargo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA601AE947055CBB36DADD19 /* Release */,
+				CA60D05535C8B0168FBB5C7A /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA606E03F4135C1B23A7EC23 /* Build configuration list for PBXNativeTarget "svgcleaner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA60C0BB73E4D32C79E7FBDB /* Release */,
+				CA604A66FADD183CEAC0292B /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA60062A554B0AFBC33A0431 /* Project object */;
 }
