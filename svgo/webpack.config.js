@@ -8,24 +8,16 @@ module.exports = {
     entry: "./index.js",
     externals: {
         'js-yaml': "undefined", // Pulls in Esprima. YAML is not needed anyway.
-        './utils/translateWithSourceMap': '{}', // Removes sourceMap support from CSSO.
+        './utils/traslateWithSourceMap': '{}', // 0.7 Removes sourceMap support from CSSO.
+        './sourceMap': '{}', // 1.0 Removes sourceMap support from CSSO.
     },
     output: {
         path: path.join(__dirname, "build"),
         filename: "svgo.js",
     },
-    module: {
-        loaders: [{
-            test: /\.json$/,
-            loader: 'json-loader',
-        }],
-    },
     target: "node",
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-            },
-        }),
-    ],
+    mode: "production",
+    optimization: {
+        minimize: true,
+    },
 };

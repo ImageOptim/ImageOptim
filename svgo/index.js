@@ -48,7 +48,6 @@ const lossy = [
     'removeUselessStrokeAndFill',
     'removeViewBox',
     'removeXMLNS',
-    'transformsWithOnePath',
 ];
 
 
@@ -64,8 +63,7 @@ try {
         full: true,
         plugins: plugins,
     });
-
-    svgo.optimize(svgstr, function(result) {
+    svgo.optimize(svgstr).then(result => {
         if (result.error || !result.data) {
             console.error(result.error);
             process.exit(1);
@@ -76,6 +74,9 @@ try {
             console.error(err);
             process.exit(1);
         }
+    }, err => {
+        console.error(err);
+        process.exit(1);
     });
 } catch(err) {
     console.error(err);
