@@ -212,7 +212,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="Uql-Zi-hfS"/>
                                                         </constraints>
-                                                        <buttonCell key="cell" type="check" title="OptiPNG" bezelStyle="regularSquare" imagePosition="left" alignment="left" lineBreakMode="truncatingTail" state="on" inset="2" id="1095">
+                                                        <buttonCell key="cell" type="check" title="OxiPNG" bezelStyle="regularSquare" imagePosition="left" alignment="left" lineBreakMode="truncatingTail" state="on" inset="2" id="1095">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>

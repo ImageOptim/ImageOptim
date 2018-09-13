@@ -7,13 +7,14 @@
 @import Cocoa;
 #import "CommandWorker.h"
 
-@interface OptiPngWorker : CommandWorker {
-    NSInteger optlevel, interlace;
+@interface OxiPngWorker : CommandWorker {
+    NSInteger optlevel;
+    BOOL strip;
 
     NSInteger idatSize;
     NSUInteger fileSize;
     NSUInteger fileSizeOptimized;
 }
 
-- (instancetype)initWithLevel:(NSInteger)level file:(Job *)aFile;
+- (instancetype)initWithLevel:(NSInteger)level stripMetadata:(BOOL)aStrip file:(Job *)aFile;
 @end

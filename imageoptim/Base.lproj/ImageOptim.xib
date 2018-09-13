@@ -552,7 +552,7 @@ CA
                                     <binding destination="562" name="value" keyPath="values.PngOutEnabled" id="814"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="OptiPNG" id="659">
+                            <menuItem title="OxiPNG" id="659">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <binding destination="562" name="value" keyPath="values.OptiPngEnabled" id="670"/>

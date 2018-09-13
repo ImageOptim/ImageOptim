@@ -4,31 +4,35 @@
 //  Created by porneL on 30.wrz.07.
 //
 
-#import "OptiPngWorker.h"
+#import "OxiPngWorker.h"
 #import "../Job.h"
 #import "../TempFile.h"
 
-@implementation OptiPngWorker
+@implementation OxiPngWorker
 
--(instancetype)initWithLevel:(NSInteger)level file:(Job *)aJob {
+-(instancetype)initWithLevel:(NSInteger)level stripMetadata:(BOOL)aStrip file:(Job *)aJob {
     if (self = [super initWithFile:aJob]) {
-        optlevel = MAX(3, MIN(level+1, 7));
+        optlevel = MAX(2, MIN(level, 6));
+        strip = aStrip;
     }
     return self;
 }
 
 
 -(NSInteger)settingsIdentifier {
-    return optlevel*2;
+    return optlevel*2 + strip;
 }
 
 -(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
 
     NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],
-                            @"-i0",
-                            @"-out",temp.path,@"--",file.path,nil];
+                            @"-i0", "-a",
+                            @"--out",temp.path,@"--",file.path,nil];
+    if (strip) {
+        [args insertObject:@"--strip=safe" atIndex:0];
+    }
 
-    if (![self taskForKey:@"OptiPng" bundleName:@"optipng" arguments:args]) {
+    if (![self taskForKey:@"OptiPng" bundleName:@"oxipng" arguments:args]) {
         return NO;
     }
 
@@ -48,7 +52,7 @@
     if (!ok) return NO;
 
     if (fileSizeOptimized) {
-        return [job setFileOptimized:[file tempCopyOfPath:temp size:fileSizeOptimized] toolName:@"OptiPNG"];
+        return [job setFileOptimized:[file tempCopyOfPath:temp size:fileSizeOptimized] toolName:@"OxiPNG"];
     }
     return NO;
 }

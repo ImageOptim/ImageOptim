@@ -9,7 +9,7 @@
 #import "Workers/AdvCompWorker.h"
 #import "Workers/PngquantWorker.h"
 #import "Workers/PngoutWorker.h"
-#import "Workers/OptiPngWorker.h"
+#import "Workers/OxiPngWorker.h"
 #import "Workers/PngCrushWorker.h"
 #import "Workers/ZopfliWorker.h"
 #import "Workers/JpegoptimWorker.h"
@@ -558,7 +558,7 @@
         }
 
         BOOL pngcrushEnabled = [defs boolForKey:@"PngCrush2Enabled"];
-        BOOL optipngEnabled = [defs boolForKey:@"OptiPngEnabled"];
+        BOOL oxipngEnabled = [defs boolForKey:@"OptiPngEnabled"];
         BOOL pngoutEnabled = [defs boolForKey:@"PngOutEnabled"];
         BOOL zopfliEnabled = [defs boolForKey:@"ZopfliEnabled"];
         BOOL advpngEnabled = [defs boolForKey:@"AdvPngEnabled"];
@@ -568,12 +568,12 @@
             pngoutEnabled = NO;
         }
 
-        if (level < 2 && optipngEnabled) {
+        if (level < 2 && oxipngEnabled) {
             pngcrushEnabled = NO;
         }
 
         if (pngcrushEnabled) [worker_list addObject:[[PngCrushWorker alloc] initWithLevel:level defaults:defs file:self]];
-        if (optipngEnabled) [worker_list addObject:[[OptiPngWorker alloc] initWithLevel:level file:self]];
+        if (oxipngEnabled) [worker_list addObject:[[OxiPngWorker alloc] initWithLevel:level stripMetadata:removePNGChunks file:self]];
         if (pngoutEnabled) [worker_list addObject:[[PngoutWorker alloc] initWithLevel:level defaults:defs file:self]];
         if (advpngEnabled && removePNGChunks) {
             [worker_list addObject:[[AdvCompWorker alloc] initWithLevel:level file:self]];
