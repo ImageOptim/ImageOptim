@@ -22,3 +22,6 @@
 [submodule "svgcleaner/src"]
 	path = svgcleaner/src
 	url = https://github.com/RazrFalcon/svgcleaner.git
+[submodule "oxipng/oxipng"]
+	path = oxipng/oxipng
+	url = https://github.com/shssoichiro/oxipng

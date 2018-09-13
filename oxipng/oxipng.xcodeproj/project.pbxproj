@@ -1,0 +1,181 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		CA60EC517F0AABFAC7CB3B88 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA60224EF5C1DF4F7DB83938 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA607F03442065DADB3FCC06;
+			remoteInfo = Cargo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CA6048CA321AEE511B690262 /* oxipng/Cargo.toml */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = oxipng/Cargo.toml; sourceTree = "<group>"; };
+		CA606A7C53F05E2F73943FF8 /* oxipng */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = oxipng; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		CA602CCE3CDBC6A5D9008E6E = {
+			isa = PBXGroup;
+			children = (
+				CA6048CA321AEE511B690262 /* oxipng/Cargo.toml */,
+				CA606729F4A4837D4B3C6517 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CA606729F4A4837D4B3C6517 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CA606A7C53F05E2F73943FF8 /* oxipng */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		CA607F03442065DADB3FCC06 /* Cargo */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "build $(CARGO_FLAGS)";
+			buildConfigurationList = CA60BF38947B3AF87E2D0317 /* Build configuration list for PBXLegacyTarget "Cargo" */;
+			buildPhases = (
+			);
+			buildToolPath = "$(HOME)/.cargo/bin/cargo";
+			buildWorkingDirectory = "$(SRCROOT)/oxipng";
+			name = Cargo;
+			passBuildSettingsInEnvironment = 1;
+			productName = Cargo;
+		};
+/* End PBXLegacyTarget section */
+
+/* Begin PBXNativeTarget section */
+		CA60BD34242C38D887DBE21F /* oxipng */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA60333690EEDC997BD38E41 /* Build configuration list for PBXNativeTarget "oxipng" */;
+			buildPhases = (
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA60A1B9E1E0E1C5442341A3 /* PBXTargetDependency */,
+			);
+			name = oxipng;
+			productName = oxipng;
+			productReference = CA606A7C53F05E2F73943FF8 /* oxipng */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CA60224EF5C1DF4F7DB83938 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				TargetAttributes = {
+					CA607F03442065DADB3FCC06 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					CA60BD34242C38D887DBE21F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CA60BF38947B3AF87E2D0317 /* Build configuration list for PBXLegacyTarget "Cargo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CA602CCE3CDBC6A5D9008E6E;
+			productRefGroup = CA606729F4A4837D4B3C6517 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CA60BD34242C38D887DBE21F /* oxipng */,
+				CA607F03442065DADB3FCC06 /* Cargo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXTargetDependency section */
+		CA60A1B9E1E0E1C5442341A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA607F03442065DADB3FCC06 /* Cargo */;
+			targetProxy = CA60EC517F0AABFAC7CB3B88 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CA60758180485F10B4EAF043 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CA60A4F770651EA997D5E718 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CARGO_FLAGS = "";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/target";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/target/debug";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CA60B4AE23EB3AED81183ECF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
+				CARGO_FLAGS = "--release";
+				CARGO_TARGET_DIR = "$(BUILD_DIR)/target";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/target/release";
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CA60EFD6770D434E0BD0150D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CA60333690EEDC997BD38E41 /* Build configuration list for PBXNativeTarget "oxipng" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA60758180485F10B4EAF043 /* Release */,
+				CA60EFD6770D434E0BD0150D /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA60BF38947B3AF87E2D0317 /* Build configuration list for PBXLegacyTarget "Cargo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA60B4AE23EB3AED81183ECF /* Release */,
+				CA60A4F770651EA997D5E718 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CA60224EF5C1DF4F7DB83938 /* Project object */;
+}
