@@ -1,6 +1,6 @@
 # ImageOptim
 
-[ImageOptim](https://imageoptim.com) is a GUI for lossless image optimization tools: PNGOUT, AdvPNG, Pngcrush, OptiPNG, JpegOptim, [MozJPEG](https://github.com/mozilla/mozjpeg), [Gifsicle](https://kornel.ski/lossygif), SVGO, and [svgcleaner](https://github.com/RazrFalcon/svgcleaner).
+[ImageOptim](https://imageoptim.com) is a GUI for lossless image optimization tools: PNGOUT, AdvPNG, Pngcrush, [OxiPNG](https://crates.rs/crates/oxipng), JpegOptim, [MozJPEG](https://github.com/mozilla/mozjpeg), [Gifsicle](https://kornel.ski/lossygif), SVGO, and [svgcleaner](https://github.com/RazrFalcon/svgcleaner).
 
 ## Building
 
@@ -19,11 +19,11 @@ To get started, open `imageoptim/ImageOptim.xcodeproj`. It will automatically do
 In case of build errors, these sometimes help:
 
 ```sh
-git submodule update
+git submodule update --init
 ```
 
 ```sh
-cd optipng # or gifsicle, or pngquant
+cd gifsicle # or pngquant
 make clean
 make
 ```
