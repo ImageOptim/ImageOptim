@@ -778,7 +778,7 @@
             return;
         }
 
-        statusOrder = order;
+        self->statusOrder = order;
         self.statusText = text;
         self.statusImageName = imageName;
     };

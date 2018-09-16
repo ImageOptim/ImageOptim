@@ -50,7 +50,7 @@
 
         operationCountUpdateQueue = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_OR, 0, 0, dispatch_get_main_queue());
         dispatch_source_set_event_handler(operationCountUpdateQueue, ^{
-          self.isBusy = cpuQueue.operationCount > 0 || dirWorkerQueue.operationCount > 0 || fileIOQueue.operationCount > 0;
+            self.isBusy = self->cpuQueue.operationCount > 0 || self->dirWorkerQueue.operationCount > 0 || self->fileIOQueue.operationCount > 0;
         });
         dispatch_resume(operationCountUpdateQueue);
     }

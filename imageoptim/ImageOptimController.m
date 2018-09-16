@@ -109,13 +109,13 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
     dispatch_source_set_event_handler(statusBarUpdateQueue, ^{
       NSString *str = defaultText;
       BOOL selectable = NO;
-      @synchronized(filesController) {
+        @synchronized(self->filesController) {
           long long bytesTotal = 0, optimizedTotal = 0;
           double optimizedFractionTotal = 0, maxOptimizedFraction = 0;
           NSUInteger optimizedFileCount = 0;
           BOOL anyBusyFiles = false;
 
-          NSArray *content = [filesController content];
+            NSArray *content = [self->filesController content];
           for (Job *f in content) {
               const File *optimizedFile = f.wipInput;
               if (!optimizedFile) {
@@ -188,12 +188,12 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
           }
 
           // that was also in KVO, but caused deadlocks there. Here it's deferred.
-          [filesController updateStoppableState];
+            [self->filesController updateStoppableState];
       }
 
       dispatch_async(dispatch_get_main_queue(), ^() {
-        [statusBarLabel setStringValue:str];
-        [statusBarLabel setSelectable:selectable];
+          [self->statusBarLabel setStringValue:str];
+          [self->statusBarLabel setSelectable:selectable];
       });
       usleep(100000); // 1/10th of a sec to avoid updating statusbar as fast as possible (100% cpu on the statusbar alone is ridiculous)
     });
@@ -247,10 +247,12 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
               initWithHTML:html
         documentAttributes:nil];
 
+
+    NSTextView *creditsRef = credits;
     dispatch_async(dispatch_get_main_queue(), ^() {
-      [credits setEditable:YES];
-      [credits insertText:tmpStr replacementRange:NSMakeRange(0, 0)];
-      [credits setEditable:NO];
+      [creditsRef setEditable:YES];
+      [creditsRef insertText:tmpStr replacementRange:NSMakeRange(0, 0)];
+      [creditsRef setEditable:NO];
     });
 }
 
@@ -350,10 +352,10 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
     [oPanel beginSheetModalForWindow:[tableView window]
                    completionHandler:^(NSInteger returnCode) {
                      if (returnCode == NSModalResponseOK) {
-                         NSWindow *myWindow = [tableView window];
+                         NSWindow *myWindow = [self->tableView window];
                          [myWindow setStyleMask:[myWindow styleMask] | NSResizableWindowMask];
-                         [filesController setRow:-1];
-                         [filesController addURLs:oPanel.URLs];
+                         [self->filesController setRow:-1];
+                         [self->filesController addURLs:oPanel.URLs];
                      }
                    }];
 }

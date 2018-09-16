@@ -30,7 +30,7 @@ typedef BOOL (^rowcallback)(int numColumns, char **values, char **columnNames);
         sqlitequeue = dispatch_queue_create("imageoptim sqlite", DISPATCH_QUEUE_SERIAL);
         dispatch_async(sqlitequeue, ^(){
             char *err;
-            if (SQLITE_OK != sqlite3_exec(db, "CREATE TABLE IF NOT EXISTS results(inputs_hashsh BLOB(16) NOT NULL PRIMARY KEY, size INT NOT NULL, status INT NOT NULL DEFAULT 0);"
+            if (SQLITE_OK != sqlite3_exec(self->db, "CREATE TABLE IF NOT EXISTS results(inputs_hashsh BLOB(16) NOT NULL PRIMARY KEY, size INT NOT NULL, status INT NOT NULL DEFAULT 0);"
                                               "CREATE INDEX IF NOT EXISTS results_size ON results(size)", NULL, NULL, &err)) {
                 IOWarn(@"Failed to create tables: %s", err);
                 sqlite3_free(err);
@@ -85,7 +85,7 @@ static int invokeBlockCallback(void *blockp, int numColumns, char **values, char
     BOOL __block res = YES;
     dispatch_sync(sqlitequeue, ^(){
         char *err;
-        if (SQLITE_OK != sqlite3_exec(db, [query UTF8String], block ? invokeBlockCallback : NULL, (__bridge void*)block, &err)) {
+        if (SQLITE_OK != sqlite3_exec(self->db, [query UTF8String], block ? invokeBlockCallback : NULL, (__bridge void*)block, &err)) {
             IOWarn(@"Query failed: %s in %@", err, query);
             sqlite3_free(err);
             res = NO;

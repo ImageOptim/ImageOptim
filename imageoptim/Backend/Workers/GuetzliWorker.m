@@ -57,8 +57,8 @@
     NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
 
     void (^run)(void) = ^{
-        [task setStandardOutput:commandPipe];
-        [task setStandardError:commandPipe];
+        [self->task setStandardOutput:commandPipe];
+        [self->task setStandardError:commandPipe];
 
         [self launchTask];
 

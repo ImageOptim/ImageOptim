@@ -45,6 +45,8 @@
         }
 
         NSLog(@"ImageOptim extension loading image");
+        tempFilePath = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSUUID UUID] UUIDString]]];
+        NSURL *tmpFilePathCopy = tempFilePath;
         [provider loadItemForTypeIdentifier:@"public.image" options:nil completionHandler:^(id<NSSecureCoding> providedImage, NSError *error) {
             NSData *data = (NSData *)providedImage;
             if (![data isKindOfClass:[NSData class]]) {
@@ -53,16 +55,15 @@
                 return;
             }
 
-            tempFilePath = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSUUID UUID] UUIDString]]];
-            NSLog(@"Writing to %@", tempFilePath);
-            if (![data writeToURL:tempFilePath atomically:NO]) {
-                NSLog(@"Failed writing %@", tempFilePath);
+            NSLog(@"Writing to %@", tmpFilePathCopy);
+            if (![data writeToURL:tmpFilePathCopy atomically:NO]) {
+                NSLog(@"Failed writing %@", tmpFilePathCopy);
                 [self cancel:self];
                 return;
             }
 
             dispatch_async(dispatch_get_global_queue(0,0), ^{
-                Job *f = [[Job alloc] initWithFilePath:tempFilePath resultsDatabase:nil];
+                Job *f = [[Job alloc] initWithFilePath:tmpFilePathCopy resultsDatabase:nil];
                 self.currentFile = f;
                 NSUserDefaults *defaults = IOSharedPrefs();
                 [defaults registerDefaults:@{
@@ -92,12 +93,12 @@
                 self.currentFile = nil;
 
                 if (optimized) {
-                    NSItemProvider *result = [[NSItemProvider alloc] initWithContentsOfURL:tempFilePath];
+                    NSItemProvider *result = [[NSItemProvider alloc] initWithContentsOfURL:tmpFilePathCopy];
                     inputItem.attachments = @[result];
                     [self.extensionContext completeRequestReturningItems:@[inputItem] completionHandler:^(BOOL res){
                         NSLog(@"Returned image %d > %d (%d)", (int)[f byteSizeOriginal], (int)f.savedOutput.byteSize, (int)res);
-                        [[NSFileManager defaultManager] removeItemAtURL:tempFilePath error:nil];
-                        tempFilePath = nil;
+                        [[NSFileManager defaultManager] removeItemAtURL:tmpFilePathCopy error:nil];
+                        self->tempFilePath = nil;
                     }];
                 } else {
                     NSLog(@"Could not optimize, giving up");
