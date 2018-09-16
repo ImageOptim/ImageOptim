@@ -1288,7 +1288,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1000;
 				TargetAttributes = {
 					5AC64EFD1AF3FDEE0032AA7F = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -2358,6 +2358,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = ImageOptim.entitlements;
+				DEVELOPMENT_TEAM = 59KZTZA4XR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(BUILT_PRODUCTS_DIR)",
@@ -2376,6 +2377,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = ImageOptim.entitlements;
+				DEVELOPMENT_TEAM = 59KZTZA4XR;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(BUILT_PRODUCTS_DIR)",
