@@ -20,13 +20,13 @@
 
 
 -(NSInteger)settingsIdentifier {
-    return optlevel*2 + strip;
+    return 2*(optlevel*2 + strip);
 }
 
 -(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
 
     NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],
-                            @"-i0", "-a",
+                            @"-i0", @"-a",
                             @"--out",temp.path,@"--",file.path,nil];
     if (strip) {
         [args insertObject:@"--strip=safe" atIndex:0];
@@ -36,37 +36,19 @@
         return NO;
     }
 
-    NSPipe *commandPipe = [NSPipe pipe];
-    NSFileHandle *commandHandle = [commandPipe fileHandleForReading];
+    NSFileHandle *devnull = [NSFileHandle fileHandleWithNullDevice];
 
-    [task setStandardError:commandPipe];
-    [task setStandardOutput:commandPipe];
+    [task setStandardInput:devnull];
+    [task setStandardError:devnull];
+    [task setStandardOutput:devnull];
 
     [self launchTask];
 
-    [self parseLinesFromHandle:commandHandle];
-
     BOOL ok = [self waitUntilTaskExit];
-    [commandHandle closeFile];
 
     if (!ok) return NO;
 
-    if (fileSizeOptimized) {
-        return [job setFileOptimized:[file tempCopyOfPath:temp size:fileSizeOptimized] toolName:@"OxiPNG"];
-    }
-    return NO;
-}
-
-- (BOOL)parseLine:(NSString *)line {
-    NSUInteger res;
-
-    if ([line length] > 20) {
-        if ((res = [self readNumberAfter:@"Output file size = " inLine:line])) {
-            fileSizeOptimized = res;
-            return YES;
-        }
-    }
-    return NO;
+    return [job setFileOptimized:[file tempCopyOfPath:temp] toolName:@"OxiPNG"];
 }
 
 @end

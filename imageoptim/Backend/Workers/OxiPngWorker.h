@@ -10,10 +10,6 @@
 @interface OxiPngWorker : CommandWorker {
     NSInteger optlevel;
     BOOL strip;
-
-    NSInteger idatSize;
-    NSUInteger fileSize;
-    NSUInteger fileSizeOptimized;
 }
 
 - (instancetype)initWithLevel:(NSInteger)level stripMetadata:(BOOL)aStrip file:(Job *)aFile;
