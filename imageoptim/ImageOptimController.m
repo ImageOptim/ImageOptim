@@ -255,6 +255,7 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
       [creditsRef setEditable:YES];
       [creditsRef insertText:tmpStr replacementRange:NSMakeRange(0, 0)];
       [creditsRef setEditable:NO];
+      [self adaptCreditsAppearance];
     });
 }
 
@@ -268,9 +269,17 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
     return false;
 }
 
+- (void)adaptCreditsAppearance {
+    credits.textColor = [self isDarkMode] ? [NSColor whiteColor] : [NSColor blackColor];
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     // Defer and coalesce statusbar updates
     dispatch_source_merge_data(statusBarUpdateQueue, 1);
+
+    if (object == credits && [keyPath isEqualToString:@"effectiveAppearance"]) {
+        [self adaptCreditsAppearance];
+    }
 
     if (context == kIMPreviewPanelContext) {
         [previewPanel reloadData];
