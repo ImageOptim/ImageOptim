@@ -256,6 +256,16 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
     });
 }
 
+- (BOOL)isDarkMode {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
+    if (@available(macOS 10.14, *)) {
+        NSAppearanceName bestAppearance = [credits.effectiveAppearance bestMatchFromAppearancesWithNames:@[NSAppearanceNameAqua, NSAppearanceNameDarkAqua]];
+        return [bestAppearance isEqualToString: NSAppearanceNameDarkAqua] ? true : false;
+    }
+#endif
+    return false;
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     // Defer and coalesce statusbar updates
     dispatch_source_merge_data(statusBarUpdateQueue, 1);
