@@ -262,7 +262,7 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 #if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
     if (@available(macOS 10.14, *)) {
         NSAppearanceName bestAppearance = [credits.effectiveAppearance bestMatchFromAppearancesWithNames:@[NSAppearanceNameAqua, NSAppearanceNameDarkAqua]];
-        return [bestAppearance isEqualToString: NSAppearanceNameDarkAqua] ? true : false;
+        return [bestAppearance isEqualToString: NSAppearanceNameDarkAqua];
     }
 #endif
     return false;
