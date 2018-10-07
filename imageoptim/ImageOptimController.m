@@ -70,6 +70,7 @@ static const char *kIMPreviewPanelContext = "preview";
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kJobQueueFinished object:filesController];
+    [credits removeObserver:self forKeyPath:@"effectiveAppearance"];
 }
 
 - (void)handleServices:(NSPasteboard *)pboard
@@ -231,6 +232,7 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 
     // this creates and sets the text for textview
     [self performSelectorInBackground:@selector(loadCreditsHTML:) withObject:nil];
+    [credits addObserver:self forKeyPath:@"effectiveAppearance" options:0 context:nil];
 }
 
 - (void)loadCreditsHTML:(id)_unused {
