@@ -250,11 +250,10 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
         documentAttributes:nil];
 
 
-    NSTextView *creditsRef = credits;
     dispatch_async(dispatch_get_main_queue(), ^() {
-      [creditsRef setEditable:YES];
-      [creditsRef insertText:tmpStr replacementRange:NSMakeRange(0, 0)];
-      [creditsRef setEditable:NO];
+      [self->credits setEditable:YES];
+      [self->credits insertText:tmpStr replacementRange:NSMakeRange(0, 0)];
+      [self->credits setEditable:NO];
       [self adaptCreditsAppearance];
     });
 }
