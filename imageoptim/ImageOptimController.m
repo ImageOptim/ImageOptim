@@ -70,6 +70,7 @@ static const char *kIMPreviewPanelContext = "preview";
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kJobQueueFinished object:filesController];
+    [credits removeObserver:self forKeyPath:@"effectiveAppearance"];
 }
 
 - (void)handleServices:(NSPasteboard *)pboard
@@ -231,6 +232,7 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 
     // this creates and sets the text for textview
     [self performSelectorInBackground:@selector(loadCreditsHTML:) withObject:nil];
+    [credits addObserver:self forKeyPath:@"effectiveAppearance" options:0 context:nil];
 }
 
 - (void)loadCreditsHTML:(id)_unused {
@@ -248,17 +250,35 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
         documentAttributes:nil];
 
 
-    NSTextView *creditsRef = credits;
     dispatch_async(dispatch_get_main_queue(), ^() {
-      [creditsRef setEditable:YES];
-      [creditsRef insertText:tmpStr replacementRange:NSMakeRange(0, 0)];
-      [creditsRef setEditable:NO];
+      [self->credits setEditable:YES];
+      [self->credits insertText:tmpStr replacementRange:NSMakeRange(0, 0)];
+      [self->credits setEditable:NO];
+      [self adaptCreditsAppearance];
     });
+}
+
+- (BOOL)isDarkMode {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
+    if (@available(macOS 10.14, *)) {
+        NSAppearanceName bestAppearance = [credits.effectiveAppearance bestMatchFromAppearancesWithNames:@[NSAppearanceNameAqua, NSAppearanceNameDarkAqua]];
+        return [bestAppearance isEqualToString: NSAppearanceNameDarkAqua];
+    }
+#endif
+    return false;
+}
+
+- (void)adaptCreditsAppearance {
+    credits.textColor = [self isDarkMode] ? [NSColor whiteColor] : [NSColor blackColor];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     // Defer and coalesce statusbar updates
     dispatch_source_merge_data(statusBarUpdateQueue, 1);
+
+    if (object == credits && [keyPath isEqualToString:@"effectiveAppearance"]) {
+        [self adaptCreditsAppearance];
+    }
 
     if (context == kIMPreviewPanelContext) {
         [previewPanel reloadData];
