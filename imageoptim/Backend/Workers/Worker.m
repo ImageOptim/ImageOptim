@@ -19,6 +19,7 @@
 
 - (instancetype)initWithFile:(Job *)aFile {
     if (self = [super init]) {
+        assert([aFile isKindOfClass:[Job class]]);
         self.job = aFile;
     }
     return self;
