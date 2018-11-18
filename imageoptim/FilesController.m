@@ -248,12 +248,12 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     }
 }
 
-- (void)addURLsBelowSelection:(NSArray *)paths {
+- (void)addURLsBelowSelection:(NSArray<NSURL *> *)paths {
     nextInsertRow = [self selectionIndex];
     [self performSelectorInBackground:@selector(addURLs:) withObject:paths];
 }
 
-- (BOOL)addPaths:(NSArray *)paths {
+- (BOOL)addPaths:(NSArray<NSString *> *)paths {
     NSMutableArray *urls = [NSMutableArray arrayWithCapacity:[paths count]];
     for (NSString *path in paths) {
         [urls addObject:[NSURL fileURLWithPath:path]];
@@ -262,12 +262,12 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return [self addURLs:urls filesOnly:NO];
 }
 
-- (BOOL)addURLs:(NSArray *)paths {
+- (BOOL)addURLs:(NSArray<NSURL *> *)paths {
     return [self addURLs:paths filesOnly:NO];
 }
 
 /** filesOnly indicates that paths do not contain any directories or symlinks */
-- (BOOL)addURLs:(NSArray *)paths filesOnly:(BOOL)filesOnly {
+- (BOOL)addURLs:(NSArray<NSURL *> *)paths filesOnly:(BOOL)filesOnly {
     if (!isEnabled) {
         return NO;
     }

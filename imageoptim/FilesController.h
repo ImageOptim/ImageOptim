@@ -14,10 +14,10 @@ extern NSString *const kJobQueueFinished;
 - (void)configureWithTableView:(NSTableView *)a;
 
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation;
-- (void)addURLsBelowSelection:(NSArray *)paths;
-- (BOOL)addURLs:(NSArray *)paths;
-- (BOOL)addPaths:(NSArray *)paths;
-- (BOOL)addURLs:(NSArray *)paths filesOnly:(BOOL)t;
+- (void)addURLsBelowSelection:(NSArray<NSURL *> *)paths;
+- (BOOL)addURLs:(NSArray<NSURL *> *)paths;
+- (BOOL)addPaths:(NSArray<NSString *> *)paths;
+- (BOOL)addURLs:(NSArray<NSURL *> *)paths filesOnly:(BOOL)t;
 
 - (void)moveObjectsInArrangedObjectsFromIndexes:(NSIndexSet *)indexSet
                                         toIndex:(NSUInteger)insertIndex;
