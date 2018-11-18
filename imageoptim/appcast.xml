@@ -6,7 +6,7 @@
 <description>ImageOptim updates</description>
 <language>en</language>
 <item>
-    <title>1.8.0a1</title>
+    <title>1.8.0</title>
     <description><![CDATA[
     <ul>
         <li>Support for SVG optimizations using Rust-based svgcleaner
@@ -19,26 +19,24 @@
         <li>Updated translations
     </ul>
     ]]></description>
-    <pubDate>Wed, 04 Oct 2017 16:15:22 +0100</pubDate>
-    <sparkle:minimumSystemVersion>10.12.0</sparkle:minimumSystemVersion>
-    <enclosure url="https://imageoptim.com/ImageOptim1.8.0a1.tar.bz2" sparkle:version="1.8.0a1" sparkle:shortVersionString="1.8.0a1" length="1554079" type="application/octet-stream" sparkle:dsaSignature="MCwCFBWXqH6OzU0jbkh3trS6xfbPKLbvAhRe4zLuS5sxFpZ9B0UJ/ZOE8o1MFQ=="/>
+    <pubDate>Sun, 18 Mar 2018 22:04:14 +0000</pubDate>
+    <sparkle:minimumSystemVersion>10.9.1</sparkle:minimumSystemVersion>
+    <enclosure url="https://imageoptim.com/ImageOptim1.8.0.tar.bz2" sparkle:version="1.8.0" sparkle:shortVersionString="1.8.0" length="2371390" type="application/octet-stream" sparkle:dsaSignature="MCwCFFzcUDKV17snox6jHngbHHas3P0FAhQmQVPfKYQoBmerri2mg6+J6mCbrQ=="/>
     <sparkle:deltas>
-    <enclosure url="https://imageoptim.com/ImageOptim1.8.0a1-1.7.2.delta" sparkle:version="1.8.0a1" sparkle:shortVersionString="1.8.0a1" sparkle:deltaFrom="1.7.2" length="188629" type="application/octet-stream" sparkle:dsaSignature="MCwCFDczMqNN25+HNWmmsbiNpPAuWKscAhQMelzaHov8isK3OjtLNv3ZEmL7iA=="/>
-    <enclosure url="https://imageoptim.com/ImageOptim1.8.0a1-1.7.1.delta" sparkle:version="1.8.0a1" sparkle:shortVersionString="1.8.0a1" sparkle:deltaFrom="1.7.1" length="1080790" type="application/octet-stream" sparkle:dsaSignature="MCwCFBUh7Soj+QzAIm+kdcoksZj3PBtIAhRv5yBxqoSxMLjTjim5JTscnyRWAQ=="/></sparkle:deltas>
+    <enclosure url="https://imageoptim.com/ImageOptim1.8.0-1.7.3.delta" sparkle:version="1.8.0" sparkle:shortVersionString="1.8.0" sparkle:deltaFrom="1.7.3" length="952449" type="application/octet-stream" sparkle:dsaSignature="MCwCFCQgxQI2EZFiFfjFyVoi/7UKNTNAAhQ9oiPs9vZ0U8Xk512rOO/enG9Drw=="/>
+    <enclosure url="https://imageoptim.com/ImageOptim1.8.0-1.7.2.delta" sparkle:version="1.8.0" sparkle:shortVersionString="1.8.0" sparkle:deltaFrom="1.7.2" length="1113013" type="application/octet-stream" sparkle:dsaSignature="MCwCFAWaKVkxkVCQJqi02jRF+82zDvx8AhQFRen/UP/E8akt5ROAETdmEDC0iQ=="/>
+    <enclosure url="https://imageoptim.com/ImageOptim1.8.0-1.7.1.delta" sparkle:version="1.8.0" sparkle:shortVersionString="1.8.0" sparkle:deltaFrom="1.7.1" length="1935309" type="application/octet-stream" sparkle:dsaSignature="MC0CFBbDNJZIFBp2dP9skqYAbpklu2rGAhUAiaSLD/+TR5PPz+9qjKcJ4PgX6+E="/></sparkle:deltas>
 </item>
 <item>
-    <title>1.7.2</title>
-    <description><![CDATA[
-    <ul>
-        <li>Added support for color profiles in Guetzli
-        <li>Updated translations
-    </ul>
-    ]]></description>
-    <pubDate>Sun, 17 Sep 2017 23:44:03 +0100</pubDate>
-    <sparkle:minimumSystemVersion>10.9.0</sparkle:minimumSystemVersion>
-    <enclosure url="https://imageoptim.com/ImageOptim1.7.2.tar.bz2" sparkle:version="1.7.2" sparkle:shortVersionString="1.7.2" length="1553964" type="application/octet-stream" sparkle:dsaSignature="MCwCFEbeus3sOpSYs3+NyvY7Is4EpAzMAhRV4OEdoLKlpM7UFgZXg1QoJQ8SAw=="/>
-    <sparkle:deltas>
-    <enclosure url="https://imageoptim.com/ImageOptim1.7.2-1.7.1.delta" sparkle:version="1.7.2" sparkle:shortVersionString="1.7.2" sparkle:deltaFrom="1.7.1" length="962069" type="application/octet-stream" sparkle:dsaSignature="MC0CFQCPUdBTFw9F/h12R6YHFVoNG2A45AIUbkGhXOPHsw0DQVmOftgyyqNII28="/></sparkle:deltas>
+<title>1.8.1</title>
+<description>Sneak preview for Mojave beta testers. This version will be publicly released for all macOS versions in a few weeks.</description>
+<pubDate>Tue, 18 Sep 2018 16:23:28 +0100</pubDate>
+<sparkle:minimumSystemVersion>10.14.0</sparkle:minimumSystemVersion>
+<enclosure url="https://imageoptim.com/ImageOptim1.8.1.tar.bz2" sparkle:version="1.8.1" sparkle:shortVersionString="1.8.1" length="3292285" type="application/octet-stream" sparkle:edSignature="bcYLBFXKtCja17slZ1f/xsBGl6MbD6arxgZDN6WXZLM0/7olamoWj0daEE5XPB35ApGpOeVvmiHmbIt9TzUiCw==" sparkle:dsaSignature="MCwCFC2THAuh6Q90IPX3gRBFhJv1nci1AhR0kzhG6r8bPswOC7dqh5M/O/LHXw=="/>
+<sparkle:deltas>
+<enclosure url="https://imageoptim.com/ImageOptim1.8.1-1.8.0.delta" sparkle:version="1.8.1" sparkle:shortVersionString="1.8.1" sparkle:deltaFrom="1.8.0" length="2632830" type="application/octet-stream" sparkle:dsaSignature="MCwCFAXQvFoE83DKwp8aSFzB0RikOGSsAhQEdO1rbfK+g936ffvR4itrss3UFQ=="/>
+<enclosure url="https://imageoptim.com/ImageOptim1.8.1-1.7.3.delta" sparkle:version="1.8.1" sparkle:shortVersionString="1.8.1" sparkle:deltaFrom="1.7.3" length="2711435" type="application/octet-stream" sparkle:dsaSignature="MCwCFEg9mY9KrpzH7tHLcUByamYIPyu1AhRzjEiyr/AD6jVnJVYsXNONigaq2Q=="/>
+<enclosure url="https://imageoptim.com/ImageOptim1.8.1-1.7.2.delta" sparkle:version="1.8.1" sparkle:shortVersionString="1.8.1" sparkle:deltaFrom="1.7.2" length="2851139" type="application/octet-stream" sparkle:dsaSignature="MCwCFDe/q3idlgG0ykJU4jTcsxEW5pTAAhQr4twyLlm35fDGZ/89CST5AmdHug=="/></sparkle:deltas>
 </item>
 </channel>
 </rss>
