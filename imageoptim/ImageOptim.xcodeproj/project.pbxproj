@@ -113,6 +113,7 @@
 		5AD0347D1E27185D0030291A /* TempFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD0347B1E27185D0030291A /* TempFile.m */; };
 		5AE04E2E1B5301E100669E85 /* PngquantWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9F4371899D063006C64C8 /* PngquantWorker.m */; };
 		5AF8536C1B49F21C00CF76F5 /* FadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8536B1B49F21C00CF76F5 /* FadeView.m */; };
+		5FD569DD21A059A000BC9F82 /* JobProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD569DC21A059A000BC9F82 /* JobProxy.m */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		D047E4651E7C3D7C0036F96B /* GuetzliWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = D047E4641E7C3D7C0036F96B /* GuetzliWorker.m */; };
 		D047E5311E7D90DD0036F96B /* guetzli in CopyFiles */ = {isa = PBXBuildFile; fileRef = D047E4861E7D7E310036F96B /* guetzli */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -727,6 +728,8 @@
 		5AF71642174AF7C30018D3FE /* pngout */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = pngout; path = ../pngout; sourceTree = "<group>"; };
 		5AF8536A1B49F21C00CF76F5 /* FadeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FadeView.h; sourceTree = "<group>"; };
 		5AF8536B1B49F21C00CF76F5 /* FadeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FadeView.m; sourceTree = "<group>"; };
+		5FD569DB21A059A000BC9F82 /* JobProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobProxy.h; sourceTree = "<group>"; };
+		5FD569DC21A059A000BC9F82 /* JobProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobProxy.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ImageOptim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageOptim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D047E4491E7C3CE70036F96B /* GuetzliWorker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuetzliWorker.h; sourceTree = "<group>"; };
@@ -1029,6 +1032,8 @@
 				5A391880140A9B10001B4FD7 /* RevealButtonCell.m */,
 				5AACA82F0CAFE74E004D45CA /* Transformers.h */,
 				5AACA8300CAFE74E004D45CA /* Transformers.m */,
+				5FD569DB21A059A000BC9F82 /* JobProxy.h */,
+				5FD569DC21A059A000BC9F82 /* JobProxy.m */,
 			);
 			name = Frontend;
 			sourceTree = "<group>";
@@ -1751,6 +1756,7 @@
 				5ABE16621AE50D1D00861C6B /* ImageOptimController.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				5A714AAD0CB0196A00C242C0 /* MyTableView.m in Sources */,
+				5FD569DD21A059A000BC9F82 /* JobProxy.m in Sources */,
 				5A6242080CA86DC7005942A3 /* PrefsController.m in Sources */,
 				5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */,
 				5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */,

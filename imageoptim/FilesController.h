@@ -6,7 +6,7 @@
 
 @import Cocoa;
 
-@class File, ResultsDb;
+@class File, ResultsDb, JobProxy;
 extern NSString *const kJobQueueFinished;
 
 @interface FilesController : NSArrayController<NSTableViewDelegate, NSTableViewDataSource>

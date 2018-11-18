@@ -72,10 +72,6 @@
     return [filePath lastPathComponent];
 }
 
-- (nonnull id)copyWithZone:(nullable NSZone *)zone {
-    return [[Job allocWithZone:zone] initWithFilePath:filePath resultsDatabase:db];
-}
-
 -(nullable File *)optimizedFileWithFallback:(BOOL)fallback {
     File *optimizedFile = self.wipInput;
     if (optimizedFile) {
@@ -771,22 +767,14 @@
 }
 
 -(void)setStatus:(nonnull NSString *)imageName order:(NSInteger)order text:(nonnull NSString *)text {
-    void (^setter)(void) = ^(void){
-
-        // Keep failed status visible instead of replacing with progress/noopt/etc
-        if (self.isFailed && ![imageName isEqualToString:@"ok"] && ![imageName isEqualToString:@"err"]) {
-            return;
-        }
-
-        self->statusOrder = order;
-        self.statusText = text;
-        self.statusImageName = imageName;
-    };
-    if (order) {
-        dispatch_async(dispatch_get_main_queue(), setter);
-    } else {
-        setter(); // order=0 is from constructor, can be done synchronously
+    // Keep failed status visible instead of replacing with progress/noopt/etc
+    if (self.isFailed && ![imageName isEqualToString:@"ok"] && ![imageName isEqualToString:@"err"]) {
+        return;
     }
+
+    self->statusOrder = order;
+    self.statusText = text;
+    self.statusImageName = imageName;
 }
 
 -(nonnull NSString *)description {

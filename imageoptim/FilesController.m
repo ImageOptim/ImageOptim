@@ -10,6 +10,7 @@
 #import "RevealButtonCell.h"
 #import "ResultsDb.h"
 #import "JobQueue.h"
+#import "JobProxy.h"
 
 @interface FilesController ()
 
@@ -123,7 +124,8 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 - (NSString *)tableView:(NSTableView *)aTableView toolTipForCell:(NSCell *)aCell rect:(NSRectPointer)rect tableColumn:(NSTableColumn *)aTableColumn row:(int)row mouseLocation:(NSPoint)mouseLocation {
     NSArray *objs = [self arrangedObjects];
     if (row < (signed)[objs count]) {
-        Job *f = objs[row];
+        JobProxy *f = objs[row];
+        assert([f isKindOfClass:[JobProxy class]]);
 
         if ([aCell isKindOfClass:[RevealButtonCell class]]) {
             NSRect infoButtonRect = [((RevealButtonCell *)aCell) infoButtonRectForBounds:*rect];
@@ -219,13 +221,14 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 /** selfLock must be locked before using this
     That's a dumb linear search. Would be nice to replace NSArray with NSSet or NSHashTable.
  */
-- (Job *)findFileByPath:(NSURL *)path {
+- (JobProxy *)findFileByPath:(NSURL *)path {
     if (![seenPathHashes containsObject:path]) {
         return nil;
     }
 
     NSString *pathString = path.path;
-    for (Job *f in [self content]) {
+    for (JobProxy *f in [self content]) {
+        assert([f isKindOfClass:[JobProxy class]]);
         if ([pathString isEqualToString:f.filePath.path]) {
             return f;
         }
@@ -233,7 +236,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     return nil;
 }
 
-- (void)addJobObjects:(NSArray *)files {
+- (void)addJobObjects:(NSArray<JobProxy *> *)files {
     [[tableView undoManager] registerUndoWithTarget:self selector:@selector(removeObjects:) object:files];
     [[tableView undoManager] setActionName:NSLocalizedString(@"Add", @"undo command name")];
 
@@ -272,7 +275,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         return NO;
     }
 
-    NSMutableArray *toAdd = [NSMutableArray arrayWithCapacity:[paths count]];
+    NSMutableArray<JobProxy*> *toAdd = [NSMutableArray arrayWithCapacity:[paths count]];
 
     BOOL allOK = YES;
     NSFileManager *fm = filesOnly ? nil : [NSFileManager defaultManager];
@@ -294,15 +297,16 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         }
 
         if (!isDir) {
-            Job *f = [self findFileByPath:path];
-            if (f) {
-                if (![f isBusy]) {
-                    [jobQueue addJob:f];
+            JobProxy *old = [self findFileByPath:path];
+            if (old) {
+                if (![old isBusy]) {
+                    [jobQueue addJob:old.job];
                 }
             } else {
                 [seenPathHashes addObject:path]; // used by findFileByPath
-                f = [[Job alloc] initWithFilePath:path resultsDatabase:db];
-                [toAdd addObject:f];
+                Job *f = [[Job alloc] initWithFilePath:path resultsDatabase:db];
+                JobProxy *jobProxy = [[JobProxy alloc] initWithJob: f];
+                [toAdd addObject:jobProxy];
                 [jobQueue addJob:f];
             }
         } else {
@@ -321,7 +325,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 }
 
 - (void)stopSelected {
-    for (Job *f in self.selectedObjects) {
+    for (JobProxy *f in self.selectedObjects) {
         [f stop];
     }
     [self updateStoppableState];
@@ -330,7 +334,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 - (void)revert {
     BOOL beep = NO;
     NSArray *array = [self selectedObjects];
-    for (Job *f in array) {
+    for (JobProxy *f in array) {
         if (![f revert]) {
             beep = YES;
         }
@@ -342,7 +346,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 - (BOOL)canRevert {
     NSArray *array = [self selectedObjects];
-    for (Job *f in array) {
+    for (JobProxy *f in array) {
         if ([f canRevert]) {
             return YES;
         }
@@ -351,7 +355,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 }
 
 - (BOOL)canClearComplete {
-    for (Job *f in [self arrangedObjects]) {
+    for (JobProxy *f in [self arrangedObjects]) {
         if (f.isDone) {
             return YES;
         }
@@ -364,7 +368,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     NSMutableIndexSet *set = [NSMutableIndexSet new];
 
     @synchronized(self) {
-        for (Job *f in [self arrangedObjects]) {
+        for (JobProxy *f in [self arrangedObjects]) {
             if (f.isDone) {
                 [set addIndex:i];
             }
@@ -383,7 +387,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         array = [self content];
     }
 
-    for (Job *f in array) {
+    for (JobProxy *f in array) {
         if (!f.isBusy && (!optimized || f.isOptimized)) {
             return YES;
         }
@@ -400,7 +404,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         // UI doesn't give a way to deselect all, so here's a substitute
         // when selecting "again" on file that doesn't need it, deselect
         if (1 == selectionCount) {
-            Job *job = jobs[0];
+            JobProxy *job = jobs[0];
             if (job.isBusy || !job.isOptimized) {
                 jobs = [jobs copy];
                 [self setSelectedObjects:@[]];
@@ -409,9 +413,9 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
             jobs = [self content];
         }
 
-        for (Job *f in jobs) {
+        for (JobProxy *f in jobs) {
             if (!f.isBusy && (!optimized || f.isOptimized)) {
-                [jobQueue addJob:f];
+                [jobQueue addJob:f.job];
                 anyStarted = YES;
             }
         }
@@ -439,7 +443,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 - (void)updateStoppableState {
     if (isBusy) {
         NSArray *array = [self selectedObjects];
-        for(Job *f in array) {
+        for(JobProxy *f in array) {
             if ([f isStoppable]) {
                 self.isStoppable = YES;
                 return;

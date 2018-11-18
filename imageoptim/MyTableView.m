@@ -1,7 +1,7 @@
 #import "MyTableView.h"
 #import "FilesController.h"
 #import "RevealButtonCell.h"
-#import "Job.h"
+#import "JobProxy.h"
 #import "File.h"
 #import "log.h"
 
@@ -33,10 +33,13 @@
     NSArray *selected = [f selectedObjects];
     NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[selected count]];
     NSMutableArray *fileNames = [NSMutableArray arrayWithCapacity:[selected count]];
-    for(Job *job in selected) {
+    for(JobProxy *job in selected) {
+        assert([job isKindOfClass:[JobProxy class]]);
         NSString *path = job.filePath.path;
-        [filePaths addObject:path];
-        [fileNames addObject:[path.lastPathComponent stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        if (path) {
+            [filePaths addObject:path];
+            [fileNames addObject:[path.lastPathComponent stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        }
     };
     if ([filePaths count]) {
         NSPasteboard *pboard = [NSPasteboard generalPasteboard];
@@ -53,9 +56,10 @@
     NSArray *selectedFiles = [f selectedObjects];
     NSMutableArray *files = [NSMutableArray arrayWithCapacity:[selectedFiles count]];
     NSUInteger totalSize = 0;
-    for(Job *job in selectedFiles) {
+    for(JobProxy *job in selectedFiles) {
+        assert([job isKindOfClass:[JobProxy class]]);
         if (![job isDone]) continue;
-        File *file = job.savedOutput ? job.savedOutput : job.unoptimizedInput;
+        File *file = [job savedOutputOrInput];
         if (!file || file.byteSize > 100000) continue;
         totalSize += file.byteSize;
         if (totalSize > 1000000) break;

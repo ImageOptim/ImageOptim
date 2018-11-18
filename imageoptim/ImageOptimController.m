@@ -1,7 +1,8 @@
 #import "ImageOptimController.h"
 #import "FilesController.h"
 #import "RevealButtonCell.h"
-#import "Job.h"
+#import "Backend/Job.h"
+#import "JobProxy.h"
 #import "File.h"
 #import "Backend/Workers/Worker.h"
 #import "PrefsController.h"
@@ -117,20 +118,15 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
           BOOL anyBusyFiles = false;
 
             NSArray *content = [self->filesController content];
-          for (Job *f in content) {
-              const File *optimizedFile = f.wipInput;
-              if (!optimizedFile) {
-                  optimizedFile = f.savedOutput;
-              }
-              if (!optimizedFile) {
-                  continue;
-              }
+          for (JobProxy *f in content) {
+              assert([f isKindOfClass:[JobProxy class]]);
 
               if (!anyBusyFiles && [f isBusy]) {
                   anyBusyFiles = YES;
               }
 
-              const NSUInteger bytes = f.initialInput.byteSize, optimized = optimizedFile.byteSize;
+              const NSUInteger bytes = [f.byteSizeOriginal unsignedIntegerValue];
+              const NSUInteger optimized = [f.byteSizeOptimized unsignedIntegerValue];
               if (bytes && optimized && (bytes != optimized || [f isDone])) {
                   const double optimizedFraction = 1.0 - (double)optimized / (double)bytes;
                   if (optimizedFraction > maxOptimizedFraction) {

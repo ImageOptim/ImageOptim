@@ -10,7 +10,7 @@
 @class ResultsDb, File, TempFile;
 
 NS_ASSUME_NONNULL_BEGIN
-@interface Job : NSObject<NSCopying> {
+@interface Job : NSObject {
     NSURL *filePath;
     NSString *displayName;
 
@@ -38,6 +38,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)stop;
 - (BOOL)revert;
+
+-(NSURL *) previewItemURL;
+-(NSString *) previewItemTitle;
+
 @property (readonly) BOOL canRevert;
 @property (readonly) BOOL isDone, isFailed;
 
@@ -46,7 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)setFileOptimized:(nullable TempFile *)f toolName:(NSString *)s;
 
 - (nullable instancetype)initWithFilePath:(NSURL *)aPath resultsDatabase:(nullable ResultsDb *)aDb;
-- (id)copyWithZone:(nullable NSZone *)zone;
 - (void)updateStatusOfWorker:(nullable Worker *)currentWorker running:(BOOL)started;
 
 - (void)setFilePath:(NSURL *)s;
