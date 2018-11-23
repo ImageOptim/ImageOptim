@@ -89,17 +89,17 @@
     return [[props objectForKey:@"isOptimized"] boolValue];
 }
 
-static id nullToNil(id maybeNull) {
-    if (maybeNull == [NSNull null]) return nil;
-    return maybeNull;
-}
-
 -(NSURL *)filePath {
-    return nullToNil([props objectForKey:@"filePath"]);
+    return [job filePath];
 }
 
 -(NSString *)fileName {
-    return nullToNil([props objectForKey:@"fileName"]);
+    return [job fileName];
+}
+
+static id nullToNil(id maybeNull) {
+    if (maybeNull == [NSNull null]) return nil;
+    return maybeNull;
 }
 
 -(NSString *)statusText {
@@ -136,6 +136,10 @@ static id nullToNil(id maybeNull) {
 
 -(File *)percentOptimized {
     return nullToNil([props objectForKey:@"percentOptimized"]);
+}
+
+-(NSString *)description {
+    return [NSString stringWithFormat:@"Proxy for {%@}", job];
 }
 
 + (BOOL)automaticallyNotifiesObserversForKey:(NSString *)theKey {
@@ -193,7 +197,6 @@ static id nullToNil(id maybeNull) {
         @"isDone",
         @"isFailed",
         @"savedOutput",
-        @"fileName",
         @"byteSizeOriginal",
         @"byteSizeOptimized",
         @"percentOptimized",
