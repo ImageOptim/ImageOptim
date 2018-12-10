@@ -58,7 +58,7 @@
 - (void)forwardInvocation:(NSInvocation *)invocation
 {
     SEL aSelector = [invocation selector];
-    
+
     if ([job respondsToSelector:aSelector])
         [invocation invokeWithTarget:job];
     else
@@ -111,7 +111,7 @@ static id nullToNil(id maybeNull) {
 }
 
 -(NSString *)displayName {
-    return nullToNil([props objectForKey:@"displayName"]);
+    return [job displayName];
 }
 
 -(NSString *)statusImageName {
@@ -170,7 +170,7 @@ static id nullToNil(id maybeNull) {
             [self didChangeValueForKey:keyPath];
         }
     };
-    
+
     // ensure didChangeValueForKey is always on the main thread, as otherwise Cocoa bindings are very crashy
     if ([NSThread isMainThread]) {
         cb();
@@ -191,16 +191,20 @@ static id nullToNil(id maybeNull) {
 
 +(NSArray<NSString *> *)propertiesToProxy {
     return @[
-        @"statusImageName",
-        @"statusText",
-        @"statusOrder",
+        @"bestToolName",
+        @"byteSizeOptimized",
+        @"byteSizeOriginal",
+        @"canRevert",
+        @"isBusy",
         @"isDone",
         @"isFailed",
-        @"savedOutput",
-        @"byteSizeOriginal",
-        @"byteSizeOptimized",
+        @"isOptimized",
+        @"isStoppable",
         @"percentOptimized",
-        @"bestToolName",
+        @"savedOutput",
+        @"statusImageName",
+        @"statusOrder",
+        @"statusText",
     ];
 }
 
