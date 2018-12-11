@@ -66,7 +66,7 @@
 }
 
 -(BOOL)canRevert {
-    return [[props objectForKey:@"canRevert"] boolValue];
+    return [job canRevert];
 }
 
 -(BOOL)isDone {
@@ -82,7 +82,7 @@
 }
 
 -(BOOL)isStoppable {
-    return [[props objectForKey:@"isStoppable"] boolValue];
+    return [job isStoppable];
 }
 
 -(BOOL)isOptimized {
@@ -194,12 +194,10 @@ static id nullToNil(id maybeNull) {
         @"bestToolName",
         @"byteSizeOptimized",
         @"byteSizeOriginal",
-        @"canRevert",
         @"isBusy",
         @"isDone",
         @"isFailed",
         @"isOptimized",
-        @"isStoppable",
         @"percentOptimized",
         @"savedOutput",
         @"statusImageName",
