@@ -38,7 +38,7 @@
         NSString *path = job.filePath.path;
         if (path) {
             [filePaths addObject:path];
-            [fileNames addObject:[path.lastPathComponent stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            [fileNames addObject:[path.lastPathComponent stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]]];
         }
     };
     if ([filePaths count]) {
