@@ -682,8 +682,10 @@
         previousWorker = w;
     }
 
+    [self willChangeValueForKey:@"isBusy"];
     [workers addObjectsFromArray:runFirst];
     [workers addObjectsFromArray:runLater];
+    [self didChangeValueForKey:@"isBusy"];
 
     if (![workers count]) {
         self.isDone = YES;
@@ -698,8 +700,10 @@
 
 -(void)stopAllWorkers {
     @synchronized(self) {
+        [self willChangeValueForKey:@"isBusy"];
         [workers makeObjectsPerformSelector:@selector(cancel)];
         [workers removeAllObjects];
+        [self didChangeValueForKey:@"isBusy"];
         stopping = NO;
     }
 }
@@ -720,11 +724,13 @@
     @synchronized(self) {
         if (!self.isDone) {
             stopping = YES;
+            [self willChangeValueForKey:@"isBusy"];
             for(Worker *w in workers) {
                 if (![w isKindOfClass:[Save class]]) {
                     [w cancel];
                 }
             }
+            [self didChangeValueForKey:@"isBusy"];
         }
     }
     return YES;
@@ -737,6 +743,7 @@
 -(void)updateStatusOfWorker:(nullable Worker *)currentWorker running:(BOOL)started {
     NSOperation *running = nil;
 
+    [self willChangeValueForKey:@"isBusy"];
     @synchronized(self) {
         if (currentWorker && started) {
             running = currentWorker;
@@ -752,6 +759,8 @@
             }
         }
     }
+    [self didChangeValueForKey:@"isBusy"];
+
 
     if (running) {
         NSString *name = [[running className] stringByReplacingOccurrencesOfString:@"Worker" withString:@""];

@@ -398,7 +398,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 - (void)startAgainOptimized:(BOOL)optimized {
     BOOL anyStarted = NO;
     @synchronized(self) {
-        NSArray *jobs = [self selectedObjects];
+        NSArray<JobProxy*> *jobs = [self selectedObjects];
         NSInteger selectionCount = [jobs count];
 
         // UI doesn't give a way to deselect all, so here's a substitute
