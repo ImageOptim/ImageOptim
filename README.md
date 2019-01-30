@@ -1,6 +1,6 @@
 # ImageOptim
 
-[ImageOptim](https://imageoptim.com) is a GUI for lossless image optimization tools: PNGOUT, AdvPNG, Pngcrush, [OxiPNG](https://crates.rs/crates/oxipng), JpegOptim, [MozJPEG](https://github.com/mozilla/mozjpeg), [Gifsicle](https://kornel.ski/lossygif), SVGO, and [svgcleaner](https://github.com/RazrFalcon/svgcleaner).
+[ImageOptim](https://imageoptim.com) is a GUI for lossless image optimization tools: Zopfli, PNGOUT, [OxiPNG](https://crates.rs/crates/oxipng), AdvPNG, PNGCrush, [JPEGOptim](https://github.com/tjko/jpegoptim), Jpegtran, [Guetzli](https://github.com/google/guetzli), [Gifsicle](https://kornel.ski/lossygif), [SVGO](https://github.com/svg/svgo), [svgcleaner](https://github.com/RazrFalcon/svgcleaner) and [MozJPEG](https://github.com/mozilla/mozjpeg).
 
 ## Building
 
