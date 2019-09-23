@@ -18,7 +18,6 @@ const defaults = [
     'removeEmptyContainers',
     'removeEmptyText',
     'removeNonInheritableGroupAttrs',
-    'removeXMLProcInst',
     'sortAttrs',
 ];
 
@@ -48,6 +47,7 @@ const lossy = [
     'removeUselessStrokeAndFill',
     'removeViewBox',
     'removeXMLNS',
+    'removeXMLProcInst',
 ];
 
 
