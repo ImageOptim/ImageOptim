@@ -66,7 +66,6 @@ static const char *kIMPreviewPanelContext = "preview";
     }
 
     [NSApp setServicesProvider:self];
-    NSUpdateDynamicServices();
 }
 
 - (void)dealloc {
