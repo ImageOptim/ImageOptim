@@ -400,6 +400,34 @@
 			remoteGlobalIDString = 726B2B5D1C645FC900388755;
 			remoteInfo = "UI Tests";
 		};
+		5FFC9627275841A80035D0A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5AB8F19F214DA72000A1187F;
+			remoteInfo = generate_keys;
+		};
+		5FFC9629275841A80035D0A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5A5ADED7214EDE4900DF0099;
+			remoteInfo = sign_update;
+		};
+		5FFC962B275841A80035D0A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EA4311EA229D651300A5503D;
+			remoteInfo = bsdiff;
+		};
+		5FFC962D275841A80035D0A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EA4311A0229D5FBC00A5503D;
+			remoteInfo = ed25519;
+		};
 		D047E45F1E7C3CE80036F96B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
@@ -961,7 +989,11 @@
 				5A5811A51AD73A640001838D /* BinaryDelta */,
 				D047E4601E7C3CE80036F96B /* fileop */,
 				D047E4621E7C3CE80036F96B /* generate_appcast */,
+				5FFC9628275841A80035D0A2 /* generate_keys */,
+				5FFC962A275841A80035D0A2 /* sign_update */,
 				5A5811A71AD73A640001838D /* Autoupdate.app */,
+				5FFC962C275841A80035D0A2 /* libbsdiff.a */,
+				5FFC962E275841A80035D0A2 /* libed25519.a */,
 				5A5811A81AD73A640001838D /* Sparkle Test App.app */,
 				5A5811A91AD73A640001838D /* Sparkle Unit Tests.xctest */,
 				5A5811AF1BD73A640001838D /* Sparkle.framework */,
@@ -1024,6 +1056,8 @@
 				1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */,
 				5A0D2E5B0C922D6D00FD7CDE /* ImageOptimController.h */,
 				5A0D2E5C0C922D6D00FD7CDE /* ImageOptimController.m */,
+				5FD569DB21A059A000BC9F82 /* JobProxy.h */,
+				5FD569DC21A059A000BC9F82 /* JobProxy.m */,
 				5AACA7BA0CAFD0D2004D45CA /* MyTableView.h */,
 				5A714AAC0CB0196A00C242C0 /* MyTableView.m */,
 				5A6242060CA86DC7005942A3 /* PrefsController.h */,
@@ -1032,8 +1066,6 @@
 				5A391880140A9B10001B4FD7 /* RevealButtonCell.m */,
 				5AACA82F0CAFE74E004D45CA /* Transformers.h */,
 				5AACA8300CAFE74E004D45CA /* Transformers.m */,
-				5FD569DB21A059A000BC9F82 /* JobProxy.h */,
-				5FD569DC21A059A000BC9F82 /* JobProxy.m */,
 			);
 			name = Frontend;
 			sourceTree = "<group>";
@@ -1292,7 +1324,6 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1000;
 				TargetAttributes = {
 					5AC64EFD1AF3FDEE0032AA7F = {
@@ -1564,6 +1595,34 @@
 			remoteRef = 5ADDF2FE1CE613A800B4AD58 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		5FFC9628275841A80035D0A2 /* generate_keys */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = generate_keys;
+			remoteRef = 5FFC9627275841A80035D0A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5FFC962A275841A80035D0A2 /* sign_update */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = sign_update;
+			remoteRef = 5FFC9629275841A80035D0A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5FFC962C275841A80035D0A2 /* libbsdiff.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libbsdiff.a;
+			remoteRef = 5FFC962B275841A80035D0A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5FFC962E275841A80035D0A2 /* libed25519.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libed25519.a;
+			remoteRef = 5FFC962D275841A80035D0A2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		D047E4601E7C3CE80036F96B /* fileop */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
@@ -1761,9 +1820,9 @@
 				5ABE16D01AE5AD0200861C6B /* FilesController.m in Sources */,
 				1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */,
 				5ABE16621AE50D1D00861C6B /* ImageOptimController.m in Sources */,
+				5FD569DD21A059A000BC9F82 /* JobProxy.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				5A714AAD0CB0196A00C242C0 /* MyTableView.m in Sources */,
-				5FD569DD21A059A000BC9F82 /* JobProxy.m in Sources */,
 				5A6242080CA86DC7005942A3 /* PrefsController.m in Sources */,
 				5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */,
 				5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */,
