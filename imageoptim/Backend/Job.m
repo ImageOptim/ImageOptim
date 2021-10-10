@@ -347,6 +347,7 @@
                 }
             }
 
+
             // move destination to temporary location that will be overwritten
             if (![fm moveItemAtURL:filePath toURL:writeToURL error:&error]) {
                 IOWarn("Can't move to %@ %@", writeToPath, error);
@@ -385,7 +386,6 @@
             [writehandle writeData:data]; // this throws on failure
             [writehandle truncateFileAtOffset:[data length]];
             [writehandle closeFile];
-
 
             moveFromPath = writeToURL;
         }
