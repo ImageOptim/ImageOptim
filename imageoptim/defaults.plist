@@ -36,6 +36,8 @@
 	<integer>80</integer>
 	<key>PreservePermissions</key>
 	<true/>
+	<key>PreserveDates</key>
+	<false/>
 	<key>RunConcurrentDirscans</key>
 	<integer>2</integer>
 	<key>RunConcurrentFiles</key>

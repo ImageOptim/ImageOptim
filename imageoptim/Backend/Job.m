@@ -50,6 +50,7 @@
 
 @implementation Job {
     BOOL preservePermissions;
+    BOOL preserveDates;
 }
 
 @synthesize workersPreviousResults, filePath, displayName, statusText, statusOrder, statusImageName, bestToolName, isFailed, isDone;
@@ -346,12 +347,6 @@
                 }
             }
 
-            NSDictionary *originalAttributes = [fm attributesOfItemAtPath:filePath.path error:&error];
-            if (error != NULL) {
-                IOWarn("Can't get attributes for %@ %@", filePath.path, error);
-                return NO;
-            }
-
             // move destination to temporary location that will be overwritten
             if (![fm moveItemAtURL:filePath toURL:writeToURL error:&error]) {
                 IOWarn("Can't move to %@ %@", writeToPath, error);
@@ -391,15 +386,23 @@
             [writehandle truncateFileAtOffset:[data length]];
             [writehandle closeFile];
 
+
+            moveFromPath = writeToURL;
+        }
+
+        if (preserveDates) {
+            NSDictionary *originalAttributes = [fm attributesOfItemAtPath:filePath.path error:&error];
+            if (error != NULL) {
+                IOWarn("Can't get attributes for %@ %@", filePath.path, error);
+                return NO;
+            }
+
             NSDictionary* attributesToTransfer = [NSDictionary dictionaryWithObjectsAndKeys: [originalAttributes fileCreationDate], NSFileCreationDate, [originalAttributes fileModificationDate], NSFileModificationDate, NULL];
-            [fm setAttributes: attributesToTransfer ofItemAtPath: writeToURL.path error: &error];
+            [fm setAttributes: attributesToTransfer ofItemAtPath: moveFromPath.path error: &error];
             if (error != NULL) {
                 IOWarn("Could not set creation and modification date for %@ %@", filePath.path, error);
                 return NO;
             }
-
-
-            moveFromPath = writeToURL;
         }
 
         NSURL *revertPathTmp;
@@ -483,6 +486,7 @@
         fileIOQueue = aFileIOQueue; // will be used for saving
         workers = [[NSMutableArray alloc] initWithCapacity:10];
         preservePermissions = [defaults boolForKey:@"PreservePermissions"];
+        preserveDates = [defaults boolForKey:@"PreserveDates"];
 
         BOOL isQueueUnderUtilized = queue.operationCount < queue.maxConcurrentOperationCount;
         if (isQueueUnderUtilized) {
