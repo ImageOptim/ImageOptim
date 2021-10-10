@@ -65,6 +65,19 @@
                                                             <binding destination="300" name="value" keyPath="values.PreservePermissions" id="302"/>
                                                         </connections>
                                                     </button>
+                                                    <button ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Gy-rI-Mii">
+                                                        <rect key="frame" x="18" y="5" width="328" height="18"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14" id="ngJ-47-2f2"/>
+                                                        </constraints>
+                                                        <buttonCell key="cell" type="check" title="Preserve file creation and modification dates" bezelStyle="regularSquare" imagePosition="left" alignment="left" lineBreakMode="truncatingTail" state="on" inset="2" id="Y1f-OM-Hip">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <binding destination="300" name="value" keyPath="values.PreserveDates" id="Ppz-oM-nkD"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="184" secondAttribute="trailing" constant="20" symbolic="YES" id="6QG-Mq-OgX"/>

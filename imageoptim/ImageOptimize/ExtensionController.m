@@ -72,6 +72,7 @@
                     @"ZopfliEnabled":@(YES),
                     @"PngOutRemoveChunks":@(YES),
                     @"PreservePermissions":@(NO),
+                    @"PreserveDates":@(NO),
                     @"RunLowPriority":@(NO),
                     @"JpegTranEnabled":@(YES),
                     @"JpegTranStripAll":@(YES),

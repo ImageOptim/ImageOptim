@@ -50,6 +50,7 @@
 
 @implementation Job {
     BOOL preservePermissions;
+    BOOL preserveDates;
 }
 
 @synthesize workersPreviousResults, filePath, displayName, statusText, statusOrder, statusImageName, bestToolName, isFailed, isDone;
@@ -389,6 +390,21 @@
             moveFromPath = writeToURL;
         }
 
+        if (preserveDates) {
+            NSDictionary *originalAttributes = [fm attributesOfItemAtPath:filePath.path error:&error];
+            if (error != NULL) {
+                IOWarn("Can't get attributes for %@ %@", filePath.path, error);
+                return NO;
+            }
+
+            NSDictionary* attributesToTransfer = [NSDictionary dictionaryWithObjectsAndKeys: [originalAttributes fileCreationDate], NSFileCreationDate, [originalAttributes fileModificationDate], NSFileModificationDate, NULL];
+            [fm setAttributes: attributesToTransfer ofItemAtPath: moveFromPath.path error: &error];
+            if (error != NULL) {
+                IOWarn("Could not set creation and modification date for %@ %@", filePath.path, error);
+                return NO;
+            }
+        }
+
         NSURL *revertPathTmp;
         if ([self trashFileAtURL:filePath resultingItemURL:&revertPathTmp error:&error]) {
             if (!self.revertFile) {
@@ -470,6 +486,7 @@
         fileIOQueue = aFileIOQueue; // will be used for saving
         workers = [[NSMutableArray alloc] initWithCapacity:10];
         preservePermissions = [defaults boolForKey:@"PreservePermissions"];
+        preserveDates = [defaults boolForKey:@"PreserveDates"];
 
         BOOL isQueueUnderUtilized = queue.operationCount < queue.maxConcurrentOperationCount;
         if (isQueueUnderUtilized) {
