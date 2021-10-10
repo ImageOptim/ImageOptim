@@ -346,6 +346,11 @@
                 }
             }
 
+            NSDictionary *originalAttributes = [fm attributesOfItemAtPath:filePath.path error:&error];
+            if (error != NULL) {
+                IOWarn("Can't get attributes for %@ %@", filePath.path, error);
+                return NO;
+            }
 
             // move destination to temporary location that will be overwritten
             if (![fm moveItemAtURL:filePath toURL:writeToURL error:&error]) {
@@ -385,6 +390,14 @@
             [writehandle writeData:data]; // this throws on failure
             [writehandle truncateFileAtOffset:[data length]];
             [writehandle closeFile];
+
+            NSDictionary* attributesToTransfer = [NSDictionary dictionaryWithObjectsAndKeys: [originalAttributes fileCreationDate], NSFileCreationDate, [originalAttributes fileModificationDate], NSFileModificationDate, NULL];
+            [fm setAttributes: attributesToTransfer ofItemAtPath: writeToURL.path error: &error];
+            if (error != NULL) {
+                IOWarn("Could not set creation and modification date for %@ %@", filePath.path, error);
+                return NO;
+            }
+
 
             moveFromPath = writeToURL;
         }
