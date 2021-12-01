@@ -10,5 +10,8 @@
 	</array>
 	<key>com.apple.security.files.user-selected.read-only</key>
 	<true/>
+             <key>com.apple.security.get-task-allow</key>
+
+         <false/>
 </dict>
 </plist>
