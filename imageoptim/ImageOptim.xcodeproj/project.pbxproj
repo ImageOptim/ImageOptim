@@ -90,7 +90,6 @@
 		5ABE161D1AE508FA00861C6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEF1B2110F2BCB200E3E4F0 /* Foundation.framework */; };
 		5ABE161E1AE5094000861C6B /* pngquant in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A728F2C1836C0EE004D0D73 /* pngquant */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE161F1AE5094600861C6B /* pngcrush in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A1943450FF97F86007C3324 /* pngcrush */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		5ABE16201AE5094A00861C6B /* oxipng in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A1943680FF980B3007C3324 /* oxipng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE16231AE5095B00861C6B /* jpegtran in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A739C2B0EA4073700D751E1 /* jpegtran */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE16241AE5096300861C6B /* jpegoptim in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A62DB07111CCE9F008848D0 /* jpegoptim */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE16251AE5096800861C6B /* libimageoptimjpeg.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A20CCA2112393B90000400D /* libimageoptimjpeg.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -114,6 +113,7 @@
 		5AE04E2E1B5301E100669E85 /* PngquantWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9F4371899D063006C64C8 /* PngquantWorker.m */; };
 		5AF8536C1B49F21C00CF76F5 /* FadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8536B1B49F21C00CF76F5 /* FadeView.m */; };
 		5FD569DD21A059A000BC9F82 /* JobProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD569DC21A059A000BC9F82 /* JobProxy.m */; };
+		5FFC96C1275842310035D0A2 /* oxipng in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F75B47527583B9B0072F27A /* oxipng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		D047E4651E7C3D7C0036F96B /* GuetzliWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = D047E4641E7C3D7C0036F96B /* GuetzliWorker.m */; };
 		D047E5311E7D90DD0036F96B /* guetzli in CopyFiles */ = {isa = PBXBuildFile; fileRef = D047E4861E7D7E310036F96B /* guetzli */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -126,13 +126,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
 			remoteInfo = pngcrush;
-		};
-		5A1943670FF980B3007C3324 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A9D56BC0E7F242C000F129F /* oxipng.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
-			remoteInfo = oxipng;
 		};
 		5A1EBED217908F8200361F08 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -358,13 +351,6 @@
 			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E;
 			remoteInfo = jpegtran;
 		};
-		5ABE16131AE508C200861C6B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A9D56BC0E7F242C000F129F /* oxipng.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CA60BD34242C38D887DBE21F;
-			remoteInfo = oxipng;
-		};
 		5ABE16151AE508C200861C6B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */;
@@ -400,28 +386,42 @@
 			remoteGlobalIDString = 726B2B5D1C645FC900388755;
 			remoteInfo = "UI Tests";
 		};
-		5FFC9627275841A80035D0A2 /* PBXContainerItemProxy */ = {
+		5F75B47427583B9B0072F27A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A9D56BC0E7F242C000F129F /* oxipng.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CA60B9BBFEB6CD5654E156DF;
+			remoteInfo = "oxipng-bin";
+		};
+		5FFC969A275842290035D0A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A9D56BC0E7F242C000F129F /* oxipng.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CA604CC8B9EA3304D77DE321;
+			remoteInfo = "oxipng-bin";
+		};
+		5FFC96B7275842290035D0A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5AB8F19F214DA72000A1187F;
 			remoteInfo = generate_keys;
 		};
-		5FFC9629275841A80035D0A2 /* PBXContainerItemProxy */ = {
+		5FFC96B9275842290035D0A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 5A5ADED7214EDE4900DF0099;
 			remoteInfo = sign_update;
 		};
-		5FFC962B275841A80035D0A2 /* PBXContainerItemProxy */ = {
+		5FFC96BB275842290035D0A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = EA4311EA229D651300A5503D;
 			remoteInfo = bsdiff;
 		};
-		5FFC962D275841A80035D0A2 /* PBXContainerItemProxy */ = {
+		5FFC96BD275842290035D0A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
 			proxyType = 2;
@@ -472,7 +472,7 @@
 				5ABE16231AE5095B00861C6B /* jpegtran in CopyFiles */,
 				5ABE16251AE5096800861C6B /* libimageoptimjpeg.dylib in CopyFiles */,
 				5ABE16291AE5099500861C6B /* liblibpng.dylib in CopyFiles */,
-				5ABE16201AE5094A00861C6B /* oxipng in CopyFiles */,
+				5FFC96C1275842310035D0A2 /* oxipng in CopyFiles */,
 				5ABE161F1AE5094600861C6B /* pngcrush in CopyFiles */,
 				5ABE15841AE5074900861C6B /* pngout in CopyFiles */,
 				5ABE161E1AE5094000861C6B /* pngquant in CopyFiles */,
@@ -945,7 +945,7 @@
 		5A1943640FF980B3007C3324 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A1943680FF980B3007C3324 /* oxipng */,
+				5F75B47527583B9B0072F27A /* oxipng */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -989,11 +989,11 @@
 				5A5811A51AD73A640001838D /* BinaryDelta */,
 				D047E4601E7C3CE80036F96B /* fileop */,
 				D047E4621E7C3CE80036F96B /* generate_appcast */,
-				5FFC9628275841A80035D0A2 /* generate_keys */,
-				5FFC962A275841A80035D0A2 /* sign_update */,
+				5FFC96B8275842290035D0A2 /* generate_keys */,
+				5FFC96BA275842290035D0A2 /* sign_update */,
 				5A5811A71AD73A640001838D /* Autoupdate.app */,
-				5FFC962C275841A80035D0A2 /* libbsdiff.a */,
-				5FFC962E275841A80035D0A2 /* libed25519.a */,
+				5FFC96BC275842290035D0A2 /* libbsdiff.a */,
+				5FFC96BE275842290035D0A2 /* libed25519.a */,
 				5A5811A81AD73A640001838D /* Sparkle Test App.app */,
 				5A5811A91AD73A640001838D /* Sparkle Unit Tests.xctest */,
 				5A5811AF1BD73A640001838D /* Sparkle.framework */,
@@ -1236,12 +1236,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				5FFC969B275842290035D0A2 /* PBXTargetDependency */,
 				5A93FB681FF1BB58005D2F27 /* PBXTargetDependency */,
 				D047E4CD1E7D81040036F96B /* PBXTargetDependency */,
 				5A7FB7241E2C3DF800481B4A /* PBXTargetDependency */,
 				5AB114B11B52AEE700A3C73A /* PBXTargetDependency */,
 				5ABE16101AE508C200861C6B /* PBXTargetDependency */,
-				5ABE16141AE508C200861C6B /* PBXTargetDependency */,
 				5ABE16161AE508C200861C6B /* PBXTargetDependency */,
 				5ABE16181AE508C200861C6B /* PBXTargetDependency */,
 				5ABE161A1AE508C200861C6B /* PBXTargetDependency */,
@@ -1469,13 +1469,6 @@
 			remoteRef = 5A1943440FF97F86007C3324 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5A1943680FF980B3007C3324 /* oxipng */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = oxipng;
-			remoteRef = 5A1943670FF980B3007C3324 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		5A1EBED317908F8200361F08 /* zopflipng */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
@@ -1595,32 +1588,39 @@
 			remoteRef = 5ADDF2FE1CE613A800B4AD58 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5FFC9628275841A80035D0A2 /* generate_keys */ = {
+		5F75B47527583B9B0072F27A /* oxipng */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = oxipng;
+			remoteRef = 5F75B47427583B9B0072F27A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5FFC96B8275842290035D0A2 /* generate_keys */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
 			path = generate_keys;
-			remoteRef = 5FFC9627275841A80035D0A2 /* PBXContainerItemProxy */;
+			remoteRef = 5FFC96B7275842290035D0A2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5FFC962A275841A80035D0A2 /* sign_update */ = {
+		5FFC96BA275842290035D0A2 /* sign_update */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
 			path = sign_update;
-			remoteRef = 5FFC9629275841A80035D0A2 /* PBXContainerItemProxy */;
+			remoteRef = 5FFC96B9275842290035D0A2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5FFC962C275841A80035D0A2 /* libbsdiff.a */ = {
+		5FFC96BC275842290035D0A2 /* libbsdiff.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libbsdiff.a;
-			remoteRef = 5FFC962B275841A80035D0A2 /* PBXContainerItemProxy */;
+			remoteRef = 5FFC96BB275842290035D0A2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5FFC962E275841A80035D0A2 /* libed25519.a */ = {
+		5FFC96BE275842290035D0A2 /* libed25519.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = libed25519.a;
-			remoteRef = 5FFC962D275841A80035D0A2 /* PBXContainerItemProxy */;
+			remoteRef = 5FFC96BD275842290035D0A2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		D047E4601E7C3CE80036F96B /* fileop */ = {
@@ -1912,11 +1912,6 @@
 			name = jpegtran;
 			targetProxy = 5ABE160F1AE508C200861C6B /* PBXContainerItemProxy */;
 		};
-		5ABE16141AE508C200861C6B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = oxipng;
-			targetProxy = 5ABE16131AE508C200861C6B /* PBXContainerItemProxy */;
-		};
 		5ABE16161AE508C200861C6B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = pngcrush;
@@ -1936,6 +1931,11 @@
 			isa = PBXTargetDependency;
 			target = 5AC64EFD1AF3FDEE0032AA7F /* ImageOptimize */;
 			targetProxy = 5AC64F0A1AF3FDEE0032AA7F /* PBXContainerItemProxy */;
+		};
+		5FFC969B275842290035D0A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "oxipng-bin";
+			targetProxy = 5FFC969A275842290035D0A2 /* PBXContainerItemProxy */;
 		};
 		D047E4CD1E7D81040036F96B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
