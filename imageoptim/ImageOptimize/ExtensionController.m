@@ -97,7 +97,7 @@
                     NSItemProvider *result = [[NSItemProvider alloc] initWithContentsOfURL:tmpFilePathCopy];
                     inputItem.attachments = @[result];
                     [self.extensionContext completeRequestReturningItems:@[inputItem] completionHandler:^(BOOL res){
-                        NSLog(@"Returned image %d > %d (%d)", (int)[f byteSizeOriginal], (int)f.savedOutput.byteSize, (int)res);
+                        NSLog(@"Returned image %d > %d (%d)", [f byteSizeOriginal].intValue, (int)f.savedOutput.byteSize, (int)res);
                         [[NSFileManager defaultManager] removeItemAtURL:tmpFilePathCopy error:nil];
                         self->tempFilePath = nil;
                     }];
