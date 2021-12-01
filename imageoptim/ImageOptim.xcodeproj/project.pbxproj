@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		5ABB9FEC0E8518DA006F51BB /* bzip archive */ = {
+		5ABB9FEC0E8518DA006F51BB /* dist archive */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = 5ABB9FF10E8518FE006F51BB /* Build configuration list for PBXAggregateTarget "bzip archive" */;
+			buildConfigurationList = 5ABB9FF10E8518FE006F51BB /* Build configuration list for PBXAggregateTarget "dist archive" */;
 			buildPhases = (
 				5AF2D5151AED9B9C00E761BA /* Fix signature */,
-				5ABB9FEB0E8518DA006F51BB /* Tar */,
+				5ABB9FEB0E8518DA006F51BB /* Tar and notary */,
 				5A43E945189D7B3600A59D2D /* Verify Singnature */,
 			);
 			dependencies = (
+				5F349B912568695800B015B0 /* PBXTargetDependency */,
 				5ABB9FF00E8518DF006F51BB /* PBXTargetDependency */,
 			);
-			name = "bzip archive";
+			name = "dist archive";
 			productName = BuildArchive;
 		};
 /* End PBXAggregateTarget section */
@@ -1444,7 +1445,7 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* ImageOptim */,
-				5ABB9FEC0E8518DA006F51BB /* bzip archive */,
+				5ABB9FEC0E8518DA006F51BB /* dist archive */,
 				5A453F8D16BE79A7002AFE23 /* downloads */,
 				5ABE15411AE5072300861C6B /* Backend */,
 				5ABE154B1AE5072300861C6B /* BackendTests */,
@@ -1702,7 +1703,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"$BUILT_PRODUCTS_DIR/\"\nrm -rf verify\nmkdir verify\ntar xjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" -C verify\ncodesign --strict --deep -v -v \"verify/ImageOptim.app\" || exit 13\ncodesign -v -v \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/\"*\"Autoupdate.app\" || exit 12\ncodesign -v -v \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework\" || exit 11\n";
+			shellScript = "set -e\ncd \"$BUILT_PRODUCTS_DIR/\"\nrm -rf verify\nmkdir -p verify\ntar xzf \"$TARGET_BUILD_DIR/ImageOptim.tar.xz\" -C verify\ncodesign --strict --deep -v -v \"verify/ImageOptim.app\" || exit 13\ncodesign -v -v \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/\"*\"Autoupdate.app\" || exit 12\ncodesign -v -v \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework\" || exit 11\n";
 			showEnvVarsInLog = 0;
 		};
 		5AB422EF1CE730CD00E9B0D7 /* Xcode code signing sucks */ = {
@@ -1720,7 +1721,7 @@
 			shellPath = /bin/sh;
 			shellScript = "rm -rf \"$TARGET_BUILD_DIR/ImageOptim.app\"\n";
 		};
-		5ABB9FEB0E8518DA006F51BB /* Tar */ = {
+		5ABB9FEB0E8518DA006F51BB /* Tar and notary */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
 			files = (
@@ -1729,13 +1730,13 @@
 				"$(BUILT_PRODUCTS_DIR)/ImageOptim.app",
 				"$(SRCROOT)/optimal_file_list",
 			);
-			name = Tar;
+			name = "Tar and notary";
 			outputPaths = (
-				"$(TARGET_BUILD_DIR)/ImageOptim.tar.bz2",
+				"$(TARGET_BUILD_DIR)/ImageOptim.tar.xz",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\ncd \"$BUILT_PRODUCTS_DIR/\"\nPATH=$PATH:/usr/local/bin\nTAR=$(which gnutar || which gtar || which tar)\n$TAR cjf \"$TARGET_BUILD_DIR/ImageOptim.tar.bz2\" --numeric-owner --owner=0 --group=0 --mtime=2014-01-27 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\"\n";
+			shellScript = "set -e\ncd \"$BUILT_PRODUCTS_DIR/\"\nPATH=$PATH:/usr/local/bin\nTAR=$(which gnutar || which gtar || which tar)\n\n$TAR cf \"$TARGET_BUILD_DIR/ImageOptim.tar\" --numeric-owner --owner=0 --group=0 --mtime=2020-11-20 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\" \n\nmkdir -p /tmp/notarytemp\ntar x -C /tmp/notarytemp\ncodesign -dvv /tmp/notarytemp/ImageOptim.app\ncodesign -vvv --deep --strict /tmp/notarytemp/ImageOptim.app\nspctl -vvv --assess --type exec /tmp/notarytemp/ImageOptim.app || { echo spctl -vvv --assess --type exec fail $?; exit 1; }\n\n( cd /tmp/notarytemp/; zip -9r ImageOptim.zip ImageOptim.app )\naltool --notarize-app --primary-bundle-id \"net.pornel.ImageOptim\"  --file /tmp/notarytemp/ImageOptim.zip  -u pornel@me.com -p \"@keychain:notarycrap\"\n\nxcrun stapler staple ImageOptim.app || { echo \"async process, ugh\"; }\n\n$TAR cf \"$TARGET_BUILD_DIR/ImageOptim.tar\" --numeric-owner --owner=0 --group=0 --mtime=2020-11-20 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\" \nxz -9 \"$TARGET_BUILD_DIR/ImageOptim.tar\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5AF2D5151AED9B9C00E761BA /* Fix signature */ = {
@@ -2529,7 +2530,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5ABB9FF10E8518FE006F51BB /* Build configuration list for PBXAggregateTarget "bzip archive" */ = {
+		5ABB9FF10E8518FE006F51BB /* Build configuration list for PBXAggregateTarget "dist archive" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5ABB9FED0E8518DA006F51BB /* Debug */,
