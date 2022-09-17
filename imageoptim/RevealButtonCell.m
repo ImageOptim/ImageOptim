@@ -46,7 +46,7 @@
         NSRect dimensions = NSMakeRect(0, 0, INFO_IMAGE_SIZE, INFO_IMAGE_SIZE);
         image = [[NSImage alloc] initWithSize:dimensions.size];
         [image lockFocus];
-        [opaqueImage drawInRect:dimensions fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:0.3f respectFlipped:YES hints:nil];
+        [opaqueImage drawInRect:dimensions fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:0.3f respectFlipped:YES hints:nil];
         [image unlockFocus];
     }
     return image;
@@ -124,10 +124,10 @@
     if (iMouseHoveredInInfoButton || [self isHighlighted]) {
         float opacity = [self isHighlighted] ? 0.5f : 1.f;
         NSImage *opaqueImage = [self infoButtonImage];
-        [opaqueImage drawInRect:infoButtonRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:opacity respectFlipped:YES hints:nil];
+        [opaqueImage drawInRect:infoButtonRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:opacity respectFlipped:YES hints:nil];
     } else {
         NSImage *fadedImage = [self infoButtonImageFaded];
-        [fadedImage drawInRect:infoButtonRect fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:1.f respectFlipped:YES hints:nil];
+        [fadedImage drawInRect:infoButtonRect fromRect:NSZeroRect operation:NSCompositingOperationSourceOver fraction:1.f respectFlipped:YES hints:nil];
     }
 }
 
@@ -158,7 +158,7 @@
 - (BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)flag {
 
     NSRect infoButtonRect = [self infoButtonRectForBounds:cellFrame];
-    while ([theEvent type] != NSLeftMouseUp) {
+    while ([theEvent type] != NSEventTypeLeftMouseUp) {
         // This is VERY simple event tracking. We simply check to see if the mouse is in the "i" button or not and dispatch entered/exited mouse events
         NSPoint point = [controlView convertPoint:[theEvent locationInWindow] fromView:nil];
         BOOL mouseInButton = NSMouseInRect(point, infoButtonRect, [controlView isFlipped]);
@@ -166,11 +166,11 @@
             iMouseDownInInfoButton = mouseInButton;
             [controlView setNeedsDisplayInRect:cellFrame];
         }
-        if ([theEvent type] == NSMouseEntered || [theEvent type] == NSMouseExited) {
+        if ([theEvent type] == NSEventTypeMouseEntered || [theEvent type] == NSEventTypeMouseExited) {
             [NSApp sendEvent:theEvent];
         }
         // Note that we process mouse entered and exited events and dispatch them to properly handle updates
-        theEvent = [[controlView window] nextEventMatchingMask:(NSLeftMouseUpMask | NSLeftMouseDraggedMask | NSMouseEnteredMask | NSMouseExitedMask)];
+        theEvent = [[controlView window] nextEventMatchingMask:(NSEventMaskLeftMouseUp | NSEventMaskLeftMouseDragged | NSEventMaskMouseEntered | NSEventMaskMouseExited)];
     }
 
     // Another way of implementing the above code would be to keep an NSButtonCell as an ivar, and simply call trackMouse:inRect:ofView:untilMouseUp: on it, if the tracking area was inside of it.

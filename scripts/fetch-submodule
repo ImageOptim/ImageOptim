@@ -12,4 +12,4 @@ trap removelockfile EXIT
 
 while test -f "$LOCKFILE"; do echo "locked, waiting (delete $LOCKFILE if stuck)"; sleep 1; done
 touch "$LOCKFILE"
-git submodule update --init $1 || git submodule update --init --recursive $1
+git submodule update --init $1 || git submodule update --init --recursive $1 || { echo "warning: could not update $1 submodule"; exit 0; }
