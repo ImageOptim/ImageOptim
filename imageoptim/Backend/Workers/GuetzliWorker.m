@@ -49,7 +49,7 @@
 
     NSBitmapImageRep *inputRep = (NSBitmapImageRep *)[NSBitmapImageRep imageRepWithContentsOfURL:file.path];
     NSBitmapImageRep *sRGBRep = [inputRep bitmapImageRepByConvertingToColorSpace:[NSColorSpace sRGBColorSpace] renderingIntent:NSColorRenderingIntentRelativeColorimetric];
-    NSData *sRGBPNGData = [sRGBRep representationUsingType:NSPNGFileType properties:@{}];
+    NSData *sRGBPNGData = [sRGBRep representationUsingType:NSBitmapImageFileTypePNG properties:@{}];
     [sRGBPNGData writeToURL:temp atomically:NO];
 
     BOOL __block ok = NO;
