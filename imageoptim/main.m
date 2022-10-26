@@ -23,10 +23,5 @@ static int isLaunchedWithCliArguments(int argc, char *argv[]) {
 int main(int argc, char *argv[]) {
     quitWhenDone = hideLogs = isLaunchedWithCliArguments(argc, argv);
 
-    if (NSAppKitVersionNumber < NSAppKitVersionNumber10_10 && ![NSVisualEffectView class]) {
-        Class NSVisualEffectViewClass = objc_allocateClassPair([NSView class], "NSVisualEffectView", 0);
-        objc_registerClassPair(NSVisualEffectViewClass);
-    }
-
     return NSApplicationMain(argc, (const char **) argv);
 }
