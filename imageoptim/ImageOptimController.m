@@ -60,7 +60,11 @@ static const char *kIMPreviewPanelContext = "preview";
     for (NSTableColumn *column in monospaceFontColumns) {
         NSFont *font = [NSFont systemFontOfSize:13];
         if ([NSFont respondsToSelector:@selector(monospacedDigitSystemFontOfSize:weight:)]) {
-            font = [NSFont monospacedDigitSystemFontOfSize:13 weight:NSFontWeightRegular];
+            if (@available(macOS 10.11, *)) {
+                font = [NSFont monospacedDigitSystemFontOfSize:13 weight:NSFontWeightRegular];
+            } else {
+                // Fallback on earlier versions
+            }
         }
         [column.dataCell setFont:font];
     }
