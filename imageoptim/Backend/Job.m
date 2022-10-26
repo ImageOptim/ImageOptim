@@ -498,7 +498,8 @@
     }
     [self didChangeValueForKey:@"isBusy"];
 }
-
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 -(void)setSettingsHash:(NSArray*)allWorkers {
     CC_MD5_CTX md5ctx = {};
     CC_MD5_Init(&md5ctx);
@@ -509,6 +510,7 @@
     }
     CC_MD5_Final((unsigned char *)settingsHash, &md5ctx);
 }
+#pragma GCC diagnostic pop
 
 -(void)doEnqueueWorkersInCPUQueue:(nonnull NSOperationQueue *)queue serialQueue:(dispatch_queue_t)serialQueue defaults:(nonnull NSUserDefaults*)defs {
     [self setStatus:@"progress" order:3 text:NSLocalizedString(@"Inspecting file",@"tooltip")];
@@ -657,7 +659,8 @@
     [self setSettingsHash:[runFirst arrayByAddingObjectsFromArray:runLater]];
 
     // Can't check only file size, because then hash won't be available on save! if ([db hasResultWithFileSize:byteSizeOnDisk]) {
-
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
     CC_MD5_CTX md5ctx = {}, *md5ctxp = &md5ctx;
     CC_MD5_Init(md5ctxp);
     CC_MD5_Update(md5ctxp, settingsHash, 16);
@@ -668,7 +671,7 @@
         [self setNooptStatus];
         return;
     }
-
+#pragma GCC diagnostic pop
     NSOperation *saveOp = [[Save alloc] initWithTarget:self selector:@selector(saveResultAndUpdateStatus) object:nil];
 
     Worker *previousWorker = nil;
