@@ -246,10 +246,12 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 
 
     dispatch_async(dispatch_get_main_queue(), ^() {
-      [self->credits setEditable:YES];
-      [self->credits insertText:tmpStr replacementRange:NSMakeRange(0, 0)];
-      [self->credits setEditable:NO];
-      [self adaptCreditsAppearance];
+        @try {
+            [self->credits setEditable:YES];
+            [self->credits insertText:tmpStr replacementRange:NSMakeRange(0, 0)];
+            [self->credits setEditable:NO];
+            [self adaptCreditsAppearance];
+        } @catch(id) {/*nothing*/}
     });
 }
 
