@@ -76,8 +76,8 @@ static const char *kIMPreviewPanelContext = "preview";
 - (void)handleServices:(NSPasteboard *)pboard
               userData:(NSString *)userData
                  error:(NSString **)error {
-    NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
-    [filesController performSelectorInBackground:@selector(addPaths:) withObject:paths];
+    NSArray *paths = [pboard propertyListForType:NSPasteboardTypeFileURL];
+    [filesController performSelectorInBackground:@selector(addURLs:) withObject:paths];
 }
 
 static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name, NSString *key, NSMutableArray *arr) {
@@ -312,7 +312,7 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 
 - (IBAction)startAgain:(id)sender {
     // alt-click on a button (this is used from menu too, but alternative menu item covers that anyway
-    BOOL onlyOptimized = !!([[NSApp currentEvent] modifierFlags] & NSAlternateKeyMask);
+    BOOL onlyOptimized = !!([[NSApp currentEvent] modifierFlags] & NSEventModifierFlagOption);
     [filesController startAgainOptimized:onlyOptimized];
 }
 
@@ -370,7 +370,7 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
                    completionHandler:^(NSInteger returnCode) {
                      if (returnCode == NSModalResponseOK) {
                          NSWindow *myWindow = [self->tableView window];
-                         [myWindow setStyleMask:[myWindow styleMask] | NSResizableWindowMask];
+                         [myWindow setStyleMask:[myWindow styleMask] | NSWindowStyleMaskResizable];
                          [self->filesController setRow:-1];
                          [self->filesController addURLs:oPanel.URLs];
                      }
@@ -422,7 +422,7 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 // Quick Look panel delegate
 - (BOOL)previewPanel:(QLPreviewPanel *)panel handleEvent:(NSEvent *)event {
     // redirect all key down events to the table view
-    if ([event type] == NSKeyDown) {
+    if ([event type] == NSEventTypeKeyDown) {
         [tableView keyDown:event];
         return YES;
     }
