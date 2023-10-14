@@ -50,6 +50,7 @@
 		5A0D42121B4F37DC005A19B0 /* jmemnobs.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D42111B4F37DC005A19B0 /* jmemnobs.c */; };
 		5A0D42141B4F37EF005A19B0 /* jidctint.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D42131B4F37EF005A19B0 /* jidctint.c */; };
 		5A582E031B52EA11007F6FD5 /* dummy.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A582E021B52EA11007F6FD5 /* dummy.c */; };
+		5F4975D52ADB4E68005AF7D4 /* jcicc.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F4975D42ADB4E68005AF7D4 /* jcicc.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		5A27B9E5139B08640095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A27B9E6139B08640095FC2F /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../imageoptim/debug.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A582E021B52EA11007F6FD5 /* dummy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dummy.c; sourceTree = "<group>"; };
+		5F4975D42ADB4E68005AF7D4 /* jcicc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = jcicc.c; path = src/jcicc.c; sourceTree = "<group>"; };
 		D2AAC0630554660B00DB518D /* libimageoptimjpeg.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libimageoptimjpeg.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -125,6 +127,7 @@
 		08FB7794FE84155DC02AAC07 /* jpeg */ = {
 			isa = PBXGroup;
 			children = (
+				5F4975D42ADB4E68005AF7D4 /* jcicc.c */,
 				5A582E021B52EA11007F6FD5 /* dummy.c */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				5A27B9E5139B08640095FC2F /* release.xcconfig */,
@@ -320,6 +323,7 @@
 				5A0D42121B4F37DC005A19B0 /* jmemnobs.c in Sources */,
 				5A00EF061B4F384C00B5EBA7 /* jsimd_none.c in Sources */,
 				5A0D41F41B4F3600005A19B0 /* jutils.c in Sources */,
+				5F4975D52ADB4E68005AF7D4 /* jcicc.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
