@@ -16,7 +16,6 @@
 				5A43E945189D7B3600A59D2D /* Verify Singnature */,
 			);
 			dependencies = (
-				5F349B912568695800B015B0 /* PBXTargetDependency */,
 				5ABB9FF00E8518DF006F51BB /* PBXTargetDependency */,
 			);
 			name = "dist archive";
@@ -105,7 +104,7 @@
 		5AC64EC21AF3FCFE0032AA7F /* unoptimized.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AC64EC11AF3FCFE0032AA7F /* unoptimized.png */; };
 		5AC64F071AF3FDEE0032AA7F /* ExtensionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AC64F061AF3FDEE0032AA7F /* ExtensionController.m */; };
 		5AC64F091AF3FDEE0032AA7F /* ExtensionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AC64F081AF3FDEE0032AA7F /* ExtensionController.xib */; };
-		5AC64F0C1AF3FDEE0032AA7F /* ImageOptimize.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5AC64EFE1AF3FDEE0032AA7F /* ImageOptimize.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5AC64F0C1AF3FDEE0032AA7F /* ImageOptimize.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 5AC64EFE1AF3FDEE0032AA7F /* ImageOptimize.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		5AD033531E26B6840030291A /* File.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AD033511E26B6840030291A /* File.h */; };
 		5AD033541E26B6840030291A /* File.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD033521E26B6840030291A /* File.m */; };
 		5AD0347C1E27185D0030291A /* TempFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AD0347A1E27185D0030291A /* TempFile.h */; };
@@ -384,7 +383,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A9D56BC0E7F242C000F129F /* oxipng.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = CA604CC8B9EA3304D77DE321;
+			remoteGlobalIDString = CA6098BA26506A7600F6BE90;
 			remoteInfo = "oxipng-bin";
 		};
 		5FFC96B7275842290035D0A2 /* PBXContainerItemProxy */ = {
@@ -426,7 +425,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = CA600A1AC43BC85FF6ADA083;
+			remoteGlobalIDString = CA60AB14ACD6DCE1E6B0B145;
 			remoteInfo = "svgcleaner-bin";
 		};
 		D047E45F1E7C3CE80036F96B /* PBXContainerItemProxy */ = {
@@ -495,15 +494,15 @@
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5AC64F231AF3FDEF0032AA7F /* Embed App Extensions */ = {
+		5AC64F231AF3FDEF0032AA7F /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				5AC64F0C1AF3FDEE0032AA7F /* ImageOptimize.appex in Embed App Extensions */,
+				5AC64F0C1AF3FDEE0032AA7F /* ImageOptimize.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -1303,7 +1302,7 @@
 				5A7D24E113E5BC0C00815AAA /* Resources */,
 				5AC63C410E9ABCFD0053B879 /* Copy Frameworks */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				5AC64F231AF3FDEF0032AA7F /* Embed App Extensions */,
+				5AC64F231AF3FDEF0032AA7F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -1325,7 +1324,8 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					5AC64EFD1AF3FDEE0032AA7F = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -2174,7 +2174,6 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CURRENT_PROJECT_VERSION = 2;
-				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 2;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2219,7 +2218,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 2;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2289,7 +2287,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptimizeExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2338,7 +2335,6 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptimizeExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2476,7 +2472,10 @@
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				INFOPLIST_FILE = Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptim;
 				PRODUCT_NAME = ImageOptim;
 			};

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -292,7 +292,8 @@
 		D047E46A1E7D7DF00036F96B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1310;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					D047E4CE1E7D81720036F96B = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -309,6 +310,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = D047E4691E7D7DF00036F96B;
@@ -402,7 +404,11 @@
 					HAVE_CONFIG_H,
 					PNG_CONFIGURE_LIBPNG,
 				);
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/guetzli $(SRCROOT)/guetzli/third_party/butteraugli $(SRCROOT)/../libpng";
+				USER_HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/guetzli",
+					"$(SRCROOT)/guetzli/third_party/butteraugli",
+					"$(SRCROOT)/../libpng",
+				);
 			};
 			name = Debug;
 		};
@@ -418,7 +424,11 @@
 					HAVE_CONFIG_H,
 					PNG_CONFIGURE_LIBPNG,
 				);
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/guetzli $(SRCROOT)/guetzli/third_party/butteraugli $(SRCROOT)/../libpng";
+				USER_HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/guetzli",
+					"$(SRCROOT)/guetzli/third_party/butteraugli",
+					"$(SRCROOT)/../libpng",
+				);
 			};
 			name = Release;
 		};

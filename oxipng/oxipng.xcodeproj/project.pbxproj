@@ -1,6 +1,6 @@
 // !$*UTF8*$!
 {
-    /* generated with cargo-xcode 1.4.3 */
+    /* generated with cargo-xcode 1.6.1 */
     archiveVersion = 1;
     classes = {
     };
@@ -8,18 +8,18 @@
     objects = {
 /* Begin PBXBuildFile section */
         
-                CA60213084B56A7600F6BE90 /* Cargo.toml in Sources */ = {
+                CA60FD6E5E8A501CF3674BA6 /* Cargo.toml in Sources */ = {
                     isa = PBXBuildFile;
-                    fileRef = CA60236492093EF4668187A5 /* Cargo.toml */;
+                    fileRef = CA60AFD749D33EF4668187A5 /* Cargo.toml */;
                     settings = {
-                        COMPILER_FLAGS = "--bin oxipng --features 'binary'"; /* == OTHER_INPUT_FILE_FLAGS */
+                        COMPILER_FLAGS = "--bin 'oxipng' --features 'binary'"; /* == OTHER_INPUT_FILE_FLAGS */
                     };
                 };
                 
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
-        CA6023649209AC6C1400ACA8 /* PBXBuildRule */ = {
+        CA60AFD749D3AC6C1400ACA8 /* PBXBuildRule */ = {
             isa = PBXBuildRule;
             compilerSpec = com.apple.compilers.proxy.script;
             dependencyFile = "$(DERIVED_FILE_DIR)/$(CARGO_XCODE_TARGET_ARCH)-$(EXECUTABLE_NAME).d";
@@ -31,57 +31,54 @@
             outputFiles = (
                 "$(OBJECT_FILE_DIR)/$(CARGO_XCODE_TARGET_ARCH)-$(EXECUTABLE_NAME)",
             );
-            script = "# generated with cargo-xcode 1.4.3\n\nset -eu; export PATH=\"$PATH:$HOME/.cargo/bin:/usr/local/bin\";\nif [ \"${IS_MACCATALYST-NO}\" = YES ]; then\n    CARGO_XCODE_TARGET_TRIPLE=\"${CARGO_XCODE_TARGET_ARCH}-apple-ios-macabi\"\nelse\n    CARGO_XCODE_TARGET_TRIPLE=\"${CARGO_XCODE_TARGET_ARCH}-apple-${CARGO_XCODE_TARGET_OS}\"\nfi\nif [ \"$CARGO_XCODE_TARGET_OS\" != \"darwin\" ]; then\n    PATH=\"${PATH/\\/Contents\\/Developer\\/Toolchains\\/XcodeDefault.xctoolchain\\/usr\\/bin:/xcode-provided-ld-cant-link-lSystem-for-the-host-build-script:}\"\nfi\nPATH=\"$PATH:/opt/homebrew/bin\" # Rust projects often depend on extra tools like nasm, which Xcode lacks\nif [ \"$CARGO_XCODE_BUILD_MODE\" == release ]; then\n    OTHER_INPUT_FILE_FLAGS=\"${OTHER_INPUT_FILE_FLAGS} --release\"\nfi\nif command -v rustup &> /dev/null; then\n    if ! rustup target list --installed | egrep -q \"${CARGO_XCODE_TARGET_TRIPLE}\"; then\n        echo \"warning: this build requires rustup toolchain for $CARGO_XCODE_TARGET_TRIPLE, but it isn\'t installed\"\n        rustup target add \"${CARGO_XCODE_TARGET_TRIPLE}\" || echo >&2 \"warning: can\'t install $CARGO_XCODE_TARGET_TRIPLE\"\n    fi\nfi\nif [ \"$ACTION\" = clean ]; then\n ( set -x; cargo clean --manifest-path=\"$SCRIPT_INPUT_FILE\" ${OTHER_INPUT_FILE_FLAGS} --target=\"${CARGO_XCODE_TARGET_TRIPLE}\"; );\nelse\n ( set -x; cargo build --manifest-path=\"$SCRIPT_INPUT_FILE\" --features=\"${CARGO_XCODE_FEATURES:-}\" ${OTHER_INPUT_FILE_FLAGS} --target=\"${CARGO_XCODE_TARGET_TRIPLE}\"; );\nfi\n# it\'s too hard to explain Cargo\'s actual exe path to Xcode build graph, so hardlink to a known-good path instead\nBUILT_SRC=\"${CARGO_TARGET_DIR}/${CARGO_XCODE_TARGET_TRIPLE}/${CARGO_XCODE_BUILD_MODE}/${CARGO_XCODE_CARGO_FILE_NAME}\"\nln -f -- \"$BUILT_SRC\" \"$SCRIPT_OUTPUT_FILE_0\"\n\n# xcode generates dep file, but for its own path, so append our rename to it\nDEP_FILE_SRC=\"${CARGO_TARGET_DIR}/${CARGO_XCODE_TARGET_TRIPLE}/${CARGO_XCODE_BUILD_MODE}/${CARGO_XCODE_CARGO_DEP_FILE_NAME}\"\nif [ -f \"$DEP_FILE_SRC\" ]; then\n    DEP_FILE_DST=\"${DERIVED_FILE_DIR}/${CARGO_XCODE_TARGET_ARCH}-${EXECUTABLE_NAME}.d\"\n    cp -f \"$DEP_FILE_SRC\" \"$DEP_FILE_DST\"\n    echo >> \"$DEP_FILE_DST\" \"$SCRIPT_OUTPUT_FILE_0: $BUILT_SRC\"\nfi\n\n# lipo script needs to know all the platform-specific files that have been built\n# archs is in the file name, so that paths don\'t stay around after archs change\n# must match input for LipoScript\nFILE_LIST=\"${DERIVED_FILE_DIR}/${ARCHS}-${EXECUTABLE_NAME}.xcfilelist\"\ntouch \"$FILE_LIST\"\nif ! egrep -q \"$SCRIPT_OUTPUT_FILE_0\" \"$FILE_LIST\" ; then\n    echo >> \"$FILE_LIST\" \"$SCRIPT_OUTPUT_FILE_0\"\nfi\n";
+            script = "# generated with cargo-xcode 1.6.1\n\nset -eu; export PATH=\"$HOME/.cargo/bin:$PATH:/usr/local/bin\";\nif [ \"${IS_MACCATALYST-NO}\" = YES ]; then\n    CARGO_XCODE_TARGET_TRIPLE=\"${CARGO_XCODE_TARGET_ARCH}-apple-ios-macabi\"\nelse\n    CARGO_XCODE_TARGET_TRIPLE=\"${CARGO_XCODE_TARGET_ARCH}-apple-${CARGO_XCODE_TARGET_OS}\"\nfi\nif [ \"$CARGO_XCODE_TARGET_OS\" != \"darwin\" ]; then\n    PATH=\"${PATH/\\/Contents\\/Developer\\/Toolchains\\/XcodeDefault.xctoolchain\\/usr\\/bin:/xcode-provided-ld-cant-link-lSystem-for-the-host-build-script:}\"\nfi\nPATH=\"$PATH:/opt/homebrew/bin\" # Rust projects often depend on extra tools like nasm, which Xcode lacks\nif [ \"$CARGO_XCODE_BUILD_MODE\" == release ]; then\n    OTHER_INPUT_FILE_FLAGS=\"${OTHER_INPUT_FILE_FLAGS} --release\"\nfi\nif command -v rustup &> /dev/null; then\n    if ! rustup target list --installed | egrep -q \"${CARGO_XCODE_TARGET_TRIPLE}\"; then\n        echo \"warning: this build requires rustup toolchain for $CARGO_XCODE_TARGET_TRIPLE, but it isn\'t installed\"\n        rustup target add \"${CARGO_XCODE_TARGET_TRIPLE}\" || echo >&2 \"warning: can\'t install $CARGO_XCODE_TARGET_TRIPLE\"\n    fi\nfi\nif [ \"$ACTION\" = clean ]; then\n ( set -x; cargo clean --manifest-path=\"$SCRIPT_INPUT_FILE\" ${OTHER_INPUT_FILE_FLAGS} --target=\"${CARGO_XCODE_TARGET_TRIPLE}\"; );\nelse\n ( set -x; cargo build --manifest-path=\"$SCRIPT_INPUT_FILE\" --features=\"${CARGO_XCODE_FEATURES:-}\" ${OTHER_INPUT_FILE_FLAGS} --target=\"${CARGO_XCODE_TARGET_TRIPLE}\"; );\nfi\n# it\'s too hard to explain Cargo\'s actual exe path to Xcode build graph, so hardlink to a known-good path instead\nBUILT_SRC=\"${CARGO_TARGET_DIR}/${CARGO_XCODE_TARGET_TRIPLE}/${CARGO_XCODE_BUILD_MODE}/${CARGO_XCODE_CARGO_FILE_NAME}\"\nln -f -- \"$BUILT_SRC\" \"$SCRIPT_OUTPUT_FILE_0\"\n\n# xcode generates dep file, but for its own path, so append our rename to it\nDEP_FILE_SRC=\"${CARGO_TARGET_DIR}/${CARGO_XCODE_TARGET_TRIPLE}/${CARGO_XCODE_BUILD_MODE}/${CARGO_XCODE_CARGO_DEP_FILE_NAME}\"\nif [ -f \"$DEP_FILE_SRC\" ]; then\n    DEP_FILE_DST=\"${DERIVED_FILE_DIR}/${CARGO_XCODE_TARGET_ARCH}-${EXECUTABLE_NAME}.d\"\n    cp -f \"$DEP_FILE_SRC\" \"$DEP_FILE_DST\"\n\n    echo >> \"$DEP_FILE_DST\" \"$(echo \"$SCRIPT_OUTPUT_FILE_0\" | sed \'s/ /\\\\ /g\'): $(echo \"$BUILT_SRC\" | sed \'s/ /\\\\ /g\')\"\nfi\n\n# lipo script needs to know all the platform-specific files that have been built\n# archs is in the file name, so that paths don\'t stay around after archs change\n# must match input for LipoScript\nFILE_LIST=\"${DERIVED_FILE_DIR}/${ARCHS}-${EXECUTABLE_NAME}.xcfilelist\"\ntouch \"$FILE_LIST\"\nif ! egrep -q \"$SCRIPT_OUTPUT_FILE_0\" \"$FILE_LIST\" ; then\n    echo >> \"$FILE_LIST\" \"$SCRIPT_OUTPUT_FILE_0\"\nfi\n";
         };
 /* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
         
-        CA6098BA265045145F35021F /* bin */ = {
+        CA6088EC487D45145F35021F /* bin */ = {
             isa = PBXFileReference;
             explicitFileType = "compiled.mach-o.executable";
             includeInIndex = 0;
             name = "oxipng";
             sourceTree = TARGET_BUILD_DIR;
         };
-                CA60236492093EF4668187A5 /* Cargo.toml */ = {
+                CA60AFD749D33EF4668187A5 /* Cargo.toml */ = {
                     isa = PBXFileReference;
                     lastKnownFileType = text;
                     fileEncoding = 4;
                     name = "Cargo.toml";
-                    path = "/Users/kornel/www/ImageOptim/oxipng/oxipng/Cargo.toml";
+                    path = "oxipng/Cargo.toml";
                     sourceTree = "<group>";
             };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-        CA602364920998AF0B5890DB /* Frameworks */ = {
+        CA60AFD749D398AF0B5890DB /* Frameworks */ = {
             isa = PBXGroup;
             children = (
-                
             );
             name = Frameworks;
             sourceTree = "<group>";
         };
 
-        
-
-        CA602364920922869D176AE5 /* Products */ = {
+        CA60AFD749D322869D176AE5 /* Products */ = {
             isa = PBXGroup;
             children = (
-                CA6098BA265045145F35021F,
+                CA6088EC487D45145F35021F,
 
             );
             name = Products;
             sourceTree = "<group>";
         };
 
-        CA6023649209D65BC3C892A8 /* Main */ = {
+        CA60AFD749D3D65BC3C892A8 /* Main */ = {
             isa = PBXGroup;
             children = (
-                CA60236492093EF4668187A5,
-CA602364920922869D176AE5,
-CA602364920998AF0B5890DB,
+                CA60AFD749D33EF4668187A5,
+CA60AFD749D322869D176AE5,
+CA60AFD749D398AF0B5890DB,
 
             );
             sourceTree = "<group>";
@@ -90,45 +87,45 @@ CA602364920998AF0B5890DB,
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-        CA6098BA26506A7600F6BE90 /* oxipng-bin */ = {
+        CA6088EC487D501CF3674BA6 /* oxipng-bin */ = {
             isa = PBXNativeTarget;
-            buildConfigurationList = CA60D03F92D46A7600F6BE90;
+            buildConfigurationList = CA60BF74DC90501CF3674BA6;
             buildPhases = (
-                CA60E978B5C76A7600F6BE90 /* Sources */,
-                CA6023649209AF6EBB7F357C /* Universal Binary lipo */,
+                CA60400CACEE501CF3674BA6 /* Sources */,
+                CA60AFD749D3AF6EBB7F357C /* Universal Binary lipo */,
             );
             buildRules = (
-                CA6023649209AC6C1400ACA8 /* PBXBuildRule */,
+                CA60AFD749D3AC6C1400ACA8 /* PBXBuildRule */,
             );
             dependencies = (
             );
             name = "oxipng-bin";
             productName = "oxipng";
-            productReference = CA6098BA265045145F35021F;
+            productReference = CA6088EC487D45145F35021F;
             productType = "com.apple.product-type.tool";
         };
         
 /* End PBXNativeTarget section */
 
-        CA60E978B5C76A7600F6BE90 = {
+        CA60400CACEE501CF3674BA6 = {
                     isa = PBXSourcesBuildPhase;
                     buildActionMask = 2147483647;
                     files = (
-                        CA60213084B56A7600F6BE90
+                        CA60FD6E5E8A501CF3674BA6
                     );
                     runOnlyForDeploymentPostprocessing = 0;
                 };
                 
-        CA60D03F92D46A7600F6BE90 /* bin */ = {
+        CA60BF74DC90501CF3674BA6 /* bin */ = {
             isa = XCConfigurationList;
             buildConfigurations = (
-                CA60802F860D6A7600F6BE90 /* Release */,
-                CA60B83BDB956A7600F6BE90 /* Debug */,
+                CA603A370797501CF3674BA6 /* Release */,
+                CA6062F3E490501CF3674BA6 /* Debug */,
             );
             defaultConfigurationIsVisible = 0;
             defaultConfigurationName = Release;
         };
-            CA60802F860D6A7600F6BE90 /* bin */ = {
+            CA603A370797501CF3674BA6 /* bin */ = {
                 isa = XCBuildConfiguration;
                 buildSettings = {
                     PRODUCT_NAME = "oxipng";
@@ -136,22 +133,24 @@ CA602364920998AF0B5890DB,
                     "CARGO_XCODE_CARGO_DEP_FILE_NAME" = "oxipng.d";
                     SUPPORTED_PLATFORMS = "macosx";
                     
+                    
                 };
                 name = Release;
             };
-            CA60B83BDB956A7600F6BE90 /* bin */ = {
+            CA6062F3E490501CF3674BA6 /* bin */ = {
                 isa = XCBuildConfiguration;
                 buildSettings = {
                     PRODUCT_NAME = "oxipng";
                     "CARGO_XCODE_CARGO_FILE_NAME" = "oxipng";
                     "CARGO_XCODE_CARGO_DEP_FILE_NAME" = "oxipng.d";
                     SUPPORTED_PLATFORMS = "macosx";
+                    
                     
                 };
                 name = Debug;
             };
 
-        CA6023649209AF6EBB7F357C /* LipoScript */ = {
+        CA60AFD749D3AF6EBB7F357C /* LipoScript */ = {
             name = "Universal Binary lipo";
             isa = PBXShellScriptBuildPhase;
             buildActionMask = 2147483647;
@@ -166,20 +165,20 @@ CA602364920998AF0B5890DB,
             );
             runOnlyForDeploymentPostprocessing = 0;
             shellPath = /bin/sh;
-            shellScript = "# generated with cargo-xcode 1.4.3\nset -eux; cat \"$DERIVED_FILE_DIR/$ARCHS-$EXECUTABLE_NAME.xcfilelist\" | tr '\\n' '\\0' | xargs -0 lipo -create -output \"$TARGET_BUILD_DIR/$EXECUTABLE_PATH\"";
+            shellScript = "# generated with cargo-xcode 1.6.1\n\n            set -eux; cat \"$DERIVED_FILE_DIR/$ARCHS-$EXECUTABLE_NAME.xcfilelist\" | tr \'\\n\' \'\\0\' | xargs -0 lipo -create -output \"$TARGET_BUILD_DIR/$EXECUTABLE_PATH\"\n            if [ ${LD_DYLIB_INSTALL_NAME:+1} ]; then\n                install_name_tool -id \"$LD_DYLIB_INSTALL_NAME\" \"$TARGET_BUILD_DIR/$EXECUTABLE_PATH\"\n            fi\n        ";
         };
 
-        CA602364920980E02D6C7F57 = {
+        CA60AFD749D380E02D6C7F57 = {
             isa = XCConfigurationList;
             buildConfigurations = (
-                CA6077B9BE313CC16B37690B /* Release */,
-                CA6077B9BE31228BE02872F8 /* Debug */,
+                CA6018F2F0753CC16B37690B /* Release */,
+                CA6018F2F075228BE02872F8 /* Debug */,
             );
             defaultConfigurationIsVisible = 0;
             defaultConfigurationName = Release;
         };
 
-        CA6077B9BE313CC16B37690B = {
+        CA6018F2F0753CC16B37690B = {
             isa = XCBuildConfiguration;
             buildSettings = {
                 
@@ -197,6 +196,8 @@ CA602364920998AF0B5890DB,
             "CARGO_XCODE_TARGET_OS[sdk=appletvsimulator*]" = "tvos";
             "CARGO_XCODE_TARGET_OS[sdk=appletvos*]" = "tvos";
             PRODUCT_NAME = "oxipng";
+            MARKETING_VERSION = "4.0.3";
+            CURRENT_PROJECT_VERSION = "4.0";
             SDKROOT = macosx;
         
                 "CARGO_XCODE_BUILD_MODE" = "release"; /* for xcode scripts */
@@ -204,7 +205,7 @@ CA602364920998AF0B5890DB,
             name = Release;
         };
 
-        CA6077B9BE31228BE02872F8 = {
+        CA6018F2F075228BE02872F8 = {
             isa = XCBuildConfiguration;
             buildSettings = {
                 
@@ -222,6 +223,8 @@ CA602364920998AF0B5890DB,
             "CARGO_XCODE_TARGET_OS[sdk=appletvsimulator*]" = "tvos";
             "CARGO_XCODE_TARGET_OS[sdk=appletvos*]" = "tvos";
             PRODUCT_NAME = "oxipng";
+            MARKETING_VERSION = "4.0.3";
+            CURRENT_PROJECT_VERSION = "4.0";
             SDKROOT = macosx;
         
                 "CARGO_XCODE_BUILD_MODE" = "debug"; /* for xcode scripts */
@@ -230,18 +233,18 @@ CA602364920998AF0B5890DB,
             name = Debug;
         };
 
-        CA6023649209E04653AD465F = {
+        CA60AFD749D3E04653AD465F = {
             isa = PBXProject;
             attributes = {
-                LastUpgradeCheck = 1300;
+                LastUpgradeCheck = 1500;
                 TargetAttributes = {
-                    CA6098BA26506A7600F6BE90 = {
+                    CA6088EC487D501CF3674BA6 = {
                         CreatedOnToolsVersion = 9.2;
                         ProvisioningStyle = Automatic;
                     };
                                     };
             };
-            buildConfigurationList = CA602364920980E02D6C7F57;
+            buildConfigurationList = CA60AFD749D380E02D6C7F57;
             compatibilityVersion = "Xcode 11.4";
              developmentRegion = en;
             hasScannedForEncodings = 0;
@@ -249,17 +252,17 @@ CA602364920998AF0B5890DB,
                     en,
                     Base,
             );
-            mainGroup = CA6023649209D65BC3C892A8;
-            productRefGroup = CA602364920922869D176AE5 /* Products */;
+            mainGroup = CA60AFD749D3D65BC3C892A8;
+            productRefGroup = CA60AFD749D322869D176AE5 /* Products */;
             projectDirPath = "";
             projectRoot = "";
             targets = (
-                CA6098BA26506A7600F6BE90,
+                CA6088EC487D501CF3674BA6,
 
             );
         };
 
     };
-    rootObject = CA6023649209E04653AD465F;
+    rootObject = CA60AFD749D3E04653AD465F;
 }
     
