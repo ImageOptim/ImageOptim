@@ -12,7 +12,7 @@
 	url = https://github.com/pornel/pngquant.git
 [submodule "libjpeg/src"]
 	path = libjpeg/src
-	url = https://github.com/mozilla/mozjpeg.git
+	url = https://github.com/ImageOptim/mozjpeg-cocoa.git
 [submodule "jpegoptim/src"]
 	path = jpegoptim/src
 	url = https://github.com/tjko/jpegoptim.git
