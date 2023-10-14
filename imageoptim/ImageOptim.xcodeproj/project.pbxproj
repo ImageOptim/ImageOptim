@@ -986,18 +986,18 @@
 		5A5811941AD73A630001838D /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				5A5811AF1BD73A640001838D /* Sparkle.framework */,
+				5A5811A81AD73A640001838D /* Sparkle Test App.app */,
+				5A5811A91AD73A640001838D /* Sparkle Unit Tests.xctest */,
 				5A5811A51AD73A640001838D /* BinaryDelta */,
+				5A5811A71AD73A640001838D /* Autoupdate.app */,
+				5ADDF2FF1CE613A800B4AD58 /* UI Tests.xctest */,
 				D047E4601E7C3CE80036F96B /* fileop */,
 				D047E4621E7C3CE80036F96B /* generate_appcast */,
 				5FFC96B8275842290035D0A2 /* generate_keys */,
 				5FFC96BA275842290035D0A2 /* sign_update */,
-				5A5811A71AD73A640001838D /* Autoupdate.app */,
 				5FFC96BC275842290035D0A2 /* libbsdiff.a */,
 				5FFC96BE275842290035D0A2 /* libed25519.a */,
-				5A5811A81AD73A640001838D /* Sparkle Test App.app */,
-				5A5811A91AD73A640001838D /* Sparkle Unit Tests.xctest */,
-				5A5811AF1BD73A640001838D /* Sparkle.framework */,
-				5ADDF2FF1CE613A800B4AD58 /* UI Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
