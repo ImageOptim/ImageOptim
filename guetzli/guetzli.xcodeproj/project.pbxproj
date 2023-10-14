@@ -294,16 +294,6 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1500;
-				TargetAttributes = {
-					D047E4CE1E7D81720036F96B = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-					};
-					D047E4E71E7D868D0036F96B = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-					};
-				};
 			};
 			buildConfigurationList = D047E46D1E7D7DF00036F96B /* Build configuration list for PBXProject "guetzli" */;
 			compatibilityVersion = "Xcode 3.2";

@@ -1297,7 +1297,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "ImageOptim" */;
 			buildPhases = (
-				5AB422EF1CE730CD00E9B0D7 /* Xcode code signing sucks */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				5A7D24E113E5BC0C00815AAA /* Resources */,
 				5AC63C410E9ABCFD0053B879 /* Copy Frameworks */,
@@ -1329,7 +1328,6 @@
 				TargetAttributes = {
 					5AC64EFD1AF3FDEE0032AA7F = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 59KZTZA4XR;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 1;
@@ -1706,21 +1704,6 @@
 			shellScript = "set -e\ncd \"$BUILT_PRODUCTS_DIR/\"\nrm -rf verify\nmkdir -p verify\ntar xzf \"$TARGET_BUILD_DIR/ImageOptim.tar.xz\" -C verify\ncodesign --strict --deep -v -v \"verify/ImageOptim.app\" || exit 13\ncodesign -v -v \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework/Versions/A/Resources/\"*\"Autoupdate.app\" || exit 12\ncodesign -v -v \"verify/ImageOptim.app/Contents/Frameworks/Sparkle.framework\" || exit 11\n";
 			showEnvVarsInLog = 0;
 		};
-		5AB422EF1CE730CD00E9B0D7 /* Xcode code signing sucks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"",
-			);
-			name = "Xcode code signing sucks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "rm -rf \"$TARGET_BUILD_DIR/ImageOptim.app\"\n";
-		};
 		5ABB9FEB0E8518DA006F51BB /* Tar and notary */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -1736,7 +1719,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\ncd \"$BUILT_PRODUCTS_DIR/\"\nPATH=$PATH:/usr/local/bin\nTAR=$(which gnutar || which gtar || which tar)\n\n$TAR cf \"$TARGET_BUILD_DIR/ImageOptim.tar\" --numeric-owner --owner=0 --group=0 --mtime=2020-11-20 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\" \n\nmkdir -p /tmp/notarytemp\ntar x -C /tmp/notarytemp\ncodesign -dvv /tmp/notarytemp/ImageOptim.app\ncodesign -vvv --deep --strict /tmp/notarytemp/ImageOptim.app\nspctl -vvv --assess --type exec /tmp/notarytemp/ImageOptim.app || { echo spctl -vvv --assess --type exec fail $?; exit 1; }\n\n( cd /tmp/notarytemp/; zip -9r ImageOptim.zip ImageOptim.app )\naltool --notarize-app --primary-bundle-id \"net.pornel.ImageOptim\"  --file /tmp/notarytemp/ImageOptim.zip  -u pornel@me.com -p \"@keychain:notarycrap\"\n\nxcrun stapler staple ImageOptim.app || { echo \"async process, ugh\"; }\n\n$TAR cf \"$TARGET_BUILD_DIR/ImageOptim.tar\" --numeric-owner --owner=0 --group=0 --mtime=2020-11-20 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\" \nxz -9 \"$TARGET_BUILD_DIR/ImageOptim.tar\"\n";
+			shellScript = "set -xe\ncd \"$BUILT_PRODUCTS_DIR/\"\nPATH=/opt/homebrew/bin/:$PATH:/usr/local/bin\nTAR=$(which gnutar || which gtar || which tar)\n\n$TAR cf \"$TARGET_BUILD_DIR/ImageOptim.tar\" --numeric-owner --owner=0 --group=0 --mtime=2020-11-20 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\" \n\nmkdir -p /tmp/notarytemp\ntar x -C /tmp/notarytemp\ncodesign -dvv /tmp/notarytemp/ImageOptim.app\ncodesign -vvv --deep --strict /tmp/notarytemp/ImageOptim.app\nspctl -vvv --assess --type exec /tmp/notarytemp/ImageOptim.app || { echo spctl -vvv --assess --type exec fail $?; exit 1; }\n\n( cd /tmp/notarytemp/; zip -9r ImageOptim.zip ImageOptim.app )\naltool --notarize-app --primary-bundle-id \"net.pornel.ImageOptim\"  --file /tmp/notarytemp/ImageOptim.zip  -u pornel@me.com -p \"@keychain:notarycrap\"\n\nxcrun stapler staple ImageOptim.app || { echo \"async process, ugh\"; }\n\n$TAR cf \"$TARGET_BUILD_DIR/ImageOptim.tar\" --numeric-owner --owner=0 --group=0 --mtime=2020-11-20 --format=gnu --files-from=\"$SRCROOT/optimal_file_list\" \nxz -9 \"$TARGET_BUILD_DIR/ImageOptim.tar\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5AF2D5151AED9B9C00E761BA /* Fix signature */ = {
@@ -1753,7 +1736,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\ncd \"$BUILT_PRODUCTS_DIR/\"\n\nfind . '(' -name '*.cstemp' -o -name '._*' -o -name .DS_Store ')' -print -delete\nfind \"ImageOptim.app\" -print0 | xargs -0 -P8 xattr -c\n\nEXEDIR=ImageOptim.app/Contents/Frameworks/ImageOptimGPL.framework/Resources\n\n# list must be depth-first\nfor i in \"ImageOptim.app/Contents/Frameworks/Sparkle.framework/Resources/\"*\"Autoupdate.app\" \"ImageOptim.app/Contents/Frameworks/Sparkle.framework\" \"$EXEDIR/\"*\"png\"* \"$EXEDIR/\"*\"jpeg\"* \"ImageOptim.app/Contents/Frameworks/ImageOptimGPL.framework\" \"ImageOptim.app\"; do\n\ncodesign -v -v --strict --deep \"$i\" || {\n    echo >&2 \"warning: signature on '$i' is invalid; trying to fix it\"\n    if [[ \"$i\" == *appex ]]; then\n    SIGNARGS=\"--entitlements ${SRCROOT}/imageoptim/ImageOptimize/ImageOptimize.entitlements\"\n    else\n    SIGNARGS=''\n    fi\n    codesign --preserve-metadata=entitlements --strict -f -s \"${CODE_SIGNING_IDENTITY:-Developer ID}\" $SIGNARGS \"$i\"\n    codesign -v -v \"$i\" || {\n        echo >&2 \"error: $(basename $i) signature failed\"\n    }\n}\ndone\n\nspctl --verbose=4 --assess --type execute \"ImageOptim.app\" || { echo >&2 \"error: codesign ImageOptim.app\"; }\nspctl --verbose=4 --assess --type execute \"ImageOptim.app/Contents/Frameworks/Sparkle.framework/Resources/\"*\"Autoupdate.app\" || { echo >&2 \"error: codesign Autoupdate.app\"; }\n\n";
+			shellScript = "set -xe\ncd \"$BUILT_PRODUCTS_DIR/\"\n\nfind . '(' -name '*.cstemp' -o -name '._*' -o -name .DS_Store ')' -print -delete\nfind \"ImageOptim.app\" -print0 | xargs -0 -P8 xattr -c\n\nEXEDIR=ImageOptim.app/Contents/Frameworks/ImageOptimGPL.framework/Resources\n\n# list must be depth-first\nfor i in \"ImageOptim.app/Contents/Frameworks/Sparkle.framework/Resources/\"*\"Autoupdate.app\" \"ImageOptim.app/Contents/Frameworks/Sparkle.framework\" \"$EXEDIR/\"*\"png\"* \"$EXEDIR/\"*\"jpeg\"* \"ImageOptim.app/Contents/Frameworks/ImageOptimGPL.framework\" \"ImageOptim.app\"; do\n\ncodesign -v -v --strict --deep \"$i\" || {\n    echo >&2 \"warning: signature on '$i' is invalid; trying to fix it\"\n    if [[ \"$i\" == *appex ]]; then\n    SIGNARGS=\"--entitlements ${SRCROOT}/imageoptim/ImageOptimize/ImageOptimize.entitlements\"\n    else\n    SIGNARGS=''\n    fi\n    codesign --preserve-metadata=entitlements --strict -f -s \"${CODE_SIGNING_IDENTITY:-Developer ID}\" $SIGNARGS \"$i\"\n    codesign -v -v \"$i\" || {\n        echo >&2 \"error: $(basename $i) signature failed\"\n    }\n}\ndone\n\nspctl --verbose=4 --assess --type execute \"ImageOptim.app\" || { echo >&2 \"error: codesign ImageOptim.app\"; }\nspctl --verbose=4 --assess --type execute \"ImageOptim.app/Contents/Frameworks/Sparkle.framework/Resources/\"*\"Autoupdate.app\" || { echo >&2 \"error: codesign Autoupdate.app\"; }\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2362,7 +2345,6 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_ENTITLEMENTS = ImageOptimize/ImageOptimize.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 59KZTZA4XR;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -2443,11 +2425,13 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = ImageOptim.entitlements;
 				DEVELOPMENT_TEAM = 59KZTZA4XR;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(BUILT_PRODUCTS_DIR)",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2466,11 +2450,13 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = ImageOptim.entitlements;
 				DEVELOPMENT_TEAM = 59KZTZA4XR;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(BUILT_PRODUCTS_DIR)",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

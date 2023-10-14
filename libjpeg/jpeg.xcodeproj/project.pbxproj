@@ -253,7 +253,7 @@
 				};
 			};
 			buildConfigurationList = 1DEB914E08733D8E0010E9CD /* Build configuration list for PBXProject "jpeg" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -337,6 +337,7 @@
 		1DEB914B08733D8E0010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = imageoptimjpeg;
 			};
@@ -345,6 +346,7 @@
 		1DEB914C08733D8E0010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = imageoptimjpeg;
 			};
@@ -358,7 +360,10 @@
 				LD_DYLIB_INSTALL_NAME = "@loader_path/libimageoptimjpeg.dylib";
 				ONLY_ACTIVE_ARCH = YES;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/src $(SRCROOT)";
+				USER_HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/src",
+					"$(SRCROOT)",
+				);
 			};
 			name = Debug;
 		};
@@ -368,7 +373,10 @@
 			buildSettings = {
 				LD_DYLIB_INSTALL_NAME = "@loader_path/libimageoptimjpeg.dylib";
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/src $(SRCROOT)";
+				USER_HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/src",
+					"$(SRCROOT)",
+				);
 			};
 			name = Release;
 		};
