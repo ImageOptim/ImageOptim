@@ -7,7 +7,7 @@
     BOOL iMouseHoveredInInfoButton;
     SEL iInfoButtonAction;
 }
-@property  SEL infoButtonAction;
+@property SEL infoButtonAction;
 
 - (NSRect)infoButtonRectForBounds:(NSRect)bounds;
 

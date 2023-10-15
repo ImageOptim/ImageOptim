@@ -6,7 +6,6 @@
 
 @import Cocoa;
 
-
 @interface CeilFormatter : NSValueTransformer {
 }
 @end

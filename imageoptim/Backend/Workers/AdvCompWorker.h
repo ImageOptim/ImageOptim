@@ -10,7 +10,7 @@
 @interface AdvCompWorker : CommandWorker {
     NSInteger level;
 
-	NSInteger fileSizeOptimized;
+    NSInteger fileSizeOptimized;
 }
 
 - (instancetype)initWithLevel:(NSInteger)opt file:(Job *)aFile;

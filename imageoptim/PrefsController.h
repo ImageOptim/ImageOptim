@@ -16,4 +16,3 @@
 - (IBAction)showHelp:(id)sender;
 - (IBAction)showLossySettings:(id)sender;
 @end
-

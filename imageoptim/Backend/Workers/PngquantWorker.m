@@ -6,10 +6,10 @@
 
 @implementation PngquantWorker
 
--(id)initWithLevel:(NSInteger)level minQuality:(NSUInteger)aMinQ file:(Job *)f {
+- (id)initWithLevel:(NSInteger)level minQuality:(NSUInteger)aMinQ file:(Job *)f {
     if (self = [super initWithFile:f]) {
         minQuality = aMinQ;
-        speed = MIN(3, 7-level);
+        speed = MIN(3, 7 - level);
     }
     return self;
 }

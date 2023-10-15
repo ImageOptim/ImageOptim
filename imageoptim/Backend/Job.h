@@ -39,8 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)stop;
 - (BOOL)revert;
 
--(NSURL *) previewItemURL;
--(NSString *) previewItemTitle;
+- (NSURL *)previewItemURL;
+- (NSString *)previewItemTitle;
 
 @property (readonly) BOOL canRevert;
 @property (readonly) BOOL isDone, isFailed;

@@ -148,7 +148,6 @@
     return NSCellHitNone;
 }
 
-
 + (BOOL)prefersTrackingUntilMouseUp {
     // NSCell returns NO for this by default. If you want to have trackMouse:inRect:ofView:untilMouseUp: always track until the mouse is up, then you MUST return YES. Otherwise, strange things will happen.
     return YES;
@@ -156,7 +155,6 @@
 
 // Mouse tracking -- the only part we want to track is the "info" button
 - (BOOL)trackMouse:(NSEvent *)theEvent inRect:(NSRect)cellFrame ofView:(NSView *)controlView untilMouseUp:(BOOL)flag {
-
     NSRect infoButtonRect = [self infoButtonRectForBounds:cellFrame];
     while ([theEvent type] != NSEventTypeLeftMouseUp) {
         // This is VERY simple event tracking. We simply check to see if the mouse is in the "i" button or not and dispatch entered/exited mouse events

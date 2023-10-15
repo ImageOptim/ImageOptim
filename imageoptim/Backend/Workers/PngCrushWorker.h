@@ -8,7 +8,7 @@
 #import "CommandWorker.h"
 
 @interface PngCrushWorker : CommandWorker {
-	int firstIdatSize;
+    int firstIdatSize;
     BOOL strip, brute;
 }
 

@@ -6,7 +6,7 @@
 
 @implementation SvgoWorker
 
--(instancetype)initWithLossy:(BOOL)lossy job:(Job *)f {
+- (instancetype)initWithLossy:(BOOL)lossy job:(Job *)f {
     if (self = [super initWithFile:f]) {
         useLossy = lossy;
     }

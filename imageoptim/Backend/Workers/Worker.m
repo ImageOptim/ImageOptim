@@ -29,8 +29,7 @@
     return (f == job);
 }
 
--(BOOL)canSkip {
-
+- (BOOL)canSkip {
     if (![self isIdempotent]) return NO;
 
     NSDictionary *resultsBySettings;

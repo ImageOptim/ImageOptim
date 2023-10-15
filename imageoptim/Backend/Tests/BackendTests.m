@@ -36,9 +36,9 @@
 
     Job *f = [[Job alloc] initWithFilePath:path resultsDatabase:nil];
     JobQueue *q = [[JobQueue alloc] initWithCPUs:4
-                                                dirs:1
-                                               files:4
-                     defaults:[NSUserDefaults standardUserDefaults]];
+                                            dirs:1
+                                           files:4
+                                        defaults:[NSUserDefaults standardUserDefaults]];
 
     [q addJob:f];
     XCTAssertTrue([f isBusy]);

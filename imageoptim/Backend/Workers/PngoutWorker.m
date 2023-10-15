@@ -22,8 +22,8 @@
     return self;
 }
 
--(NSInteger)settingsIdentifier {
-    return level*4 + removechunks*2 + (timelimit < 60 ? 1 : 0);
+- (NSInteger)settingsIdentifier {
+    return level * 4 + removechunks * 2 + (timelimit < 60 ? 1 : 0);
 }
 
 - (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {

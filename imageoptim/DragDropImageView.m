@@ -8,22 +8,22 @@
 #import "ImageOptimController.h"
 #import "FilesController.h"
 
-
 @implementation DragDropImageView
 
 - (void)awakeFromNib {
-    [self registerForDraggedTypes:@[NSFilenamesPboardType]];
+    [self registerForDraggedTypes:@[ NSFilenamesPboardType ]];
 }
 
 - (BOOL)allowsVibrancy {
     return NSAppKitVersionNumber >= NSAppKitVersionNumber10_10;
 }
 
--(BOOL)isOpaque {
-    return NSAppKitVersionNumber < NSAppKitVersionNumber10_10;;
+- (BOOL)isOpaque {
+    return NSAppKitVersionNumber < NSAppKitVersionNumber10_10;
+    ;
 }
 
-//Destination Operations
+// Destination Operations
 - (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender {
     highlight = YES;
     [self setNeedsDisplay:YES];
@@ -31,11 +31,11 @@
 }
 
 - (NSDragOperation)draggingSourceOperationMaskForLocal:(BOOL)flag {
-    return NSDragOperationCopy; //send data as copy operation
+    return NSDragOperationCopy; // send data as copy operation
 }
 
 - (void)draggingExited:(id<NSDraggingInfo>)sender {
-    highlight = NO; //remove highlight of the drop zone
+    highlight = NO; // remove highlight of the drop zone
     [self setNeedsDisplay:YES];
 }
 
@@ -64,13 +64,13 @@
     if (!smoothSizes) {
         width = round(width);
         size = ceil(size);
-        frame = NSMakeRect(round(frame.origin.x)+((int)width&1)/2.0, round(frame.origin.y)+((int)width&1)/2.0, round(frame.size.width), round(frame.size.height));
+        frame = NSMakeRect(round(frame.origin.x) + ((int)width & 1) / 2.0, round(frame.origin.y) + ((int)width & 1) / 2.0, round(frame.size.width), round(frame.size.height));
     }
 
     [NSBezierPath setDefaultLineWidth:width];
 
-    NSBezierPath *p = [NSBezierPath bezierPathWithRoundedRect:frame xRadius:size/14.0 yRadius:size/14.0];
-    const CGFloat dash[2] = {size/10.0, size/16.0};
+    NSBezierPath *p = [NSBezierPath bezierPathWithRoundedRect:frame xRadius:size / 14.0 yRadius:size / 14.0];
+    const CGFloat dash[2] = { size / 10.0, size / 16.0 };
     [p setLineDash:dash count:2 phase:2];
     [p stroke];
 
@@ -87,7 +87,7 @@
 }
 
 - (BOOL)prepareForDragOperation:(id<NSDraggingInfo>)sender {
-    highlight = NO; //finished with the drag so remove any highlighting
+    highlight = NO; // finished with the drag so remove any highlighting
     [self setNeedsDisplay:YES];
     return YES;
 }
@@ -101,7 +101,7 @@
 }
 
 - (BOOL)acceptsFirstMouse:(NSEvent *)event {
-    return YES; //so source doesn't have to be the active window
+    return YES; // so source doesn't have to be the active window
 }
 
 @end

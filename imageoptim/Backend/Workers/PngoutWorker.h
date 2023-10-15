@@ -11,7 +11,7 @@
     BOOL removechunks;
     NSInteger level, timelimit;
 
-	NSInteger fileSizeOptimized;
+    NSInteger fileSizeOptimized;
 }
 
 - (instancetype)initWithLevel:(NSInteger)level defaults:(NSUserDefaults *)defaults file:(Job *)aFile;

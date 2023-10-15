@@ -14,49 +14,48 @@
 
 @implementation JobProxy
 
--(instancetype)initWithJob:(Job *)aJob {
+- (instancetype)initWithJob:(Job *)aJob {
     if (self = [self init]) {
         job = aJob;
         props = [NSMutableDictionary new];
 
-        for(NSString *prop in [JobProxy propertiesToProxy]) {
+        for (NSString *prop in [JobProxy propertiesToProxy]) {
             id val = [job valueForKey:prop];
             [props setObject:val ? val : [NSNull null] forKey:prop];
-            [job addObserver: self
-                  forKeyPath: prop
-                     options: NSKeyValueObservingOptionPrior | NSKeyValueObservingOptionNew
-                     context: NULL];
+            [job addObserver:self
+                  forKeyPath:prop
+                     options:NSKeyValueObservingOptionPrior | NSKeyValueObservingOptionNew
+                     context:NULL];
         }
     }
     return self;
 }
 
--(Job *)job {
+- (Job *)job {
     return job;
 }
 
--(BOOL)revert {
+- (BOOL)revert {
     return [job revert];
 }
 
--(BOOL)stop {
+- (BOOL)stop {
     return [job stop];
 }
 
--(void)cleanup {
+- (void)cleanup {
     [job cleanup];
 }
 
--(NSURL *) previewItemURL {
+- (NSURL *)previewItemURL {
     return [job previewItemURL];
 }
 
--(NSString *) previewItemTitle {
+- (NSString *)previewItemTitle {
     return [job previewItemTitle];
 }
 
-- (void)forwardInvocation:(NSInvocation *)invocation
-{
+- (void)forwardInvocation:(NSInvocation *)invocation {
     SEL aSelector = [invocation selector];
 
     if ([job respondsToSelector:aSelector])
@@ -65,35 +64,35 @@
         [super forwardInvocation:invocation];
 }
 
--(BOOL)canRevert {
+- (BOOL)canRevert {
     return [job canRevert];
 }
 
--(BOOL)isDone {
+- (BOOL)isDone {
     return [[props objectForKey:@"isDone"] boolValue];
 }
 
--(BOOL)isFailed {
+- (BOOL)isFailed {
     return [[props objectForKey:@"isFailed"] boolValue];
 }
 
--(BOOL)isBusy {
+- (BOOL)isBusy {
     return [[props objectForKey:@"isBusy"] boolValue];
 }
 
--(BOOL)isStoppable {
+- (BOOL)isStoppable {
     return [job isStoppable];
 }
 
--(BOOL)isOptimized {
+- (BOOL)isOptimized {
     return [[props objectForKey:@"isOptimized"] boolValue];
 }
 
--(NSURL *)filePath {
+- (NSURL *)filePath {
     return [job filePath];
 }
 
--(NSString *)fileName {
+- (NSString *)fileName {
     return [job fileName];
 }
 
@@ -102,43 +101,43 @@ static id nullToNil(id maybeNull) {
     return maybeNull;
 }
 
--(NSString *)statusText {
+- (NSString *)statusText {
     return nullToNil([props objectForKey:@"statusText"]);
 }
 
--(NSString *)bestToolName {
+- (NSString *)bestToolName {
     return nullToNil([props objectForKey:@"bestToolName"]);
 }
 
--(NSString *)displayName {
+- (NSString *)displayName {
     return [job displayName];
 }
 
--(NSString *)statusImageName {
+- (NSString *)statusImageName {
     return nullToNil([props objectForKey:@"statusImageName"]);
 }
 
--(NSNumber *)byteSizeOptimized {
+- (NSNumber *)byteSizeOptimized {
     return nullToNil([props objectForKey:@"byteSizeOptimized"]);
 }
 
--(NSNumber *)byteSizeOriginal {
+- (NSNumber *)byteSizeOriginal {
     return nullToNil([props objectForKey:@"byteSizeOriginal"]);
 }
 
--(File *)savedOutput {
+- (File *)savedOutput {
     return nullToNil([props objectForKey:@"savedOutput"]);
 }
 
--(File *)savedOutputOrInput {
+- (File *)savedOutputOrInput {
     return job.savedOutput ? job.savedOutput : job.unoptimizedInput;
 }
 
--(File *)percentOptimized {
+- (File *)percentOptimized {
     return nullToNil([props objectForKey:@"percentOptimized"]);
 }
 
--(NSString *)description {
+- (NSString *)description {
     return [NSString stringWithFormat:@"Proxy for {%@}", job];
 }
 
@@ -146,13 +145,13 @@ static id nullToNil(id maybeNull) {
     return ![[JobProxy propertiesToProxy] containsObject:theKey];
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey, id> *)change context:(void *)context {
     BOOL isPrior = [[change valueForKey:@"notificationIsPrior"] boolValue];
     NSLog(@"observed prior=%d main=%d  %@ %@", (int)isPrior, (int)[NSThread isMainThread], keyPath, change);
     BOOL isPercentRelated = [keyPath isEqualToString:@"byteSizeOptimized"] ||
-    [keyPath isEqualToString:@"byteSizeOriginal"] ||
-    [keyPath isEqualToString:@"savedOutput"] ||
-    [keyPath isEqualToString:@"isDone"];
+                            [keyPath isEqualToString:@"byteSizeOriginal"] ||
+                            [keyPath isEqualToString:@"savedOutput"] ||
+                            [keyPath isEqualToString:@"isDone"];
     void (^cb)(void) = ^{
         if (isPrior) {
             // hoping Cocoa will not do anything silly on the main thread while observing unchanged value
@@ -179,9 +178,9 @@ static id nullToNil(id maybeNull) {
     }
 }
 
--(void)dealloc {
-    for(NSString *prop in [JobProxy propertiesToProxy]) {
-        [job removeObserver:self forKeyPath: prop];
+- (void)dealloc {
+    for (NSString *prop in [JobProxy propertiesToProxy]) {
+        [job removeObserver:self forKeyPath:prop];
     }
 }
 
@@ -189,7 +188,7 @@ static id nullToNil(id maybeNull) {
     return [[JobProxy allocWithZone:zone] initWithJob:job];
 }
 
-+(NSArray<NSString *> *)propertiesToProxy {
++ (NSArray<NSString *> *)propertiesToProxy {
     return @[
         @"bestToolName",
         @"byteSizeOptimized",

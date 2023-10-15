@@ -21,8 +21,8 @@ static const char *kStripAllContext = "strip";
         DisabledColor *dc = [DisabledColor new];
         [NSValueTransformer setValueTransformer:dc forName:@"DisabledColor"];
 
-        [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"GuetzliEnabled" options:0 context:(void*)kGuetzliContext];
-        [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"JpegTranStripAll" options:0 context:(void*)kStripAllContext];
+        [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"GuetzliEnabled" options:0 context:(void *)kGuetzliContext];
+        [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"JpegTranStripAll" options:0 context:(void *)kStripAllContext];
     }
     return self;
 }
@@ -30,7 +30,7 @@ static const char *kStripAllContext = "strip";
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)defaults
                         change:(NSDictionary *)change
                        context:(void *)context {
-    if (context == (void*)kGuetzliContext) {
+    if (context == (void *)kGuetzliContext) {
         if ([defaults boolForKey:@"GuetzliEnabled"]) {
             if (!notified) {
                 notified = YES;
@@ -47,7 +47,7 @@ static const char *kStripAllContext = "strip";
             [defaults setBool:NO forKey:@"JpegTranStripAllSetByGuetzli"];
             [defaults setBool:NO forKey:@"JpegTranStripAll"];
         }
-    } else if (context == (void*)kStripAllContext) {
+    } else if (context == (void *)kStripAllContext) {
         if ([defaults boolForKey:@"GuetzliEnabled"] && ![defaults boolForKey:@"JpegTranStripAll"]) {
             [defaults setBool:NO forKey:@"JpegTranStripAllSetByGuetzli"];
             [defaults setBool:NO forKey:@"GuetzliEnabled"];
@@ -55,7 +55,7 @@ static const char *kStripAllContext = "strip";
     }
 }
 
--(void)warnGuetzliSlowness {
+- (void)warnGuetzliSlowness {
     NSAlert *alert = [NSAlert new];
     alert.alertStyle = NSAlertStyleWarning;
     alert.messageText = NSLocalizedString(@"Guetzli is very slow", "alert box");
@@ -73,18 +73,18 @@ static const char *kStripAllContext = "strip";
 
     [[self window] setHidesOnDeactivate:NO];
 
-    NSString *locBookName = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleHelpBookName"];
-    NSString *anchors[] = {@"general", @"jpegoptim", @"optipng", @"optipng", @"pngcrush", @"pngout"};
+    NSString *locBookName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleHelpBookName"];
+    NSString *anchors[] = { @"general", @"jpegoptim", @"optipng", @"optipng", @"pngcrush", @"pngout" };
     NSString *anchor = @"main";
 
     if (tag >= 1 && tag <= 6) {
-        anchor = anchors[tag-1];
+        anchor = anchors[tag - 1];
     }
     [[NSHelpManager sharedHelpManager] openHelpAnchor:anchor inBook:locBookName];
 }
 
 // This doesn't belong here :(
--(BOOL)svgSupported {
+- (BOOL)svgSupported {
     NSFileManager *fm = [NSFileManager defaultManager];
     return [fm isExecutableFileAtPath:@"/usr/local/bin/node"] || [fm isExecutableFileAtPath:@"/opt/homebrew/bin/node"];
 }

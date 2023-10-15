@@ -2,7 +2,6 @@
 #import "SharedPrefs.h"
 
 NSUserDefaults *IOSharedPrefs(void) {
-
     if (NSAppKitVersionNumber < NSAppKitVersionNumber10_10) {
         return nil;
     }
@@ -10,9 +9,7 @@ NSUserDefaults *IOSharedPrefs(void) {
     return [[NSUserDefaults alloc] initWithSuiteName:@"59KZTZA4XR.net.pornel.ImageOptim"];
 }
 
-
 static void copyToDefs(const NSArray *__nonnull keys, const NSUserDefaults *__nonnull defs, NSUserDefaults *__nonnull shared) {
-
     for (NSString *key in keys) {
         id val = [defs objectForKey:key];
         if (val) {
@@ -24,7 +21,6 @@ static void copyToDefs(const NSArray *__nonnull keys, const NSUserDefaults *__no
 }
 
 void IOSharedPrefsCopy(NSUserDefaults *__nonnull defs) {
-
     if (NSAppKitVersionNumber < NSAppKitVersionNumber10_10) {
         return;
     }

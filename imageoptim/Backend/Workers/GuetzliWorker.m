@@ -13,7 +13,7 @@
 
 @implementation GuetzliWorker
 
--(instancetype)initWithDefaults:(NSUserDefaults *)defaults serialQueue:(dispatch_queue_t)q file:(Job *)aFile {
+- (instancetype)initWithDefaults:(NSUserDefaults *)defaults serialQueue:(dispatch_queue_t)q file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
         queue = q;
         level = [defaults boolForKey:@"LossyEnabled"] ? [defaults integerForKey:@"JpegOptimMaxQuality"] : 95;

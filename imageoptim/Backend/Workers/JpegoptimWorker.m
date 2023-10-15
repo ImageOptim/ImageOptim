@@ -11,8 +11,8 @@
 
 @implementation JpegoptimWorker
 
--(NSInteger)settingsIdentifier {
-    return maxquality*2 + strip;
+- (NSInteger)settingsIdentifier {
+    return maxquality * 2 + strip;
 }
 
 - (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(Job *)aFile {
@@ -68,7 +68,7 @@
     BOOL isSignificantlySmaller;
     @synchronized(file) {
         // require at least 5% gain when doing lossy optimization
-        isSignificantlySmaller = file.byteSize*0.95 > fileSizeOptimized;
+        isSignificantlySmaller = file.byteSize * 0.95 > fileSizeOptimized;
     }
 
     if (![self makesNonOptimizingModifications] || isSignificantlySmaller) {
@@ -85,6 +85,5 @@
     }
     return NO;
 }
-
 
 @end

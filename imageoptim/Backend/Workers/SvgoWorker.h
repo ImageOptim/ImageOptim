@@ -5,6 +5,6 @@
     BOOL useLossy;
 }
 
--(instancetype)initWithLossy:(BOOL)lossy job:(Job *)f;
+- (instancetype)initWithLossy:(BOOL)lossy job:(Job *)f;
 
 @end

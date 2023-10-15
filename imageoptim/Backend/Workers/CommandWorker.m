@@ -13,28 +13,27 @@
 @implementation CommandWorker {
 }
 
--(BOOL)parseLine:(NSString *)line {
+- (BOOL)parseLine:(NSString *)line {
     /* stub */
     return NO;
 }
 
-
--(void)parseLinesFromHandle:(NSFileHandle *)commandHandle {
+- (void)parseLinesFromHandle:(NSFileHandle *)commandHandle {
     NSData *temp;
     char inputBuffer[4096];
-    NSInteger inputBufferPos=0;
+    NSInteger inputBufferPos = 0;
     while ((temp = [commandHandle availableData]) && [temp length]) {
         const char *tempBytes = [temp bytes];
-        NSInteger bytesPos=0, bytesLength = [temp length];
+        NSInteger bytesPos = 0, bytesLength = [temp length];
 
         while (bytesPos < bytesLength) {
-            if (tempBytes[bytesPos] == '\n' || tempBytes[bytesPos] == '\r' || inputBufferPos == sizeof(inputBuffer)-1) {
+            if (tempBytes[bytesPos] == '\n' || tempBytes[bytesPos] == '\r' || inputBufferPos == sizeof(inputBuffer) - 1) {
                 inputBuffer[inputBufferPos] = '\0';
                 if ([self parseLine:@(inputBuffer)]) {
                     [commandHandle readDataToEndOfFile];
                     return;
                 }
-                inputBufferPos=0;
+                inputBufferPos = 0;
                 bytesPos++;
             } else {
                 inputBuffer[inputBufferPos++] = tempBytes[bytesPos++];
@@ -43,7 +42,7 @@
     }
 }
 
--(void)taskWithPath:(NSString *)path arguments:(NSArray *)arguments;
+- (void)taskWithPath:(NSString *)path arguments:(NSArray *)arguments;
 {
     task = [NSTask new];
 
@@ -51,10 +50,10 @@
         task.qualityOfService = NSQualityOfServiceUtility;
     }
 
-    IODebug("Launching %@ %@",path,[arguments componentsJoinedByString:@" "]);
+    IODebug("Launching %@ %@", path, [arguments componentsJoinedByString:@" "]);
 
-    [task setLaunchPath: path];
-    [task setArguments: arguments];
+    [task setLaunchPath:path];
+    [task setArguments:arguments];
 
     // clone the current environment
     NSMutableDictionary *
@@ -66,7 +65,7 @@
     [task setEnvironment:environment];
 }
 
--(void)run {
+- (void)run {
     NSURL *tempPath = [self tempPath];
     @try {
         BOOL keptFile = [self optimizeFile:job.wipInput toTempPath:tempPath];
@@ -74,7 +73,7 @@
             tempPath = nil;
         }
     }
-    @catch(NSException *e) {
+    @catch (NSException *e) {
         IOWarn(@"%@ failed: %@: %@", [self className], [e name], e);
         [job setError:[NSString stringWithFormat:@"Internal Error: %@ %@", [e name], [e reason]]];
     }
@@ -85,7 +84,7 @@
     }
 }
 
--(void)launchTask {
+- (void)launchTask {
     @try {
         BOOL supportsQoS = [task respondsToSelector:@selector(setQualityOfService:)];
 
@@ -95,14 +94,14 @@
         [task launch];
 
         int pid = [task processIdentifier];
-        if (pid > 1) setpriority(PRIO_PROCESS, pid, PRIO_MAX/2); // PRIO_MAX is minimum priority. POSIX is intuitive.
+        if (pid > 1) setpriority(PRIO_PROCESS, pid, PRIO_MAX / 2); // PRIO_MAX is minimum priority. POSIX is intuitive.
     }
     @catch (NSException *e) {
-        IOWarn("Failed to launch %@ - %@",[self className],e);
+        IOWarn("Failed to launch %@ - %@", [self className], e);
     }
 }
 
--(BOOL)waitUntilTaskExit {
+- (BOOL)waitUntilTaskExit {
     [task waitUntilExit];
     int status = [task terminationStatus];
     if (status) {
@@ -112,7 +111,7 @@
     return YES;
 }
 
--(long)readNumberAfter:(NSString *)str inLine:(NSString *)line {
+- (long)readNumberAfter:(NSString *)str inLine:(NSString *)line {
     NSRange substr = [line rangeOfString:str];
 
     if (substr.length && [line length] > substr.location + [str length]) {
@@ -127,28 +126,27 @@
     return 0;
 }
 
--(void)cancel {
+- (void)cancel {
     @try {
         [task terminate];
-    } @catch(NSException *e) {
+    } @catch (NSException *e) {
         /* ignore */
     }
     [super cancel];
 }
 
-
--(BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args {
+- (BOOL)taskForKey:(NSString *)key bundleName:(NSString *)resourceName arguments:(NSArray *)args {
     NSString *executable = [self executablePathForKey:key bundleName:resourceName];
     if (!executable) {
-        IOWarn("Cannot launch %@",resourceName);
-        [job setError:[NSString stringWithFormat:NSLocalizedString(@"%@ failed to start",@"tooltip"),key]];
+        IOWarn("Cannot launch %@", resourceName);
+        [job setError:[NSString stringWithFormat:NSLocalizedString(@"%@ failed to start", @"tooltip"), key]];
         return NO;
     }
     [self taskWithPath:executable arguments:args];
     return YES;
 }
 
--(NSString *)pathForExecutableName:(NSString *)resourceName {
+- (NSString *)pathForExecutableName:(NSString *)resourceName {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
 
     NSString *path = [bundle pathForAuxiliaryExecutable:resourceName];
@@ -165,30 +163,30 @@
     return path;
 }
 
--(NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName {
+- (NSString *)executablePathForKey:(NSString *)prefsName bundleName:(NSString *)resourceName {
     NSString *path = [self pathForExecutableName:resourceName];
 
     if (!path) {
-        IOWarn("Can't find working executable for %@ - disabling",prefsName);
+        IOWarn("Can't find working executable for %@ - disabling", prefsName);
         NSBeep();
     }
     return path;
 }
 
--(NSURL *)tempPath {
-    static int uid=0;
-    if (uid==0) uid = getpid()<<12;
-    NSString *filename = [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.temp",[self className],(unsigned int)([Job hash]^[self hash]),uid++];
-    return [NSURL fileURLWithPath: [NSTemporaryDirectory() stringByAppendingPathComponent: filename]];
+- (NSURL *)tempPath {
+    static int uid = 0;
+    if (uid == 0) uid = getpid() << 12;
+    NSString *filename = [NSString stringWithFormat:@"ImageOptim.%@.%x.%x.temp", [self className], (unsigned int)([Job hash] ^ [self hash]), uid++];
+    return [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:filename]];
 }
 
--(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)tempPath {
+- (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)tempPath {
     return NO; /*abstract*/
 }
 
--(NSInteger)timelimitForLevel:(NSInteger)level {
-    const NSInteger timelimit = 10 + [job.wipInput byteSize]/1024;
-    const NSInteger maxTime = 8 + level*13;
+- (NSInteger)timelimitForLevel:(NSInteger)level {
+    const NSInteger timelimit = 10 + [job.wipInput byteSize] / 1024;
+    const NSInteger maxTime = 8 + level * 13;
     return MIN(maxTime, timelimit);
 }
 

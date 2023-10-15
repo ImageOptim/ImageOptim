@@ -13,8 +13,8 @@
     return self;
 }
 
--(NSInteger)settingsIdentifier {
-    return interlace + 2*quality;
+- (NSInteger)settingsIdentifier {
+    return interlace + 2 * quality;
 }
 
 -(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
@@ -63,7 +63,7 @@
     }
 
     if (isLossy) {
-        BOOL isSignificantlySmaller = output.byteSize * (105 + (100 - quality)/2) / 100 < file.byteSize;
+        BOOL isSignificantlySmaller = output.byteSize * (105 + (100 - quality) / 2) / 100 < file.byteSize;
         if (!isSignificantlySmaller) {
             return NO;
         }

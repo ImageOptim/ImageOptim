@@ -101,7 +101,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
     NSUInteger count = [fileUrls count];
     if (count) {
-        NSArray *types = @[NSFilenamesPboardType, kIMDraggedRowIndexesPboardType];
+        NSArray *types = @[ NSFilenamesPboardType, kIMDraggedRowIndexesPboardType ];
         if (count == 1) {
             types = [types arrayByAddingObject:NSURLPboardType];
         }
@@ -275,7 +275,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         return NO;
     }
 
-    NSMutableArray<JobProxy*> *toAdd = [NSMutableArray arrayWithCapacity:[paths count]];
+    NSMutableArray<JobProxy *> *toAdd = [NSMutableArray arrayWithCapacity:[paths count]];
 
     BOOL allOK = YES;
     NSFileManager *fm = filesOnly ? nil : [NSFileManager defaultManager];
@@ -305,7 +305,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
             } else {
                 [seenPathHashes addObject:path]; // used by findFileByPath
                 Job *f = [[Job alloc] initWithFilePath:path resultsDatabase:db];
-                JobProxy *jobProxy = [[JobProxy alloc] initWithJob: f];
+                JobProxy *jobProxy = [[JobProxy alloc] initWithJob:f];
                 [toAdd addObject:jobProxy];
                 [jobQueue addJob:f];
             }
@@ -398,7 +398,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 - (void)startAgainOptimized:(BOOL)optimized {
     BOOL anyStarted = NO;
     @synchronized(self) {
-        NSArray<JobProxy*> *jobs = [self selectedObjects];
+        NSArray<JobProxy *> *jobs = [self selectedObjects];
         NSInteger selectionCount = [jobs count];
 
         // UI doesn't give a way to deselect all, so here's a substitute
@@ -443,7 +443,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 - (void)updateStoppableState {
     if (isBusy) {
         NSArray *array = [self selectedObjects];
-        for(JobProxy *f in array) {
+        for (JobProxy *f in array) {
             if ([f isStoppable]) {
                 self.isStoppable = YES;
                 return;

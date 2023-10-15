@@ -10,7 +10,7 @@
 
 @implementation OxiPngWorker
 
--(instancetype)initWithLevel:(NSInteger)level stripMetadata:(BOOL)aStrip file:(Job *)aJob {
+- (instancetype)initWithLevel:(NSInteger)level stripMetadata:(BOOL)aStrip file:(Job *)aJob {
     if (self = [super initWithFile:aJob]) {
         optlevel = MAX(2, MIN(level, 6));
         strip = aStrip;

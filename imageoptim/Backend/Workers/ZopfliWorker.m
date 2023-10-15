@@ -9,15 +9,15 @@
 
 - (instancetype)initWithLevel:(NSInteger)aLevel defaults:(NSUserDefaults *)defaults file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
-        iterations = 3 + 3*aLevel;
+        iterations = 3 + 3 * aLevel;
         strip = [defaults boolForKey:@"PngOutRemoveChunks"];
         timelimit = [self timelimitForLevel:aLevel];
     }
     return self;
 }
 
--(NSInteger)settingsIdentifier {
-    return iterations*4 + strip*2 + alternativeStrategy;
+- (NSInteger)settingsIdentifier {
+    return iterations * 4 + strip * 2 + alternativeStrategy;
 }
 
 - (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
@@ -33,7 +33,7 @@
     NSString *filters = @"--filters=0pme";
 
     if ([file isLarge]) {
-        actualIterations = 5 + actualIterations/3; // use faster setting for large files
+        actualIterations = 5 + actualIterations / 3; // use faster setting for large files
         filters = @"--filters=p";
     }
 

@@ -6,7 +6,7 @@
 
 @implementation SvgcleanerWorker
 
--(instancetype)initWithLossy:(BOOL)lossy job:(Job *)f {
+- (instancetype)initWithLossy:(BOOL)lossy job:(Job *)f {
     if (self = [super initWithFile:f]) {
         useLossy = lossy;
     }
@@ -17,10 +17,9 @@
     return useLossy ? 5 : 6;
 }
 
--(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
-
-    NSMutableArray *args = [NSMutableArray arrayWithObjects:@"--stdout",@"--",file.path,
-                            nil];
+- (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
+    NSMutableArray *args = [NSMutableArray arrayWithObjects:@"--stdout", @"--", file.path,
+                                                            nil];
 
     if (![self taskForKey:@"Svgcleaner" bundleName:@"svgcleaner" arguments:args]) {
         return NO;
