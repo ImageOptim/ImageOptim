@@ -1,8 +1,11 @@
 build: all
 
-all: src/pngquant.c
+all: src/Cargo.toml
 
-src/pngquant.c: ../.gitmodules
-	../scripts/fetch-submodule src && touch src/pngquant.c
+src/Cargo.toml: ../.gitmodules
+	../scripts/fetch-submodule src && touch src/Cargo.toml
+
+src/lib/Cargo.toml: ../.gitmodules src/Cargo.toml
+	../scripts/fetch-submodule src/lib && touch src/lib/Cargo.toml
 
 .PHONY: build all install clean

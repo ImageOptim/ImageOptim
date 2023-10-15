@@ -87,7 +87,6 @@
 		5ABE161B1AE508E600861C6B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A08FDAF1933D635001DA24B /* libsqlite3.dylib */; };
 		5ABE161C1AE508F400861C6B /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEF1B1D10F2BCA900E3E4F0 /* AppKit.framework */; };
 		5ABE161D1AE508FA00861C6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEF1B2110F2BCB200E3E4F0 /* Foundation.framework */; };
-		5ABE161E1AE5094000861C6B /* pngquant in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A728F2C1836C0EE004D0D73 /* pngquant */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE161F1AE5094600861C6B /* pngcrush in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A1943450FF97F86007C3324 /* pngcrush */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE16231AE5095B00861C6B /* jpegtran in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A739C2B0EA4073700D751E1 /* jpegtran */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE16241AE5096300861C6B /* jpegoptim in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A62DB07111CCE9F008848D0 /* jpegoptim */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -111,6 +110,7 @@
 		5AD0347D1E27185D0030291A /* TempFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD0347B1E27185D0030291A /* TempFile.m */; };
 		5AE04E2E1B5301E100669E85 /* PngquantWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AA9F4371899D063006C64C8 /* PngquantWorker.m */; };
 		5AF8536C1B49F21C00CF76F5 /* FadeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AF8536B1B49F21C00CF76F5 /* FadeView.m */; };
+		5F91633A2ADB7A7B00230D34 /* pngquant in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F9163392ADB7A7B00230D34 /* pngquant */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5FD569DD21A059A000BC9F82 /* JobProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD569DC21A059A000BC9F82 /* JobProxy.m */; };
 		5FFC96C1275842310035D0A2 /* oxipng in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F75B47527583B9B0072F27A /* oxipng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5FFC9752275843210035D0A2 /* svgcleaner in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5FFC9750275843160035D0A2 /* svgcleaner */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -218,13 +218,6 @@
 			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
 			remoteInfo = jpegoptim;
 		};
-		5A728F2B1836C0EE004D0D73 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
-			remoteInfo = pngquant;
-		};
 		5A739C2A0EA4073700D751E1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A739C260EA4073700D751E1 /* jpegtran.xcodeproj */;
@@ -252,13 +245,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
 			remoteInfo = advpng;
-		};
-		5A9B031A1836E5360043BDAC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5A728F481836C185004D0D73;
-			remoteInfo = imagequant;
 		};
 		5AB114B01B52AEE700A3C73A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -344,13 +330,6 @@
 			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E;
 			remoteInfo = pngcrush;
 		};
-		5ABE16171AE508C200861C6B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E;
-			remoteInfo = pngquant;
-		};
 		5ABE16191AE508C200861C6B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */;
@@ -378,6 +357,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = CA60B9BBFEB6CD5654E156DF;
 			remoteInfo = "oxipng-bin";
+		};
+		5F9163382ADB7A7B00230D34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CA6059EC40528780035A8A54;
+			remoteInfo = "pngquant-bin";
 		};
 		5FFC969A275842290035D0A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -475,7 +461,7 @@
 				5FFC96C1275842310035D0A2 /* oxipng in CopyFiles */,
 				5ABE161F1AE5094600861C6B /* pngcrush in CopyFiles */,
 				5ABE15841AE5074900861C6B /* pngout in CopyFiles */,
-				5ABE161E1AE5094000861C6B /* pngquant in CopyFiles */,
+				5F91633A2ADB7A7B00230D34 /* pngquant in CopyFiles */,
 				5FFC9752275843210035D0A2 /* svgcleaner in CopyFiles */,
 				5A7FB7261E2C3E1600481B4A /* svgo.js in CopyFiles */,
 				5ABE162A1AE5099F00861C6B /* zopflipng in CopyFiles */,
@@ -1013,8 +999,7 @@
 		5A728F1A1836C0EE004D0D73 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A728F2C1836C0EE004D0D73 /* pngquant */,
-				5A9B031B1836E5360043BDAC /* libimagequant.a */,
+				5F9163392ADB7A7B00230D34 /* pngquant */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1243,7 +1228,6 @@
 				5AB114B11B52AEE700A3C73A /* PBXTargetDependency */,
 				5ABE16101AE508C200861C6B /* PBXTargetDependency */,
 				5ABE16161AE508C200861C6B /* PBXTargetDependency */,
-				5ABE16181AE508C200861C6B /* PBXTargetDependency */,
 				5ABE161A1AE508C200861C6B /* PBXTargetDependency */,
 				5ABE160E1AE508A300861C6B /* PBXTargetDependency */,
 				5ABE160C1AE508A000861C6B /* PBXTargetDependency */,
@@ -1531,13 +1515,6 @@
 			remoteRef = 5A62DB06111CCE9F008848D0 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5A728F2C1836C0EE004D0D73 /* pngquant */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = pngquant;
-			remoteRef = 5A728F2B1836C0EE004D0D73 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		5A739C2B0EA4073700D751E1 /* jpegtran */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
@@ -1559,13 +1536,6 @@
 			remoteRef = 5A984D4911238E51007622D7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5A9B031B1836E5360043BDAC /* libimagequant.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libimagequant.a;
-			remoteRef = 5A9B031A1836E5360043BDAC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		5ADDF2FF1CE613A800B4AD58 /* UI Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
@@ -1578,6 +1548,13 @@
 			fileType = "compiled.mach-o.executable";
 			path = oxipng;
 			remoteRef = 5F75B47427583B9B0072F27A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		5F9163392ADB7A7B00230D34 /* pngquant */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = pngquant;
+			remoteRef = 5F9163382ADB7A7B00230D34 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5FFC96B8275842290035D0A2 /* generate_keys */ = {
@@ -1888,11 +1865,6 @@
 			isa = PBXTargetDependency;
 			name = pngcrush;
 			targetProxy = 5ABE16151AE508C200861C6B /* PBXContainerItemProxy */;
-		};
-		5ABE16181AE508C200861C6B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = pngquant;
-			targetProxy = 5ABE16171AE508C200861C6B /* PBXContainerItemProxy */;
 		};
 		5ABE161A1AE508C200861C6B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
