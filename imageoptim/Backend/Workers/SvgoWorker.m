@@ -32,9 +32,16 @@
         temp.path
     ];
 
-    NSString *nodePath = @"/usr/local/bin/node";
-    if (![[NSFileManager defaultManager] isExecutableFileAtPath:nodePath]) {
-        IOWarn(@"Node not installed at %@", nodePath);
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString *nodePath1 = @"/usr/local/bin/node";
+    NSString *nodePath2 = @"/opt/homebrew/bin/node";
+    NSString *nodePath;
+    if ([fm isExecutableFileAtPath:nodePath1]) {
+        nodePath = nodePath1;
+    } else if ([fm isExecutableFileAtPath:nodePath2]) {
+        nodePath = nodePath2;
+    } else {
+        IOWarn(@"Node not installed at %@", nodePath1);
         return NO;
     }
 
