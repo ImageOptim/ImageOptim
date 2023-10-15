@@ -152,6 +152,7 @@
 				CARGO_XCODE_CARGO_FILE_NAME = pngquant;
 				CARGO_XCODE_FEATURES = "static,cocoa";
 				PRODUCT_NAME = pngquant;
+				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Debug;
@@ -163,6 +164,7 @@
 				CARGO_XCODE_CARGO_FILE_NAME = pngquant;
 				CARGO_XCODE_FEATURES = "static,cocoa";
 				PRODUCT_NAME = pngquant;
+				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = macosx;
 			};
 			name = Release;
