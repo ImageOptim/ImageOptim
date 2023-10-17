@@ -351,6 +351,13 @@
 			remoteGlobalIDString = 726B2B5D1C645FC900388755;
 			remoteInfo = "UI Tests";
 		};
+		5F4F10A92ADE0E3000A3093E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CA008FFA42533B3B3D19E325;
+			remoteInfo = "pngquant-bin";
+		};
 		5F75B47427583B9B0072F27A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A9D56BC0E7F242C000F129F /* oxipng.xcodeproj */;
@@ -369,7 +376,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A9D56BC0E7F242C000F129F /* oxipng.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = CA60F199B4DDFC1F189FC928;
+			remoteGlobalIDString = CA00E01F74FCA9B0E7F50B60;
 			remoteInfo = "oxipng-bin";
 		};
 		5FFC96B7275842290035D0A2 /* PBXContainerItemProxy */ = {
@@ -411,7 +418,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = CA60804BE8821E768EF58230;
+			remoteGlobalIDString = CA00FC5A7BA8C09639ADC154;
 			remoteInfo = "svgcleaner-bin";
 		};
 		D047E45F1E7C3CE80036F96B /* PBXContainerItemProxy */ = {
@@ -1221,19 +1228,20 @@
 			buildRules = (
 			);
 			dependencies = (
-				5FFC9754275843280035D0A2 /* PBXTargetDependency */,
-				5FFC969B275842290035D0A2 /* PBXTargetDependency */,
-				D047E4CD1E7D81040036F96B /* PBXTargetDependency */,
 				5A7FB7241E2C3DF800481B4A /* PBXTargetDependency */,
 				5AB114B11B52AEE700A3C73A /* PBXTargetDependency */,
+				5ABE16061AE5089300861C6B /* PBXTargetDependency */,
+				5ABE16081AE5089700861C6B /* PBXTargetDependency */,
+				5ABE160A1AE5089D00861C6B /* PBXTargetDependency */,
+				5ABE160C1AE508A000861C6B /* PBXTargetDependency */,
+				5ABE160E1AE508A300861C6B /* PBXTargetDependency */,
 				5ABE16101AE508C200861C6B /* PBXTargetDependency */,
 				5ABE16161AE508C200861C6B /* PBXTargetDependency */,
 				5ABE161A1AE508C200861C6B /* PBXTargetDependency */,
-				5ABE160E1AE508A300861C6B /* PBXTargetDependency */,
-				5ABE160C1AE508A000861C6B /* PBXTargetDependency */,
-				5ABE160A1AE5089D00861C6B /* PBXTargetDependency */,
-				5ABE16081AE5089700861C6B /* PBXTargetDependency */,
-				5ABE16061AE5089300861C6B /* PBXTargetDependency */,
+				5F4F10AA2ADE0E3000A3093E /* PBXTargetDependency */,
+				5FFC969B275842290035D0A2 /* PBXTargetDependency */,
+				5FFC9754275843280035D0A2 /* PBXTargetDependency */,
+				D047E4CD1E7D81040036F96B /* PBXTargetDependency */,
 			);
 			name = Backend;
 			productName = Backend;
@@ -1876,6 +1884,11 @@
 			target = 5AC64EFD1AF3FDEE0032AA7F /* ImageOptimize */;
 			targetProxy = 5AC64F0A1AF3FDEE0032AA7F /* PBXContainerItemProxy */;
 		};
+		5F4F10AA2ADE0E3000A3093E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "pngquant-bin";
+			targetProxy = 5F4F10A92ADE0E3000A3093E /* PBXContainerItemProxy */;
+		};
 		5FFC969B275842290035D0A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "oxipng-bin";
@@ -2398,6 +2411,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = ImageOptim.entitlements;
+				CURRENT_PROJECT_VERSION = 1.9.1;
 				DEVELOPMENT_TEAM = 59KZTZA4XR;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2412,7 +2426,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				CURRENT_PROJECT_VERSION = 1.9.1;
 				MARKETING_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptim;
 				PRODUCT_NAME = ImageOptim;
@@ -2425,6 +2438,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = ImageOptim.entitlements;
+				CURRENT_PROJECT_VERSION = 1.9.1;
 				DEVELOPMENT_TEAM = 59KZTZA4XR;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2439,7 +2453,6 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				CURRENT_PROJECT_VERSION = 1.9.1;
 				MARKETING_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = net.pornel.ImageOptim;
 				PRODUCT_NAME = ImageOptim;
