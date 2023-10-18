@@ -185,6 +185,7 @@
 				MARKETING_VERSION = 9.0.0;
 				PRODUCT_NAME = oxipng;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
 			};
 			name = Release;
@@ -210,6 +211,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = oxipng;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
 			};
 			name = Debug;
