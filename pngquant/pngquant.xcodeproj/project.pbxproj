@@ -181,7 +181,7 @@
 				CARGO_TARGET_DIR = "$(PROJECT_TEMP_DIR)/cargo_target";
 				CARGO_XCODE_BUILD_MODE = release;
 				RUSTUP_TOOLCHAIN = "";
-				CARGO_XCODE_FEATURES = "";
+				CARGO_XCODE_FEATURES = "static,cocoa";
 				"CARGO_XCODE_TARGET_ARCH[arch=arm64*]" = aarch64;
 				"CARGO_XCODE_TARGET_ARCH[arch=i386]" = i686;
 				"CARGO_XCODE_TARGET_ARCH[arch=x86_64*]" = x86_64;
@@ -206,7 +206,7 @@
 				CARGO_TARGET_DIR = "$(PROJECT_TEMP_DIR)/cargo_target";
 				CARGO_XCODE_BUILD_MODE = debug;
 				RUSTUP_TOOLCHAIN = "";
-				CARGO_XCODE_FEATURES = "";
+				CARGO_XCODE_FEATURES = "static,cocoa";
 				"CARGO_XCODE_TARGET_ARCH[arch=arm64*]" = aarch64;
 				"CARGO_XCODE_TARGET_ARCH[arch=i386]" = i686;
 				"CARGO_XCODE_TARGET_ARCH[arch=x86_64*]" = x86_64;
