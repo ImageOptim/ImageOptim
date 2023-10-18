@@ -271,7 +271,11 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
 /** filesOnly indicates that paths do not contain any directories or symlinks */
 - (BOOL)addURLs:(NSArray<NSURL *> *)paths filesOnly:(BOOL)filesOnly {
-    if (!isEnabled) {
+    if (!isEnabled || !paths) {
+        return NO;
+    }
+    if (![paths isKindOfClass:[NSArray class]]) {
+        IOWarn("bad paths obj %@", paths);
         return NO;
     }
 

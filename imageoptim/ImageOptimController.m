@@ -81,6 +81,12 @@ static const char *kIMPreviewPanelContext = "preview";
               userData:(NSString *)userData
                  error:(NSString **)error {
     NSArray *paths = [pboard propertyListForType:NSPasteboardTypeFileURL];
+    if ([paths isKindOfClass:[NSURL class]]) {
+        paths = [NSArray arrayWithObject: (NSURL*)paths];
+    }
+    if (![paths isKindOfClass:[NSArray class]]) {        
+        return;
+    }
     [filesController performSelectorInBackground:@selector(addURLs:) withObject:paths];
 }
 
