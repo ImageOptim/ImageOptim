@@ -24,7 +24,7 @@
 			outputFiles = (
 				"$(OBJECT_FILE_DIR)/$(CARGO_XCODE_TARGET_ARCH)-$(EXECUTABLE_NAME)",
 			);
-			script = "# generated with cargo-xcode 1.7.0\nset -eu;\nexport PATH=\"$HOME/.cargo/bin:$PATH:/usr/local/bin:/opt/homebrew/bin\";\n\nif [ \"${IS_MACCATALYST-NO}\" = YES ]; then\n CARGO_XCODE_TARGET_OS=ios-macabi\nfi\nCARGO_XCODE_TARGET_TRIPLE=\"${CARGO_XCODE_TARGET_ARCH}-apple-${CARGO_XCODE_TARGET_OS}\"\nif [ \"$CARGO_XCODE_TARGET_OS\" != darwin ]; then\n export PATH=\"${PATH/\\/Contents\\/Developer\\/Toolchains\\/XcodeDefault.xctoolchain\\/usr\\/bin:/xcode-provided-ld-cant-link-lSystem-for-the-host-build-script:}\"\nfi\nif [ \"$CARGO_XCODE_BUILD_MODE\" == release ]; then\n OTHER_INPUT_FILE_FLAGS=\"${OTHER_INPUT_FILE_FLAGS} --release\"\nfi\n\nif [ \"$ACTION\" = clean ]; then\n cargo clean --verbose --manifest-path=\"$SCRIPT_INPUT_FILE\" ${OTHER_INPUT_FILE_FLAGS} --target=\"${CARGO_XCODE_TARGET_TRIPLE}\";\n rm -f \"$SCRIPT_OUTPUT_FILE_0\"\n exit 0\nfi\ncargo build --verbose --manifest-path=\"$SCRIPT_INPUT_FILE\" --features=\"${CARGO_XCODE_FEATURES:-}\" ${OTHER_INPUT_FILE_FLAGS} --target=\"${CARGO_XCODE_TARGET_TRIPLE}\" || {\n if command -v rustup &> /dev/null; then\n  if ! rustup target list --installed | grep -Eq \"${CARGO_XCODE_TARGET_TRIPLE}\"; then\n   echo >&2 \"warning: this build requires rustup toolchain for $CARGO_XCODE_TARGET_TRIPLE, but it isn't installed (will try rustup next)\"\n   rustup target add \"${CARGO_XCODE_TARGET_TRIPLE}\" || echo >&2 \"warning: can't install $CARGO_XCODE_TARGET_TRIPLE\"\n  fi\n fi\n echo >&2 \"error: cargo build failed\"; exit 1; }\n\n# it's too hard to explain Cargo's actual exe path to Xcode build graph, so hardlink to a known-good path instead\nBUILT_SRC=\"${CARGO_TARGET_DIR}/${CARGO_XCODE_TARGET_TRIPLE}/${CARGO_XCODE_BUILD_MODE}/${CARGO_XCODE_CARGO_FILE_NAME}\"\nln -f -- \"$BUILT_SRC\" \"$SCRIPT_OUTPUT_FILE_0\" || { echo >&2 \"can't hardlink $BUILT_SRC to $SCRIPT_OUTPUT_FILE_0\"; exit 1; }\n\n# cargo generates a dep file, but for its own path, so append our rename to it\nDEP_FILE_SRC=\"${CARGO_TARGET_DIR}/${CARGO_XCODE_TARGET_TRIPLE}/${CARGO_XCODE_BUILD_MODE}/${CARGO_XCODE_CARGO_DEP_FILE_NAME}\"\nif [ -f \"$DEP_FILE_SRC\" ]; then\n DEP_FILE_DST=\"${DERIVED_FILE_DIR}/${CARGO_XCODE_TARGET_ARCH}-${EXECUTABLE_NAME}.d\"\n cp -f \"$DEP_FILE_SRC\" \"$DEP_FILE_DST\" || { echo >&2 \"can't copy $DEP_FILE_SRC to $DEP_FILE_DST\"; exit 1; }\n\n echo >> \"$DEP_FILE_DST\" \"${SCRIPT_OUTPUT_FILE_0/ /\\\\ /}: ${BUILT_SRC/ /\\\\ /}\"\nfi\n\n# lipo script needs to know all the platform-specific files that have been built\n# archs is in the file name, so that paths don't stay around after archs change\n# must match input for LipoScript\nFILE_LIST=\"${DERIVED_FILE_DIR}/${ARCHS}-${EXECUTABLE_NAME}.xcfilelist\"\ntouch \"$FILE_LIST\"\nif ! grep -Eq \"$SCRIPT_OUTPUT_FILE_0\" \"$FILE_LIST\" ; then\n echo >> \"$FILE_LIST\" \"$SCRIPT_OUTPUT_FILE_0\"\nfi\n\necho \"success: $ACTION of $SCRIPT_OUTPUT_FILE_0 for $CARGO_XCODE_TARGET_TRIPLE\"\n";
+			script = "# generated with cargo-xcode 1.8.0\nset -xeu;\nexport PATH=\"$HOME/.cargo/bin:$PATH:/usr/local/bin:/opt/homebrew/bin\";\n# don't use ios/watchos linker for build scripts and proc macros\nexport CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=/usr/bin/ld\nexport CARGO_TARGET_X86_64_APPLE_DARWIN_LINKER=/usr/bin/ld\n\nif [ \"${IS_MACCATALYST-NO}\" = YES ]; then\n CARGO_XCODE_TARGET_OS=ios-macabi\nfi\nCARGO_XCODE_TARGET_TRIPLE=\"${CARGO_XCODE_TARGET_ARCH}-apple-${CARGO_XCODE_TARGET_OS}\"\n\nif [ \"$CARGO_XCODE_BUILD_PROFILE\" == release ]; then\n OTHER_INPUT_FILE_FLAGS=\"${OTHER_INPUT_FILE_FLAGS} --release\"\nfi\n\nif [ \"$ACTION\" = clean ]; then\n cargo clean --verbose --manifest-path=\"$SCRIPT_INPUT_FILE\" ${OTHER_INPUT_FILE_FLAGS} --target=\"${CARGO_XCODE_TARGET_TRIPLE}\";\n rm -f \"$SCRIPT_OUTPUT_FILE_0\"\n exit 0\nfi\ncargo build --verbose --manifest-path=\"$SCRIPT_INPUT_FILE\" --features=\"${CARGO_XCODE_FEATURES:-}\" ${OTHER_INPUT_FILE_FLAGS} --target=\"${CARGO_XCODE_TARGET_TRIPLE}\" || {\n if command -v rustup &> /dev/null; then\n  if ! rustup target list --installed | grep -Eq \"${CARGO_XCODE_TARGET_TRIPLE}\"; then\n   echo >&2 \"warning: this build requires rustup toolchain for $CARGO_XCODE_TARGET_TRIPLE, but it isn't installed (will try rustup next)\"\n   rustup target add \"${CARGO_XCODE_TARGET_TRIPLE}\" || echo >&2 \"warning: can't install $CARGO_XCODE_TARGET_TRIPLE\"\n  fi\n fi\n echo >&2 \"error: cargo build failed\"; exit 1; }\n\n# it's too hard to explain Cargo's actual exe path to Xcode build graph, so hardlink to a known-good path instead\nBUILT_SRC=\"${CARGO_TARGET_DIR}/${CARGO_XCODE_TARGET_TRIPLE}/${CARGO_XCODE_BUILD_PROFILE}/${CARGO_XCODE_CARGO_FILE_NAME}\"\nln -f -- \"$BUILT_SRC\" \"$SCRIPT_OUTPUT_FILE_0\" || { echo >&2 \"can't hardlink $BUILT_SRC to $SCRIPT_OUTPUT_FILE_0\"; exit 1; }\n\n# cargo generates a dep file, but for its own path, so append our rename to it\nDEP_FILE_SRC=\"${CARGO_TARGET_DIR}/${CARGO_XCODE_TARGET_TRIPLE}/${CARGO_XCODE_BUILD_PROFILE}/${CARGO_XCODE_CARGO_DEP_FILE_NAME}\"\nif [ -f \"$DEP_FILE_SRC\" ]; then\n DEP_FILE_DST=\"${DERIVED_FILE_DIR}/${CARGO_XCODE_TARGET_ARCH}-${EXECUTABLE_NAME}.d\"\n cp -f \"$DEP_FILE_SRC\" \"$DEP_FILE_DST\" || { echo >&2 \"can't copy $DEP_FILE_SRC to $DEP_FILE_DST\"; exit 1; }\n\n echo >> \"$DEP_FILE_DST\" \"${SCRIPT_OUTPUT_FILE_0/ /\\\\ /}: ${BUILT_SRC/ /\\\\ /}\"\nfi\n\n# lipo script needs to know all the platform-specific files that have been built\n# archs is in the file name, so that paths don't stay around after archs change\n# must match input for LipoScript\nFILE_LIST=\"${DERIVED_FILE_DIR}/${ARCHS}-${EXECUTABLE_NAME}.xcfilelist\"\ntouch \"$FILE_LIST\"\nif ! grep -Eq \"$SCRIPT_OUTPUT_FILE_0\" \"$FILE_LIST\" ; then\n echo >> \"$FILE_LIST\" \"$SCRIPT_OUTPUT_FILE_0\"\nfi\n\necho \"success: $ACTION of $SCRIPT_OUTPUT_FILE_0 for $CARGO_XCODE_TARGET_TRIPLE\"\n";
 		};
 /* End PBXBuildRule section */
 
@@ -129,7 +129,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# generated with cargo-xcode 1.7.0\nset -eux;\ntr '\\n' '\\0' < \"$DERIVED_FILE_DIR/$ARCHS-$EXECUTABLE_NAME.xcfilelist\" | xargs -0 lipo -create -output \"$TARGET_BUILD_DIR/$EXECUTABLE_PATH\"\nif [ ${LD_DYLIB_INSTALL_NAME:+1} ]; then\n  install_name_tool -id \"$LD_DYLIB_INSTALL_NAME\" \"$TARGET_BUILD_DIR/$EXECUTABLE_PATH\"\nfi\n";
+			shellScript = "# generated with cargo-xcode 1.8.0\nset -eux;\ntr '\\n' '\\0' < \"$DERIVED_FILE_DIR/$ARCHS-$EXECUTABLE_NAME.xcfilelist\" | xargs -0 lipo -create -output \"$TARGET_BUILD_DIR/$EXECUTABLE_PATH\"\nif [ ${LD_DYLIB_INSTALL_NAME:+1} ]; then\n  install_name_tool -id \"$LD_DYLIB_INSTALL_NAME\" \"$TARGET_BUILD_DIR/$EXECUTABLE_PATH\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -168,22 +168,28 @@
 		CAF7FAC0D0B03CC16B37690B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ADDITIONAL_SDKS = macosx;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CARGO_TARGET_DIR = "$(PROJECT_TEMP_DIR)/cargo_target";
-				CARGO_XCODE_BUILD_MODE = release;
+				CARGO_XCODE_BUILD_PROFILE = release;
 				CARGO_XCODE_FEATURES = "";
-				"CARGO_XCODE_TARGET_ARCH[arch=arm64*]" = aarch64;
+				CARGO_XCODE_TARGET_ARCH = "$(CURRENT_ARCH)";
+				"CARGO_XCODE_TARGET_ARCH[arch=arm64]" = aarch64;
+				"CARGO_XCODE_TARGET_ARCH[arch=arm64e]" = aarch64;
 				"CARGO_XCODE_TARGET_ARCH[arch=i386]" = i686;
-				"CARGO_XCODE_TARGET_ARCH[arch=x86_64*]" = x86_64;
-				"CARGO_XCODE_TARGET_OS[sdk=appletvos*]" = tvos;
-				"CARGO_XCODE_TARGET_OS[sdk=appletvsimulator*]" = tvos;
-				"CARGO_XCODE_TARGET_OS[sdk=iphoneos*]" = ios;
-				"CARGO_XCODE_TARGET_OS[sdk=iphonesimulator*]" = "ios-sim";
-				"CARGO_XCODE_TARGET_OS[sdk=iphonesimulator*][arch=x86_64*]" = ios;
+				"CARGO_XCODE_TARGET_ARCH[arch=x86_64h]" = x86_64;
+				CARGO_XCODE_TARGET_OS = "$(PLATFORM_NAME)";
+				"CARGO_XCODE_TARGET_OS[sdk=appletvos]" = tvos;
+				"CARGO_XCODE_TARGET_OS[sdk=appletvsimulator]" = tvos;
+				"CARGO_XCODE_TARGET_OS[sdk=iphoneos]" = ios;
+				"CARGO_XCODE_TARGET_OS[sdk=iphonesimulator]" = "ios-sim";
+				"CARGO_XCODE_TARGET_OS[sdk=iphonesimulator][arch=x86_64]" = ios;
 				"CARGO_XCODE_TARGET_OS[sdk=macosx*]" = darwin;
+				"CARGO_XCODE_TARGET_OS[sdk=watchsimulator]" = "watchos-sim";
 				CURRENT_PROJECT_VERSION = 9.0;
 				MARKETING_VERSION = 9.0.0;
 				PRODUCT_NAME = oxipng;
+				RUSTUP_TOOLCHAIN = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
@@ -193,23 +199,29 @@
 		CAF8FAC0D0B0228BE02872F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ADDITIONAL_SDKS = macosx;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CARGO_TARGET_DIR = "$(PROJECT_TEMP_DIR)/cargo_target";
-				CARGO_XCODE_BUILD_MODE = debug;
+				CARGO_XCODE_BUILD_PROFILE = debug;
 				CARGO_XCODE_FEATURES = "";
-				"CARGO_XCODE_TARGET_ARCH[arch=arm64*]" = aarch64;
+				CARGO_XCODE_TARGET_ARCH = "$(CURRENT_ARCH)";
+				"CARGO_XCODE_TARGET_ARCH[arch=arm64]" = aarch64;
+				"CARGO_XCODE_TARGET_ARCH[arch=arm64e]" = aarch64;
 				"CARGO_XCODE_TARGET_ARCH[arch=i386]" = i686;
-				"CARGO_XCODE_TARGET_ARCH[arch=x86_64*]" = x86_64;
-				"CARGO_XCODE_TARGET_OS[sdk=appletvos*]" = tvos;
-				"CARGO_XCODE_TARGET_OS[sdk=appletvsimulator*]" = tvos;
-				"CARGO_XCODE_TARGET_OS[sdk=iphoneos*]" = ios;
-				"CARGO_XCODE_TARGET_OS[sdk=iphonesimulator*]" = "ios-sim";
-				"CARGO_XCODE_TARGET_OS[sdk=iphonesimulator*][arch=x86_64*]" = ios;
+				"CARGO_XCODE_TARGET_ARCH[arch=x86_64h]" = x86_64;
+				CARGO_XCODE_TARGET_OS = "$(PLATFORM_NAME)";
+				"CARGO_XCODE_TARGET_OS[sdk=appletvos]" = tvos;
+				"CARGO_XCODE_TARGET_OS[sdk=appletvsimulator]" = tvos;
+				"CARGO_XCODE_TARGET_OS[sdk=iphoneos]" = ios;
+				"CARGO_XCODE_TARGET_OS[sdk=iphonesimulator]" = "ios-sim";
+				"CARGO_XCODE_TARGET_OS[sdk=iphonesimulator][arch=x86_64]" = ios;
 				"CARGO_XCODE_TARGET_OS[sdk=macosx*]" = darwin;
+				"CARGO_XCODE_TARGET_OS[sdk=watchsimulator]" = "watchos-sim";
 				CURRENT_PROJECT_VERSION = 9.0;
 				MARKETING_VERSION = 9.0.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = oxipng;
+				RUSTUP_TOOLCHAIN = "";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = YES;
