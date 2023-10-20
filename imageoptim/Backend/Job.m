@@ -256,16 +256,15 @@
     NSFileManager *fm = [NSFileManager defaultManager];
     if (returning) *returning = nil;
 
-    if ([fm respondsToSelector:@selector(trashItemAtURL:resultingItemURL:error:)]) { // 10.8
-        if ([fm trashItemAtURL:path resultingItemURL:returning error:err]) {
-            return YES;
-        }
-        IOWarn("Recovering trashing error %@", *err); // may fail on network drives
+    if ([fm trashItemAtURL:path resultingItemURL:returning error:err]) {
+        return YES;
+    }
+    IOWarn("Recovering trashing error %@", *err); // may fail on network drives
+    sleep(1); // network drives lag?
 
-        if (![fm fileExistsAtPath:path.path]) {
-            // the file got deleted anyway?
-            return YES;
-        }
+    if (![fm fileExistsAtPath:path.path]) {
+        // the file got deleted anyway?
+        return YES;
     }
 
     NSURL *trashedPath = [[[NSURL fileURLWithPath:NSHomeDirectory() isDirectory:YES] URLByAppendingPathComponent:@".Trash"] URLByAppendingPathComponent:[path lastPathComponent]];
@@ -322,12 +321,16 @@
         NSURL *moveFromPath = fileToSave.path;
         NSURL *enclosingDir = [filePath URLByDeletingLastPathComponent];
 
+        // Dropbox is super buggy and actually loses files when they're moved/trashed quickly
+        BOOL isDropboxFolder = [fm fileExistsAtPath:[enclosingDir URLByAppendingPathComponent:@".dropbox"].path] || [filePath.path containsString: @"/Dropbox/"];
+        IOWarn("Detected path %@ is inside Dropbox. Will try to avoid Dropbox's bugs.", filePath);
+
         if (![fm isWritableFileAtPath:enclosingDir.path]) {
             IOWarn("The file %@ is in non-writeable directory %@", filePath.path, enclosingDir.path);
             return NO;
         }
 
-        if (preservePermissions) {
+        if (!isDropboxFolder && preservePermissions) {
             NSString *writeToFilename = [[NSString stringWithFormat:@".%@~imageoptim", [filePath.lastPathComponent stringByDeletingPathExtension]] stringByAppendingPathExtension:filePath.pathExtension];
             NSURL *writeToURL = [enclosingDir URLByAppendingPathComponent:writeToFilename];
             NSString *writeToPath = writeToURL.path;
@@ -402,18 +405,32 @@
         }
 
         NSURL *revertPathTmp;
-        if ([self trashFileAtURL:filePath resultingItemURL:&revertPathTmp error:&error]) {
+        if (!isDropboxFolder && [self trashFileAtURL:filePath resultingItemURL:&revertPathTmp error:&error]) {
             if (!self.revertFile) {
                 File *previous = self.unoptimizedInput;
                 self.revertFile = [previous copyOfPath:revertPathTmp size:previous.byteSize];
             }
         } else {
             IOWarn("Can't trash %@ %@", filePath.path, error);
-            NSURL *backupPath = [NSURL fileURLWithPath:[[[filePath lastPathComponent] stringByAppendingString:@"~bak"] stringByAppendingPathExtension:[filePath pathExtension]]];
+            NSString *backupFileName = [[[filePath lastPathComponent] stringByAppendingString:@"~bak"] stringByAppendingPathExtension:[filePath pathExtension]];
+            NSURL *backupPath = [enclosingDir URLByAppendingPathComponent:backupFileName];
 
-            [fm removeItemAtURL:backupPath error:nil];
-            if ([fm moveItemAtURL:filePath toURL:backupPath error:&error]) {
-                if (!self.revertFile) {
+            BOOL moved = [fm moveItemAtURL:filePath toURL:backupPath error:&error];
+            if (!moved) {
+                [fm removeItemAtURL:backupPath error:nil];
+                moved = [fm moveItemAtURL:filePath toURL:backupPath error:&error];
+            }
+
+            if (moved) {
+                if (isDropboxFolder) {
+                    sleep(1); // give the buggy thing time to sync
+                }
+                NSURL *trashedPath = nil;
+                if ([fm trashItemAtURL:backupPath resultingItemURL:&trashedPath error:nil]) {
+                    backupPath = trashedPath;
+                }
+
+                if (!self.revertFile && backupPath) {
                     self.revertFile = [self.unoptimizedInput copyOfPath:backupPath];
                 }
             } else {
@@ -430,7 +447,9 @@
         [filePath removeAllCachedResourceValues];
         self.savedOutput = [fileToSave copyOfPath:filePath size:fileToSave.byteSize];
         [self setFileOptimized:nil];
-
+        if (isDropboxFolder) {
+            sleep(1); // give the buggy thing time to sync
+        }
         [self removeExtendedAttrAtURL:filePath];
     }
     @catch (NSException *e) {
