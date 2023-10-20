@@ -15,12 +15,11 @@
 }
 
 - (BOOL)allowsVibrancy {
-    return NSAppKitVersionNumber >= NSAppKitVersionNumber10_10;
+    return true;
 }
 
 - (BOOL)isOpaque {
-    return NSAppKitVersionNumber < NSAppKitVersionNumber10_10;
-    ;
+    return false;
 }
 
 // Destination Operations

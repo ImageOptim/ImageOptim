@@ -50,6 +50,10 @@
     }
 }
 
+- (BOOL)allowsVibrancy {
+    return false;
+}
+
 - (NSArray<File *> *)filesForDataURI {
     FilesController *f = (FilesController *)[self delegate];
 

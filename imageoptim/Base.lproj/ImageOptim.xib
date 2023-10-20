@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22503" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22503"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -39,7 +39,6 @@
                                     <tableColumns>
                                         <tableColumn identifier="status" editable="NO" width="22" minWidth="22" maxWidth="22" headerToolTip="Optimization status" id="462">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
-                                                <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
@@ -60,7 +59,6 @@
                                         </tableColumn>
                                         <tableColumn identifier="filename" editable="NO" width="345" minWidth="100" maxWidth="1000" id="238">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="File">
-                                                <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
@@ -81,7 +79,6 @@
                                         </tableColumn>
                                         <tableColumn identifier="originalsize" editable="NO" width="85" minWidth="60" maxWidth="120" hidden="YES" id="795">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Original Size">
-                                                <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
@@ -104,7 +101,6 @@
                                         </tableColumn>
                                         <tableColumn identifier="size" editable="NO" width="85" minWidth="85" maxWidth="85" headerToolTip="Size of file after optimization" id="239">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Size">
-                                                <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
@@ -126,7 +122,6 @@
                                         </tableColumn>
                                         <tableColumn identifier="savings" editable="NO" width="85" minWidth="85" maxWidth="85" id="243">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Savings">
-                                                <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
@@ -148,7 +143,6 @@
                                         </tableColumn>
                                         <tableColumn identifier="besttool" editable="NO" width="85" minWidth="40" maxWidth="250" hidden="YES" id="771">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Best tool">
-                                                <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
@@ -198,7 +192,7 @@
                         </tableHeaderView>
                         <accessibility description="List of files to optimize"/>
                     </scrollView>
-                    <textField horizontalHuggingPriority="100" verticalHuggingPriority="750" horizontalCompressionResistancePriority="550" translatesAutoresizingMaskIntoConstraints="NO" id="294" userLabel="Status">
+                    <textField focusRingType="none" horizontalHuggingPriority="100" verticalHuggingPriority="750" horizontalCompressionResistancePriority="550" translatesAutoresizingMaskIntoConstraints="NO" id="294" userLabel="Status">
                         <rect key="frame" x="43" y="12" width="379" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="onm-4h-DUk"/>
@@ -255,20 +249,21 @@
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="XNq-qc-Ci6" customClass="FadeView">
                         <rect key="frame" x="0.0" y="39" width="549" height="259"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="712" customClass="DragDropImageView">
+                            <visualEffectView fixedFrame="YES" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="DRj-ri-dv2">
                                 <rect key="frame" x="0.0" y="0.0" width="549" height="259"/>
-                                <accessibility description="Drop images here"/>
-                                <connections>
-                                    <outlet property="filesController" destination="251" id="aqi-nA-YrU"/>
-                                </connections>
-                            </customView>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="712" customClass="DragDropImageView">
+                                        <rect key="frame" x="0.0" y="0.0" width="549" height="259"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <accessibility description="Drop images here"/>
+                                        <connections>
+                                            <outlet property="filesController" destination="251" id="aqi-nA-YrU"/>
+                                        </connections>
+                                    </customView>
+                                </subviews>
+                            </visualEffectView>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="712" firstAttribute="width" secondItem="XNq-qc-Ci6" secondAttribute="width" id="4TW-mH-YzC"/>
-                            <constraint firstItem="712" firstAttribute="leading" secondItem="XNq-qc-Ci6" secondAttribute="leading" id="615-sC-moI"/>
-                            <constraint firstItem="712" firstAttribute="top" secondItem="XNq-qc-Ci6" secondAttribute="top" id="8Lh-dx-EJo"/>
-                            <constraint firstItem="712" firstAttribute="height" secondItem="XNq-qc-Ci6" secondAttribute="height" id="AgV-gf-61k"/>
-                        </constraints>
                         <connections>
                             <binding destination="251" name="hidden" keyPath="arrangedObjects.@count" id="SCX-vI-sGf">
                                 <dictionary key="options">
@@ -728,6 +723,7 @@ CA
                 <string>percentDone</string>
                 <string>statusImage</string>
             </declaredKeys>
+            <classReference key="objectClass" className="File"/>
         </arrayController>
         <window title="About ImageOptim" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="526" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
