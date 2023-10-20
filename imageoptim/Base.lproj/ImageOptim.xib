@@ -17,7 +17,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="448" y="483" width="549" height="297"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1512" height="944"/>
             <value key="minSize" type="size" width="411" height="110"/>
             <value key="maxSize" type="size" width="1200" height="2000"/>
             <view key="contentView" wantsLayer="YES" id="2">
@@ -57,7 +57,7 @@
                                                 </binding>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn identifier="filename" editable="NO" width="345" minWidth="100" maxWidth="1000" id="238">
+                                        <tableColumn identifier="filename" editable="NO" width="316" minWidth="100" maxWidth="1000" id="238">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="File">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
@@ -174,15 +174,15 @@
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="700" constant="100" id="xGg-Tk-Rrf"/>
                         </constraints>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="641">
+                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="641">
                             <rect key="frame" x="-100" y="-100" width="524" height="15"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="640">
+                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="640">
                             <rect key="frame" x="567" y="18" width="15" height="277"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <tableHeaderView key="headerView" id="ygK-3e-IlX">
+                        <tableHeaderView key="headerView" wantsLayer="YES" id="ygK-3e-IlX">
                             <rect key="frame" x="0.0" y="0.0" width="549" height="23"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <accessibility description="Status"/>
@@ -204,15 +204,15 @@
                         <accessibility description="Status"/>
                     </textField>
                     <button toolTip="Add" verticalHuggingPriority="750" horizontalCompressionResistancePriority="900" translatesAutoresizingMaskIntoConstraints="NO" id="423" userLabel="Add">
-                        <rect key="frame" x="7.5" y="7" width="31" height="23"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="22" id="5V3-ih-iDb"/>
-                            <constraint firstAttribute="width" priority="700" constant="30" id="vMW-e3-zXS"/>
-                        </constraints>
+                        <rect key="frame" x="7" y="6" width="32" height="25"/>
                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="633">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="5V3-ih-iDb"/>
+                            <constraint firstAttribute="width" priority="700" constant="30" id="vMW-e3-zXS"/>
+                        </constraints>
                         <accessibility description="Add new files or directories"/>
                         <connections>
                             <action selector="browseForFiles:" target="230" id="426"/>
@@ -227,16 +227,16 @@
                         </connections>
                     </progressIndicator>
                     <button horizontalHuggingPriority="300" verticalHuggingPriority="750" horizontalCompressionResistancePriority="850" translatesAutoresizingMaskIntoConstraints="NO" id="586" userLabel="Again">
-                        <rect key="frame" x="450.5" y="7" width="91" height="23"/>
-                        <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="400" constant="90" id="6P8-XL-e9E"/>
-                            <constraint firstAttribute="height" constant="22" id="f8J-J5-eqa"/>
-                        </constraints>
+                        <rect key="frame" x="450" y="6" width="92" height="25"/>
                         <buttonCell key="cell" type="roundTextured" title="Again" alternateTitle="Run optimizations again" bezelStyle="texturedRounded" image="NSRefreshTemplate" imagePosition="left" alignment="center" borderStyle="border" inset="2" id="635">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                             <string key="keyEquivalent"></string>
                         </buttonCell>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="400" constant="90" id="6P8-XL-e9E"/>
+                            <constraint firstAttribute="height" constant="22" id="f8J-J5-eqa"/>
+                        </constraints>
                         <connections>
                             <action selector="startAgain:" target="230" id="592"/>
                             <binding destination="251" name="enabled" keyPath="arrangedObjects.@count" id="732">
@@ -273,7 +273,7 @@
                         </connections>
                     </customView>
                     <button toolTip="Settings" translatesAutoresizingMaskIntoConstraints="NO" id="Chx-W4-45F" userLabel="Settings Button">
-                        <rect key="frame" x="427" y="11" width="16" height="16"/>
+                        <rect key="frame" x="427" y="8" width="16" height="22"/>
                         <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSActionTemplate" imagePosition="only" imageScaling="proportionallyDown" inset="2" id="wBv-xY-5DV">
                             <behavior key="behavior" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -729,7 +729,7 @@ CA
             <windowStyleMask key="styleMask" titled="YES" closable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="185" y="471" width="312" height="475"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1512" height="944"/>
             <value key="minSize" type="size" width="312" height="440"/>
             <value key="maxSize" type="size" width="350" height="480"/>
             <view key="contentView" id="527">
@@ -762,11 +762,11 @@ CA
                             </subviews>
                             <color key="backgroundColor" name="windowBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" controlSize="small" horizontal="YES" id="644">
+                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" controlSize="small" horizontal="YES" id="644">
                             <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
-                        <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" controlSize="small" horizontal="NO" id="643">
+                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" controlSize="small" horizontal="NO" id="643">
                             <rect key="frame" x="-100" y="-100" width="11" height="315"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
@@ -823,9 +823,9 @@ CA
         </button>
     </objects>
     <resources>
-        <image name="NSActionTemplate" width="14" height="14"/>
-        <image name="NSAddTemplate" width="11" height="11"/>
-        <image name="NSApplicationIcon" width="128" height="128"/>
-        <image name="NSRefreshTemplate" width="11" height="15"/>
+        <image name="NSActionTemplate" width="20" height="20"/>
+        <image name="NSAddTemplate" width="18" height="17"/>
+        <image name="NSApplicationIcon" width="32" height="32"/>
+        <image name="NSRefreshTemplate" width="18" height="21"/>
     </resources>
 </document>
