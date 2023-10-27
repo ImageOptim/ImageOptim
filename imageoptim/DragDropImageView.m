@@ -43,7 +43,9 @@
     [super viewWillStartLiveResize];
 }
 
-- (void)drawRect:(NSRect)rect {
+- (void)drawRect:(NSRect) _unused {
+    NSRect rect = self.bounds;
+
     if (NSAppKitVersionNumber < NSAppKitVersionNumber10_10) {
         [[NSColor windowBackgroundColor] setFill];
     } else {
