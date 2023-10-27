@@ -80,14 +80,17 @@ static const char *kIMPreviewPanelContext = "preview";
 - (void)handleServices:(NSPasteboard *)pboard
               userData:(NSString *)userData
                  error:(NSString **)error {
-    NSArray *paths = [pboard propertyListForType:NSPasteboardTypeFileURL];
-    if ([paths isKindOfClass:[NSURL class]]) {
-        paths = [NSArray arrayWithObject: (NSURL*)paths];
-    }
-    if (![paths isKindOfClass:[NSArray class]]) {        
+    NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
+    if (paths && [paths count] > 0) {
+        [filesController performSelectorInBackground:@selector(addPaths:) withObject:paths];
         return;
     }
-    [filesController performSelectorInBackground:@selector(addURLs:) withObject:paths];
+
+    NSURL *url = [pboard propertyListForType:NSPasteboardTypeFileURL];
+    if (url) {
+        NSArray *urls = @[url];
+        [filesController performSelectorInBackground:@selector(addURLs:) withObject:urls];
+    }
 }
 
 static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name, NSString *key, NSMutableArray *arr) {
