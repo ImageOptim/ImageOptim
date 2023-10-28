@@ -248,7 +248,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					5AB114FB1B52B11A00A3C73A = {
 						CreatedOnToolsVersion = 7.0;
@@ -259,12 +259,6 @@
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
-			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
-			);
 			mainGroup = 08FB7794FE84155DC02AAC07 /* jpeg */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -341,7 +335,6 @@
 		1DEB914B08733D8E0010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Manual;
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = imageoptimjpeg;
 			};
@@ -350,7 +343,6 @@
 		1DEB914C08733D8E0010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Manual;
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = imageoptimjpeg;
 			};

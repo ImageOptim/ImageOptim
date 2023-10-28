@@ -31,6 +31,8 @@
 /* Begin PBXFileReference section */
 		CA00E01F74FC45145F35021F /* oxipng */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = oxipng; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF919E717C33EF4668187A5 /* oxipng/Cargo.toml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = oxipng/Cargo.toml; sourceTree = "<group>"; };
+		CAFDFAC0D0B0ACC9FD72F282 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text; name = debug.xcconfig; path = ../imageoptim/debug.xcconfig; sourceTree = "<group>"; };
+		CAFEFAC0D0B0ABC47E405028 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -40,6 +42,8 @@
 				CAF919E717C33EF4668187A5 /* oxipng/Cargo.toml */,
 				CAF119E717C322869D176AE5 /* Products */,
 				CAF219E717C398AF0B5890DB /* Frameworks */,
+				CAFDFAC0D0B0ACC9FD72F282 /* debug.xcconfig */,
+				CAFEFAC0D0B0ABC47E405028 /* release.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,7 +88,8 @@
 		CAF319E717C3E04653AD465F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1500;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					CA00E01F74FCA9B0E7F50B60 = {
 						CreatedOnToolsVersion = 9.2;
@@ -167,6 +172,7 @@
 		};
 		CAF7FAC0D0B03CC16B37690B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAFEFAC0D0B0ABC47E405028 /* release.xcconfig */;
 			buildSettings = {
 				ADDITIONAL_SDKS = macosx;
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -198,6 +204,7 @@
 		};
 		CAF8FAC0D0B0228BE02872F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAFDFAC0D0B0ACC9FD72F282 /* debug.xcconfig */;
 			buildSettings = {
 				ADDITIONAL_SDKS = macosx;
 				ALWAYS_SEARCH_USER_PATHS = NO;

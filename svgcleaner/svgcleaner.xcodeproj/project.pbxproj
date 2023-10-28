@@ -31,6 +31,8 @@
 /* Begin PBXFileReference section */
 		CA00FC5A7BA854C4D48C4974 /* svgcleaner */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = svgcleaner; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAF9E5B13BD73EF4668187A5 /* src/Cargo.toml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = src/Cargo.toml; sourceTree = "<group>"; };
+		CAFD93EA0041ACC9FD72F282 /* debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text; name = debug.xcconfig; path = ../imageoptim/debug.xcconfig; sourceTree = "<group>"; };
+		CAFE93EA0041ABC47E405028 /* release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -40,6 +42,8 @@
 				CAF9E5B13BD73EF4668187A5 /* src/Cargo.toml */,
 				CAF1E5B13BD722869D176AE5 /* Products */,
 				CAF2E5B13BD798AF0B5890DB /* Frameworks */,
+				CAFD93EA0041ACC9FD72F282 /* debug.xcconfig */,
+				CAFE93EA0041ABC47E405028 /* release.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,7 +88,8 @@
 		CAF3E5B13BD7E04653AD465F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1500;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					CA00FC5A7BA8C09639ADC154 = {
 						CreatedOnToolsVersion = 9.2;
@@ -167,6 +172,7 @@
 		};
 		CAF793EA00413CC16B37690B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAFE93EA0041ABC47E405028 /* release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CARGO_TARGET_DIR = "$(PROJECT_TEMP_DIR)/cargo_target";
@@ -192,6 +198,7 @@
 		};
 		CAF893EA0041228BE02872F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CAFD93EA0041ACC9FD72F282 /* debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CARGO_TARGET_DIR = "$(PROJECT_TEMP_DIR)/cargo_target";

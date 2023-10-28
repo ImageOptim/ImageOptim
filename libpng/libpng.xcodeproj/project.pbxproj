@@ -305,7 +305,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1510;
 			};
 			buildConfigurationList = 1DEB914E08733D8E0010E9CD /* Build configuration list for PBXProject "libpng" */;
 			compatibilityVersion = "Xcode 12.0";
@@ -425,7 +425,6 @@
 		1DEB914B08733D8E0010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Manual;
 				EXECUTABLE_PREFIX = lib;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = libpng;
@@ -435,7 +434,6 @@
 		1DEB914C08733D8E0010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_STYLE = Manual;
 				EXECUTABLE_PREFIX = lib;
 				INSTALL_PATH = /usr/local/lib;
 				PRODUCT_NAME = libpng;
