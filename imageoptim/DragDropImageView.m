@@ -53,7 +53,7 @@
     }
     NSRectFillUsingOperation(rect, NSCompositeSourceOver);
 
-    NSColor *gray = [NSColor colorWithDeviceWhite:0 alpha:highlight ? 1.0/4.0 : 1.0/8.0];
+    NSColor *gray = [[NSColor secondaryLabelColor] colorWithAlphaComponent:highlight ? 1.0/4.0 : 1.0/8.0];
     [gray set];
     [gray setFill];
 
