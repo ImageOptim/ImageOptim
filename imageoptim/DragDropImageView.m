@@ -46,11 +46,7 @@
 - (void)drawRect:(NSRect) _unused {
     NSRect rect = self.bounds;
 
-    if (NSAppKitVersionNumber < NSAppKitVersionNumber10_10) {
-        [[NSColor windowBackgroundColor] setFill];
-    } else {
-        [[NSColor clearColor] set];
-    }
+    [[NSColor clearColor] set];
     NSRectFillUsingOperation(rect, NSCompositeSourceOver);
 
     NSColor *gray = [[NSColor secondaryLabelColor] colorWithAlphaComponent:highlight ? 1.0/4.0 : 1.0/8.0];

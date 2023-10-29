@@ -2,10 +2,6 @@
 #import "SharedPrefs.h"
 
 NSUserDefaults *IOSharedPrefs(void) {
-    if (NSAppKitVersionNumber < NSAppKitVersionNumber10_10) {
-        return nil;
-    }
-
     return [[NSUserDefaults alloc] initWithSuiteName:@"59KZTZA4XR.net.pornel.ImageOptim"];
 }
 
@@ -21,10 +17,6 @@ static void copyToDefs(const NSArray *__nonnull keys, const NSUserDefaults *__no
 }
 
 void IOSharedPrefsCopy(NSUserDefaults *__nonnull defs) {
-    if (NSAppKitVersionNumber < NSAppKitVersionNumber10_10) {
-        return;
-    }
-
     // Whole dictionaryRepresentation is massive, so just copy interesting bits
     const NSArray *keys = @[
         @"AdvPngEnabled", @"AdvPngLevel", @"GifsicleEnabled",
