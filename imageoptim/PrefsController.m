@@ -8,9 +8,6 @@
 #import "ImageOptimController.h"
 #import "Transformers.h"
 
-static const char *kGuetzliContext = "guetzli";
-static const char *kStripAllContext = "strip";
-
 @implementation PrefsController
 
 - (instancetype)init {
@@ -20,47 +17,8 @@ static const char *kStripAllContext = "strip";
 
         DisabledColor *dc = [DisabledColor new];
         [NSValueTransformer setValueTransformer:dc forName:@"DisabledColor"];
-
-        [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"GuetzliEnabled" options:0 context:(void *)kGuetzliContext];
-        [[NSUserDefaults standardUserDefaults] addObserver:self forKeyPath:@"JpegTranStripAll" options:0 context:(void *)kStripAllContext];
     }
     return self;
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)defaults
-                        change:(NSDictionary *)change
-                       context:(void *)context {
-    if (context == (void *)kGuetzliContext) {
-        if ([defaults boolForKey:@"GuetzliEnabled"]) {
-            if (!notified) {
-                notified = YES;
-                [self warnGuetzliSlowness];
-            }
-            if ([defaults integerForKey:@"JpegOptimMaxQuality"] < 85) {
-                [defaults setInteger:85 forKey:@"JpegOptimMaxQuality"];
-            }
-            if (![defaults boolForKey:@"JpegTranStripAll"]) {
-                [defaults setBool:YES forKey:@"JpegTranStripAllSetByGuetzli"];
-                [defaults setBool:YES forKey:@"JpegTranStripAll"];
-            }
-        } else if ([defaults boolForKey:@"JpegTranStripAll"] && [defaults boolForKey:@"JpegTranStripAllSetByGuetzli"]) {
-            [defaults setBool:NO forKey:@"JpegTranStripAllSetByGuetzli"];
-            [defaults setBool:NO forKey:@"JpegTranStripAll"];
-        }
-    } else if (context == (void *)kStripAllContext) {
-        if ([defaults boolForKey:@"GuetzliEnabled"] && ![defaults boolForKey:@"JpegTranStripAll"]) {
-            [defaults setBool:NO forKey:@"JpegTranStripAllSetByGuetzli"];
-            [defaults setBool:NO forKey:@"GuetzliEnabled"];
-        }
-    }
-}
-
-- (void)warnGuetzliSlowness {
-    NSAlert *alert = [NSAlert new];
-    alert.alertStyle = NSAlertStyleWarning;
-    alert.messageText = NSLocalizedString(@"Guetzli is very slow", "alert box");
-    alert.informativeText = NSLocalizedString(@"It can take up to 30 minutes per image. Your system may be unresponsive while Guetzli is running.", "alert box");
-    [alert beginSheetModalForWindow:[self window] completionHandler:nil];
 }
 
 - (IBAction)showLossySettings:(id)sender {
@@ -74,7 +32,7 @@ static const char *kStripAllContext = "strip";
     [[self window] setHidesOnDeactivate:NO];
 
     NSString *locBookName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleHelpBookName"];
-    NSString *anchors[] = { @"general", @"jpegoptim", @"optipng", @"optipng", @"pngcrush", @"pngout" };
+    NSString *anchors[] = { @"general", @"jpegoptim", @"optipng", @"optipng", @"general", @"pngout" };
     NSString *anchor = @"main";
 
     if (tag >= 1 && tag <= 6) {

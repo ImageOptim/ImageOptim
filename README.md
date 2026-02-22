@@ -8,9 +8,10 @@ Requires:
 
 * Xcode
 * [Rust](https://rust-lang.org/) installed via [rustup](https://www.rustup.rs/) (not Homebrew).
+* [Homebrew](https://brew.sh/) for dependency management
 
 ```sh
-git clone --recursive https://imageoptim.com ImageOptim
+git clone --recursive <repo-url> ImageOptim
 cd ImageOptim
 ```
 

@@ -20,15 +20,9 @@
 	<true/>
 	<key>OptiPngEnabled</key>
 	<true/>
-	<key>PngCrush2Enabled</key>
-	<false/>
 	<key>PngOutEnabled</key>
 	<true/>
 	<key>PngOutRemoveChunks</key>
-	<true/>
-	<key>SvgcleanerEnabled</key>
-	<true/>
-	<key>ZopfliEnabled</key>
 	<true/>
 	<key>GifsicleEnabled</key>
 	<true/>
@@ -46,5 +40,17 @@
 	<true/>
 	<key>BounceDock</key>
 	<true/>
+	<key>AvifEnabled</key>
+	<true/>
+	<key>WebpEnabled</key>
+	<true/>
+	<key>JxlEnabled</key>
+	<true/>
+	<key>JxlQuality</key>
+	<integer>85</integer>
+	<key>AvifQuality</key>
+	<integer>85</integer>
+	<key>WebpQuality</key>
+	<integer>85</integer>
 </dict>
 </plist>

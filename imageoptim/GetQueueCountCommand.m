@@ -5,9 +5,9 @@
 @implementation GetQueueCountCommand
 
 - (id)performDefaultImplementation {
-    ImageOptimController *imageoptim = (ImageOptimController *)[[NSApplication sharedApplication] delegate];
+    ImageOptimController *imageOptim = (ImageOptimController *)[[NSApplication sharedApplication] delegate];
 
-    return imageoptim.filesController.queueCount;
+    return imageOptim.filesController.queueCount;
 }
 
 @end

@@ -3,7 +3,7 @@ build: all
 all: repng.cc
 
 repng.cc:
-	curl -L http://sourceforge.net/projects/advancemame/files/advancecomp/1.15/advancecomp-1.15.tar.gz/download | tar xz --strip-components=1
+	curl -L https://github.com/amadvance/advancecomp/releases/download/v2.6/advancecomp-2.6.tar.gz | tar xz --strip-components=1
 
 clean:
 

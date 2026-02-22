@@ -18,6 +18,8 @@
 		5A4554541025E76F00A69944 /* clp.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4554531025E76F00A69944 /* clp.c */; };
 		5A4554AC1025E97100A69944 /* xform.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A4553DE1025E50700A69944 /* xform.c */; };
 		5AD92F841B45F54600FE17B0 /* quantize.c in Sources */ = {isa = PBXBuildFile; fileRef = 5AD92F831B45F54600FE17B0 /* quantize.c */; };
+		AA000001AAAA000100000001 /* kcolor.c in Sources */ = {isa = PBXBuildFile; fileRef = AA000001AAAA000100000002 /* kcolor.c */; };
+		AA000002AAAA000200000001 /* gifunopt.c in Sources */ = {isa = PBXBuildFile; fileRef = AA000002AAAA000200000002 /* gifunopt.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		5A4553DF1025E50700A69944 /* gifsicle.c */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.c; name = gifsicle.c; path = gifsicle/src/gifsicle.c; sourceTree = "<group>"; };
 		5A4554531025E76F00A69944 /* clp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = clp.c; path = gifsicle/src/clp.c; sourceTree = "<group>"; };
 		5AD92F831B45F54600FE17B0 /* quantize.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = quantize.c; path = gifsicle/src/quantize.c; sourceTree = "<group>"; };
+		AA000001AAAA000100000002 /* kcolor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = kcolor.c; path = gifsicle/src/kcolor.c; sourceTree = "<group>"; };
+		AA000002AAAA000200000002 /* gifunopt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gifunopt.c; path = gifsicle/src/gifunopt.c; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* gifsicle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = gifsicle; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,6 +87,8 @@
 				5A4553DB1025E50700A69944 /* optimize.c */,
 				5A4553D91025E50700A69944 /* support.c */,
 				5A4553DE1025E50700A69944 /* xform.c */,
+				AA000001AAAA000100000002 /* kcolor.c */,
+				AA000002AAAA000200000002 /* gifunopt.c */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -178,6 +184,8 @@
 				5A4553ED1025E50700A69944 /* optimize.c in Sources */,
 				5A4553EB1025E50700A69944 /* support.c in Sources */,
 				5A4554AC1025E97100A69944 /* xform.c in Sources */,
+				AA000001AAAA000100000001 /* kcolor.c in Sources */,
+				AA000002AAAA000200000001 /* gifunopt.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

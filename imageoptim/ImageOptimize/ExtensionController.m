@@ -33,7 +33,7 @@
         NSLog(@"Got %d input items with %d attachments", (int)self.extensionContext.inputItems.count, (int)inputItem.attachments.count);
 
         if (!inputItem || !provider) {
-            NSLog(@"No items sent to the extension, nothing to optimize");
+            NSLog(@"No items sent to the extension, nothing to compress");
             [self cancel:self];
             return;
         }
@@ -71,7 +71,6 @@
                                   [defaults registerDefaults:@{
                                       @"AdvPngEnabled" : @(YES),
                                       @"AdvPngLevel" : @(4),
-                                      @"ZopfliEnabled" : @(YES),
                                       @"PngOutRemoveChunks" : @(YES),
                                       @"PreservePermissions" : @(NO),
                                       @"PreserveDates" : @(NO),

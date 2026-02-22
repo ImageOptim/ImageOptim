@@ -39,6 +39,29 @@
 		5A8166A70EA117BB00962CF2 /* WindowOut.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5A8166930EA117BB00962CF2 /* WindowOut.cc */; };
 		5AE3081E214E948500F8D489 /* libstatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A05264013D8DABD00BA0213 /* libstatic.a */; };
 		DB716F751853E13D00AA7771 /* snstring.c in Sources */ = {isa = PBXBuildFile; fileRef = DB716F731853E13D00AA7771 /* snstring.c */; };
+		CC0A000100000000B0010001 /* blocksplitter.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0A000100000000A0010001 /* blocksplitter.c */; };
+		CC0A000200000000B0020002 /* cache.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0A000200000000A0020002 /* cache.c */; };
+		CC0A000300000000B0030003 /* deflate.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0A000300000000A0030003 /* deflate.c */; };
+		CC0A000400000000B0040004 /* gzip_container.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0A000400000000A0040004 /* gzip_container.c */; };
+		CC0A000500000000B0050005 /* hash.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0A000500000000A0050005 /* hash.c */; };
+		CC0A000600000000B0060006 /* katajainen.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0A000600000000A0060006 /* katajainen.c */; };
+		CC0A000700000000B0070007 /* lz77.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0A000700000000A0070007 /* lz77.c */; };
+		CC0A000800000000B0080008 /* squeeze.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0A000800000000A0080008 /* squeeze.c */; };
+		CC0A000900000000B0090009 /* tree.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0A000900000000A0090009 /* tree.c */; };
+		CC0A000A00000000B00A000A /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0A000A00000000A00A000A /* util.c */; };
+		CC0A000B00000000B00B000B /* zlib_container.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0A000B00000000A00B000B /* zlib_container.c */; };
+		CC0A000C00000000B00C000C /* zopfli_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0A000C00000000A00C000C /* zopfli_lib.c */; };
+		CC0B000100000000B0010001 /* adler32.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0B000100000000A0010001 /* adler32.c */; };
+		CC0B000200000000B0020002 /* crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0B000200000000A0020002 /* crc32.c */; };
+		CC0B000300000000B0030003 /* deflate_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0B000300000000A0030003 /* deflate_compress.c */; };
+		CC0B000400000000B0040004 /* deflate_decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0B000400000000A0040004 /* deflate_decompress.c */; };
+		CC0B000500000000B0050005 /* gzip_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0B000500000000A0050005 /* gzip_compress.c */; };
+		CC0B000600000000B0060006 /* gzip_decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0B000600000000A0060006 /* gzip_decompress.c */; };
+		CC0B000700000000B0070007 /* utils.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0B000700000000A0070007 /* utils.c */; };
+		CC0B000800000000B0080008 /* zlib_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0B000800000000A0080008 /* zlib_compress.c */; };
+		CC0B000900000000B0090009 /* zlib_decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0B000900000000A0090009 /* zlib_decompress.c */; };
+		CC0B000A00000000B00A000A /* cpu_features.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0B000A00000000A00A000A /* cpu_features.c */; };
+		CC0B000B00000000B00B000B /* cpu_features.c in Sources */ = {isa = PBXBuildFile; fileRef = CC0B000B00000000A00B000B /* cpu_features.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +190,29 @@
 		8DD76FB20486AB0100D96B5E /* advpng */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = advpng; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB716F731853E13D00AA7771 /* snstring.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = snstring.c; sourceTree = "<group>"; };
 		DB716F741853E13D00AA7771 /* snstring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snstring.h; sourceTree = "<group>"; };
+		CC0A000100000000A0010001 /* blocksplitter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = blocksplitter.c; sourceTree = "<group>"; };
+		CC0A000200000000A0020002 /* cache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cache.c; sourceTree = "<group>"; };
+		CC0A000300000000A0030003 /* deflate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = deflate.c; sourceTree = "<group>"; };
+		CC0A000400000000A0040004 /* gzip_container.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gzip_container.c; sourceTree = "<group>"; };
+		CC0A000500000000A0050005 /* hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hash.c; sourceTree = "<group>"; };
+		CC0A000600000000A0060006 /* katajainen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = katajainen.c; sourceTree = "<group>"; };
+		CC0A000700000000A0070007 /* lz77.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lz77.c; sourceTree = "<group>"; };
+		CC0A000800000000A0080008 /* squeeze.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = squeeze.c; sourceTree = "<group>"; };
+		CC0A000900000000A0090009 /* tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tree.c; sourceTree = "<group>"; };
+		CC0A000A00000000A00A000A /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
+		CC0A000B00000000A00B000B /* zlib_container.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zlib_container.c; sourceTree = "<group>"; };
+		CC0A000C00000000A00C000C /* zopfli_lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zopfli_lib.c; sourceTree = "<group>"; };
+		CC0B000100000000A0010001 /* adler32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = adler32.c; sourceTree = "<group>"; };
+		CC0B000200000000A0020002 /* crc32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = crc32.c; sourceTree = "<group>"; };
+		CC0B000300000000A0030003 /* deflate_compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = deflate_compress.c; sourceTree = "<group>"; };
+		CC0B000400000000A0040004 /* deflate_decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = deflate_decompress.c; sourceTree = "<group>"; };
+		CC0B000500000000A0050005 /* gzip_compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gzip_compress.c; sourceTree = "<group>"; };
+		CC0B000600000000A0060006 /* gzip_decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gzip_decompress.c; sourceTree = "<group>"; };
+		CC0B000700000000A0070007 /* utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = utils.c; sourceTree = "<group>"; };
+		CC0B000800000000A0080008 /* zlib_compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zlib_compress.c; sourceTree = "<group>"; };
+		CC0B000900000000A0090009 /* zlib_decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zlib_decompress.c; sourceTree = "<group>"; };
+		CC0B000A00000000A00A000A /* cpu_features.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cpu_features.c; path = arm/cpu_features.c; sourceTree = "<group>"; };
+		CC0B000B00000000A00B000B /* cpu_features.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cpu_features.c; path = x86/cpu_features.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +245,8 @@
 			children = (
 				5A8166580EA117BB00962CF2 /* 7z */,
 				5A8166410EA117B600962CF2 /* lib */,
+				CC0A0000000000000C000000 /* zopfli */,
+				CC0B0000000000000C000000 /* libdeflate */,
 				5A8166300EA117B100962CF2 /* compress.cc */,
 				5A8166260EA117B100962CF2 /* compress.h */,
 				5A8166270EA117B100962CF2 /* config.h */,
@@ -323,6 +371,43 @@
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		CC0A0000000000000C000000 /* zopfli */ = {
+			isa = PBXGroup;
+			children = (
+				CC0A000100000000A0010001 /* blocksplitter.c */,
+				CC0A000200000000A0020002 /* cache.c */,
+				CC0A000300000000A0030003 /* deflate.c */,
+				CC0A000400000000A0040004 /* gzip_container.c */,
+				CC0A000500000000A0050005 /* hash.c */,
+				CC0A000600000000A0060006 /* katajainen.c */,
+				CC0A000700000000A0070007 /* lz77.c */,
+				CC0A000800000000A0080008 /* squeeze.c */,
+				CC0A000900000000A0090009 /* tree.c */,
+				CC0A000A00000000A00A000A /* util.c */,
+				CC0A000B00000000A00B000B /* zlib_container.c */,
+				CC0A000C00000000A00C000C /* zopfli_lib.c */,
+			);
+			path = zopfli;
+			sourceTree = SOURCE_ROOT;
+		};
+		CC0B0000000000000C000000 /* libdeflate */ = {
+			isa = PBXGroup;
+			children = (
+				CC0B000100000000A0010001 /* adler32.c */,
+				CC0B000200000000A0020002 /* crc32.c */,
+				CC0B000300000000A0030003 /* deflate_compress.c */,
+				CC0B000400000000A0040004 /* deflate_decompress.c */,
+				CC0B000500000000A0050005 /* gzip_compress.c */,
+				CC0B000600000000A0060006 /* gzip_decompress.c */,
+				CC0B000700000000A0070007 /* utils.c */,
+				CC0B000800000000A0080008 /* zlib_compress.c */,
+				CC0B000900000000A0090009 /* zlib_decompress.c */,
+				CC0B000A00000000A00A000A /* cpu_features.c */,
+				CC0B000B00000000A00B000B /* cpu_features.c */,
+			);
+			path = libdeflate;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -451,6 +536,29 @@
 				DB716F751853E13D00AA7771 /* snstring.c in Sources */,
 				5A8166A60EA117BB00962CF2 /* WindowIn.cc in Sources */,
 				5A8166A70EA117BB00962CF2 /* WindowOut.cc in Sources */,
+				CC0A000100000000B0010001 /* blocksplitter.c in Sources */,
+				CC0A000200000000B0020002 /* cache.c in Sources */,
+				CC0A000300000000B0030003 /* deflate.c in Sources */,
+				CC0A000400000000B0040004 /* gzip_container.c in Sources */,
+				CC0A000500000000B0050005 /* hash.c in Sources */,
+				CC0A000600000000B0060006 /* katajainen.c in Sources */,
+				CC0A000700000000B0070007 /* lz77.c in Sources */,
+				CC0A000800000000B0080008 /* squeeze.c in Sources */,
+				CC0A000900000000B0090009 /* tree.c in Sources */,
+				CC0A000A00000000B00A000A /* util.c in Sources */,
+				CC0A000B00000000B00B000B /* zlib_container.c in Sources */,
+				CC0A000C00000000B00C000C /* zopfli_lib.c in Sources */,
+				CC0B000100000000B0010001 /* adler32.c in Sources */,
+				CC0B000200000000B0020002 /* crc32.c in Sources */,
+				CC0B000300000000B0030003 /* deflate_compress.c in Sources */,
+				CC0B000400000000B0040004 /* deflate_decompress.c in Sources */,
+				CC0B000500000000B0050005 /* gzip_compress.c in Sources */,
+				CC0B000600000000B0060006 /* gzip_decompress.c in Sources */,
+				CC0B000700000000B0070007 /* utils.c in Sources */,
+				CC0B000800000000B0080008 /* zlib_compress.c in Sources */,
+				CC0B000900000000B0090009 /* zlib_decompress.c in Sources */,
+				CC0B000A00000000B00A000A /* cpu_features.c in Sources */,
+				CC0B000B00000000B00B000B /* cpu_features.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

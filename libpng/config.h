@@ -113,6 +113,11 @@
 #  define PNG_NO_LEGACY_SUPPORTED
 #endif
 
+/* Undefine MACOS to prevent inclusion of classic Mac OS <fp.h> header */
+#ifdef MACOS
+#undef MACOS
+#endif
+
 #define PNG_READ_GRAY_TO_RGB_SUPPORTED
 #define PNG_READ_STRIP_ALPHA_SUPPORTED
 #define PNG_READ_FILLER_SUPPORTED

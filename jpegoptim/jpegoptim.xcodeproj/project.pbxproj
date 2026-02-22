@@ -10,6 +10,8 @@
 		5A1663981B529A6100DF7D3C /* jpegdest.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1663971B529A6100DF7D3C /* jpegdest.c */; };
 		5A16639A1B529A8B00DF7D3C /* misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1663991B529A8B00DF7D3C /* misc.c */; };
 		5A8167B50EA11E3F00962CF2 /* src/jpegoptim.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167840EA11E3F00962CF2 /* src/jpegoptim.c */; };
+		BB000001BBBB000100000001 /* jpegmarker.c in Sources */ = {isa = PBXBuildFile; fileRef = BB000001BBBB000100000002 /* jpegmarker.c */; };
+		BB000002BBBB000200000001 /* jpegsrc.c in Sources */ = {isa = PBXBuildFile; fileRef = BB000002BBBB000200000002 /* jpegsrc.c */; };
 		5AA49DB5111CC25500137D50 /* libimageoptimjpeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA49DB0111CC23000137D50 /* libimageoptimjpeg.dylib */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 /* Begin PBXFileReference section */
 		5A1663971B529A6100DF7D3C /* jpegdest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jpegdest.c; path = src/jpegdest.c; sourceTree = "<group>"; };
 		5A1663991B529A8B00DF7D3C /* misc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = misc.c; path = src/misc.c; sourceTree = "<group>"; };
+		BB000001BBBB000100000002 /* jpegmarker.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jpegmarker.c; path = src/jpegmarker.c; sourceTree = "<group>"; };
+		BB000002BBBB000200000002 /* jpegsrc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jpegsrc.c; path = src/jpegsrc.c; sourceTree = "<group>"; };
 		5A27BA31139B09080095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A27BA32139B09080095FC2F /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../imageoptim/debug.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A401AF1111A75A500908C9B /* jpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpeg.xcodeproj; path = ../libjpeg/jpeg.xcodeproj; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				5A1663971B529A6100DF7D3C /* jpegdest.c */,
 				5A1663991B529A8B00DF7D3C /* misc.c */,
 				5A8167840EA11E3F00962CF2 /* src/jpegoptim.c */,
+				BB000001BBBB000100000002 /* jpegmarker.c */,
+				BB000002BBBB000200000002 /* jpegsrc.c */,
 			);
 			name = jpegoptim;
 			sourceTree = "<group>";
@@ -193,6 +199,8 @@
 				5A1663981B529A6100DF7D3C /* jpegdest.c in Sources */,
 				5A16639A1B529A8B00DF7D3C /* misc.c in Sources */,
 				5A8167B50EA11E3F00962CF2 /* src/jpegoptim.c in Sources */,
+				BB000001BBBB000100000001 /* jpegmarker.c in Sources */,
+				BB000002BBBB000200000001 /* jpegsrc.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +255,7 @@
 				GCC_WARN_SIGN_COMPARE = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../libjpeg/build/include",
 					"$(SRCROOT)/../libjpeg/",
 					"$(SRCROOT)/../libjpeg/src/",
 				);
@@ -275,6 +284,7 @@
 				GCC_WARN_SIGN_COMPARE = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../libjpeg/build/include",
 					"$(SRCROOT)/../libjpeg/",
 					"$(SRCROOT)/../libjpeg/src/",
 				);
