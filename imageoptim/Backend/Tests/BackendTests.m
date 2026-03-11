@@ -19,7 +19,15 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    // Register app defaults to ensure optimization tools are enabled
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSURL *defaultsURL = [mainBundle URLForResource:@"defaults" withExtension:@"plist"];
+    if (defaultsURL) {
+        NSDictionary *defs = [NSDictionary dictionaryWithContentsOfURL:defaultsURL];
+        if (defs) {
+            [[NSUserDefaults standardUserDefaults] registerDefaults:defs];
+        }
+    }
 }
 
 - (void)tearDown {
@@ -67,6 +75,66 @@
 
     XCTAssertEqual([[f byteSizeOptimized] integerValue], [size integerValue]);
     XCTAssertEqual([[f byteSizeOriginal] integerValue], [origSize integerValue]);
+}
+
+- (void)testCompressJPEG {
+    NSURL *origPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"unoptimized" withExtension:@"jpg"];
+    if (!origPath) {
+        XCTSkip(@"unoptimized.jpg test resource not found");
+    }
+    NSURL *path = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSUUID UUID] UUIDString]]];
+
+    NSFileManager *fm = [NSFileManager defaultManager];
+    XCTAssertTrue([fm copyItemAtURL:origPath toURL:path error:nil]);
+
+    Job *f = [[Job alloc] initWithFilePath:path resultsDatabase:nil];
+    JobQueue *q = [[JobQueue alloc] initWithCPUs:4 dirs:1 files:4 defaults:[NSUserDefaults standardUserDefaults]];
+
+    [q addJob:f];
+    [q wait];
+
+    XCTAssertTrue([f isDone]);
+    XCTAssertFalse([f isFailed]);
+}
+
+- (void)testCompressGIF {
+    NSURL *origPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"unoptimized" withExtension:@"gif"];
+    if (!origPath) {
+        XCTSkip(@"unoptimized.gif test resource not found");
+    }
+    NSURL *path = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSUUID UUID] UUIDString]]];
+
+    NSFileManager *fm = [NSFileManager defaultManager];
+    XCTAssertTrue([fm copyItemAtURL:origPath toURL:path error:nil]);
+
+    Job *f = [[Job alloc] initWithFilePath:path resultsDatabase:nil];
+    JobQueue *q = [[JobQueue alloc] initWithCPUs:4 dirs:1 files:4 defaults:[NSUserDefaults standardUserDefaults]];
+
+    [q addJob:f];
+    [q wait];
+
+    XCTAssertTrue([f isDone]);
+    XCTAssertFalse([f isFailed]);
+}
+
+- (void)testCompressSVG {
+    NSURL *origPath = [[NSBundle bundleForClass:[self class]] URLForResource:@"unoptimized" withExtension:@"svg"];
+    if (!origPath) {
+        XCTSkip(@"unoptimized.svg test resource not found");
+    }
+    NSURL *path = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:[[NSUUID UUID] UUIDString]]];
+
+    NSFileManager *fm = [NSFileManager defaultManager];
+    XCTAssertTrue([fm copyItemAtURL:origPath toURL:path error:nil]);
+
+    Job *f = [[Job alloc] initWithFilePath:path resultsDatabase:nil];
+    JobQueue *q = [[JobQueue alloc] initWithCPUs:4 dirs:1 files:4 defaults:[NSUserDefaults standardUserDefaults]];
+
+    [q addJob:f];
+    [q wait];
+
+    XCTAssertTrue([f isDone]);
+    XCTAssertFalse([f isFailed]);
 }
 
 @end

@@ -24,4 +24,23 @@ helpindexes:: $(HELPINDEXES)
 %/Help.helpindex: %/index.html %/prefs.html
 	./makehelp.sh $(patsubst %.lproj/Help/Help.helpindex,%,$@)
 
-.PHONY: build all install clean
+# Packaging targets - run after building in Xcode.
+# Usage: make archive TARGET_BUILD_DIR=/path/to/Build/Products/Release
+#        make dmg TARGET_BUILD_DIR=/path/to/Build/Products/Release
+archive:
+	@if [ -z "$(TARGET_BUILD_DIR)" ]; then \
+		echo "Usage: make archive TARGET_BUILD_DIR=/path/to/Build/Products/Release"; \
+		echo "Or run: ../scripts/package.sh /path/to/build/Release"; \
+		exit 1; \
+	fi
+	../scripts/package.sh "$(TARGET_BUILD_DIR)" "$(MARKETING_VERSION)"
+
+dmg:
+	@if [ -z "$(TARGET_BUILD_DIR)" ]; then \
+		echo "Usage: make dmg TARGET_BUILD_DIR=/path/to/Build/Products/Release"; \
+		echo "Or run: ../scripts/package.sh /path/to/build/Release VERSION dmg"; \
+		exit 1; \
+	fi
+	../scripts/package.sh "$(TARGET_BUILD_DIR)" "$(MARKETING_VERSION)" dmg
+
+.PHONY: build all install clean archive dmg

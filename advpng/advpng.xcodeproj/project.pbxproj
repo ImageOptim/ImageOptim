@@ -38,6 +38,8 @@
 		5A8166A60EA117BB00962CF2 /* WindowIn.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5A8166910EA117BB00962CF2 /* WindowIn.cc */; };
 		5A8166A70EA117BB00962CF2 /* WindowOut.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5A8166930EA117BB00962CF2 /* WindowOut.cc */; };
 		5AE3081E214E948500F8D489 /* libstatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A05264013D8DABD00BA0213 /* libstatic.a */; };
+		5F3908102189D1000068035B /* libzopfli.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F39080E2189D1000068035B /* libzopfli.a */; };
+		5F3908112189D1000068035B /* libdeflate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F39080F2189D1000068035B /* libdeflate.a */; };
 		DB716F751853E13D00AA7771 /* snstring.c in Sources */ = {isa = PBXBuildFile; fileRef = DB716F731853E13D00AA7771 /* snstring.c */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +177,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AE3081E214E948500F8D489 /* libstatic.a in Frameworks */,
+				5F3908102189D1000068035B /* libzopfli.a in Frameworks */,
+				5F3908112189D1000068035B /* libdeflate.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +324,8 @@
 		5AE3081A214E948500F8D489 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F39080E2189D1000068035B /* libzopfli.a */,
+				5F39080F2189D1000068035B /* libdeflate.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -406,6 +412,8 @@
 			remoteRef = 5A05263F13D8DABD00BA0213 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		5F39080E2189D1000068035B /* libzopfli.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libzopfli.a; sourceTree = "<group>"; };
+		5F39080F2189D1000068035B /* libdeflate.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libdeflate.a; sourceTree = "<group>"; };
 		5A7439C8111DA4EF001C2D27 /* liblibpng.dylib */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.dylib";
@@ -521,6 +529,10 @@
 					"$(inherited)",
 					"$(SRCROOT)/",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
 			};
@@ -538,6 +550,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
 				);
 			};
 			name = Release;

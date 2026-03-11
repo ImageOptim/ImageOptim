@@ -389,6 +389,7 @@
 			};
 			name = Release;
 		};
+		/* Debug: Support Apple Silicon (arm64) and Intel (x86_64) */
 		1DEB914F08733D8E0010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -403,14 +404,15 @@
 				PREBINDING = NO;
 				RUN_CLANG_STATIC_ANALYZER = NO;
 				SDKROOT = macosx10.6;
-				VALID_ARCHS = "i386 ppc x86_64";
+				VALID_ARCHS = "arm64 x86_64";
 			};
 			name = Debug;
 		};
+		/* Release: Build universal binary for Apple Silicon (arm64) and Intel (x86_64) */
 		1DEB915008733D8E0010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "arm64 x86_64";
 				DEPLOYMENT_POSTPROCESSING = YES;
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -430,7 +432,7 @@
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx10.6;
 				STRINGS_FILE_OUTPUT_ENCODING = "UTF-8";
-				VALID_ARCHS = "i386 ppc x86_64";
+				VALID_ARCHS = "arm64 x86_64";
 			};
 			name = Release;
 		};

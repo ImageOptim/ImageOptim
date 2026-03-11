@@ -3,13 +3,10 @@ OPTIPNG_FILENAME=optipng-$(VERSION).tar.gz
 
 build: all
 
-all: png.h
+all: png.h pngpriv.h
 
-png.h: /tmp/$(OPTIPNG_FILENAME)
-	tar xzf /tmp/$(OPTIPNG_FILENAME) --strip-components=3 --exclude=Makefile optipng-$(VERSION)/lib/libpng
-
-/tmp/$(OPTIPNG_FILENAME):
-	curl -L http://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-$(VERSION)/$(OPTIPNG_FILENAME) -o /tmp/$(OPTIPNG_FILENAME)
+png.h pngpriv.h:
+	@echo "Using pre-installed libpng source"
 
 clean:
 	test \! -e png.h || rm *.c png.h
