@@ -8,6 +8,7 @@
 #import "PrefsController.h"
 #import "MyTableView.h"
 #import "SharedPrefs.h"
+#import "TaskStateCell.h"
 #include <mach/mach_host.h>
 #include <mach/host_info.h>
 #import <Quartz/Quartz.h>
@@ -17,6 +18,12 @@
 extern int quitWhenDone;
 
 static const char *kIMPreviewPanelContext = "preview";
+static NSToolbarIdentifier const kIOMainToolbarIdentifier = @"ImageOptim.MainToolbar";
+static NSToolbarItemIdentifier const kIOToolbarAddIdentifier = @"ImageOptim.Toolbar.Add";
+static NSToolbarItemIdentifier const kIOToolbarStopIdentifier = @"ImageOptim.Toolbar.Stop";
+static NSToolbarItemIdentifier const kIOToolbarAgainIdentifier = @"ImageOptim.Toolbar.Again";
+static NSToolbarItemIdentifier const kIOToolbarClearIdentifier = @"ImageOptim.Toolbar.Clear";
+static NSToolbarItemIdentifier const kIOToolbarSettingsIdentifier = @"ImageOptim.Toolbar.Settings";
 
 @synthesize filesController;
 
@@ -63,6 +70,95 @@ static const char *kIMPreviewPanelContext = "preview";
     }
 
     [NSApp setServicesProvider:self];
+}
+
+- (void)configureToolbar {
+    NSWindow *window = tableView.window;
+    NSToolbar *toolbar = [[NSToolbar alloc] initWithIdentifier:kIOMainToolbarIdentifier];
+    toolbar.delegate = self;
+    toolbar.allowsUserCustomization = YES;
+    toolbar.autosavesConfiguration = YES;
+    toolbar.displayMode = NSToolbarDisplayModeIconAndLabel;
+    toolbar.sizeMode = NSToolbarSizeModeRegular;
+    window.toolbar = toolbar;
+    window.toolbarStyle = NSWindowToolbarStyleUnifiedCompact;
+    window.titleVisibility = NSWindowTitleVisible;
+}
+
+- (NSToolbarItem *)toolbarItemWithIdentifier:(NSToolbarItemIdentifier)itemIdentifier
+                                       label:(NSString *)label
+                                      symbol:(NSString *)symbol
+                                      action:(SEL)action {
+    NSToolbarItem *item = [[NSToolbarItem alloc] initWithItemIdentifier:itemIdentifier];
+    item.label = label;
+    item.paletteLabel = label;
+    item.toolTip = label;
+    item.target = self;
+    item.action = action;
+    item.image = [NSImage imageWithSystemSymbolName:symbol accessibilityDescription:label];
+    return item;
+}
+
+- (NSArray<NSToolbarItemIdentifier> *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
+    return @[
+        kIOToolbarAddIdentifier,
+        NSToolbarFlexibleSpaceItemIdentifier,
+        kIOToolbarStopIdentifier,
+        kIOToolbarAgainIdentifier,
+        kIOToolbarClearIdentifier,
+        NSToolbarFlexibleSpaceItemIdentifier,
+        kIOToolbarSettingsIdentifier,
+    ];
+}
+
+- (NSArray<NSToolbarItemIdentifier> *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
+    return @[
+        kIOToolbarAddIdentifier,
+        kIOToolbarStopIdentifier,
+        kIOToolbarAgainIdentifier,
+        kIOToolbarClearIdentifier,
+        kIOToolbarSettingsIdentifier,
+        NSToolbarFlexibleSpaceItemIdentifier,
+        NSToolbarSpaceItemIdentifier,
+    ];
+}
+
+- (NSToolbarItem *)toolbar:(NSToolbar *)toolbar
+     itemForItemIdentifier:(NSToolbarItemIdentifier)itemIdentifier
+ willBeInsertedIntoToolbar:(BOOL)flag {
+    if ([itemIdentifier isEqualToString:kIOToolbarAddIdentifier]) {
+        return [self toolbarItemWithIdentifier:itemIdentifier label:NSLocalizedString(@"Add Files", @"toolbar item") symbol:@"plus" action:@selector(browseForFiles:)];
+    }
+    if ([itemIdentifier isEqualToString:kIOToolbarStopIdentifier]) {
+        return [self toolbarItemWithIdentifier:itemIdentifier label:NSLocalizedString(@"Stop", @"toolbar item") symbol:@"stop.fill" action:@selector(stop:)];
+    }
+    if ([itemIdentifier isEqualToString:kIOToolbarAgainIdentifier]) {
+        return [self toolbarItemWithIdentifier:itemIdentifier label:NSLocalizedString(@"Optimize Again", @"toolbar item") symbol:@"arrow.clockwise" action:@selector(startAgain:)];
+    }
+    if ([itemIdentifier isEqualToString:kIOToolbarClearIdentifier]) {
+        return [self toolbarItemWithIdentifier:itemIdentifier label:NSLocalizedString(@"Clear Done", @"toolbar item") symbol:@"checkmark.circle" action:@selector(clearComplete:)];
+    }
+    if ([itemIdentifier isEqualToString:kIOToolbarSettingsIdentifier]) {
+        return [self toolbarItemWithIdentifier:itemIdentifier label:NSLocalizedString(@"Settings", @"toolbar item") symbol:@"gearshape" action:@selector(showPrefs:)];
+    }
+    return nil;
+}
+
+- (BOOL)validateToolbarItem:(NSToolbarItem *)item {
+    NSToolbarItemIdentifier identifier = item.itemIdentifier;
+    if ([identifier isEqualToString:kIOToolbarAddIdentifier]) {
+        return [filesController canAdd];
+    }
+    if ([identifier isEqualToString:kIOToolbarStopIdentifier]) {
+        return [filesController isStoppable];
+    }
+    if ([identifier isEqualToString:kIOToolbarAgainIdentifier]) {
+        return [filesController canStartAgainOptimized:NO];
+    }
+    if ([identifier isEqualToString:kIOToolbarClearIdentifier]) {
+        return [filesController canClearComplete];
+    }
+    return YES;
 }
 
 - (void)dealloc {
@@ -256,6 +352,14 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
     if (quitWhenDone) {
         [NSApp hide:self];
     }
+
+    [self configureToolbar];
+
+    tableView.rowHeight = 30;
+    tableView.intercellSpacing = NSMakeSize(3, 4);
+    tableView.usesAlternatingRowBackgroundColors = NO;
+    tableView.style = NSTableViewStyleFullWidth;
+    taskSummaryLabel.font = [NSFont monospacedDigitSystemFontOfSize:12 weight:NSFontWeightMedium];
 
     RevealButtonCell *cell = [[tableView tableColumnWithIdentifier:@"filename"] dataCell];
     [cell setInfoButtonAction:@selector(openInFinder:)];

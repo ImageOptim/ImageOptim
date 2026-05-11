@@ -6,7 +6,7 @@ extern NSDictionary *statusImages;
 @class FilesController;
 @class PrefsController;
 
-@interface ImageOptimController : NSObject<NSApplicationDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate> {
+@interface ImageOptimController : NSObject<NSApplicationDelegate, NSToolbarDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate> {
     IBOutlet NSTableView *tableView;
     IBOutlet FilesController *__unsafe_unretained filesController;
 

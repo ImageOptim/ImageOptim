@@ -20,6 +20,7 @@
 		5A1D3E8C14366933004EE809 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 5A1D3E8B14366933004EE809 /* style.css */; };
 		5A2E55881A7C386900985295 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E55861A7C386900985295 /* InfoPlist.strings */; };
 		5A34A634140EEDB900DE44D2 /* DragDropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A34A633140EEDB900DE44D2 /* DragDropImageView.m */; };
+		A10B00012F00000100000001 /* TaskStateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A10B00032F00000100000003 /* TaskStateCell.m */; };
 		5A34D0031AEF6DA300A154E4 /* BackendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE15551AE5072300861C6B /* BackendTests.m */; };
 		5A34D0041AEF6DB300A154E4 /* ImageOptimGPL.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A34CFEE1AEF6D9800A154E4 /* ImageOptimGPL.h */; };
 		5A34D0991AEF75CE00A154E4 /* JobQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A34D0971AEF75CE00A154E4 /* JobQueue.h */; };
@@ -540,6 +541,8 @@
 		5A2E55871A7C386900985295 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A34A632140EEDB900DE44D2 /* DragDropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragDropImageView.h; sourceTree = "<group>"; };
 		5A34A633140EEDB900DE44D2 /* DragDropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropImageView.m; sourceTree = "<group>"; };
+		A10B00022F00000100000002 /* TaskStateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskStateCell.h; sourceTree = "<group>"; };
+		A10B00032F00000100000003 /* TaskStateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskStateCell.m; sourceTree = "<group>"; };
 		5A34CFEE1AEF6D9800A154E4 /* ImageOptimGPL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageOptimGPL.h; path = Backend/ImageOptimGPL.h; sourceTree = "<group>"; };
 		5A34D0971AEF75CE00A154E4 /* JobQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JobQueue.h; path = Backend/JobQueue.h; sourceTree = "<group>"; };
 		5A34D0981AEF75CE00A154E4 /* JobQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JobQueue.m; path = Backend/JobQueue.m; sourceTree = "<group>"; };
@@ -1032,6 +1035,8 @@
 				5A6242070CA86DC7005942A3 /* PrefsController.m */,
 				5A391882140A9B19001B4FD7 /* RevealButtonCell.h */,
 				5A391880140A9B10001B4FD7 /* RevealButtonCell.m */,
+				A10B00022F00000100000002 /* TaskStateCell.h */,
+				A10B00032F00000100000003 /* TaskStateCell.m */,
 				5AACA82F0CAFE74E004D45CA /* Transformers.h */,
 				5AACA8300CAFE74E004D45CA /* Transformers.m */,
 			);
@@ -1708,6 +1713,7 @@
 				5A714AAD0CB0196A00C242C0 /* MyTableView.m in Sources */,
 				5A6242080CA86DC7005942A3 /* PrefsController.m in Sources */,
 				5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */,
+				A10B00012F00000100000001 /* TaskStateCell.m in Sources */,
 				5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

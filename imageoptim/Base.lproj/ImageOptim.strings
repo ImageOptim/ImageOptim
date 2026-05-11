@@ -37,17 +37,17 @@
 /* Table Column Title (MUST BE SHORT) "File" */
 "238.headerCell.title" = "File";
 
-/* Table Column Title (MUST BE SHORT) "Size" */
-"239.headerCell.title" = "Size";
+/* Table Column Title (MUST BE SHORT) "Optimized" */
+"239.headerCell.title" = "Optimized";
 
-/* Table Column Tooltip "Size of file after optimization" */
-"239.headerToolTip" = "Size of file after optimization";
+/* Table Column Tooltip "Optimized file size" */
+"239.headerToolTip" = "Optimized file size";
 
-/* Table Column Tooltip "Size of file after optimization" */
-"239.ibExternalAccessibilityDescription" = "Size of file after optimization";
+/* Table Column Tooltip "Optimized file size" */
+"239.ibExternalAccessibilityDescription" = "Optimized file size";
 
-/* Table Column Title (MUST BE SHORT) "Savings" */
-"243.headerCell.title" = "Savings";
+/* Table Column Title (MUST BE SHORT) "Saved" */
+"243.headerCell.title" = "Saved";
 
 /* TextField Tooltip "Status" */
 "294.ibExternalAccessibilityDescription" = "Status";
@@ -106,8 +106,8 @@
 /* Table Column Tooltip "Optimization status" */
 "462.ibExternalAccessibilityDescription" = "Optimization status";
 
-/* Table Column Title (MUST BE SHORT) "Task" */
-"IOt-Task-Col.headerCell.title" = "Task";
+/* Table Column Title (MUST BE SHORT) "State" */
+"IOt-Task-Col.headerCell.title" = "State";
 
 /* Table Column Tooltip "Task status" */
 "IOt-Task-Col.headerToolTip" = "Task status";
@@ -142,8 +142,8 @@
 /* Menu Item "Check for Updates…" */
 "624.title" = "Check for Updates…";
 
-/* TextFieldCell "Drag and drop image files onto the area above" */
-"632.title" = "Drag and drop image files onto the area above";
+/* TextFieldCell "Ready. Drop images or use Add Files." */
+"632.title" = "Ready. Drop images or use Add Files.";
 
 /* Button; alternateTitle = "Run optimizations again" */
 "635.alternateTitle" = "Run optimizations again";
@@ -190,14 +190,14 @@
 /* Menu Item "Best tool" */
 "747.title" = "Best tool";
 
-/* Table Column Title (MUST BE SHORT) "Best tool" */
-"771.headerCell.title" = "Best tool";
+/* Table Column Title (MUST BE SHORT) "Tool" */
+"771.headerCell.title" = "Tool";
 
 /* Menu Item "Original Size" */
 "791.title" = "Original Size";
 
-/* Table Column Title (MUST BE SHORT) "Original Size" */
-"795.headerCell.title" = "Original Size";
+/* Table Column Title (MUST BE SHORT) "Original" */
+"795.headerCell.title" = "Original";
 
 /* Menu Item "Show Columns" */
 "809.title" = "Show Columns";
