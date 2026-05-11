@@ -18,12 +18,20 @@
 extern int quitWhenDone;
 
 static const char *kIMPreviewPanelContext = "preview";
-static NSToolbarIdentifier const kIOMainToolbarIdentifier = @"ImageOptim.MainToolbar";
+static NSToolbarIdentifier const kIOMainToolbarIdentifier = @"ImageOptim.MainToolbar.Enhanced";
 static NSToolbarItemIdentifier const kIOToolbarAddIdentifier = @"ImageOptim.Toolbar.Add";
 static NSToolbarItemIdentifier const kIOToolbarStopIdentifier = @"ImageOptim.Toolbar.Stop";
+static NSToolbarItemIdentifier const kIOToolbarRetryFailedIdentifier = @"ImageOptim.Toolbar.RetryFailed";
 static NSToolbarItemIdentifier const kIOToolbarAgainIdentifier = @"ImageOptim.Toolbar.Again";
 static NSToolbarItemIdentifier const kIOToolbarClearIdentifier = @"ImageOptim.Toolbar.Clear";
 static NSToolbarItemIdentifier const kIOToolbarSettingsIdentifier = @"ImageOptim.Toolbar.Settings";
+
+typedef NS_ENUM(NSInteger, IOQueueFilterSegment) {
+    IOQueueFilterSegmentAll = 0,
+    IOQueueFilterSegmentRunning = 1,
+    IOQueueFilterSegmentDone = 2,
+    IOQueueFilterSegmentFailed = 3,
+};
 
 @synthesize filesController;
 
@@ -104,6 +112,7 @@ static NSToolbarItemIdentifier const kIOToolbarSettingsIdentifier = @"ImageOptim
         kIOToolbarAddIdentifier,
         NSToolbarFlexibleSpaceItemIdentifier,
         kIOToolbarStopIdentifier,
+        kIOToolbarRetryFailedIdentifier,
         kIOToolbarAgainIdentifier,
         kIOToolbarClearIdentifier,
         NSToolbarFlexibleSpaceItemIdentifier,
@@ -115,6 +124,7 @@ static NSToolbarItemIdentifier const kIOToolbarSettingsIdentifier = @"ImageOptim
     return @[
         kIOToolbarAddIdentifier,
         kIOToolbarStopIdentifier,
+        kIOToolbarRetryFailedIdentifier,
         kIOToolbarAgainIdentifier,
         kIOToolbarClearIdentifier,
         kIOToolbarSettingsIdentifier,
@@ -131,6 +141,9 @@ static NSToolbarItemIdentifier const kIOToolbarSettingsIdentifier = @"ImageOptim
     }
     if ([itemIdentifier isEqualToString:kIOToolbarStopIdentifier]) {
         return [self toolbarItemWithIdentifier:itemIdentifier label:NSLocalizedString(@"Stop", @"toolbar item") symbol:@"stop.fill" action:@selector(stop:)];
+    }
+    if ([itemIdentifier isEqualToString:kIOToolbarRetryFailedIdentifier]) {
+        return [self toolbarItemWithIdentifier:itemIdentifier label:NSLocalizedString(@"Retry Failed", @"toolbar item") symbol:@"exclamationmark.triangle" action:@selector(retryFailed:)];
     }
     if ([itemIdentifier isEqualToString:kIOToolbarAgainIdentifier]) {
         return [self toolbarItemWithIdentifier:itemIdentifier label:NSLocalizedString(@"Optimize Again", @"toolbar item") symbol:@"arrow.clockwise" action:@selector(startAgain:)];
@@ -152,6 +165,9 @@ static NSToolbarItemIdentifier const kIOToolbarSettingsIdentifier = @"ImageOptim
     if ([identifier isEqualToString:kIOToolbarStopIdentifier]) {
         return [filesController isStoppable];
     }
+    if ([identifier isEqualToString:kIOToolbarRetryFailedIdentifier]) {
+        return [filesController canRetryFailed];
+    }
     if ([identifier isEqualToString:kIOToolbarAgainIdentifier]) {
         return [filesController canStartAgainOptimized:NO];
     }
@@ -159,6 +175,220 @@ static NSToolbarItemIdentifier const kIOToolbarSettingsIdentifier = @"ImageOptim
         return [filesController canClearComplete];
     }
     return YES;
+}
+
+- (void)configureQueueFilter {
+    if (queueFilterControl) {
+        return;
+    }
+
+    NSScrollView *scrollView = tableView.enclosingScrollView;
+    NSView *contentView = tableView.window.contentView;
+    if (!scrollView || !contentView) {
+        return;
+    }
+
+    queueFilterControl = [NSSegmentedControl segmentedControlWithLabels:@[
+        NSLocalizedString(@"All", @"queue filter"),
+        NSLocalizedString(@"Running", @"queue filter"),
+        NSLocalizedString(@"Done", @"queue filter"),
+        NSLocalizedString(@"Failed", @"queue filter"),
+    ]
+                                                            trackingMode:NSSegmentSwitchTrackingSelectOne
+                                                                  target:self
+                                                                  action:@selector(changeQueueFilter:)];
+    queueFilterControl.segmentStyle = NSSegmentStyleRounded;
+    queueFilterControl.controlSize = NSControlSizeSmall;
+    queueFilterControl.selectedSegment = IOQueueFilterSegmentAll;
+    queueFilterControl.translatesAutoresizingMaskIntoConstraints = NO;
+    queueFilterControl.accessibilityLabel = NSLocalizedString(@"Queue filter", @"queue filter accessibility label");
+    [queueFilterControl setToolTip:NSLocalizedString(@"Show all queued files", @"queue filter tooltip") forSegment:IOQueueFilterSegmentAll];
+    [queueFilterControl setToolTip:NSLocalizedString(@"Show files currently running", @"queue filter tooltip") forSegment:IOQueueFilterSegmentRunning];
+    [queueFilterControl setToolTip:NSLocalizedString(@"Show completed files", @"queue filter tooltip") forSegment:IOQueueFilterSegmentDone];
+    [queueFilterControl setToolTip:NSLocalizedString(@"Show failed files", @"queue filter tooltip") forSegment:IOQueueFilterSegmentFailed];
+
+    NSMutableArray<NSLayoutConstraint *> *constraintsToDeactivate = [NSMutableArray array];
+    for (NSLayoutConstraint *constraint in contentView.constraints) {
+        BOOL isScrollTopToProgress = constraint.firstItem == scrollView &&
+                                     constraint.firstAttribute == NSLayoutAttributeTop &&
+                                     constraint.secondItem == taskProgressIndicator &&
+                                     constraint.secondAttribute == NSLayoutAttributeBottom;
+        if (isScrollTopToProgress) {
+            [constraintsToDeactivate addObject:constraint];
+        }
+    }
+    [NSLayoutConstraint deactivateConstraints:constraintsToDeactivate];
+
+    [contentView addSubview:queueFilterControl];
+    [NSLayoutConstraint activateConstraints:@[
+        [queueFilterControl.topAnchor constraintEqualToAnchor:taskProgressIndicator.bottomAnchor constant:10],
+        [queueFilterControl.leadingAnchor constraintEqualToAnchor:taskProgressIndicator.leadingAnchor],
+        [queueFilterControl.trailingAnchor constraintLessThanOrEqualToAnchor:taskProgressIndicator.trailingAnchor],
+        [queueFilterControl.heightAnchor constraintEqualToConstant:24],
+        [scrollView.topAnchor constraintEqualToAnchor:queueFilterControl.bottomAnchor constant:10],
+    ]];
+}
+
+- (NSPredicate *)queueFilterPredicate {
+    switch (queueFilterControl.selectedSegment) {
+        case IOQueueFilterSegmentRunning:
+            return [NSPredicate predicateWithBlock:^BOOL(JobProxy *job, NSDictionary *bindings) {
+                return job.isRunningWorker;
+            }];
+        case IOQueueFilterSegmentDone:
+            return [NSPredicate predicateWithBlock:^BOOL(JobProxy *job, NSDictionary *bindings) {
+                return job.isDone && !job.isFailed;
+            }];
+        case IOQueueFilterSegmentFailed:
+            return [NSPredicate predicateWithBlock:^BOOL(JobProxy *job, NSDictionary *bindings) {
+                return job.isFailed;
+            }];
+        case IOQueueFilterSegmentAll:
+        default:
+            return nil;
+    }
+}
+
+- (void)applyQueueFilter {
+    filesController.filterPredicate = [self queueFilterPredicate];
+    [filesController rearrangeObjects];
+}
+
+- (IBAction)changeQueueFilter:(id)sender {
+    [self applyQueueFilter];
+    [self updateStatusBar];
+}
+
+- (void)configureSelectionDetails {
+    if (selectionDetailsLabel) {
+        return;
+    }
+
+    NSScrollView *scrollView = tableView.enclosingScrollView;
+    NSView *contentView = tableView.window.contentView;
+    if (!scrollView || !contentView) {
+        return;
+    }
+
+    selectionDetailsLabel = [NSTextField labelWithString:@""];
+    selectionDetailsLabel.font = [NSFont systemFontOfSize:11 weight:NSFontWeightRegular];
+    selectionDetailsLabel.textColor = NSColor.secondaryLabelColor;
+    selectionDetailsLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+    selectionDetailsLabel.maximumNumberOfLines = 1;
+    selectionDetailsLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    selectionDetailsLabel.accessibilityLabel = NSLocalizedString(@"Selection details", @"selection details accessibility label");
+
+    NSMutableArray<NSLayoutConstraint *> *constraintsToDeactivate = [NSMutableArray array];
+    for (NSLayoutConstraint *constraint in contentView.constraints) {
+        BOOL isStatusTopToScroll = constraint.firstItem == statusBarLabel &&
+                                   constraint.firstAttribute == NSLayoutAttributeTop &&
+                                   constraint.secondItem == scrollView &&
+                                   constraint.secondAttribute == NSLayoutAttributeBottom;
+        if (isStatusTopToScroll) {
+            [constraintsToDeactivate addObject:constraint];
+        }
+    }
+    [NSLayoutConstraint deactivateConstraints:constraintsToDeactivate];
+
+    [contentView addSubview:selectionDetailsLabel];
+    [NSLayoutConstraint activateConstraints:@[
+        [selectionDetailsLabel.topAnchor constraintEqualToAnchor:scrollView.bottomAnchor constant:6],
+        [selectionDetailsLabel.leadingAnchor constraintEqualToAnchor:statusBarLabel.leadingAnchor],
+        [selectionDetailsLabel.trailingAnchor constraintEqualToAnchor:statusBarLabel.trailingAnchor],
+        [selectionDetailsLabel.heightAnchor constraintEqualToConstant:16],
+        [statusBarLabel.topAnchor constraintEqualToAnchor:selectionDetailsLabel.bottomAnchor constant:4],
+    ]];
+
+    [self updateSelectionDetails];
+}
+
+- (NSString *)formattedByteCount:(NSNumber *)byteCount {
+    if (!byteCount) {
+        return NSLocalizedString(@"-", @"empty byte count");
+    }
+
+    static NSByteCountFormatter *formatter;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [NSByteCountFormatter new];
+        formatter.allowedUnits = NSByteCountFormatterUseAll;
+        formatter.countStyle = NSByteCountFormatterCountStyleFile;
+    });
+    return [formatter stringFromByteCount:[byteCount longLongValue]];
+}
+
+- (NSString *)formattedSavings:(NSNumber *)percentOptimized {
+    if (!percentOptimized) {
+        return NSLocalizedString(@"-", @"empty percentage");
+    }
+    return [NSString stringWithFormat:NSLocalizedString(@"%.1f%%", @"percentage detail"), [percentOptimized doubleValue]];
+}
+
+- (NSString *)detailsForJob:(JobProxy *)job {
+    NSString *state = job.taskStateText ?: NSLocalizedString(@"Queued", @"task state");
+    NSString *tool = job.currentToolName ?: job.bestToolName ?: NSLocalizedString(@"-", @"empty tool");
+    NSString *original = [self formattedByteCount:job.byteSizeOriginal];
+    NSString *optimized = [self formattedByteCount:job.byteSizeOptimized];
+    NSString *saved = [self formattedSavings:job.percentOptimized];
+
+    NSMutableArray<NSString *> *parts = [NSMutableArray arrayWithArray:@[
+        job.fileName ?: job.filePath.lastPathComponent ?: NSLocalizedString(@"Selected file", @"selection detail"),
+        state,
+        [NSString stringWithFormat:NSLocalizedString(@"Original %@", @"selection detail"), original],
+        [NSString stringWithFormat:NSLocalizedString(@"Optimized %@", @"selection detail"), optimized],
+        [NSString stringWithFormat:NSLocalizedString(@"Saved %@", @"selection detail"), saved],
+        [NSString stringWithFormat:NSLocalizedString(@"Tool %@", @"selection detail"), tool],
+    ]];
+
+    if (job.statusText.length) {
+        [parts addObject:job.statusText];
+    }
+
+    return [parts componentsJoinedByString:@"  |  "];
+}
+
+- (NSString *)detailsForSelectedJobs:(NSArray<JobProxy *> *)jobs {
+    NSUInteger done = 0;
+    NSUInteger failed = 0;
+    NSUInteger running = 0;
+    unsigned long long originalBytes = 0;
+    unsigned long long optimizedBytes = 0;
+
+    for (JobProxy *job in jobs) {
+        if (job.isFailed) {
+            failed++;
+        } else if (job.isDone) {
+            done++;
+        } else if (job.isRunningWorker) {
+            running++;
+        }
+
+        originalBytes += [job.byteSizeOriginal unsignedLongLongValue];
+        optimizedBytes += [job.byteSizeOptimized unsignedLongLongValue];
+    }
+
+    return [NSString stringWithFormat:NSLocalizedString(@"%lu selected  |  Done %lu  |  Running %lu  |  Failed %lu  |  Original %@  |  Optimized %@", @"multiple selection details"),
+                                      (unsigned long)[jobs count],
+                                      (unsigned long)done,
+                                      (unsigned long)running,
+                                      (unsigned long)failed,
+                                      [self formattedByteCount:@(originalBytes)],
+                                      [self formattedByteCount:@(optimizedBytes)]];
+}
+
+- (void)updateSelectionDetails {
+    NSArray<JobProxy *> *selectedJobs = [filesController selectedObjects];
+    NSString *details;
+    if (![selectedJobs count]) {
+        details = NSLocalizedString(@"No file selected", @"selection details");
+    } else if ([selectedJobs count] == 1) {
+        details = [self detailsForJob:[selectedJobs firstObject]];
+    } else {
+        details = [self detailsForSelectedJobs:selectedJobs];
+    }
+
+    selectionDetailsLabel.stringValue = details;
+    selectionDetailsLabel.toolTip = details;
 }
 
 - (void)dealloc {
@@ -169,15 +399,8 @@ static NSToolbarItemIdentifier const kIOToolbarSettingsIdentifier = @"ImageOptim
 - (void)handleServices:(NSPasteboard *)pboard
               userData:(NSString *)userData
                  error:(NSString **)error {
-    NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
-    if (paths && [paths count] > 0) {
-        [filesController performSelectorInBackground:@selector(addPaths:) withObject:paths];
-        return;
-    }
-
-    NSURL *url = [pboard propertyListForType:NSPasteboardTypeFileURL];
-    if (url) {
-        NSArray *urls = @[url];
+    NSArray<NSURL *> *urls = [filesController fileURLsFromPasteboard:pboard];
+    if ([urls count] > 0) {
         [filesController performSelectorInBackground:@selector(addURLs:) withObject:urls];
     }
 }
@@ -321,6 +544,10 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
             [self->taskProgressIndicator setMinValue:0];
             [self->taskProgressIndicator setMaxValue:100];
             [self->taskProgressIndicator setDoubleValue:taskProgress];
+            if (self->queueFilterControl.selectedSegment != IOQueueFilterSegmentAll) {
+                [self->filesController rearrangeObjects];
+            }
+            [self updateSelectionDetails];
         });
         usleep(100000); // 1/10th of a sec to avoid updating statusbar as fast as possible (100% cpu on the statusbar alone is ridiculous)
     });
@@ -354,6 +581,8 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
     }
 
     [self configureToolbar];
+    [self configureQueueFilter];
+    [self configureSelectionDetails];
 
     tableView.rowHeight = 30;
     tableView.intercellSpacing = NSMakeSize(3, 4);
@@ -421,6 +650,9 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
     }
 
     if (context == kIMPreviewPanelContext) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self updateSelectionDetails];
+        });
         [previewPanel reloadData];
     }
 }
@@ -461,6 +693,10 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 
 - (IBAction)startAgainOptimized:(id)sender {
     [filesController startAgainOptimized:YES];
+}
+
+- (IBAction)retryFailed:(id)sender {
+    [filesController retryFailed];
 }
 
 - (IBAction)clearComplete:(id)sender {
@@ -507,7 +743,7 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
     [oPanel setAllowsMultipleSelection:YES];
     [oPanel setCanChooseDirectories:YES];
     [oPanel setResolvesAliases:YES];
-    [oPanel setAllowedFileTypes:[filesController fileTypes]];
+    [oPanel setAllowedContentTypes:[filesController fileContentTypes]];
 
     [oPanel beginSheetModalForWindow:[tableView window]
                    completionHandler:^(NSInteger returnCode) {
@@ -578,6 +814,8 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
         return [filesController canStartAgainOptimized:NO];
     } else if (action == @selector(startAgainOptimized:)) {
         return [filesController canStartAgainOptimized:YES];
+    } else if (action == @selector(retryFailed:)) {
+        return [filesController canRetryFailed];
     } else if (action == @selector(clearComplete:)) {
         return [filesController canClearComplete];
     } else if (action == @selector(revert:)) {

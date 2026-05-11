@@ -10,6 +10,7 @@
 [submodule "pngquant/src"]
 	path = pngquant/src
 	url = https://github.com/pornel/pngquant.git
+	ignore = untracked
 [submodule "libjpeg/src"]
 	path = libjpeg/src
 	url = https://github.com/ImageOptim/mozjpeg-cocoa.git
@@ -19,6 +20,7 @@
 [submodule "guetzli/guetzli"]
 	path = guetzli/guetzli
 	url = https://github.com/google/guetzli.git
+	ignore = untracked
 [submodule "svgcleaner/src"]
 	path = svgcleaner/src
 	url = https://github.com/RazrFalcon/svgcleaner.git
