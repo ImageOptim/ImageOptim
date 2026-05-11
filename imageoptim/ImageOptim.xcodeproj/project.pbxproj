@@ -562,8 +562,8 @@
 		5A5811931AD73A630001838D /* Sparkle.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Sparkle.xcodeproj; path = ../Sparkle/Sparkle.xcodeproj; sourceTree = "<group>"; };
 		5A5C29410CB04A0F00FAF446 /* OxiPngWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OxiPngWorker.h; sourceTree = "<group>"; };
 		5A5C29420CB04A0F00FAF446 /* OxiPngWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OxiPngWorker.m; sourceTree = "<group>"; };
-		5A5CD39319662E940096D77F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
-		5A5CD39519662E9A0096D77F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5A5CD39319662E940096D77F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		5A5CD39519662E9A0096D77F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5A5E8ABF1B6508D9003012E9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "zh-Hans"; path = "zh-Hans.lproj/Help"; sourceTree = "<group>"; };
 		5A5E8AC21B6508D9003012E9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5A5E8AC41B6508DA003012E9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/PrefsController.strings"; sourceTree = "<group>"; };
@@ -2003,6 +2003,8 @@
 		5A453F8E16BE79A7002AFE23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Debug;
 		};
@@ -2015,6 +2017,8 @@
 		5A7FB7061E2C39CC00481B4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2022,6 +2026,8 @@
 		5A7FB7071E2C39CC00481B4A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2029,6 +2035,8 @@
 		5ABE155B1AE5072300861C6B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -2073,6 +2081,8 @@
 		5ABE155C1AE5072300861C6B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -2115,6 +2125,8 @@
 		5ABE155D1AE5072300861C6B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2167,6 +2179,8 @@
 		5ABE155E1AE5072300861C6B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2215,6 +2229,8 @@
 		5AC64F0D1AF3FDEF0032AA7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2263,6 +2279,8 @@
 		5AC64F0E1AF3FDEF0032AA7F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2307,6 +2325,8 @@
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = ImageOptim.entitlements;
@@ -2332,6 +2352,8 @@
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = ImageOptim.entitlements;
@@ -2358,6 +2380,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9C2139B079A0095FC2F /* debug.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
@@ -2374,6 +2398,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B956139B03090095FC2F /* release.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				APPLY_RULES_IN_COPY_FILES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)";
 				GCC_DYNAMIC_NO_PIC = YES;

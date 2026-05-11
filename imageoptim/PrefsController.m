@@ -86,6 +86,6 @@ static const char *kStripAllContext = "strip";
 // This doesn't belong here :(
 - (BOOL)svgSupported {
     NSFileManager *fm = [NSFileManager defaultManager];
-    return [fm isExecutableFileAtPath:@"/usr/local/bin/node"] || [fm isExecutableFileAtPath:@"/opt/homebrew/bin/node"];
+    return [fm isExecutableFileAtPath:@"/opt/homebrew/bin/node"];
 }
 @end

@@ -25,13 +25,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="0.0" verticalLineScroll="19" verticalPageScroll="0.0" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="236">
-                        <rect key="frame" x="0.0" y="39" width="549" height="259"/>
+                        <rect key="frame" x="0.0" y="56" width="549" height="242"/>
                         <clipView key="contentView" id="ebk-5A-dcn">
-                            <rect key="frame" x="0.0" y="0.0" width="549" height="259"/>
+                            <rect key="frame" x="0.0" y="0.0" width="549" height="242"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" autosaveName="Files" headerView="ygK-3e-IlX" id="237" customClass="MyTableView">
-                                    <rect key="frame" x="0.0" y="0.0" width="549" height="236"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="549" height="219"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -57,7 +57,28 @@
                                                 </binding>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn identifier="filename" editable="NO" width="316" minWidth="100" maxWidth="1000" id="238">
+                                        <tableColumn identifier="taskstate" editable="NO" width="94" minWidth="74" maxWidth="180" headerToolTip="Task status" id="IOt-Task-Col">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Task">
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" allowsUndo="NO" alignment="left" usesSingleLineMode="YES" id="IOt-Task-Cell">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="statusOrder"/>
+                                            <connections>
+                                                <binding destination="251" name="value" keyPath="arrangedObjects.taskStateText" id="IOt-Task-Bind">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSConditionallySetsEditable" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn identifier="filename" editable="NO" width="222" minWidth="100" maxWidth="1000" id="238">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="File">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
@@ -203,6 +224,25 @@
                         </textFieldCell>
                         <accessibility description="Status"/>
                     </textField>
+                    <textField focusRingType="none" horizontalHuggingPriority="100" verticalHuggingPriority="750" horizontalCompressionResistancePriority="550" translatesAutoresizingMaskIntoConstraints="NO" id="IOt-Summary" userLabel="Task Summary">
+                        <rect key="frame" x="43" y="34" width="371" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="14" id="IOt-Summary-Height"/>
+                        </constraints>
+                        <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingTail" refusesFirstResponder="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Total 0   Done 0   Running 0   Remaining 0   Failed 0" usesSingleLineMode="YES" id="IOt-Summary-Cell">
+                            <font key="font" metaFont="smallSystem"/>
+                            <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <accessibility description="Task summary"/>
+                    </textField>
+                    <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="751" maxValue="100" indeterminate="NO" bezeled="NO" controlSize="small" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="IOt-Progress" userLabel="Task Progress">
+                        <rect key="frame" x="422" y="38" width="119" height="6"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="6" id="IOt-Progress-Height"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="700" constant="90" id="IOt-Progress-Width"/>
+                        </constraints>
+                        <accessibility description="Task progress"/>
+                    </progressIndicator>
                     <button toolTip="Add" verticalHuggingPriority="750" horizontalCompressionResistancePriority="900" translatesAutoresizingMaskIntoConstraints="NO" id="423" userLabel="Add">
                         <rect key="frame" x="7" y="6" width="32" height="25"/>
                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" inset="2" id="633">
@@ -247,14 +287,14 @@
                         </connections>
                     </button>
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="XNq-qc-Ci6" customClass="FadeView">
-                        <rect key="frame" x="0.0" y="39" width="549" height="259"/>
+                        <rect key="frame" x="0.0" y="56" width="549" height="242"/>
                         <subviews>
                             <visualEffectView fixedFrame="YES" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="DRj-ri-dv2">
-                                <rect key="frame" x="0.0" y="0.0" width="549" height="259"/>
+                                <rect key="frame" x="0.0" y="0.0" width="549" height="242"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="712" customClass="DragDropImageView">
-                                        <rect key="frame" x="0.0" y="0.0" width="549" height="259"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="549" height="242"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <accessibility description="Drop images here"/>
                                         <connections>
@@ -294,6 +334,11 @@
                     <constraint firstItem="428" firstAttribute="leading" secondItem="294" secondAttribute="trailing" constant="7" id="2aN-n3-2sI"/>
                     <constraint firstItem="586" firstAttribute="leading" secondItem="428" secondAttribute="trailing" constant="8" id="4Q3-fw-7u9"/>
                     <constraint firstItem="428" firstAttribute="width" secondItem="Chx-W4-45F" secondAttribute="width" id="7hW-ta-uGC"/>
+                    <constraint firstItem="IOt-Summary" firstAttribute="bottom" secondItem="294" secondAttribute="top" constant="8" id="IOt-Summary-Bottom"/>
+                    <constraint firstItem="IOt-Summary" firstAttribute="leading" secondItem="294" secondAttribute="leading" id="IOt-Summary-Leading"/>
+                    <constraint firstItem="IOt-Progress" firstAttribute="centerY" secondItem="IOt-Summary" secondAttribute="centerY" id="IOt-Progress-CenterY"/>
+                    <constraint firstItem="IOt-Progress" firstAttribute="leading" secondItem="IOt-Summary" secondAttribute="trailing" constant="8" id="IOt-Progress-Leading"/>
+                    <constraint firstAttribute="trailing" secondItem="IOt-Progress" secondAttribute="trailing" constant="8" id="IOt-Progress-Trailing"/>
                     <constraint firstAttribute="trailing" secondItem="236" secondAttribute="trailing" id="98K-BG-Ip3"/>
                     <constraint firstItem="XNq-qc-Ci6" firstAttribute="top" secondItem="236" secondAttribute="top" id="DyQ-wZ-c9v"/>
                     <constraint firstItem="586" firstAttribute="centerY" secondItem="428" secondAttribute="centerY" id="EEF-Hw-pgC"/>
@@ -302,7 +347,7 @@
                     <constraint firstItem="423" firstAttribute="centerY" secondItem="586" secondAttribute="centerY" id="Ifv-FK-6o5"/>
                     <constraint firstItem="XNq-qc-Ci6" firstAttribute="leading" secondItem="236" secondAttribute="leading" id="LBk-8s-hJc"/>
                     <constraint firstAttribute="bottom" secondItem="423" secondAttribute="bottom" constant="8" id="T9q-uS-x5t"/>
-                    <constraint firstAttribute="bottom" secondItem="236" secondAttribute="bottom" constant="39" id="W7k-DE-tH8"/>
+                    <constraint firstAttribute="bottom" secondItem="236" secondAttribute="bottom" constant="56" id="W7k-DE-tH8"/>
                     <constraint firstItem="423" firstAttribute="centerY" secondItem="294" secondAttribute="centerY" id="cFl-bD-jqG"/>
                     <constraint firstItem="236" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="eyA-VZ-bkI"/>
                     <constraint firstItem="XNq-qc-Ci6" firstAttribute="height" secondItem="236" secondAttribute="height" id="f4r-Gg-F59"/>
@@ -315,7 +360,7 @@
                     <constraint firstAttribute="trailing" secondItem="586" secondAttribute="trailing" constant="8" id="ymv-zM-FlS"/>
                 </constraints>
             </view>
-            <contentBorderThickness minY="39"/>
+            <contentBorderThickness minY="56"/>
             <connections>
                 <outlet property="delegate" destination="230" id="235"/>
                 <outlet property="initialFirstResponder" destination="237" id="452"/>
@@ -711,6 +756,8 @@ CA
                 <outlet property="sizeColumn" destination="239" id="u4r-2K-YDt"/>
                 <outlet property="statusBarLabel" destination="294" id="700"/>
                 <outlet property="tableView" destination="237" id="242"/>
+                <outlet property="taskProgressIndicator" destination="IOt-Progress" id="IOt-Progress-Outlet"/>
+                <outlet property="taskSummaryLabel" destination="IOt-Summary" id="IOt-Summary-Outlet"/>
             </connections>
         </customObject>
         <arrayController objectClassName="File" preservesSelection="NO" selectsInsertedObjects="NO" avoidsEmptySelection="NO" id="251" userLabel="Files" customClass="FilesController">
@@ -722,6 +769,9 @@ CA
                 <string>isOptimized</string>
                 <string>percentDone</string>
                 <string>statusImage</string>
+                <string>currentToolName</string>
+                <string>isRunningWorker</string>
+                <string>taskStateText</string>
             </declaredKeys>
             <classReference key="objectClass" className="File"/>
         </arrayController>

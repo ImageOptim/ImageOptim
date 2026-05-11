@@ -13,6 +13,8 @@ extern NSDictionary *statusImages;
     PrefsController *prefsController;
 
     IBOutlet NSTextField *statusBarLabel;
+    IBOutlet NSTextField *taskSummaryLabel;
+    IBOutlet NSProgressIndicator *taskProgressIndicator;
     IBOutlet NSTextView *credits;
 
     IBOutlet NSTableColumn *fileColumn, *sizeColumn, *originalSizeColumn, *savingsColumn, *bestToolColumn;

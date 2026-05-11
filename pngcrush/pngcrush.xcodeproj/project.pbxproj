@@ -218,6 +218,8 @@
 		1DEB928608733DD80010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				GCC_DYNAMIC_NO_PIC = NO;
 				PRODUCT_NAME = pngcrush;
 				SKIP_INSTALL = YES;
@@ -227,6 +229,8 @@
 		1DEB928708733DD80010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_NAME = pngcrush;
 				SKIP_INSTALL = YES;
 			};
@@ -236,6 +240,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27BA13139B08C00095FC2F /* debug.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ENABLE_TESTABILITY = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					PNG_CONFIGURE_LIBPNG,
@@ -254,6 +260,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27BA12139B08C00095FC2F /* release.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
 					PNG_CONFIGURE_LIBPNG,
@@ -270,6 +278,8 @@
 		5A98486811235366007622D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				GCC_DYNAMIC_NO_PIC = NO;
 				PRODUCT_NAME = download;
 				SDKROOT = macosx;
@@ -279,6 +289,8 @@
 		5A98486911235366007622D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				COPY_PHASE_STRIP = YES;
 				PRODUCT_NAME = download;
 				SDKROOT = macosx;

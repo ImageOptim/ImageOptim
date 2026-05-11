@@ -58,14 +58,7 @@ static const char *kIMPreviewPanelContext = "preview";
         bestToolColumn,
     ];
     for (NSTableColumn *column in monospaceFontColumns) {
-        NSFont *font = [NSFont systemFontOfSize:13];
-        if ([NSFont respondsToSelector:@selector(monospacedDigitSystemFontOfSize:weight:)]) {
-            if (@available(macOS 10.11, *)) {
-                font = [NSFont monospacedDigitSystemFontOfSize:13 weight:NSFontWeightRegular];
-            } else {
-                // Fallback on earlier versions
-            }
-        }
+        NSFont *font = [NSFont monospacedDigitSystemFontOfSize:13 weight:NSFontWeightRegular];
         [column.dataCell setFont:font];
     }
 
@@ -122,11 +115,17 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
                                                   dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0));
     dispatch_source_set_event_handler(statusBarUpdateQueue, ^{
         NSString *str = defaultText;
+        __block NSString *taskSummary = @"";
+        __block double taskProgress = 0;
         BOOL selectable = NO;
         @synchronized(self->filesController) {
             long long bytesTotal = 0, optimizedTotal = 0;
             double optimizedFractionTotal = 0, maxOptimizedFraction = 0;
             NSUInteger optimizedFileCount = 0;
+            NSUInteger doneFileCount = 0;
+            NSUInteger failedFileCount = 0;
+            NSUInteger runningFileCount = 0;
+            NSUInteger remainingFileCount = 0;
             BOOL anyBusyFiles = false;
 
             NSArray *content = [self->filesController content];
@@ -135,6 +134,16 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 
                 if (!anyBusyFiles && [f isBusy]) {
                     anyBusyFiles = YES;
+                }
+
+                if ([f isFailed]) {
+                    failedFileCount++;
+                } else if ([f isDone]) {
+                    doneFileCount++;
+                } else if ([f isRunningWorker]) {
+                    runningFileCount++;
+                } else {
+                    remainingFileCount++;
                 }
 
                 const NSUInteger bytes = [f.byteSizeOriginal unsignedIntegerValue];
@@ -196,6 +205,15 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
                 str = @"";
             }
 
+            NSUInteger totalFileCount = [content count];
+            taskSummary = [NSString stringWithFormat:NSLocalizedString(@"Total %lu   Done %lu   Running %lu   Remaining %lu   Failed %lu", @"task summary"),
+                                                     (unsigned long)totalFileCount,
+                                                     (unsigned long)doneFileCount,
+                                                     (unsigned long)runningFileCount,
+                                                     (unsigned long)remainingFileCount,
+                                                     (unsigned long)failedFileCount];
+            taskProgress = totalFileCount ? 100.0 * (double)(doneFileCount + failedFileCount) / (double)totalFileCount : 0;
+
             // that was also in KVO, but caused deadlocks there. Here it's deferred.
             [self->filesController updateStoppableState];
         }
@@ -203,6 +221,10 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
         dispatch_async(dispatch_get_main_queue(), ^() {
             [self->statusBarLabel setStringValue:str];
             [self->statusBarLabel setSelectable:selectable];
+            [self->taskSummaryLabel setStringValue:taskSummary];
+            [self->taskProgressIndicator setMinValue:0];
+            [self->taskProgressIndicator setMaxValue:100];
+            [self->taskProgressIndicator setDoubleValue:taskProgress];
         });
         usleep(100000); // 1/10th of a sec to avoid updating statusbar as fast as possible (100% cpu on the statusbar alone is ridiculous)
     });
@@ -210,6 +232,9 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 
     [filesController addObserver:self forKeyPath:@"isBusy" options:0 context:nil];
     [filesController addObserver:self forKeyPath:@"arrangedObjects.@count" options:0 context:nil];
+    [filesController addObserver:self forKeyPath:@"arrangedObjects.@sum.isDone" options:0 context:nil];
+    [filesController addObserver:self forKeyPath:@"arrangedObjects.@sum.isFailed" options:0 context:nil];
+    [filesController addObserver:self forKeyPath:@"arrangedObjects.@sum.isRunningWorker" options:0 context:nil];
     [filesController addObserver:self forKeyPath:@"arrangedObjects.@sum.byteSizeOptimized" options:0 context:nil];
     [filesController addObserver:self forKeyPath:@"selectionIndexes" options:0 context:(void *)kIMPreviewPanelContext];
 
@@ -275,13 +300,8 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
 }
 
 - (BOOL)isDarkMode {
-#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
-    if (@available(macOS 10.14, *)) {
-        NSAppearanceName bestAppearance = [credits.effectiveAppearance bestMatchFromAppearancesWithNames:@[ NSAppearanceNameAqua, NSAppearanceNameDarkAqua ]];
-        return [bestAppearance isEqualToString:NSAppearanceNameDarkAqua];
-    }
-#endif
-    return false;
+    NSAppearanceName bestAppearance = [credits.effectiveAppearance bestMatchFromAppearancesWithNames:@[ NSAppearanceNameAqua, NSAppearanceNameDarkAqua ]];
+    return [bestAppearance isEqualToString:NSAppearanceNameDarkAqua];
 }
 
 - (void)adaptCreditsAppearance {

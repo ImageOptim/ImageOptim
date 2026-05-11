@@ -106,6 +106,21 @@
 /* Table Column Tooltip "Optimization status" */
 "462.ibExternalAccessibilityDescription" = "Optimization status";
 
+/* Table Column Title (MUST BE SHORT) "Task" */
+"IOt-Task-Col.headerCell.title" = "Task";
+
+/* Table Column Tooltip "Task status" */
+"IOt-Task-Col.headerToolTip" = "Task status";
+
+/* TextField Tooltip "Task summary" */
+"IOt-Summary.ibExternalAccessibilityDescription" = "Task summary";
+
+/* TextFieldCell "Total 0   Done 0   Running 0   Remaining 0   Failed 0" */
+"IOt-Summary-Cell.title" = "Total 0   Done 0   Running 0   Remaining 0   Failed 0";
+
+/* ProgressIndicator Tooltip "Task progress" */
+"IOt-Progress.ibExternalAccessibilityDescription" = "Task progress";
+
 /* Class = "NSMenuItem"; title = "Close Window"; ObjectID = "498"; */
 "498.title" = "Close Window";
 

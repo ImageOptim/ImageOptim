@@ -45,6 +45,7 @@
 @interface Job ()
 @property (assign) BOOL isDone;
 @property (assign) BOOL isFailed;
+@property (assign) BOOL isRunningWorker;
 @property (readwrite, nullable) File *initialInput, *unoptimizedInput, *wipInput, *savedOutput, *revertFile;
 @end
 
@@ -53,7 +54,7 @@
     BOOL preserveDates;
 }
 
-@synthesize workersPreviousResults, filePath, displayName, statusText, statusOrder, statusImageName, bestToolName, isFailed, isDone;
+@synthesize workersPreviousResults, filePath, displayName, statusText, statusOrder, statusImageName, bestToolName, currentToolName, taskStateText, isFailed, isDone, isRunningWorker;
 
 - (instancetype)initWithFilePath:(nonnull NSURL *)aPath resultsDatabase:(nullable ResultsDb *)aDb {
     if (self = [self init]) {
@@ -62,6 +63,7 @@
         filePath = aPath;
         db = aDb;
         self.displayName = [[NSFileManager defaultManager] displayNameAtPath:filePath.path];
+        self.taskStateText = NSLocalizedString(@"Queued", @"task state");
         [self setStatus:@"wait" order:0 text:NSLocalizedString(@"Waiting to be optimized", @"tooltip")];
     }
     return self;
@@ -462,6 +464,9 @@
 
 - (void)setNooptStatus {
     [self setFileOptimized:nil]; // Needed to update 0% optimized display
+    self.currentToolName = nil;
+    self.isRunningWorker = NO;
+    self.taskStateText = NSLocalizedString(@"No change", @"task state");
     [self setStatus:@"noopt" order:5 text:NSLocalizedString(@"File cannot be optimized any further", @"tooltip")];
     self.isDone = YES;
     [self stopAllWorkers];
@@ -474,6 +479,9 @@
         self.isDone = YES;
         [self stopAllWorkers];
         if (saved) {
+            self.currentToolName = nil;
+            self.isRunningWorker = NO;
+            self.taskStateText = NSLocalizedString(@"Optimized", @"task state");
             [self setStatus:@"ok" order:7 text:[NSString stringWithFormat:NSLocalizedString(@"Optimized successfully with %@", @"tooltip"), bestToolName]];
         } else {
             [self setError:NSLocalizedString(@"Optimized file could not be saved", @"tooltip")];
@@ -496,6 +504,9 @@
     @synchronized(self) {
         self.isDone = NO;
         self.isFailed = NO;
+        self.isRunningWorker = NO;
+        self.currentToolName = nil;
+        self.taskStateText = NSLocalizedString(@"Queued", @"task state");
         stopping = NO;
         fileIOQueue = aFileIOQueue; // will be used for saving
         workers = [[NSMutableArray alloc] initWithCapacity:10];
@@ -796,14 +807,25 @@
 
     if (running) {
         NSString *name = [[running className] stringByReplacingOccurrencesOfString:@"Worker" withString:@""];
+        self.currentToolName = name;
+        self.isRunningWorker = YES;
+        self.taskStateText = name;
         [self setStatus:@"progress" order:4 text:[NSString stringWithFormat:NSLocalizedString(@"Started %@", @"command name, tooltip"), name]];
     } else {
+        self.currentToolName = nil;
+        self.isRunningWorker = NO;
+        if (!self.isDone && !self.isFailed) {
+            self.taskStateText = NSLocalizedString(@"Queued", @"task state");
+        }
         [self setStatus:@"wait" order:1 text:NSLocalizedString(@"Waiting to be optimized", @"tooltip")];
     }
 }
 
 - (void)setError:(nonnull NSString *)text {
     self.isFailed = YES;
+    self.currentToolName = nil;
+    self.isRunningWorker = NO;
+    self.taskStateText = NSLocalizedString(@"Failed", @"task state");
     [self setStatus:@"err" order:9 text:text];
 }
 
@@ -813,7 +835,9 @@
         return;
     }
 
+    [self willChangeValueForKey:@"statusOrder"];
     self->statusOrder = order;
+    [self didChangeValueForKey:@"statusOrder"];
     self.statusText = text;
     self.statusImageName = imageName;
 }

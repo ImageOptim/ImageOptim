@@ -11,11 +11,12 @@ $(SUBMODULES): ../.gitmodules
 pngout:
 	curl -LO https://www.jonof.id.au/files/kenutils/pngout-20230322-mac.zip
 	unzip -p pngout-20230322-mac.zip pngout-20230322-mac/pngout > pngout
+	lipo -thin arm64 pngout -output pngout.arm64 && mv pngout.arm64 pngout
 	chmod a+rx pngout
 	codesign -s "Developer ID" ./pngout --force
 
 clean:
-	-rm -rf pngout pngout-20230322-mac.zip
+	-rm -rf pngout pngout.arm64 pngout-20230322-mac.zip
 
 install:
 

@@ -478,6 +478,8 @@
 		1DEB928608733DD80010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				GCC_DYNAMIC_NO_PIC = NO;
 				PRODUCT_NAME = advpng;
 				SKIP_INSTALL = YES;
@@ -487,6 +489,8 @@
 		1DEB928708733DD80010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_NAME = advpng;
 				SKIP_INSTALL = YES;
 			};
@@ -496,6 +500,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27BA03139B08A00095FC2F /* debug.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_CPP_EXCEPTIONS = YES;
@@ -530,6 +536,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27BA02139B08A00095FC2F /* release.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					HAVE_CONFIG_H,
 					NDEBUG,
@@ -545,6 +553,8 @@
 		5A984B2211238282007622D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_NAME = download;
 				SDKROOT = macosx;
 			};
@@ -553,6 +563,8 @@
 		5A984B2311238282007622D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				COPY_PHASE_STRIP = YES;
 				PRODUCT_NAME = download;
 				SDKROOT = macosx;

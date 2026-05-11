@@ -335,6 +335,8 @@
 		1DEB914B08733D8E0010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = imageoptimjpeg;
 			};
@@ -343,6 +345,8 @@
 		1DEB914C08733D8E0010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = imageoptimjpeg;
 			};
@@ -352,6 +356,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9E6139B08640095FC2F /* debug.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ENABLE_TESTABILITY = YES;
 				LD_DYLIB_INSTALL_NAME = "@loader_path/libimageoptimjpeg.dylib";
 				ONLY_ACTIVE_ARCH = YES;
@@ -367,6 +373,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9E5139B08640095FC2F /* release.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				LD_DYLIB_INSTALL_NAME = "@loader_path/libimageoptimjpeg.dylib";
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = (
@@ -379,6 +387,8 @@
 		5AB114FC1B52B11A00A3C73A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Debug;
 		};

@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
     NSString *statusImageName;
     NSString *statusText;
+    NSString *currentToolName;
+    NSString *taskStateText;
     NSInteger statusOrder;
 
     NSMutableArray *workers;
@@ -43,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)previewItemTitle;
 
 @property (readonly) BOOL canRevert;
-@property (readonly) BOOL isDone, isFailed;
+@property (readonly) BOOL isDone, isFailed, isRunningWorker;
 
 - (void)enqueueWorkersInCPUQueue:(NSOperationQueue *)queue fileIOQueue:(NSOperationQueue *)fileIOQueue serialQueue:(dispatch_queue_t)serialQueue defaults:(NSUserDefaults *)defaults;
 
@@ -57,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (readonly, nullable) File *initialInput, *unoptimizedInput, *wipInput, *savedOutput, *revertFile;
 @property (readonly, copy) NSString *fileName;
 
-@property (strong, nullable) NSString *statusText, *bestToolName;
+@property (strong, nullable) NSString *statusText, *bestToolName, *currentToolName, *taskStateText;
 @property (strong) NSString *displayName;
 @property (strong, nonatomic) NSURL *filePath;
 @property (strong) NSString *statusImageName;
