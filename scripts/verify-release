@@ -1,0 +1,79 @@
+#!/bin/bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+
+PROJECT="imageoptim/ImageOptim.xcodeproj"
+SCHEME="ImageOptim"
+CONFIGURATION="Release"
+
+step() {
+    printf '\n==> %s\n' "$1"
+}
+
+run_xcodebuild() {
+    if [[ -n "${DERIVED_DATA_PATH:-}" ]]; then
+        xcodebuild -derivedDataPath "$DERIVED_DATA_PATH" "$@"
+    else
+        xcodebuild "$@"
+    fi
+}
+
+step "Lint plist and strings files"
+plutil -lint \
+    imageoptim/Info.plist \
+    imageoptim/Base.lproj/ImageOptim.strings \
+    imageoptim/Base.lproj/PrefsController.strings \
+    imageoptim/en.lproj/InfoPlist.strings \
+    imageoptim/ImageOptim.xcodeproj/project.pbxproj
+
+step "Validate ImageOptim.xib"
+ibtool --errors --warnings --notices imageoptim/Base.lproj/ImageOptim.xib
+
+step "Build Release arm64"
+run_xcodebuild \
+    -project "$PROJECT" \
+    -scheme "$SCHEME" \
+    -configuration "$CONFIGURATION" \
+    ARCHS=arm64 \
+    ONLY_ACTIVE_ARCH=NO \
+    CODE_SIGNING_ALLOWED=NO \
+    build
+
+step "Find built app"
+BUILT_PRODUCTS_DIR="$(run_xcodebuild \
+    -project "$PROJECT" \
+    -scheme "$SCHEME" \
+    -configuration "$CONFIGURATION" \
+    -showBuildSettings \
+    | awk -F'= ' '/^[[:space:]]*BUILT_PRODUCTS_DIR = / { print $2; exit }')"
+
+APP="$BUILT_PRODUCTS_DIR/ImageOptim.app"
+if [[ ! -d "$APP" ]]; then
+    echo "Expected app not found: $APP" >&2
+    exit 1
+fi
+echo "$APP"
+
+step "Verify app and helper architectures"
+failed=0
+while IFS= read -r -d '' file; do
+    archs="$(lipo -archs "$file" 2>/dev/null || true)"
+    if [[ -z "$archs" ]]; then
+        continue
+    fi
+
+    rel="${file#$APP/}"
+    printf '%s: %s\n' "$rel" "$archs"
+    if [[ "$archs" != "arm64" ]]; then
+        failed=1
+    fi
+done < <(find "$APP/Contents" -type f \( -perm -111 -o -name '*.dylib' \) -print0 | sort -z)
+
+if [[ "$failed" -ne 0 ]]; then
+    echo "Unexpected non-arm64 architecture found." >&2
+    exit 1
+fi
+
+step "Release verification passed"

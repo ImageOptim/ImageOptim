@@ -88,6 +88,14 @@
     return [[props objectForKey:@"isOptimized"] boolValue];
 }
 
+- (BOOL)isRunningWorker {
+    return [[props objectForKey:@"isRunningWorker"] boolValue];
+}
+
+- (NSInteger)statusOrder {
+    return [[props objectForKey:@"statusOrder"] integerValue];
+}
+
 - (NSURL *)filePath {
     return [job filePath];
 }
@@ -107,6 +115,14 @@ static id nullToNil(id maybeNull) {
 
 - (NSString *)bestToolName {
     return nullToNil([props objectForKey:@"bestToolName"]);
+}
+
+- (NSString *)currentToolName {
+    return nullToNil([props objectForKey:@"currentToolName"]);
+}
+
+- (NSString *)taskStateText {
+    return nullToNil([props objectForKey:@"taskStateText"]);
 }
 
 - (NSString *)displayName {
@@ -193,15 +209,18 @@ static id nullToNil(id maybeNull) {
         @"bestToolName",
         @"byteSizeOptimized",
         @"byteSizeOriginal",
+        @"currentToolName",
         @"isBusy",
         @"isDone",
         @"isFailed",
         @"isOptimized",
+        @"isRunningWorker",
         @"percentOptimized",
         @"savedOutput",
         @"statusImageName",
         @"statusOrder",
         @"statusText",
+        @"taskStateText",
     ];
 }
 

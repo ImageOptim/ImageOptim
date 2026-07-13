@@ -182,6 +182,8 @@
 		1DEB928608733DD80010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				GCC_DYNAMIC_NO_PIC = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -195,6 +197,8 @@
 		1DEB928708733DD80010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -208,6 +212,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27BA27139B08E10095FC2F /* debug.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ENABLE_TESTABILITY = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
@@ -218,6 +224,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27BA26139B08E10095FC2F /* release.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
 			};
 			name = Release;

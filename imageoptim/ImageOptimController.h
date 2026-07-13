@@ -6,14 +6,18 @@ extern NSDictionary *statusImages;
 @class FilesController;
 @class PrefsController;
 
-@interface ImageOptimController : NSObject<NSApplicationDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate> {
+@interface ImageOptimController : NSObject<NSApplicationDelegate, NSToolbarDelegate, QLPreviewPanelDataSource, QLPreviewPanelDelegate> {
     IBOutlet NSTableView *tableView;
     IBOutlet FilesController *__unsafe_unretained filesController;
 
     PrefsController *prefsController;
 
     IBOutlet NSTextField *statusBarLabel;
+    IBOutlet NSTextField *taskSummaryLabel;
+    IBOutlet NSProgressIndicator *taskProgressIndicator;
     IBOutlet NSTextView *credits;
+    NSSegmentedControl *queueFilterControl;
+    NSTextField *selectionDetailsLabel;
 
     IBOutlet NSTableColumn *fileColumn, *sizeColumn, *originalSizeColumn, *savingsColumn, *bestToolColumn;
 
@@ -28,6 +32,7 @@ extern NSDictionary *statusImages;
 - (IBAction)stop:(id)sender;
 - (IBAction)startAgain:(id)sender;
 - (IBAction)startAgainOptimized:(id)sender;
+- (IBAction)retryFailed:(id)sender;
 - (IBAction)clearComplete:(id)sender;
 
 - (IBAction)quickLookAction:(id)sender;
@@ -35,6 +40,7 @@ extern NSDictionary *statusImages;
 - (IBAction)viewSource:(id)sender;
 - (IBAction)openDonationPage:(id)sender;
 - (IBAction)browseForFiles:(id)sender;
+- (IBAction)changeQueueFilter:(id)sender;
 
 @property (readonly) int numberOfCPUs;
 - (void)loadCreditsHTML:(id)_;

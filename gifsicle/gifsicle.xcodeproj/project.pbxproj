@@ -195,6 +195,8 @@
 		1DEB928608733DD80010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				GCC_DYNAMIC_NO_PIC = NO;
 				INSTALL_PATH = /usr/local/bin;
 				PRODUCT_NAME = gifsicle;
@@ -204,6 +206,8 @@
 		1DEB928708733DD80010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				INSTALL_PATH = /usr/local/bin;
 				PRODUCT_NAME = gifsicle;
 			};
@@ -213,6 +217,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9D3139B07EA0095FC2F /* debug.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ENABLE_TESTABILITY = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
 				GCC_THREADSAFE_STATICS = NO;
@@ -229,10 +235,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9D0139B07DA0095FC2F /* release.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = NO;
-				"GCC_MODEL_TUNING[arch=x86_64]" = "-mtune=core2";
 				GCC_PREPROCESSOR_DEFINITIONS = HAVE_CONFIG_H;
 				GCC_THREADSAFE_STATICS = NO;
 				HEADER_SEARCH_PATHS = (
@@ -246,6 +253,8 @@
 		5AD202A91B52A5AB000D4FF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -253,6 +262,8 @@
 		5AD202AA1B52A5AB000D4FF2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

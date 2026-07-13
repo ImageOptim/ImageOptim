@@ -157,6 +157,8 @@
 		CA003B5FE0C83B3B3D19E325 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				CARGO_XCODE_CARGO_DEP_FILE_NAME = pngquant.d;
 				CARGO_XCODE_CARGO_FILE_NAME = pngquant;
 				
@@ -169,6 +171,8 @@
 		CA009AA08B823B3B3D19E325 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				CARGO_XCODE_CARGO_DEP_FILE_NAME = pngquant.d;
 				CARGO_XCODE_CARGO_FILE_NAME = pngquant;
 				
@@ -183,6 +187,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CAFE6179D382ABC47E405028 /* release.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ADDITIONAL_SDKS = macosx;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CARGO_TARGET_DIR = "$(PROJECT_TEMP_DIR)/cargo_target";
@@ -215,6 +221,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CAFD6179D382ACC9FD72F282 /* debug.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ADDITIONAL_SDKS = macosx;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CARGO_TARGET_DIR = "$(PROJECT_TEMP_DIR)/cargo_target";

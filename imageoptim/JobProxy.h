@@ -22,10 +22,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable instancetype)initWithJob:(Job *)job;
 - (id)copyWithZone:(nullable NSZone *)zone;
 
-@property (readonly, nonatomic) BOOL canRevert, isDone, isFailed, isBusy, isStoppable, isOptimized;
+@property (readonly, nonatomic) BOOL canRevert, isDone, isFailed, isBusy, isStoppable, isOptimized, isRunningWorker;
+@property (readonly, nonatomic) NSInteger statusOrder;
 @property (readonly, nonatomic) NSString *fileName;
 @property (readonly, nonatomic) NSURL *filePath;
-@property (readonly, nonatomic, nullable) NSString *statusText, *bestToolName;
+@property (readonly, nonatomic, nullable) NSString *statusText, *bestToolName, *currentToolName, *taskStateText;
 @property (readonly, nonatomic) NSString *displayName;
 @property (readonly, nonatomic) NSString *statusImageName;
 @property (readonly, nonatomic) NSNumber *byteSizeOriginal;

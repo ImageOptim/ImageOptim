@@ -231,6 +231,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A1EBEB417908E7400361F08 /* debug.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ENABLE_TESTABILITY = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
@@ -245,6 +247,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A1EBEB317908E7400361F08 /* release.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NDEBUG,
 					NS_BLOCK_ASSERTIONS,
@@ -257,6 +261,8 @@
 		5A1EBE7417908D9D00361F08 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				DEAD_CODE_STRIPPING = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -266,6 +272,8 @@
 		5A1EBE7517908D9D00361F08 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				DEAD_CODE_STRIPPING = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -275,6 +283,8 @@
 		5AD202B31B52A641000D4FF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 			};
 			name = Debug;
 		};

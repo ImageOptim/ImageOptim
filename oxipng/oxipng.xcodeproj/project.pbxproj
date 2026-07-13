@@ -153,6 +153,8 @@
 		CA00DF050DDBA9B0E7F50B60 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				CARGO_XCODE_CARGO_DEP_FILE_NAME = oxipng.d;
 				CARGO_XCODE_CARGO_FILE_NAME = oxipng;
 				PRODUCT_NAME = oxipng;
@@ -163,6 +165,8 @@
 		CA00FBAC58F8A9B0E7F50B60 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				CARGO_XCODE_CARGO_DEP_FILE_NAME = oxipng.d;
 				CARGO_XCODE_CARGO_FILE_NAME = oxipng;
 				PRODUCT_NAME = oxipng;
@@ -174,6 +178,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CAFEFAC0D0B0ABC47E405028 /* release.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ADDITIONAL_SDKS = macosx;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CARGO_TARGET_DIR = "$(PROJECT_TEMP_DIR)/cargo_target";
@@ -206,6 +212,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CAFDFAC0D0B0ACC9FD72F282 /* debug.xcconfig */;
 			buildSettings = {
+				ARCHS = arm64;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ADDITIONAL_SDKS = macosx;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CARGO_TARGET_DIR = "$(PROJECT_TEMP_DIR)/cargo_target";

@@ -6,7 +6,7 @@
 
 @import Cocoa;
 
-@class File, ResultsDb, JobProxy;
+@class File, ResultsDb, JobProxy, UTType;
 extern NSString *const kJobQueueFinished;
 
 @interface FilesController : NSArrayController<NSTableViewDelegate, NSTableViewDataSource>
@@ -18,6 +18,7 @@ extern NSString *const kJobQueueFinished;
 - (BOOL)addURLs:(NSArray<NSURL *> *)paths;
 - (BOOL)addPaths:(NSArray<NSString *> *)paths;
 - (BOOL)addURLs:(NSArray<NSURL *> *)paths filesOnly:(BOOL)t;
+- (NSArray<NSURL *> *)fileURLsFromPasteboard:(NSPasteboard *)pasteboard;
 
 - (void)moveObjectsInArrangedObjectsFromIndexes:(NSIndexSet *)indexSet
                                         toIndex:(NSUInteger)insertIndex;
@@ -26,6 +27,8 @@ extern NSString *const kJobQueueFinished;
 
 - (void)startAgainOptimized:(BOOL)optimized;
 - (BOOL)canStartAgainOptimized:(BOOL)optimized;
+- (void)retryFailed;
+@property (readonly) BOOL canRetryFailed;
 - (void)clearComplete;
 @property (readonly) BOOL canClearComplete;
 - (void)revert;
@@ -37,7 +40,7 @@ extern NSString *const kJobQueueFinished;
 - (void)updateStoppableState;
 - (NSNumber *)queueCount;
 
-@property (readonly, copy) NSArray *fileTypes;
+@property (readonly, copy) NSArray<UTType *> *fileContentTypes;
 @property (readonly) BOOL isBusy, isStoppable;
 
 @end
