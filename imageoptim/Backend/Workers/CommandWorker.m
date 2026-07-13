@@ -93,8 +93,12 @@
         }
         [task launch];
 
-        int pid = [task processIdentifier];
-        if (pid > 1) setpriority(PRIO_PROCESS, pid, PRIO_MAX / 2); // PRIO_MAX is minimum priority. POSIX is intuitive.
+        // On Apple Silicon, setpriority causes scheduler to pin to E-cores.
+        // Only deprioritize when RunLowPriority is explicitly enabled.
+        if (self.qualityOfService == NSQualityOfServiceUtility) {
+            int pid = [task processIdentifier];
+            if (pid > 1) setpriority(PRIO_PROCESS, pid, PRIO_MAX / 2);
+        }
     }
     @catch (NSException *e) {
         IOWarn("Failed to launch %@ - %@", [self className], e);
