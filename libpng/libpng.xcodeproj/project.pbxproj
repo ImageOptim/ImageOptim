@@ -23,6 +23,9 @@
 		5A1944080FF98722007C3324 /* pngread.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F60FF98722007C3324 /* pngread.c */; };
 		5A1944090FF98722007C3324 /* pngget.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F70FF98722007C3324 /* pngget.c */; };
 		5A19440B0FF98722007C3324 /* pngwutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F90FF98722007C3324 /* pngwutil.c */; };
+		AA2003000000000000000000 /* palette_neon_intrinsics.c in Sources */ = {isa = PBXBuildFile; fileRef = AA0003000000000000000000 /* palette_neon_intrinsics.c */; };
+		AA2002000000000000000000 /* filter_neon_intrinsics.c in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000000 /* filter_neon_intrinsics.c */; };
+		AA2001000000000000000000 /* arm_init.c in Sources */ = {isa = PBXBuildFile; fileRef = AA0001000000000000000000 /* arm_init.c */; };
 		5A19440C0FF98722007C3324 /* pngrio.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FA0FF98722007C3324 /* pngrio.c */; };
 		5A19440D0FF98722007C3324 /* pngwio.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FB0FF98722007C3324 /* pngwio.c */; };
 		5A19440E0FF98722007C3324 /* pngrutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FC0FF98722007C3324 /* pngrutil.c */; };
@@ -49,6 +52,9 @@
 		5AC2B4DF13394F2200376783 /* pngread.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F60FF98722007C3324 /* pngread.c */; };
 		5AC2B4E013394F2200376783 /* pngget.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F70FF98722007C3324 /* pngget.c */; };
 		5AC2B4E213394F2200376783 /* pngwutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943F90FF98722007C3324 /* pngwutil.c */; };
+		AA1003000000000000000000 /* palette_neon_intrinsics.c in Sources */ = {isa = PBXBuildFile; fileRef = AA0003000000000000000000 /* palette_neon_intrinsics.c */; };
+		AA1002000000000000000000 /* filter_neon_intrinsics.c in Sources */ = {isa = PBXBuildFile; fileRef = AA0002000000000000000000 /* filter_neon_intrinsics.c */; };
+		AA1001000000000000000000 /* arm_init.c in Sources */ = {isa = PBXBuildFile; fileRef = AA0001000000000000000000 /* arm_init.c */; };
 		5AC2B4E313394F2200376783 /* pngrio.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FA0FF98722007C3324 /* pngrio.c */; };
 		5AC2B4E413394F2200376783 /* pngwio.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FB0FF98722007C3324 /* pngwio.c */; };
 		5AC2B4E513394F2200376783 /* pngrutil.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1943FC0FF98722007C3324 /* pngrutil.c */; };
@@ -123,6 +129,9 @@
 		5A1943F60FF98722007C3324 /* pngread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngread.c; sourceTree = "<group>"; };
 		5A1943F70FF98722007C3324 /* pngget.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngget.c; sourceTree = "<group>"; };
 		5A1943F90FF98722007C3324 /* pngwutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngwutil.c; sourceTree = "<group>"; };
+		AA0003000000000000000000 /* palette_neon_intrinsics.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = palette_neon_intrinsics.c; path = arm/palette_neon_intrinsics.c; sourceTree = "<group>"; };
+		AA0002000000000000000000 /* filter_neon_intrinsics.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = filter_neon_intrinsics.c; path = arm/filter_neon_intrinsics.c; sourceTree = "<group>"; };
+		AA0001000000000000000000 /* arm_init.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = arm_init.c; path = arm/arm_init.c; sourceTree = "<group>"; };
 		5A1943FA0FF98722007C3324 /* pngrio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngrio.c; sourceTree = "<group>"; };
 		5A1943FB0FF98722007C3324 /* pngwio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngwio.c; sourceTree = "<group>"; };
 		5A1943FC0FF98722007C3324 /* pngrutil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngrutil.c; sourceTree = "<group>"; };
@@ -176,6 +185,9 @@
 				5A1944010FF98722007C3324 /* pngwrite.c */,
 				5A1944040FF98722007C3324 /* pngwtran.c */,
 				5A1943F90FF98722007C3324 /* pngwutil.c */,
+				AA0003000000000000000000 /* palette_neon_intrinsics.c */,
+				AA0002000000000000000000 /* filter_neon_intrinsics.c */,
+				AA0001000000000000000000 /* arm_init.c */,
 			);
 			name = libpng;
 			sourceTree = "<group>";
@@ -357,6 +369,9 @@
 				5AC2B4E913394F2200376783 /* pngwrite.c in Sources */,
 				5AC2B4EC13394F2200376783 /* pngwtran.c in Sources */,
 				5AC2B4E213394F2200376783 /* pngwutil.c in Sources */,
+				AA1003000000000000000000 /* palette_neon_intrinsics.c in Sources */,
+				AA1002000000000000000000 /* filter_neon_intrinsics.c in Sources */,
+				AA1001000000000000000000 /* arm_init.c in Sources */,
 				5ABF907B139400BE0054E027 /* trees.c in Sources */,
 				5ABF907C139400BE0054E027 /* uncompr.c in Sources */,
 				5ABF907D139400BE0054E027 /* zutil.c in Sources */,
@@ -390,6 +405,9 @@
 				5A1944130FF98722007C3324 /* pngwrite.c in Sources */,
 				5A1944160FF98722007C3324 /* pngwtran.c in Sources */,
 				5A19440B0FF98722007C3324 /* pngwutil.c in Sources */,
+				AA2003000000000000000000 /* palette_neon_intrinsics.c in Sources */,
+				AA2002000000000000000000 /* filter_neon_intrinsics.c in Sources */,
+				AA2001000000000000000000 /* arm_init.c in Sources */,
 				5A1941B40FF96FAD007C3324 /* trees.c in Sources */,
 				5A1941B60FF96FAD007C3324 /* uncompr.c in Sources */,
 				5A1941BA0FF96FAD007C3324 /* zutil.c in Sources */,

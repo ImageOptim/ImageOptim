@@ -87,6 +87,12 @@ libpng/*-optipng.diff
 libpng/*.3
 libpng/*.c
 libpng/*.in
+libpng/arm
+libpng/intel
+libpng/loongarch
+libpng/mips
+libpng/powerpc
+libpng/riscv
 libpng/*.jpg
 libpng/*.m4
 libpng/*.png
@@ -113,7 +119,11 @@ libpng/mkinstalldirs
 libpng/png.5
 libpng/png.h
 libpng/pngconf.h
+libpng/pngdebug.h
+libpng/pnginfo.h
+libpng/pnglibconf.h
 libpng/pngpriv.h
+libpng/pngstruct.h
 libpng/pngusr.h
 libpng/projects
 libpng/README
