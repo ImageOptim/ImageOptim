@@ -1,19 +1,30 @@
-VERSION=0.6.5
-OPTIPNG_FILENAME=optipng-$(VERSION).tar.gz
+VERSION=1.6.58
 
 build: all
 
 all: png.h
 
-png.h: /tmp/$(OPTIPNG_FILENAME)
-	tar xzf /tmp/$(OPTIPNG_FILENAME) --strip-components=3 --exclude=Makefile optipng-$(VERSION)/lib/libpng
-	sed -i.bak 's/defined(TARGET_OS_MAC)/0/' pngconf.h && rm pngconf.h.bak
-
-/tmp/$(OPTIPNG_FILENAME):
-	curl -L http://downloads.sourceforge.net/project/optipng/OptiPNG/optipng-$(VERSION)/$(OPTIPNG_FILENAME) -o /tmp/$(OPTIPNG_FILENAME)
+png.h:
+	curl -sL https://github.com/pnggroup/libpng/archive/refs/tags/v$(VERSION).tar.gz | \
+	  tar xz --strip-components=1 --exclude='Makefile*' \
+	    'libpng-$(VERSION)/*.c' 'libpng-$(VERSION)/*.h' \
+	    'libpng-$(VERSION)/arm/*' \
+	    'libpng-$(VERSION)/scripts/pnglibconf.h.prebuilt'
+	# libpng >= 1.5 is configured through pnglibconf.h, not through defines
+	# in config.h. Use the stock configuration...
+	cp scripts/pnglibconf.h.prebuilt pnglibconf.h
+	# ...except that pngcrush calls png_set_option(PNG_IGNORE_ADLER32), which
+	# libpng only declares when built with this option available.
+	sed -i.bak 's|/\*#undef PNG_DISABLE_ADLER32_CHECK_SUPPORTED\*/|#define PNG_DISABLE_ADLER32_CHECK_SUPPORTED|' pnglibconf.h
+	rm -f pnglibconf.h.bak
+	grep -q '^#define PNG_DISABLE_ADLER32_CHECK_SUPPORTED' pnglibconf.h
+	# These carry a main() and are not part of the library.
+	rm -f example.c pngtest.c
 
 clean:
-	test \! -e png.h || rm *.c png.h
+	# config.h is ours and tracked; everything else here is extracted.
+	-rm -rf *.c scripts arm intel loongarch mips powerpc riscv
+	-find . -maxdepth 1 -name '*.h' ! -name config.h -delete
 
 install:
 

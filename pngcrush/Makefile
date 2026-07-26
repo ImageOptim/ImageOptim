@@ -1,4 +1,4 @@
-VERSION=1.8.10
+VERSION=1.8.13
 ARCHIVE=/tmp/pngcrush-$(VERSION).tar.gz
 
 build: all
@@ -6,7 +6,7 @@ build: all
 all: pngcrush.c
 
 $(ARCHIVE):
-	curl -L -o $(ARCHIVE) http://downloads.sourceforge.net/project/pmt/pngcrush/old-versions/1.8/$(VERSION)/pngcrush-$(VERSION).tar.gz
+	curl -L -o $(ARCHIVE) https://downloads.sourceforge.net/project/pmt/pngcrush/$(VERSION)/pngcrush-$(VERSION).tar.gz
 
 tmp/pngcrush.c: pngcrush.patch $(ARCHIVE)
 	test -d tmp || mkdir -p tmp
