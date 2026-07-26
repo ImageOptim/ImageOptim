@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD00BUILD000000000000000 /* portable.c in Sources */ = {isa = PBXBuildFile; fileRef = AD00FILE0000000000000000 /* portable.c */; };
+		AD01BUILD000000000000000 /* libdeflate/arm/cpu_features.c in Sources */ = {isa = PBXBuildFile; fileRef = AD01FILE0000000000000000 /* libdeflate/arm/cpu_features.c */; };
+		AD02BUILD000000000000000 /* libdeflate/x86/cpu_features.c in Sources */ = {isa = PBXBuildFile; fileRef = AD02FILE0000000000000000 /* libdeflate/x86/cpu_features.c */; };
+		AD03BUILD000000000000000 /* libdeflate/adler32.c in Sources */ = {isa = PBXBuildFile; fileRef = AD03FILE0000000000000000 /* libdeflate/adler32.c */; };
+		AD04BUILD000000000000000 /* libdeflate/crc32.c in Sources */ = {isa = PBXBuildFile; fileRef = AD04FILE0000000000000000 /* libdeflate/crc32.c */; };
+		AD05BUILD000000000000000 /* libdeflate/deflate_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = AD05FILE0000000000000000 /* libdeflate/deflate_compress.c */; };
+		AD06BUILD000000000000000 /* libdeflate/deflate_decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = AD06FILE0000000000000000 /* libdeflate/deflate_decompress.c */; };
+		AD07BUILD000000000000000 /* libdeflate/gzip_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = AD07FILE0000000000000000 /* libdeflate/gzip_compress.c */; };
+		AD08BUILD000000000000000 /* libdeflate/gzip_decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = AD08FILE0000000000000000 /* libdeflate/gzip_decompress.c */; };
+		AD09BUILD000000000000000 /* libdeflate/utils.c in Sources */ = {isa = PBXBuildFile; fileRef = AD09FILE0000000000000000 /* libdeflate/utils.c */; };
+		AD10BUILD000000000000000 /* libdeflate/zlib_compress.c in Sources */ = {isa = PBXBuildFile; fileRef = AD10FILE0000000000000000 /* libdeflate/zlib_compress.c */; };
+		AD11BUILD000000000000000 /* libdeflate/zlib_decompress.c in Sources */ = {isa = PBXBuildFile; fileRef = AD11FILE0000000000000000 /* libdeflate/zlib_decompress.c */; };
+		AD12BUILD000000000000000 /* zopfli/blocksplitter.c in Sources */ = {isa = PBXBuildFile; fileRef = AD12FILE0000000000000000 /* zopfli/blocksplitter.c */; };
+		AD13BUILD000000000000000 /* zopfli/cache.c in Sources */ = {isa = PBXBuildFile; fileRef = AD13FILE0000000000000000 /* zopfli/cache.c */; };
+		AD14BUILD000000000000000 /* zopfli/deflate.c in Sources */ = {isa = PBXBuildFile; fileRef = AD14FILE0000000000000000 /* zopfli/deflate.c */; };
+		AD15BUILD000000000000000 /* zopfli/gzip_container.c in Sources */ = {isa = PBXBuildFile; fileRef = AD15FILE0000000000000000 /* zopfli/gzip_container.c */; };
+		AD16BUILD000000000000000 /* zopfli/hash.c in Sources */ = {isa = PBXBuildFile; fileRef = AD16FILE0000000000000000 /* zopfli/hash.c */; };
+		AD17BUILD000000000000000 /* zopfli/katajainen.c in Sources */ = {isa = PBXBuildFile; fileRef = AD17FILE0000000000000000 /* zopfli/katajainen.c */; };
+		AD18BUILD000000000000000 /* zopfli/lz77.c in Sources */ = {isa = PBXBuildFile; fileRef = AD18FILE0000000000000000 /* zopfli/lz77.c */; };
+		AD19BUILD000000000000000 /* zopfli/squeeze.c in Sources */ = {isa = PBXBuildFile; fileRef = AD19FILE0000000000000000 /* zopfli/squeeze.c */; };
+		AD20BUILD000000000000000 /* zopfli/tree.c in Sources */ = {isa = PBXBuildFile; fileRef = AD20FILE0000000000000000 /* zopfli/tree.c */; };
+		AD21BUILD000000000000000 /* zopfli/util.c in Sources */ = {isa = PBXBuildFile; fileRef = AD21FILE0000000000000000 /* zopfli/util.c */; };
+		AD22BUILD000000000000000 /* zopfli/zlib_container.c in Sources */ = {isa = PBXBuildFile; fileRef = AD22FILE0000000000000000 /* zopfli/zlib_container.c */; };
+		AD23BUILD000000000000000 /* zopfli/zopfli_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = AD23FILE0000000000000000 /* zopfli/zopfli_lib.c */; };
 		5A4DC4331029FFB700A9DD55 /* fz.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A81664A0EA117B600962CF2 /* fz.c */; };
 		5A8166360EA117B100962CF2 /* repng.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5A81662D0EA117B100962CF2 /* repng.cc */; };
 		5A8166370EA117B100962CF2 /* siglock.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5A81662E0EA117B100962CF2 /* siglock.cc */; };
@@ -80,6 +104,30 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AD00FILE0000000000000000 /* portable.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = portable.c; path = portable.c; sourceTree = SOURCE_ROOT; };
+		AD01FILE0000000000000000 /* libdeflate/arm/cpu_features.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cpu_features.c; path = libdeflate/arm/cpu_features.c; sourceTree = SOURCE_ROOT; };
+		AD02FILE0000000000000000 /* libdeflate/x86/cpu_features.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cpu_features.c; path = libdeflate/x86/cpu_features.c; sourceTree = SOURCE_ROOT; };
+		AD03FILE0000000000000000 /* libdeflate/adler32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = adler32.c; path = libdeflate/adler32.c; sourceTree = SOURCE_ROOT; };
+		AD04FILE0000000000000000 /* libdeflate/crc32.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = crc32.c; path = libdeflate/crc32.c; sourceTree = SOURCE_ROOT; };
+		AD05FILE0000000000000000 /* libdeflate/deflate_compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = deflate_compress.c; path = libdeflate/deflate_compress.c; sourceTree = SOURCE_ROOT; };
+		AD06FILE0000000000000000 /* libdeflate/deflate_decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = deflate_decompress.c; path = libdeflate/deflate_decompress.c; sourceTree = SOURCE_ROOT; };
+		AD07FILE0000000000000000 /* libdeflate/gzip_compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gzip_compress.c; path = libdeflate/gzip_compress.c; sourceTree = SOURCE_ROOT; };
+		AD08FILE0000000000000000 /* libdeflate/gzip_decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gzip_decompress.c; path = libdeflate/gzip_decompress.c; sourceTree = SOURCE_ROOT; };
+		AD09FILE0000000000000000 /* libdeflate/utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = utils.c; path = libdeflate/utils.c; sourceTree = SOURCE_ROOT; };
+		AD10FILE0000000000000000 /* libdeflate/zlib_compress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zlib_compress.c; path = libdeflate/zlib_compress.c; sourceTree = SOURCE_ROOT; };
+		AD11FILE0000000000000000 /* libdeflate/zlib_decompress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zlib_decompress.c; path = libdeflate/zlib_decompress.c; sourceTree = SOURCE_ROOT; };
+		AD12FILE0000000000000000 /* zopfli/blocksplitter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = blocksplitter.c; path = zopfli/blocksplitter.c; sourceTree = SOURCE_ROOT; };
+		AD13FILE0000000000000000 /* zopfli/cache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cache.c; path = zopfli/cache.c; sourceTree = SOURCE_ROOT; };
+		AD14FILE0000000000000000 /* zopfli/deflate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = deflate.c; path = zopfli/deflate.c; sourceTree = SOURCE_ROOT; };
+		AD15FILE0000000000000000 /* zopfli/gzip_container.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gzip_container.c; path = zopfli/gzip_container.c; sourceTree = SOURCE_ROOT; };
+		AD16FILE0000000000000000 /* zopfli/hash.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hash.c; path = zopfli/hash.c; sourceTree = SOURCE_ROOT; };
+		AD17FILE0000000000000000 /* zopfli/katajainen.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = katajainen.c; path = zopfli/katajainen.c; sourceTree = SOURCE_ROOT; };
+		AD18FILE0000000000000000 /* zopfli/lz77.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = lz77.c; path = zopfli/lz77.c; sourceTree = SOURCE_ROOT; };
+		AD19FILE0000000000000000 /* zopfli/squeeze.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = squeeze.c; path = zopfli/squeeze.c; sourceTree = SOURCE_ROOT; };
+		AD20FILE0000000000000000 /* zopfli/tree.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tree.c; path = zopfli/tree.c; sourceTree = SOURCE_ROOT; };
+		AD21FILE0000000000000000 /* zopfli/util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = util.c; path = zopfli/util.c; sourceTree = SOURCE_ROOT; };
+		AD22FILE0000000000000000 /* zopfli/zlib_container.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zlib_container.c; path = zopfli/zlib_container.c; sourceTree = SOURCE_ROOT; };
+		AD23FILE0000000000000000 /* zopfli/zopfli_lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = zopfli_lib.c; path = zopfli/zopfli_lib.c; sourceTree = SOURCE_ROOT; };
 		5A19439E0FF982D4007C3324 /* libpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpng.xcodeproj; path = ../libpng/libpng.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A27BA02139B08A00095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A27BA03139B08A00095FC2F /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../imageoptim/debug.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -210,6 +258,30 @@
 				5A81662A0EA117B100962CF2 /* pngex.h */,
 				5A81662B0EA117B100962CF2 /* portable.h */,
 				5A81662D0EA117B100962CF2 /* repng.cc */,
+				AD00FILE0000000000000000 /* portable.c */,
+				AD01FILE0000000000000000 /* libdeflate/arm/cpu_features.c */,
+				AD02FILE0000000000000000 /* libdeflate/x86/cpu_features.c */,
+				AD03FILE0000000000000000 /* libdeflate/adler32.c */,
+				AD04FILE0000000000000000 /* libdeflate/crc32.c */,
+				AD05FILE0000000000000000 /* libdeflate/deflate_compress.c */,
+				AD06FILE0000000000000000 /* libdeflate/deflate_decompress.c */,
+				AD07FILE0000000000000000 /* libdeflate/gzip_compress.c */,
+				AD08FILE0000000000000000 /* libdeflate/gzip_decompress.c */,
+				AD09FILE0000000000000000 /* libdeflate/utils.c */,
+				AD10FILE0000000000000000 /* libdeflate/zlib_compress.c */,
+				AD11FILE0000000000000000 /* libdeflate/zlib_decompress.c */,
+				AD12FILE0000000000000000 /* zopfli/blocksplitter.c */,
+				AD13FILE0000000000000000 /* zopfli/cache.c */,
+				AD14FILE0000000000000000 /* zopfli/deflate.c */,
+				AD15FILE0000000000000000 /* zopfli/gzip_container.c */,
+				AD16FILE0000000000000000 /* zopfli/hash.c */,
+				AD17FILE0000000000000000 /* zopfli/katajainen.c */,
+				AD18FILE0000000000000000 /* zopfli/lz77.c */,
+				AD19FILE0000000000000000 /* zopfli/squeeze.c */,
+				AD20FILE0000000000000000 /* zopfli/tree.c */,
+				AD21FILE0000000000000000 /* zopfli/util.c */,
+				AD22FILE0000000000000000 /* zopfli/zlib_container.c */,
+				AD23FILE0000000000000000 /* zopfli/zopfli_lib.c */,
 				5A81662E0EA117B100962CF2 /* siglock.cc */,
 				5A81662C0EA117B100962CF2 /* siglock.h */,
 				5A8166350EA117B100962CF2 /* snprintf.c */,
@@ -420,6 +492,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD00BUILD000000000000000 /* portable.c in Sources */,
+				AD01BUILD000000000000000 /* libdeflate/arm/cpu_features.c in Sources */,
+				AD02BUILD000000000000000 /* libdeflate/x86/cpu_features.c in Sources */,
+				AD03BUILD000000000000000 /* libdeflate/adler32.c in Sources */,
+				AD04BUILD000000000000000 /* libdeflate/crc32.c in Sources */,
+				AD05BUILD000000000000000 /* libdeflate/deflate_compress.c in Sources */,
+				AD06BUILD000000000000000 /* libdeflate/deflate_decompress.c in Sources */,
+				AD07BUILD000000000000000 /* libdeflate/gzip_compress.c in Sources */,
+				AD08BUILD000000000000000 /* libdeflate/gzip_decompress.c in Sources */,
+				AD09BUILD000000000000000 /* libdeflate/utils.c in Sources */,
+				AD10BUILD000000000000000 /* libdeflate/zlib_compress.c in Sources */,
+				AD11BUILD000000000000000 /* libdeflate/zlib_decompress.c in Sources */,
+				AD12BUILD000000000000000 /* zopfli/blocksplitter.c in Sources */,
+				AD13BUILD000000000000000 /* zopfli/cache.c in Sources */,
+				AD14BUILD000000000000000 /* zopfli/deflate.c in Sources */,
+				AD15BUILD000000000000000 /* zopfli/gzip_container.c in Sources */,
+				AD16BUILD000000000000000 /* zopfli/hash.c in Sources */,
+				AD17BUILD000000000000000 /* zopfli/katajainen.c in Sources */,
+				AD18BUILD000000000000000 /* zopfli/lz77.c in Sources */,
+				AD19BUILD000000000000000 /* zopfli/squeeze.c in Sources */,
+				AD20BUILD000000000000000 /* zopfli/tree.c in Sources */,
+				AD21BUILD000000000000000 /* zopfli/util.c in Sources */,
+				AD22BUILD000000000000000 /* zopfli/zlib_container.c in Sources */,
+				AD23BUILD000000000000000 /* zopfli/zopfli_lib.c in Sources */,
 				5A8166950EA117BB00962CF2 /* 7zdeflate.cc in Sources */,
 				5A8166960EA117BB00962CF2 /* 7zlzma.cc in Sources */,
 				5A8166970EA117BB00962CF2 /* AriBitCoder.cc in Sources */,
