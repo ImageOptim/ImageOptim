@@ -15,6 +15,10 @@ enum IOFileType {
     FILETYPE_JPEG,
     FILETYPE_GIF,
     FILETYPE_SVG,
+    // Only losslessly-compressed WebP. Lossy WebP can't be recompressed
+    // without further quality loss, and there is only one WebP encoder,
+    // so such files are not accepted at all.
+    FILETYPE_WEBP_LOSSLESS,
 };
 
 NS_ASSUME_NONNULL_BEGIN

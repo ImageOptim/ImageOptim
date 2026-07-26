@@ -26,6 +26,55 @@
     return self;
 }
 
+/// A WebP file is a RIFF container. Only a still, losslessly-compressed image
+/// (a VP8L chunk) can be recompressed without losing quality: there is just one
+/// WebP encoder, so re-encoding a lossy VP8 bitstream would degrade it, and an
+/// animation (ANIM) can't be handled by cwebp at all. Both are rejected here.
+///
+/// A plain lossless file has VP8L right after the header, but a file with an
+/// alpha channel, ICC profile or EXIF is wrapped in an extended (VP8X) header,
+/// so the chunks have to be walked to find out.
+static BOOL IsLosslessWebP(NSData *fileData) {
+    const NSUInteger length = fileData.length;
+    if (length < 12) {
+        return NO;
+    }
+
+    unsigned char header[12];
+    [fileData getBytes:header length:sizeof(header)];
+
+    if (0 != memcmp(header, "RIFF", 4) || 0 != memcmp(header + 8, "WEBP", 4)) {
+        return NO;
+    }
+
+    // Walk the chunk list. A plain lossless file has VP8L first; one with an
+    // alpha channel, ICC profile or EXIF starts with an extended VP8X header
+    // and VP8L follows further in. Chunks are an 8-byte header plus a payload
+    // padded to an even length. The iteration cap bounds the work a malformed
+    // file full of tiny chunks could cause.
+    NSUInteger offset = 12;
+    for (int i = 0; i < 64 && offset + 8 <= length; i++) {
+        unsigned char chunk[8];
+        [fileData getBytes:chunk range:NSMakeRange(offset, sizeof(chunk))];
+
+        if (0 == memcmp(chunk, "VP8L", 4)) {
+            return YES;
+        }
+        if (0 == memcmp(chunk, "VP8 ", 4) || 0 == memcmp(chunk, "ANIM", 4)) {
+            return NO;
+        }
+
+        const uint32_t payload = (uint32_t)chunk[4] | ((uint32_t)chunk[5] << 8) |
+                                 ((uint32_t)chunk[6] << 16) | ((uint32_t)chunk[7] << 24);
+        const NSUInteger step = 8 + (NSUInteger)payload + (payload & 1);
+        if (step <= 8 || step > length - offset) {
+            return NO; // truncated or malformed
+        }
+        offset += step;
+    }
+    return NO;
+}
+
 -(instancetype)initWithData:(NSData *)fileData fromPath:(NSURL *)aPath {
     const unsigned char pngheader[] = {0x89,0x50,0x4e,0x47,0x0d,0x0a};
     const unsigned char jpegheader[] = {0xff,0xd8,0xff};
@@ -49,6 +98,8 @@
         type = FILETYPE_GIF;
     } else if (0 == memcmp(fileHeaderBytes, svgheader, sizeof(svgheader)) || [aPath.pathExtension isEqualToString:@"svg"]) {
         type = FILETYPE_SVG;
+    } else if (IsLosslessWebP(fileData)) {
+        type = FILETYPE_WEBP_LOSSLESS;
     }
 
     return [self initWithType:type size:fileData.length fromPath:aPath];
@@ -108,6 +159,7 @@
         case FILETYPE_JPEG: return @"image/jpeg";
         case FILETYPE_GIF: return @"image/gif";
         case FILETYPE_SVG: return @"image/svg";
+        case FILETYPE_WEBP_LOSSLESS: return @"image/webp";
         default:
             return nil;
     }

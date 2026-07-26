@@ -46,6 +46,7 @@
 		5A7FB6F31E2C37EB00481B4A /* SvgoWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FB6F21E2C37EB00481B4A /* SvgoWorker.m */; };
 		5A7FB7261E2C3E1600481B4A /* svgo.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A7FB7251E2C3E1600481B4A /* svgo.js */; };
 		5A93FD2F1FF1C452005D2F27 /* SvgcleanerWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93FD051FF1BF1F005D2F27 /* SvgcleanerWorker.m */; };
+		WEBPXWORKERMB00000000000 /* WebpWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = WEBPXWORKERM000000000000 /* WebpWorker.m */; };
 		5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99FE83140AE80600BB2F79 /* Quartz.framework */; };
 		5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
 		5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA8300CAFE74E004D45CA /* Transformers.m */; };
@@ -97,6 +98,7 @@
 		5FD569DD21A059A000BC9F82 /* JobProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD569DC21A059A000BC9F82 /* JobProxy.m */; };
 		5FFC96C1275842310035D0A2 /* oxipng in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F75B47527583B9B0072F27A /* oxipng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5FFC9752275843210035D0A2 /* svgcleaner in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5FFC9750275843160035D0A2 /* svgcleaner */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		WEBPXCOPYFILE00000000000 /* cwebp in CopyFiles */ = {isa = PBXBuildFile; fileRef = WEBPXREFPROXY00000000000 /* cwebp */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		D047E4651E7C3D7C0036F96B /* GuetzliWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = D047E4641E7C3D7C0036F96B /* GuetzliWorker.m */; };
 		D047E5311E7D90DD0036F96B /* guetzli in CopyFiles */ = {isa = PBXBuildFile; fileRef = D047E4861E7D7E310036F96B /* guetzli */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -390,6 +392,20 @@
 			remoteGlobalIDString = CA6070D14537821B170C4A65;
 			remoteInfo = "svgcleaner-bin";
 		};
+		WEBPXPROXY20000000000000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = WEBPXPROJREF000000000000 /* libwebp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = WEBP0000000000000000PREF;
+			remoteInfo = cwebp;
+		};
+		WEBPXPROXY10000000000000 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = WEBPXPROJREF000000000000 /* libwebp.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = WEBP0000000000000000TOOL;
+			remoteInfo = cwebp;
+		};
 		5FFC9753275843280035D0A2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */;
@@ -446,6 +462,7 @@
 				5ABE15841AE5074900861C6B /* pngout in CopyFiles */,
 				5F91633A2ADB7A7B00230D34 /* pngquant in CopyFiles */,
 				5FFC9752275843210035D0A2 /* svgcleaner in CopyFiles */,
+				WEBPXCOPYFILE00000000000 /* cwebp in CopyFiles */,
 				5A7FB7261E2C3E1600481B4A /* svgo.js in CopyFiles */,
 				5ABE162A1AE5099F00861C6B /* zopflipng in CopyFiles */,
 			);
@@ -617,8 +634,11 @@
 		5A8DFBD910C097B9009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Dutch; path = nl.lproj/Help; sourceTree = "<group>"; };
 		5A8DFBEB10C09812009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Dutch; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = svgcleaner.xcodeproj; path = ../svgcleaner/svgcleaner.xcodeproj; sourceTree = "<group>"; };
+		WEBPXPROJREF000000000000 /* libwebp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libwebp.xcodeproj; path = ../libwebp/libwebp.xcodeproj; sourceTree = "<group>"; };
 		5A93FCEC1FF1BF1F005D2F27 /* SvgcleanerWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvgcleanerWorker.h; sourceTree = "<group>"; };
 		5A93FD051FF1BF1F005D2F27 /* SvgcleanerWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvgcleanerWorker.m; sourceTree = "<group>"; };
+		WEBPXWORKERH000000000000 /* WebpWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebpWorker.h; sourceTree = "<group>"; };
+		WEBPXWORKERM000000000000 /* WebpWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebpWorker.m; sourceTree = "<group>"; };
 		5A94A00C102757E5005CC9CB /* French */ = {isa = PBXFileReference; lastKnownFileType = file.plist.strings; name = French; path = fr.lproj/PrefsController.strings; sourceTree = "<group>"; };
 		5A94A00D102757F0005CC9CB /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = fr.lproj/ImageOptim.strings; sourceTree = "<group>"; };
 		5A94A02610275AFD005CC9CB /* fr */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fr; path = fr.lproj/Help; sourceTree = "<group>"; };
@@ -780,6 +800,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		WEBPXPRODGRP000000000000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				WEBPXREFPROXY00000000000 /* cwebp */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
@@ -857,6 +885,7 @@
 				5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */,
 				5A27B956139B03090095FC2F /* release.xcconfig */,
 				5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */,
+				WEBPXPROJREF000000000000 /* libwebp.xcodeproj */,
 				5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */,
 			);
 			name = "Other Sources";
@@ -1116,6 +1145,8 @@
 				5AB81F941AE1BE1300719AB7 /* Save.m */,
 				5A93FCEC1FF1BF1F005D2F27 /* SvgcleanerWorker.h */,
 				5A93FD051FF1BF1F005D2F27 /* SvgcleanerWorker.m */,
+				WEBPXWORKERH000000000000 /* WebpWorker.h */,
+				WEBPXWORKERM000000000000 /* WebpWorker.m */,
 				5A7FB6D61E2C37DD00481B4A /* SvgoWorker.h */,
 				5A7FB6F21E2C37EB00481B4A /* SvgoWorker.m */,
 				5AACA13D0CAF241B004D45CA /* Worker.h */,
@@ -1205,6 +1236,7 @@
 			);
 			dependencies = (
 				5A7FB7241E2C3DF800481B4A /* PBXTargetDependency */,
+				WEBPXTARGDEP000000000000 /* PBXTargetDependency */,
 				5AB114B11B52AEE700A3C73A /* PBXTargetDependency */,
 				5ABE16061AE5089300861C6B /* PBXTargetDependency */,
 				5ABE16081AE5089700861C6B /* PBXTargetDependency */,
@@ -1404,6 +1436,10 @@
 					ProjectRef = 5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */;
 				},
 				{
+					ProductGroup = WEBPXPRODGRP000000000000 /* Products */;
+					ProjectRef = WEBPXPROJREF000000000000 /* libwebp.xcodeproj */;
+				},
+				{
 					ProductGroup = 5A1EBECF17908F8200361F08 /* Products */;
 					ProjectRef = 5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */;
 				},
@@ -1575,6 +1611,13 @@
 			remoteRef = 5FFC974F275843160035D0A2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		WEBPXREFPROXY00000000000 /* cwebp */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = cwebp;
+			remoteRef = WEBPXPROXY20000000000000 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		D047E4601E7C3CE80036F96B /* fileop */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
@@ -1671,6 +1714,7 @@
 				5AC4CC801AF568E90003AEA2 /* SavingsFormatter.m in Sources */,
 				5A6A56D01B497E210045AA0C /* SharedPrefs.m in Sources */,
 				5A93FD2F1FF1C452005D2F27 /* SvgcleanerWorker.m in Sources */,
+				WEBPXWORKERMB00000000000 /* WebpWorker.m in Sources */,
 				5A7FB6F31E2C37EB00481B4A /* SvgoWorker.m in Sources */,
 				5AD0347D1E27185D0030291A /* TempFile.m in Sources */,
 				5ABE15821AE5073E00861C6B /* Worker.m in Sources */,
@@ -1814,6 +1858,11 @@
 			isa = PBXTargetDependency;
 			name = "svgcleaner-bin";
 			targetProxy = 5FFC9753275843280035D0A2 /* PBXContainerItemProxy */;
+		};
+		WEBPXTARGDEP000000000000 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = cwebp;
+			targetProxy = WEBPXPROXY10000000000000 /* PBXContainerItemProxy */;
 		};
 		D047E4CD1E7D81040036F96B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

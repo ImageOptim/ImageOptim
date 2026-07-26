@@ -17,6 +17,7 @@
 #import "Workers/GifsicleWorker.h"
 #import "Workers/SvgoWorker.h"
 #import "Workers/SvgcleanerWorker.h"
+#import "Workers/WebpWorker.h"
 #import "Workers/GuetzliWorker.h"
 #import <sys/xattr.h>
 #import "log.h"
@@ -636,6 +637,13 @@
             }
         }
         break;
+        case FILETYPE_WEBP_LOSSLESS:
+            if ([defs boolForKey:@"WebPEnabled"]) {
+                [worker_list addObject:[[WebpWorker alloc] initWithLevel:level
+                                                          stripMetadata:[defs boolForKey:@"PngOutRemoveChunks"]
+                                                                   file:self]];
+            }
+            break;
         case FILETYPE_SVG:
             if ([defs boolForKey:@"SvgoEnabled"]) {
                 [worker_list addObject:[[SvgoWorker alloc] initWithLossy:lossyEnabled job:self]];
