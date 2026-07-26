@@ -80,6 +80,29 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>webp</string>
+				<string>WEBP</string>
+			</array>
+			<key>CFBundleTypeMIMETypes</key>
+			<array>
+				<string>image/webp</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>WebP</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>org.webmproject.webp</string>
+			</array>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>Binary</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
 				<string>jpeg</string>
 				<string>jpg</string>
 				<string>JPG</string>
@@ -173,6 +196,7 @@
 				<string>public.jpeg</string>
 				<string>com.compuserve.gif</string>
 				<string>public.svg-image</string>
+				<string>org.webmproject.webp</string>
 			</array>
 			<key>NSServiceDescription</key>
 			<string>Losslessly reduce image file sizes with ImageOptim</string>
