@@ -180,8 +180,6 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
                                                      [percFormatter stringFromNumber:@(maxOptimizedFraction)]];
                     selectable = YES;
                 }
-            } else if ([defs boolForKey:@"GuetzliEnabled"]) {
-                str = @"Warning: Guetzli tool enabled. Optimizations may take a very long time.";
             } else if ([defs boolForKey:@"LossyEnabled"]) {
                 NSMutableArray *arr = [NSMutableArray new];
                 appendFormatNameIfLossyEnabled(defs, @"JPEG", @"JpegOptimMaxQuality", arr);

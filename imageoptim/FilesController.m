@@ -467,7 +467,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 
     if ([defs boolForKey:@"PngCrush2Enabled"] || [defs boolForKey:@"PngOutEnabled"] ||
-        [defs boolForKey:@"OptiPngEnabled"] || [defs boolForKey:@"AdvPngEnabled"] || [defs boolForKey:@"ZopfliEnabled"]) {
+        [defs boolForKey:@"OptiPngEnabled"] || [defs boolForKey:@"AdvPngEnabled"]) {
         types |= PNG_ENABLED;
     }
 
@@ -479,7 +479,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         types |= GIF_ENABLED;
     }
 
-    if ([defs boolForKey:@"SvgoEnabled"] || [defs boolForKey:@"SvgcleanerEnabled"]) {
+    if ([defs boolForKey:@"SvgoEnabled"]) {
         types |= SVG_ENABLED;
     }
 

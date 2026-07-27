@@ -23,7 +23,7 @@ void IOSharedPrefsCopy(NSUserDefaults *__nonnull defs) {
         @"JpegOptimEnabled", @"JpegTranEnabled", @"JpegTranStripAll",
         @"OptiPngEnabled",
         @"PngCrush2Enabled", @"PngOutEnabled",
-        @"PngOutRemoveChunks", @"ZopfliEnabled",
+        @"PngOutRemoveChunks",
         @"PngMinQuality", @"JpegOptimMaxQuality", @"GifQuality",
     ];
 
