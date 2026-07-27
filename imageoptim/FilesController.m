@@ -462,6 +462,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 #define GIF_ENABLED 4
 #define SVG_ENABLED 8
 #define AVIF_ENABLED 16
+#define JXL_ENABLED 32
 
 - (int)typesEnabled {
     int types = 0;
@@ -486,6 +487,10 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 
     if ([defs boolForKey:@"AvifEnabled"]) {
         types |= AVIF_ENABLED;
+    }
+
+    if ([defs boolForKey:@"JxlEnabled"]) {
+        types |= JXL_ENABLED;
     }
 
     if (!types) types = PNG_ENABLED; // will show error in the list
@@ -513,6 +518,9 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     if (types & AVIF_ENABLED) {
         [extensions addObjectsFromArray:@[ @"avif", @"AVIF" ]];
     }
+    if (types & JXL_ENABLED) {
+        [extensions addObjectsFromArray:@[ @"jxl", @"JXL" ]];
+    }
 
     return extensions;
 }
@@ -536,6 +544,9 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     }
     if (types & AVIF_ENABLED) {
         [fileTypes addObjectsFromArray:@[ @"avif", @"AVIF", @"public.avif", @"image/avif" ]];
+    }
+    if (types & JXL_ENABLED) {
+        [fileTypes addObjectsFromArray:@[ @"jxl", @"JXL", @"public.jpeg-xl", @"image/jxl" ]];
     }
     return fileTypes;
 }

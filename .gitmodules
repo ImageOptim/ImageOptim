@@ -19,3 +19,6 @@
 [submodule "libavif/src"]
 	path = libavif/src
 	url = https://github.com/AOMediaCodec/libavif.git
+[submodule "libjxl/src"]
+	path = libjxl/src
+	url = https://github.com/libjxl/libjxl.git

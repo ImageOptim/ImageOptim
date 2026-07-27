@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF00000000000000000000B1 /* JXLWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = BF00000000000000000000A1 /* JXLWorker.m */; };
+		BF00000000000000000000D1 /* cjxl in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF00000000000000000000C1 /* cjxl */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BF00000000000000000000D2 /* djxl in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF00000000000000000000C2 /* djxl */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		BF00000000000000000000D3 /* jxlinfo in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF00000000000000000000C3 /* jxlinfo */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		AF00000000000000000000B1 /* AVIFWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = AF00000000000000000000A1 /* AVIFWorker.m */; };
 		AF00000000000000000000D1 /* avifenc in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF00000000000000000000C1 /* avifenc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		AF00000000000000000000D2 /* avifdec in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF00000000000000000000C2 /* avifdec */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -392,6 +396,9 @@
 				5ABE16271AE5097800861C6B /* advpng in CopyFiles */,
 				AF00000000000000000000D1 /* avifenc in CopyFiles */,
 				AF00000000000000000000D2 /* avifdec in CopyFiles */,
+				BF00000000000000000000D1 /* cjxl in CopyFiles */,
+				BF00000000000000000000D2 /* djxl in CopyFiles */,
+				BF00000000000000000000D3 /* jxlinfo in CopyFiles */,
 				5ABE16261AE5096D00861C6B /* gifsicle in CopyFiles */,
 				5ABE16241AE5096300861C6B /* jpegoptim in CopyFiles */,
 				5ABE16231AE5095B00861C6B /* jpegtran in CopyFiles */,
@@ -431,6 +438,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BF00000000000000000000A1 /* JXLWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXLWorker.m; sourceTree = "<group>"; };
+		BF00000000000000000000A2 /* JXLWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXLWorker.h; sourceTree = "<group>"; };
+		BF00000000000000000000C1 /* cjxl */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = cjxl; path = ../../libjxl/build/cjxl; sourceTree = "<group>"; };
+		BF00000000000000000000C2 /* djxl */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = djxl; path = ../../libjxl/build/djxl; sourceTree = "<group>"; };
+		BF00000000000000000000C3 /* jxlinfo */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = jxlinfo; path = ../../libjxl/build/jxlinfo; sourceTree = "<group>"; };
 		AF00000000000000000000A1 /* AVIFWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVIFWorker.m; sourceTree = "<group>"; };
 		AF00000000000000000000A2 /* AVIFWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVIFWorker.h; sourceTree = "<group>"; };
 		AF00000000000000000000C1 /* avifenc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = avifenc; path = ../libavif/build/avifenc; sourceTree = "<group>"; };
@@ -1046,6 +1058,8 @@
 				5A7FB6F21E2C37EB00481B4A /* SvgoWorker.m */,
 				AF00000000000000000000A2 /* AVIFWorker.h */,
 				AF00000000000000000000A1 /* AVIFWorker.m */,
+				BF00000000000000000000A2 /* JXLWorker.h */,
+				BF00000000000000000000A1 /* JXLWorker.m */,
 				5AACA13D0CAF241B004D45CA /* Worker.h */,
 				5AACA13E0CAF241B004D45CA /* Worker.m */,
 			);
@@ -1115,6 +1129,7 @@
 			buildConfigurationList = 5ABE15721AE5072300861C6B /* Build configuration list for PBXNativeTarget "Backend" */;
 			buildPhases = (
 				AF00000000000000000000E1 /* Build AVIF Tools */,
+				BF00000000000000000000E1 /* Build JPEG XL Tools */,
 				5ABE153D1AE5072300861C6B /* Sources */,
 				5ABE153E1AE5072300861C6B /* Frameworks */,
 				5ABE153F1AE5072300861C6B /* Headers */,
@@ -1530,6 +1545,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		BF00000000000000000000E1 /* Build JPEG XL Tools */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build JPEG XL Tools";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/../libjxl/build/cjxl",
+				"$(SRCROOT)/../libjxl/build/djxl",
+				"$(SRCROOT)/../libjxl/build/jxlinfo",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../libjxl/build-jxl-tools.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		AF00000000000000000000E1 /* Build AVIF Tools */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -1579,6 +1616,7 @@
 				5A6A56D01B497E210045AA0C /* SharedPrefs.m in Sources */,
 				5A7FB6F31E2C37EB00481B4A /* SvgoWorker.m in Sources */,
 				AF00000000000000000000B1 /* AVIFWorker.m in Sources */,
+				BF00000000000000000000B1 /* JXLWorker.m in Sources */,
 				5AD0347D1E27185D0030291A /* TempFile.m in Sources */,
 				5ABE15821AE5073E00861C6B /* Worker.m in Sources */,
 			);

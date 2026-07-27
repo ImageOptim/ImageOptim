@@ -1,6 +1,6 @@
 # ImageOptim
 
-[ImageOptim](https://imageoptim.com) is a GUI for lossless image optimization tools: PNGOUT, [OxiPNG](https://lib.rs/crates/oxipng), AdvPNG, PNGCrush, [JPEGOptim](https://github.com/tjko/jpegoptim), Jpegtran, [Gifsicle](https://kornel.ski/lossygif), [SVGO](https://github.com/svg/svgo), [Jpegli](https://github.com/google/jpegli) and [libavif](https://github.com/AOMediaCodec/libavif).
+[ImageOptim](https://imageoptim.com) is a GUI for lossless image optimization tools: PNGOUT, [OxiPNG](https://lib.rs/crates/oxipng), AdvPNG, PNGCrush, [JPEGOptim](https://github.com/tjko/jpegoptim), Jpegtran, [Gifsicle](https://kornel.ski/lossygif), [SVGO](https://github.com/svg/svgo), [Jpegli](https://github.com/google/jpegli), [libavif](https://github.com/AOMediaCodec/libavif) and [libjxl](https://github.com/libjxl/libjxl).
 
 ## Building
 

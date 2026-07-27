@@ -79,6 +79,8 @@ static BOOL ParseFtypBox(const unsigned char *bytes, NSUInteger length,
     const unsigned char jpegheader[] = {0xff,0xd8,0xff};
     const unsigned char gifheader[] = {0x47,0x49,0x46,0x38};
     const unsigned char svgheader[] = {'<','s','v','g'};
+    const unsigned char jxlheader[] = {0xff,0x0a};
+    const unsigned char jxlcontainer[] = {0x00,0x00,0x00,0x0c,'J','X','L',' '};
     char fileHeaderBytes[6];
 
     if (!fileData || fileData.length < sizeof(fileHeaderBytes)) {
@@ -98,6 +100,12 @@ static BOOL ParseFtypBox(const unsigned char *bytes, NSUInteger length,
         type = FILETYPE_GIF;
     } else if (0 == memcmp(fileHeaderBytes, svgheader, sizeof(svgheader)) || [aPath.pathExtension isEqualToString:@"svg"]) {
         type = FILETYPE_SVG;
+    } else if (0 == memcmp(fileHeaderBytes, jxlheader, sizeof(jxlheader)) ||
+               (fileData.length >= sizeof(jxlcontainer) &&
+                0 == memcmp(fileData.bytes, jxlcontainer, sizeof(jxlcontainer)))) {
+        /* Bare codestream starts ff 0a; the ISO-BMFF container starts with a
+           12-byte "JXL " signature box. */
+        type = FILETYPE_JXL;
     } else {
         /* AVIF advertises itself either as the major brand or somewhere in the
            compatible-brands list. "avis" marks an animated sequence, which
@@ -196,6 +204,7 @@ static BOOL ParseFtypBox(const unsigned char *bytes, NSUInteger length,
         case FILETYPE_GIF: return @"image/gif";
         case FILETYPE_SVG: return @"image/svg";
         case FILETYPE_AVIF: return @"image/avif";
+        case FILETYPE_JXL: return @"image/jxl";
         default:
             return nil;
     }

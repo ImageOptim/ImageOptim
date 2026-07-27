@@ -16,6 +16,7 @@
 #import "Workers/GifsicleWorker.h"
 #import "Workers/SvgoWorker.h"
 #import "Workers/AVIFWorker.h"
+#import "Workers/JXLWorker.h"
 #import <sys/xattr.h>
 #import "log.h"
 #include "ResultsDb.h"
@@ -633,6 +634,11 @@
                     lossyConverted = YES;
                 }
                 [worker_list addObject:w];
+            }
+            break;
+        case FILETYPE_JXL:
+            if ([defs boolForKey:@"JxlEnabled"]) {
+                [worker_list addObject:[[JXLWorker alloc] initWithDefaults:defs file:self]];
             }
             break;
         default:
