@@ -25,7 +25,8 @@ ARCHS=(arm64 x86_64)
 
 # Xcode runs this script directly from a build phase, and libjxl has no Xcode
 # subproject whose "download" target would fetch the sources first, so
-# initialise them here. The Makefile is a no-op once the stamp is current.
+# initialise them here. This has to happen before the cache signature below is
+# computed, because that signature covers the checked-out libjxl revision.
 make -C "$SCRIPT_DIR" >/dev/null
 
 mkdir -p "$OUTPUT_DIR"
