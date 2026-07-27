@@ -2,11 +2,18 @@
 # Build avifenc + avifdec as universal static executables for macOS.
 # Called from Xcode's "Run Script" build phase.
 #
-# aom, zlib/libpng and libjpeg are all built in LOCAL mode, so libavif
-# fetches and builds versions it is known to work with. zlib/libpng are
-# required because AVIFWorker round-trips through PNG (avifdec -> png ->
-# avifenc); libjpeg is not used by that path, but libavif refuses to build
-# its apps with AVIF_JPEG=OFF, so it is built too.
+# aom and zlib/libpng are built in LOCAL mode, so libavif fetches and builds
+# versions it is known to work with. zlib/libpng are required because
+# AVIFWorker round-trips through PNG (avifdec -> png -> avifenc).
+#
+# libjpeg is not used by that path, but libavif refuses to build its apps with
+# AVIF_JPEG=OFF, so it has to be supplied. It is built here per architecture
+# and passed in via AVIF_JPEG=SYSTEM rather than using AVIF_JPEG=LOCAL:
+# libavif's LOCAL mode builds libjpeg through ExternalProject_Add, which
+# forwards CMAKE_C_COMPILER and CMAKE_C_FLAGS but not CMAKE_OSX_ARCHITECTURES,
+# so the sub-build always targets the host architecture. On an Apple Silicon
+# machine that silently yields an arm64 libjpeg for both slices and the x86_64
+# link then fails on undefined jpeg_* symbols.
 
 set -euo pipefail
 
@@ -14,12 +21,18 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SRC_DIR="$SCRIPT_DIR/src"
 BUILD_ROOT="$SCRIPT_DIR/build"
 OUTPUT_DIR="$BUILD_ROOT"
+LIBJPEG_SRC="$SCRIPT_DIR/../libjpeg/src/third_party/libjpeg-turbo"
 
 # Use Xcode's deployment target if available, otherwise default
 MACOSX_DEPLOYMENT_TARGET="${MACOSX_DEPLOYMENT_TARGET:-10.13}"
 export MACOSX_DEPLOYMENT_TARGET
 
 ARCHS=(arm64 x86_64)
+
+# Xcode runs this script directly from a build phase, and libavif has no
+# Xcode subproject whose "download" target would fetch the sources first, so
+# initialise them here. The Makefile is a no-op once the stamp is current.
+make -C "$SCRIPT_DIR" >/dev/null
 
 mkdir -p "$OUTPUT_DIR"
 
@@ -37,9 +50,41 @@ if build_cache_is_current "$MARKER" "$BUILD_SIGNATURE" \
     exit 0
 fi
 
+# Build libjpeg-turbo for one architecture. The source comes from jpegli's
+# third_party tree, which libjpeg/Makefile already initialises.
+build_libjpeg() {
+    local ARCH=$1
+    local DEPS_DIR="$BUILD_ROOT/deps-$ARCH"
+    local JPEG_BUILD="$DEPS_DIR/libjpeg"
+
+    if [ -f "$DEPS_DIR/install/lib/libjpeg.a" ]; then
+        return
+    fi
+
+    echo "avif: building libjpeg-turbo for $ARCH..."
+    mkdir -p "$JPEG_BUILD"
+    cmake -S "$LIBJPEG_SRC" -B "$JPEG_BUILD" \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_OSX_ARCHITECTURES="$ARCH" \
+        -DCMAKE_OSX_DEPLOYMENT_TARGET="$MACOSX_DEPLOYMENT_TARGET" \
+        -DCMAKE_C_FLAGS="-fPIC" \
+        -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
+        -DBUILD_SHARED_LIBS=OFF \
+        -DENABLE_SHARED=OFF \
+        -DENABLE_STATIC=ON \
+        -DWITH_TURBOJPEG=OFF \
+        -DCMAKE_INSTALL_PREFIX="$DEPS_DIR/install" \
+        -G Ninja 2>&1 | tail -3
+    cmake --build "$JPEG_BUILD" --config Release -- -j"$(sysctl -n hw.ncpu)" 2>&1 | tail -3
+    cmake --install "$JPEG_BUILD" --config Release 2>&1 | tail -3
+}
+
 build_arch() {
     local ARCH=$1
     local BUILD_DIR="$BUILD_ROOT/$ARCH"
+    local DEPS_DIR="$BUILD_ROOT/deps-$ARCH"
+
+    build_libjpeg "$ARCH"
 
     echo "avif: building for $ARCH (this may take several minutes for aom)..."
     mkdir -p "$BUILD_DIR"
@@ -62,7 +107,8 @@ build_arch() {
         -DAVIF_CODEC_DAV1D=OFF \
         -DAVIF_LIBYUV=OFF \
         -DAVIF_ZLIBPNG=LOCAL \
-        -DAVIF_JPEG=LOCAL \
+        -DAVIF_JPEG=SYSTEM \
+        -DCMAKE_PREFIX_PATH="$DEPS_DIR/install" \
         -DAOM_TARGET_CPU="$AOM_CPU" \
         -DENABLE_NASM=OFF \
         -G Ninja \
