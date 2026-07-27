@@ -12,4 +12,8 @@ trap removelockfile EXIT
 
 while test -f "$LOCKFILE"; do echo "locked, waiting (delete $LOCKFILE if stuck)"; sleep 1; done
 touch "$LOCKFILE"
+# An initialized checkout keeps its old URL in .git/config, so a changed URL in
+# .gitmodules is ignored until it is synced. Best effort: fails for a nested
+# submodule path, which the recursive update below handles anyway.
+git submodule sync $1 >/dev/null 2>&1
 git submodule update --init $1 || git submodule update --init --recursive $1 || { echo "warning: could not update $1 submodule"; exit 0; }
