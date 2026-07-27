@@ -16,3 +16,6 @@
 [submodule "oxipng/oxipng"]
 	path = oxipng/oxipng
 	url = https://github.com/shssoichiro/oxipng
+[submodule "libavif/src"]
+	path = libavif/src
+	url = https://github.com/AOMediaCodec/libavif.git

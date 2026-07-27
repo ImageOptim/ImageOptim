@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF00000000000000000000B1 /* AVIFWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = AF00000000000000000000A1 /* AVIFWorker.m */; };
+		AF00000000000000000000D1 /* avifenc in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF00000000000000000000C1 /* avifenc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AF00000000000000000000D2 /* avifdec in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF00000000000000000000C2 /* avifdec */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1ACFBA171799E9CC006D93B2 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFBA191799E9CC006D93B2 /* Credits.html */; };
 		1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */; };
 		1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */; };
@@ -387,6 +390,8 @@
 			dstSubfolderSpec = 7;
 			files = (
 				5ABE16271AE5097800861C6B /* advpng in CopyFiles */,
+				AF00000000000000000000D1 /* avifenc in CopyFiles */,
+				AF00000000000000000000D2 /* avifdec in CopyFiles */,
 				5ABE16261AE5096D00861C6B /* gifsicle in CopyFiles */,
 				5ABE16241AE5096300861C6B /* jpegoptim in CopyFiles */,
 				5ABE16231AE5095B00861C6B /* jpegtran in CopyFiles */,
@@ -426,6 +431,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF00000000000000000000A1 /* AVIFWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVIFWorker.m; sourceTree = "<group>"; };
+		AF00000000000000000000A2 /* AVIFWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVIFWorker.h; sourceTree = "<group>"; };
+		AF00000000000000000000C1 /* avifenc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = avifenc; path = ../../libavif/build/avifenc; sourceTree = "<group>"; };
+		AF00000000000000000000C2 /* avifdec */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = avifdec; path = ../../libavif/build/avifdec; sourceTree = "<group>"; };
 		1A9AF7C317565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lt; path = lt.lproj/Help; sourceTree = "<group>"; };
 		1A9AF7C517565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A9AF7C617565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/ImageOptim.strings; sourceTree = "<group>"; };
@@ -1035,6 +1044,8 @@
 				5AB81F941AE1BE1300719AB7 /* Save.m */,
 				5A7FB6D61E2C37DD00481B4A /* SvgoWorker.h */,
 				5A7FB6F21E2C37EB00481B4A /* SvgoWorker.m */,
+				AF00000000000000000000A2 /* AVIFWorker.h */,
+				AF00000000000000000000A1 /* AVIFWorker.m */,
 				5AACA13D0CAF241B004D45CA /* Worker.h */,
 				5AACA13E0CAF241B004D45CA /* Worker.m */,
 			);
@@ -1103,6 +1114,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5ABE15721AE5072300861C6B /* Build configuration list for PBXNativeTarget "Backend" */;
 			buildPhases = (
+				AF00000000000000000000E1 /* Build AVIF Tools */,
 				5ABE153D1AE5072300861C6B /* Sources */,
 				5ABE153E1AE5072300861C6B /* Frameworks */,
 				5ABE153F1AE5072300861C6B /* Headers */,
@@ -1517,6 +1529,30 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AF00000000000000000000E1 /* Build AVIF Tools */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build AVIF Tools";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/../libavif/build/avifenc",
+				"$(SRCROOT)/../libavif/build/avifdec",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../libavif/build-avif.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5ABE153D1AE5072300861C6B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1541,6 +1577,7 @@
 				5AC4CC801AF568E90003AEA2 /* SavingsFormatter.m in Sources */,
 				5A6A56D01B497E210045AA0C /* SharedPrefs.m in Sources */,
 				5A7FB6F31E2C37EB00481B4A /* SvgoWorker.m in Sources */,
+				AF00000000000000000000B1 /* AVIFWorker.m in Sources */,
 				5AD0347D1E27185D0030291A /* TempFile.m in Sources */,
 				5ABE15821AE5073E00861C6B /* Worker.m in Sources */,
 			);
