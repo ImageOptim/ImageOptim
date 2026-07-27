@@ -3,14 +3,15 @@
 # delegates to libjpeg's Makefile rather than initialising that tree here.
 build: all
 
-all: submodules.stamp
-
-submodules.stamp: ../.gitmodules
+# The pinned libavif revision is a gitlink, which a checkout can move without
+# changing .gitmodules, so a file stamp would leave the previous source in
+# place. Updating the submodule is cheap once it is current, so it runs on
+# every invocation instead.
+all:
 	../scripts/fetch-submodule src
 	$(MAKE) -C ../libjpeg
-	touch submodules.stamp
 
 clean:
-	-rm -rf build submodules.stamp
+	-rm -rf build
 
 .PHONY: build all install clean

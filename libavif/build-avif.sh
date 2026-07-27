@@ -31,7 +31,7 @@ ARCHS=(arm64 x86_64)
 
 # Xcode runs this script directly from a build phase, and libavif has no
 # Xcode subproject whose "download" target would fetch the sources first, so
-# initialise them here. The Makefile is a no-op once the stamp is current.
+# initialise them here. The Makefile only refreshes what the checkout moved.
 make -C "$SCRIPT_DIR" >/dev/null
 
 mkdir -p "$OUTPUT_DIR"
@@ -40,10 +40,13 @@ BUILD_CACHE_HELPER="$SCRIPT_DIR/../scripts/build-cache.sh"
 source "$BUILD_CACHE_HELPER"
 
 MARKER="$OUTPUT_DIR/.build_marker"
+# libjpeg is statically linked into the tools, so its source belongs in the
+# signature as much as libavif's own.
 BUILD_SIGNATURE=$(build_cache_signature \
     "$0" \
     "deployment-target=$MACOSX_DEPLOYMENT_TARGET;archs=${ARCHS[*]}" \
-    "$SRC_DIR")
+    "$SRC_DIR" \
+    "$LIBJPEG_SRC")
 if build_cache_is_current "$MARKER" "$BUILD_SIGNATURE" \
     "$OUTPUT_DIR/avifenc" "$OUTPUT_DIR/avifdec"; then
     echo "avif: already built (up to date)"
@@ -56,8 +59,13 @@ build_libjpeg() {
     local ARCH=$1
     local DEPS_DIR="$BUILD_ROOT/deps-$ARCH"
     local JPEG_BUILD="$DEPS_DIR/libjpeg"
+    local JPEG_MARKER="$DEPS_DIR/.build_marker"
 
-    if [ -f "$DEPS_DIR/install/lib/libjpeg.a" ]; then
+    # Keyed on the build signature rather than the library's mere existence, so
+    # a libjpeg source change rebuilds it instead of relinking the tools
+    # against the old one, while a rerun after a later failure still skips it.
+    if build_cache_is_current "$JPEG_MARKER" "$BUILD_SIGNATURE" \
+        "$DEPS_DIR/install/lib/libjpeg.a"; then
         return
     fi
 
@@ -77,6 +85,7 @@ build_libjpeg() {
         -G Ninja 2>&1 | tail -3
     cmake --build "$JPEG_BUILD" --config Release -- -j"$(sysctl -n hw.ncpu)" 2>&1 | tail -3
     cmake --install "$JPEG_BUILD" --config Release 2>&1 | tail -3
+    build_cache_write "$JPEG_MARKER" "$BUILD_SIGNATURE"
 }
 
 build_arch() {
