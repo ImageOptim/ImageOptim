@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Resolved when this file is sourced so the functions below don't depend on the
+# caller keeping a variable pointing back at this script.
+BUILD_CACHE_HELPER_PATH="${BASH_SOURCE[0]}"
+
 # Produces a stable cache key from the build scripts, configuration, toolchain,
 # source revisions, and any local source edits.
 build_cache_signature() {
@@ -9,7 +13,7 @@ build_cache_signature() {
 
     {
         printf 'configuration:%s\n' "$CONFIGURATION"
-        shasum -a 256 "$BUILD_CACHE_HELPER" "$SCRIPT_PATH"
+        shasum -a 256 "$BUILD_CACHE_HELPER_PATH" "$SCRIPT_PATH"
         printf 'SDKROOT=%s\n' "${SDKROOT:-}"
         printf 'DEVELOPER_DIR=%s\n' "${DEVELOPER_DIR:-}"
         printf 'CC=%s\n' "${CC:-}"
@@ -27,7 +31,7 @@ build_cache_signature() {
         local SOURCE_DIR
         for SOURCE_DIR in "$@"; do
             (
-                cd "$SOURCE_DIR"
+                cd "$SOURCE_DIR" || exit 1
                 printf 'source:%s\n' "$SOURCE_DIR"
                 git rev-parse HEAD
                 git status --porcelain=v2 --untracked-files=all

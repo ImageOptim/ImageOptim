@@ -10,6 +10,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SRC_DIR="$SCRIPT_DIR/src"
+COMPAT_SOURCE="$SCRIPT_DIR/jutils_compat.c"
 BUILD_ROOT="$SCRIPT_DIR/build"
 OUTPUT_DIR="$SCRIPT_DIR/build/lib"
 
@@ -25,9 +26,12 @@ BUILD_CACHE_HELPER="$SCRIPT_DIR/../scripts/build-cache.sh"
 source "$BUILD_CACHE_HELPER"
 
 MARKER="$OUTPUT_DIR/.build_marker"
+# jutils_compat.c is merged into the archive below but lives outside $SRC_DIR,
+# so its content has to go into the signature explicitly.
+COMPAT_HASH=$(shasum -a 256 "$COMPAT_SOURCE" | awk '{print $1}')
 BUILD_SIGNATURE=$(build_cache_signature \
     "$0" \
-    "deployment-target=$MACOSX_DEPLOYMENT_TARGET;archs=${ARCHS[*]}" \
+    "deployment-target=$MACOSX_DEPLOYMENT_TARGET;archs=${ARCHS[*]};compat=$COMPAT_HASH" \
     "$SRC_DIR")
 if build_cache_is_current "$MARKER" "$BUILD_SIGNATURE" \
     "$OUTPUT_DIR/libjpegli-static.a" "$OUTPUT_DIR/libhwy.a"; then
@@ -67,9 +71,12 @@ build_arch() {
         -DJPEGLI_BUNDLE_LIBPNG=OFF \
         -DBUILD_TESTING=OFF \
         -G Ninja \
-        2>&1 | tail -5
+        2>&1 | tee "$BUILD_DIR/configure.log" | tail -5 \
+        || { echo "ERROR: cmake configure failed, full log: $BUILD_DIR/configure.log" >&2; exit 1; }
 
-    cmake --build "$BUILD_DIR" --target jpegli-static hwy --config Release -- -j"$(sysctl -n hw.ncpu)" 2>&1 | tail -5
+    cmake --build "$BUILD_DIR" --target jpegli-static hwy --config Release -- -j"$(sysctl -n hw.ncpu)" \
+        2>&1 | tee "$BUILD_DIR/build.log" | tail -5 \
+        || { echo "ERROR: cmake build failed, full log: $BUILD_DIR/build.log" >&2; exit 1; }
 
     # Compile the libjpeg-compatible wrapper (provides jpeg_* C symbols)
     echo "jpegli: compiling wrapper for $ARCH..."
@@ -91,7 +98,7 @@ build_arch() {
         -mmacosx-version-min="$MACOSX_DEPLOYMENT_TARGET" \
         -I"$BUILD_DIR/lib/include/jpegli" \
         -o "$COMPAT_OBJ" \
-        "$SCRIPT_DIR/jutils_compat.c"
+        "$COMPAT_SOURCE"
 
     # Merge wrapper + compat objects into the jpegli static library
     local JPEGLI_LIB

@@ -7,14 +7,17 @@ NESTED_SUBMODULES = third_party/highway third_party/libjpeg-turbo third_party/lc
 
 build: all
 
-all: submodules.stamp
+all: submodules
 
-submodules.stamp: ../.gitmodules
+# Not gated on a stamp file: bumping src's pinned commit in the superproject
+# leaves ../.gitmodules (and any stamp) untouched, so a gated recipe would skip
+# the update and build against the old checkout. Re-running is a no-op when the
+# submodules are already at the pinned commits.
+submodules:
 	../scripts/fetch-submodule src
 	cd src && git submodule update --init $(NESTED_SUBMODULES)
-	touch submodules.stamp
 
 clean:
-	-rm -rf build submodules.stamp
+	-rm -rf build
 
-.PHONY: build all install clean
+.PHONY: build all install clean submodules
