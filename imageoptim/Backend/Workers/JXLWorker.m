@@ -76,7 +76,9 @@ static void CleanupDecodedFiles(NSString *pngPath) {
     return lossy && quality < 100;
 }
 
-- (BOOL)hasPngCompatibleSamplesAtPath:(NSString *)path infoPath:(NSString *)jxlinfoPath {
+/* A JXL is only safe to re-encode through PNG if PNG can hold all of its
+   samples and the file carries nothing that the round trip would drop. */
+- (BOOL)canRoundTripThroughPngAtPath:(NSString *)path infoPath:(NSString *)jxlinfoPath {
     [self taskWithPath:jxlinfoPath arguments:@[@"-v", path]];
     NSPipe *outputPipe = [NSPipe pipe];
     [task setStandardOutput:outputPipe];
@@ -90,6 +92,13 @@ static void CleanupDecodedFiles(NSString *pngPath) {
     if (!output) {
         return NO;
     }
+    if ([output rangeOfString:@"JPEG bitstream reconstruction data"].location != NSNotFound) {
+        /* The file was losslessly transcoded from a JPEG, and djxl can restore
+           that JPEG bit-for-bit. Decoding to PNG and re-encoding would drop the
+           reconstruction data for good, so leave the file alone. */
+        return NO;
+    }
+
     NSError *error = nil;
     NSRegularExpression *bitDepthPattern =
         [NSRegularExpression regularExpressionWithPattern:@"(?:, (?=[0-9]+-bit\\b)|bits per sample: )([0-9]+)(?:-bit\\b)?"
@@ -128,8 +137,8 @@ static void CleanupDecodedFiles(NSString *pngPath) {
         return NO;
     }
 
-    if (![self hasPngCompatibleSamplesAtPath:file.path.path infoPath:jxlinfoPath]) {
-        return NO; // PNG cannot preserve floating-point or greater-than-16-bit samples
+    if (![self canRoundTripThroughPngAtPath:file.path.path infoPath:jxlinfoPath]) {
+        return NO; // PNG cannot preserve floating-point or greater-than-16-bit samples, nor JPEG reconstruction data
     }
 
     // Decode JXL to temp PNG

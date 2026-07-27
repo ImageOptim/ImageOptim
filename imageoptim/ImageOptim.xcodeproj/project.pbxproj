@@ -1547,6 +1547,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		BF00000000000000000000E1 /* Build JPEG XL Tools */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);

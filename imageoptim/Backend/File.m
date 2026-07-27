@@ -80,7 +80,7 @@ static BOOL ParseFtypBox(const unsigned char *bytes, NSUInteger length,
     const unsigned char gifheader[] = {0x47,0x49,0x46,0x38};
     const unsigned char svgheader[] = {'<','s','v','g'};
     const unsigned char jxlheader[] = {0xff,0x0a};
-    const unsigned char jxlcontainer[] = {0x00,0x00,0x00,0x0c,'J','X','L',' '};
+    const unsigned char jxlcontainer[] = {0x00,0x00,0x00,0x0c,'J','X','L',' ',0x0d,0x0a,0x87,0x0a};
     char fileHeaderBytes[6];
 
     if (!fileData || fileData.length < sizeof(fileHeaderBytes)) {

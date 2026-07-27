@@ -49,11 +49,15 @@ build_libjpeg() {
     local DEPS_DIR="$BUILD_ROOT/deps-$ARCH"
     local JPEG_BUILD="$DEPS_DIR/libjpeg"
 
-    if [ -f "$DEPS_DIR/install/lib/libjpeg.a" ]; then
+    # Keyed by the same signature as the tools, so a changed deployment target,
+    # toolchain or libjxl revision rebuilds this dependency too.
+    if build_cache_is_current "$DEPS_DIR/.build_marker" "$BUILD_SIGNATURE" \
+        "$DEPS_DIR/install/lib/libjpeg.a"; then
         return
     fi
 
     echo "jxl-tools: building libjpeg-turbo for $ARCH..."
+    rm -rf "$DEPS_DIR"
     mkdir -p "$JPEG_BUILD"
     cmake -S "$LIBJPEG_SRC" -B "$JPEG_BUILD" \
         -DCMAKE_BUILD_TYPE=Release \
@@ -69,6 +73,7 @@ build_libjpeg() {
         -G Ninja 2>&1 | tail -3
     cmake --build "$JPEG_BUILD" --config Release -- -j"$(sysctl -n hw.ncpu)" 2>&1 | tail -3
     cmake --install "$JPEG_BUILD" --config Release 2>&1 | tail -3
+    build_cache_write "$DEPS_DIR/.build_marker" "$BUILD_SIGNATURE"
 }
 
 build_arch() {
