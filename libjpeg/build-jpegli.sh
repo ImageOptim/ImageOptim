@@ -15,6 +15,11 @@ BUILD_ROOT="$SCRIPT_DIR/build"
 OUTPUT_DIR="$SCRIPT_DIR/build/lib"
 HEADER_DIR="$SCRIPT_DIR/build/include"
 
+# Xcode launched from Finder runs build phases with launchd's minimal PATH,
+# which leaves out both Homebrew prefixes, so add them the way the Cargo build
+# phases in oxipng/pngquant do.
+export PATH="$PATH:/usr/local/bin:/opt/homebrew/bin"
+
 # jpegli is configured and built with CMake + Ninja, neither of which ships
 # with Xcode, so say so up front instead of failing inside the build below.
 for TOOL in cmake ninja; do
