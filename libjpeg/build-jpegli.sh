@@ -150,6 +150,19 @@ cp -f "$GENERATED_INCLUDE/jmorecfg.h" "$HEADER_DIR/"
 # jerror.h is not generated; take it from the vendored libjpeg-turbo.
 cp -f "$SRC_DIR/third_party/libjpeg-turbo/jerror.h" "$HEADER_DIR/"
 
+# jpegtran compiles jpegtran.c/transupp.c/cdjpeg.c/rdswitch.c straight out of
+# the vendored libjpeg-turbo tree, and those need jversion.h. jpegli only
+# configures libjpeg-turbo's public headers, so generate it here from the
+# template the same way libjpeg-turbo's own CMake would.
+COPYRIGHT_YEAR="$(sed -n 's/^set(COPYRIGHT_YEAR "\(.*\)")/\1/p' \
+    "$SRC_DIR/third_party/libjpeg-turbo/CMakeLists.txt" | head -1)"
+if [ -z "$COPYRIGHT_YEAR" ]; then
+    echo "ERROR: could not read COPYRIGHT_YEAR from libjpeg-turbo's CMakeLists.txt" >&2
+    exit 1
+fi
+sed "s/@COPYRIGHT_YEAR@/$COPYRIGHT_YEAR/g" \
+    "$SRC_DIR/third_party/libjpeg-turbo/jversion.h.in" > "$HEADER_DIR/jversion.h"
+
 # jpegli's build may drop a generated header in the source root; remove it
 # so the submodule doesn't become dirty after a normal app build.
 rm -f "$SRC_DIR/jpeglib.h"
