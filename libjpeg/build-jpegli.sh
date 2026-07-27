@@ -13,6 +13,16 @@ SRC_DIR="$SCRIPT_DIR/src"
 COMPAT_SOURCE="$SCRIPT_DIR/jutils_compat.c"
 BUILD_ROOT="$SCRIPT_DIR/build"
 OUTPUT_DIR="$SCRIPT_DIR/build/lib"
+HEADER_DIR="$SCRIPT_DIR/build/include"
+
+# jpegli is configured and built with CMake + Ninja, neither of which ships
+# with Xcode, so say so up front instead of failing inside the build below.
+for TOOL in cmake ninja; do
+    if ! command -v "$TOOL" >/dev/null 2>&1; then
+        echo "ERROR: $TOOL is required to build jpegli (brew install cmake ninja)" >&2
+        exit 1
+    fi
+done
 
 # Use Xcode's deployment target if available, otherwise default
 MACOSX_DEPLOYMENT_TARGET="${MACOSX_DEPLOYMENT_TARGET:-10.13}"
@@ -33,8 +43,19 @@ BUILD_SIGNATURE=$(build_cache_signature \
     "$0" \
     "deployment-target=$MACOSX_DEPLOYMENT_TARGET;archs=${ARCHS[*]};compat=$COMPAT_HASH" \
     "$SRC_DIR")
-if build_cache_is_current "$MARKER" "$BUILD_SIGNATURE" \
-    "$OUTPUT_DIR/libjpegli-static.a" "$OUTPUT_DIR/libhwy.a"; then
+# jpegtran and jpegoptim compile against the generated headers copied out
+# below, so a cache hit has to prove those are still there too — otherwise a
+# missing header leaves every later build taking the same stale hit.
+CACHED_OUTPUTS=(
+    "$OUTPUT_DIR/libjpegli-static.a"
+    "$OUTPUT_DIR/libhwy.a"
+    "$HEADER_DIR/jpeglib.h"
+    "$HEADER_DIR/jconfig.h"
+    "$HEADER_DIR/jmorecfg.h"
+    "$HEADER_DIR/jerror.h"
+    "$HEADER_DIR/jversion.h"
+)
+if build_cache_is_current "$MARKER" "$BUILD_SIGNATURE" "${CACHED_OUTPUTS[@]}"; then
     echo "jpegli: already built (up to date)"
     exit 0
 fi
@@ -142,7 +163,6 @@ lipo_create "libhwy.a"
 
 # Copy the generated headers for consumers. jpegli configures these into
 # <build>/lib/include/jpegli, using arm64 as the reference build.
-HEADER_DIR="$SCRIPT_DIR/build/include"
 mkdir -p "$HEADER_DIR"
 
 GENERATED_INCLUDE="$BUILD_ROOT/arm64/lib/include/jpegli"
