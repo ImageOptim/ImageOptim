@@ -2,9 +2,8 @@
 
 @interface JXLWorker : CommandWorker {
     NSInteger quality;
-    BOOL lossy;
 }
 
-- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(Job *)aFile;
+- (instancetype)initWithQuality:(NSInteger)quality file:(Job *)aFile;
 
 @end

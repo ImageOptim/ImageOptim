@@ -24,6 +24,48 @@ static BOOL HasAdditionalDecodedFiles(NSString *pngPath) {
     return NO;
 }
 
+/* jxlinfo -v names every container box it reads. The round trip rebuilds the
+   container structure and the codestream itself, and Exif and XMP survive it
+   because djxl writes them into the PNG and cjxl reads them back. Any other
+   auxiliary box (JUMBF, a gain map, an application-defined box jxlinfo doesn't
+   know) would be dropped, and dropping it also makes the file smaller, so the
+   result would look like a win. A bare codestream has no boxes at all. */
+static BOOL HasUnsupportedBoxes(NSString *jxlinfoOutput) {
+    static NSSet<NSString *> *roundTrippableBoxTypes;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        /* "brob" is a Brotli-compressed metadata box; the loop below checks
+           what it holds, because only Exif and XMP survive. */
+        roundTrippableBoxTypes = [NSSet setWithObjects:@"JXL ", @"ftyp", @"jxlc", @"jxlp", @"jxll", @"Exif", @"xml ", @"brob", nil];
+    });
+
+    NSRange wholeOutput = NSMakeRange(0, jxlinfoOutput.length);
+    NSRegularExpression *boxTypePattern =
+        [NSRegularExpression regularExpressionWithPattern:@"^  type: \"(.{4})\"$"
+                                                  options:NSRegularExpressionAnchorsMatchLines
+                                                    error:nil];
+    NSRegularExpression *metadataPattern =
+        [NSRegularExpression regularExpressionWithPattern:@"^(?:Uncompressed|Brotli-compressed) (.{4}) metadata:"
+                                                  options:NSRegularExpressionAnchorsMatchLines
+                                                    error:nil];
+    if (!boxTypePattern || !metadataPattern) {
+        return YES;
+    }
+
+    for (NSTextCheckingResult *match in [boxTypePattern matchesInString:jxlinfoOutput options:0 range:wholeOutput]) {
+        if (![roundTrippableBoxTypes containsObject:[jxlinfoOutput substringWithRange:[match rangeAtIndex:1]]]) {
+            return YES;
+        }
+    }
+    for (NSTextCheckingResult *match in [metadataPattern matchesInString:jxlinfoOutput options:0 range:wholeOutput]) {
+        NSString *boxType = [jxlinfoOutput substringWithRange:[match rangeAtIndex:1]];
+        if (![boxType isEqualToString:@"Exif"] && ![boxType isEqualToString:@"xml "]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 static NSString *DecodedFramePath(NSString *pngPath) {
     NSFileManager *fm = [NSFileManager defaultManager];
     if ([fm fileExistsAtPath:pngPath]) {
@@ -60,20 +102,20 @@ static void CleanupDecodedFiles(NSString *pngPath) {
 @implementation JXLWorker
 
 - (NSInteger)settingsIdentifier {
-    return quality * 2 + lossy;
+    return quality;
 }
 
-- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(Job *)aFile {
+/* Quality 100 re-encodes losslessly. Job decides when a lossy pass is allowed,
+   so that starting an already-optimized file again can't degrade it twice. */
+- (instancetype)initWithQuality:(NSInteger)aQuality file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
-        lossy = [defaults boolForKey:@"LossyEnabled"];
-        quality = lossy ? [defaults integerForKey:@"JxlQuality"] : 100;
-        if (quality <= 0) quality = 85;
+        quality = aQuality;
     }
     return self;
 }
 
 - (BOOL)makesNonOptimizingModifications {
-    return lossy && quality < 100;
+    return quality < 100;
 }
 
 /* A JXL is only safe to re-encode through PNG if PNG can hold all of its
@@ -96,6 +138,16 @@ static void CleanupDecodedFiles(NSString *pngPath) {
         /* The file was losslessly transcoded from a JPEG, and djxl can restore
            that JPEG bit-for-bit. Decoding to PNG and re-encoding would drop the
            reconstruction data for good, so leave the file alone. */
+        return NO;
+    }
+    if ([output rangeOfString:@"Have animation: 0"].location == NSNotFound) {
+        /* An animation can consist of a single frame, so the number of files
+           djxl writes can't tell one apart from a still image. Re-encoding one
+           would drop its frame durations and loop count. jxlinfo -v always
+           reports this, so a missing line means the file wasn't understood. */
+        return NO;
+    }
+    if (HasUnsupportedBoxes(output)) {
         return NO;
     }
 
@@ -179,7 +231,7 @@ static void CleanupDecodedFiles(NSString *pngPath) {
 
     // Re-encode to JXL
     NSMutableArray *args = [NSMutableArray array];
-    if (lossy && quality < 100) {
+    if (quality < 100) {
         [args addObjectsFromArray:@[@"-q", [NSString stringWithFormat:@"%ld", (long)quality]]];
     } else {
         [args addObjectsFromArray:@[@"-q", @"100"]];
@@ -196,7 +248,7 @@ static void CleanupDecodedFiles(NSString *pngPath) {
         return NO;
     }
 
-    NSString *toolName = (lossy && quality < 100)
+    NSString *toolName = quality < 100
         ? [NSString stringWithFormat:@"JPEG XL %ld%%", (long)quality]
         : @"JPEG XL";
     TempFile *output = [file tempCopyOfPath:temp];

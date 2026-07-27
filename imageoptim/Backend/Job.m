@@ -638,7 +638,13 @@
             break;
         case FILETYPE_JXL:
             if ([defs boolForKey:@"JxlEnabled"]) {
-                [worker_list addObject:[[JXLWorker alloc] initWithDefaults:defs file:self]];
+                NSInteger jxlQuality = [defs integerForKey:@"JxlQuality"];
+                if (lossyEnabled && !lossyConverted && jxlQuality < 100 && jxlQuality > 30) {
+                    [runFirst addObject:[[JXLWorker alloc] initWithQuality:jxlQuality file:self]];
+                    lossyConverted = YES;
+                } else {
+                    [worker_list addObject:[[JXLWorker alloc] initWithQuality:100 file:self]];
+                }
             }
             break;
         default:
