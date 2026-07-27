@@ -7,6 +7,7 @@
 #import "PrefsController.h"
 #import "ImageOptimController.h"
 #import "Transformers.h"
+#import "Backend/Workers/SvgoWorker.h"
 
 @implementation PrefsController
 
@@ -43,7 +44,6 @@
 
 // This doesn't belong here :(
 - (BOOL)svgSupported {
-    NSFileManager *fm = [NSFileManager defaultManager];
-    return [fm isExecutableFileAtPath:@"/usr/local/bin/node"] || [fm isExecutableFileAtPath:@"/opt/homebrew/bin/node"];
+    return [SvgoWorker nodeExecutablePath] != nil;
 }
 @end

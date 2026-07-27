@@ -620,7 +620,7 @@
         }
         break;
         case FILETYPE_SVG:
-            if ([defs boolForKey:@"SvgoEnabled"]) {
+            if ([defs boolForKey:@"SvgoEnabled"] && [SvgoWorker nodeExecutablePath]) {
                 [worker_list addObject:[[SvgoWorker alloc] initWithLossy:lossyEnabled job:self]];
             }
             break;

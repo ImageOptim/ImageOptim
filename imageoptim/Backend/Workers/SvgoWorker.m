@@ -17,6 +17,16 @@
     return useLossy ? 5 : 6;
 }
 
++ (NSString *)nodeExecutablePath {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    for (NSString *path in @[ @"/usr/local/bin/node", @"/opt/homebrew/bin/node" ]) {
+        if ([fm isExecutableFileAtPath:path]) {
+            return path;
+        }
+    }
+    return nil;
+}
+
 - (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
     NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     NSString *scriptPath = [bundle pathForResource:@"svgo" ofType:@"js"];
@@ -32,16 +42,9 @@
         temp.path
     ];
 
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSString *nodePath1 = @"/usr/local/bin/node";
-    NSString *nodePath2 = @"/opt/homebrew/bin/node";
-    NSString *nodePath;
-    if ([fm isExecutableFileAtPath:nodePath1]) {
-        nodePath = nodePath1;
-    } else if ([fm isExecutableFileAtPath:nodePath2]) {
-        nodePath = nodePath2;
-    } else {
-        IOWarn(@"Node not installed at %@", nodePath1);
+    NSString *nodePath = [SvgoWorker nodeExecutablePath];
+    if (!nodePath) {
+        IOWarn(@"Node not installed at /usr/local/bin/node or /opt/homebrew/bin/node");
         return NO;
     }
 
