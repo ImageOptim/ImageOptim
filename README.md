@@ -11,9 +11,15 @@ Requires:
 * [CMake](https://cmake.org/) and [Ninja](https://ninja-build.org/) to build Jpegli (`brew install cmake ninja`).
 
 ```sh
-git clone --recursive https://imageoptim.com ImageOptim
+git clone https://imageoptim.com ImageOptim
 cd ImageOptim
+git submodule update --init
 ```
+
+Don't clone recursively: libjxl's own submodules include a large test-data
+repository and backends this build doesn't use, and `libjxl/Makefile`
+initialises only the ones it needs. The other subprojects with nested
+submodules fetch them from their own makefiles too.
 
 To get started, open `imageoptim/ImageOptim.xcodeproj`. It will automatically download and build all subprojects when run in Xcode.
 

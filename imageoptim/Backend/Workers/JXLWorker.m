@@ -40,20 +40,30 @@ static BOOL HasUnsupportedBoxes(NSString *jxlinfoOutput) {
     });
 
     NSRange wholeOutput = NSMakeRange(0, jxlinfoOutput.length);
-    NSRegularExpression *boxTypePattern =
-        [NSRegularExpression regularExpressionWithPattern:@"^  type: \"(.{4})\"$"
+    NSRegularExpression *boxPattern =
+        [NSRegularExpression regularExpressionWithPattern:@"^  type: \"(.{4})\"\n  size: [0-9]+\n  contents size: ([0-9]+)$"
                                                   options:NSRegularExpressionAnchorsMatchLines
                                                     error:nil];
     NSRegularExpression *metadataPattern =
         [NSRegularExpression regularExpressionWithPattern:@"^(?:Uncompressed|Brotli-compressed) (.{4}) metadata:"
                                                   options:NSRegularExpressionAnchorsMatchLines
                                                     error:nil];
-    if (!boxTypePattern || !metadataPattern) {
+    if (!boxPattern || !metadataPattern) {
         return YES;
     }
 
-    for (NSTextCheckingResult *match in [boxTypePattern matchesInString:jxlinfoOutput options:0 range:wholeOutput]) {
-        if (![roundTrippableBoxTypes containsObject:[jxlinfoOutput substringWithRange:[match rangeAtIndex:1]]]) {
+    for (NSTextCheckingResult *match in [boxPattern matchesInString:jxlinfoOutput options:0 range:wholeOutput]) {
+        NSString *boxType = [jxlinfoOutput substringWithRange:[match rangeAtIndex:1]];
+        if (![roundTrippableBoxTypes containsObject:boxType]) {
+            return YES;
+        }
+        /* ftyp holds the major brand, the minor version and the list of
+           compatible brands, four bytes each. cjxl writes a fresh standard one
+           declaring "jxl " as the only compatible brand, so anything longer
+           than those twelve bytes is a compatibility declaration the round trip
+           would drop. */
+        if ([boxType isEqualToString:@"ftyp"] &&
+            [[jxlinfoOutput substringWithRange:[match rangeAtIndex:2]] integerValue] > 12) {
             return YES;
         }
     }
@@ -145,6 +155,19 @@ static void CleanupDecodedFiles(NSString *pngPath) {
            djxl writes can't tell one apart from a still image. Re-encoding one
            would drop its frame durations and loop count. jxlinfo -v always
            reports this, so a missing line means the file wasn't understood. */
+        return NO;
+    }
+    if ([output rangeOfString:@"Have preview: 0"].location == NSNotFound) {
+        /* djxl writes only the main image, so re-encoding would drop the
+           embedded preview — and the file would shrink by losing it, so the
+           result would look like a win. Reported like the animation flag. */
+        return NO;
+    }
+    if ([output rangeOfString:@"alpha premultiplied: 1"].location != NSNotFound) {
+        /* PNG stores unassociated alpha, so djxl has to unpremultiply the
+           colour samples and cjxl writes back a file with unassociated alpha.
+           The rounding in between changes the samples, which the quality 100
+           path presents as lossless. */
         return NO;
     }
     if (HasUnsupportedBoxes(output)) {
