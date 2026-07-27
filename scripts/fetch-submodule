@@ -18,4 +18,5 @@ touch "$LOCKFILE"
 # nested submodule path is unknown to this repo and errors out, and only the
 # recursive update below can fetch it anyway.
 git submodule sync --recursive "$1" >/dev/null 2>&1
+
 git submodule update --init $1 || git submodule update --init --recursive $1 || { echo "warning: could not update $1 submodule"; exit 0; }
