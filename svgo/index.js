@@ -1,5 +1,13 @@
 "use strict";
 
+// SVGO 4 declares Node >=16. Older runtimes can still parse this bundle, so
+// they'd get an obscure failure from somewhere inside SVGO instead. Bail out
+// first with a message that says what to do about it.
+if (parseInt(process.versions.node, 10) < 16) {
+    console.error(`SVGO needs Node.js 16 or newer, but ${process.execPath} is ${process.versions.node}. Update Node (e.g. brew upgrade node) to optimize SVG files.`);
+    process.exit(1);
+}
+
 const { optimize } = require('svgo');
 const fs = require('fs');
 
