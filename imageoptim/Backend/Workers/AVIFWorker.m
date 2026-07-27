@@ -72,6 +72,7 @@
         decoded = [self launchTask] && [self waitUntilTaskExit];
     } @catch (NSException *e) {
         IOWarn("avifdec failed: %@", e);
+        [[NSFileManager defaultManager] removeItemAtURL:pngTemp error:nil];
         return NO;
     }
 

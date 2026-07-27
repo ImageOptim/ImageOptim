@@ -99,8 +99,10 @@ build_arch() {
     mkdir -p "$BUILD_DIR"
 
     # aom cross-compiles per slice, so it needs to be told the target CPU
-    # explicitly; nasm is disabled because the assembly paths do not
-    # cross-assemble cleanly here.
+    # explicitly. nasm is disabled for both slices: only the x86_64 one has
+    # hand-written assembly to assemble at all, and enabling it there would
+    # make the build fail on any machine without nasm installed, for kernels
+    # that are largely also available as SSE2/AVX2 intrinsics.
     local AOM_CPU="$ARCH"
 
     cmake -S "$SRC_DIR" -B "$BUILD_DIR" \
