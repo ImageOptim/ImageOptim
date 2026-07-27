@@ -9,9 +9,9 @@
     return quality * 2 + lossy;
 }
 
-- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(Job *)aFile {
+- (instancetype)initWithLossy:(BOOL)lossyEnabled defaults:(NSUserDefaults *)defaults file:(Job *)aFile {
     if (self = [super initWithFile:aFile]) {
-        lossy = [defaults boolForKey:@"LossyEnabled"];
+        lossy = lossyEnabled;
         quality = lossy ? [defaults integerForKey:@"AvifQuality"] : 100;
         if (quality <= 0) quality = 85;
     }
@@ -58,6 +58,11 @@
     }
     if ([info rangeOfString:@" * Gain map       : Absent"].location == NSNotFound) {
         return NO; // PNG cannot preserve AVIF gain maps
+    }
+    if ([info rangeOfString:@" * Transformations: None"].location == NSNotFound) {
+        // avifdec bakes clap/irot/imir into the decoded pixels and drops pasp entirely,
+        // and avifenc recreates none of them, so the round-trip would alter the geometry
+        return NO;
     }
     // avifdec writes >8-bit images as 16-bit PNG, from which avifenc infers 12 bits,
     // so a 10-bit image has to be re-encoded at its original depth explicitly.

@@ -5,6 +5,6 @@
     BOOL lossy;
 }
 
-- (instancetype)initWithDefaults:(NSUserDefaults *)defaults file:(Job *)aFile;
+- (instancetype)initWithLossy:(BOOL)lossyEnabled defaults:(NSUserDefaults *)defaults file:(Job *)aFile;
 
 @end

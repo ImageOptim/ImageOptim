@@ -627,7 +627,12 @@
             break;
         case FILETYPE_AVIF:
             if ([defs boolForKey:@"AvifEnabled"]) {
-                [worker_list addObject:[[AVIFWorker alloc] initWithDefaults:defs file:self]];
+                // re-running lossy encoding on an already-lossy result would compound generation loss
+                AVIFWorker *w = [[AVIFWorker alloc] initWithLossy:(lossyEnabled && !lossyConverted) defaults:defs file:self];
+                if ([w makesNonOptimizingModifications]) {
+                    lossyConverted = YES;
+                }
+                [worker_list addObject:w];
             }
             break;
         default:
