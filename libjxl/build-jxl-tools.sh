@@ -23,6 +23,11 @@ export MACOSX_DEPLOYMENT_TARGET
 
 ARCHS=(arm64 x86_64)
 
+# Xcode runs this script directly from a build phase, and libjxl has no Xcode
+# subproject whose "download" target would fetch the sources first, so
+# initialise them here. The Makefile is a no-op once the stamp is current.
+make -C "$SCRIPT_DIR" >/dev/null
+
 mkdir -p "$OUTPUT_DIR"
 
 BUILD_CACHE_HELPER="$SCRIPT_DIR/../scripts/build-cache.sh"

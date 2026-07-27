@@ -440,9 +440,9 @@
 /* Begin PBXFileReference section */
 		BF00000000000000000000A1 /* JXLWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXLWorker.m; sourceTree = "<group>"; };
 		BF00000000000000000000A2 /* JXLWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXLWorker.h; sourceTree = "<group>"; };
-		BF00000000000000000000C1 /* cjxl */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = cjxl; path = ../../libjxl/build/cjxl; sourceTree = "<group>"; };
-		BF00000000000000000000C2 /* djxl */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = djxl; path = ../../libjxl/build/djxl; sourceTree = "<group>"; };
-		BF00000000000000000000C3 /* jxlinfo */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = jxlinfo; path = ../../libjxl/build/jxlinfo; sourceTree = "<group>"; };
+		BF00000000000000000000C1 /* cjxl */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = cjxl; path = ../libjxl/build/cjxl; sourceTree = "<group>"; };
+		BF00000000000000000000C2 /* djxl */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = djxl; path = ../libjxl/build/djxl; sourceTree = "<group>"; };
+		BF00000000000000000000C3 /* jxlinfo */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = jxlinfo; path = ../libjxl/build/jxlinfo; sourceTree = "<group>"; };
 		AF00000000000000000000A1 /* AVIFWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVIFWorker.m; sourceTree = "<group>"; };
 		AF00000000000000000000A2 /* AVIFWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVIFWorker.h; sourceTree = "<group>"; };
 		AF00000000000000000000C1 /* avifenc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = avifenc; path = ../libavif/build/avifenc; sourceTree = "<group>"; };
