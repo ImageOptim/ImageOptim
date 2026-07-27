@@ -21,7 +21,9 @@
 
 - (long)readNumberAfter:(NSString *)str inLine:(NSString *)line;
 
-- (void)launchTask;
+// returns NO if the task could not be started, in which case nothing will
+// write to (or close) its pipes and waiting for them would never return
+- (BOOL)launchTask;
 - (BOOL)waitUntilTaskExit;
 
 // gets the path of the executable

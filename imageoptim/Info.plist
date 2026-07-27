@@ -192,6 +192,7 @@
 			</dict>
 			<key>NSSendFileTypes</key>
 			<array>
+				<string>public.avif</string>
 				<string>public.png</string>
 				<string>public.jpeg</string>
 				<string>com.compuserve.gif</string>

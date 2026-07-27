@@ -22,18 +22,20 @@
     return lossy && quality < 100;
 }
 
-- (BOOL)hasGainMapAtPath:(NSString *)path decoderPath:(NSString *)avifdecPath {
+// avifdec --info dump of the image, or nil if it could not be read
+- (NSString *)infoForPath:(NSString *)path decoderPath:(NSString *)avifdecPath {
     [self taskWithPath:avifdecPath arguments:@[@"--info", path]];
     NSPipe *outputPipe = [NSPipe pipe];
     [task setStandardOutput:outputPipe];
-    [self launchTask];
+    if (![self launchTask]) {
+        return nil;
+    }
     NSData *outputData = [[outputPipe fileHandleForReading] readDataToEndOfFile];
     if (![self waitUntilTaskExit]) {
-        return YES; // Do not risk changing files whose auxiliary data cannot be inspected
+        return nil;
     }
 
-    NSString *output = [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
-    return [output rangeOfString:@" * Gain map       : Absent"].location == NSNotFound;
+    return [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
 }
 
 - (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
@@ -50,9 +52,16 @@
         return NO;
     }
 
-    if ([self hasGainMapAtPath:file.path.path decoderPath:avifdecPath]) {
+    NSString *info = [self infoForPath:file.path.path decoderPath:avifdecPath];
+    if (!info) {
+        return NO; // Do not risk changing files whose auxiliary data cannot be inspected
+    }
+    if ([info rangeOfString:@" * Gain map       : Absent"].location == NSNotFound) {
         return NO; // PNG cannot preserve AVIF gain maps
     }
+    // avifdec writes >8-bit images as 16-bit PNG, from which avifenc infers 12 bits,
+    // so a 10-bit image has to be re-encoded at its original depth explicitly.
+    const NSInteger depth = [self readNumberAfter:@" * Bit Depth      : " inLine:info];
 
     // Decode AVIF to temp PNG
     NSURL *pngTemp = [[temp URLByDeletingPathExtension] URLByAppendingPathExtension:@"png"];
@@ -60,8 +69,7 @@
     BOOL decoded = NO;
     @try {
         [self taskWithPath:avifdecPath arguments:@[file.path.path, pngTemp.path]];
-        [self launchTask];
-        decoded = [self waitUntilTaskExit];
+        decoded = [self launchTask] && [self waitUntilTaskExit];
     } @catch (NSException *e) {
         IOWarn("avifdec failed: %@", e);
         return NO;
@@ -79,11 +87,13 @@
     } else {
         [args addObjectsFromArray:@[@"--lossless"]];
     }
+    if (depth == 10 || depth == 12) {
+        [args addObjectsFromArray:@[@"-d", [NSString stringWithFormat:@"%ld", (long)depth]]];
+    }
     [args addObjectsFromArray:@[@"-s", @"4", pngTemp.path, temp.path]];
 
     [self taskWithPath:avifencPath arguments:args];
-    [self launchTask];
-    BOOL success = [self waitUntilTaskExit];
+    BOOL success = [self launchTask] && [self waitUntilTaskExit];
 
     [[NSFileManager defaultManager] removeItemAtURL:pngTemp error:nil];
 

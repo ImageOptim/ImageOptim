@@ -185,6 +185,7 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
                 appendFormatNameIfLossyEnabled(defs, @"JPEG", @"JpegOptimMaxQuality", arr);
                 appendFormatNameIfLossyEnabled(defs, @"PNG", @"PngMinQuality", arr);
                 appendFormatNameIfLossyEnabled(defs, @"GIF", @"GifQuality", arr);
+                appendFormatNameIfLossyEnabled(defs, @"AVIF", @"AvifQuality", arr);
                 if ([arr count]) {
                     str = [NSString stringWithFormat:@"%@ (%@)",
                                                      NSLocalizedString(@"Lossy minification enabled", @"status bar"),
