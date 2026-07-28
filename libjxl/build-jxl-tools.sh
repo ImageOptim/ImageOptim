@@ -17,6 +17,12 @@ BUILD_ROOT="$SCRIPT_DIR/build"
 OUTPUT_DIR="$BUILD_ROOT"
 LIBJPEG_SRC="$SRC_DIR/third_party/libjpeg-turbo"
 
+# Xcode launched from Finder runs build phases with launchd's minimal PATH,
+# which leaves out both Homebrew prefixes, so add them the way the jpegli build
+# and the Cargo build phases in oxipng/pngquant do. This has to happen before
+# the cache signature below, which shells out to cmake and ninja itself.
+export PATH="$PATH:/usr/local/bin:/opt/homebrew/bin"
+
 # Use Xcode's deployment target if available, otherwise default
 MACOSX_DEPLOYMENT_TARGET="${MACOSX_DEPLOYMENT_TARGET:-10.13}"
 export MACOSX_DEPLOYMENT_TARGET

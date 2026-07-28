@@ -3,27 +3,32 @@
 #import "../TempFile.h"
 #import "../../log.h"
 
-/* djxl names the frames of a multi-frame file "<base>-<n>.<ext>" next to the
-   output path it was given, so they're found by prefix, frame number and
-   suffix. The number has to be all digits, or an unrelated sibling such as
-   "<base>-preview.<ext>" would be counted as a frame and then deleted.
-   Detection and cleanup share this so they can't drift apart. */
-static NSArray<NSString *> *DecodedFrameSiblingPaths(NSString *pngPath) {
+/* djxl builds the name of everything it writes besides the main image by
+   appending to the output path it was given, extension and all: frame n of a
+   multi-frame file lands in "<output>.png-<n>.png", extra channel n — a depth
+   or spot-colour channel, which the round trip would drop — in
+   "<output>.png-ec<n>.png", and a file with several of both combines the two
+   suffixes in that order. Both numbers are zero-padded to the width of the
+   highest index, so they are always digits; an unrelated sibling such as
+   "<output>.png-preview.png" is none of djxl's and must be neither counted nor
+   deleted. Detection and cleanup share this so they can't drift apart. */
+static NSArray<NSString *> *DecodedSiblingPaths(NSString *pngPath) {
     NSString *dirPath = [pngPath stringByDeletingLastPathComponent];
-    NSString *framePrefix = [[[pngPath lastPathComponent] stringByDeletingPathExtension] stringByAppendingString:@"-"];
-    NSString *frameSuffix = [@"." stringByAppendingString:[pngPath pathExtension]];
-    NSCharacterSet *nonDigits = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet];
+    NSString *pattern =
+        [NSString stringWithFormat:@"^%@-(?:[0-9]+(?:-ec[0-9]+)?|ec[0-9]+)%@$",
+                                   [NSRegularExpression escapedPatternForString:[pngPath lastPathComponent]],
+                                   [NSRegularExpression escapedPatternForString:
+                                       [@"." stringByAppendingString:[pngPath pathExtension]]]];
+    NSRegularExpression *siblingPattern =
+        [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
+    if (!siblingPattern) {
+        return @[];
+    }
 
     NSMutableArray<NSString *> *paths = [NSMutableArray array];
     NSArray<NSString *> *entries = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirPath error:nil];
     for (NSString *entry in entries) {
-        if (entry.length <= framePrefix.length + frameSuffix.length ||
-            ![entry hasPrefix:framePrefix] || ![entry hasSuffix:frameSuffix]) {
-            continue;
-        }
-        NSRange frameNumber = NSMakeRange(framePrefix.length,
-                                          entry.length - framePrefix.length - frameSuffix.length);
-        if ([entry rangeOfCharacterFromSet:nonDigits options:0 range:frameNumber].location == NSNotFound) {
+        if ([siblingPattern numberOfMatchesInString:entry options:0 range:NSMakeRange(0, entry.length)] > 0) {
             [paths addObject:[dirPath stringByAppendingPathComponent:entry]];
         }
     }
@@ -31,8 +36,8 @@ static NSArray<NSString *> *DecodedFrameSiblingPaths(NSString *pngPath) {
 }
 
 static BOOL HasAdditionalDecodedFiles(NSString *pngPath) {
-    NSInteger frameCount = [[NSFileManager defaultManager] fileExistsAtPath:pngPath] ? 1 : 0;
-    return frameCount + (NSInteger)DecodedFrameSiblingPaths(pngPath).count > 1;
+    NSInteger decodedCount = [[NSFileManager defaultManager] fileExistsAtPath:pngPath] ? 1 : 0;
+    return decodedCount + (NSInteger)DecodedSiblingPaths(pngPath).count > 1;
 }
 
 /* cjxl writes a fresh container header: the twelve-byte JXL signature box
@@ -130,27 +135,21 @@ static BOOL HasNonDefaultIntrinsicSize(NSString *jxlinfoOutput) {
         isEqualToString:[jxlinfoOutput substringWithRange:[intrinsic rangeAtIndex:1]]];
 }
 
+/* Only reached once HasAdditionalDecodedFiles has ruled out a second decoded
+   file, so a lone sibling is djxl having numbered the single frame it wrote
+   rather than an extra channel, which never comes without a main image. */
 static NSString *DecodedFramePath(NSString *pngPath) {
-    NSFileManager *fm = [NSFileManager defaultManager];
-    if ([fm fileExistsAtPath:pngPath]) {
+    if ([[NSFileManager defaultManager] fileExistsAtPath:pngPath]) {
         return pngPath;
     }
-
-    NSString *frame0Path = [NSString stringWithFormat:@"%@-0.%@",
-                                                      [pngPath stringByDeletingPathExtension],
-                                                      [pngPath pathExtension]];
-    if ([fm fileExistsAtPath:frame0Path]) {
-        return frame0Path;
-    }
-
-    return nil;
+    return DecodedSiblingPaths(pngPath).firstObject;
 }
 
 static void CleanupDecodedFiles(NSString *pngPath) {
     NSFileManager *fm = [NSFileManager defaultManager];
     [fm removeItemAtPath:pngPath error:nil];
-    for (NSString *framePath in DecodedFrameSiblingPaths(pngPath)) {
-        [fm removeItemAtPath:framePath error:nil];
+    for (NSString *siblingPath in DecodedSiblingPaths(pngPath)) {
+        [fm removeItemAtPath:siblingPath error:nil];
     }
 }
 
