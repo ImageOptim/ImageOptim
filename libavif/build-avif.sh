@@ -82,9 +82,18 @@ build_libjpeg() {
         -DENABLE_STATIC=ON \
         -DWITH_TURBOJPEG=OFF \
         -DCMAKE_INSTALL_PREFIX="$DEPS_DIR/install" \
-        -G Ninja 2>&1 | tail -3
-    cmake --build "$JPEG_BUILD" --config Release -- -j"$(sysctl -n hw.ncpu)" 2>&1 | tail -3
-    cmake --install "$JPEG_BUILD" --config Release 2>&1 | tail -3
+        -G Ninja \
+        2>&1 | tee "$JPEG_BUILD/configure.log" | tail -3 \
+        || { echo "ERROR: libjpeg cmake configure failed, full log: $JPEG_BUILD/configure.log" >&2; exit 1; }
+
+    cmake --build "$JPEG_BUILD" --config Release -- -j"$(sysctl -n hw.ncpu)" \
+        2>&1 | tee "$JPEG_BUILD/build.log" | tail -3 \
+        || { echo "ERROR: libjpeg cmake build failed, full log: $JPEG_BUILD/build.log" >&2; exit 1; }
+
+    cmake --install "$JPEG_BUILD" --config Release \
+        2>&1 | tee "$JPEG_BUILD/install.log" | tail -3 \
+        || { echo "ERROR: libjpeg cmake install failed, full log: $JPEG_BUILD/install.log" >&2; exit 1; }
+
     build_cache_write "$JPEG_MARKER" "$BUILD_SIGNATURE"
 }
 
@@ -123,9 +132,12 @@ build_arch() {
         -DAOM_TARGET_CPU="$AOM_CPU" \
         -DENABLE_NASM=OFF \
         -G Ninja \
-        2>&1 | tail -10
+        2>&1 | tee "$BUILD_DIR/configure.log" | tail -10 \
+        || { echo "ERROR: cmake configure failed, full log: $BUILD_DIR/configure.log" >&2; exit 1; }
 
-    cmake --build "$BUILD_DIR" --target avifenc avifdec --config Release -- -j"$(sysctl -n hw.ncpu)" 2>&1 | tail -5
+    cmake --build "$BUILD_DIR" --target avifenc avifdec --config Release -- -j"$(sysctl -n hw.ncpu)" \
+        2>&1 | tee "$BUILD_DIR/build.log" | tail -5 \
+        || { echo "ERROR: cmake build failed, full log: $BUILD_DIR/build.log" >&2; exit 1; }
 }
 
 for ARCH in "${ARCHS[@]}"; do

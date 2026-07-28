@@ -433,8 +433,8 @@
 /* Begin PBXFileReference section */
 		AF00000000000000000000A1 /* AVIFWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVIFWorker.m; sourceTree = "<group>"; };
 		AF00000000000000000000A2 /* AVIFWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVIFWorker.h; sourceTree = "<group>"; };
-		AF00000000000000000000C1 /* avifenc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = avifenc; path = ../libavif/build/avifenc; sourceTree = "<group>"; };
-		AF00000000000000000000C2 /* avifdec */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = avifdec; path = ../libavif/build/avifdec; sourceTree = "<group>"; };
+		AF00000000000000000000C1 /* avifenc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = avifenc; path = ../libavif/build/avifenc; sourceTree = SOURCE_ROOT; };
+		AF00000000000000000000C2 /* avifdec */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = avifdec; path = ../libavif/build/avifdec; sourceTree = SOURCE_ROOT; };
 		1A9AF7C317565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lt; path = lt.lproj/Help; sourceTree = "<group>"; };
 		1A9AF7C517565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A9AF7C617565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/ImageOptim.strings; sourceTree = "<group>"; };
@@ -971,6 +971,8 @@
 		5ABE15441AE5072300861C6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AF00000000000000000000C1 /* avifenc */,
+				AF00000000000000000000C2 /* avifdec */,
 				5AF71642174AF7C30018D3FE /* pngout */,
 				5ABE15451AE5072300861C6B /* Info.plist */,
 				5A7FB7251E2C3E1600481B4A /* svgo.js */,

@@ -45,7 +45,10 @@
     [task setStandardOutput:commandPipe];
     [task setStandardError:commandPipe];
 
-    [self launchTask];
+    if (![self launchTask]) {
+        [commandHandle closeFile];
+        return NO;
+    }
 
     [self parseLinesFromHandle:commandHandle];
     BOOL ok = [self waitUntilTaskExit];

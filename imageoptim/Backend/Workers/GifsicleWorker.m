@@ -48,7 +48,10 @@
     [task setStandardError:devnull];
     [task setStandardOutput:devnull];
 
-    [self launchTask];
+    if (![self launchTask]) {
+        [devnull closeFile];
+        return NO;
+    }
     BOOL ok = [self waitUntilTaskExit];
 
     [devnull closeFile];

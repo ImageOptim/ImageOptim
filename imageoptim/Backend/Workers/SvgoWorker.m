@@ -47,7 +47,7 @@
 
     [self taskWithPath:nodePath arguments:args];
 
-    [self launchTask];
+    if (![self launchTask]) return NO;
 
     BOOL ok = [self waitUntilTaskExit];
     if (!ok) return NO;

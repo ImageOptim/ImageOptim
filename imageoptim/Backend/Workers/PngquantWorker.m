@@ -51,7 +51,11 @@
     [task setStandardOutput:fileOutputHandle];
     [task setStandardError:commandPipe];
 
-    [self launchTask];
+    if (![self launchTask]) {
+        [commandHandle closeFile];
+        [fileOutputHandle closeFile];
+        return NO;
+    }
     [commandHandle readInBackgroundAndNotify];
 
     [task waitUntilExit];

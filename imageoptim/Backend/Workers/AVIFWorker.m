@@ -64,6 +64,16 @@
         // and avifenc recreates none of them, so the round-trip would alter the geometry
         return NO;
     }
+    // An ICC profile survives verbatim in the PNG's iCCP chunk, but of the CICP values
+    // only sRGB does: avifdec writes no cICP chunk, so everything else comes back as
+    // approximate cHRM/gAMA, or is dropped entirely for curves with no gamma (PQ, HLG).
+    if ([info rangeOfString:@" * ICC Profile    : Present"].location == NSNotFound) {
+        const NSInteger primaries = [self readNumberAfter:@" * Color Primaries: " inLine:info];
+        const NSInteger transfer = [self readNumberAfter:@" * Transfer Char. : " inLine:info];
+        if (primaries != 1 || transfer != 13) { // BT.709 primaries, sRGB transfer
+            return NO;
+        }
+    }
     // avifdec writes >8-bit images as 16-bit PNG, from which avifenc infers 12 bits,
     // so a 10-bit image has to be re-encoded at its original depth explicitly.
     const NSInteger depth = [self readNumberAfter:@" * Bit Depth      : " inLine:info];

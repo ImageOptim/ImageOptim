@@ -66,7 +66,12 @@
 
     [task performSelector:@selector(interrupt) withObject:nil afterDelay:timelimit];
 
-    [self launchTask];
+    if (![self launchTask]) {
+        [NSObject cancelPreviousPerformRequestsWithTarget:task selector:@selector(interrupt) object:nil];
+        [commandHandle closeFile];
+        [fileOutputHandle closeFile];
+        return NO;
+    }
 
     [self parseLinesFromHandle:commandHandle];
 
