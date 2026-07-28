@@ -57,7 +57,7 @@
 
     if (!ok) return NO;
 
-    return [job setFileOptimized:[file tempCopyOfPath:temp] toolName:@"MozJPEG"];
+    return [job setFileOptimized:[file tempCopyOfPath:temp] toolName:@"Jpegli"];
 }
 
 - (BOOL)parseLine:(NSString *)line {

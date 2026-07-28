@@ -247,6 +247,7 @@
 				GCC_WARN_SIGN_COMPARE = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../libjpeg/build/include/",
 					"$(SRCROOT)/../libjpeg/",
 					"$(SRCROOT)/../libjpeg/src/",
 				);
@@ -275,6 +276,7 @@
 				GCC_WARN_SIGN_COMPARE = NO;
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../libjpeg/build/include/",
 					"$(SRCROOT)/../libjpeg/",
 					"$(SRCROOT)/../libjpeg/src/",
 				);

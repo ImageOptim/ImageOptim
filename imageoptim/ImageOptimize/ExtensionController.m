@@ -71,7 +71,6 @@
                                   [defaults registerDefaults:@{
                                       @"AdvPngEnabled" : @(YES),
                                       @"AdvPngLevel" : @(4),
-                                      @"ZopfliEnabled" : @(YES),
                                       @"PngOutRemoveChunks" : @(YES),
                                       @"PreservePermissions" : @(NO),
                                       @"PreserveDates" : @(NO),

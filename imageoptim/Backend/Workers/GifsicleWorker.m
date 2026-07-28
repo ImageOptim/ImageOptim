@@ -55,7 +55,7 @@
 
     if (!ok) return NO;
 
-    NSString *toolName = isLossy ? @"Giflossy" : (interlace ? @"Gifsicle interlaced" : @"Gifsicle");
+    NSString *toolName = isLossy ? @"Gifsicle lossy" : (interlace ? @"Gifsicle interlaced" : @"Gifsicle");
 
     TempFile *output = [file tempCopyOfPath:temp];
     if (!output) {
