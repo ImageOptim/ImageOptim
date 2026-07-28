@@ -8,7 +8,7 @@ Requires:
 
 * Xcode
 * [Rust](https://rust-lang.org/) installed via [rustup](https://www.rustup.rs/) (not Homebrew).
-* [CMake](https://cmake.org/) and [Ninja](https://ninja-build.org/) to build Jpegli (`brew install cmake ninja`).
+* [CMake](https://cmake.org/) and [Ninja](https://ninja-build.org/) to build Jpegli and libjxl (`brew install cmake ninja`).
 
 ```sh
 git clone https://imageoptim.com ImageOptim

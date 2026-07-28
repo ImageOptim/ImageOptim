@@ -3,25 +3,27 @@
 #import "../TempFile.h"
 #import "../../log.h"
 
-static BOOL HasAdditionalDecodedFiles(NSString *pngPath) {
-    NSFileManager *fm = [NSFileManager defaultManager];
+/* djxl names the frames of a multi-frame file "<base>-<n>.<ext>" next to the
+   output path it was given, so they're found by prefix and suffix. Detection
+   and cleanup share this so they can't drift apart. */
+static NSArray<NSString *> *DecodedFrameSiblingPaths(NSString *pngPath) {
     NSString *dirPath = [pngPath stringByDeletingLastPathComponent];
-    NSString *baseName = [[pngPath lastPathComponent] stringByDeletingPathExtension];
-    NSString *extension = [pngPath pathExtension];
-    NSString *framePrefix = [baseName stringByAppendingString:@"-"];
-    NSString *frameSuffix = [@"." stringByAppendingString:extension];
+    NSString *framePrefix = [[[pngPath lastPathComponent] stringByDeletingPathExtension] stringByAppendingString:@"-"];
+    NSString *frameSuffix = [@"." stringByAppendingString:[pngPath pathExtension]];
 
-    NSInteger frameCount = [fm fileExistsAtPath:pngPath] ? 1 : 0;
-    NSArray<NSString *> *entries = [fm contentsOfDirectoryAtPath:dirPath error:nil];
+    NSMutableArray<NSString *> *paths = [NSMutableArray array];
+    NSArray<NSString *> *entries = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirPath error:nil];
     for (NSString *entry in entries) {
         if ([entry hasPrefix:framePrefix] && [entry hasSuffix:frameSuffix]) {
-            frameCount++;
-            if (frameCount > 1) {
-                return YES;
-            }
+            [paths addObject:[dirPath stringByAppendingPathComponent:entry]];
         }
     }
-    return NO;
+    return paths;
+}
+
+static BOOL HasAdditionalDecodedFiles(NSString *pngPath) {
+    NSInteger frameCount = [[NSFileManager defaultManager] fileExistsAtPath:pngPath] ? 1 : 0;
+    return frameCount + (NSInteger)DecodedFrameSiblingPaths(pngPath).count > 1;
 }
 
 /* jxlinfo -v names every container box it reads. The round trip rebuilds the
@@ -94,18 +96,9 @@ static NSString *DecodedFramePath(NSString *pngPath) {
 
 static void CleanupDecodedFiles(NSString *pngPath) {
     NSFileManager *fm = [NSFileManager defaultManager];
-    NSString *dirPath = [pngPath stringByDeletingLastPathComponent];
-    NSString *baseName = [[pngPath lastPathComponent] stringByDeletingPathExtension];
-    NSString *extension = [pngPath pathExtension];
-    NSString *framePrefix = [baseName stringByAppendingString:@"-"];
-    NSString *frameSuffix = [@"." stringByAppendingString:extension];
-
     [fm removeItemAtPath:pngPath error:nil];
-    NSArray<NSString *> *entries = [fm contentsOfDirectoryAtPath:dirPath error:nil];
-    for (NSString *entry in entries) {
-        if ([entry hasPrefix:framePrefix] && [entry hasSuffix:frameSuffix]) {
-            [fm removeItemAtPath:[dirPath stringByAppendingPathComponent:entry] error:nil];
-        }
+    for (NSString *framePath in DecodedFrameSiblingPaths(pngPath)) {
+        [fm removeItemAtPath:framePath error:nil];
     }
 }
 
@@ -134,7 +127,9 @@ static void CleanupDecodedFiles(NSString *pngPath) {
     [self taskWithPath:jxlinfoPath arguments:@[@"-v", path]];
     NSPipe *outputPipe = [NSPipe pipe];
     [task setStandardOutput:outputPipe];
-    [self launchTask];
+    if (![self launchTask]) {
+        return NO;
+    }
     NSData *outputData = [[outputPipe fileHandleForReading] readDataToEndOfFile];
     if (![self waitUntilTaskExit]) {
         return NO;
@@ -228,8 +223,7 @@ static void CleanupDecodedFiles(NSString *pngPath) {
             @"--output_frames",
             @"--output_extra_channels"
         ]];
-        [self launchTask];
-        decoded = [self waitUntilTaskExit];
+        decoded = [self launchTask] && [self waitUntilTaskExit];
     } @catch (NSException *e) {
         IOWarn("djxl failed: %@", e);
         CleanupDecodedFiles(pngPath);
@@ -253,17 +247,16 @@ static void CleanupDecodedFiles(NSString *pngPath) {
     }
 
     // Re-encode to JXL
-    NSMutableArray *args = [NSMutableArray array];
-    if (quality < 100) {
-        [args addObjectsFromArray:@[@"-q", [NSString stringWithFormat:@"%ld", (long)quality]]];
-    } else {
-        [args addObjectsFromArray:@[@"-q", @"100"]];
-    }
-    [args addObjectsFromArray:@[@"-e", @"9", decodedFramePath, temp.path]];
+    NSArray *args = @[@"-q", [NSString stringWithFormat:@"%ld", (long)quality],
+                      @"-e", @"9", decodedFramePath, temp.path];
 
-    [self taskWithPath:cjxlPath arguments:args];
-    [self launchTask];
-    BOOL success = [self waitUntilTaskExit];
+    BOOL success = NO;
+    @try {
+        [self taskWithPath:cjxlPath arguments:args];
+        success = [self launchTask] && [self waitUntilTaskExit];
+    } @catch (NSException *e) {
+        IOWarn("cjxl failed: %@", e);
+    }
 
     CleanupDecodedFiles(pngPath);
 
