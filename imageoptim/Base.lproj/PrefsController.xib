@@ -299,6 +299,32 @@
                                                             <binding destination="300" name="value" keyPath="values.SvgoEnabled" id="S8A-r5-4NB"/>
                                                         </connections>
                                                     </button>
+                                                    <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="AVe-nb-0a1">
+                                                        <rect key="frame" x="18" y="32" width="55" height="18"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14" id="AVe-hg-0a2"/>
+                                                        </constraints>
+                                                        <buttonCell key="cell" type="check" title="AVIF" bezelStyle="regularSquare" imagePosition="left" alignment="left" lineBreakMode="truncatingTail" state="on" inset="2" id="AVe-cl-0a3">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <binding destination="300" name="value" keyPath="values.AvifEnabled" id="AVe-bd-0a4"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="JXe-nb-0b1">
+                                                        <rect key="frame" x="18" y="12" width="78" height="18"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="14" id="JXe-hg-0b2"/>
+                                                        </constraints>
+                                                        <buttonCell key="cell" type="check" title="JPEG XL" bezelStyle="regularSquare" imagePosition="left" alignment="left" lineBreakMode="truncatingTail" state="on" inset="2" id="JXe-cl-0b3">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <binding destination="300" name="value" keyPath="values.JxlEnabled" id="JXe-bd-0b4"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1088" secondAttribute="trailing" constant="12" id="72p-CO-cJu"/>
@@ -306,7 +332,13 @@
                                                     <constraint firstItem="78U-a4-xCR" firstAttribute="leading" secondItem="1085" secondAttribute="leading" id="Cek-TY-eWL"/>
                                                     <constraint firstItem="1087" firstAttribute="top" secondItem="1089" secondAttribute="bottom" constant="6" id="Fed-4a-nRz"/>
                                                     <constraint firstItem="1085" firstAttribute="top" secondItem="1091" secondAttribute="bottom" constant="6" id="IeS-FY-P6Q"/>
-                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="78U-a4-xCR" secondAttribute="bottom" constant="16" id="J1E-1G-KnI"/>
+                                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JXe-nb-0b1" secondAttribute="bottom" constant="16" id="J1E-1G-KnI"/>
+                                                    <constraint firstItem="AVe-nb-0a1" firstAttribute="top" secondItem="78U-a4-xCR" secondAttribute="bottom" constant="6" id="AVe-ct-0a5"/>
+                                                    <constraint firstItem="AVe-nb-0a1" firstAttribute="leading" secondItem="55p-R0-QvS" secondAttribute="leading" constant="20" id="AVe-cl-0a6"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AVe-nb-0a1" secondAttribute="trailing" constant="12" id="AVe-cr-0a7"/>
+                                                    <constraint firstItem="JXe-nb-0b1" firstAttribute="top" secondItem="AVe-nb-0a1" secondAttribute="bottom" constant="6" id="JXe-ct-0b5"/>
+                                                    <constraint firstItem="JXe-nb-0b1" firstAttribute="leading" secondItem="55p-R0-QvS" secondAttribute="leading" constant="20" id="JXe-cl-0b6"/>
+                                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JXe-nb-0b1" secondAttribute="trailing" constant="12" id="JXe-cr-0b7"/>
                                                     <constraint firstItem="1089" firstAttribute="leading" secondItem="55p-R0-QvS" secondAttribute="leading" constant="20" id="Ji6-IV-G9i"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1085" secondAttribute="trailing" constant="12" id="MGe-at-Icd"/>
                                                     <constraint firstItem="1091" firstAttribute="top" secondItem="1090" secondAttribute="bottom" constant="6" id="NGN-NP-WGG"/>
@@ -777,9 +809,162 @@
                                                 </binding>
                                             </connections>
                                         </textField>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AVq-lb-1a1">
+                                            <rect key="frame" x="36" y="99" width="76" height="17"/>
+                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="AVIF" id="AVq-lc-1a2">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="AVq-lt-1a3">
+                                                    <dictionary key="options">
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                        <string key="NSValueTransformerName">DisabledColor</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </textField>
+                                        <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AVq-sl-1a4">
+                                            <rect key="frame" x="118" y="87" width="166" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="900" constant="100" id="AVq-sw-1a5"/>
+                                                <constraint firstAttribute="height" constant="22" id="AVq-sh-1a6"/>
+                                            </constraints>
+                                            <sliderCell key="cell" lineBreakMode="truncatingTail" continuous="YES" alignment="left" minValue="40" maxValue="100" doubleValue="85" tickMarkPosition="below" numberOfTickMarks="7" allowsTickMarkValuesOnly="YES" sliderType="linear" id="AVq-sc-1a7">
+                                                <font key="font" size="12" name="Helvetica"/>
+                                            </sliderCell>
+                                            <connections>
+                                                <binding destination="300" name="value" keyPath="values.AvifQuality" id="AVq-sb-1a8">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                                <binding destination="300" name="enabled" keyPath="values.LossyEnabled" id="AVq-se-1a9"/>
+                                            </connections>
+                                        </slider>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AVq-rd-1b1">
+                                            <rect key="frame" x="288" y="100" width="28" height="10"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="AVq-rw-1b2"/>
+                                                <constraint firstAttribute="height" constant="10" id="AVq-rh-1b3"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="85%" id="AVq-rc-1b4">
+                                                <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0%" negativeFormat="-0%" hasThousandSeparators="NO" thousandSeparator="" id="AVq-rf-1b5">
+                                                    <attributedString key="attributedStringForZero">
+                                                        <fragment content="0%"/>
+                                                    </attributedString>
+                                                    <decimal key="minimum" value="NaN"/>
+                                                    <decimal key="maximum" value="NaN"/>
+                                                </numberFormatter>
+                                                <font key="font" metaFont="miniSystem"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="300" name="value" keyPath="values.AvifQuality" id="AVq-rb-1b6">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                                <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="AVq-rt-1b7">
+                                                    <dictionary key="options">
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                        <string key="NSValueTransformerName">DisabledColor</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JXq-lb-2a1">
+                                            <rect key="frame" x="292" y="99" width="101" height="17"/>
+                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="JPEG XL" id="JXq-lc-2a2">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="JXq-lt-2a3">
+                                                    <dictionary key="options">
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                        <string key="NSValueTransformerName">DisabledColor</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </textField>
+                                        <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JXq-sl-2a4">
+                                            <rect key="frame" x="397" y="87" width="166" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="900" constant="100" id="JXq-sw-2a5"/>
+                                                <constraint firstAttribute="height" constant="22" id="JXq-sh-2a6"/>
+                                            </constraints>
+                                            <sliderCell key="cell" lineBreakMode="truncatingTail" continuous="YES" alignment="left" minValue="40" maxValue="100" doubleValue="90" tickMarkPosition="below" numberOfTickMarks="7" allowsTickMarkValuesOnly="YES" sliderType="linear" id="JXq-sc-2a7">
+                                                <font key="font" size="12" name="Helvetica"/>
+                                            </sliderCell>
+                                            <connections>
+                                                <binding destination="300" name="value" keyPath="values.JxlQuality" id="JXq-sb-2a8">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                                <binding destination="300" name="enabled" keyPath="values.LossyEnabled" id="JXq-se-2a9"/>
+                                            </connections>
+                                        </slider>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JXq-rd-2b1">
+                                            <rect key="frame" x="567" y="100" width="28" height="10"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="JXq-rw-2b2"/>
+                                                <constraint firstAttribute="height" constant="10" id="JXq-rh-2b3"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="90%" id="JXq-rc-2b4">
+                                                <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0%" negativeFormat="-0%" hasThousandSeparators="NO" thousandSeparator="" id="JXq-rf-2b5">
+                                                    <attributedString key="attributedStringForZero">
+                                                        <fragment content="0%"/>
+                                                    </attributedString>
+                                                    <decimal key="minimum" value="NaN"/>
+                                                    <decimal key="maximum" value="NaN"/>
+                                                </numberFormatter>
+                                                <font key="font" metaFont="miniSystem"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="300" name="value" keyPath="values.JxlQuality" id="JXq-rb-2b6">
+                                                    <dictionary key="options">
+                                                        <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                                <binding destination="300" name="textColor" keyPath="values.LossyEnabled" id="JXq-rt-2b7">
+                                                    <dictionary key="options">
+                                                        <bool key="NSRaisesForNotApplicableKeys" value="NO"/>
+                                                        <string key="NSValueTransformerName">DisabledColor</string>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </textField>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="230" firstAttribute="leading" secondItem="188" secondAttribute="leading" id="0DR-hc-gbR"/>
+                                        <constraint firstItem="AVq-sl-1a4" firstAttribute="top" secondItem="yIu-do-gJk" secondAttribute="bottom" constant="16" id="AVq-ct-1c1"/>
+                                        <constraint firstItem="AVq-sl-1a4" firstAttribute="leading" secondItem="etZ-HC-jX4" secondAttribute="leading" id="AVq-cl-1c2"/>
+                                        <constraint firstItem="AVq-sl-1a4" firstAttribute="trailing" secondItem="etZ-HC-jX4" secondAttribute="trailing" id="AVq-cr-1c3"/>
+                                        <constraint firstItem="AVq-lb-1a1" firstAttribute="trailing" secondItem="Bpe-mx-U1d" secondAttribute="trailing" id="AVq-cb-1c4"/>
+                                        <constraint firstItem="AVq-lb-1a1" firstAttribute="baseline" secondItem="AVq-sl-1a4" secondAttribute="baseline" id="AVq-cs-1c5"/>
+                                        <constraint firstItem="AVq-lb-1a1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="178" secondAttribute="leading" constant="12" id="AVq-cg-1c6"/>
+                                        <constraint firstItem="AVq-rd-1b1" firstAttribute="leading" secondItem="tAP-Sd-Xea" secondAttribute="leading" id="AVq-cd-1c7"/>
+                                        <constraint firstItem="AVq-rd-1b1" firstAttribute="baseline" secondItem="AVq-sl-1a4" secondAttribute="baseline" id="AVq-ce-1c8"/>
+                                        <constraint firstItem="JXq-sl-2a4" firstAttribute="top" secondItem="AVq-sl-1a4" secondAttribute="top" id="JXq-ct-2c1"/>
+                                        <constraint firstItem="JXq-sl-2a4" firstAttribute="leading" secondItem="5Ah-J5-74w" secondAttribute="leading" id="JXq-cl-2c2"/>
+                                        <constraint firstItem="JXq-sl-2a4" firstAttribute="trailing" secondItem="5Ah-J5-74w" secondAttribute="trailing" id="JXq-cr-2c3"/>
+                                        <constraint firstItem="JXq-lb-2a1" firstAttribute="trailing" secondItem="cYx-VD-SW3" secondAttribute="trailing" id="JXq-cb-2c4"/>
+                                        <constraint firstItem="JXq-lb-2a1" firstAttribute="baseline" secondItem="JXq-sl-2a4" secondAttribute="baseline" id="JXq-cs-2c5"/>
+                                        <constraint firstItem="JXq-lb-2a1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AVq-rd-1b1" secondAttribute="trailing" constant="12" id="JXq-cg-2c6"/>
+                                        <constraint firstItem="JXq-rd-2b1" firstAttribute="leading" secondItem="z4S-g9-Q0f" secondAttribute="leading" id="JXq-cd-2c7"/>
+                                        <constraint firstItem="JXq-rd-2b1" firstAttribute="baseline" secondItem="JXq-sl-2a4" secondAttribute="baseline" id="JXq-ce-2c8"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JXq-sl-2a4" secondAttribute="bottom" constant="12" id="JXq-cf-2c9"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="B5L-0o-JLA" secondAttribute="trailing" constant="20" symbolic="YES" id="0tG-mP-x7O"/>
                                         <constraint firstItem="3T2-dM-tWr" firstAttribute="top" secondItem="etZ-HC-jX4" secondAttribute="bottom" constant="8" id="1Q5-MM-JP0"/>
                                         <constraint firstItem="242" firstAttribute="centerX" secondItem="188" secondAttribute="centerX" id="1uH-e2-mTl"/>
