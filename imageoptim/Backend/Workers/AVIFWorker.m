@@ -38,6 +38,59 @@
     return [[NSString alloc] initWithData:outputData encoding:NSUTF8StringEncoding];
 }
 
+/* avifdec bakes clap/irot/imir into the decoded pixels and avifenc recreates
+   none of them, so a file carrying one of those must be left alone.
+
+   pasp is different. It is dropped by the round-trip too, but it only describes
+   non-square pixels — a square ratio says nothing the decoder does not already
+   assume, and encoders emit "pasp 1/1" routinely. Refusing those would decline
+   most AVIFs in the wild for no benefit, so only a ratio that actually stretches
+   the image counts.
+
+   avifdec prints "Transformations: None" when there are none, otherwise the
+   header alone followed by an indented line per transform. */
+- (BOOL)transformsSurviveRoundTrip:(NSString *)info {
+    if ([info rangeOfString:@" * Transformations: None"].location != NSNotFound) {
+        return YES;
+    }
+
+    BOOL inTransforms = NO;
+    BOOL sawTransform = NO;
+    for (NSString *line in [info componentsSeparatedByString:@"\n"]) {
+        if ([line hasPrefix:@" * Transformations:"]) {
+            inTransforms = YES;
+            continue;
+        }
+        if (!inTransforms) {
+            continue;
+        }
+        // The block ends at the next top-level " * " entry.
+        if (![line hasPrefix:@"    "]) {
+            break;
+        }
+
+        NSString *entry = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if (![entry hasPrefix:@"* pasp"]) {
+            return NO; // clap, irot or imir: the geometry would change
+        }
+        sawTransform = YES;
+
+        NSRange colon = [entry rangeOfString:@":" options:NSBackwardsSearch];
+        if (colon.location == NSNotFound) {
+            return NO;
+        }
+        NSString *ratio = [[entry substringFromIndex:NSMaxRange(colon)]
+            stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        NSArray<NSString *> *parts = [ratio componentsSeparatedByString:@"/"];
+        const NSInteger hSpacing = parts.count == 2 ? [parts[0] integerValue] : 0;
+        const NSInteger vSpacing = parts.count == 2 ? [parts[1] integerValue] : 0;
+        if (hSpacing <= 0 || hSpacing != vSpacing) {
+            return NO; // non-square pixels, so dropping pasp would distort the image
+        }
+    }
+    return inTransforms && sawTransform;
+}
+
 - (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
     if (file->isAnimated) {
         return NO; // Animated AVIF cannot be safely re-encoded via PNG
@@ -59,9 +112,7 @@
     if ([info rangeOfString:@" * Gain map       : Absent"].location == NSNotFound) {
         return NO; // PNG cannot preserve AVIF gain maps
     }
-    if ([info rangeOfString:@" * Transformations: None"].location == NSNotFound) {
-        // avifdec bakes clap/irot/imir into the decoded pixels and drops pasp entirely,
-        // and avifenc recreates none of them, so the round-trip would alter the geometry
+    if (![self transformsSurviveRoundTrip:info]) {
         return NO;
     }
     if ([info rangeOfString:@" * Alpha          : Premultiplied"].location != NSNotFound) {
