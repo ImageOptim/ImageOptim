@@ -3,25 +3,19 @@
 	url = https://github.com/ImageOptim/temporary-patch-Sparkle.git
 [submodule "gifsicle/gifsicle"]
 	path = gifsicle/orig
-	url = https://github.com/pornel/giflossy.git
-[submodule "zopfli-png/zopfli"]
-	path = zopfli-png/zopfli
-	url = https://github.com/ImageOptim/zopfli.git
+	url = https://github.com/kohler/gifsicle.git
 [submodule "pngquant/src"]
 	path = pngquant/src
 	url = https://github.com/pornel/pngquant.git
 [submodule "libjpeg/src"]
 	path = libjpeg/src
-	url = https://github.com/ImageOptim/mozjpeg-cocoa.git
+	url = https://github.com/google/jpegli.git
 [submodule "jpegoptim/src"]
 	path = jpegoptim/src
 	url = https://github.com/tjko/jpegoptim.git
-[submodule "guetzli/guetzli"]
-	path = guetzli/guetzli
-	url = https://github.com/google/guetzli.git
-[submodule "svgcleaner/src"]
-	path = svgcleaner/src
-	url = https://github.com/RazrFalcon/svgcleaner.git
 [submodule "oxipng/oxipng"]
 	path = oxipng/oxipng
 	url = https://github.com/shssoichiro/oxipng
+[submodule "libavif/src"]
+	path = libavif/src
+	url = https://github.com/AOMediaCodec/libavif.git

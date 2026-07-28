@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF00000000000000000000B1 /* AVIFWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = AF00000000000000000000A1 /* AVIFWorker.m */; };
+		AF00000000000000000000D1 /* avifenc in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF00000000000000000000C1 /* avifenc */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		AF00000000000000000000D2 /* avifdec in CopyFiles */ = {isa = PBXBuildFile; fileRef = AF00000000000000000000C2 /* avifdec */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		1ACFBA171799E9CC006D93B2 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 1ACFBA191799E9CC006D93B2 /* Credits.html */; };
 		1AD5B24E174F84C600BC75FD /* ImageOptimVerbs.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */; };
 		1AD5B259174FEA6200BC75FD /* GetQueueCountCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5B250174F850900BC75FD /* GetQueueCountCommand.m */; };
@@ -45,7 +48,6 @@
 		5A7FB6D71E2C37DD00481B4A /* SvgoWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A7FB6D61E2C37DD00481B4A /* SvgoWorker.h */; };
 		5A7FB6F31E2C37EB00481B4A /* SvgoWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FB6F21E2C37EB00481B4A /* SvgoWorker.m */; };
 		5A7FB7261E2C3E1600481B4A /* svgo.js in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A7FB7251E2C3E1600481B4A /* svgo.js */; };
-		5A93FD2F1FF1C452005D2F27 /* SvgcleanerWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A93FD051FF1BF1F005D2F27 /* SvgcleanerWorker.m */; };
 		5A99FE84140AE80600BB2F79 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A99FE83140AE80600BB2F79 /* Quartz.framework */; };
 		5AA1B7E9140AC55F00B5707C /* RevealButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A391880140A9B10001B4FD7 /* RevealButtonCell.m */; };
 		5AACA8310CAFE74E004D45CA /* Transformers.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA8300CAFE74E004D45CA /* Transformers.m */; };
@@ -65,7 +67,6 @@
 		5ABE15801AE5073E00861C6B /* PngoutWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE54DEE0CAEF56100903DF4 /* PngoutWorker.m */; };
 		5ABE15811AE5073E00861C6B /* Save.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AB81F941AE1BE1300719AB7 /* Save.m */; };
 		5ABE15821AE5073E00861C6B /* Worker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AACA13E0CAF241B004D45CA /* Worker.m */; };
-		5ABE15831AE5073E00861C6B /* ZopfliWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2ACD131790935C004992B7 /* ZopfliWorker.m */; };
 		5ABE15841AE5074900861C6B /* pngout in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5AF71642174AF7C30018D3FE /* pngout */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE161B1AE508E600861C6B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A08FDAF1933D635001DA24B /* libsqlite3.dylib */; };
 		5ABE161C1AE508F400861C6B /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AEF1B1D10F2BCA900E3E4F0 /* AppKit.framework */; };
@@ -77,7 +78,6 @@
 		5ABE16261AE5096D00861C6B /* gifsicle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A4DC20D1028ADB200A9DD55 /* gifsicle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE16271AE5097800861C6B /* advpng in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A984D4A11238E51007622D7 /* advpng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE16291AE5099500861C6B /* liblibpng.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A20CC951123939C0000400D /* liblibpng.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		5ABE162A1AE5099F00861C6B /* zopflipng in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5A1EBED317908F8200361F08 /* zopflipng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5ABE16621AE50D1D00861C6B /* ImageOptimController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D2E5C0C922D6D00FD7CDE /* ImageOptimController.m */; };
 		5ABE16D01AE5AD0200861C6B /* FilesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AE1C4990CA6CDDC000CF636 /* FilesController.m */; };
 		5ABE16D21AE5AD9F00861C6B /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE16D11AE5AD9F00861C6B /* log.c */; };
@@ -96,10 +96,7 @@
 		5F91633A2ADB7A7B00230D34 /* pngquant in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F9163392ADB7A7B00230D34 /* pngquant */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		5FD569DD21A059A000BC9F82 /* JobProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD569DC21A059A000BC9F82 /* JobProxy.m */; };
 		5FFC96C1275842310035D0A2 /* oxipng in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F75B47527583B9B0072F27A /* oxipng */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		5FFC9752275843210035D0A2 /* svgcleaner in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5FFC9750275843160035D0A2 /* svgcleaner */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
-		D047E4651E7C3D7C0036F96B /* GuetzliWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = D047E4641E7C3D7C0036F96B /* GuetzliWorker.m */; };
-		D047E5311E7D90DD0036F96B /* guetzli in CopyFiles */ = {isa = PBXBuildFile; fileRef = D047E4861E7D7E310036F96B /* guetzli */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,13 +106,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 8DD76FB20486AB0100D96B5E;
 			remoteInfo = pngcrush;
-		};
-		5A1EBED217908F8200361F08 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5A1EBE6A17908D9D00361F08;
-			remoteInfo = "zopfli-png";
 		};
 		5A1F3CA61B4800D8006570E0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -306,13 +296,6 @@
 			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E;
 			remoteInfo = pngcrush;
 		};
-		5ABE16191AE508C200861C6B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 5A1EBE6917908D9D00361F08;
-			remoteInfo = zopflipng;
-		};
 		5AC64F0A1AF3FDEE0032AA7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -383,20 +366,6 @@
 			remoteGlobalIDString = EA4311A0229D5FBC00A5503D;
 			remoteInfo = ed25519;
 		};
-		5FFC974F275843160035D0A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA6070D14537821B170C4A65;
-			remoteInfo = "svgcleaner-bin";
-		};
-		5FFC9753275843280035D0A2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CA00FC5A7BA8C09639ADC154;
-			remoteInfo = "svgcleaner-bin";
-		};
 		D047E45F1E7C3CE80036F96B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
@@ -411,20 +380,6 @@
 			remoteGlobalIDString = 5AE13FB31E0D9E07000D2C2C;
 			remoteInfo = generate_appcast;
 		};
-		D047E4851E7D7E310036F96B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D047E47C1E7D7DF00036F96B /* guetzli.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D047E4721E7D7DF00036F96B;
-			remoteInfo = guetzli;
-		};
-		D047E4CC1E7D81040036F96B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D047E47C1E7D7DF00036F96B /* guetzli.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D047E4E71E7D868D0036F96B;
-			remoteInfo = guetzli;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -435,8 +390,9 @@
 			dstSubfolderSpec = 7;
 			files = (
 				5ABE16271AE5097800861C6B /* advpng in CopyFiles */,
+				AF00000000000000000000D1 /* avifenc in CopyFiles */,
+				AF00000000000000000000D2 /* avifdec in CopyFiles */,
 				5ABE16261AE5096D00861C6B /* gifsicle in CopyFiles */,
-				D047E5311E7D90DD0036F96B /* guetzli in CopyFiles */,
 				5ABE16241AE5096300861C6B /* jpegoptim in CopyFiles */,
 				5ABE16231AE5095B00861C6B /* jpegtran in CopyFiles */,
 				5ABE16251AE5096800861C6B /* libimageoptimjpeg.dylib in CopyFiles */,
@@ -445,9 +401,7 @@
 				5ABE161F1AE5094600861C6B /* pngcrush in CopyFiles */,
 				5ABE15841AE5074900861C6B /* pngout in CopyFiles */,
 				5F91633A2ADB7A7B00230D34 /* pngquant in CopyFiles */,
-				5FFC9752275843210035D0A2 /* svgcleaner in CopyFiles */,
 				5A7FB7261E2C3E1600481B4A /* svgo.js in CopyFiles */,
-				5ABE162A1AE5099F00861C6B /* zopflipng in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +431,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF00000000000000000000A1 /* AVIFWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVIFWorker.m; sourceTree = "<group>"; };
+		AF00000000000000000000A2 /* AVIFWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVIFWorker.h; sourceTree = "<group>"; };
+		AF00000000000000000000C1 /* avifenc */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = avifenc; path = ../libavif/build/avifenc; sourceTree = SOURCE_ROOT; };
+		AF00000000000000000000C2 /* avifdec */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = avifdec; path = ../libavif/build/avifdec; sourceTree = SOURCE_ROOT; };
 		1A9AF7C317565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lt; path = lt.lproj/Help; sourceTree = "<group>"; };
 		1A9AF7C517565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1A9AF7C617565DCE002ED2A5 /* lt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = lt; path = lt.lproj/ImageOptim.strings; sourceTree = "<group>"; };
@@ -528,15 +486,12 @@
 		5A0E43D81B650F28008EF2EB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PrefsController.strings; sourceTree = "<group>"; };
 		5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = pngcrush.xcodeproj; path = ../pngcrush/pngcrush.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A1D3E8B14366933004EE809 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
-		5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "zopfli-png.xcodeproj"; path = "../zopfli-png/zopfli-png.xcodeproj"; sourceTree = "<group>"; };
 		5A1F3CEE1B489796006570E0 /* SharedPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedPrefs.m; sourceTree = "<group>"; };
 		5A1F3D001B4897B3006570E0 /* SharedPrefs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SharedPrefs.h; sourceTree = "<group>"; };
 		5A20CC8E1123939C0000400D /* libpng.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libpng.xcodeproj; path = ../libpng/libpng.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A20CC9D112393B80000400D /* jpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpeg.xcodeproj; path = ../libjpeg/jpeg.xcodeproj; sourceTree = SOURCE_ROOT; };
 		5A27B956139B03090095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = release.xcconfig; sourceTree = "<group>"; };
 		5A27B9C2139B079A0095FC2F /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = debug.xcconfig; sourceTree = "<group>"; };
-		5A2ACD121790935C004992B7 /* ZopfliWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZopfliWorker.h; sourceTree = "<group>"; };
-		5A2ACD131790935C004992B7 /* ZopfliWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZopfliWorker.m; sourceTree = "<group>"; };
 		5A2E55871A7C386900985295 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5A34A632140EEDB900DE44D2 /* DragDropImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragDropImageView.h; sourceTree = "<group>"; };
 		5A34A633140EEDB900DE44D2 /* DragDropImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragDropImageView.m; sourceTree = "<group>"; };
@@ -616,9 +571,6 @@
 		5A8DFBD810C097AC009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = file.plist.strings; name = Dutch; path = nl.lproj/PrefsController.strings; sourceTree = "<group>"; };
 		5A8DFBD910C097B9009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Dutch; path = nl.lproj/Help; sourceTree = "<group>"; };
 		5A8DFBEB10C09812009A5C8E /* Dutch */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Dutch; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
-		5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = svgcleaner.xcodeproj; path = ../svgcleaner/svgcleaner.xcodeproj; sourceTree = "<group>"; };
-		5A93FCEC1FF1BF1F005D2F27 /* SvgcleanerWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SvgcleanerWorker.h; sourceTree = "<group>"; };
-		5A93FD051FF1BF1F005D2F27 /* SvgcleanerWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SvgcleanerWorker.m; sourceTree = "<group>"; };
 		5A94A00C102757E5005CC9CB /* French */ = {isa = PBXFileReference; lastKnownFileType = file.plist.strings; name = French; path = fr.lproj/PrefsController.strings; sourceTree = "<group>"; };
 		5A94A00D102757F0005CC9CB /* French */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = French; path = fr.lproj/ImageOptim.strings; sourceTree = "<group>"; };
 		5A94A02610275AFD005CC9CB /* fr */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fr; path = fr.lproj/Help; sourceTree = "<group>"; };
@@ -729,9 +681,6 @@
 		5FD569DC21A059A000BC9F82 /* JobProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JobProxy.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; explicitFileType = text.plist.xml; fileEncoding = 4; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ImageOptim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageOptim.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D047E4491E7C3CE70036F96B /* GuetzliWorker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuetzliWorker.h; sourceTree = "<group>"; };
-		D047E4641E7C3D7C0036F96B /* GuetzliWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuetzliWorker.m; sourceTree = "<group>"; };
-		D047E47C1E7D7DF00036F96B /* guetzli.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = guetzli.xcodeproj; path = ../guetzli/guetzli.xcodeproj; sourceTree = "<group>"; };
 		F8C4ABCD1755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ko; path = ko.lproj/Help; sourceTree = "<group>"; };
 		F8C4ABCF1755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F8C4ABD01755C91B004FC041 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/ImageOptim.strings; sourceTree = "<group>"; };
@@ -844,7 +793,6 @@
 				5A984D4011238E51007622D7 /* advpng.xcodeproj */,
 				5A27B9C2139B079A0095FC2F /* debug.xcconfig */,
 				5A4DC2051028ADB200A9DD55 /* gifsicle.xcodeproj */,
-				D047E47C1E7D7DF00036F96B /* guetzli.xcodeproj */,
 				5AC4CC101AF445480003AEA2 /* ImageOptim.entitlements */,
 				1AD5B24D174F84C600BC75FD /* ImageOptimVerbs.sdef */,
 				5A20CC9D112393B80000400D /* jpeg.xcodeproj */,
@@ -856,8 +804,6 @@
 				5A1943390FF97F86007C3324 /* pngcrush.xcodeproj */,
 				5A728F191836C0EE004D0D73 /* pngquant.xcodeproj */,
 				5A27B956139B03090095FC2F /* release.xcconfig */,
-				5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */,
-				5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -915,14 +861,6 @@
 			isa = PBXGroup;
 			children = (
 				5F75B47527583B9B0072F27A /* oxipng */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		5A1EBECF17908F8200361F08 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5A1EBED317908F8200361F08 /* zopflipng */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -995,14 +933,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5A93FB4A1FF1BB2C005D2F27 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				5FFC9750275843160035D0A2 /* svgcleaner */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		5A984D4111238E51007622D7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1041,6 +971,8 @@
 		5ABE15441AE5072300861C6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				AF00000000000000000000C1 /* avifenc */,
+				AF00000000000000000000C2 /* avifdec */,
 				5AF71642174AF7C30018D3FE /* pngout */,
 				5ABE15451AE5072300861C6B /* Info.plist */,
 				5A7FB7251E2C3E1600481B4A /* svgo.js */,
@@ -1098,8 +1030,6 @@
 				5A44F5830CB2ECEB00BD2884 /* CommandWorker.m */,
 				5A4DC2191028AE1800A9DD55 /* GifsicleWorker.h */,
 				5A4DC21A1028AE1800A9DD55 /* GifsicleWorker.m */,
-				D047E4491E7C3CE70036F96B /* GuetzliWorker.h */,
-				D047E4641E7C3D7C0036F96B /* GuetzliWorker.m */,
 				5A9E5B290CB961E000E05D28 /* JpegoptimWorker.h */,
 				5A9E5B2A0CB961E000E05D28 /* JpegoptimWorker.m */,
 				5A6E04410EA40B6A00380DE7 /* JpegtranWorker.h */,
@@ -1114,14 +1044,12 @@
 				5AA9F4371899D063006C64C8 /* PngquantWorker.m */,
 				5AB81F931AE1BE1300719AB7 /* Save.h */,
 				5AB81F941AE1BE1300719AB7 /* Save.m */,
-				5A93FCEC1FF1BF1F005D2F27 /* SvgcleanerWorker.h */,
-				5A93FD051FF1BF1F005D2F27 /* SvgcleanerWorker.m */,
 				5A7FB6D61E2C37DD00481B4A /* SvgoWorker.h */,
 				5A7FB6F21E2C37EB00481B4A /* SvgoWorker.m */,
+				AF00000000000000000000A2 /* AVIFWorker.h */,
+				AF00000000000000000000A1 /* AVIFWorker.m */,
 				5AACA13D0CAF241B004D45CA /* Worker.h */,
 				5AACA13E0CAF241B004D45CA /* Worker.m */,
-				5A2ACD121790935C004992B7 /* ZopfliWorker.h */,
-				5A2ACD131790935C004992B7 /* ZopfliWorker.m */,
 			);
 			name = Workers;
 			path = Backend/Workers;
@@ -1134,14 +1062,6 @@
 				5A5811931AD73A630001838D /* Sparkle.xcodeproj */,
 			);
 			name = Sparkle;
-			sourceTree = "<group>";
-		};
-		D047E4821E7D7E310036F96B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D047E4861E7D7E310036F96B /* guetzli */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1196,6 +1116,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5ABE15721AE5072300861C6B /* Build configuration list for PBXNativeTarget "Backend" */;
 			buildPhases = (
+				AF00000000000000000000E1 /* Build AVIF Tools */,
 				5ABE153D1AE5072300861C6B /* Sources */,
 				5ABE153E1AE5072300861C6B /* Frameworks */,
 				5ABE153F1AE5072300861C6B /* Headers */,
@@ -1213,11 +1134,8 @@
 				5ABE160E1AE508A300861C6B /* PBXTargetDependency */,
 				5ABE16101AE508C200861C6B /* PBXTargetDependency */,
 				5ABE16161AE508C200861C6B /* PBXTargetDependency */,
-				5ABE161A1AE508C200861C6B /* PBXTargetDependency */,
 				5F4F10AA2ADE0E3000A3093E /* PBXTargetDependency */,
 				5FFC969B275842290035D0A2 /* PBXTargetDependency */,
-				5FFC9754275843280035D0A2 /* PBXTargetDependency */,
-				D047E4CD1E7D81040036F96B /* PBXTargetDependency */,
 			);
 			name = Backend;
 			productName = Backend;
@@ -1364,10 +1282,6 @@
 					ProjectRef = 5A4DC2051028ADB200A9DD55 /* gifsicle.xcodeproj */;
 				},
 				{
-					ProductGroup = D047E4821E7D7E310036F96B /* Products */;
-					ProjectRef = D047E47C1E7D7DF00036F96B /* guetzli.xcodeproj */;
-				},
-				{
 					ProductGroup = 5A20CC9E112393B90000400D /* Products */;
 					ProjectRef = 5A20CC9D112393B80000400D /* jpeg.xcodeproj */;
 				},
@@ -1399,14 +1313,6 @@
 					ProductGroup = 5A5811941AD73A630001838D /* Products */;
 					ProjectRef = 5A5811931AD73A630001838D /* Sparkle.xcodeproj */;
 				},
-				{
-					ProductGroup = 5A93FB4A1FF1BB2C005D2F27 /* Products */;
-					ProjectRef = 5A93FB491FF1BB2C005D2F27 /* svgcleaner.xcodeproj */;
-				},
-				{
-					ProductGroup = 5A1EBECF17908F8200361F08 /* Products */;
-					ProjectRef = 5A1EBE7617908DC300361F08 /* zopfli-png.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1426,13 +1332,6 @@
 			fileType = "compiled.mach-o.executable";
 			path = pngcrush;
 			remoteRef = 5A1943440FF97F86007C3324 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		5A1EBED317908F8200361F08 /* zopflipng */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = zopflipng;
-			remoteRef = 5A1EBED217908F8200361F08 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		5A20CC951123939C0000400D /* liblibpng.dylib */ = {
@@ -1568,13 +1467,6 @@
 			remoteRef = 5FFC96BD275842290035D0A2 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		5FFC9750275843160035D0A2 /* svgcleaner */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = svgcleaner;
-			remoteRef = 5FFC974F275843160035D0A2 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		D047E4601E7C3CE80036F96B /* fileop */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
@@ -1587,13 +1479,6 @@
 			fileType = "compiled.mach-o.executable";
 			path = generate_appcast;
 			remoteRef = D047E4611E7C3CE80036F96B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		D047E4861E7D7E310036F96B /* guetzli */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = guetzli;
-			remoteRef = D047E4851E7D7E310036F96B /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1646,6 +1531,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		AF00000000000000000000E1 /* Build AVIF Tools */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build AVIF Tools";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/../libavif/build/avifenc",
+				"$(SRCROOT)/../libavif/build/avifdec",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../libavif/build-avif.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5ABE153D1AE5072300861C6B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1656,7 +1566,6 @@
 				5ABE157A1AE5073E00861C6B /* DirScanner.m in Sources */,
 				5AD033541E26B6840030291A /* File.m in Sources */,
 				5ABE157B1AE5073E00861C6B /* GifsicleWorker.m in Sources */,
-				D047E4651E7C3D7C0036F96B /* GuetzliWorker.m in Sources */,
 				5ABE15741AE5073100861C6B /* Job.m in Sources */,
 				5A34D09A1AEF75CE00A154E4 /* JobQueue.m in Sources */,
 				5ABE157C1AE5073E00861C6B /* JpegoptimWorker.m in Sources */,
@@ -1670,11 +1579,10 @@
 				5ABE15811AE5073E00861C6B /* Save.m in Sources */,
 				5AC4CC801AF568E90003AEA2 /* SavingsFormatter.m in Sources */,
 				5A6A56D01B497E210045AA0C /* SharedPrefs.m in Sources */,
-				5A93FD2F1FF1C452005D2F27 /* SvgcleanerWorker.m in Sources */,
 				5A7FB6F31E2C37EB00481B4A /* SvgoWorker.m in Sources */,
+				AF00000000000000000000B1 /* AVIFWorker.m in Sources */,
 				5AD0347D1E27185D0030291A /* TempFile.m in Sources */,
 				5ABE15821AE5073E00861C6B /* Worker.m in Sources */,
-				5ABE15831AE5073E00861C6B /* ZopfliWorker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1790,11 +1698,6 @@
 			name = pngcrush;
 			targetProxy = 5ABE16151AE508C200861C6B /* PBXContainerItemProxy */;
 		};
-		5ABE161A1AE508C200861C6B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = zopflipng;
-			targetProxy = 5ABE16191AE508C200861C6B /* PBXContainerItemProxy */;
-		};
 		5AC64F0B1AF3FDEE0032AA7F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5AC64EFD1AF3FDEE0032AA7F /* ImageOptimize */;
@@ -1809,16 +1712,6 @@
 			isa = PBXTargetDependency;
 			name = "oxipng-bin";
 			targetProxy = 5FFC969A275842290035D0A2 /* PBXContainerItemProxy */;
-		};
-		5FFC9754275843280035D0A2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "svgcleaner-bin";
-			targetProxy = 5FFC9753275843280035D0A2 /* PBXContainerItemProxy */;
-		};
-		D047E4CD1E7D81040036F96B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = guetzli;
-			targetProxy = D047E4CC1E7D81040036F96B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

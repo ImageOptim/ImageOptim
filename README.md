@@ -1,6 +1,6 @@
 # ImageOptim
 
-[ImageOptim](https://imageoptim.com) is a GUI for lossless image optimization tools: Zopfli, PNGOUT, [OxiPNG](https://lib.rs/crates/oxipng), AdvPNG, PNGCrush, [JPEGOptim](https://github.com/tjko/jpegoptim), Jpegtran, [Guetzli](https://github.com/google/guetzli), [Gifsicle](https://kornel.ski/lossygif), [SVGO](https://github.com/svg/svgo), [svgcleaner](https://github.com/RazrFalcon/svgcleaner) and [MozJPEG](https://github.com/mozilla/mozjpeg).
+[ImageOptim](https://imageoptim.com) is a GUI for lossless image optimization tools: PNGOUT, [OxiPNG](https://lib.rs/crates/oxipng), AdvPNG, PNGCrush, [JPEGOptim](https://github.com/tjko/jpegoptim), Jpegtran, [Gifsicle](https://kornel.ski/lossygif), [SVGO](https://github.com/svg/svgo), [Jpegli](https://github.com/google/jpegli) and [libavif](https://github.com/AOMediaCodec/libavif).
 
 ## Building
 
@@ -8,6 +8,7 @@ Requires:
 
 * Xcode
 * [Rust](https://rust-lang.org/) installed via [rustup](https://www.rustup.rs/) (not Homebrew).
+* [CMake](https://cmake.org/) and [Ninja](https://ninja-build.org/) to build Jpegli (`brew install cmake ninja`).
 
 ```sh
 git clone --recursive https://imageoptim.com ImageOptim

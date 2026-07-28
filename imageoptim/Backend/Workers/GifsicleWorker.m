@@ -48,14 +48,17 @@
     [task setStandardError:devnull];
     [task setStandardOutput:devnull];
 
-    [self launchTask];
+    if (![self launchTask]) {
+        [devnull closeFile];
+        return NO;
+    }
     BOOL ok = [self waitUntilTaskExit];
 
     [devnull closeFile];
 
     if (!ok) return NO;
 
-    NSString *toolName = isLossy ? @"Giflossy" : (interlace ? @"Gifsicle interlaced" : @"Gifsicle");
+    NSString *toolName = isLossy ? @"Gifsicle lossy" : (interlace ? @"Gifsicle interlaced" : @"Gifsicle");
 
     TempFile *output = [file tempCopyOfPath:temp];
     if (!output) {

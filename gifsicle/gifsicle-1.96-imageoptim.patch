@@ -1,27 +1,25 @@
-diff --git a/src/gifsicle.c b/src/gifsicle.c
-index ca3f388..8d11d17 100644
 --- a/src/gifsicle.c
 +++ b/src/gifsicle.c
-@@ -33,7 +33,6 @@ Gt_Frameset *nested_frames = 0;
-
+@@ -33,7 +33,6 @@
+ 
  Gif_Stream *input = 0;
  const char *input_name = 0;
 -static int unoptimizing = 0;
-
+ 
  const int GIFSICLE_DEFAULT_THREAD_COUNT = 8;
  int thread_count = 0;
-@@ -326,7 +325,6 @@ const Clp_Option options[] = {
+@@ -339,7 +338,6 @@
      Clp_Negate },
    { "transparent", 't', 't', COLOR_TYPE, Clp_Negate },
-
+ 
 -  { "unoptimize", 'U', UNOPTIMIZE_OPT, 0, Clp_Negate },
    { "use-colormap", 0, USE_COLORMAP_OPT, Clp_ValString, Clp_Negate },
-
-   { "verbose", 'V', VERBOSE_OPT, 0, Clp_Negate },
-@@ -760,18 +758,6 @@ input_stream(const char *name)
+   { "use-exact-colormap", 0, USE_EXACT_COLORMAP_OPT, Clp_ValString, Clp_Negate },
+ 
+@@ -819,18 +817,6 @@
      add_frame(frames, gfs, gfs->images[i]);
    def_frame = old_def_frame;
-
+ 
 -  if (unoptimizing)
 -    if (!Gif_FullUnoptimize(gfs, GIF_UNOPTIMIZE_SIMPLEST_DISPOSAL)) {
 -      static int context = 0;
@@ -36,26 +34,22 @@ index ca3f388..8d11d17 100644
 -
    apply_color_transforms(input_transforms, gfs);
    gfs->refcount++;
-
-@@ -840,62 +826,6 @@ set_new_fixed_colormap(const char *name)
-     def_output_data.colormap_fixed = read_colormap_file(name, 0);
+ 
+@@ -903,59 +889,6 @@
+   def_output_data.colormap_fixed_exact = exact;
  }
-
+ 
 -static void
 -do_colormap_change(Gif_Stream *gfs)
 -{
--  if (active_output_data.colormap_fixed || active_output_data.colormap_size > 0)
--    kc_set_gamma(active_output_data.colormap_gamma_type,
--                 active_output_data.colormap_gamma);
--
 -  if (active_output_data.colormap_fixed)
 -    colormap_stream(gfs, active_output_data.colormap_fixed,
--                    &active_output_data);
+-                    &active_output_data, !active_output_data.colormap_fixed_exact);
 -
 -  if (active_output_data.colormap_size > 0) {
 -    kchist kch;
 -    Gif_Colormap* (*adapt_func)(kchist*, Gt_OutputData*);
--    Gif_Colormap *new_cm;
+-    Gif_Colormap* new_cm;
 -
 -    /* set up the histogram */
 -    {
@@ -90,28 +84,29 @@ index ca3f388..8d11d17 100644
 -    }
 -
 -    new_cm = (*adapt_func)(&kch, &active_output_data);
--    colormap_stream(gfs, new_cm, &active_output_data);
+-    colormap_stream(gfs, new_cm, &active_output_data, 1);
 -
 -    Gif_DeleteColormap(new_cm);
 -    kchist_cleanup(&kch);
 -  }
 -}
 -
-
+-
  /*****
   * output GIF images
-@@ -946,8 +876,7 @@ merge_and_write_frames(const char *outfile, int f1, int f2)
+  **/
+@@ -1005,8 +938,7 @@
      verbose_open('[', outfile ? outfile : "#stdout#");
    active_output_data.active_output_name = outfile;
-
+ 
 -  colormap_change = active_output_data.colormap_size > 0
 -    || active_output_data.colormap_fixed;
 +  colormap_change = 0;
    warn_local_colormaps = !colormap_change;
-
+ 
    if (!(active_output_data.scaling
-@@ -974,8 +903,6 @@ merge_and_write_frames(const char *outfile, int f1, int f2)
-                     active_output_data.scaling == GT_SCALING_RESIZE_FIT,
+@@ -1034,8 +966,6 @@
+       resize_stream(out, w, h, active_output_data.resize_flags,
                      active_output_data.scale_method,
                      active_output_data.scale_colors);
 -    if (colormap_change)
@@ -119,10 +114,10 @@ index ca3f388..8d11d17 100644
      if (output_transforms)
        apply_color_transforms(output_transforms, out);
      if (active_output_data.optimizing & GT_OPT_MASK)
-@@ -1408,17 +1335,6 @@ main(int argc, char *argv[])
+@@ -1529,17 +1459,6 @@
    pthread_mutex_init(&kd3_sort_lock, 0);
  #endif
-
+ 
 -  /* Yep, I'm an idiot.
 -     GIF dimensions are unsigned 16-bit integers. I assume that these
 -     numbers will fit in an 'int'. This assertion tests that assumption.
@@ -137,10 +132,10 @@ index ca3f388..8d11d17 100644
    while (1) {
      int opt = Clp_Next(clp);
      switch (opt) {
-@@ -1755,11 +1671,6 @@ main(int argc, char *argv[])
+@@ -1880,11 +1799,6 @@
        break;
      }
-
+ 
 -     case UNOPTIMIZE_OPT:
 -      UNCHECKED_MARK_CH(input, CH_UNOPTIMIZE);
 -      unoptimizing = clp->negated ? 0 : 1;

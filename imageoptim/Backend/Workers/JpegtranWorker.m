@@ -48,7 +48,10 @@
     [task setStandardOutput:commandPipe];
     [task setStandardError:commandPipe];
 
-    [self launchTask];
+    if (![self launchTask]) {
+        [commandHandle closeFile];
+        return NO;
+    }
 
     [commandHandle readToEndOfFileInBackgroundAndNotify];
     BOOL ok = [self waitUntilTaskExit];
@@ -57,7 +60,7 @@
 
     if (!ok) return NO;
 
-    return [job setFileOptimized:[file tempCopyOfPath:temp] toolName:@"MozJPEG"];
+    return [job setFileOptimized:[file tempCopyOfPath:temp] toolName:@"Jpegli"];
 }
 
 - (BOOL)parseLine:(NSString *)line {

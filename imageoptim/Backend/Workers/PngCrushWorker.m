@@ -44,7 +44,10 @@
     [task setStandardOutput:commandPipe];
     [task setStandardError:commandPipe];
 
-    [self launchTask];
+    if (![self launchTask]) {
+        [commandHandle closeFile];
+        return NO;
+    }
 
     [commandHandle readToEndOfFileInBackgroundAndNotify];
 
