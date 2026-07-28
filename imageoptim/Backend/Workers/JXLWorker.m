@@ -208,6 +208,17 @@ static void CleanupDecodedFiles(NSString *pngPath) {
            path presents as lossless. */
         return NO;
     }
+    if ([output rangeOfString:@"Intensity target:"].location != NSNotFound) {
+        /* jxlinfo prints the tone-mapping block only when the basic info
+           deviates from the defaults (255 nits, 0 min nits, not relative to the
+           maximum display), and PNG carries none of those fields: the only one
+           djxl writes out at all is the PQ intensity target, in a light-level
+           chunk cjxl's PNG reader doesn't take back. cjxl therefore derives the
+           whole block from the colour encoding, which changes how an HDR viewer
+           renders the image — and drops bytes doing it, so the result would look
+           like a win. */
+        return NO;
+    }
     if (HasNonDefaultIntrinsicSize(output)) {
         return NO;
     }
