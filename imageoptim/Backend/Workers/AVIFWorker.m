@@ -64,9 +64,16 @@
         // and avifenc recreates none of them, so the round-trip would alter the geometry
         return NO;
     }
+    if ([info rangeOfString:@" * Alpha          : Premultiplied"].location != NSNotFound) {
+        // PNG has no premultiplied form, so avifdec divides the colour out by the alpha
+        // and avifenc writes the result back without the prem association: the samples
+        // are no longer the ones a compositor can use directly
+        return NO;
+    }
     // An ICC profile survives verbatim in the PNG's iCCP chunk, but of the CICP values
-    // only sRGB does: avifdec writes no cICP chunk, so everything else comes back as
-    // approximate cHRM/gAMA, or is dropped entirely for curves with no gamma (PQ, HLG).
+    // only sRGB reliably does: avifdec always writes them to a cICP chunk, yet avifenc
+    // reads that chunk back only when its libpng has cICP support, and the cHRM/gAMA it
+    // falls back on is approximate, or absent for curves with no gamma (PQ, HLG).
     if ([info rangeOfString:@" * ICC Profile    : Present"].location == NSNotFound) {
         const NSInteger primaries = [self readNumberAfter:@" * Color Primaries: " inLine:info];
         const NSInteger transfer = [self readNumberAfter:@" * Transfer Char. : " inLine:info];
@@ -77,6 +84,12 @@
     // avifdec writes >8-bit images as 16-bit PNG, from which avifenc infers 12 bits,
     // so a 10-bit image has to be re-encoded at its original depth explicitly.
     const NSInteger depth = [self readNumberAfter:@" * Bit Depth      : " inLine:info];
+    if (depth > 8 && [self readNumberAfter:@" * Matrix Coeffs. : " inLine:info] != 0) {
+        // At 8 bits the decoded RGB is exactly what the round-trip stores back, but a
+        // deeper image is converted to 16-bit RGB first, and quantizing that down to the
+        // original depth does not undo the YUV conversion for any matrix but identity.
+        return NO;
+    }
 
     // Decode AVIF to temp PNG
     NSURL *pngTemp = [[temp URLByDeletingPathExtension] URLByAppendingPathExtension:@"png"];
