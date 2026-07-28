@@ -26,12 +26,16 @@
 	<true/>
 	<key>PngOutRemoveChunks</key>
 	<true/>
-	<key>SvgcleanerEnabled</key>
-	<true/>
-	<key>ZopfliEnabled</key>
-	<true/>
 	<key>GifsicleEnabled</key>
 	<true/>
+	<key>AvifEnabled</key>
+	<true/>
+	<key>JxlEnabled</key>
+	<true/>
+	<key>AvifQuality</key>
+	<integer>85</integer>
+	<key>JxlQuality</key>
+	<integer>90</integer>
 	<key>GifQuality</key>
 	<integer>80</integer>
 	<key>PreservePermissions</key>

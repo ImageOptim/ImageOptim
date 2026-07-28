@@ -1,6 +1,6 @@
 # ImageOptim
 
-[ImageOptim](https://imageoptim.com) is a GUI for lossless image optimization tools: Zopfli, PNGOUT, [OxiPNG](https://lib.rs/crates/oxipng), AdvPNG, PNGCrush, [JPEGOptim](https://github.com/tjko/jpegoptim), Jpegtran, [Guetzli](https://github.com/google/guetzli), [Gifsicle](https://kornel.ski/lossygif), [SVGO](https://github.com/svg/svgo), [svgcleaner](https://github.com/RazrFalcon/svgcleaner) and [MozJPEG](https://github.com/mozilla/mozjpeg).
+[ImageOptim](https://imageoptim.com) is a GUI for lossless image optimization tools: PNGOUT, [OxiPNG](https://lib.rs/crates/oxipng), AdvPNG, PNGCrush, [JPEGOptim](https://github.com/tjko/jpegoptim), Jpegtran, [Gifsicle](https://kornel.ski/lossygif), [SVGO](https://github.com/svg/svgo), [Jpegli](https://github.com/google/jpegli), [libavif](https://github.com/AOMediaCodec/libavif) and [libjxl](https://github.com/libjxl/libjxl).
 
 ## Building
 
@@ -8,11 +8,18 @@ Requires:
 
 * Xcode
 * [Rust](https://rust-lang.org/) installed via [rustup](https://www.rustup.rs/) (not Homebrew).
+* [CMake](https://cmake.org/) and [Ninja](https://ninja-build.org/) to build Jpegli and libjxl (`brew install cmake ninja`).
 
 ```sh
-git clone --recursive https://imageoptim.com ImageOptim
+git clone https://imageoptim.com ImageOptim
 cd ImageOptim
+git submodule update --init
 ```
+
+Don't clone recursively: libjxl's own submodules include a large test-data
+repository and backends this build doesn't use, and `libjxl/Makefile`
+initialises only the ones it needs. The other subprojects with nested
+submodules fetch them from their own makefiles too.
 
 To get started, open `imageoptim/ImageOptim.xcodeproj`. It will automatically download and build all subprojects when run in Xcode.
 

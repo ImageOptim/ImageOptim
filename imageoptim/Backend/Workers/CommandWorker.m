@@ -84,7 +84,7 @@
     }
 }
 
-- (void)launchTask {
+- (BOOL)launchTask {
     @try {
         BOOL supportsQoS = [task respondsToSelector:@selector(setQualityOfService:)];
 
@@ -102,7 +102,9 @@
     }
     @catch (NSException *e) {
         IOWarn("Failed to launch %@ - %@", [self className], e);
+        return NO;
     }
+    return YES;
 }
 
 - (BOOL)waitUntilTaskExit {

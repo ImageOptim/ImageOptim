@@ -461,13 +461,15 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
 #define JPEG_ENABLED 2
 #define GIF_ENABLED 4
 #define SVG_ENABLED 8
+#define AVIF_ENABLED 16
+#define JXL_ENABLED 32
 
 - (int)typesEnabled {
     int types = 0;
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 
     if ([defs boolForKey:@"PngCrush2Enabled"] || [defs boolForKey:@"PngOutEnabled"] ||
-        [defs boolForKey:@"OptiPngEnabled"] || [defs boolForKey:@"AdvPngEnabled"] || [defs boolForKey:@"ZopfliEnabled"]) {
+        [defs boolForKey:@"OptiPngEnabled"] || [defs boolForKey:@"AdvPngEnabled"]) {
         types |= PNG_ENABLED;
     }
 
@@ -479,8 +481,16 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         types |= GIF_ENABLED;
     }
 
-    if ([defs boolForKey:@"SvgoEnabled"] || [defs boolForKey:@"SvgcleanerEnabled"]) {
+    if ([defs boolForKey:@"SvgoEnabled"]) {
         types |= SVG_ENABLED;
+    }
+
+    if ([defs boolForKey:@"AvifEnabled"]) {
+        types |= AVIF_ENABLED;
+    }
+
+    if ([defs boolForKey:@"JxlEnabled"]) {
+        types |= JXL_ENABLED;
     }
 
     if (!types) types = PNG_ENABLED; // will show error in the list
@@ -505,6 +515,12 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     if (types & SVG_ENABLED) {
         [extensions addObject:@"svg"];
     }
+    if (types & AVIF_ENABLED) {
+        [extensions addObjectsFromArray:@[ @"avif", @"AVIF" ]];
+    }
+    if (types & JXL_ENABLED) {
+        [extensions addObjectsFromArray:@[ @"jxl", @"JXL" ]];
+    }
 
     return extensions;
 }
@@ -525,6 +541,12 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     }
     if (types & SVG_ENABLED) {
         [fileTypes addObjectsFromArray:@[ @"svg", @"public.svg-image", @"image/svg" ]];
+    }
+    if (types & AVIF_ENABLED) {
+        [fileTypes addObjectsFromArray:@[ @"avif", @"AVIF", @"public.avif", @"image/avif" ]];
+    }
+    if (types & JXL_ENABLED) {
+        [fileTypes addObjectsFromArray:@[ @"jxl", @"JXL", @"public.jpeg-xl", @"image/jxl" ]];
     }
     return fileTypes;
 }

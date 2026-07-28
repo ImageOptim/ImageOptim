@@ -11,6 +11,54 @@
 #import "../log.h"
 #import <assert.h>
 
+static uint32_t ReadBE32(const unsigned char *bytes) {
+    return ((uint32_t)bytes[0] << 24) | ((uint32_t)bytes[1] << 16) |
+           ((uint32_t)bytes[2] << 8) | (uint32_t)bytes[3];
+}
+
+static uint64_t ReadBE64(const unsigned char *bytes) {
+    return ((uint64_t)ReadBE32(bytes) << 32) | (uint64_t)ReadBE32(bytes + 4);
+}
+
+/* Locates the major brand and the compatible-brands list of an ISO-BMFF ftyp
+   box, which is how AVIF files identify themselves. Returns NO for anything
+   that is not a well-formed ftyp box. */
+static BOOL ParseFtypBox(const unsigned char *bytes, NSUInteger length,
+                         NSUInteger *majorBrandOffset,
+                         NSUInteger *compatibleBrandsOffset,
+                         NSUInteger *compatibleBrandsLength) {
+    const unsigned char ftypmagic[] = {'f','t','y','p'};
+    if (!bytes || length < 16 || memcmp(bytes + 4, ftypmagic, sizeof(ftypmagic)) != 0) {
+        return NO;
+    }
+
+    uint64_t boxSize = ReadBE32(bytes);
+    NSUInteger headerSize = 8;
+
+    if (boxSize == 1) {
+        if (length < 24) {
+            return NO;
+        }
+        boxSize = ReadBE64(bytes + 8);
+        headerSize = 16;
+    } else if (boxSize == 0) {
+        boxSize = length;
+    }
+
+    if (boxSize > length) {
+        boxSize = length;
+    }
+    /* major brand + minor version follow the header */
+    if (boxSize < headerSize + 8) {
+        return NO;
+    }
+
+    *majorBrandOffset = headerSize;
+    *compatibleBrandsOffset = headerSize + 8;
+    *compatibleBrandsLength = (NSUInteger)boxSize - (headerSize + 8);
+    return YES;
+}
+
 @implementation File
 
 - (nullable instancetype)initWithType:(enum IOFileType)type size:(NSUInteger)size fromPath:(NSURL *)aPath {
@@ -31,6 +79,8 @@
     const unsigned char jpegheader[] = {0xff,0xd8,0xff};
     const unsigned char gifheader[] = {0x47,0x49,0x46,0x38};
     const unsigned char svgheader[] = {'<','s','v','g'};
+    const unsigned char jxlheader[] = {0xff,0x0a};
+    const unsigned char jxlcontainer[] = {0x00,0x00,0x00,0x0c,'J','X','L',' ',0x0d,0x0a,0x87,0x0a};
     char fileHeaderBytes[6];
 
     if (!fileData || fileData.length < sizeof(fileHeaderBytes)) {
@@ -40,6 +90,7 @@
     [fileData getBytes:fileHeaderBytes length:sizeof(fileHeaderBytes)];
 
     enum IOFileType type = 0;
+    BOOL animated = NO;
 
     if (0 == memcmp(fileHeaderBytes, pngheader, sizeof(pngheader))) {
         type = FILETYPE_PNG;
@@ -49,9 +100,53 @@
         type = FILETYPE_GIF;
     } else if (0 == memcmp(fileHeaderBytes, svgheader, sizeof(svgheader)) || [aPath.pathExtension isEqualToString:@"svg"]) {
         type = FILETYPE_SVG;
+    } else if (0 == memcmp(fileHeaderBytes, jxlheader, sizeof(jxlheader)) ||
+               (fileData.length >= sizeof(jxlcontainer) &&
+                0 == memcmp(fileData.bytes, jxlcontainer, sizeof(jxlcontainer)))) {
+        /* Bare codestream starts ff 0a; the ISO-BMFF container starts with a
+           12-byte "JXL " signature box. */
+        type = FILETYPE_JXL;
+    } else {
+        /* AVIF advertises itself either as the major brand or somewhere in the
+           compatible-brands list. "avis" marks an animated sequence, which
+           avifenc cannot re-encode, so it is tracked separately. */
+        const unsigned char avifbrand[] = {'a','v','i','f'};
+        const unsigned char avisbrand[] = {'a','v','i','s'};
+        const unsigned char *fileBytes = fileData.bytes;
+        NSUInteger majorBrandOffset = 0;
+        NSUInteger compatibleBrandsOffset = 0;
+        NSUInteger compatibleBrandsLength = 0;
+        BOOL hasAvifBrand = NO;
+        BOOL hasAvisBrand = NO;
+
+        if (ParseFtypBox(fileBytes, fileData.length, &majorBrandOffset, &compatibleBrandsOffset, &compatibleBrandsLength)) {
+            if (0 == memcmp(fileBytes + majorBrandOffset, avifbrand, sizeof(avifbrand))) {
+                hasAvifBrand = YES;
+            } else if (0 == memcmp(fileBytes + majorBrandOffset, avisbrand, sizeof(avisbrand))) {
+                hasAvisBrand = YES;
+            }
+
+            NSUInteger compatibleEnd = compatibleBrandsOffset + compatibleBrandsLength;
+            for (NSUInteger offset = compatibleBrandsOffset; offset + 4 <= compatibleEnd; offset += 4) {
+                if (0 == memcmp(fileBytes + offset, avifbrand, sizeof(avifbrand))) {
+                    hasAvifBrand = YES;
+                } else if (0 == memcmp(fileBytes + offset, avisbrand, sizeof(avisbrand))) {
+                    hasAvisBrand = YES;
+                }
+            }
+        }
+
+        if (hasAvifBrand || hasAvisBrand) {
+            type = FILETYPE_AVIF;
+            animated = hasAvisBrand;
+        }
     }
 
-    return [self initWithType:type size:fileData.length fromPath:aPath];
+    File *result = [self initWithType:type size:fileData.length fromPath:aPath];
+    if (result) {
+        result->isAnimated = animated;
+    }
+    return result;
 }
 
 - (nullable File *)copyOfPath:(NSURL *)path {
@@ -108,6 +203,8 @@
         case FILETYPE_JPEG: return @"image/jpeg";
         case FILETYPE_GIF: return @"image/gif";
         case FILETYPE_SVG: return @"image/svg";
+        case FILETYPE_AVIF: return @"image/avif";
+        case FILETYPE_JXL: return @"image/jxl";
         default:
             return nil;
     }
