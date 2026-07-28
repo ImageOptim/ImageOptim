@@ -11,13 +11,12 @@
 #import "Workers/PngoutWorker.h"
 #import "Workers/OxiPngWorker.h"
 #import "Workers/PngCrushWorker.h"
-#import "Workers/ZopfliWorker.h"
 #import "Workers/JpegoptimWorker.h"
 #import "Workers/JpegtranWorker.h"
 #import "Workers/GifsicleWorker.h"
 #import "Workers/SvgoWorker.h"
-#import "Workers/SvgcleanerWorker.h"
-#import "Workers/GuetzliWorker.h"
+#import "Workers/AVIFWorker.h"
+#import "Workers/JXLWorker.h"
 #import <sys/xattr.h>
 #import "log.h"
 #include "ResultsDb.h"
@@ -589,13 +588,8 @@
         BOOL pngcrushEnabled = [defs boolForKey:@"PngCrush2Enabled"];
         BOOL oxipngEnabled = [defs boolForKey:@"OptiPngEnabled"];
         BOOL pngoutEnabled = [defs boolForKey:@"PngOutEnabled"];
-        BOOL zopfliEnabled = [defs boolForKey:@"ZopfliEnabled"];
         BOOL advpngEnabled = [defs boolForKey:@"AdvPngEnabled"];
         BOOL removePNGChunks = [defs boolForKey:@"PngOutRemoveChunks"];
-
-        if (level < 4 && zopfliEnabled) {
-            pngoutEnabled = NO;
-        }
 
         if (level < 2 && oxipngEnabled) {
             pngcrushEnabled = NO;
@@ -607,17 +601,8 @@
         if (advpngEnabled && removePNGChunks) {
             [worker_list addObject:[[AdvCompWorker alloc] initWithLevel:level file:self]];
         }
-        if (zopfliEnabled) {
-            ZopfliWorker *zw = [[ZopfliWorker alloc] initWithLevel:level defaults:defs file:self];
-            zw.alternativeStrategy = hasBeenRunBefore;
-            [worker_list addObject:zw];
-        }
         break;
     case FILETYPE_JPEG:
-        if (!lossyConverted && !hasBeenRunBefore && [defs boolForKey:@"GuetzliEnabled"] && [defs integerForKey:@"JpegOptimMaxQuality"] >= 80) {
-            [worker_list addObject:[[GuetzliWorker alloc] initWithDefaults:defs serialQueue:serialQueue file:self]];
-            lossyConverted = YES;
-        }
         if ([defs boolForKey:@"JpegOptimEnabled"]) [worker_list addObject:[[JpegoptimWorker alloc] initWithDefaults:defs file:self]];
         if ([defs boolForKey:@"JpegTranEnabled"]) [worker_list addObject:[[JpegtranWorker alloc] initWithDefaults:defs file:self]];
         break;
@@ -640,8 +625,26 @@
             if ([defs boolForKey:@"SvgoEnabled"]) {
                 [worker_list addObject:[[SvgoWorker alloc] initWithLossy:lossyEnabled job:self]];
             }
-            if ([defs boolForKey:@"SvgcleanerEnabled"]) {
-                [worker_list addObject:[[SvgcleanerWorker alloc] initWithLossy:lossyEnabled job:self]];
+            break;
+        case FILETYPE_AVIF:
+            if ([defs boolForKey:@"AvifEnabled"]) {
+                // re-running lossy encoding on an already-lossy result would compound generation loss
+                AVIFWorker *w = [[AVIFWorker alloc] initWithLossy:(lossyEnabled && !lossyConverted) defaults:defs file:self];
+                if ([w makesNonOptimizingModifications]) {
+                    lossyConverted = YES;
+                }
+                [worker_list addObject:w];
+            }
+            break;
+        case FILETYPE_JXL:
+            if ([defs boolForKey:@"JxlEnabled"]) {
+                NSInteger jxlQuality = [defs integerForKey:@"JxlQuality"];
+                if (lossyEnabled && !lossyConverted && jxlQuality < 100 && jxlQuality > 30) {
+                    [runFirst addObject:[[JXLWorker alloc] initWithQuality:jxlQuality file:self]];
+                    lossyConverted = YES;
+                } else {
+                    [worker_list addObject:[[JXLWorker alloc] initWithQuality:100 file:self]];
+                }
             }
             break;
         default:

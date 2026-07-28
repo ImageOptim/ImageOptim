@@ -68,22 +68,22 @@
 #define PACKAGE "gifsicle"
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "pornel@pornel.net"
+#define PACKAGE_BUGREPORT ""
 
 /* Define to the full name of this package. */
 #define PACKAGE_NAME "gifsicle"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "gifsicle 1.88-lossy"
+#define PACKAGE_STRING "gifsicle 1.96"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "gifsicle"
 
 /* Define to the home page for this package. */
-#define PACKAGE_URL "https://pornel.net/lossygif"
+#define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "1.88"
+#define PACKAGE_VERSION "1.96"
 
 /* Pathname separator character ('/' on Unix). */
 #define PATHNAME_SEPARATOR '/'
@@ -104,7 +104,7 @@
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "1.88"
+#define VERSION "1.96"
 
 /* Define if X is not available. */
 #define X_DISPLAY_MISSING 1

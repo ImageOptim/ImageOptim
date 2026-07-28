@@ -71,7 +71,6 @@
                                   [defaults registerDefaults:@{
                                       @"AdvPngEnabled" : @(YES),
                                       @"AdvPngLevel" : @(4),
-                                      @"ZopfliEnabled" : @(YES),
                                       @"PngOutRemoveChunks" : @(YES),
                                       @"PreservePermissions" : @(NO),
                                       @"PreserveDates" : @(NO),
@@ -79,8 +78,11 @@
                                       @"JpegTranEnabled" : @(YES),
                                       @"JpegTranStripAll" : @(YES),
                                       @"GifsicleEnabled" : @(YES),
+                                      @"AvifEnabled" : @(YES),
+                                      @"JxlEnabled" : @(YES),
                                       @"PngMinQuality" : @(70),
                                       @"JpegOptimMaxQuality" : @(80),
+                                      @"JxlQuality" : @(90),
                                       @"LossyEnabled" : @(YES),
                                   }];
 

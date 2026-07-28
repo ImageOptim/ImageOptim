@@ -35,10 +35,10 @@
 		5A27BA26139B08E10095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A27BA27139B08E10095FC2F /* debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = debug.xcconfig; path = ../imageoptim/debug.xcconfig; sourceTree = SOURCE_ROOT; };
 		5A739BA30EA4034800D751E1 /* jpeg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = jpeg.xcodeproj; path = ../libjpeg/jpeg.xcodeproj; sourceTree = "<group>"; };
-		5A739BAE0EA4038A00D751E1 /* src/jpegtran.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = src/jpegtran.c; sourceTree = "<group>"; };
-		5A739BB70EA4042600D751E1 /* src/transupp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = src/transupp.c; sourceTree = "<group>"; };
-		5A739C130EA406A000D751E1 /* src/cdjpeg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = src/cdjpeg.c; sourceTree = "<group>"; };
-		5A739C1B0EA406F600D751E1 /* src/rdswitch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = src/rdswitch.c; sourceTree = "<group>"; };
+		5A739BAE0EA4038A00D751E1 /* src/jpegtran.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = src/third_party/libjpeg-turbo/jpegtran.c; sourceTree = "<group>"; };
+		5A739BB70EA4042600D751E1 /* src/transupp.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = src/third_party/libjpeg-turbo/transupp.c; sourceTree = "<group>"; };
+		5A739C130EA406A000D751E1 /* src/cdjpeg.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = src/third_party/libjpeg-turbo/cdjpeg.c; sourceTree = "<group>"; };
+		5A739C1B0EA406F600D751E1 /* src/rdswitch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = src/third_party/libjpeg-turbo/rdswitch.c; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* jpegtran */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = jpegtran; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -210,7 +210,11 @@
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
+				USER_HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../libjpeg/build/include",
+					"$(SRCROOT)/../libjpeg/src/third_party/libjpeg-turbo",
+					"$(SRCROOT)/../libjpeg/",
+				);
 			};
 			name = Debug;
 		};
@@ -218,7 +222,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27BA26139B08E10095FC2F /* release.xcconfig */;
 			buildSettings = {
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/../libjpeg/";
+				USER_HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../libjpeg/build/include",
+					"$(SRCROOT)/../libjpeg/src/third_party/libjpeg-turbo",
+					"$(SRCROOT)/../libjpeg/",
+				);
 			};
 			name = Release;
 		};
