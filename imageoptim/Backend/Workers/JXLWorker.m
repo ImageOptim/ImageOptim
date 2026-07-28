@@ -4,17 +4,26 @@
 #import "../../log.h"
 
 /* djxl names the frames of a multi-frame file "<base>-<n>.<ext>" next to the
-   output path it was given, so they're found by prefix and suffix. Detection
-   and cleanup share this so they can't drift apart. */
+   output path it was given, so they're found by prefix, frame number and
+   suffix. The number has to be all digits, or an unrelated sibling such as
+   "<base>-preview.<ext>" would be counted as a frame and then deleted.
+   Detection and cleanup share this so they can't drift apart. */
 static NSArray<NSString *> *DecodedFrameSiblingPaths(NSString *pngPath) {
     NSString *dirPath = [pngPath stringByDeletingLastPathComponent];
     NSString *framePrefix = [[[pngPath lastPathComponent] stringByDeletingPathExtension] stringByAppendingString:@"-"];
     NSString *frameSuffix = [@"." stringByAppendingString:[pngPath pathExtension]];
+    NSCharacterSet *nonDigits = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet];
 
     NSMutableArray<NSString *> *paths = [NSMutableArray array];
     NSArray<NSString *> *entries = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirPath error:nil];
     for (NSString *entry in entries) {
-        if ([entry hasPrefix:framePrefix] && [entry hasSuffix:frameSuffix]) {
+        if (entry.length <= framePrefix.length + frameSuffix.length ||
+            ![entry hasPrefix:framePrefix] || ![entry hasSuffix:frameSuffix]) {
+            continue;
+        }
+        NSRange frameNumber = NSMakeRange(framePrefix.length,
+                                          entry.length - framePrefix.length - frameSuffix.length);
+        if ([entry rangeOfCharacterFromSet:nonDigits options:0 range:frameNumber].location == NSNotFound) {
             [paths addObject:[dirPath stringByAppendingPathComponent:entry]];
         }
     }
@@ -167,14 +176,22 @@ static void CleanupDecodedFiles(NSString *pngPath) {
 /* A JXL is only safe to re-encode through PNG if PNG can hold all of its
    samples and the file carries nothing that the round trip would drop. */
 - (BOOL)canRoundTripThroughPngAtPath:(NSString *)path infoPath:(NSString *)jxlinfoPath {
-    [self taskWithPath:jxlinfoPath arguments:@[@"-v", path]];
-    NSPipe *outputPipe = [NSPipe pipe];
-    [task setStandardOutput:outputPipe];
-    if (![self launchTask]) {
-        return NO;
-    }
-    NSData *outputData = [[outputPipe fileHandleForReading] readDataToEndOfFile];
-    if (![self waitUntilTaskExit]) {
+    NSData *outputData = nil;
+    @try {
+        [self taskWithPath:jxlinfoPath arguments:@[@"-v", path]];
+        NSPipe *outputPipe = [NSPipe pipe];
+        [task setStandardOutput:outputPipe];
+        if (![self launchTask]) {
+            return NO;
+        }
+        outputData = [[outputPipe fileHandleForReading] readDataToEndOfFile];
+        if (![self waitUntilTaskExit]) {
+            return NO;
+        }
+    } @catch (NSException *e) {
+        /* Declining the file is the safe answer: without jxlinfo's report there
+           is nothing to prove the round trip would preserve it. */
+        IOWarn("jxlinfo failed: %@", e);
         return NO;
     }
 
