@@ -26,13 +26,33 @@ static BOOL HasAdditionalDecodedFiles(NSString *pngPath) {
     return frameCount + (NSInteger)DecodedFrameSiblingPaths(pngPath).count > 1;
 }
 
+/* cjxl writes a fresh container header: the twelve-byte JXL signature box
+   followed by an ftyp box naming "jxl " as the major brand, minor version 0 and
+   "jxl " as the only compatible brand. jxlinfo -v reports that box's size but
+   never its contents, and a container declaring a nonstandard major brand is
+   exactly as long as the standard one, so read the header out of the file
+   instead. Anything not byte-identical to what cjxl would write is either a
+   compatibility declaration the round trip would drop or a layout this code
+   doesn't understand. */
+static BOOL HasStandardContainerHeader(NSString *path) {
+    static const uint8_t standardHeader[] = {
+        0x00, 0x00, 0x00, 0x0c, 'J', 'X', 'L', ' ', 0x0d, 0x0a, 0x87, 0x0a,
+        0x00, 0x00, 0x00, 0x14, 'f', 't', 'y', 'p',
+        'j', 'x', 'l', ' ', 0x00, 0x00, 0x00, 0x00, 'j', 'x', 'l', ' ',
+    };
+
+    NSData *contents = [NSData dataWithContentsOfFile:path options:NSDataReadingMappedIfSafe error:nil];
+    return contents.length >= sizeof(standardHeader) &&
+           memcmp(contents.bytes, standardHeader, sizeof(standardHeader)) == 0;
+}
+
 /* jxlinfo -v names every container box it reads. The round trip rebuilds the
    container structure and the codestream itself, and Exif and XMP survive it
    because djxl writes them into the PNG and cjxl reads them back. Any other
    auxiliary box (JUMBF, a gain map, an application-defined box jxlinfo doesn't
    know) would be dropped, and dropping it also makes the file smaller, so the
    result would look like a win. A bare codestream has no boxes at all. */
-static BOOL HasUnsupportedBoxes(NSString *jxlinfoOutput) {
+static BOOL HasUnsupportedBoxes(NSString *jxlinfoOutput, NSString *path) {
     static NSSet<NSString *> *roundTrippableBoxTypes;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -43,7 +63,7 @@ static BOOL HasUnsupportedBoxes(NSString *jxlinfoOutput) {
 
     NSRange wholeOutput = NSMakeRange(0, jxlinfoOutput.length);
     NSRegularExpression *boxPattern =
-        [NSRegularExpression regularExpressionWithPattern:@"^  type: \"(.{4})\"\n  size: [0-9]+\n  contents size: ([0-9]+)$"
+        [NSRegularExpression regularExpressionWithPattern:@"^  type: \"(.{4})\"\n  size: [0-9]+\n  contents size: [0-9]+$"
                                                   options:NSRegularExpressionAnchorsMatchLines
                                                     error:nil];
     NSRegularExpression *metadataPattern =
@@ -59,13 +79,7 @@ static BOOL HasUnsupportedBoxes(NSString *jxlinfoOutput) {
         if (![roundTrippableBoxTypes containsObject:boxType]) {
             return YES;
         }
-        /* ftyp holds the major brand, the minor version and the list of
-           compatible brands, four bytes each. cjxl writes a fresh standard one
-           declaring "jxl " as the only compatible brand, so anything longer
-           than those twelve bytes is a compatibility declaration the round trip
-           would drop. */
-        if ([boxType isEqualToString:@"ftyp"] &&
-            [[jxlinfoOutput substringWithRange:[match rangeAtIndex:2]] integerValue] > 12) {
+        if ([boxType isEqualToString:@"ftyp"] && !HasStandardContainerHeader(path)) {
             return YES;
         }
     }
@@ -76,6 +90,35 @@ static BOOL HasUnsupportedBoxes(NSString *jxlinfoOutput) {
         }
     }
     return NO;
+}
+
+/* A JPEG XL codestream can declare intrinsic dimensions that differ from the
+   raster it encodes, and a viewer resamples the decoded image to them. PNG has
+   no equivalent field and cjxl offers no way to put one back, so the round trip
+   would change the file's intended display size — and drop bytes doing it, so
+   the result would look like a win. jxlinfo -v reports both sizes for every
+   file it understands, so a missing line means it didn't. */
+static BOOL HasNonDefaultIntrinsicSize(NSString *jxlinfoOutput) {
+    NSRange wholeOutput = NSMakeRange(0, jxlinfoOutput.length);
+    NSRegularExpression *encodedPattern =
+        [NSRegularExpression regularExpressionWithPattern:@"^JPEG XL (?:image|animation), ([0-9]+x[0-9]+),"
+                                                  options:NSRegularExpressionAnchorsMatchLines
+                                                    error:nil];
+    NSRegularExpression *intrinsicPattern =
+        [NSRegularExpression regularExpressionWithPattern:@"^Intrinsic dimensions: ([0-9]+x[0-9]+)$"
+                                                  options:NSRegularExpressionAnchorsMatchLines
+                                                    error:nil];
+    if (!encodedPattern || !intrinsicPattern) {
+        return YES;
+    }
+
+    NSTextCheckingResult *encoded = [encodedPattern firstMatchInString:jxlinfoOutput options:0 range:wholeOutput];
+    NSTextCheckingResult *intrinsic = [intrinsicPattern firstMatchInString:jxlinfoOutput options:0 range:wholeOutput];
+    if (!encoded || !intrinsic) {
+        return YES;
+    }
+    return ![[jxlinfoOutput substringWithRange:[encoded rangeAtIndex:1]]
+        isEqualToString:[jxlinfoOutput substringWithRange:[intrinsic rangeAtIndex:1]]];
 }
 
 static NSString *DecodedFramePath(NSString *pngPath) {
@@ -165,7 +208,10 @@ static void CleanupDecodedFiles(NSString *pngPath) {
            path presents as lossless. */
         return NO;
     }
-    if (HasUnsupportedBoxes(output)) {
+    if (HasNonDefaultIntrinsicSize(output)) {
+        return NO;
+    }
+    if (HasUnsupportedBoxes(output, path)) {
         return NO;
     }
 
