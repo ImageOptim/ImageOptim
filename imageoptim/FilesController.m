@@ -7,6 +7,7 @@
 #import "FilesController.h"
 #import "log.h"
 #import "Backend/DirScanner.h"
+#import "Backend/Workers/SvgoWorker.h"
 #import "RevealButtonCell.h"
 #import "ResultsDb.h"
 #import "JobQueue.h"
@@ -467,7 +468,7 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
     NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
 
     if ([defs boolForKey:@"PngCrush2Enabled"] || [defs boolForKey:@"PngOutEnabled"] ||
-        [defs boolForKey:@"OptiPngEnabled"] || [defs boolForKey:@"AdvPngEnabled"] || [defs boolForKey:@"ZopfliEnabled"]) {
+        [defs boolForKey:@"OptiPngEnabled"] || [defs boolForKey:@"AdvPngEnabled"]) {
         types |= PNG_ENABLED;
     }
 
@@ -479,7 +480,8 @@ static NSString *kIMDraggedRowIndexesPboardType = @"com.imageoptim.rows";
         types |= GIF_ENABLED;
     }
 
-    if ([defs boolForKey:@"SvgoEnabled"] || [defs boolForKey:@"SvgcleanerEnabled"]) {
+    // SVGO runs on a system-wide Node.js, so SVG can't be handled without it
+    if ([defs boolForKey:@"SvgoEnabled"] && [SvgoWorker nodeExecutablePath]) {
         types |= SVG_ENABLED;
     }
 

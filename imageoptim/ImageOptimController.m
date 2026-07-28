@@ -43,6 +43,13 @@ static const char *kIMPreviewPanelContext = "preview";
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults registerDefaults:defs];
 
+    // Guetzli used to force metadata stripping on, marking that it did so.
+    // Guetzli is gone, so undo it once and restore the user's own setting.
+    if ([userDefaults boolForKey:@"JpegTranStripAllSetByGuetzli"]) {
+        [userDefaults removeObjectForKey:@"JpegTranStripAllSetByGuetzli"];
+        [userDefaults setBool:NO forKey:@"JpegTranStripAll"];
+    }
+
     [self initStatusbarWithDefaults:userDefaults];
 
     IOSharedPrefsCopy(userDefaults);
@@ -180,8 +187,6 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
                                                      [percFormatter stringFromNumber:@(maxOptimizedFraction)]];
                     selectable = YES;
                 }
-            } else if ([defs boolForKey:@"GuetzliEnabled"]) {
-                str = @"Warning: Guetzli tool enabled. Optimizations may take a very long time.";
             } else if ([defs boolForKey:@"LossyEnabled"]) {
                 NSMutableArray *arr = [NSMutableArray new];
                 appendFormatNameIfLossyEnabled(defs, @"JPEG", @"JpegOptimMaxQuality", arr);

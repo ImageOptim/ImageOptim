@@ -1,5 +1,5 @@
 HELPINDEXES=$(addsuffix Help.helpindex, $(wildcard *.lproj/Help/))
-SUBMODULES=../Sparkle/Sparkle ../svgcleaner/src
+SUBMODULES=../Sparkle/Sparkle
 
 build: all
 
