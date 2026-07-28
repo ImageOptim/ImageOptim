@@ -23,6 +23,21 @@ BUILD_ROOT="$SCRIPT_DIR/build"
 OUTPUT_DIR="$BUILD_ROOT"
 LIBJPEG_SRC="$SCRIPT_DIR/../libjpeg/src/third_party/libjpeg-turbo"
 
+# Xcode launched from Finder runs build phases with launchd's minimal PATH,
+# which leaves out both Homebrew prefixes, so add them the way the Cargo build
+# phases in oxipng/pngquant do. This has to happen before the build signature
+# is computed, since that already looks up cmake and ninja.
+export PATH="$PATH:/usr/local/bin:/opt/homebrew/bin"
+
+# libavif is configured and built with CMake + Ninja, neither of which ships
+# with Xcode, so say so up front instead of failing inside the build below.
+for TOOL in cmake ninja; do
+    if ! command -v "$TOOL" >/dev/null 2>&1; then
+        echo "ERROR: $TOOL is required to build libavif (brew install cmake ninja)" >&2
+        exit 1
+    fi
+done
+
 # Use Xcode's deployment target if available, otherwise default
 MACOSX_DEPLOYMENT_TARGET="${MACOSX_DEPLOYMENT_TARGET:-10.13}"
 export MACOSX_DEPLOYMENT_TARGET
