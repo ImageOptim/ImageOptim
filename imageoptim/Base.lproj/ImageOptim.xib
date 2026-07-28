@@ -535,12 +535,6 @@ CA
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="IxE-F3-7sg"/>
-                            <menuItem title="Zopfli" id="658">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <connections>
-                                    <binding destination="562" name="value" keyPath="values.ZopfliEnabled" id="815"/>
-                                </connections>
-                            </menuItem>
                             <menuItem title="PNGOUT" id="813">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
