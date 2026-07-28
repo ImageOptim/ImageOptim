@@ -831,7 +831,7 @@
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="900" constant="100" id="AVq-sw-1a5"/>
                                                 <constraint firstAttribute="height" constant="22" id="AVq-sh-1a6"/>
                                             </constraints>
-                                            <sliderCell key="cell" lineBreakMode="truncatingTail" continuous="YES" alignment="left" minValue="40" maxValue="100" doubleValue="85" tickMarkPosition="below" numberOfTickMarks="7" allowsTickMarkValuesOnly="YES" sliderType="linear" id="AVq-sc-1a7">
+                                            <sliderCell key="cell" lineBreakMode="truncatingTail" continuous="YES" alignment="left" minValue="40" maxValue="100" doubleValue="85" tickMarkPosition="below" numberOfTickMarks="13" allowsTickMarkValuesOnly="YES" sliderType="linear" id="AVq-sc-1a7">
                                                 <font key="font" size="12" name="Helvetica"/>
                                             </sliderCell>
                                             <connections>
@@ -899,7 +899,7 @@
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="900" constant="100" id="JXq-sw-2a5"/>
                                                 <constraint firstAttribute="height" constant="22" id="JXq-sh-2a6"/>
                                             </constraints>
-                                            <sliderCell key="cell" lineBreakMode="truncatingTail" continuous="YES" alignment="left" minValue="40" maxValue="100" doubleValue="90" tickMarkPosition="below" numberOfTickMarks="7" allowsTickMarkValuesOnly="YES" sliderType="linear" id="JXq-sc-2a7">
+                                            <sliderCell key="cell" lineBreakMode="truncatingTail" continuous="YES" alignment="left" minValue="40" maxValue="100" doubleValue="90" tickMarkPosition="below" numberOfTickMarks="13" allowsTickMarkValuesOnly="YES" sliderType="linear" id="JXq-sc-2a7">
                                                 <font key="font" size="12" name="Helvetica"/>
                                             </sliderCell>
                                             <connections>
