@@ -16,8 +16,11 @@
     "url": "https://github.com/pornel/ImageOptim/issues"
   },
   "homepage": "https://github.com/pornel/ImageOptim#readme",
+  "engines": {
+    "node": ">=16"
+  },
   "dependencies": {
-    "svgo": "^1.0.0"
+    "svgo": "^4.0.2"
   },
   "devDependencies": {
     "json-loader": "^0.5.7",

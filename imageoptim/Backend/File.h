@@ -15,12 +15,15 @@ enum IOFileType {
     FILETYPE_JPEG,
     FILETYPE_GIF,
     FILETYPE_SVG,
+    FILETYPE_AVIF,
+    FILETYPE_JXL,
 };
 
 NS_ASSUME_NONNULL_BEGIN
 @interface File : NSObject {
 @public
     enum IOFileType fileType;
+    BOOL isAnimated;
 }
 
 - (nullable instancetype)initWithData:(NSData *)fileData fromPath:(NSURL *)path;
